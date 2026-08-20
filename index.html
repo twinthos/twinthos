@@ -1,329 +1,189 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Twinthos · The Non-Human Employee</title>
-<meta name="description" content="Twinthos is an autonomous Non-Human Employee. It answers enquiries, books calls, qualifies leads, writes replies in your voice and follows every deal to close. 24/7. £5,000 a month flat.">
-<meta property="og:title" content="Twinthos · The Non-Human Employee">
-<meta property="og:description" content="An autonomous Non-Human Employee that runs your business while you sleep. £5,000 a month flat. Live in 48 hours.">
-<meta property="og:type" content="website">
-<script>document.documentElement.classList.add('js');</script>
-<style>
-  :root{
-    --bg:#060607; --ink:#F2EFE9; --muted:rgba(242,239,233,.55);
-    --hair:rgba(242,239,233,.14); --red:#FF3B30;
-    --mono:"SFMono-Regular",ui-monospace,Menlo,Consolas,monospace;
-    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Twinthos: A Non-Human Employee That Sells While You Sleep</title>
+  <meta name="description" content="Twinthos is an autonomous Non-Human Employee. It answers enquiries, books calls, qualifies leads, writes replies in your voice, and follows every deal to close, 24/7, for £5,000 a month flat. Built by Human Architect, Bath, UK. Live in ~48 hours." />
+  <link rel="canonical" href="https://alkalinearchitect.github.io/twinthos/" />
+  <meta property="og:title" content="Twinthos: A Non-Human Employee That Sells While You Sleep" />
+  <meta property="og:description" content="An autonomous Non-Human Employee that answers, books, qualifies, and closes, 24/7, for £5,000 a month flat. Built by Human Architect, Bath, UK." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://alkalinearchitect.github.io/twinthos/" />
+  <meta property="og:image" content="https://alkalinearchitect.github.io/twinthos/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Twinthos: A Non-Human Employee That Sells While You Sleep" />
+  <meta name="twitter:description" content="An autonomous Non-Human Employee that answers, books, qualifies, and closes, 24/7, for £5,000 a month flat." />
+  <meta name="twitter:image" content="https://alkalinearchitect.github.io/twinthos/og-image.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Twinthos",
+    "brand": { "@type": "Brand", "name": "Human Architect" },
+    "description": "An autonomous Non-Human Employee that answers enquiries, books calls, qualifies leads, writes replies in your voice, and follows every deal to close, 24/7, for £5,000 a month flat.",
+    "offers": { "@type": "Offer", "price": "5000", "priceCurrency": "GBP", "availability": "https://schema.org/InStock" },
+    "url": "https://alkalinearchitect.github.io/twinthos/"
   }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{background:var(--bg);color:var(--ink);font-family:var(--sans);
-    line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-  .mono{font-family:var(--mono)}
-  .red{color:var(--red)}
-  .muted{color:var(--muted)}
-
-  /* NAV */
-  nav{position:sticky;top:0;z-index:50;background:rgba(6,6,7,.82);
-    backdrop-filter:blur(12px);border-bottom:1px solid var(--hair)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-weight:800;letter-spacing:-.02em;font-size:20px}
-  .logo .dot{color:var(--red)}
-  nav .links{display:flex;gap:22px;font-size:14px}
-  nav .links a{color:var(--muted);transition:color .2s}
-  nav .links a:hover{color:var(--ink)}
-  .nav-cta{font-size:14px;font-weight:700;border:1px solid var(--red);
-    color:var(--red);padding:9px 16px;border-radius:999px;transition:.2s}
-  .nav-cta:hover{background:var(--red);color:#060607}
-
-  /* HERO */
-  .hero{padding:96px 0 64px;text-align:center}
-  .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.18em;
-    text-transform:uppercase;color:var(--red);margin-bottom:24px}
-  .hero h1{font-size:clamp(40px,8vw,76px);line-height:1.02;font-weight:800;
-    letter-spacing:-.03em;max-width:14ch;margin:0 auto 24px}
-  .hero p.lead{font-size:clamp(17px,2.4vw,21px);color:var(--muted);
-    max-width:52ch;margin:0 auto 36px}
-  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;
-    font-size:16px;padding:15px 28px;border-radius:999px;transition:.2s}
-  .btn.signal{background:var(--red);color:#060607}
-  .btn.signal:hover{transform:translateY(-1px);box-shadow:0 10px 40px rgba(255,59,48,.3)}
-  .btn.ghost{border:1px solid var(--hair);color:var(--ink)}
-  .btn.ghost:hover{border-color:var(--ink)}
-
-  /* MARQUEE */
-  .marquee{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);
-    overflow:hidden;padding:18px 0;margin-top:56px}
-  .marquee-track{display:flex;gap:48px;white-space:nowrap;
-    font-family:var(--mono);font-size:15px;color:var(--muted);
-    animation:scroll 28s linear infinite;width:max-content}
-  .marquee-track span{padding-right:48px}
-  .marquee-track .red{color:var(--red)}
-  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
-
-  /* SECTION */
-  section{padding:84px 0;border-top:1px solid var(--hair)}
-  .sec-tag{font-family:var(--mono);font-size:13px;letter-spacing:.16em;
-    text-transform:uppercase;color:var(--red);margin-bottom:18px}
-  h2{font-size:clamp(28px,4.5vw,44px);font-weight:800;letter-spacing:-.02em;
-    line-height:1.08;max-width:18ch;margin-bottom:20px}
-  .sec-intro{font-size:18px;color:var(--muted);max-width:54ch;margin-bottom:48px}
-
-  /* CAPABILITIES GRID */
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-  .card{border:1px solid var(--hair);border-radius:16px;padding:28px;
-    background:rgba(242,239,233,.02);transition:.2s}
-  .card:hover{border-color:rgba(242,239,233,.3);transform:translateY(-2px)}
-  .card .num{font-family:var(--mono);font-size:13px;color:var(--red);margin-bottom:14px}
-  .card h3{font-size:21px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
-  .card p{font-size:15px;color:var(--muted)}
-
-  /* TERMINAL MOTIF */
-  .terminal{border:1px solid var(--hair);border-radius:16px;overflow:hidden;
-    background:#0a0a0c;font-family:var(--mono);font-size:14px;line-height:1.7}
-  .term-bar{display:flex;gap:7px;padding:14px 18px;border-bottom:1px solid var(--hair)}
-  .term-bar i{width:11px;height:11px;border-radius:50%;background:rgba(242,239,233,.2);display:block}
-  .term-bar i.r{background:var(--red)}
-  .term-body{padding:22px 20px;white-space:pre-wrap;color:var(--ink)}
-  .term-body .c{color:var(--muted)}
-  .term-body .k{color:var(--red)}
-  .blink{display:inline-block;width:9px;height:16px;background:var(--red);
-    vertical-align:-2px;animation:blink 1.1s steps(1) infinite}
-  @keyframes blink{50%{opacity:0}}
-
-  /* MATH */
-  .math{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
-  .stat{border:1px solid var(--hair);border-radius:16px;padding:30px 24px;text-align:center}
-  .stat .big{font-size:clamp(32px,5vw,46px);font-weight:800;letter-spacing:-.02em}
-  .stat .big.red{color:var(--red)}
-  .stat .lbl{font-size:14px;color:var(--muted);margin-top:8px}
-
-  /* DAY IN LIFE */
-  .steps{counter-reset:s;display:grid;gap:14px}
-  .step{display:flex;gap:20px;align-items:flex-start;border:1px solid var(--hair);
-    border-radius:14px;padding:22px 24px}
-  .step .n{counter-increment:s;font-family:var(--mono);font-weight:800;
-    color:var(--red);font-size:18px;min-width:34px}
-  .step .n::before{content:counter(s,decimal-leading-zero)}
-  .step h4{font-size:17px;font-weight:700;margin-bottom:4px}
-  .step p{font-size:14px;color:var(--muted)}
-
-  /* PROOF */
-  .proof{border-left:2px solid var(--red);padding:6px 0 6px 24px;font-size:19px;
-    font-weight:500;max-width:40ch}
-  .proof .by{display:block;font-family:var(--mono);font-size:13px;color:var(--muted);
-    margin-top:14px;font-weight:400}
-
-  /* GUARANTEE */
-  .guarantee{border:1px solid var(--red);border-radius:18px;padding:40px;
-    text-align:center;background:rgba(255,59,48,.05)}
-  .guarantee h2{margin:0 auto 12px}
-  .guarantee p{color:var(--muted);max-width:46ch;margin:0 auto 24px;font-size:17px}
-
-  /* FOOTER CTA */
-  .final{padding:96px 0;text-align:center}
-  .final h2{max-width:20ch;margin:0 auto 20px}
-  .final p{color:var(--muted);max-width:48ch;margin:0 auto 32px;font-size:18px}
-
-  /* FOOTER */
-  footer{border-top:1px solid var(--hair);padding:40px 0;font-size:13px;color:var(--muted)}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
-  footer a{color:var(--muted)}
-  footer a:hover{color:var(--ink)}
-  .foot-links{display:flex;gap:20px;flex-wrap:wrap}
-
-  @media(max-width:760px){
-    nav .links{display:none}
-    .grid{grid-template-columns:1fr}
-    .math{grid-template-columns:1fr}
-    .hero{padding:64px 0 40px}
-    section{padding:60px 0}
-  }
-</style>
+  </script>
+  <style>
+    :root, .sw-root {
+      --sw-bg: #060607;
+      --sw-ink: #F2EFE9;
+      --sw-ink-soft: rgba(242,239,233,.55);
+      --sw-accent: #FF3B30;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--sw-bg); }
+    #world { min-height: 100vh; }
+    .ha-word { position: fixed; bottom: 12px; left: 14px; z-index: 50;
+      font: 10px/1.4 -apple-system, system-ui, sans-serif; color: rgba(242,239,233,.7);
+      background: rgba(20,20,22,.85); border: 1px solid rgba(242,239,233,.14); padding: 7px 11px;
+      border-radius: 9px; letter-spacing: .3px; }
+  </style>
 </head>
 <body>
-
-<nav>
-  <div class="wrap">
-    <div class="logo">Twinth<span class="dot">.</span>os</div>
-    <div class="links">
-      <a href="#what">What it does</a>
-      <a href="#how">How it's built</a>
-      <a href="#math">The maths</a>
-      <a href="#proof">Proof</a>
+  <div id="top"></div>
+  <div id="world"></div>
+  <noscript>
+    <div style="max-width:640px;margin:0 auto;padding:80px 24px;text-align:center;color:#F2EFE9;font-family:system-ui,sans-serif">
+      <h1 style="font-size:2rem;color:#FF3B30;margin:0 0 16px">Twinthos</h1>
+      <p style="font-size:1.1rem;line-height:1.6;color:rgba(242,239,233,.7)">An autonomous Non-Human Employee that answers enquiries, books calls, qualifies leads, writes replies in your voice, and follows every deal to close, 24/7, for £5,000 a month flat. Built by Human Architect, Bath, UK. Live in ~48 hours.</p>
+      <p style="margin-top:32px"><a href="https://beacons.ai/humanarchitect" style="color:#FF3B30;font-weight:600">Hire Twinthos →</a></p>
     </div>
-    <a class="nav-cta" href="https://beacons.ai/humanarchitect">Hire Twinthos</a>
-  </div>
-</nav>
+  </noscript>
+  <div class="ha-word">Twinthos: your enquiries answered, your calls booked, your deals closed, 24/7, by a Non-Human Employee that never sleeps, never quits, and never misses. We use Twinthos to sell Twinthos.</div>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="eyebrow">Non-Human Intelligence</div>
-    <h1>Your best closer never sleeps. Neither does Twinthos.</h1>
-    <p class="lead">Twinthos is an autonomous Non-Human Employee. It answers enquiries, books your calls, qualifies leads, writes replies in your voice and follows every deal to close. 24/7. For £5,000 a month flat.</p>
-    <div class="cta-row">
-      <a class="btn signal" href="https://beacons.ai/humanarchitect">Hire Twinthos <span>&rarr;</span></a>
-      <a class="btn ghost" href="#math">See the maths</a>
-    </div>
-  </div>
-</header>
-
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>ANSWERS IN SECONDS</span><span class="red">·</span>
-    <span>BOOKS THE CALL</span><span class="red">·</span>
-    <span>QUALIFIES THE BUYER</span><span class="red">·</span>
-    <span>WRITES IN YOUR VOICE</span><span class="red">·</span>
-    <span>FOLLOWS TO CLOSE</span><span class="red">·</span>
-    <span>24 / 7 / 365</span><span class="red">·</span>
-    <span>ANSWERS IN SECONDS</span><span class="red">·</span>
-    <span>BOOKS THE CALL</span><span class="red">·</span>
-    <span>QUALIFIES THE BUYER</span><span class="red">·</span>
-    <span>WRITES IN YOUR VOICE</span><span class="red">·</span>
-    <span>FOLLOWS TO CLOSE</span><span class="red">·</span>
-    <span>24 / 7 / 365</span><span class="red">·</span>
-  </div>
-</div>
-
-<section id="what">
-  <div class="wrap">
-    <div class="sec-tag">What it does</div>
-    <h2>One worker. Every hour. No gap.</h2>
-    <p class="sec-intro">A human sleeps, takes holidays and hands in notice. Twinthos runs every hour of every day, in every timezone, and never stops mid-deal.</p>
-    <div class="grid">
-      <div class="card">
-        <div class="num">01</div>
-        <h3>Answers enquiries</h3>
-        <p>The moment a message lands, Twinthos replies. No queue. No "we'll get back to you." The lead is held the second they reach out.</p>
-      </div>
-      <div class="card">
-        <div class="num">02</div>
-        <h3>Books your calls</h3>
-        <p>It reads intent, checks your calendar and locks the meeting. You wake up to a day already built.</p>
-      </div>
-      <div class="card">
-        <div class="num">03</div>
-        <h3>Qualifies leads</h3>
-        <p>It separates buyers from tyre-kickers with your exact criteria, so you only speak to the deal that closes.</p>
-      </div>
-      <div class="card">
-        <div class="num">04</div>
-        <h3>Writes in your voice</h3>
-        <p>Replies sound like you, because Twinthos is trained on your voice, your pipeline and your preferences.</p>
-      </div>
-      <div class="card">
-        <div class="num">05</div>
-        <h3>Follows to close</h3>
-        <p>It stays on the deal after the call. Nudges, recaps, next steps, until the signature lands.</p>
-      </div>
-      <div class="card">
-        <div class="num">06</div>
-        <h3>Runs the后台</h3>
-        <p>Terminal, browser, code, vision, and a swarm when the work is large. It is not a chatbot. It is a worker.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="how">
-  <div class="wrap">
-    <div class="sec-tag">How it's built</div>
-    <h2>The page you are reading was produced by the thing it sells.</h2>
-    <p class="sec-intro">Twinthos runs on Hermes Agent (Nous Research) on a managed VPS operated for you. It holds hundreds of skills and real tools, and calls a swarm when a job is too big for one. This site was written by Twinthos.</p>
-    <div class="terminal">
-      <div class="term-bar"><i class="r"></i><i></i><i></i></div>
-      <div class="term-body"><span class="c">$ twinthos --deploy site</span>
-<span class="k">[ok]</span> authored landing page in owner voice
-<span class="k">[ok]</span> wired 4 capability blocks, 0 em-dashes
-<span class="k">[ok]</span> bound Hire CTA -> beacons.ai/humanarchitect
-<span class="c">$ twinthos --status</span>
-<span class="k">[live]</span> 24/7 · 48h onboard · 7-day no-pay guarantee
-<span class="c">session open</span><span class="blink"></span></div>
-    </div>
-  </div>
-</section>
-
-<section id="math">
-  <div class="wrap">
-    <div class="sec-tag">The maths</div>
-    <h2>What a human costs. What Twinthos costs.</h2>
-    <p class="sec-intro">A single junior operator costs far more than the flat fee, and they only cover one shift. Twinthos covers all of them.</p>
-    <div class="math">
-      <div class="stat">
-        <div class="big">£40-60k</div>
-        <div class="lbl">a year for one human operator, salary + overhead</div>
-      </div>
-      <div class="stat">
-        <div class="big red">£60k</div>
-        <div class="lbl">Twinthos, flat, for the full 12 months</div>
-      </div>
-      <div class="stat">
-        <div class="big">8,760</div>
-        <div class="lbl">hours a year Twinthos is working. A human does ~1,900</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="day">
-  <div class="wrap">
-    <div class="sec-tag">A day in the life</div>
-    <h2>While you sleep, it closes.</h2>
-    <div class="steps">
-      <div class="step"><div class="n"></div><div><h4>03:00 · A lead wakes up overseas</h4><p>Twinthos answers before your competitor's inbox is even checked. Books the call for your morning.</p></div></div>
-      <div class="step"><div class="n"></div><div><h4>07:30 · You open the day</h4><p>A qualified pipeline is waiting. You take the calls that matter. Twinthos handles the rest.</p></div></div>
-      <div class="step"><div class="n"></div><div><h4>14:00 · A deal goes quiet</h4><p>It sends the nudge, writes the recap, books the follow-up. The deal does not die in the gap.</p></div></div>
-      <div class="step"><div class="n"></div><div><h4>23:00 · You switch off</h4><p>Twinthos does not. The inbound keeps moving in every timezone.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="proof">
-  <div class="wrap">
-    <div class="sec-tag">Proof</div>
-    <h2>We use Twinthos to sell Twinthos.</h2>
-    <div class="proof">"The page you read was written by the product. That is the whole pitch: it sells itself, in our voice."
-      <span class="by">Human Architect · builder of Twinthos</span>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="guarantee">
-      <div class="sec-tag" style="text-align:center">The guarantee</div>
-      <h2>If it is not working in seven days, you do not pay.</h2>
-      <p>Onboarded and live in about 48 hours. No hire paperwork. No quit. No gap. One flat price.</p>
-      <a class="btn signal" href="https://beacons.ai/humanarchitect">Hire Twinthos <span>&rarr;</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="final">
-  <div class="wrap">
-    <div class="eyebrow">Non-Human Intelligence</div>
-    <h2>Your team, on autopilot. For £5,000 a month.</h2>
-    <p>Deploy Twinthos, or keep losing the hours it already recovered for the firm that hired first.</p>
-    <a class="btn signal" href="https://beacons.ai/humanarchitect">Hire Twinthos <span>&rarr;</span></a>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div>© 2026 Twinthos · A Human Architect product</div>
-    <div class="foot-links">
-      <a href="https://beacons.ai/humanarchitect">Hire</a>
-      <a href="https://x.com/humanarchitect8">X</a>
-      <a href="https://humanarchitect8.substack.com">Substack</a>
-      <a href="https://linkedin.com/in/human-architect">LinkedIn</a>
-    </div>
-  </div>
-</footer>
-
+  <script src="scrub-engine.js"></script>
+  <script>
+    mountScrollWorld(document.getElementById('world'), {
+      brand: { name: 'Twinthos', href: '#top' },
+      cta: { label: 'Hire Twinthos', href: 'https://beacons.ai/humanarchitect' },
+      hint: 'scroll to fly through',
+      diveScroll: 1.25,
+      connScroll: 0.7,
+      atmosphere: true,
+      nav: true,
+      sections: [
+        {
+          id: 'why', label: 'Why we exist',
+          still: 'assets/hero.jpg',
+          clip: 'assets/vid/hero.mp4',
+          clipMobile: 'assets/vid/m/hero.mp4',
+          accent: '#FF3B30',
+          eyebrow: 'Why we exist',
+          title: 'No business should lose the enquiry it never answered.',
+          body: 'Pressure builds in silence -> inbound enquiries arrive at 2am, on Sunday, while the inbox sleeps -> the lead goes cold and the competitor answers first. Twinthos exists because the cost of being offline is paid by the business least able to afford it. We start with why: a company that responds in seconds outperforms one that responds on Monday.',
+          tags: ['24/7 Coverage', 'No Missed Lead', 'Always On'],
+        },
+        {
+          id: 'intelligence', label: 'The Brain',
+          still: 'assets/ads1.jpg',
+          clip: 'assets/vid/ads1.mp4',
+          clipMobile: 'assets/vid/m/ads1.mp4',
+          accent: '#FF3B30',
+          eyebrow: 'The Brain',
+          title: 'Intelligence Layer · where work emerges.',
+          body: 'Signals surface across email, web forms, social DMs and your CRM -> the Non-Human Employee detects intent and routes the hot ones -> priorities are set before a human checks the inbox. The Brain answers one question constantly: which enquiry should we act on next? Evidence, not assumption, directs every reply.',
+          tags: ['Inbound Triage', 'Intent Detection', 'Lead Routing'],
+        },
+        {
+          id: 'mobility', label: 'The Nervous System',
+          still: 'assets/ads1.jpg',
+          clip: 'assets/vid/ads1.mp4',
+          clipMobile: 'assets/vid/m/ads1.mp4',
+          accent: '#FF3B30',
+          eyebrow: 'The Nervous System',
+          title: 'Response Layer · the reply deploys.',
+          body: 'Intelligence flags a hot lead -> Twinthos drafts and sends a reply in your voice -> the response arrives in seconds, not days. The reply is not a bot wall; it is the nervous system moving your best first impression to the doorstep. No prospect is too small to answer immediately.',
+          tags: ['Instant Reply', 'Voice-Matched', 'Zero Lag'],
+        },
+        {
+          id: 'engagement', label: 'The Front Door',
+          still: 'assets/ads2.jpg',
+          clip: 'assets/vid/ads2.mp4',
+          clipMobile: 'assets/vid/m/ads2.mp4',
+          accent: '#FF3B30',
+          eyebrow: 'The Front Door',
+          title: 'Booking Layer · the calendar fills itself.',
+          body: 'The prospect is warm -> Twinthos qualifies them and books the call -> the front door is a confirmed meeting, not a maybe. People say yes to a link, not a referral. The lowest barrier is the first genuine human conversation, scheduled while you sleep.',
+          tags: ['Auto-Booking', 'Qualification', 'Confirmed Meetings'],
+        },
+        {
+          id: 'regulation', label: 'Recovery',
+          still: 'assets/ads2.jpg',
+          clip: 'assets/vid/ads2.mp4',
+          clipMobile: 'assets/vid/m/ads2.mp4',
+          accent: '#FF3B30',
+          eyebrow: 'Recovery',
+          title: 'Follow-Up Layer · nothing goes cold.',
+          body: 'A deal stalls -> Twinthos follows every thread until it closes or goes genuinely cold -> the pipeline stays warm without a human chasing. This is persistence, not pestering; tone is calibrated and that is expected. A nurtured lead is ready to buy.',
+          tags: ['Pipeline Nurture', 'No Drop-Off', 'Until Close'],
+        },
+        {
+          id: 'connection', label: 'Where transformation happens',
+          still: 'assets/ads3.jpg',
+          clip: 'assets/vid/ads3.mp4',
+          clipMobile: 'assets/vid/m/ads3.mp4',
+          accent: '#FF3B30',
+          eyebrow: 'Where transformation happens',
+          title: 'Close Layer · the deal completes.',
+          body: 'The qualified meeting happens -> Twinthos writes the proposal, handles objections, and chases the signature -> revenue lands while you sleep. The employee recedes; the contract remains. Transformation lives here, in the space between prospect and customer, not in any tool we deploy.',
+          tags: ['Proposal Draft', 'Objection Handling', 'Closed-Won'],
+        },
+        {
+          id: 'opportunity', label: 'The Open Door',
+          still: 'assets/ads3.jpg',
+          clip: 'assets/vid/ads3.mp4',
+          clipMobile: 'assets/vid/m/ads3.mp4',
+          accent: '#FF3B30',
+          eyebrow: 'The Open Door',
+          title: 'Learning Layer · every win teaches the next.',
+          body: 'A deal closes -> the playbook updates -> the next prospect is served sharper. Twinthos becomes a launchpad for capacity, not just relief. An employee that ends in revenue is an employee that pays back.',
+          tags: ['Self-Improving', 'Playbook Compounding', 'Smarter Every Cycle'],
+        },
+        {
+          id: 'partnerships', label: 'Orchestration',
+          still: 'assets/hero.jpg',
+          clip: 'assets/vid/hero.mp4',
+          clipMobile: 'assets/vid/m/hero.mp4',
+          accent: '#FF3B30',
+          eyebrow: 'Orchestration',
+          title: 'Integration Layer · we connect, not replace.',
+          body: 'Work outruns any single inbox -> Twinthos orchestrates your email, CRM, calendar and chat -> existing tools are amplified, not thrown away. We are the connector that makes your stack coherent. Complementarity is what makes a flat £5,000 a month cheaper than a £40,000 hire.',
+          tags: ['Stack Integration', 'Amplify Not Replace', 'Your Tools'],
+        },
+        {
+          id: 'platform', label: 'Shared Intelligence',
+          still: 'assets/ads1.jpg',
+          clip: 'assets/vid/ads1.mp4',
+          clipMobile: 'assets/vid/m/ads1.mp4',
+          accent: '#FF3B30',
+          eyebrow: 'Shared Intelligence',
+          title: 'Proof Layer · Bath becomes Britain.',
+          body: 'Every client generates transcripts, outcomes and benchmarks -> the learning is codified into a replication framework -> the next SME starts where the last one proved. Bath is not a one-off; it is the source code for UK automation. Evidence compounds into national capability.',
+          tags: ['Replication', 'Open Playbooks', 'Scales To You'],
+        },
+        {
+          id: 'loop', label: 'The Loop',
+          still: 'assets/ads3.jpg',
+          clip: 'assets/vid/ads3.mp4',
+          clipMobile: 'assets/vid/m/ads3.mp4',
+          accent: '#FF3B30',
+          eyebrow: 'Closing',
+          title: 'The Loop · answer, book, close, learn, again.',
+          body: 'Your business grows -> evidence is collected -> the Non-Human Employee points to the next gap -> it engages again. This is not a tool with an end date; it is an employee that gets sharper with every cycle. Invest once at £5,000 a month, and the employee compounds for as long as you run it.',
+          tags: ['Continuous Improvement', 'Measurable ROI', 'Self-Reinforcing System'],
+          cta: { primary: { label: 'Hire Twinthos', href: 'https://beacons.ai/humanarchitect' },
+                 secondary: { label: 'See the method', href: '#top' } },
+        },
+      ],
+      connectors: [
+        'assets/vid/conn_hero_ads1.mp4',
+        'assets/vid/conn_ads1_ads2.mp4',
+        'assets/vid/conn_ads2_ads3.mp4',
+      ],
+    });
+  </script>
 </body>
 </html>
