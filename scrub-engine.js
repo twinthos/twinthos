@@ -1,5 +1,5 @@
 /* ============================================================================
-   scroll-world — portable scroll-scrubbed camera-flight engine
+   scroll-world · portable scroll-scrubbed camera-flight engine
    ----------------------------------------------------------------------------
    Framework-agnostic. Vanilla JS, zero dependencies. It builds its own DOM and
    injects its own (namespaced) CSS into a container you give it, so it drops into
@@ -16,9 +16,9 @@
        atmosphere: true,  // subtle gradient + drifting particles behind the clips
        sections: [
          { id, label, still, clip, clipMobile, accent,
-           scroll: 1.6,   // optional per-section override of diveScroll — more scroll
+           scroll: 1.6,   // optional per-section override of diveScroll · more scroll
                           // distance = a slower, longer dwell in this scene
-           linger: 0.5,   // optional 0..1 — remaps time so the camera settles mid-scene
+           linger: 0.5,   // optional 0..1 · remaps time so the camera settles mid-scene
                           // (exactly where the copy peaks) and moves quicker at the
                           // edges. 0 = linear (default). Keep ≤ 0.6; 1 = full pause.
            eyebrow, title, body, tags:[…],
@@ -32,16 +32,16 @@
    the rest of the phone handling below is always on)
      The engine is phone-aware out of the box: on a coarse-pointer / ≤860px viewport it
        - loads `clipMobile` / `connectorsMobile` when provided (encode these smaller +
-         tighter-GOP — seek cost on a phone decoder is dominated by frames-from-keyframe,
+         tighter-GOP · seek cost on a phone decoder is dominated by frames-from-keyframe,
          so a 720p, -g 4 file scrubs far smoother than the 1080p desktop master; see
          pipeline.md). Falls back to the desktop `clip` if no mobile variant is given.
        - coalesces seeks (never issues a new currentTime while the decoder is still
          `seeking`) so fast flicks can't pile up and freeze the video.
        - keeps the still as a live poster until the clip actually paints its first frame,
-         and primes each video (muted play→pause) on first touch — this is what stops iOS
+         and primes each video (muted play→pause) on first touch · this is what stops iOS
          from showing a blank scene before the first seek.
        - drops the drifting particles and ignores URL-bar-only resizes (no scroll jump).
-     Nothing here is required — a config with only `clip`/`connectors` still works on
+     Nothing here is required · a config with only `clip`/`connectors` still works on
      phones; the mobile variants just make it lighter and smoother.
 
    THEME (CSS custom properties; set on the container or :root to override)
@@ -190,7 +190,7 @@ function mountScrollWorld(container, config) {
   }
 
   function loadClip(s) {
-    // Under prefers-reduced-motion we never load the clips at all — the stills stay up
+    // Under prefers-reduced-motion we never load the clips at all · the stills stay up
     // and simply cross-dissolve as you scroll. No scrubbed video motion, no decode cost.
     if (reduce || s.loading || !s.clip) return;
     s.loading = true;
@@ -205,7 +205,7 @@ function mountScrollWorld(container, config) {
         v.src = URL.createObjectURL(blob);
         v.addEventListener('loadedmetadata', () => { s.ready = true; read(); });
         // Reveal the video (hide the still poster) only once a real frame has
-        // painted — on iOS a seeked-but-never-played muted video stays blank, so
+        // painted · on iOS a seeked-but-never-played muted video stays blank, so
         // hiding the still on metadata alone would flash an empty scene.
         v.addEventListener('seeked', () => { s.el.classList.add('has-clip'); }, { once: true });
         v.addEventListener('loadeddata', () => { try { v.pause(); } catch (e) {} if (userReady) primeVideo(v); });
@@ -350,11 +350,11 @@ function seedParticles(host, reduce) {
 function injectCSS() {
   if (document.getElementById('sw-css')) return;
   const css = `
-  .sw-root{--sw-bg:#F5EDE0;--sw-ink:#241d2b;--sw-ink-soft:#6a6072;--sw-accent:#8a7bb5;
+  .sw-root{--sw-bg:#060607;--sw-ink:#F2EFE9;--sw-ink-soft:rgba(242,239,233,.55);--sw-accent:#FF3B30;
     --sw-font-display:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,sans-serif;
     --sw-font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;
     color:var(--sw-ink);font-family:var(--sw-font-body);}
-  html,body{margin:0;background:var(--sw-bg,#F5EDE0);overflow-x:hidden;}
+  html,body{margin:0;background:var(--sw-bg,#060607);overflow-x:hidden;}
   .sw-sky{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:var(--sw-bg);}
   .sw-sky__grad{position:absolute;inset:-10%;background:linear-gradient(178deg,color-mix(in srgb,var(--sw-accent) 12%,var(--sw-bg)) 0%,var(--sw-bg) 55%,color-mix(in srgb,var(--sw-accent) 6%,var(--sw-bg)) 100%);}
   .sw-sky__glow{position:absolute;inset:0;background:radial-gradient(60% 42% at 74% 16%,color-mix(in srgb,var(--sw-accent) 22%,transparent),transparent 70%),radial-gradient(46% 34% at 50% 50%,color-mix(in srgb,#fff 45%,transparent),transparent 70%);}
@@ -373,7 +373,7 @@ function injectCSS() {
   .sw-nav{display:flex;gap:4px;padding:5px;background:color-mix(in srgb,#fff 55%,transparent);backdrop-filter:blur(10px);border:1px solid color-mix(in srgb,var(--sw-accent) 16%,transparent);border-radius:999px;}
   .sw-nav__item{font:inherit;font-size:.82rem;color:var(--sw-ink-soft);border:0;background:transparent;cursor:pointer;padding:7px 14px;border-radius:999px;transition:color .25s,background .25s;}
   .sw-nav__item:hover{color:var(--sw-ink);} .sw-nav__item.is-active{color:#fff;background:var(--sw-accent);}
-  .sw-topcta{text-decoration:none;font-weight:700;font-size:.9rem;color:#0c0814;background:#fff;padding:10px 20px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 18px rgba(122,92,255,.45);} .sw-topcta:hover{transform:translateY(-1px);}
+  .sw-topcta{text-decoration:none;font-weight:700;font-size:.9rem;color:#0c0814;background:#fff;padding:10px 20px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 18px rgba(255,59,48,.45);} .sw-topcta:hover{transform:translateY(-1px);}
   .sw-stage{position:fixed;inset:0;z-index:10;pointer-events:none;}
   .sw-scene{position:absolute;inset:0;opacity:0;overflow:hidden;will-change:opacity;}
   .sw-scene__video,.sw-scene__still{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;}
@@ -389,7 +389,7 @@ function injectCSS() {
   .sw-copy__tags li{font-size:.82rem;font-weight:600;color:color-mix(in srgb,var(--sw-accent) 70%,#000);padding:7px 14px;border-radius:999px;background:color-mix(in srgb,var(--sw-accent) 14%,#fff);border:1px solid color-mix(in srgb,var(--sw-accent) 30%,transparent);}
   .sw-copy__cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;pointer-events:auto;}
   .sw-btn{text-decoration:none;font-weight:600;font-size:.95rem;padding:13px 24px;border-radius:999px;transition:transform .2s;}
-  .sw-btn--primary{color:#0c0814;background:#fff;box-shadow:0 6px 22px rgba(122,92,255,.5);} .sw-btn--primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(122,92,255,.7);}
+  .sw-btn--primary{color:#0c0814;background:#fff;box-shadow:0 6px 22px rgba(255,59,48,.5);} .sw-btn--primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,59,48,.7);}
   .sw-btn--ghost{color:#fff;border:1.5px solid rgba(255,255,255,.7);background:rgba(255,255,255,.06);} .sw-btn--ghost:hover{transform:translateY(-2px);background:rgba(255,255,255,.14);}
   .sw-route{position:fixed;right:clamp(14px,2.4vw,30px);top:50%;z-index:40;transform:translateY(-50%);display:flex;flex-direction:column;gap:22px;padding:18px 10px;}
   .sw-route::before{content:"";position:absolute;left:50%;top:22px;bottom:22px;width:2px;transform:translateX(-50%);background:var(--sw-accent);opacity:.28;}
