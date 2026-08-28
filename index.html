@@ -10,86 +10,120 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#060607; --ink:#F2EFE9; --violet:#8b5cf6; --violet-dim:rgba(139,92,246,.14);
-    --ink-soft:#9a93a8; --line:rgba(242,239,233,.10);
+    --bg:#060607; --bg2:#0c0c10; --ink:#F2EFE9; --muted:rgba(242,239,233,.55);
+    --line:rgba(255,90,77,.18); --red:#FF3B30; --red-d:#E0241A; --coral:#FF7A45;
+    --red-tint:rgba(255,59,48,.11); --red-tint2:rgba(255,59,48,.16);
     --display:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
     --body:"Inter","Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden}
-  #field{position:fixed;inset:0;z-index:0;display:block;opacity:.55}
+  /* fixed live intelligence field backdrop */
+  #heroCanvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block;background:var(--bg)}
+  /* depth overlays: grain + vignette + corner light */
+  .depth{position:fixed;inset:0;z-index:1;pointer-events:none}
+  .depth.grain{opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .depth.vig{background:radial-gradient(120deg,transparent 40%,rgba(0,0,0,.55) 100%),radial-gradient(60% 50% at 50% 0%,rgba(255,59,48,.10),transparent 70%)}
   .wrap{position:relative;z-index:2}
-  .topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(20px,5vw,64px);mix-blend-mode:difference}
-  .brand{font-family:var(--display);font-weight:700;font-size:1.1rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
-  .brand span{color:var(--violet)}
-  .topbar .links{display:flex;gap:22px}
-  .topbar .links a{color:var(--ink);text-decoration:none;font-size:.82rem;font-weight:500;opacity:.7;transition:opacity .2s}
-  .topbar .links a:hover{opacity:1}
-  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(20px,5vw,64px)}
-  .eyebrow{display:inline-block;font-size:.74rem;letter-spacing:.32em;text-transform:uppercase;color:var(--violet);font-weight:600;margin-bottom:26px}
-  .hero h1{font-family:var(--display);font-weight:700;letter-spacing:-.03em;font-size:clamp(2.9rem,8.5vw,6.4rem);line-height:.98;max-width:15ch;color:var(--ink)}
-  .hero h1 .accent{color:var(--violet)}
-  .hero p.sub{margin-top:30px;max-width:48ch;font-size:clamp(1.02rem,1.4vw,1.28rem);line-height:1.6;color:var(--ink-soft)}
-  .cta-row{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-  .cta{text-decoration:none;font-weight:600;font-size:1rem;padding:16px 32px;border-radius:999px;transition:transform .2s,box-shadow .2s,background .2s}
-  .cta.primary{color:#060607;background:var(--violet);box-shadow:0 8px 34px rgba(139,92,246,.42)}
-  .cta.primary:hover{transform:translateY(-2px);box-shadow:0 12px 44px rgba(139,92,246,.6)}
-  .cta.ghost{color:var(--ink);border:1.5px solid var(--line);background:transparent}
-  .cta.ghost:hover{background:rgba(242,239,233,.05)}
-  .stats{margin-top:64px;display:flex;gap:clamp(28px,5vw,72px);flex-wrap:wrap}
-  .stat .num{font-family:var(--display);font-weight:700;font-size:clamp(1.8rem,3.4vw,2.8rem);color:var(--ink);letter-spacing:-.02em}
-  .stat .num .v{color:var(--violet)}
-  .stat .lab{margin-top:6px;font-size:.82rem;color:var(--ink-soft);letter-spacing:.02em}
-  section.panel{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:14vh clamp(20px,5vw,64px);border-top:1px solid var(--line)}
-  .panel .kicker{font-size:.74rem;letter-spacing:.32em;text-transform:uppercase;color:var(--violet);font-weight:600;margin-bottom:20px}
-  .panel h2{font-family:var(--display);font-weight:700;letter-spacing:-.025em;font-size:clamp(2rem,5.6vw,4.2rem);line-height:1.02;max-width:17ch;color:var(--ink)}
-  .panel p{margin-top:26px;max-width:54ch;font-size:clamp(1.02rem,1.35vw,1.22rem);line-height:1.62;color:var(--ink-soft)}
-  .pillrow{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}
-  .pill{font-size:.84rem;font-weight:500;color:var(--ink);border:1px solid var(--line);background:var(--violet-dim);padding:10px 18px;border-radius:999px}
-  .terminal{margin-top:44px;border:1px solid var(--line);border-radius:14px;background:#0b0b0e;overflow:hidden;max-width:680px}
-  .terminal .tbar{display:flex;align-items:center;gap:9px;padding:12px 18px;border-bottom:1px solid var(--line);font:600 10px/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
-  .terminal .tbar .dot{width:8px;height:8px;border-radius:50%;background:var(--violet);animation:sigpulse 1.8s infinite}
-  .terminal .log{padding:18px;font:500 13.5px/1.75 ui-monospace,"SF Mono",Menlo,Consolas,monospace;color:var(--ink)}
-  .terminal .log .line{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:3px}
-  .terminal .log .sig{color:var(--violet)}
-  .terminal .log .ok{color:var(--ink-soft)}
-  .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(20px,5vw,64px);backdrop-filter:blur(8px);background:linear-gradient(180deg,rgba(6,6,7,.7),transparent)}
+  .brand{font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+  .brand span{color:var(--red)}
+  .topbar .nav{display:flex;gap:24px}
+  .topbar .nav a{color:var(--ink);text-decoration:none;font-size:.82rem;font-weight:500;opacity:.7;transition:opacity .2s}
+  .topbar .nav a:hover{opacity:1;color:var(--red)}
+  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(20px,5vw,64px);text-align:center;align-items:center}
+  .eyebrow{display:inline-block;font-size:.74rem;letter-spacing:.34em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:24px;border:1px solid var(--line);padding:8px 16px;border-radius:999px}
+  .hero h1{font-family:var(--display);font-weight:700;letter-spacing:-.03em;font-size:clamp(2.4rem,8vw,5.6rem);line-height:.98;max-width:16ch;color:var(--ink)}
+  .hero h1 .u{position:relative;color:var(--red)}
+  .hero p.sub{margin-top:28px;max-width:52ch;font-size:clamp(1.02rem,1.4vw,1.24rem);line-height:1.6;color:var(--muted)}
+  .cta-row{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;align-items:center}
+  .cta{text-decoration:none;font-weight:600;font-size:1rem;padding:16px 34px;border-radius:999px;transition:transform .25s,box-shadow .25s,background .25s}
+  .cta.primary{color:#fff;background:linear-gradient(90deg,var(--red-d),var(--red));box-shadow:0 10px 40px rgba(255,59,48,.45)}
+  .cta.primary:hover{transform:translateY(-2px);box-shadow:0 16px 54px rgba(255,59,48,.62)}
+  .cta.ghost{color:var(--ink);border:1.5px solid var(--line);background:rgba(255,59,48,.05)}
+  .cta.ghost:hover{background:var(--red-tint2)}
+  .stats{margin-top:58px;display:flex;gap:clamp(28px,5vw,72px);flex-wrap:wrap;justify-content:center}
+  .stat .num{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,3.6vw,2.9rem);color:var(--ink);letter-spacing:-.02em}
+  .stat .num .v{color:var(--red)}
+  .stat .lab{margin-top:6px;font-size:.82rem;color:var(--muted);letter-spacing:.02em}
+  section.panel{position:relative;padding:13vh clamp(20px,5vw,64px);border-top:1px solid var(--line)}
+  .panel .kicker{font-size:.74rem;letter-spacing:.32em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:18px}
+  .panel h2{font-family:var(--display);font-weight:700;letter-spacing:-.025em;font-size:clamp(1.9rem,5.4vw,3.8rem);line-height:1.04;max-width:18ch;color:var(--ink)}
+  .panel p{margin-top:24px;max-width:56ch;font-size:clamp(1.02rem,1.35vw,1.18rem);line-height:1.62;color:var(--muted)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:center;margin-top:40px}
+  .cap{display:flex;gap:16px;align-items:flex-start;background:var(--red-tint);border-left:3px solid var(--red);border-radius:12px;padding:18px 20px;margin-bottom:14px;transition:transform .25s,background .25s}
+  .cap:hover{transform:translateX(4px);background:var(--red-tint2)}
+  .cap .ic{font-family:var(--mono);color:var(--red);font-weight:700;font-size:.9rem;margin-top:2px}
+  .cap .lbl{font-weight:600;color:var(--ink);font-size:1.02rem}
+  .cap .out{color:var(--muted);font-size:.94rem;margin-top:3px}
+  /* red-glass console */
+  .console{background:linear-gradient(180deg,#190D0F,#120A0C);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:14px;overflow:hidden;box-shadow:0 0 80px rgba(255,59,48,.18);position:relative}
+  .console .gbar{display:flex;align-items:center;gap:9px;padding:12px 18px;border-bottom:1px solid var(--line);font:600 10px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .console .gbar .dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:sigpulse 1.8s infinite}
+  .console .glog{padding:18px;font:500 13px/1.75 var(--mono);color:var(--ink)}
+  .console .glog .ln{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:3px}
+  .console .glog .sig{color:var(--coral)}
+  .console .glog .ok{color:var(--muted)}
+  .console .glog .ex{color:var(--red);font-size:10px;letter-spacing:.15em}
+  /* math panel */
+  .math{margin-top:34px;background:linear-gradient(180deg,rgba(255,59,48,.26),rgba(255,59,48,.12));border:1px solid var(--line);border-radius:16px;padding:clamp(24px,4vw,44px);box-shadow:0 0 80px rgba(255,59,48,.22);max-width:760px}
+  .math .big{font-family:var(--display);font-weight:700;font-size:clamp(2.4rem,7vw,4rem);letter-spacing:-.03em;color:#fff}
+  .math .big .v{color:var(--red)}
+  .math .row{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding:14px 0;color:var(--muted);font-size:.98rem}
+  .math .row b{color:var(--ink);font-weight:600}
+  .math .note{margin-top:14px;font:600 10px/1.4 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+  /* timeline */
+  .tl{margin-top:36px;display:flex;flex-direction:column;gap:14px}
+  .tnode{background:var(--red-tint);border:1px solid var(--line);border-radius:12px;padding:16px 20px;transition:transform .25s,background .25s}
+  .tnode:hover{transform:translateY(-3px);background:var(--red-tint2)}
+  .tnode .t{font-family:var(--mono);color:var(--red);font-weight:700;font-size:.85rem;letter-spacing:.1em}
+  .tnode .d{color:var(--ink);font-weight:600;margin-top:4px}
+  .tnode .x{color:var(--muted);font-size:.92rem;margin-top:2px}
+  /* marquee */
+  .marquee{position:relative;margin-top:60px;background:linear-gradient(90deg,var(--red-d),var(--red),var(--coral),var(--red),var(--red-d));background-size:200% 100%;animation:scrollbg 9s linear infinite;box-shadow:0 0 70px rgba(255,59,48,.28)}
+  .marquee .mtxt{display:flex;gap:40px;align-items:center;justify-content:center;padding:22px;font-family:var(--display);font-weight:700;font-size:clamp(1.1rem,2.4vw,1.7rem);color:#fff;letter-spacing:-.01em;white-space:nowrap}
+  .marquee .mtxt span{opacity:.92}
+  .final{position:relative;text-align:center;padding:14vh clamp(20px,5vw,64px)}
+  .final h2{font-family:var(--display);font-weight:700;letter-spacing:-.03em;font-size:clamp(2.2rem,6vw,4.4rem);line-height:1.02;max-width:16ch;margin:0 auto;color:var(--ink)}
+  .final h2 .u{color:var(--red)}
+  .final p{margin-top:24px;color:var(--muted);max-width:48ch;margin-left:auto;margin-right:auto}
+  .final .glow{position:absolute;inset:0;z-index:-1;background:radial-gradient(50% 50% at 50% 50%,rgba(255,59,48,.22),transparent 70%)}
+  footer.foot{position:relative;z-index:2;text-align:center;padding:70px 24px 84px;border-top:1px solid var(--line)}
+  .foot p{font-size:.92rem;color:var(--muted);max-width:54ch;margin:0 auto;line-height:1.6}
+  .foot a{color:var(--red);font-weight:600;text-decoration:none}
+  .foot .social{margin-top:22px;display:flex;gap:26px;justify-content:center;flex-wrap:wrap}
+  .foot .social a{color:var(--muted);font-size:.85rem;font-weight:500;text-decoration:none;opacity:.8;transition:opacity .2s,color .2s}
+  .foot .social a:hover{opacity:1;color:var(--red)}
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
-  @keyframes sigpulse{0%,to{box-shadow:0 0 0 0 rgba(139,92,246,0)}50%{box-shadow:0 0 0 11px rgba(139,92,246,.35)}}
-  footer.foot{position:relative;z-index:2;text-align:center;padding:80px 24px 90px;border-top:1px solid var(--line)}
-  .foot p{font-size:.92rem;color:var(--ink-soft);max-width:52ch;margin:0 auto;line-height:1.6}
-  .foot a{color:var(--violet);font-weight:600;text-decoration:none}
-  .foot .social{margin-top:22px;display:flex;gap:26px;justify-content:center}
-  .foot .social a{color:var(--ink-soft);font-size:.85rem;font-weight:500;text-decoration:none;opacity:.7;transition:opacity .2s}
-  .foot .social a:hover{opacity:1;color:var(--ink)}
-  @media (max-width:640px){
-    .topbar .links a:not(:last-child){display:none}
-    .panel,.hero{padding-left:22px;padding-right:22px}
-    .stats{gap:24px}
-    .eyebrow{letter-spacing:.22em;font-size:.68rem}
-    .hero h1{font-size:clamp(2.3rem,9vw,3rem)}
-  }
+  @keyframes sigpulse{0%,to{box-shadow:0 0 0 0 rgba(255,59,48,0)}50%{box-shadow:0 0 0 11px rgba(255,59,48,.32)}}
+  @keyframes scrollbg{0%{background-position:0 0}100%{background-position:200% 0}}
+  @media (max-width:760px){.grid2{grid-template-columns:1fr}.topbar .nav a:not(:last-child){display:none}.panel,.hero{padding-left:22px;padding-right:22px}.hero h1{font-size:clamp(2.1rem,9vw,3rem)}}
+  @media (max-width:380px){.hero h1 .u{white-space:normal}}
 </style>
 </head>
 <body>
-  <canvas id="field"></canvas>
+  <canvas id="heroCanvas"></canvas>
+  <div class="depth grain"></div>
+  <div class="depth vig"></div>
   <header class="topbar">
     <a class="brand" href="#top">Twinthos<span>.</span></a>
-    <div class="links">
-      <a href="https://x.com/humanarchitect8" target="_blank" rel="noopener">X</a>
+    <nav class="nav">
+      <a href="#how">How</a>
+      <a href="#maths">The maths</a>
       <a href="https://human-architect.substack.com" target="_blank" rel="noopener">Substack</a>
-      <a href="https://linkedin.com/in/human-architect" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
+    </nav>
   </header>
   <div class="wrap" id="top">
     <section class="hero">
       <span class="eyebrow">Non-Human Employee</span>
-      <h1>The employee that <span class="accent">closes</span> while you sleep.</h1>
+      <h1>The employee that <span class="u">closes</span> while you sleep.</h1>
       <p class="sub">Twinthos is an autonomous employee for your business. It answers every enquiry, books the call, qualifies the lead, replies in your voice, and follows the deal to close. Twenty four hours a day. Seven days a week.</p>
       <div class="cta-row">
-        <a class="cta primary" href="https://beacons.ai/humanarchitect" target="_blank" rel="noopener">Hire Twinthos</a>
-        <a class="cta ghost" href="#control-room">See it work</a>
+        <a class="cta primary" href="https://beacons.ai/humanarchitect" target="_blank" rel="noopener">Hire Twinthos · £5,000/mo</a>
+        <a class="cta ghost" href="#how">See how it works</a>
       </div>
       <div class="stats">
         <div class="stat"><div class="num"><span class="v">£5,000</span></div><div class="lab">per month · all inclusive</div></div>
@@ -97,47 +131,97 @@
         <div class="stat"><div class="num">24<span class="v">/7</span></div><div class="lab">never misses a lead</div></div>
       </div>
     </section>
-    <section class="panel reveal" id="control-room">
-      <span class="kicker">Control Room</span>
-      <h2>Watch it work, in real time.</h2>
-      <p>Twinthos runs as an autonomous employee. Below is its live control panel: the seed lines of a real working day. Every line is a step the Non-Human Employee takes for you, 24/7, with no human in the loop.</p>
-      <div class="terminal">
-        <div class="tbar"><span class="dot"></span> TWINTHOS · LIVE</div>
-        <div class="log">
-          <div class="line"><span class="sig">$</span> monitors your inbox</div>
-          <div class="line"><span class="sig">$</span> answers the enquiry <span class="ok">· done</span></div>
-          <div class="line"><span class="sig">$</span> books the call <span class="ok">· invited</span></div>
-          <div class="line"><span class="sig">$</span> qualifies the lead <span class="ok">· hot</span></div>
-          <div class="line"><span class="sig">$</span> writes the reply <span class="ok">· in your voice</span></div>
-          <div class="line"><span class="sig">$</span> follows up <span class="ok">· until close</span></div>
-          <div class="line"><span class="sig">$</span> closes the deal <span class="ok">· won</span></div>
+
+    <section class="panel reveal" id="what">
+      <span class="kicker">What it does</span>
+      <h2>One employee. Every front-line job, covered.</h2>
+      <p>Twinthos takes the work you keep meaning to do: the reply, the booking, the follow-up, the close. It runs it all in your voice, around the clock, with no hire paperwork and no gap.</p>
+      <div class="grid2">
+        <div>
+          <div class="cap"><div class="ic">01</div><div><div class="lbl">Answers enquiries</div><div class="out">Replies in seconds, in your tone, every time.</div></div></div>
+          <div class="cap"><div class="ic">02</div><div><div class="lbl">Books the call</div><div class="out">Sends the invite, holds the slot, confirms.</div></div></div>
+          <div class="cap"><div class="ic">03</div><div><div class="lbl">Qualifies the lead</div><div class="out">Separates serious buyers from tyre-kickers.</div></div></div>
+          <div class="cap"><div class="ic">04</div><div><div class="lbl">Closes the deal</div><div class="out">Follows up until the work is won.</div></div></div>
+        </div>
+        <div class="console">
+          <div class="gbar"><span class="dot"></span> TWINTHOS · EXAMPLE</div>
+          <div class="glog">
+            <div class="ln"><span class="sig">$</span> monitors your inbox</div>
+            <div class="ln"><span class="sig">$</span> answers the enquiry <span class="ok">· done</span></div>
+            <div class="ln"><span class="sig">$</span> books the call <span class="ok">· invited</span></div>
+            <div class="ln"><span class="sig">$</span> qualifies the lead <span class="ok">· hot</span></div>
+            <div class="ln"><span class="sig">$</span> writes the reply <span class="ok">· in your voice</span></div>
+            <div class="ln"><span class="sig">$</span> follows up <span class="ok">· until close</span></div>
+            <div class="ln"><span class="ex">EXAMPLE · not live client data</span></div>
+          </div>
         </div>
       </div>
     </section>
-    <section class="panel reveal" id="why">
-      <span class="kicker">Why Twinthos</span>
-      <h2>Most businesses lose the after-hours enquiry.</h2>
-      <p>A prospect messages at eleven at night. Twinthos replies in seconds, sounds like you, and books the call before you wake up. It never sleeps, never forgets, never takes a holiday. Every lead gets answered. Every one.</p>
-      <div class="pillrow"><span class="pill">Always on</span><span class="pill">24/7 coverage</span><span class="pill">Your voice, not a bot</span></div>
+
+    <section class="panel reveal" id="how">
+      <span class="kicker">How it is built</span>
+      <h2>Real tooling. Running on your behalf.</h2>
+      <p>Twinthos is a managed instance of a proven agent stack, operated for you on a UK VPS. It holds real tools: terminal, browser, code, vision, and a swarm when the work is large.</p>
+      <div class="grid2">
+        <div>
+          <div class="cap"><div class="ic">·</div><div><div class="lbl">Hermes Agent core</div><div class="out">The orchestration engine behind the employee.</div></div></div>
+          <div class="cap"><div class="ic">·</div><div><div class="lbl">Boss Protocol</div><div class="out">Acts in your interest. No spend, no risk, no drift.</div></div></div>
+          <div class="cap"><div class="ic">·</div><div><div class="lbl">VPS 24/7</div><div class="out">Always on. UK hosted. Your data stays here.</div></div></div>
+          <div class="cap"><div class="ic">·</div><div><div class="lbl">Your voice, trained</div><div class="out">Learns from your docs, site, and past replies.</div></div></div>
+        </div>
+        <div class="console">
+          <div class="gbar"><span class="dot"></span> STACK · EXAMPLE</div>
+          <div class="glog">
+            <div class="ln"><span class="sig">></span> engine: Hermes Agent</div>
+            <div class="ln"><span class="sig">></span> protocol: Boss Protocol</div>
+            <div class="ln"><span class="sig">></span> host: UK VPS · 24/7</div>
+            <div class="ln"><span class="sig">></span> knowledge: your business</div>
+            <div class="ln"><span class="sig">></span> tools: terminal · browser · vision</div>
+            <div class="ln"><span class="ex">EXAMPLE · stack in repo</span></div>
+          </div>
+        </div>
+      </div>
     </section>
-    <section class="panel reveal" id="brain">
-      <span class="kicker">The Brain</span>
-      <h2>It reads the message. It writes like you.</h2>
-      <p>Twinthos understands intent, draws from your knowledge, and writes a reply that sounds like your best employee. It handles the awkward ones, the price questions, the tyre-kickers, and the serious buyers, with the right tone every time.</p>
-      <div class="pillrow"><span class="pill">Understands intent</span><span class="pill">Your voice</span><span class="pill">Consistent</span></div>
+
+    <section class="panel reveal" id="maths">
+      <span class="kicker">The maths</span>
+      <h2>One fee. No salary, no quit, no gap.</h2>
+      <div class="math">
+        <div class="big">All-inclusive <span class="v">£5,000</span> / month</div>
+        <div class="row"><span><b>A human doing this</b></span><span>£40-60k + recruiter + lost months</span></div>
+        <div class="row"><span><b>Twinthos coverage</b></span><span>365 days a year, awake at 3am</span></div>
+        <div class="row"><span><b>Setup</b></span><span>~48 hours from sign-off</span></div>
+        <div class="note">EXAMPLE · no live clients yet · real Hermes stack in repo</div>
+      </div>
     </section>
-    <section class="panel reveal" id="knowledge">
-      <span class="kicker">The Knowledge</span>
-      <h2>One source of truth, used on every conversation.</h2>
-      <p>It learns your business from your docs, your site, and your past replies. One knowledge base it draws on in real time, so the answer is always current and always consistent. No drift, no made-up facts, no gaps.</p>
-      <div class="pillrow"><span class="pill">Learns your business</span><span class="pill">Real time</span><span class="pill">No hallucination</span></div>
+
+    <section class="panel reveal" id="day">
+      <span class="kicker">A day in the life</span>
+      <h2>The loop it runs, while you are offline.</h2>
+      <p>A typical twenty four hour cycle. Illustrative: the engine runs this pattern for you, every day.</p>
+      <div class="tl">
+        <div class="tnode"><div class="t">06:00</div><div class="d">Inbound</div><div class="x">A prospect messages before you wake.</div></div>
+        <div class="tnode"><div class="t">09:00</div><div class="d">Reply</div><div class="x">Answered in your voice, in seconds.</div></div>
+        <div class="tnode"><div class="t">12:00</div><div class="d">Book</div><div class="x">Call scheduled, invite sent.</div></div>
+        <div class="tnode"><div class="t">18:00</div><div class="d">Qualify · Close</div><div class="x">Lead scored hot, followed to won.</div></div>
+      </div>
     </section>
-    <section class="panel reveal" id="always">
-      <span class="kicker">Always On</span>
-      <h2>While you sleep, it works.</h2>
-      <p>Twinthos monitors the deals, chases the stalled ones, books the call, and updates the record. It runs the follow-up you keep meaning to do. By the time you start the day, the pipeline has moved.</p>
-      <div class="cta-row"><a class="cta primary" href="https://beacons.ai/humanarchitect" target="_blank" rel="noopener">Hire Twinthos</a></div>
+
+    <div class="marquee">
+      <div class="mtxt">
+        <span>Hire Twinthos</span><span>·</span><span>£5,000 / month</span><span>·</span><span>Live in 48 hours</span><span>·</span><span>24/7 autonomous</span><span>·</span><span>Hire Twinthos</span><span>·</span><span>£5,000 / month</span><span>·</span><span>Live in 48 hours</span><span>·</span><span>24/7 autonomous</span>
+      </div>
+    </div>
+
+    <section class="final">
+      <div class="glow"></div>
+      <h2>While you sleep, it <span class="u">works</span>.</h2>
+      <p>Stop losing the after-hours enquiry. Twinthos answers, books, qualifies, and closes, round the clock, for one flat fee.</p>
+      <div class="cta-row" style="justify-content:center;margin-top:30px">
+        <a class="cta primary" href="https://beacons.ai/humanarchitect" target="_blank" rel="noopener">Hire Twinthos · £5,000/mo</a>
+      </div>
     </section>
+
     <footer class="foot">
       <p><b style="color:var(--ink)">Twinthos.</b> A Non-Human Employee by <b style="color:var(--ink)">Human Architect</b>, Bath, UK. Answers, books, qualifies, closes. 24/7. £5,000 a month.</p>
       <div class="social">
@@ -148,33 +232,12 @@
       </div>
     </footer>
   </div>
+  <script src="hero-canvas.js"></script>
   <script>
-    (function(){
-      var c=document.getElementById('field'); if(!c) return;
-      var ctx=c.getContext('2d'); var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var W,H,pts;
-      function resize(){W=c.width=innerWidth;H=c.height=innerHeight;
-        var n=Math.min(70,Math.floor(W*H/26000));
-        pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18});
-      }
-      function draw(){
-        ctx.clearRect(0,0,W,H);
-        for(var i=0;i<pts.length;i++){var p=pts[i];p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}
-        ctx.lineWidth=1;
-        for(var i=0;i<pts.length;i++){for(var j=i+1;j<pts.length;j++){
-          var a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
-          if(d<140){ctx.strokeStyle='rgba(139,92,246,'+(0.16*(1-d/140))+')';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
-        }}
-        for(var i=0;i<pts.length;i++){var p=pts[i];ctx.fillStyle='rgba(139,92,246,.55)';ctx.beginPath();ctx.arc(p.x,p.y,1.5,0,6.28);ctx.fill();}
-        requestAnimationFrame(draw);
-      }
-      resize();addEventListener('resize',resize);
-      if(!reduce)draw(); else { draw(); }
-    })();
     (function(){
       var els=document.querySelectorAll('.reveal');
       if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.18});
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.15});
       els.forEach(function(e){io.observe(e);});
     })();
   </script>
