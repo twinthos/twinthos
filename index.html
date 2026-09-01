@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Twinthos: A worker that never sleeps, never quits, never forgets</title>
 <meta name="description" content="Twinthos is a worker you own. It answers your leads, books your calls, writes in your voice and closes deals while you sleep. £5,000 a month flat. Live in 48 hours.">
-<meta name="theme-color" content="#010103">
+<meta name="theme-color" content="#0A0F14">
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-<meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <!-- Preconnect -->
@@ -43,7 +42,7 @@
       "name": "What is Twinthos?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Twinthos is a managed autonomous worker built by Human Architect. It runs on a private UK cloud server and handles your leads, calls, follow-ups, and research 24/7 for £5,000 per month flat."
+        "text": "Twinthos is a managed autonomous worker. It runs on a private UK cloud server and handles your leads, calls, follow-ups, and research 24/7 for £5,000 per month flat."
       }
     },
     {
@@ -83,7 +82,7 @@
       "name": "Does Twinthos integrate with my tools?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Twinthos runs on a private UK cloud server with a computer, browser, and terminal. It can open any web app, click buttons, read pages, and act on your behalf · email, CRMs, calendars, booking systems, anything browser-based."
+        "text": "Twinthos runs on a private UK cloud server with a computer, browser, and terminal. It can open any web app, click buttons, read pages, and act on your behalf · email, CRMs, calendars, booking systems."
       }
     },
     {
@@ -126,17 +125,26 @@
 }
 </script>
 
-<!-- AEO Q&A pairs for featured snippets -->
+<!-- Service + Offer Schema for GEO -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "QAPage",
-  "mainEntity": {
-    "@type": "Question",
-    "name": "What is the difference between Twinthos and a chatbot?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Chatbots answer messages. Twinthos owns the job. It has its own computer, browser, code terminal, persistent memory, writing, and vision. It takes real actions: opens pages, clicks buttons, sends invites, follows up, builds files, and compounds learning. A chatbot ends when the chat ends. Twinthos keeps working."
+  "@type": "Service",
+  "name": "Twinthos Managed AI Employee",
+  "description": "A managed autonomous worker that answers leads, books calls, writes in your voice, and closes deals 24/7.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Twinthos"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "5000",
+    "priceCurrency": "GBP",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "5000",
+      "priceCurrency": "GBP",
+      "unitCode": "MON"
     }
   }
 }
@@ -144,60 +152,82 @@
 
 <style>
 :root {
-  --bg: #010103;
-  --panel: #0a0a0f;
-  --card: #0d0d14;
-  --ink: #F0EDE6;
-  --muted: rgba(240,237,230,.55);
-  --faint: rgba(240,237,230,.3);
-  --line: rgba(240,237,230,.08);
-  --line-soft: rgba(240,237,230,.04);
-  --electric: #00FFFF;
-  --electric-dark: #00E0E0;
-  --electric-soft: rgba(0,255,255,.12);
-  --electric-glow: rgba(0,255,255,.8);
+  /* Gunmetal palette */
+  --bg: #0A0F14;
+  --panel: #111822;
+  --card: #161E29;
+  --ink: #E5E8F0;
+  --muted: rgba(229,232,240,.65);
+  --faint: rgba(229,232,240,.45);
+  --line: rgba(229,232,240,.1);
+  --line-soft: rgba(229,232,240,.05);
+
+  /* Gunmetal shimmering accent */
+  --accent: #00C9A7;
+  --accent-dim: #00A88A;
+  --accent-soft: rgba(0,201,167,.12);
+  --accent-glow: rgba(0,201,167,.6);
+
+  /* Metallic shimmer */
+  --shimmer-silver: #C0C7D0;
+  --shimmer-gold: #C7A86B;
+
   --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html { scroll-behavior: smooth; background: var(--bg); }
-body { background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; line-height: 1.2; overflow-x: hidden; }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; line-height: 1.55; overflow-x: hidden; }
 .wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 28px; }
 a { color: inherit; text-decoration: none; }
 .mono { font-family: var(--mono); }
 
-/* Illuminated */
-.illuminated {
-  color: #00FFFF;
-  text-shadow: 0 0 4px #00FFFF, 0 0 12px #00FFFF, 0 0 24px #00FFFF, 0 0 48px rgba(0,255,255,.8), 0 0 80px rgba(0,255,255,.4);
-  font-weight: 800;
+/* Gunmetal shimmer text */
+.shimmer-text {
+  background: linear-gradient(110deg,
+    var(--accent) 0%,
+    var(--shimmer-silver) 25%,
+    var(--accent-dim) 50%,
+    var(--shimmer-gold) 75%,
+    var(--accent) 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-sweep 4s ease-in-out infinite;
 }
 
-.illuminated-subtle {
-  color: #00FFFF;
-  text-shadow: 0 0 4px #00FFFF, 0 0 10px #00FFFF, 0 0 20px rgba(0,255,255,.8);
+@keyframes shimmer-sweep {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.shimmer-subtle {
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent-glow);
 }
 
 /* FIXED BG CANVAS */
-#bgCanvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .25; }
+#bgCanvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .15; }
 
 /* NAV */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(1,1,3,.78); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--line-soft); }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(10,15,20,.85); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--line-soft); }
 .nav .row { display: flex; align-items: center; height: 64px; gap: 20px; }
 .brand { font-weight: 900; font-size: 17px; letter-spacing: -.02em; display: inline-flex; align-items: center; gap: 10px; }
-.brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--electric); box-shadow: 0 0 12px var(--electric-glow); animation: pulse 2s infinite; }
+.brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent-glow); animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
 .nav .spacer { margin-left: auto; }
 .nav .links { display: flex; gap: 28px; font-size: 13px; font-weight: 500; color: var(--muted); }
 .nav .links a:hover { color: var(--ink); }
-.nav .cta { font-size: 13px; font-weight: 700; color: var(--bg); background: var(--ink); padding: 10px 20px; border-radius: 8px; }
-.nav .cta:hover { background: var(--electric); color: var(--bg); box-shadow: 0 0 20px var(--electric-glow); }
+.nav .cta { font-size: 14px; font-weight: 700; color: var(--bg); background: var(--accent); padding: 12px 22px; border-radius: 8px; min-height: 44px; display: flex; align-items: center; }
+.nav .cta:hover { background: var(--shimmer-silver); box-shadow: 0 0 20px var(--accent-glow); }
 
 /* HERO */
 .hero { position: relative; z-index: 1; min-height: 100vh; display: flex; align-items: center; padding: 140px 0 100px; }
-.hero .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--electric); margin-bottom: 40px; }
-.hero .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--electric); box-shadow: 0 0 8px var(--electric-glow); }
+.hero .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 40px; }
+.hero .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent-glow); }
 .hero h1 { font-size: clamp(48px, 11vw, 132px); font-weight: 900; letter-spacing: -.045em; line-height: .92; max-width: 14ch; }
 .hero h1 .line { display: block; overflow: hidden; }
 .hero h1 .word { display: inline-block; transform: translateY(118%); animation: wordUp .8s cubic-bezier(.16,1,.3,1) forwards; }
@@ -205,9 +235,6 @@ a { color: inherit; text-decoration: none; }
 .hero h1 .line:nth-child(2) .word:nth-child(1) { animation-delay: .2s; }
 .hero h1 .line:nth-child(2) .word:nth-child(2) { animation-delay: .28s; }
 .hero h1 .line:nth-child(3) .word { animation-delay: .38s; }
-.hero h1 .line:nth-child(4) .word:nth-child(1) { animation-delay: .48s; }
-.hero h1 .line:nth-child(4) .word:nth-child(2) { animation-delay: .56s; }
-.hero h1 .line:nth-child(4) .word:nth-child(3) { animation-delay: .64s; }
 @keyframes wordUp { to { transform: translateY(0); } }
 
 .hero .sub { margin-top: 44px; font-size: clamp(18px, 3.6vw, 26px); line-height: 1.5; color: var(--muted); max-width: 52ch; font-weight: 400; opacity: 0; animation: fadeUp .8s ease forwards; animation-delay: .9s; }
@@ -215,36 +242,56 @@ a { color: inherit; text-decoration: none; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 .hero .cta-row { margin-top: 52px; display: flex; flex-wrap: wrap; gap: 16px; opacity: 0; animation: fadeUp .8s ease forwards; animation-delay: 1.1s; }
 .hero .cta-row .btn { display: inline-flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; padding: 18px 36px; border-radius: 12px; min-height: 56px; transition: transform .2s, box-shadow .2s; }
+
+/* Gunmetal shimmer button */
 .hero .cta-row .btn.primary {
-  background: linear-gradient(135deg, var(--electric) 0%, var(--electric-dark) 100%);
-  color: #010103;
-  box-shadow: 0 0 40px var(--electric-glow), inset 0 0 20px rgba(255,255,255,.2);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
+  color: #0A0F14;
+  box-shadow: 0 0 20px var(--accent-glow);
+  position: relative;
+  overflow: hidden;
+}
+.hero .cta-row .btn.primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(255,255,255,0.2) 50%,
+    transparent
+  );
+  transform: skewX(-15deg) translateX(-100%);
+  transition: transform 0.6s ease;
+}
+.hero .cta-row .btn.primary:hover::before {
+  transform: skewX(-15deg) translateX(200%);
 }
 .hero .cta-row .btn.primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 60px var(--electric-glow), 0 0 80px var(--electric-glow);
+  box-shadow: 0 0 30px var(--accent-glow), 0 0 50px var(--accent-glow);
 }
+
 .hero .cta-row .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
-.hero .cta-row .btn.ghost:hover { border-color: var(--electric); color: var(--electric); }
+.hero .cta-row .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
 .hero .cta-row .arrow { font-size: 20px; }
 
 .hero .meta { margin-top: 60px; display: flex; flex-wrap: wrap; gap: 12px 32px; font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .06em; color: var(--muted); opacity: 0; animation: fadeUp .8s ease forwards; animation-delay: 1.3s; }
 .hero .meta b { color: var(--ink); font-weight: 700; }
 
 .hero .scroll-hint { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); opacity: 0; animation: fadeUp .8s ease forwards; animation-delay: 1.6s; }
-.hero .scroll-hint .mouse { width: 24px; height: 38px; border-radius: 12px; border: 2px solid var(--faint); position: relative; }
-.hero .scroll-hint .wheel { position: absolute; left: 50%; top: 8px; width: 4px; height: 8px; border-radius: 2px; background: var(--electric); transform: translateX(-50%); animation: scrollWheel 1.8s ease-in-out infinite; }
+.hero .scroll-hint .mouse { width: 24px; height: 38px; border-radius: 12px; border: 2px solid var(--muted); position: relative; }
+.hero .scroll-hint .wheel { position: absolute; left: 50%; top: 8px; width: 4px; height: 8px; border-radius: 2px; background: var(--accent); transform: translateX(-50%); animation: scrollWheel 1.8s ease-in-out infinite; }
 @keyframes scrollWheel { 0% { opacity: 0; top: 6px; } 40% { opacity: 1; } 100% { opacity: 0; top: 20px; } }
 
 /* SCROLL SECTIONS */
 .scroll-container { position: relative; z-index: 1; }
-.scroll-section { min-height: 100vh; display: flex; align-items: center; padding: 120px 0; border-top: 1px solid var(--line-soft); position: relative; }
-.scroll-section .label { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--electric); margin-bottom: 32px; }
+.scroll-section { min-height: 100vh; display: flex; align-items: center; padding: 120px 0; border-top: 1px solid var(--line-soft); position: relative; content-visibility: auto; contain-intrinsic-size: 900px; }
+.scroll-section .label { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 32px; }
 .scroll-section h2 { font-size: clamp(36px, 8vw, 88px); font-weight: 900; letter-spacing: -.04em; line-height: .95; max-width: 14ch; }
-.scroll-section h2 .accent { color: var(--electric); text-shadow: 0 0 10px var(--electric-glow), 0 0 20px var(--electric-glow); }
+.scroll-section h2 .accent { color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
 .scroll-section .body { margin-top: 36px; font-size: clamp(17px, 3.4vw, 23px); line-height: 1.6; color: var(--muted); max-width: 56ch; }
 .scroll-section .body b { color: var(--ink); font-weight: 600; }
-.scroll-section .highlight { color: var(--electric); font-weight: 700; }
+.scroll-section .highlight { color: var(--accent); font-weight: 700; }
 
 /* GOLDEN CIRCLE */
 .golden { background: var(--panel); }
@@ -253,20 +300,30 @@ a { color: inherit; text-decoration: none; }
 .golden .circle::before { content: ''; position: absolute; inset: 60px; border-radius: 50%; border: 1px solid var(--line); }
 .golden .circle::after { content: ''; position: absolute; inset: 120px; border-radius: 50%; border: 1px solid var(--line); }
 .golden .ring-label { position: absolute; font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 6px 14px; border-radius: 99px; }
-.golden .ring-label.why { top: 22%; background: var(--electric-soft); color: var(--electric); }
-.golden .ring-label.how { top: 48%; background: var(--electric-soft); color: var(--electric); }
+.golden .ring-label.why { top: 22%; background: var(--accent-soft); color: var(--accent); }
+.golden .ring-label.how { top: 48%; background: var(--accent-soft); color: var(--accent); }
 .golden .ring-label.what { bottom: 22%; background: var(--line-soft); color: var(--muted); }
 .golden .center-text { text-align: center; padding: 40px; }
 .golden .center-text .big { font-size: clamp(20px, 4vw, 32px); font-weight: 800; line-height: 1.15; }
-.golden .center-text .big .illuminated-subtle { font-size: inherit; }
 .golden .center-text .small { margin-top: 12px; font-size: 14px; color: var(--muted); line-height: 1.5; }
 
 /* DIFFERENTIATORS */
 .diff { background: var(--bg); }
 .diff .grid { margin-top: 60px; display: grid; gap: 24px; }
-.diff .item { border: 1px solid var(--line); border-radius: 16px; padding: 36px; transition: border-color .3s, background .3s; }
-.diff .item:hover { border-color: var(--electric); background: var(--electric-soft); }
-.diff .item .num { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--electric); margin-bottom: 20px; }
+.diff .item { border: 1px solid var(--line); border-radius: 16px; padding: 36px; transition: border-color .3s, background .3s; position: relative; overflow: hidden; }
+.diff .item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.04), transparent);
+  transition: left .5s;
+}
+.diff .item:hover { border-color: var(--accent); background: var(--accent-soft); }
+.diff .item:hover::after { left: 100%; }
+.diff .item .num { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 20px; }
 .diff .item .t { font-size: clamp(22px, 4vw, 30px); font-weight: 800; letter-spacing: -.02em; line-height: 1.1; margin-bottom: 16px; color: var(--ink); }
 .diff .item .d { font-size: 16px; color: var(--muted); line-height: 1.6; }
 
@@ -276,18 +333,18 @@ a { color: inherit; text-decoration: none; }
 .proof .stat { padding: 32px 0; border-top: 1px solid var(--line); }
 .proof .stat:last-child { border-bottom: 1px solid var(--line); }
 .proof .stat .n { font-size: clamp(44px, 10vw, 80px); font-weight: 900; letter-spacing: -.04em; line-height: 1; }
-.proof .stat .n .s { color: var(--electric); }
+.proof .stat .n .s { color: var(--accent); }
 .proof .stat .k { margin-top: 12px; font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .proof .quote-big { margin-top: 60px; font-size: clamp(24px, 5vw, 44px); font-weight: 700; letter-spacing: -.025em; line-height: 1.2; max-width: 24ch; color: var(--ink); }
-.proof .quote-big .highlight { color: var(--electric); text-shadow: 0 0 8px var(--electric-glow), 0 0 20px var(--electric-glow); }
+.proof .quote-big .highlight { color: var(--accent); text-shadow: 0 0 8px var(--accent-glow); }
 
 /* MATHS */
 .maths { background: var(--bg); }
 .maths .cards { margin-top: 60px; display: grid; gap: 24px; }
-.maths .card { border: 1px solid var(--line); border-radius: 16px; padding: 40px; }
-.maths .card.featured { border-color: var(--electric); background: var(--electric-soft); }
+.maths .card { border: 1px solid var(--line); border-radius: 16px; padding: 40px; position: relative; overflow: hidden; }
+.maths .card.featured { border-color: var(--accent); background: var(--accent-soft); }
 .maths .card .who { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
-.maths .card.featured .who { color: var(--electric); }
+.maths .card.featured .who { color: var(--accent); }
 .maths .card .big { font-size: clamp(40px, 9vw, 72px); font-weight: 900; letter-spacing: -.04em; line-height: 1; }
 .maths .card .pts { margin-top: 24px; font-size: 16px; color: var(--muted); line-height: 1.6; }
 .maths .card .pts b { color: var(--ink); font-weight: 700; }
@@ -295,18 +352,29 @@ a { color: inherit; text-decoration: none; }
 /* FINAL */
 .final { background: var(--panel); text-align: center; }
 .final h2 { margin: 0 auto; color: var(--ink); }
-.final h2 .accent { color: var(--electric); text-shadow: 0 0 10px var(--electric-glow), 0 0 20px var(--electric-glow); }
+.final h2 .accent { color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
 .final .sub { margin: 36px auto 0; color: var(--muted); }
 .final .cta-row { margin-top: 52px; justify-content: center; }
 .final .cta-row .btn { display: inline-flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; padding: 20px 44px; border-radius: 12px; min-height: 60px; }
 .final .cta-row .btn.primary {
-  background: linear-gradient(135deg, var(--electric) 0%, var(--electric-dark) 100%);
-  color: #010103;
-  box-shadow: 0 0 40px var(--electric-glow);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
+  color: #0A0F14;
+  box-shadow: 0 0 20px var(--accent-glow);
+  position: relative;
+  overflow: hidden;
 }
-.final .cta-row .btn.primary:hover { transform: translateY(-2px); box-shadow: 0 0 60px var(--electric-glow), 0 0 80px var(--electric-glow); }
+.final .cta-row .btn.primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.15) 50%, transparent);
+  transform: skewX(-15deg) translateX(-100%);
+  transition: transform .6s ease;
+}
+.final .cta-row .btn.primary:hover::before { transform: skewX(-15deg) translateX(200%); }
+.final .cta-row .btn.primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px var(--accent-glow); }
 .final .urgency { margin-top: 32px; display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--muted); }
-.final .urgency .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--electric); box-shadow: 0 0 8px var(--electric-glow); }
+.final .urgency .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent-glow); }
 
 /* FOOTER */
 footer { position: relative; z-index: 1; padding: 48px 0 60px; border-top: 1px solid var(--line-soft); font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .04em; color: var(--muted); line-height: 1.8; }
@@ -327,8 +395,7 @@ footer b { color: var(--ink); font-weight: 700; }
 }
 @media (max-width: 759px) {
   .nav .links { display: none; }
-  .nav .cta { font-size: 12px; padding: 8px 16px; }
-  .hero { min-height: auto; padding: 120px 0 80px; }
+  .hero { min-height: auto; padding: 100px 0 80px; }
   .scroll-section { min-height: auto; padding: 80px 0; }
   .golden .circle { width: min(320px, 85vw); }
   .diff .grid { grid-template-columns: 1fr; }
@@ -340,9 +407,9 @@ footer b { color: var(--ink); font-weight: 700; }
   .hero h1 { font-size: 42px; }
 }
 
-:focus-visible { outline: 2px solid var(--electric); outline-offset: 4px; border-radius: 4px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
 </style>
 </head>
@@ -378,8 +445,8 @@ if (location.protocol !== 'https:') {
     <div class="eyebrow"><span class="dot"></span> Non-Human Intelligence · live now</div>
     <h1>
       <span class="line"><span class="word">Your business</span></span>
-      <span class="line"><span class="word">runs without</span> <span class="word illuminated-subtle">you</span>.</span>
-      <span class="line"><span class="word">That is the</span> <span class="word illuminated-subtle">point</span>.</span>
+      <span class="line"><span class="word">runs without</span> <span class="word shimmer-text">you</span>.</span>
+      <span class="line"><span class="word">That is the</span> <span class="word shimmer-text">point</span>.</span>
     </h1>
     <p class="sub">Twinthos is a managed autonomous worker you own. It answers your leads, books your calls, writes in <b>your voice</b>, and closes deals <b>while you sleep</b>. One price. One bill. Live in <b>48 hours</b>.</p>
     <div class="cta-row">
@@ -404,7 +471,7 @@ if (location.protocol !== 'https:') {
 <section class="scroll-section why" id="why">
   <div class="wrap reveal">
     <div class="label">Why Twinthos exists</div>
-    <h2>The limit on your business is <span class="illuminated-subtle">you</span>.</h2>
+    <h2>The limit on your business is <span class="shimmer-subtle">you</span>.</h2>
     <p class="body">You are the cap. You can only do so much in a day. Twinthos removes you from the equation so the work gets done with or without you. You own the worker. You stay the boss. The work just happens, nobody driving.</p>
     <div class="circle-wrap">
       <div class="circle">
@@ -412,8 +479,8 @@ if (location.protocol !== 'https:') {
         <span class="ring-label how">HOW</span>
         <span class="ring-label what">WHAT</span>
         <div class="center-text">
-          <div class="big illuminated-subtle">We remove the limit.</div>
-          <div class="small">Golden Circle: WHY → HOW → WHAT</div>
+          <div class="big shimmer-text">We remove the limit.</div>
+          <div class="small">Golden Circle: WHY . HOW . WHAT</div>
         </div>
       </div>
     </div>
@@ -422,8 +489,8 @@ if (location.protocol !== 'https:') {
 
 <section class="scroll-section diff" id="what">
   <div class="wrap reveal">
-    <div class="label">What Twinthos does that chatbots don't</div>
-    <h2>Real tools.<br>Not just text on a <span class="illuminated-subtle">screen</span>.</h2>
+    <div class="label">What Twinthos does that chatbots do not</div>
+    <h2>Real tools.<br>Not just text on a <span class="shimmer-subtle">screen</span>.</h2>
     <p class="body">Twinthos runs on your own UK cloud server with its own computer, browser, and memory. It does not just talk. It acts.</p>
     <div class="grid">
       <div class="item">
@@ -463,7 +530,7 @@ if (location.protocol !== 'https:') {
 <section class="scroll-section proof" id="proof">
   <div class="wrap reveal">
     <div class="label">Proof</div>
-    <h2>The page you are reading was built by the <span class="illuminated-subtle">thing it sells</span>.</h2>
+    <h2>The page you are reading was built by the <span class="shimmer-subtle">thing it sells</span>.</h2>
     <p class="body">We use Twinthos to sell Twinthos. That is the whole pitch. No fake case studies. No invented logos. Just the truth.</p>
     <div class="stats">
       <div class="stat"><div class="n">£5k<span class="s">/mo</span></div><div class="k">One flat bill</div></div>
@@ -478,7 +545,7 @@ if (location.protocol !== 'https:') {
 <section class="scroll-section maths" id="pricing">
   <div class="wrap reveal">
     <div class="label">The maths</div>
-    <h2>What a human costs.<br>What <span class="illuminated-subtle">Twinthos</span> costs.</h2>
+    <h2>What a human costs.<br>What <span class="shimmer-subtle">Twinthos</span> costs.</h2>
     <p class="body">A human doing this work costs more, sleeps eight hours a day, takes holidays, and hands in notice. Twinthos costs one flat bill and never stops.</p>
     <div class="cards">
       <div class="card">
@@ -488,7 +555,7 @@ if (location.protocol !== 'https:') {
       </div>
       <div class="card featured">
         <div class="who">Twinthos</div>
-        <div class="big illuminated-subtle">£5k<span style="font-size:.5em;color:var(--muted)">/mo</span></div>
+        <div class="big shimmer-text">£5k<span style="font-size:.5em;color:var(--muted)">/mo</span></div>
         <div class="pts">Flat. One bill. <b>Never quits.</b> Never sick. Follows up until you say stop. Works every timezone, every hour. Owned by you.</div>
       </div>
     </div>
@@ -498,11 +565,11 @@ if (location.protocol !== 'https:') {
 <section class="scroll-section" id="faq" style="background: var(--bg);">
   <div class="wrap reveal">
     <div class="label">Frequently asked</div>
-    <h2>Not a chatbot.<br>A <span class="illuminated-subtle">worker</span> you own.</h2>
+    <h2>Not a chatbot.<br>A <span class="shimmer-subtle">worker</span> you own.</h2>
     <div class="grid" style="margin-top:60px;gap:24px">
       <div class="item">
         <div class="t">What is Twinthos?</div>
-        <div class="d">Twinthos is a managed autonomous worker built by Human Architect. It runs on a private UK cloud server and handles your leads, calls, follow-ups, and research 24/7 for £5,000 per month flat.</div>
+        <div class="d">Twinthos is a managed autonomous worker. It runs on a private UK cloud server and handles your leads, calls, follow-ups, and research 24/7 for £5,000 per month flat.</div>
       </div>
       <div class="item">
         <div class="t">Is Twinthos a chatbot?</div>
@@ -522,7 +589,7 @@ if (location.protocol !== 'https:') {
       </div>
       <div class="item">
         <div class="t">Tool integrations?</div>
-        <div class="d">Twinthos runs on a private UK cloud server with a computer, browser, and terminal. It can open any web app, click buttons, read pages, and act on your behalf · email, CRMs, calendars, booking systems.</div>
+        <div class="d">Twinthos runs on a private UK cloud server with a computer, browser, and terminal. It can open any web app, click buttons, read pages, and act on your behalf . email, CRMs, calendars, booking systems.</div>
       </div>
     </div>
   </div>
@@ -531,7 +598,7 @@ if (location.protocol !== 'https:') {
 <section class="scroll-section final">
   <div class="wrap reveal">
     <div class="label">Decision</div>
-    <h2>Hire your first worker that is not a person this <span class="illuminated-subtle">week</span>.</h2>
+    <h2>Hire your first worker that is not a person this <span class="shimmer-subtle">week</span>.</h2>
     <p class="sub">One call. One scope sign-off. Live in about 48 hours. Then it works while you do the human part.</p>
     <div class="cta-row">
       <a class="btn primary" href="https://t.me/Architecthumanbot">Get your worker <span class="arrow">&rarr;</span></a>
@@ -544,12 +611,12 @@ if (location.protocol !== 'https:') {
 
 <footer>
   <div class="wrap">
-    TWINTHOS · Non-Human Intelligence for UK business · £5,000 / month · owned by you · governed by the Boss Protocol · set up in Bath UK
+    TWINTHOS . Non-Human Intelligence for UK business . £5,000 / month . owned by you . governed by the Boss Protocol . set up in Bath UK . ICO registered
   </div>
 </footer>
 
 <script>
-// Background canvas - electric particle field
+// Gunmetal particle field with visibility pause
 (function() {
   const canvas = document.getElementById('bgCanvas');
   if (!canvas) return;
@@ -564,44 +631,29 @@ if (location.protocol !== 'https:') {
   }
   window.addEventListener('resize', resize);
   resize();
-  const N = 80;
+  const N = 50;
   const pts = [];
   for (let i = 0; i < N; i++) {
     pts.push({
       x: Math.random() * W,
       y: Math.random() * H,
-      vx: (Math.random() - .5) * .3 * DPR,
-      vy: (Math.random() - .5) * .3 * DPR,
-      r: (.5 + Math.random() * 1.5) * DPR,
-      a: .04 + Math.random() * .16
+      vx: (Math.random() - .5) * .2 * DPR,
+      vy: (Math.random() - .5) * .2 * DPR,
+      r: (.5 + Math.random() * 1.2) * DPR,
+      a: .03 + Math.random() * .08
     });
   }
   function frame() {
+    if (document.hidden) { requestAnimationFrame(frame); return; }
     ctx.clearRect(0, 0, W, H);
     for (const p of pts) {
       p.x += p.vx; p.y += p.vy;
       if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
       if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
-      ctx.fillStyle = `rgba(0,240,255,${p.a})`;
+      ctx.fillStyle = `rgba(0,201,167,${p.a})`;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fill();
-    }
-    // Connection lines
-    for (let i = 0; i < N; i++) {
-      for (let j = i + 1; j < N; j++) {
-        const dx = pts[i].x - pts[j].x;
-        const dy = pts[i].y - pts[j].y;
-        const dist = Math.sqrt(dx*dx + dy*dy);
-        if (dist < 120 * DPR) {
-          ctx.strokeStyle = `rgba(0,240,255,${0.08 * (1 - dist / (120 * DPR))})`;
-          ctx.lineWidth = 0.5 * DPR;
-          ctx.beginPath();
-          ctx.moveTo(pts[i].x, pts[i].y);
-          ctx.lineTo(pts[j].x, pts[j].y);
-          ctx.stroke();
-        }
-      }
     }
     requestAnimationFrame(frame);
   }
