@@ -152,10 +152,10 @@
   --faint: rgba(240,237,230,.3);
   --line: rgba(240,237,230,.08);
   --line-soft: rgba(240,237,230,.04);
-  --electric: #00F0FF;
-  --electric-dark: #00B8D9;
-  --electric-soft: rgba(0,240,255,.12);
-  --electric-glow: rgba(0,240,255,.5);
+  --electric: #00FFFF;
+  --electric-dark: #00E0E0;
+  --electric-soft: rgba(0,255,255,.12);
+  --electric-glow: rgba(0,255,255,.8);
   --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
 }
@@ -169,14 +169,14 @@ a { color: inherit; text-decoration: none; }
 
 /* Illuminated */
 .illuminated {
-  color: var(--electric);
-  text-shadow: 0 0 8px var(--electric-glow), 0 0 20px var(--electric-glow), 0 0 40px var(--electric-glow);
+  color: #00FFFF;
+  text-shadow: 0 0 4px #00FFFF, 0 0 12px #00FFFF, 0 0 24px #00FFFF, 0 0 48px rgba(0,255,255,.8), 0 0 80px rgba(0,255,255,.4);
   font-weight: 800;
 }
 
 .illuminated-subtle {
-  color: var(--electric);
-  text-shadow: 0 0 4px var(--electric-glow), 0 0 12px var(--electric-glow);
+  color: #00FFFF;
+  text-shadow: 0 0 4px #00FFFF, 0 0 10px #00FFFF, 0 0 20px rgba(0,255,255,.8);
 }
 
 /* FIXED BG CANVAS */
@@ -347,6 +347,12 @@ footer b { color: var(--ink); font-weight: 700; }
 </style>
 </head>
 <body>
+
+<script>
+if (location.protocol !== 'https:') {
+  location.replace('https://' + location.host + location.pathname + location.search + location.hash);
+}
+</script>
 
 <canvas id="bgCanvas"></canvas>
 
