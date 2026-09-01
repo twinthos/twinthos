@@ -180,8 +180,8 @@ ul { list-style: none; }
   100% { background-position: 200% 0; }
 }
 .chrome-shimmer {
-  position: relative;
-  background: linear-gradient(100deg,
+  background: linear-gradient(
+    100deg,
     var(--silver) 0%,
     var(--chrome) 25%,
     var(--platinum) 50%,
@@ -194,6 +194,7 @@ ul { list-style: none; }
   -webkit-text-fill-color: transparent;
   animation: chromeSweep 6s ease-in-out infinite;
   animation-play-state: running;
+  filter: drop-shadow(0 0 2px rgba(199,201,210,.3));
 }
 @media (prefers-reduced-motion: reduce) {
   .chrome-shimmer { animation: none; }
@@ -757,8 +758,8 @@ document.fonts.ready.then(function() {
     <div class="price-cards">
       <div class="price-card">
         <div class="who">A human hire</div>
-        <div class="big">£40-60k<span style="font-size:.5em;color:var(--muted)">/yr</span></div>
-        <div class="pts">Plus payroll, pension, sick pay. Quits. Calls in sick. Forgets to follow up. Sleeps eight hours a day. You re-hire and re-train.</div>
+        <div class="big">£55-70k<span style="font-size:.5em;color:var(--muted)">/yr</span></div>
+        <div class="pts">Plus 14% employer NICs (£7.7k), 3% pension (£1.6k), 28 days holiday, desk, software, training, sick pay, and re-hiring when they leave. Total real cost: £75-85k/year for one seat that sleeps eight hours a day and quits on notice.</div>
       </div>
       <div class="price-card featured">
         <div class="who">Twinthos</div>
