@@ -529,7 +529,7 @@ a { color: inherit; text-decoration: none; }
 .scroll-section .body b { color: var(--ink); font-weight: 600; }
 .scroll-section .highlight { color: var(--silver); font-weight: 700; }
 
-/* GOLDEN CIRCLE → RENAMED to CIRCLE (no gold) */
+/* WHY section - Twinthos purpose */
 .circle-section { background: var(--g1); }
 .circle-section .circle-wrap {
   margin-top: 60px;
@@ -944,20 +944,26 @@ if (location.protocol !== 'https:') {
 <div class="scroll-container">
 
 <!-- WHY -->
-<section class="scroll-section circle-section" id="why">
+<section class="scroll-section" id="why" style="background: var(--g1);">
   <div class="wrap reveal">
     <div class="label">Why Twinthos exists</div>
     <h2>The limit on your business is <span class="chrome-shimmer">you</span>.</h2>
     <p class="body">You are the cap. You can only do so much in a day. Twinthos removes you from the equation so the work gets done with or without you. You own the worker. You stay the boss. The work just happens.</p>
-    <div class="circle-wrap">
-      <div class="circle">
-        <span class="ring-label why">WHY</span>
-        <span class="ring-label how">HOW</span>
-        <span class="ring-label what">WHAT</span>
-        <div class="center-text">
-          <div class="big">We remove the limit.</div>
-          <div class="small">Golden Circle: WHY . HOW . WHAT</div>
-        </div>
+    <div style="margin-top:60px; display:grid; gap:24px;">
+      <div style="border:1px solid var(--line); border-radius:16px; padding:36px;">
+        <div style="font-family:var(--mono); font-size:13px; font-weight:700; color:var(--silver); margin-bottom:20px;">01</div>
+        <div style="font-size:clamp(22px,4vw,30px); font-weight:800; letter-spacing:-.02em; line-height:1.1; margin-bottom:16px; color:var(--ink);">You are the bottleneck</div>
+        <div style="font-size:16px; color:var(--muted); line-height:1.6;">Every enquiry you miss, every follow-up you forget, every call you do not take — that is revenue you will never see. You are the single point of failure in your own business.</div>
+      </div>
+      <div style="border:1px solid var(--line); border-radius:16px; padding:36px;">
+        <div style="font-family:var(--mono); font-size:13px; font-weight:700; color:var(--silver); margin-bottom:20px;">02</div>
+        <div style="font-size:clamp(22px,4vw,30px); font-weight:800; letter-spacing:-.02em; line-height:1.1; margin-bottom:16px; color:var(--ink);">Twinthos is the removal of that limit</div>
+        <div style="font-size:16px; color:var(--muted); line-height:1.6;">A worker that never sleeps, never forgets, never stops following up. It answers your leads, books your calls, writes in your voice, and closes deals while you do the human work only you can do.</div>
+      </div>
+      <div style="border:1px solid var(--line); border-radius:16px; padding:36px;">
+        <div style="font-family:var(--mono); font-size:13px; font-weight:700; color:var(--silver); margin-bottom:20px;">03</div>
+        <div style="font-size:clamp(22px,4vw,30px); font-weight:800; letter-spacing:-.02em; line-height:1.1; margin-bottom:16px; color:var(--ink);">You stay the boss</div>
+        <div style="font-size:16px; color:var(--muted); line-height:1.6;">Twinthos runs on a server you own. It is governed by the Boss Protocol: you stay the boss. It never makes promises it cannot keep. We use Twinthos to sell Twinthos, so the proof is the page you are reading.</div>
       </div>
     </div>
   </div>
