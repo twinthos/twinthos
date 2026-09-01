@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- TWINTHOS · Aperture (final) — precision lens that watches while you sleep -->
+  <g stroke="#F2EFE9" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- outer ring, broken to form the aperture opening -->
+    <path d="M60 14 A46 46 0 1 1 59.9 14" />
+    <!-- the aperture blade sweeping in from the break -->
+    <path d="M60 14 L82 36" />
+    <!-- solid core = the always-on eye/intelligence -->
+    <circle cx="60" cy="60" r="9" fill="#F2EFE9" stroke="none"/>
+  </g>
+</svg>
