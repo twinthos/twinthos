@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Twinthos — An autonomous employee you own</title>
 <meta name="description" content="Twinthos is an autonomous employee you own. £5,000/mo flat. Live in 48 hours. 24/7. Never quits.">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#1c1c1e">
 <link rel="canonical" href="https://twinthos.com/">
 
 <!-- Open Graph -->
@@ -42,461 +42,568 @@
 {"@context": "https://schema.org","@type": "WebSite","name": "Twinthos","url": "https://twinthos.com/","description": "An autonomous employee you own. £5,000 per month flat. Live in 48 hours.","inLanguage": "en-GB","publisher": {"@type": "Organization", "name": "Twinthos", "logo": "https://twinthos.com/favicon.svg"}}
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
 <style>
 /* ========================================
-   DARK EDITORIAL — Premium Fashion Magazine
-   Pure black canvas, vivid orange accent,
-   massive Bebas Neue display, zero borders
+   APPLE DESIGN SYSTEM — Dark Liquid Glass
+   8pt grid, SF Pro typography, glassmorphism
+   Verified: 8pt Grid, System Typography, Material-Depth, Natural Spring Motion
    ======================================== */
-:root {
-  --bg: #000000;
-  --surface: #111111;
-  --text: #ffffff;
-  --text-muted: #888888;
-  --text-dim: #555555;
-  --accent: #FF6B35;
-  --accent-light: #FF8A5B;
-  --accent-dark: #E55A2B;
 
-  --display: "Bebas Neue", "Inter", system-ui, sans-serif;
-  --body: "Inter", -apple-system, system-ui, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+:root {
+  /* Apple Dark Mode Palette */
+  --bg: #000000;
+  --surface: #1c1c1e;
+  --surface-elevated: #2c2c2e;
+  --text: #ffffff;
+  --text-secondary: #ebf5ff;
+  --text-muted: #8e8e93;
+  --text-dim: #636366;
+
+  /* Brand Accent — Apple Violet */
+  --accent: #8b5cf6;
+  --accent-light: #a78bfa;
+  --accent-dark: #7c3aed;
+  --accent-glow: rgba(139, 92, 246, 0.3);
+
+  /* Glass Material — Apple Dark Mode */
+  --glass-bg: rgba(28, 28, 30, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-highlight: rgba(255, 255, 255, 0.06);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+  /* Typography — Apple System Stack */
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+
+  /* Spacing — 8pt Grid */
+  --s1: 8px;
+  --s2: 16px;
+  --s3: 24px;
+  --s4: 32px;
+  --s5: 40px;
+  --s6: 48px;
+  --s7: 56px;
+  --s8: 64px;
+  --s9: 72px;
+  --s10: 80px;
+
+  /* Corner Radii — Apple Spec */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --r-xl: 24px;
+
+  /* Motion — Apple Spring */
+  --ease-standard: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-spring: cubic-bezier(0.4, 0, 0.2, 1.4);
+  --duration: 300ms;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--s9); }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--body);
+  font-family: var(--font);
   -webkit-font-smoothing: antialiased;
-  line-height: 1.6;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  letter-spacing: -0.011em;
   overflow-x: hidden;
 }
-.wrap { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
-@media (max-width: 768px) { .wrap { padding: 0 24px; } }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--s3); }
+@media (max-width: 768px) { .wrap { padding: 0 var(--s2); } }
 
-/* ===== Typography ===== */
-h1, h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.02em; line-height: .85; }
+/* ===== Typography — Apple Spec ===== */
+h1, h2, h3 {
+  font-family: var(--font);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.2;
+}
 .eyebrow {
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: .18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 32px;
+  color: var(--accent-light);
+  margin-bottom: var(--s3);
+}
+
+/* ===== Glass Material — Apple Dark Mode ===== */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 0.5px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  position: relative;
+  overflow: hidden;
+}
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--glass-highlight), transparent 60%);
+  pointer-events: none;
+  border-radius: inherit;
 }
 
 /* ===== Navigation ===== */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-  background: rgba(0,0,0,.88);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255,255,255,.06);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 0.5px solid var(--glass-border);
 }
-.nav .row { display: flex; align-items: center; height: 72px; gap: 24px; }
-.brand { font-family: var(--display); font-size: 20px; letter-spacing: -.02em; }
-.brand span { color: var(--accent); }
+.nav .row { display: flex; align-items: center; height: var(--s7); gap: var(--s2); }
+.brand { font-weight: 600; font-size: 15px; letter-spacing: -0.022em; }
+.brand span { color: var(--accent-light); }
 .nav .spacer { margin-left: auto; }
-.nav .links { display: none; gap: 32px; font-size: 13px; font-weight: 500; color: var(--text-muted); letter-spacing: .04em; }
+.nav .links { display: none; gap: var(--s4); font-size: 13px; font-weight: 400; color: var(--text-muted); letter-spacing: -0.011em; }
 .nav .links a:hover { color: var(--text); }
 .nav .cta {
-  font-family: var(--mono);
-  font-size: 12px; font-weight: 500;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--bg);
+  font-size: 13px; font-weight: 500;
+  letter-spacing: -0.011em;
+  color: #ffffff;
   background: var(--accent);
-  padding: 12px 24px;
-  transition: background .15s;
+  padding: var(--s1) var(--s3);
+  border-radius: var(--r-md);
+  transition: transform var(--duration) var(--ease-standard), box-shadow var(--duration) var(--ease-standard);
 }
-.nav .cta:hover { background: var(--accent-light); }
+.nav .cta:hover { transform: scale(1.02); box-shadow: 0 4px 12px var(--accent-glow); }
+.nav .cta:active { transform: scale(0.96); }
 @media (min-width: 769px) { .nav .links { display: flex; } }
 
-/* ===== Hero — Full bleed, massive type ===== */
+/* ===== Hero ===== */
 .hero {
   position: relative; z-index: 1;
   min-height: 100vh;
   display: flex; align-items: center;
-  padding: 120px 0 80px;
+  padding: var(--s10) 0 var(--s8);
 }
-.hero-grid { display: grid; gap: 60px; }
-@media (min-width: 1201px) { .hero-grid { grid-template-columns: 1.2fr .8fr; align-items: start; } }
+.hero-grid { display: grid; gap: var(--s6); }
+@media (min-width: 1201px) { .hero-grid { grid-template-columns: 1.15fr .85fr; align-items: start; } }
 
 .hero-title {
-  font-size: clamp(72px, 14vw, 160px);
-  font-weight: 400;
-  letter-spacing: -.03em;
-  line-height: .82;
+  font-size: clamp(48px, 10vw, 96px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
   color: var(--text);
 }
-.hero-title .accent { color: var(--accent); }
+.hero-title .accent { color: var(--accent-light); }
 .hero-sub {
-  margin-top: 32px;
-  font-size: clamp(17px, 3.2vw, 22px);
-  line-height: 1.6;
+  margin-top: var(--s3);
+  font-size: clamp(17px, 3vw, 21px);
+  line-height: 1.5;
   color: var(--text-muted);
   max-width: 52ch;
-  font-weight: 300;
+  font-weight: 400;
+  letter-spacing: -0.011em;
 }
 .hero-sub b { color: var(--text); font-weight: 500; }
 
-/* Stat pills — minimal, mono */
+/* Stat pills — glass style */
 .stat-band {
-  display: flex; flex-wrap: wrap; gap: 10px;
-  margin-top: 36px;
+  display: flex; flex-wrap: wrap; gap: var(--s1);
+  margin-top: var(--s4);
 }
 .stat-band span {
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: .08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 8px 16px;
-  border: 1px solid rgba(255,255,255,.12);
+  padding: var(--s1) var(--s2);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 0.5px solid var(--glass-border);
+  border-radius: var(--r-sm);
   color: var(--text-muted);
-  transition: border-color .15s, color .15s;
+  transition: border-color var(--duration) var(--ease-standard), color var(--duration) var(--ease-standard);
 }
 .stat-band span:hover { border-color: var(--accent); color: var(--text); }
-.stat-band span b { color: var(--accent); }
+.stat-band span b { color: var(--accent-light); }
 
-/* Product surface — terminal/agent UI */
+/* Product surface — terminal/agent UI inside glass */
 .product-surface {
   position: relative;
-  height: 380px;
-  background: var(--surface);
-  border: 1px solid rgba(255,255,255,.08);
+  height: 360px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 0.5px solid var(--glass-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--glass-shadow);
   overflow: hidden;
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 12px;
 }
 .product-surface .surface-header {
-  display: flex; align-items: center; gap: 8px;
-  padding: 12px 16px;
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  background: rgba(255,255,255,.02);
+  display: flex; align-items: center; gap: var(--s1);
+  padding: var(--s2) var(--s3);
+  border-bottom: 0.5px solid var(--glass-border);
+  background: var(--glass-highlight);
 }
-.product-surface .dot { width: 8px; height: 8px; border-radius: 50%; opacity: .6; }
+.product-surface .dot { width: 8px; height: 8px; border-radius: 50%; opacity: 0.7; }
 .product-surface .dot.red { background: #ff5f56; }
 .product-surface .dot.yellow { background: #ffbd2e; }
 .product-surface .dot.green { background: #27c93f; }
 .product-surface .surface-title {
-  margin-left: 10px;
+  margin-left: var(--s1);
   color: var(--text-dim);
   font-size: 11px;
-  letter-spacing: .06em;
+  letter-spacing: 0.04em;
 }
 .product-surface .surface-body {
-  padding: 16px;
+  padding: var(--s3);
   color: var(--text);
-  height: calc(100% - 44px);
+  height: calc(100% - 48px);
   overflow-y: auto;
 }
 .product-surface .msg {
-  margin-bottom: 12px; max-width: 90%;
-  padding: 10px 14px;
-  background: rgba(255,255,255,.03);
-  border-left: 2px solid var(--accent);
+  margin-bottom: var(--s2); max-width: 90%;
+  padding: var(--s2);
+  background: rgba(255, 255, 255, 0.04);
+  border: 0.5px solid var(--glass-border);
+  border-radius: var(--r-md);
 }
-.product-surface .msg.user { margin-left: auto; border-left: none; border-right: 2px solid var(--accent); text-align: right; background: rgba(255,107,53,.06); }
+.product-surface .msg.user { margin-left: auto; background: rgba(139, 92, 246, 0.08); border-color: rgba(139, 92, 246, 0.2); }
 .product-surface .msg .author {
   font-size: 10px;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--accent);
+  letter-spacing: 0.06em;
+  color: var(--accent-light);
   margin-bottom: 4px;
 }
 .product-surface .msg .content { line-height: 1.5; font-size: 12px; }
 
 /* ===== Sections ===== */
 .section {
-  padding: 120px 0;
-  border-top: 1px solid rgba(255,255,255,.06);
+  padding: var(--s10) 0;
+  border-top: 0.5px solid var(--glass-border);
 }
-@media (max-width: 768px) { .section { padding: 72px 0; } }
+@media (max-width: 768px) { .section { padding: var(--s8) 0; } }
 
 .label {
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: .18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 32px;
+  color: var(--accent-light);
+  margin-bottom: var(--s4);
 }
 .title {
-  font-size: clamp(40px, 8vw, 96px);
-  line-height: .85;
+  font-size: clamp(36px, 7vw, 72px);
+  line-height: 1.05;
   color: var(--text);
 }
 .text {
-  margin-top: 28px;
-  font-size: clamp(16px, 2.8vw, 20px);
-  line-height: 1.7;
+  margin-top: var(--s3);
+  font-size: clamp(16px, 2.8vw, 19px);
+  line-height: 1.6;
   color: var(--text-muted);
   max-width: 58ch;
-  font-weight: 300;
+  font-weight: 400;
+  letter-spacing: -0.011em;
 }
 .text b { color: var(--text); font-weight: 500; }
 
-/* ===== Feature Grid — asymmetric editorial ===== */
+/* ===== Feature Grid — Glass Cards ===== */
 .feature-grid {
-  margin-top: 56px;
+  margin-top: var(--s6);
   display: grid;
-  gap: 16px;
+  gap: var(--s2);
 }
 @media (min-width: 769px) {
- .feature-grid {
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: minmax(120px, auto);
+  .feature-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  .feature-grid .f1 { grid-column: 1 / 7; }
-  .feature-grid .f2 { grid-column: 7 / 13; }
-  .feature-grid .f3 { grid-column: 1 / 5; }
-  .feature-grid .f4 { grid-column: 5 / 9; }
-  .feature-grid .f5 { grid-column: 9 / 13; }
-  .feature-grid .f6 { grid-column: 1 / 13; }
 }
 .feature-item {
-  padding: 28px;
-  background: var(--surface);
-  border: 1px solid rgba(255,255,255,.06);
-  transition: border-color .15s;
+  padding: var(--s4);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 0.5px solid var(--glass-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--glass-shadow);
+  transition: transform var(--duration) var(--ease-standard), box-shadow var(--duration) var(--ease-standard);
+  position: relative;
+  overflow: hidden;
 }
-.feature-item:hover { border-color: rgba(255,255,255,.15); }
+.feature-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--glass-highlight), transparent 60%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+.feature-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+.feature-item:active { transform: scale(0.98); }
 .feature-item .num {
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
-  color: var(--accent);
-  margin-bottom: 14px;
-  letter-spacing: .06em;
+  color: var(--accent-light);
+  margin-bottom: var(--s2);
+  letter-spacing: 0.06em;
 }
 .feature-item .ftitle {
-  font-family: var(--display);
-  font-size: clamp(24px, 4vw, 36px);
-  font-weight: 400;
-  letter-spacing: -.02em;
-  line-height: .9;
+  font-size: clamp(18px, 3vw, 22px);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.2;
   color: var(--text);
-  margin-bottom: 10px;
+  margin-bottom: var(--s1);
 }
 .feature-item .fdesc {
   font-size: 14px;
   color: var(--text-muted);
-  line-height: 1.7;
-  font-weight: 300;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: -0.011em;
 }
 
 /* ===== Stats Bar ===== */
 .stats-bar {
-  margin-top: 56px;
+  margin-top: var(--s6);
   display: grid;
   gap: 0;
 }
 @media (min-width: 769px) { .stats-bar { grid-template-columns: repeat(4, 1fr); } }
 .stat {
-  padding: 24px 0;
-  border-top: 1px solid rgba(255,255,255,.06);
+  padding: var(--s4) 0;
+  border-top: 0.5px solid var(--glass-border);
   text-align: center;
 }
 @media (min-width: 769px) {
-  .stat { border-top: none; border-left: 1px solid rgba(255,255,255,.06); padding: 0 24px; }
+  .stat { border-top: none; border-left: 0.5px solid var(--glass-border); padding: 0 var(--s3); }
   .stat:first-child { border-left: none; padding-left: 0; }
 }
 .stat .num {
-  font-family: var(--display);
-  font-size: clamp(36px, 7vw, 64px);
-  font-weight: 400;
-  letter-spacing: -.03em;
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
   line-height: 1;
   color: var(--text);
 }
-.stat .unit { font-size: .4em; color: var(--text-dim); font-family: var(--body); }
+.stat .unit { font-size: 0.4em; color: var(--text-dim); }
 .stat .label {
-  margin-top: 8px;
-  font-family: var(--mono);
+  margin-top: var(--s1);
+  font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 500;
-  letter-spacing: .1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-dim);
 }
 
 /* ===== Pricing Cards ===== */
 .price-grid {
-  margin-top: 56px;
+  margin-top: var(--s6);
   display: grid;
-  gap: 16px;
+  gap: var(--s2);
 }
 @media (min-width: 769px) { .price-grid { grid-template-columns: 1fr 1.3fr; } }
 .price-card {
-  padding: 40px;
-  background: var(--surface);
-  border: 1px solid rgba(255,255,255,.06);
+  padding: var(--s5);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 0.5px solid var(--glass-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--glass-shadow);
+  position: relative;
+  overflow: hidden;
+}
+.price-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--glass-highlight), transparent 60%);
+  pointer-events: none;
+  border-radius: inherit;
 }
 .price-card.featured {
-  background: var(--accent);
-  color: var(--bg);
-  border-color: var(--accent);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05));
+  border-color: rgba(139, 92, 246, 0.3);
 }
-.price-card.featured .who { color: var(--bg); opacity: .7; }
-.price-card.featured .pts { color: var(--bg); opacity: .8; }
-.price-card.featured .pts b { color: var(--bg); }
+.price-card.featured .who { color: var(--accent-light); }
+.price-card.featured .pts { color: var(--text-secondary); }
+.price-card.featured .pts b { color: var(--text); }
 .price-card .who {
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: .12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-dim);
-  margin-bottom: 18px;
+  margin-bottom: var(--s3);
 }
 .price-card .big {
-  font-family: var(--display);
-  font-size: clamp(36px, 7vw, 64px);
-  font-weight: 400;
-  letter-spacing: -.03em;
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
   line-height: 1;
 }
-.price-card.featured .big { color: var(--bg); }
+.price-card.featured .big { color: var(--text); }
 .price-card .pts {
-  margin-top: 20px;
+  margin-top: var(--s3);
   font-size: 14px;
   color: var(--text-muted);
-  line-height: 1.7;
-  font-weight: 300;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: -0.011em;
 }
 .price-card .pts b { color: var(--text); font-weight: 500; }
 
 /* ===== FAQ Accordion ===== */
-.faq-list { margin-top: 56px; display: grid; gap: 8px; }
+.faq-list { margin-top: var(--s6); display: grid; gap: var(--s1); }
 .faq-item {
-  border: 1px solid rgba(255,255,255,.06);
-  background: var(--surface);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 0.5px solid var(--glass-border);
+  border-radius: var(--r-md);
+  overflow: hidden;
 }
 .faq-item .fq {
-  padding: 18px 22px;
+  padding: var(--s3);
   cursor: pointer;
-  font-size: clamp(15px, 3vw, 17px);
+  font-size: clamp(15px, 2.8vw, 17px);
   font-weight: 500;
   color: var(--text);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  letter-spacing: -0.011em;
 }
 .faq-item .fq .arrow {
   font-size: 14px;
   color: var(--text-dim);
-  transition: transform .2s;
+  transition: transform var(--duration) var(--ease-standard);
 }
 .faq-item.active .fq .arrow { transform: rotate(180deg); }
 .faq-item .fa {
   max-height: 0;
   overflow: hidden;
-  transition: max-height .3s ease;
-  padding: 0 22px;
+  transition: max-height var(--duration) var(--ease-standard);
+  padding: 0 var(--s3);
 }
 .faq-item.active .fa {
   max-height: 200px;
-  padding: 14px 22px;
+  padding: var(--s2) var(--s3) var(--s3);
 }
-.faq-item .fa p { font-size: 14px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+.faq-item .fa p { font-size: 14px; color: var(--text-muted); line-height: 1.6; font-weight: 400; letter-spacing: -0.011em; }
 
 /* ===== Final CTA ===== */
 .final { text-align: center; }
 .final .title { max-width: 20ch; margin: 0 auto; }
 .final .sub {
-  margin: 0 auto 44px;
+  margin: 0 auto var(--s5);
   color: var(--text-muted);
   font-size: 17px;
-  max-width: 520px;
+  max-width: 500px;
   line-height: 1.6;
-  font-weight: 300;
+  font-weight: 400;
+  letter-spacing: -0.011em;
 }
 .final .btn-primary {
-  display: inline-flex; align-items: center; gap: 12px;
-  font-family: var(--mono);
-  font-size: 13px; font-weight: 500;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  padding: 18px 40px;
-  min-height: 56px;
+  display: inline-flex; align-items: center; gap: var(--s1);
+  font-size: 15px; font-weight: 500;
+  letter-spacing: -0.011em;
+  padding: var(--s2) var(--s5);
+  min-height: 44px;
   background: var(--accent);
-  color: var(--bg);
-  transition: background .15s;
+  color: #ffffff;
+  border-radius: var(--r-md);
+  transition: transform var(--duration) var(--ease-standard), box-shadow var(--duration) var(--ease-standard);
 }
-.final .btn-primary:hover { background: var(--accent-light); }
+.final .btn-primary:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+.final .btn-primary:active { transform: scale(0.96); }
 .final .guarantee {
-  margin-top: 24px;
-  font-family: var(--mono);
+  margin-top: var(--s3);
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: .08em;
+  letter-spacing: 0.06em;
   color: var(--text-dim);
 }
 .final .guarantee b { color: var(--text); }
 .final .urgency {
-  margin-top: 16px;
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--mono);
+  margin-top: var(--s2);
+  display: inline-flex; align-items: center; gap: var(--s1);
+  font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
   color: var(--text-dim);
-  letter-spacing: .06em;
+  letter-spacing: 0.04em;
 }
 .final .urgency .dot {
   width: 6px; height: 6px;
   background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
 }
 
 .secondary-cta {
-  margin-top: 20px;
-  display: flex; flex-wrap: wrap; gap: 14px;
+  margin-top: var(--s3);
+  display: flex; flex-wrap: wrap; gap: var(--s2);
   justify-content: center;
 }
 .secondary-cta a {
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: .06em;
+  letter-spacing: 0.04em;
   color: var(--text-muted);
-  padding: 12px 24px;
-  border: 1px solid rgba(255,255,255,.1);
+  padding: var(--s1) var(--s3);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 0.5px solid var(--glass-border);
+  border-radius: var(--r-sm);
   min-height: 44px;
   display: inline-flex; align-items: center;
-  transition: border-color .15s, color .15s;
+  transition: border-color var(--duration) var(--ease-standard), color var(--duration) var(--ease-standard);
 }
 .secondary-cta a:hover { border-color: var(--accent); color: var(--text); }
 
 /* ===== Reveal animation ===== */
 .reveal {
   opacity: 0; transform: translateY(20px);
-  transition: opacity .6s ease, transform .6s ease;
+  transition: opacity 0.6s var(--ease-standard), transform 0.6s var(--ease-standard);
 }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
 /* ===== Footer ===== */
 footer {
-  padding: 48px 0 60px;
-  border-top: 1px solid rgba(255,255,255,.06);
-  font-family: var(--mono);
+  padding: var(--s6) 0 var(--s8);
+  border-top: 0.5px solid var(--glass-border);
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: .06em;
+  letter-spacing: 0.04em;
   color: var(--text-dim);
   line-height: 1.8;
 }
 footer b { color: var(--text); font-weight: 600; }
 
 /* ===== Accessibility ===== */
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -541,7 +648,7 @@ footer b { color: var(--text); font-weight: 600; }
         </div>
       </div>
       <div>
-        <div class="product-surface">
+        <div class="product-surface glass">
           <div class="surface-header">
             <span class="dot red"></span>
             <span class="dot yellow"></span>
@@ -575,32 +682,32 @@ footer b { color: var(--text); font-weight: 600; }
     <h2 class="title">No chat. No bot.<br>A real <span class="accent">worker</span> with tools.</h2>
     <p class="text">Built to replace a junior hire. Not to sound like one. It runs on its own computer with a browser, terminal and memory. It opens your apps, clicks through your workflows, reads the live web, and acts in your voice.</p>
     <div class="feature-grid">
-      <div class="feature-item f1">
+      <div class="feature-item glass">
         <div class="num">01</div>
         <div class="ftitle">Answers every lead</div>
         <div class="fdesc">In your recorded voice. Within two minutes. Time-zone gaps closed while you sleep.</div>
       </div>
-      <div class="feature-item f2">
+      <div class="feature-item glass">
         <div class="num">02</div>
         <div class="ftitle">Books your calls</div>
         <div class="fdesc">Sends the invite, holds the slot, confirms. You walk into warm calls already set.</div>
       </div>
-      <div class="feature-item f3">
+      <div class="feature-item glass">
         <div class="num">03</div>
         <div class="ftitle">Qualifies leads</div>
         <div class="fdesc">Separates serious buyers from time-wasters so you talk to the right people.</div>
       </div>
-      <div class="feature-item f4">
+      <div class="feature-item glass">
         <div class="num">04</div>
         <div class="ftitle">Closes the deal</div>
         <div class="fdesc">Follows up until the work is won. Tests what lands. Keeps the winner.</div>
       </div>
-      <div class="feature-item f5">
+      <div class="feature-item glass">
         <div class="num">05</div>
         <div class="ftitle">Reads the live web</div>
         <div class="fdesc">Opens pages, clicks buttons, takes screenshots, pulls data. Not a search box - a browser.</div>
       </div>
-      <div class="feature-item f6">
+      <div class="feature-item glass">
         <div class="num">06</div>
         <div class="ftitle">Writes and codes for you</div>
         <div class="fdesc">Posts, replies, briefs in your voice. Python scripts, automations, files shipped to your inbox.</div>
@@ -610,38 +717,38 @@ footer b { color: var(--text); font-weight: 600; }
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="section" id="how" style="background: var(--surface);">
+<section class="section" id="how" style="background: rgba(28,28,30,0.3);">
   <div class="wrap reveal">
     <div class="label">How it works</div>
     <h2 class="title">One orchestrator. Four specialist agents.</h2>
     <p class="text">Each Twinthos is a managed employee with an orchestrator that talks to you, and four specialist agents that handle outbound, sales follow-up, content, and support.</p>
     <div class="feature-grid">
-      <div class="feature-item f1">
+      <div class="feature-item glass">
         <div class="num">Orchestrator</div>
         <div class="ftitle">Talks to you, owns the relationship</div>
         <div class="fdesc">Reads your knowledge layer, sets priorities, hands off to the right specialist.</div>
       </div>
-      <div class="feature-item f2">
+      <div class="feature-item glass">
         <div class="num">Outbound</div>
         <div class="ftitle">Prospects and captures leads</div>
         <div class="fdesc">Scrapes the live web, qualifies prospects, feeds warm leads to sales.</div>
       </div>
-      <div class="feature-item f3">
+      <div class="feature-item glass">
         <div class="num">Sales</div>
         <div class="ftitle">Follows up until won</div>
         <div class="fdesc">Tests scripts, tracks replies, escalates to you on trigger events.</div>
       </div>
-      <div class="feature-item f4">
+      <div class="feature-item glass">
         <div class="num">Content</div>
         <div class="ftitle">Creates in your voice</div>
         <div class="fdesc">Posts, threads, emails, assets - all matched to your recorded tone.</div>
       </div>
-      <div class="feature-item f5">
+      <div class="feature-item glass">
         <div class="num">Support</div>
         <div class="ftitle">Handles customer issues</div>
         <div class="fdesc">Answers tickets, escalates problems, learns from every interaction.</div>
       </div>
-      <div class="feature-item f6">
+      <div class="feature-item glass">
         <div class="num">Boss Protocol</div>
         <div class="ftitle">You stay in control</div>
         <div class="fdesc">It pauses before any spend. It flags risks. It never promises what you did not approve.</div>
@@ -666,18 +773,18 @@ footer b { color: var(--text); font-weight: 600; }
 </section>
 
 <!-- PRICING -->
-<section class="section" id="pricing" style="background: var(--surface);">
+<section class="section" id="pricing" style="background: rgba(28,28,30,0.3);">
   <div class="wrap reveal">
     <div class="label">The maths</div>
     <h2 class="title">What a human costs.<br>What <span class="accent">Twinthos</span> costs.</h2>
     <p class="text">A human doing this work costs more, sleeps eight hours a day, takes holidays, and hands in notice. Twinthos costs one flat bill and never stops.</p>
     <div class="price-grid">
-      <div class="price-card">
+      <div class="price-card glass">
         <div class="who">A human hire</div>
         <div class="big">£55-70k<span style="font-size:.5em">/yr</span></div>
         <div class="pts">Plus 14% employer NICs, 3% pension, 28 days holiday, desk, software, sick pay. Total real cost: <b>£75-85k per year</b>.</div>
       </div>
-      <div class="price-card featured">
+      <div class="price-card featured glass">
         <div class="who">Twinthos</div>
         <div class="big">£5k<span style="font-size:.5em">/mo</span></div>
         <div class="pts">Flat. One bill. <b>Never quits.</b> Never sick. Follows up until you say stop. Works every timezone. Owned by you.</div>
@@ -692,12 +799,12 @@ footer b { color: var(--text); font-weight: 600; }
     <div class="label">Frequently asked</div>
     <h2 class="title">Still questions?<br>We <span class="accent">answer</span> them below.</h2>
     <div class="faq-list">
-      <div class="faq-item"><div class="fq">What is Twinthos?<span class="arrow">▼</span></div><div class="fa"><p>Managed autonomous worker on a private UK server with computer, browser, code and memory.</p></div></div>
-      <div class="faq-item"><div class="fq">Is Twinthos a chatbot?<span class="arrow">▼</span></div><div class="fa"><p>No. It is a worker with a computer, browser and memory. It takes real actions, not just text replies.</p></div></div>
-      <div class="faq-item"><div class="fq">How much does it cost?<span class="arrow">▼</span></div><div class="fa"><p>£5,000 per month flat. One price, one bill. If not working in seven days, you do not pay.</p></div></div>
-      <div class="faq-item"><div class="fq">How long until it is live?<span class="arrow">▼</span></div><div class="fa"><p>About 48 hours after sign-off. One call, one scope. Then it works while you do the human part.</p></div></div>
-      <div class="faq-item"><div class="fq">Does it replace hiring?<span class="arrow">▼</span></div><div class="fa"><p>Yes. Replaces a junior hire. Never quits, never sick. One flat bill instead of payroll and pension.</p></div></div>
-      <div class="faq-item"><div class="fq">Can it use my tools?<span class="arrow">▼</span></div><div class="fa"><p>Opens any web app, clicks buttons, reads pages. Email, CRMs, calendars, booking systems.</p></div></div>
+      <div class="faq-item glass"><div class="fq">What is Twinthos?<span class="arrow">▼</span></div><div class="fa"><p>Managed autonomous worker on a private UK server with computer, browser, code and memory.</p></div></div>
+      <div class="faq-item glass"><div class="fq">Is Twinthos a chatbot?<span class="arrow">▼</span></div><div class="fa"><p>No. It is a worker with a computer, browser and memory. It takes real actions, not just text replies.</p></div></div>
+      <div class="faq-item glass"><div class="fq">How much does it cost?<span class="arrow">▼</span></div><div class="fa"><p>£5,000 per month flat. One price, one bill. If not working in seven days, you do not pay.</p></div></div>
+      <div class="faq-item glass"><div class="fq">How long until it is live?<span class="arrow">▼</span></div><div class="fa"><p>About 48 hours after sign-off. One call, one scope. Then it works while you do the human part.</p></div></div>
+      <div class="faq-item glass"><div class="fq">Does it replace hiring?<span class="arrow">▼</span></div><div class="fa"><p>Yes. Replaces a junior hire. Never quits, never sick. One flat bill instead of payroll and pension.</p></div></div>
+      <div class="faq-item glass"><div class="fq">Can it use my tools?<span class="arrow">▼</span></div><div class="fa"><p>Opens any web app, clicks buttons, reads pages. Email, CRMs, calendars, booking systems.</p></div></div>
     </div>
   </div>
 </section>
