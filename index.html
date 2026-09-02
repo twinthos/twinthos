@@ -3,17 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Twinthos — An autonomous employee you own</title>
+<title>Twinthos - An autonomous employee you own</title>
 <meta name="description" content="Twinthos is an autonomous employee you own. £5,000/mo flat. Live in 48 hours. 24/7. Never quits.">
-<meta name="theme-color" content="#1c1c1e">
+<meta name="theme-color" content="#09090b">
 <link rel="canonical" href="https://twinthos.com/">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Twinthos — An autonomous employee you own">
+<meta property="og:title" content="Twinthos - An autonomous employee you own">
 <meta property="og:description" content="£5,000/mo flat. Live in 48 hours. 24/7. Never quits.">
+<meta property="og:image" content="https://twinthos.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Twinthos - An autonomous employee you own. £5,000/mo flat.">
 <meta property="og:url" content="https://twinthos.com/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Twinthos - An autonomous employee you own">
+<meta name="twitter:description" content="£5,000/mo flat. Live in 48 hours. 24/7. Never quits.">
+<meta name="twitter:image" content="https://twinthos.com/og.png">
+<meta name="twitter:image:alt" content="Twinthos autonomous employee.">
 
 <!-- Schema: FAQPage -->
 <script type="application/ld+json">
@@ -44,36 +55,37 @@
 
 <style>
 /* ========================================
-   APPLE DESIGN SYSTEM — Dark Liquid Glass
-   8pt grid, SF Pro typography, glassmorphism
-   Verified: 8pt Grid, System Typography, Material-Depth, Natural Spring Motion
+   TWINTHOS DESIGN SYSTEM — Gunmetal Steel
+   8pt grid, Inter/Space Grotesk typography, steel glass
+   Verified: 8pt Grid, Steel Depth, Cold Motion
+   No violet. No gold. No candy colors.
    ======================================== */
 
 :root {
-  /* Apple Dark Mode Palette */
+  /* Twinthos Gunmetal Steel Palette */
   --bg: #000000;
-  --surface: #1c1c1e;
-  --surface-elevated: #2c2c2e;
+  --surface: #09090b;
+  --surface-elevated: #111114;
   --text: #ffffff;
-  --text-secondary: #ebf5ff;
-  --text-muted: #8e8e93;
-  --text-dim: #636366;
+  --text-secondary: #e4e4e7;
+  --text-muted: #a1a1aa;
+  --text-dim: #71717a;
 
-  /* Brand Accent — Apple Violet */
-  --accent: #8b5cf6;
-  --accent-light: #a78bfa;
-  --accent-dark: #7c3aed;
-  --accent-glow: rgba(139, 92, 246, 0.3);
+  /* Brand Accent — Electric Steel Blue */
+  --accent: #3B82F6;
+  --accent-light: #7AA6FF;
+  --accent-dark: #2563EB;
+  --accent-glow: rgba(59, 130, 241, 0.35);
 
-  /* Glass Material — Apple Dark Mode */
-  --glass-bg: rgba(28, 28, 30, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.15);
-  --glass-highlight: rgba(255, 255, 255, 0.06);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  /* Steel Glass Material */
+  --glass-bg: rgba(9, 9, 11, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.04);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
 
-  /* Typography — Apple System Stack */
-  --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
-  --font-mono: "SF Mono", ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+  /* Typography — System Stack */
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", system-ui, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
 
   /* Spacing — 8pt Grid */
   --s1: 8px;
@@ -250,9 +262,9 @@ h1, h2, h3 {
   background: var(--glass-highlight);
 }
 .product-surface .dot { width: 8px; height: 8px; border-radius: 50%; opacity: 0.7; }
-.product-surface .dot.red { background: #ff5f56; }
-.product-surface .dot.yellow { background: #ffbd2e; }
-.product-surface .dot.green { background: #27c93f; }
+.product-surface .dot.red { background: #f87171; }
+.product-surface .dot.yellow { background: #fbbf24; }
+.product-surface .dot.green { background: #4ade80; }
 .product-surface .surface-title {
   margin-left: var(--s1);
   color: var(--text-dim);
@@ -272,7 +284,7 @@ h1, h2, h3 {
   border: 0.5px solid var(--glass-border);
   border-radius: var(--r-md);
 }
-.product-surface .msg.user { margin-left: auto; background: rgba(139, 92, 246, 0.08); border-color: rgba(139, 92, 246, 0.2); }
+.product-surface .msg.user { margin-left: auto; background: rgba(59, 130, 241, 0.12); border-color: rgba(59, 130, 241, 0.3); }
 .product-surface .msg .author {
   font-size: 10px;
   font-weight: 500;
@@ -436,8 +448,8 @@ h1, h2, h3 {
   border-radius: inherit;
 }
 .price-card.featured {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05));
-  border-color: rgba(139, 92, 246, 0.3);
+  background: linear-gradient(135deg, rgba(59, 130, 241, 0.15), rgba(59, 130, 241, 0.04));
+  border-color: rgba(59, 130, 241, 0.4);
 }
 .price-card.featured .who { color: var(--accent-light); }
 .price-card.featured .pts { color: var(--text-secondary); }
