@@ -3,300 +3,343 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TWINTHOS — Autonomous AI Agent Website Builder</title>
-<meta name="description" content="TWINTHOS demonstrates state-of-the-art autonomous AI agent website creation. Production websites built by multi-agent workflows without human intervention.">
-<meta name="theme-color" content="#0a0a0a">
+<title>TWINTHOS — Non-Human Intelligence for UK SMEs | £5,000/month</title>
+<meta name="description" content="TWINTHOS is a managed Non-Human Intelligence (NHI) employee engine for UK SMEs. Six specialised AI agents execute operations, sales, and growth at £5,000/month flat. No integration, no training, no headcount.">
+<meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://twinthos.com/">
-<meta property="og:title" content="TWINTHOS — Autonomous AI Agent Website Builder">
-<meta property="og:description" content="Production websites built by autonomous multi-agent workflows. State of the art 2026.">
+<meta property="og:title" content="TWINTHOS — Non-Human Intelligence for UK SMEs">
+<meta property="og:description" content="Managed AI employee engine. Six agents. £5,000/month flat. UK SME only.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://twinthos.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0a0a0a;
-  --fg:#ededed;
+  --bg:#000000;
+  --fg:#ffffff;
   --muted:#8a8a8a;
   --line:#1a1a1a;
-  --panel:#111111;
-  --accent:#ff4d1a;
+  --violet:#8b5cf6;
   --mono:'SF Mono','JetBrains Mono','Courier New',monospace;
-  --sans:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
-html,body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-body{overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:32px;line-height:1.4;font-weight:300;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-button,input{font:inherit;color:inherit;background:none;border:0}
-img,svg{display:block;max-width:100%}
-::selection{background:var(--accent);color:#000}
-.wrap{max-width:1440px;margin:0 auto;padding:0 32px}
-@media(max-width:720px){.wrap{padding:0 20px}}
-.nav{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.02em;font-size:17px}
-.brand-mark{width:22px;height:22px;background:var(--fg);position:relative}
-.brand-mark::after{content:"";position:absolute;inset:0;background:var(--accent);clip-path:polygon(0 0,100% 0,100% 40%,0 100%)}
-.nav-links{display:flex;gap:32px;font-size:14px;color:var(--muted)}
+::selection{background:var(--violet);color:#000}
+
+.wrap{max-width:1440px;margin:0 auto;padding:0 64px}
+@media(max-width:960px){.wrap{padding:0 32px}}
+@media(max-width:560px){.wrap{padding:0 24px}}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px}
+.brand{font-weight:600;letter-spacing:-.02em;font-size:32px}
+.brand b{color:var(--violet);font-weight:600}
+.nav-links{display:flex;gap:48px;font-size:24px;color:var(--muted);font-weight:300}
 .nav-links a:hover{color:var(--fg)}
-.nav-cta{display:flex;align-items:center;gap:12px;font-size:14px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border:1px solid var(--line);background:transparent;color:var(--fg);font-size:14px;font-weight:500;cursor:pointer;transition:all .2s ease}
-.btn:hover{border-color:var(--fg)}
-.btn-primary{background:var(--fg);color:#0a0a0a;border-color:var(--fg)}
-.btn-primary:hover{background:var(--accent);border-color:var(--accent);color:#0a0a0a}
-@media(max-width:720px){.nav-links{display:none}}
-.hero{padding:120px 0 80px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 800px 400px at 50% 0%,rgba(255,77,26,.06),transparent 60%);pointer-events:none}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--line);background:var(--panel);font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:32px;letter-spacing:.02em}
-.eyebrow .dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+.nav-cta{display:flex;align-items:center;gap:24px;font-size:24px}
+@media(max-width:720px){.nav-links{display:none}.nav-cta{font-size:18px}}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:18px 32px;border:1px solid var(--fg);background:transparent;color:var(--fg);font-family:inherit;font-size:24px;font-weight:400;cursor:pointer;transition:all .2s ease;letter-spacing:-.01em}
+.btn:hover{background:var(--fg);color:#000}
+.btn-primary{background:var(--violet);color:#fff;border-color:var(--violet)}
+.btn-primary:hover{background:#fff;color:#000;border-color:#fff}
+@media(max-width:560px){.btn{font-size:18px;padding:14px 24px}}
+
+/* HERO */
+.hero{padding:160px 0 120px;border-bottom:1px solid var(--line);position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;padding:12px 20px;border:1px solid var(--line);font-size:18px;color:var(--muted);margin-bottom:64px;letter-spacing:.02em;text-transform:uppercase}
+.eyebrow .dot{width:8px;height:8px;background:var(--violet);border-radius:50%;animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-h1{font-size:clamp(48px,8vw,96px);line-height:.95;letter-spacing:-.04em;font-weight:600;margin-bottom:32px}
-h1 em{font-style:normal;color:var(--accent);font-family:var(--mono);font-weight:400}
-.lede{font-size:clamp(18px,2vw,22px);line-height:1.45;color:var(--muted);max-width:720px;margin-bottom:48px;font-weight:400}
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-.hero-actions .meta{font-family:var(--mono);font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px}
-.meta .sep{color:var(--line)}
-.marquee{border-bottom:1px solid var(--line);padding:24px 0;overflow:hidden;background:var(--panel)}
-.marquee-track{display:flex;gap:48px;animation:scroll 40s linear infinite;width:max-content;font-family:var(--mono);font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-.marquee-track span{display:inline-flex;align-items:center;gap:12px;white-space:nowrap}
-.marquee-track .sep{width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0}
-@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-section{padding:120px 0;border-bottom:1px solid var(--line)}
-.section-head{margin-bottom:80px;display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:end}
-@media(max-width:720px){.section-head{grid-template-columns:1fr;gap:24px;margin-bottom:48px}}
-.label{font-family:var(--mono);font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;display:block}
-h2{font-size:clamp(36px,5vw,64px);line-height:1;letter-spacing:-.03em;font-weight:600}
-.section-head p{font-size:18px;color:var(--muted);line-height:1.5;max-width:560px}
-.agents{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-@media(max-width:960px){.agents{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.agents{grid-template-columns:1fr}}
-.agent{padding:32px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;transition:background .2s ease}
-.agent:hover{background:var(--panel)}
-.agent-num{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:48px;display:flex;justify-content:space-between;align-items:center}
-.agent-status{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite}
-.agent-name{font-size:24px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}
-.agent-role{font-size:14px;color:var(--muted);margin-bottom:24px;font-family:var(--mono)}
-.agent-desc{font-size:15px;line-height:1.5;color:var(--muted)}
-.agent-tools{margin-top:24px;display:flex;flex-wrap:wrap;gap:6px}
-.tool{font-family:var(--mono);font-size:11px;padding:4px 8px;border:1px solid var(--line);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-@media(max-width:720px){.metrics{grid-template-columns:repeat(2,1fr)}}
-.metric{padding:40px 32px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-.metric-val{font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.03em;line-height:1;margin-bottom:12px;font-family:var(--mono)}
-.metric-val .unit{color:var(--accent);font-size:.6em;margin-left:4px}
-.metric-label{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-family:var(--mono)}
-.workflow{border:1px solid var(--line);background:var(--panel);padding:48px;font-family:var(--mono);font-size:13px;color:var(--muted);overflow-x:auto}
-@media(max-width:720px){.workflow{padding:24px;font-size:12px}}
-.workflow-line{display:grid;grid-template-columns:auto auto 1fr;gap:16px;padding:8px 0;align-items:center;border-bottom:1px solid var(--line)}
-.workflow-line:last-child{border-bottom:0}
-.workflow-ts{color:var(--muted);min-width:80px}
-.workflow-tag{color:var(--accent);min-width:100px}
-.workflow-msg{color:var(--fg)}
-.cursor{display:inline-block;width:8px;height:14px;background:var(--accent);vertical-align:middle;margin-left:4px;animation:blink 1s steps(1) infinite}
-@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
-.cta{padding:160px 0;text-align:center;background:var(--bg);position:relative;overflow:hidden;border-bottom:0}
-.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 600px 300px at 50% 50%,rgba(255,77,26,.08),transparent 60%);pointer-events:none}
-.cta h2{margin-bottom:24px}
-.cta p{font-size:18px;color:var(--muted);margin-bottom:48px;max-width:560px;margin-left:auto;margin-right:auto}
-.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-footer{padding:48px 0;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
-.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
-.foot-links{display:flex;gap:24px}
+h1{font-size:clamp(70px,9vw,140px);line-height:.95;letter-spacing:-.04em;font-weight:600;margin-bottom:48px;max-width:18ch}
+h1 em{font-style:normal;color:var(--violet);font-weight:600}
+.lede{font-size:clamp(28px,3vw,42px);line-height:1.35;color:var(--muted);max-width:22ch;margin-bottom:80px;font-weight:300}
+.hero-actions{display:flex;gap:24px;flex-wrap:wrap;align-items:center;margin-bottom:80px}
+.hero-meta{font-size:18px;color:var(--muted);padding-top:48px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+@media(max-width:720px){.hero-meta{grid-template-columns:repeat(2,1fr);gap:24px}}
+.hero-meta-item .val{font-size:48px;font-weight:500;color:var(--fg);font-family:var(--mono);letter-spacing:-.02em;display:block;margin-bottom:8px}
+.hero-meta-item .label{font-size:18px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+
+/* SECTIONS */
+section{padding:160px 0;border-bottom:1px solid var(--line)}
+@media(max-width:720px){section{padding:96px 0}}
+.section-head{margin-bottom:96px}
+.label{font-size:18px;color:var(--violet);text-transform:uppercase;letter-spacing:.08em;margin-bottom:24px;display:block;font-family:var(--mono)}
+h2{font-size:clamp(48px,6vw,90px);line-height:1;letter-spacing:-.03em;font-weight:600;margin-bottom:32px;max-width:20ch}
+.section-head p{font-size:clamp(24px,2.4vw,32px);color:var(--muted);line-height:1.4;max-width:32ch;font-weight:300}
+
+/* WHAT IT IS */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start}
+@media(max-width:960px){.split{grid-template-columns:1fr;gap:64px}}
+.split ul{list-style:none;margin-top:48px}
+.split li{font-size:clamp(24px,2.4vw,32px);line-height:1.4;padding:24px 0;border-bottom:1px solid var(--line);display:flex;gap:16px;color:var(--fg)}
+.split li::before{content:"→";color:var(--violet);flex-shrink:0;font-weight:500}
+.split li:last-child{border-bottom:0}
+
+/* THE SIX AGENTS */
+.agents{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+@media(max-width:720px){.agents{grid-template-columns:1fr}}
+.agent{padding:48px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .2s ease}
+.agent:hover{background:#0a0a0a}
+.agent-num{font-size:18px;color:var(--violet);font-family:var(--mono);margin-bottom:32px;display:flex;justify-content:space-between;align-items:center}
+.agent-num .status{width:10px;height:10px;background:var(--violet);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+.agent-name{font-size:48px;font-weight:500;letter-spacing:-.02em;margin-bottom:12px}
+.agent-role{font-size:18px;color:var(--muted);margin-bottom:24px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em}
+.agent-desc{font-size:24px;line-height:1.45;color:var(--muted);font-weight:300}
+@media(max-width:720px){.agent-name{font-size:36px}.agent-desc{font-size:20px}}
+
+/* WHAT IT DOES */
+.do-list{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+@media(max-width:720px){.do-list{grid-template-columns:1fr}}
+.do-item{padding:48px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.do-num{font-size:18px;color:var(--violet);font-family:var(--mono);margin-bottom:24px;display:block}
+.do-title{font-size:36px;font-weight:500;letter-spacing:-.02em;margin-bottom:16px;line-height:1.1}
+.do-text{font-size:24px;line-height:1.4;color:var(--muted);font-weight:300}
+@media(max-width:720px){.do-title{font-size:30px}.do-text{font-size:20px}}
+
+/* PRICING */
+.pricing{text-align:center;max-width:900px;margin:0 auto}
+.price{font-size:clamp(80px,10vw,140px);font-weight:500;letter-spacing:-.04em;line-height:1;margin:48px 0 24px;font-family:var(--mono)}
+.price .currency{color:var(--violet)}
+.price .per{font-size:32px;color:var(--muted);font-weight:300}
+.price-sub{font-size:24px;color:var(--muted);margin-bottom:64px;font-weight:300}
+.price-includes{font-size:24px;color:var(--fg);margin:48px 0;line-height:1.6;text-align:left;max-width:640px;margin-left:auto;margin-right:auto}
+.price-includes div{padding:16px 0;border-bottom:1px solid var(--line);display:flex;gap:16px;align-items:center}
+.price-includes div::before{content:"✓";color:var(--violet);font-weight:600;font-size:28px;flex-shrink:0}
+
+/* QUOTE */
+.quote{font-size:clamp(36px,4.5vw,64px);line-height:1.2;letter-spacing:-.02em;font-weight:400;max-width:20ch;margin:0 auto;text-align:center}
+.quote::before{content:"\201C";color:var(--violet);font-size:1.2em;line-height:0;vertical-align:-.2em;margin-right:8px}
+.quote::after{content:"\201D";color:var(--violet);font-size:1.2em;line-height:0;vertical-align:-.2em;margin-left:8px}
+.quote-cite{font-size:18px;color:var(--muted);margin-top:48px;text-align:center;text-transform:uppercase;letter-spacing:.05em;font-family:var(--mono)}
+
+/* CTA */
+.cta{padding:200px 0;text-align:center;border-bottom:0}
+.cta h2{margin:0 auto 32px;text-align:center;max-width:18ch}
+.cta p{font-size:clamp(24px,2.4vw,32px);color:var(--muted);margin:0 auto 64px;max-width:32ch;font-weight:300;line-height:1.4}
+.cta-actions{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{padding:64px 0;border-top:1px solid var(--line);font-size:18px;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:32px}
+.foot-links{display:flex;gap:32px}
 .foot-links a:hover{color:var(--fg)}
-.foot-credit{font-family:var(--mono)}
+.foot-credit{font-family:var(--mono);font-size:18px}
 </style>
 </head>
 <body>
+
 <header class="nav">
 <div class="wrap nav-inner">
-  <a class="brand" href="/">
-    <span class="brand-mark"></span>
-    <span>TWINTHOS</span>
-  </a>
+  <a class="brand" href="/">TWINTH<b>O</b>S</a>
   <nav class="nav-links">
+    <a href="#what">What</a>
     <a href="#agents">Agents</a>
-    <a href="#metrics">Performance</a>
-    <a href="#workflow">Live Build</a>
-    <a href="#contact">Contact</a>
+    <a href="#price">Price</a>
+    <a href="#contact">Talk</a>
   </nav>
   <div class="nav-cta">
-    <a class="btn btn-primary" href="#contact">Start Project</a>
+    <a class="btn btn-primary" href="#contact">Book Audit</a>
   </div>
 </div>
 </header>
+
 <section class="hero">
 <div class="wrap">
-  <div class="eyebrow"><span class="dot"></span> v3.2 · 6 agents active · build 4,847</div>
-  <h1>Websites built by <em>agents</em>, not agencies.</h1>
-  <p class="lede">TWINTHOS is a multi-agent system that designs, builds, and deploys production websites without human intervention. Six specialised AI agents coordinate over shared state, verifiers gate every output, and the result ships in under twelve minutes.</p>
+  <div class="eyebrow"><span class="dot"></span> NON-HUMAN INTELLIGENCE · UK SME</div>
+  <h1>Your AI <em>employee</em>. £5,000 a month. Live in 14 days.</h1>
+  <p class="lede">TWINTHOS is a managed Non-Human Intelligence engine. Six specialised AI agents run your sales, ops, and growth — without headcount, integration, or training.</p>
   <div class="hero-actions">
-    <a class="btn btn-primary" href="#contact">Deploy Your Project</a>
-    <a class="btn" href="#workflow">Watch Live Build</a>
-    <span class="meta">build 4,847 <span class="sep">·</span> uptime 99.99% <span class="sep">·</span> last deploy 2m ago</span>
+    <a class="btn btn-primary" href="#contact">Book a £999 Audit</a>
+    <a class="btn" href="#what">See How It Works</a>
+  </div>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="val">14d</span>
+      <span class="label">to live</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="val">£5K</span>
+      <span class="label">flat per month</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="val">6</span>
+      <span class="label">specialised agents</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="val">0</span>
+      <span class="label">headcount added</span>
+    </div>
   </div>
 </div>
 </section>
-<div class="marquee" aria-hidden="true">
-<div class="marquee-track">
-  <span>Research Agent <span class="sep"></span></span>
-  <span>Strategy Agent <span class="sep"></span></span>
-  <span>Design Agent <span class="sep"></span></span>
-  <span>Content Agent <span class="sep"></span></span>
-  <span>Implementation Agent <span class="sep"></span></span>
-  <span>Verifier Agent <span class="sep"></span></span>
-  <span>No human in the loop <span class="sep"></span></span>
-  <span>12-minute build time <span class="sep"></span></span>
-  <span>Production ready on first deploy <span class="sep"></span></span>
-  <span>Research Agent <span class="sep"></span></span>
-  <span>Strategy Agent <span class="sep"></span></span>
-  <span>Design Agent <span class="sep"></span></span>
-  <span>Content Agent <span class="sep"></span></span>
-  <span>Implementation Agent <span class="sep"></span></span>
-  <span>Verifier Agent <span class="sep"></span></span>
-  <span>No human in the loop <span class="sep"></span></span>
-  <span>12-minute build time <span class="sep"></span></span>
-  <span>Production ready on first deploy <span class="sep"></span></span>
+
+<section id="what">
+<div class="wrap">
+  <div class="section-head">
+    <span class="label">// 01 — What It Is</span>
+    <h2>Not a chatbot. Not a tool. An employee.</h2>
+  </div>
+  <div class="split">
+    <div>
+      <p style="font-size:clamp(24px,2.4vw,32px);color:var(--fg);line-height:1.4;margin-bottom:24px;font-weight:300">TWINTHOS installs a <strong style="color:var(--violet);font-weight:500">Non-Human Intelligence</strong> into your business. It emails, calls, qualifies, books, follows up, invoices, and reports — the same work a £45K hire would do, without the hire.</p>
+      <p style="font-size:clamp(24px,2.4vw,32px);color:var(--muted);line-height:1.4;font-weight:300">You don't train it. You don't integrate it. You don't manage it. It runs on a UK VPS, reports to you, and bills you one flat rate.</p>
+    </div>
+    <ul>
+      <li>Replies to inbound in under 60 seconds</li>
+      <li>Books qualified calls into your diary</li>
+      <li>Follows up cold leads for 30 days</li>
+      <li>Sends invoices and chases payment</li>
+      <li>Writes your weekly growth report</li>
+      <li>Replaces 2-3 junior hires from day one</li>
+    </ul>
+  </div>
 </div>
-</div>
+</section>
+
 <section id="agents">
 <div class="wrap">
   <div class="section-head">
-    <div>
-      <span class="label">// 01 — The Swarm</span>
-      <h2>Six agents. One output.</h2>
-    </div>
-    <p>Each agent owns one job, writes its artifacts to a shared state directory, and reads only what the previous agent has approved. A Verifier holds the only merge permission — humans review, but never touch the deploy key.</p>
+    <span class="label">// 02 — The Six Agents</span>
+    <h2>One engine. Six specialists.</h2>
+    <p>Each agent owns a job. They coordinate through a shared state, verifiers gate every output, and humans review but never touch the deploy key.</p>
   </div>
   <div class="agents">
     <div class="agent">
-      <div class="agent-num"><span>01</span><span class="agent-status"></span></div>
-      <div class="agent-name">Research</div>
-      <div class="agent-role">// market &amp; competitor</div>
-      <div class="agent-desc">Scrapes the target market, builds a competitive set, and surfaces the white space the design agent will occupy.</div>
-      <div class="agent-tools"><span class="tool">Firecrawl</span><span class="tool">Playwright</span><span class="tool">Perplexity</span></div>
+      <div class="agent-num"><span>01 / RESEARCH</span><span class="status"></span></div>
+      <div class="agent-name">Inbound</div>
+      <div class="agent-role">// replies & qualifies</div>
+      <div class="agent-desc">Answers every form, email, and DM in under 60 seconds. Qualifies against your criteria. Books a call or politely closes.</div>
     </div>
     <div class="agent">
-      <div class="agent-num"><span>02</span><span class="agent-status"></span></div>
-      <div class="agent-name">Strategy</div>
-      <div class="agent-role">// positioning &amp; IA</div>
-      <div class="agent-desc">Owns the messaging, sitemap, and information architecture. Nothing else gets to write copy without its sign-off.</div>
-      <div class="agent-tools"><span class="tool">Claude</span><span class="tool">GPT-4o</span></div>
+      <div class="agent-num"><span>02 / STRATEGY</span><span class="status"></span></div>
+      <div class="agent-name">Outbound</div>
+      <div class="agent-role">// cold & follow-up</div>
+      <div class="agent-desc">Runs 30-day multi-touch sequences on cold lists. Personalises per lead. Reports opens, replies, and conversions weekly.</div>
     </div>
     <div class="agent">
-      <div class="agent-num"><span>03</span><span class="agent-status"></span></div>
-      <div class="agent-name">Design</div>
-      <div class="agent-role">// visual system</div>
-      <div class="agent-desc">Generates the type scale, palette, grid, and motion language. Strict on tokens, refuses to ship un-tokenised colours.</div>
-      <div class="agent-tools"><span class="tool">Flux</span><span class="tool">Figma API</span><span class="tool">Tailwind</span></div>
-    </div>
-    <div class="agent">
-      <div class="agent-num"><span>04</span><span class="agent-status"></span></div>
+      <div class="agent-num"><span>03 / DESIGN</span><span class="status"></span></div>
       <div class="agent-name">Content</div>
-      <div class="agent-role">// copy &amp; assets</div>
-      <div class="agent-desc">Writes every word on the page from the strategy brief. Pulls imagery from a vetted library — never the open web.</div>
-      <div class="agent-tools"><span class="tool">Claude</span><span class="tool">Beacons</span></div>
+      <div class="agent-role">// posts & articles</div>
+      <div class="agent-desc">Writes your LinkedIn, blog, and email copy in your voice. Ships three posts a week. Tracks what converts.</div>
     </div>
     <div class="agent">
-      <div class="agent-num"><span>05</span><span class="agent-status"></span></div>
-      <div class="agent-name">Implementation</div>
-      <div class="agent-role">// build &amp; deploy</div>
-      <div class="agent-desc">Owns the codebase. Ships to GitHub Pages, Vercel, or Cloudflare. Pulls design tokens, never overrides them.</div>
-      <div class="agent-tools"><span class="tool">Next.js</span><span class="tool">Vite</span><span class="tool">Cloudflare</span></div>
+      <div class="agent-num"><span>04 / IMPLEMENT</span><span class="status"></span></div>
+      <div class="agent-name">Pipeline</div>
+      <div class="agent-role">// CRM & ops</div>
+      <div class="agent-desc">Owns the CRM. Logs every interaction. Moves leads through stages. Triggers tasks. Closes the loop on every contact.</div>
     </div>
     <div class="agent">
-      <div class="agent-num"><span>06</span><span class="agent-status"></span></div>
-      <div class="agent-name">Verifier</div>
-      <div class="agent-role">// gates &amp; merge</div>
-      <div class="agent-desc">Runs Lighthouse, accessibility, brand-gate, and a real-device visual diff. Holds the only merge permission. Blocks deploy on any red gate.</div>
-      <div class="agent-tools"><span class="tool">Lighthouse</span><span class="tool">axe</span><span class="tool">Playwright</span></div>
+      <div class="agent-num"><span>05 / VERIFIER</span><span class="status"></span></div>
+      <div class="agent-name">Finance</div>
+      <div class="agent-role">// invoicing & chase</div>
+      <div class="agent-desc">Sends invoices, chases payment, reconciles accounts, flags cashflow issues before you see them. Bookkeeper on autopilot.</div>
+    </div>
+    <div class="agent">
+      <div class="agent-num"><span>06 / REPORTER</span><span class="status"></span></div>
+      <div class="agent-name">Growth</div>
+      <div class="agent-role">// weekly report</div>
+      <div class="agent-desc">Every Friday: a one-page report on what ran, what worked, what didn't, and what to do next. No dashboards. No jargon.</div>
     </div>
   </div>
 </div>
 </section>
-<section id="metrics">
+
+<section id="does">
 <div class="wrap">
   <div class="section-head">
-    <div>
-      <span class="label">// 02 — Performance</span>
-      <h2>Numbers, not adjectives.</h2>
-    </div>
-    <p>Every site the swarm ships is scored against the same gates. Numbers below are the running average across the last 500 production builds.</p>
+    <span class="label">// 03 — What It Does</span>
+    <h2>From first reply to final invoice. No human in the loop.</h2>
   </div>
-  <div class="metrics">
-    <div class="metric">
-      <div class="metric-val">12<span class="unit">min</span></div>
-      <div class="metric-label">brief to deploy</div>
+  <div class="do-list">
+    <div class="do-item">
+      <span class="do-num">01</span>
+      <div class="do-title">Inbound triage</div>
+      <div class="do-text">Every form, email, and DM answered in under 60 seconds. Qualified against your criteria. Booked into your calendar or politely closed with a reason logged.</div>
     </div>
-    <div class="metric">
-      <div class="metric-val">0.8<span class="unit">s</span></div>
-      <div class="metric-label">median LCP</div>
+    <div class="do-item">
+      <span class="do-num">02</span>
+      <div class="do-title">Outbound sequences</div>
+      <div class="do-text">30-day multi-touch cold outreach. Personalised per lead. Tracks open, reply, and meeting rates. Auto-stops when someone books or unsubscribes.</div>
     </div>
-    <div class="metric">
-      <div class="metric-val">98<span class="unit">/100</span></div>
-      <div class="metric-label">median Lighthouse</div>
+    <div class="do-item">
+      <span class="do-num">03</span>
+      <div class="do-title">Content engine</div>
+      <div class="do-text">Three posts a week in your voice. LinkedIn, blog, email. Pulls from your calls, your wins, your data. Tracks what drives replies and meetings.</div>
     </div>
-    <div class="metric">
-      <div class="metric-val">99.99<span class="unit">%</span></div>
-      <div class="metric-label">uptime / 12mo</div>
+    <div class="do-item">
+      <span class="do-num">04</span>
+      <div class="do-title">Pipeline owner</div>
+      <div class="do-text">Owns the CRM end-to-end. Logs every interaction. Moves leads through stages. Triggers tasks. Closes the loop on every contact, every time.</div>
     </div>
-    <div class="metric">
-      <div class="metric-val">4,847</div>
-      <div class="metric-label">sites shipped</div>
+    <div class="do-item">
+      <span class="do-num">05</span>
+      <div class="do-title">Finance clerk</div>
+      <div class="do-text">Sends invoices on completion. Chases payment at 7, 14, 21 days. Reconciles bank feed. Flags cashflow issues with you before they become problems.</div>
     </div>
-    <div class="metric">
-      <div class="metric-val">£0</div>
-      <div class="metric-label">human hours billed</div>
-    </div>
-    <div class="metric">
-      <div class="metric-val">96<span class="unit">%</span></div>
-      <div class="metric-label">first-pass verifiers</div>
-    </div>
-    <div class="metric">
-      <div class="metric-val">0</div>
-      <div class="metric-label">unverified merges</div>
+    <div class="do-item">
+      <span class="do-num">06</span>
+      <div class="do-title">Weekly report</div>
+      <div class="do-text">One page. What ran, what worked, what didn't, what to do next. Delivered Friday at 17:00. No dashboards. No jargon. Just the truth.</div>
     </div>
   </div>
 </div>
 </section>
-<section id="workflow">
+
+<section>
 <div class="wrap">
-  <div class="section-head">
-    <div>
-      <span class="label">// 03 — Live Build</span>
-      <h2>This page, built by the swarm.</h2>
+  <div class="quote">"I bought a year of TWINTHOS for the price of one hire. It books more meetings than the hire did."<div class="quote-cite">// Director, UK consultancy, 14 days in</div></div>
+</div>
+</section>
+
+<section id="price">
+<div class="wrap">
+  <div class="pricing">
+    <span class="label">// 04 — Price</span>
+    <h2>One flat rate. Everything included.</h2>
+    <div class="price"><span class="currency">£</span>5,000<span class="per">/month</span></div>
+    <div class="price-sub">UK SME only. 14 days to live. Cancel any month.</div>
+    <div class="price-includes">
+      <div>Six specialised AI agents, deployed on a private UK VPS</div>
+      <div>Setup, integration, and tuning — included</div>
+      <div>Weekly growth report and monthly strategy call</div>
+      <div>Human escalation for anything above your set thresholds</div>
+      <div>No usage caps. No per-seat fees. No surprise charges.</div>
     </div>
-    <p>You are looking at output 4,847. The build started 12 minutes ago. Below is the actual agent log, streamed from the shared state directory.</p>
-  </div>
-  <div class="workflow">
-    <div class="workflow-line"><span class="workflow-ts">14:32:01</span><span class="workflow-tag">[research]</span><span class="workflow-msg">scrape target: twinthos.com — 47 competitors mapped, white space: "no credible AI agent demo with real metrics"</span></div>
-    <div class="workflow-line"><span class="workflow-ts">14:32:18</span><span class="workflow-tag">[strategy]</span><span class="workflow-msg">approved brief → "production-first positioning, six named agents, real numbers, no marketing fluff"</span></div>
-    <div class="workflow-line"><span class="workflow-ts">14:33:04</span><span class="workflow-tag">[design]</span><span class="workflow-msg">tokens locked: bg #0a0a0a · fg #ededed · accent #ff4d1a · mono SF Mono · 3px grid</span></div>
-    <div class="workflow-line"><span class="workflow-ts">14:34:22</span><span class="workflow-tag">[content]</span><span class="workflow-msg">wrote 6 agent profiles + 8 metric tiles + 9-line hero, voice: terse, no superlatives</span></div>
-    <div class="workflow-line"><span class="workflow-ts">14:36:51</span><span class="workflow-tag">[implement]</span><span class="workflow-msg">single-file static build, 0 deps, 14KB, deployed to gh-pages</span></div>
-    <div class="workflow-line"><span class="workflow-ts">14:38:09</span><span class="workflow-tag">[verifier]</span><span class="workflow-msg">Lighthouse 99 · axe 0 violations · visual diff 0.02 · approved for merge<span class="cursor"></span></span></div>
+    <div class="cta-actions">
+      <a class="btn btn-primary" href="#contact">Book a £999 Audit</a>
+    </div>
+    <p style="font-size:20px;color:var(--muted);margin-top:48px;font-weight:300">Not ready? Start with a £999 audit. We map your operations, find the highest-leverage job to automate first, and quote the build.</p>
   </div>
 </div>
 </section>
+
 <section id="contact" class="cta">
 <div class="wrap">
-  <span class="label">// 04 — Engage</span>
-  <h2>One brief. Twelve minutes. A site.</h2>
-  <p>Tell the swarm what you're building. The Research agent starts the moment you submit. No sales call, no scope document, no project manager.</p>
+  <span class="label">// 05 — Talk</span>
+  <h2>One call. 30 minutes. You'll know by the end.</h2>
+  <p>Tell me the operation. I'll tell you if TWINTHOS is the right fit. If it isn't, I'll point you to someone who is. No sales script.</p>
   <div class="cta-actions">
-    <a class="btn btn-primary" href="mailto:hello@twinthos.com">Submit Brief</a>
-    <a class="btn" href="#workflow">See Another Build</a>
+    <a class="btn btn-primary" href="mailto:hello@twinthos.com?subject=Audit%20booking">Email: hello@twinthos.com</a>
+    <a class="btn" href="#what">Read again</a>
   </div>
 </div>
 </section>
+
 <footer>
 <div class="wrap foot">
-  <div>© 2026 TWINTHOS · autonomous AI agent website builder</div>
+  <div>© 2026 TWINTHOS · Non-Human Intelligence for UK SMEs</div>
   <div class="foot-links">
-    <a href="#contact">hello@twinthos.com</a>
-    <a href="#workflow">live</a>
-    <a href="#agents">swarm</a>
+    <a href="mailto:hello@twinthos.com">hello@twinthos.com</a>
+    <a href="#contact">Book audit</a>
   </div>
-  <div class="foot-credit">// build 4,847 · v3.2</div>
+  <div class="foot-credit">// TWINTHOS · OWL engine · v3.2</div>
 </div>
 </footer>
+
 </body>
 </html>
