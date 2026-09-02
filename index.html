@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Twinthos — An autonomous employee you own</title>
 <meta name="description" content="Twinthos is an autonomous employee you own. £5,000/mo flat. Live in 48 hours. 24/7. Never quits.">
-<meta name="theme-color" content="#FFFDF5">
+<meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://twinthos.com/">
 
 <!-- Open Graph -->
@@ -42,283 +42,257 @@
 {"@context": "https://schema.org","@type": "WebSite","name": "Twinthos","url": "https://twinthos.com/","description": "An autonomous employee you own. £5,000 per month flat. Live in 48 hours.","inLanguage": "en-GB","publisher": {"@type": "Organization", "name": "Twinthos", "logo": "https://twinthos.com/favicon.svg"}}
 </script>
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
 /* ========================================
-   NEO-BRUTALIST DARK THEME
-   Cold chrome base + saturated accents
+   DARK EDITORIAL — Premium Fashion Magazine
+   Pure black canvas, vivid orange accent,
+   massive Bebas Neue display, zero borders
    ======================================== */
 :root {
-  /* Neo-brutalist base + cold chrome */
-  --base: #060608;
-  --base-light: #0f1014;
-  --surface: #16181f;
-  --border: #000000;
-  --text: #e8eaed;
-  --text-muted: #9ba3b2;
-  --text-dim: #6b7280;
-  --chrome: #d4d8e0;
-  --chrome-bright: #f0f4fa;
-  --chrome-dim: #6b7a8d;
+  --bg: #000000;
+  --surface: #111111;
+  --text: #ffffff;
+  --text-muted: #888888;
+  --text-dim: #555555;
+  --accent: #FF6B35;
+  --accent-light: #FF8A5B;
+  --accent-dark: #E55A2B;
 
-  /* Neo-brutalist accents - saturated, flat */
-  --yellow: #FFD23F;
-  --pink: #FF6B6B;
-  --blue: #74B9FF;
-  --green: #88D498;
-  --orange: #FFA552;
-  --lavender: #B8A9FA;
-
-  --display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --display: "Bebas Neue", "Inter", system-ui, sans-serif;
   --body: "Inter", -apple-system, system-ui, sans-serif;
-  --mono: "Space Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
-  background: var(--base);
+  background: var(--bg);
   color: var(--text);
   font-family: var(--body);
   -webkit-font-smoothing: antialiased;
   line-height: 1.6;
   overflow-x: hidden;
 }
-.wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
 @media (max-width: 768px) { .wrap { padding: 0 24px; } }
 
 /* ===== Typography ===== */
-h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -.03em; line-height: .9; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.02em; line-height: .85; }
 .eyebrow {
   font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .14em;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 40px;
-}
-
-/* ===== Chrome text — BRIGHT AND VISIBLE ===== */
-.chrome {
-  color: var(--chrome);
-  text-shadow: 0 0 20px rgba(212,216,224,.5), 0 0 60px rgba(212,216,224,.2);
-}
-.chrome-static {
-  color: var(--chrome);
-  text-shadow: 0 0 15px rgba(212,216,224,.6), 0 0 40px rgba(212,216,224,.3);
+  color: var(--accent);
+  margin-bottom: 32px;
 }
 
 /* ===== Navigation ===== */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-  background: rgba(6,6,8,.92);
-  border-bottom: 4px solid var(--border);
-  backdrop-filter: blur(16px);
+  background: rgba(0,0,0,.88);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
 }
-.nav .row { display: flex; align-items: center; height: 68px; gap: 20px; }
-.brand { font-family: var(--display); font-weight: 700; font-size: 16px; letter-spacing: -.02em; }
-.brand span { color: var(--chrome); }
+.nav .row { display: flex; align-items: center; height: 72px; gap: 24px; }
+.brand { font-family: var(--display); font-size: 20px; letter-spacing: -.02em; }
+.brand span { color: var(--accent); }
 .nav .spacer { margin-left: auto; }
-.nav .links { display: none; gap: 28px; font-size: 14px; font-weight: 500; color: var(--text-muted); }
+.nav .links { display: none; gap: 32px; font-size: 13px; font-weight: 500; color: var(--text-muted); letter-spacing: .04em; }
 .nav .links a:hover { color: var(--text); }
 .nav .cta {
-  font-family: var(--display);
-  font-size: 14px; font-weight: 700;
-  color: var(--base);
-  background: var(--chrome);
-  padding: 12px 28px;
-  border-radius: 0;
-  border: 3px solid var(--border);
-  box-shadow: 4px 4px 0 0 var(--border);
-  display: flex; align-items: center; gap: 8px;
-  transition: transform .1s, box-shadow .1s;
+  font-family: var(--mono);
+  font-size: 12px; font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 12px 24px;
+  transition: background .15s;
 }
-.nav .cta:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 0 var(--border); }
+.nav .cta:hover { background: var(--accent-light); }
 @media (min-width: 769px) { .nav .links { display: flex; } }
 
-/* ===== Hero ===== */
+/* ===== Hero — Full bleed, massive type ===== */
 .hero {
   position: relative; z-index: 1;
   min-height: 100vh;
   display: flex; align-items: center;
   padding: 120px 0 80px;
 }
-.hero-grid { display: grid; gap: 56px; }
-@media (min-width: 1201px) { .hero-grid { grid-template-columns: 1.15fr .85fr; align-items: start; } }
+.hero-grid { display: grid; gap: 60px; }
+@media (min-width: 1201px) { .hero-grid { grid-template-columns: 1.2fr .8fr; align-items: start; } }
 
 .hero-title {
-  font-size: clamp(52px, 12vw, 120px);
-  font-weight: 700;
-  letter-spacing: -.04em;
-  line-height: .85;
+  font-size: clamp(72px, 14vw, 160px);
+  font-weight: 400;
+  letter-spacing: -.03em;
+  line-height: .82;
   color: var(--text);
 }
+.hero-title .accent { color: var(--accent); }
 .hero-sub {
-  margin-top: 28px;
-  font-size: clamp(18px, 3.6vw, 24px);
-  line-height: 1.55;
+  margin-top: 32px;
+  font-size: clamp(17px, 3.2vw, 22px);
+  line-height: 1.6;
   color: var(--text-muted);
-  max-width: 56ch;
-  font-weight: 400;
+  max-width: 52ch;
+  font-weight: 300;
 }
-.hero-sub b { color: var(--text); font-weight: 600; }
+.hero-sub b { color: var(--text); font-weight: 500; }
 
-/* Stat band — neo brutalist badge style */
+/* Stat pills — minimal, mono */
 .stat-band {
-  display: flex; flex-wrap: wrap; gap: 12px;
+  display: flex; flex-wrap: wrap; gap: 10px;
   margin-top: 36px;
 }
 .stat-band span {
   font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .06em;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
   padding: 8px 16px;
-  border: 3px solid var(--border);
-  background: var(--surface);
-  box-shadow: 4px 4px 0 0 var(--border);
-  border-radius: 0;
-  color: var(--text);
+  border: 1px solid rgba(255,255,255,.12);
+  color: var(--text-muted);
+  transition: border-color .15s, color .15s;
 }
-.stat-band span b { color: var(--chrome); }
+.stat-band span:hover { border-color: var(--accent); color: var(--text); }
+.stat-band span b { color: var(--accent); }
 
-/* Product surface — the agent UI mock */
+/* Product surface — terminal/agent UI */
 .product-surface {
   position: relative;
-  height: 400px;
+  height: 380px;
   background: var(--surface);
-  border: 3px solid var(--border);
-  border-radius: 0;
-  box-shadow: 8px 8px 0 0 var(--border);
+  border: 1px solid rgba(255,255,255,.08);
   overflow: hidden;
   font-family: var(--mono);
-  font-size: 13px;
-}
-.product-surface .surface-header {
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px 16px;
-  border-bottom: 3px solid var(--border);
-  background: var(--base-light);
-}
-.product-surface .dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--border); }
-.product-surface .dot.red { background: var(--pink); }
-.product-surface .dot.yellow { background: var(--yellow); }
-.product-surface .dot.green { background: var(--green); }
-.product-surface .surface-title {
-  margin-left: 10px;
-  color: var(--text-muted);
   font-size: 12px;
 }
+.product-surface .surface-header {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  background: rgba(255,255,255,.02);
+}
+.product-surface .dot { width: 8px; height: 8px; border-radius: 50%; opacity: .6; }
+.product-surface .dot.red { background: #ff5f56; }
+.product-surface .dot.yellow { background: #ffbd2e; }
+.product-surface .dot.green { background: #27c93f; }
+.product-surface .surface-title {
+  margin-left: 10px;
+  color: var(--text-dim);
+  font-size: 11px;
+  letter-spacing: .06em;
+}
 .product-surface .surface-body {
-  padding: 18px;
+  padding: 16px;
   color: var(--text);
-  height: calc(100% - 46px);
+  height: calc(100% - 44px);
   overflow-y: auto;
 }
 .product-surface .msg {
-  margin-bottom: 14px; max-width: 88%;
-  padding: 12px 16px;
-  border: 3px solid var(--border);
-  background: var(--base);
-  box-shadow: 4px 4px 0 0 var(--border);
+  margin-bottom: 12px; max-width: 90%;
+  padding: 10px 14px;
+  background: rgba(255,255,255,.03);
+  border-left: 2px solid var(--accent);
 }
-.product-surface .msg.user { margin-left: auto; text-align: right; background: var(--yellow); color: var(--border); }
+.product-surface .msg.user { margin-left: auto; border-left: none; border-right: 2px solid var(--accent); text-align: right; background: rgba(255,107,53,.06); }
 .product-surface .msg .author {
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 10px;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: .06em;
-  color: var(--text-muted);
+  letter-spacing: .08em;
+  color: var(--accent);
   margin-bottom: 4px;
 }
-.product-surface .msg.user .author { color: var(--border); }
-.product-surface .msg .content { line-height: 1.5; }
+.product-surface .msg .content { line-height: 1.5; font-size: 12px; }
 
 /* ===== Sections ===== */
 .section {
   padding: 120px 0;
-  border-top: 4px solid var(--border);
+  border-top: 1px solid rgba(255,255,255,.06);
 }
 @media (max-width: 768px) { .section { padding: 72px 0; } }
 
 .label {
   font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .14em;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 36px;
+  color: var(--accent);
+  margin-bottom: 32px;
 }
 .title {
-  font-size: clamp(36px, 7vw, 80px);
-  line-height: .9;
+  font-size: clamp(40px, 8vw, 96px);
+  line-height: .85;
   color: var(--text);
 }
 .text {
   margin-top: 28px;
-  font-size: clamp(17px, 3.2vw, 22px);
-  line-height: 1.65;
+  font-size: clamp(16px, 2.8vw, 20px);
+  line-height: 1.7;
   color: var(--text-muted);
-  max-width: 60ch;
-  font-weight: 400;
+  max-width: 58ch;
+  font-weight: 300;
 }
-.text b { color: var(--text); font-weight: 600; }
+.text b { color: var(--text); font-weight: 500; }
 
-/* ===== Bento Grid — neo brutalist ===== */
-.bento {
+/* ===== Feature Grid — asymmetric editorial ===== */
+.feature-grid {
   margin-top: 56px;
   display: grid;
-  gap: 18px;
+  gap: 16px;
 }
 @media (min-width: 769px) {
-  .bento.three { grid-template-columns: repeat(3, 1fr); }
-  .bento.two { grid-template-columns: repeat(2, 1fr); }
+ .feature-grid {
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(120px, auto);
+  }
+  .feature-grid .f1 { grid-column: 1 / 7; }
+  .feature-grid .f2 { grid-column: 7 / 13; }
+  .feature-grid .f3 { grid-column: 1 / 5; }
+  .feature-grid .f4 { grid-column: 5 / 9; }
+  .feature-grid .f5 { grid-column: 9 / 13; }
+  .feature-grid .f6 { grid-column: 1 / 13; }
 }
-.bento-item {
-  border: 3px solid var(--border);
-  border-radius: 0;
+.feature-item {
   padding: 28px;
   background: var(--surface);
-  box-shadow: 6px 6px 0 0 var(--border);
-  transition: transform .12s, box-shadow .12s;
+  border: 1px solid rgba(255,255,255,.06);
+  transition: border-color .15s;
 }
-.bento-item:hover {
-  transform: translate(2px,2px);
-  box-shadow: 4px 4px 0 0 var(--border);
-}
-.bento-item .num {
+.feature-item:hover { border-color: rgba(255,255,255,.15); }
+.feature-item .num {
   font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
   margin-bottom: 14px;
+  letter-spacing: .06em;
 }
-.bento-item .btitle {
+.feature-item .ftitle {
   font-family: var(--display);
-  font-size: clamp(18px, 2.8vw, 22px);
-  font-weight: 700;
-  letter-spacing: -.015em;
-  line-height: 1.15;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 400;
+  letter-spacing: -.02em;
+  line-height: .9;
   color: var(--text);
   margin-bottom: 10px;
 }
-.bento-item .bdesc {
+.feature-item .fdesc {
   font-size: 14px;
   color: var(--text-muted);
   line-height: 1.7;
+  font-weight: 300;
 }
-.bento-item.accent-yellow { background: var(--yellow); color: var(--border); }
-.bento-item.accent-yellow .btitle { color: var(--border); }
-.bento-item.accent-yellow .bdesc { color: var(--border); opacity: .8; }
-.bento-item.accent-blue { background: var(--blue); color: var(--border); }
-.bento-item.accent-blue .btitle { color: var(--border); }
-.bento-item.accent-blue .bdesc { color: var(--border); opacity: .8; }
-.bento-item.accent-green { background: var(--green); color: var(--border); }
-.bento-item.accent-green .btitle { color: var(--border); }
-.bento-item.accent-green .bdesc { color: var(--border); opacity: .8; }
 
 /* ===== Stats Bar ===== */
 .stats-bar {
@@ -328,191 +302,180 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -.03
 }
 @media (min-width: 769px) { .stats-bar { grid-template-columns: repeat(4, 1fr); } }
 .stat {
-  padding: 24px 16px;
-  border-top: 3px solid var(--border);
+  padding: 24px 0;
+  border-top: 1px solid rgba(255,255,255,.06);
   text-align: center;
 }
 @media (min-width: 769px) {
-  .stat { border-top: none; border-left: 3px solid var(--border); padding: 0 24px; }
+  .stat { border-top: none; border-left: 1px solid rgba(255,255,255,.06); padding: 0 24px; }
   .stat:first-child { border-left: none; padding-left: 0; }
 }
 .stat .num {
   font-family: var(--display);
-  font-size: clamp(32px, 7vw, 52px);
-  font-weight: 700;
+  font-size: clamp(36px, 7vw, 64px);
+  font-weight: 400;
   letter-spacing: -.03em;
   line-height: 1;
-  color: var(--chrome);
-  text-shadow: 0 0 20px rgba(212,216,224,.5), 0 0 60px rgba(212,216,224,.2);
+  color: var(--text);
 }
-.stat .unit { font-size: .4em; color: var(--text-muted); }
+.stat .unit { font-size: .4em; color: var(--text-dim); font-family: var(--body); }
 .stat .label {
   margin-top: 8px;
   font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .06em;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-dim);
 }
 
 /* ===== Pricing Cards ===== */
 .price-grid {
   margin-top: 56px;
   display: grid;
-  gap: 18px;
+  gap: 16px;
 }
-@media (min-width: 769px) { .price-grid { grid-template-columns: 1fr 1.2fr; } }
+@media (min-width: 769px) { .price-grid { grid-template-columns: 1fr 1.3fr; } }
 .price-card {
-  border: 3px solid var(--border);
-  border-radius: 0;
   padding: 40px;
   background: var(--surface);
-  box-shadow: 6px 6px 0 0 var(--border);
+  border: 1px solid rgba(255,255,255,.06);
 }
 .price-card.featured {
-  background: var(--chrome);
-  color: var(--base);
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
 }
-.price-card.featured .who { color: var(--base); }
-.price-card.featured .pts { color: var(--base); opacity: .85; }
-.price-card.featured .pts b { color: var(--base); }
+.price-card.featured .who { color: var(--bg); opacity: .7; }
+.price-card.featured .pts { color: var(--bg); opacity: .8; }
+.price-card.featured .pts b { color: var(--bg); }
 .price-card .who {
   font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 500;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-dim);
   margin-bottom: 18px;
 }
 .price-card .big {
   font-family: var(--display);
-  font-size: clamp(32px, 7vw, 56px);
-  font-weight: 700;
+  font-size: clamp(36px, 7vw, 64px);
+  font-weight: 400;
   letter-spacing: -.03em;
   line-height: 1;
 }
-.price-card.featured .big {
-  color: var(--base);
-  text-shadow: none;
-}
+.price-card.featured .big { color: var(--bg); }
 .price-card .pts {
   margin-top: 20px;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--text-muted);
   line-height: 1.7;
+  font-weight: 300;
 }
-.price-card .pts b { color: var(--text); font-weight: 600; }
+.price-card .pts b { color: var(--text); font-weight: 500; }
 
 /* ===== FAQ Accordion ===== */
-.faq-list { margin-top: 56px; display: grid; gap: 10px; }
+.faq-list { margin-top: 56px; display: grid; gap: 8px; }
 .faq-item {
-  border: 3px solid var(--border);
-  border-radius: 0;
+  border: 1px solid rgba(255,255,255,.06);
   background: var(--surface);
-  box-shadow: 5px 5px 0 0 var(--border);
-  overflow: hidden;
 }
 .faq-item .fq {
   padding: 18px 22px;
   cursor: pointer;
   font-size: clamp(15px, 3vw, 17px);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .faq-item .fq .arrow {
-  font-size: 16px;
-  color: var(--text-muted);
-  transition: transform .25s;
+  font-size: 14px;
+  color: var(--text-dim);
+  transition: transform .2s;
 }
 .faq-item.active .fq .arrow { transform: rotate(180deg); }
 .faq-item .fa {
   max-height: 0;
   overflow: hidden;
-  transition: max-height .35s ease;
+  transition: max-height .3s ease;
   padding: 0 22px;
 }
 .faq-item.active .fa {
-  max-height: 240px;
+  max-height: 200px;
   padding: 14px 22px;
 }
-.faq-item .fa p { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
+.faq-item .fa p { font-size: 14px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
 
 /* ===== Final CTA ===== */
 .final { text-align: center; }
-.final .title { max-width: 22ch; margin: 0 auto; }
+.final .title { max-width: 20ch; margin: 0 auto; }
 .final .sub {
   margin: 0 auto 44px;
   color: var(--text-muted);
-  font-size: 18px;
-  max-width: 560px;
+  font-size: 17px;
+  max-width: 520px;
   line-height: 1.6;
+  font-weight: 300;
 }
 .final .btn-primary {
   display: inline-flex; align-items: center; gap: 12px;
-  font-family: var(--display);
-  font-size: 17px; font-weight: 700;
-  padding: 18px 44px;
+  font-family: var(--mono);
+  font-size: 13px; font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 18px 40px;
   min-height: 56px;
-  background: var(--chrome);
-  color: var(--base);
-  border: 3px solid var(--border);
-  border-radius: 0;
-  box-shadow: 6px 6px 0 0 var(--border);
-  transition: transform .1s, box-shadow .1s;
+  background: var(--accent);
+  color: var(--bg);
+  transition: background .15s;
 }
-.final .btn-primary:hover {
-  transform: translate(2px,2px);
-  box-shadow: 4px 4px 0 0 var(--border);
-}
+.final .btn-primary:hover { background: var(--accent-light); }
 .final .guarantee {
   margin-top: 24px;
   font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .06em;
-  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  color: var(--text-dim);
 }
 .final .guarantee b { color: var(--text); }
 .final .urgency {
   margin-top: 16px;
   display: inline-flex; align-items: center; gap: 8px;
   font-family: var(--mono);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-dim);
+  letter-spacing: .06em;
 }
 .final .urgency .dot {
-  width: 8px; height: 8px;
-  background: var(--yellow);
-  border: 2px solid var(--border);
+  width: 6px; height: 6px;
+  background: var(--accent);
 }
 
 .secondary-cta {
   margin-top: 20px;
-  display: flex; flex-wrap: wrap; gap: 16px;
+  display: flex; flex-wrap: wrap; gap: 14px;
   justify-content: center;
 }
 .secondary-cta a {
-  font-size: 14px;
+  font-family: var(--mono);
+  font-size: 12px;
   font-weight: 500;
+  letter-spacing: .06em;
   color: var(--text-muted);
   padding: 12px 24px;
-  border: 3px solid var(--border);
-  background: var(--surface);
-  box-shadow: 4px 4px 0 0 var(--border);
-  border-radius: 0;
+  border: 1px solid rgba(255,255,255,.1);
   min-height: 44px;
   display: inline-flex; align-items: center;
-  transition: transform .1s, box-shadow .1s;
+  transition: border-color .15s, color .15s;
 }
-.secondary-cta a:hover { transform: translate(1px,1px); box-shadow: 3px 3px 0 0 var(--border); }
+.secondary-cta a:hover { border-color: var(--accent); color: var(--text); }
 
-/* ===== Reveal animation — safe ===== */
+/* ===== Reveal animation ===== */
 .reveal {
   opacity: 0; transform: translateY(20px);
   transition: opacity .6s ease, transform .6s ease;
@@ -522,18 +485,18 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -.03
 /* ===== Footer ===== */
 footer {
   padding: 48px 0 60px;
-  border-top: 4px solid var(--border);
+  border-top: 1px solid rgba(255,255,255,.06);
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: .04em;
-  color: var(--text-muted);
+  letter-spacing: .06em;
+  color: var(--text-dim);
   line-height: 1.8;
 }
-footer b { color: var(--text); font-weight: 700; }
+footer b { color: var(--text); font-weight: 600; }
 
 /* ===== Accessibility ===== */
-:focus-visible { outline: 3px solid var(--chrome); outline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -568,7 +531,7 @@ footer b { color: var(--text); font-weight: 700; }
     <div class="hero-grid">
       <div>
         <div class="eyebrow">Non-Human Intelligence - live now</div>
-        <h1 class="hero-title">An autonomous <span class="chrome-static">employee</span> you own. Running <span class="chrome">24/7</span>.</h1>
+        <h1 class="hero-title">An autonomous <span class="accent">employee</span> you own. Running <span class="accent">24/7</span>.</h1>
         <p class="hero-sub">Twinthos answers every lead, books your calls, writes in your voice, and closes deals while you sleep. One flat price. Live in 48 hours.</p>
         <div class="stat-band">
           <span>Price: <b>£5,000/mo flat</b></span>
@@ -609,79 +572,79 @@ footer b { color: var(--text); font-weight: 700; }
 <section class="section" id="what">
   <div class="wrap reveal">
     <div class="label">What it does</div>
-    <h2 class="title">No chat. No bot.<br>A real <span class="chrome-static">worker</span> with tools.</h2>
+    <h2 class="title">No chat. No bot.<br>A real <span class="accent">worker</span> with tools.</h2>
     <p class="text">Built to replace a junior hire. Not to sound like one. It runs on its own computer with a browser, terminal and memory. It opens your apps, clicks through your workflows, reads the live web, and acts in your voice.</p>
-    <div class="bento three">
-      <div class="bento-item accent-yellow">
+    <div class="feature-grid">
+      <div class="feature-item f1">
         <div class="num">01</div>
-        <div class="btitle">Answers every lead</div>
-        <div class="bdesc">In your recorded voice. Within two minutes. Time-zone gaps closed while you sleep.</div>
+        <div class="ftitle">Answers every lead</div>
+        <div class="fdesc">In your recorded voice. Within two minutes. Time-zone gaps closed while you sleep.</div>
       </div>
-      <div class="bento-item accent-blue">
+      <div class="feature-item f2">
         <div class="num">02</div>
-        <div class="btitle">Books your calls</div>
-        <div class="bdesc">Sends the invite, holds the slot, confirms. You walk into warm calls already set.</div>
+        <div class="ftitle">Books your calls</div>
+        <div class="fdesc">Sends the invite, holds the slot, confirms. You walk into warm calls already set.</div>
       </div>
-      <div class="bento-item accent-green">
+      <div class="feature-item f3">
         <div class="num">03</div>
-        <div class="btitle">Qualifies leads</div>
-        <div class="bdesc">Separates serious buyers from time-wasters so you talk to the right people.</div>
+        <div class="ftitle">Qualifies leads</div>
+        <div class="fdesc">Separates serious buyers from time-wasters so you talk to the right people.</div>
       </div>
-      <div class="bento-item">
+      <div class="feature-item f4">
         <div class="num">04</div>
-        <div class="btitle">Closes the deal</div>
-        <div class="bdesc">Follows up until the work is won. Tests what lands. Keeps the winner.</div>
+        <div class="ftitle">Closes the deal</div>
+        <div class="fdesc">Follows up until the work is won. Tests what lands. Keeps the winner.</div>
       </div>
-      <div class="bento-item">
+      <div class="feature-item f5">
         <div class="num">05</div>
-        <div class="btitle">Reads the live web</div>
-        <div class="bdesc">Opens pages, clicks buttons, takes screenshots, pulls data. Not a search box - a browser.</div>
+        <div class="ftitle">Reads the live web</div>
+        <div class="fdesc">Opens pages, clicks buttons, takes screenshots, pulls data. Not a search box - a browser.</div>
       </div>
-      <div class="bento-item">
+      <div class="feature-item f6">
         <div class="num">06</div>
-        <div class="btitle">Writes and codes for you</div>
-        <div class="bdesc">Posts, replies, briefs in your voice. Python scripts, automations, files shipped to your inbox.</div>
+        <div class="ftitle">Writes and codes for you</div>
+        <div class="fdesc">Posts, replies, briefs in your voice. Python scripts, automations, files shipped to your inbox.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="section" id="how" style="background: var(--base-light);">
+<section class="section" id="how" style="background: var(--surface);">
   <div class="wrap reveal">
     <div class="label">How it works</div>
     <h2 class="title">One orchestrator. Four specialist agents.</h2>
     <p class="text">Each Twinthos is a managed employee with an orchestrator that talks to you, and four specialist agents that handle outbound, sales follow-up, content, and support.</p>
-    <div class="bento three">
-      <div class="bento-item">
+    <div class="feature-grid">
+      <div class="feature-item f1">
         <div class="num">Orchestrator</div>
-        <div class="btitle">Talks to you, owns the relationship</div>
-        <div class="bdesc">Reads your knowledge layer, sets priorities, hands off to the right specialist.</div>
+        <div class="ftitle">Talks to you, owns the relationship</div>
+        <div class="fdesc">Reads your knowledge layer, sets priorities, hands off to the right specialist.</div>
       </div>
-      <div class="bento-item">
+      <div class="feature-item f2">
         <div class="num">Outbound</div>
-        <div class="btitle">Prospects and captures leads</div>
-        <div class="bdesc">Scrapes the live web, qualifies prospects, feeds warm leads to sales.</div>
+        <div class="ftitle">Prospects and captures leads</div>
+        <div class="fdesc">Scrapes the live web, qualifies prospects, feeds warm leads to sales.</div>
       </div>
-      <div class="bento-item">
+      <div class="feature-item f3">
         <div class="num">Sales</div>
-        <div class="btitle">Follows up until won</div>
-        <div class="bdesc">Tests scripts, tracks replies, escalates to you on trigger events.</div>
+        <div class="ftitle">Follows up until won</div>
+        <div class="fdesc">Tests scripts, tracks replies, escalates to you on trigger events.</div>
       </div>
-      <div class="bento-item">
+      <div class="feature-item f4">
         <div class="num">Content</div>
-        <div class="btitle">Creates in your voice</div>
-        <div class="bdesc">Posts, threads, emails, assets - all matched to your recorded tone.</div>
+        <div class="ftitle">Creates in your voice</div>
+        <div class="fdesc">Posts, threads, emails, assets - all matched to your recorded tone.</div>
       </div>
-      <div class="bento-item">
+      <div class="feature-item f5">
         <div class="num">Support</div>
-        <div class="btitle">Handles customer issues</div>
-        <div class="bdesc">Answers tickets, escalates problems, learns from every interaction.</div>
+        <div class="ftitle">Handles customer issues</div>
+        <div class="fdesc">Answers tickets, escalates problems, learns from every interaction.</div>
       </div>
-      <div class="bento-item">
+      <div class="feature-item f6">
         <div class="num">Boss Protocol</div>
-        <div class="btitle">You stay in control</div>
-        <div class="bdesc">It pauses before any spend. It flags risks. It never promises what you did not approve.</div>
+        <div class="ftitle">You stay in control</div>
+        <div class="fdesc">It pauses before any spend. It flags risks. It never promises what you did not approve.</div>
       </div>
     </div>
   </div>
@@ -691,7 +654,7 @@ footer b { color: var(--text); font-weight: 700; }
 <section class="section" id="proof">
   <div class="wrap reveal">
     <div class="label">Proof</div>
-    <h2 class="title">The page you are reading was built by the <span class="chrome">thing it sells</span>.</h2>
+    <h2 class="title">The page you are reading was built by the <span class="accent">thing it sells</span>.</h2>
     <p class="text">We use Twinthos to sell Twinthos. That is the whole pitch. No fake case studies. No invented logos. Just the truth.</p>
     <div class="stats-bar">
       <div class="stat"><div class="num">£5k<span class="unit">/mo</span></div><div class="label">One flat bill</div></div>
@@ -703,10 +666,10 @@ footer b { color: var(--text); font-weight: 700; }
 </section>
 
 <!-- PRICING -->
-<section class="section" id="pricing" style="background: var(--base-light);">
+<section class="section" id="pricing" style="background: var(--surface);">
   <div class="wrap reveal">
     <div class="label">The maths</div>
-    <h2 class="title">What a human costs.<br>What <span class="chrome-static">Twinthos</span> costs.</h2>
+    <h2 class="title">What a human costs.<br>What <span class="accent">Twinthos</span> costs.</h2>
     <p class="text">A human doing this work costs more, sleeps eight hours a day, takes holidays, and hands in notice. Twinthos costs one flat bill and never stops.</p>
     <div class="price-grid">
       <div class="price-card">
@@ -727,7 +690,7 @@ footer b { color: var(--text); font-weight: 700; }
 <section class="section" id="faq">
   <div class="wrap reveal">
     <div class="label">Frequently asked</div>
-    <h2 class="title">Still questions?<br>We <span class="chrome-static">answer</span> them below.</h2>
+    <h2 class="title">Still questions?<br>We <span class="accent">answer</span> them below.</h2>
     <div class="faq-list">
       <div class="faq-item"><div class="fq">What is Twinthos?<span class="arrow">▼</span></div><div class="fa"><p>Managed autonomous worker on a private UK server with computer, browser, code and memory.</p></div></div>
       <div class="faq-item"><div class="fq">Is Twinthos a chatbot?<span class="arrow">▼</span></div><div class="fa"><p>No. It is a worker with a computer, browser and memory. It takes real actions, not just text replies.</p></div></div>
@@ -743,9 +706,9 @@ footer b { color: var(--text); font-weight: 700; }
 <section class="section">
   <div class="wrap reveal">
     <div class="label">Decision</div>
-    <h2 class="title">Your first <span class="chrome-static">employee</span> that is not a person.</h2>
+    <h2 class="title">Your first <span class="accent">employee</span> that is not a person.</h2>
     <p class="final sub">One call. One scope sign-off. Live in about 48 hours. Then it works while you do the human part.</p>
-    <a class="btn-primary" href="mailto:hello@twinthos.com">Book a call <span style="font-size:18px;">&#8594;</span></a>
+    <a class="btn-primary" href="mailto:hello@twinthos.com">Book a call <span style="font-size:16px;">&#8594;</span></a>
     <div class="secondary-cta"><a href="mailto:hello@twinthos.com">hello@twinthos.com</a></div>
     <div class="guarantee"><b>7-day no-pay guarantee.</b> If it is not working, you do not pay.</div>
     <div class="urgency"><span class="dot"></span> Limited onboarding each month</div>
