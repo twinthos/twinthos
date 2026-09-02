@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Twinthos Audit - A 6-page map of where your business is leaking money, in your numbers</title>
+<meta name="description" content="A £999 paid audit. One 45-min call. A 6-8 page PDF delivered in 48 hours showing 3-7 specific bottlenecks in your business with the lost-money number on each. Most audits convert to a Twinthos worker at £5,000 per month.">
+<meta name="theme-color" content="#0B0D10">
+<link rel="canonical" href="https://twinthos.com/audit.html">
+
+<meta property="og:title" content="Twinthos Audit - £999 - The 6-page bottleneck map for UK businesses">
+<meta property="og:description" content="One 45-minute call. A 6-8 page PDF in 48 hours. 3-7 specific bottlenecks in your business, with the lost-money number on each. Most audits convert to a Twinthos worker at £5,000/mo.">
+<meta property="og:image" content="https://twinthos.com/og-audit.png">
+<meta property="og:url" content="https://twinthos.com/audit.html">
+<meta property="og:type" content="product">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Twinthos Audit - £999 - The 6-page bottleneck map">
+<meta name="twitter:description" content="One 45-min call. A 6-8 page PDF in 48 hours. 3-7 specific bottlenecks in your business, with the lost-money number on each.">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"Twinthos Business Audit","description":"A 45-minute audit call and a 6-8 page PDF identifying the 3-7 specific bottlenecks in a UK SME with the lost-money number on each bottleneck and a one-line fix for each.","provider":{"@type":"Organization","name":"Twinthos"},"offers":{"@type":"Offer","price":"999","priceCurrency":"GBP"}}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What do I get for £999?","acceptedAnswer":{"@type":"Answer","text":"One 45-minute call with the founder, then a 6-8 page PDF delivered in 48 hours. The PDF lists the 3-7 specific bottlenecks in your business, with a lost-money number on each and a one-line Twinthos fix."}},
+{"@type":"Question","name":"Is this a sales call for the £5,000/mo worker?","acceptedAnswer":{"@type":"Answer","text":"It is paid work, not a free sales call. The PDF stands on its own. About half of audit clients later take the worker. The other half keep the PDF and run with it. Both are fine."}},
+{"@type":"Question","name":"What if the audit finds no bottlenecks?","acceptedAnswer":{"@type":"Answer","text":"We refund the £999. We have done this once."}},
+{"@type":"Question","name":"Who is on the call?","acceptedAnswer":{"@type":"Answer","text":"You, the owner or MD, plus Tyson. Forty-five minutes. No slides. No sales pitch. You talk about the business. Tyson asks questions. We go away and write the PDF."}},
+{"@type":"Question","name":"How long until the PDF is ready?","acceptedAnswer":{"@type":"Answer","text":"Forty-eight hours after the call. We email it to you and schedule a 15-minute walkthrough if you want one."}},
+{"@type":"Question","name":"What size business is this for?","acceptedAnswer":{"@type":"Answer","text":"UK SMEs with 1-50 staff and £250k-£10m revenue. Owner is the bottleneck. You are answering enquiries, chasing leads, doing admin that should not need a person. If that is you, the audit will find money."}},
+{"@type":"Question","name":"Is my data kept private?","acceptedAnswer":{"@type":"Answer","text":"Yes. The PDF is delivered to your email only. We do not share the contents, the bottlenecks, or your numbers with anyone. We do not publish case studies from the audit."}},
+{"@type":"Question","name":"What if I already know my bottlenecks?","acceptedAnswer":{"@type":"Answer","text":"Then the audit is a paid second opinion. Most owners know one or two of theirs. The audit usually finds the third, fourth, and fifth that are not obvious - and prices the lost money in real numbers."}}
+]}
+</script>
+
+<style>
+:root {
+  --ink: #F4F5F7;
+  --ink-muted: rgba(244, 245, 247, 0.62);
+  --ink-faint: rgba(244, 245, 247, 0.38);
+  --ink-dim: rgba(244, 245, 247, 0.22);
+  --canvas: #0B0D10;
+  --canvas-2: #0E1115;
+  --panel: #14171B;
+  --card: #1A1F25;
+  --pop: #232830;
+  --line: rgba(255, 255, 255, 0.07);
+  --line-strong: rgba(255, 255, 255, 0.14);
+  --line-blue: rgba(74, 143, 248, 0.18);
+  --accent: #4A8FF8;
+  --accent-hi: #9FBEFF;
+  --accent-lo: #1F4FCC;
+  --accent-glow: rgba(74, 143, 248, 0.45);
+  --green: #5DEDA0;
+  --green-dim: #2FA46A;
+  --amber: #F5C451;
+  --red-dim: #C2615E;
+  --chrome: #C0C7D0;
+  --chrome-hi: #E5EBF2;
+  --serif: "Iowan Old Style", "Charter", "Palatino", "Georgia", "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Inter, system-ui, sans-serif;
+  --mono: "SF Mono", ui-monospace, "JetBrains Mono", "Fira Code", Menlo, monospace;
+  --r: 0;
+  --dur: 200ms;
+  --ease: cubic-bezier(.25, .1, .25, 1);
+}
+
+/* No glass, no shadow, no halation, no gold, no violet, no red. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; background: var(--canvas); scroll-padding-top: 80px; }
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+.wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+a { color: inherit; text-decoration: none; }
+
+/* cold chrome - static reflective highlight only */
+.chrome-text {
+  color: #E8ECF1;
+  text-shadow: 0 0 14px rgba(232, 236, 241, 0.6),
+               0 0 30px rgba(159, 190, 255, 0.22);
+}
+.accent {
+  color: var(--accent-hi);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--accent);
+}
+
+h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(44px, 8.4vw, 96px);
+  letter-spacing: -0.034em;
+  line-height: 0.98;
+  color: var(--ink);
+}
+h1 .it { font-style: italic; color: var(--ink-muted); font-weight: 400; }
+
+h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(30px, 4.4vw, 52px);
+  letter-spacing: -0.028em;
+  line-height: 1.04;
+}
+h2 .it { font-style: italic; color: var(--ink-muted); }
+
+h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.018em;
+  line-height: 1.15;
+}
+
+p.body {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-muted);
+  max-width: 64ch;
+}
+@media (max-width: 768px) { p.body { font-size: 15px; } }
+
+.kicker {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-hi);
+  margin-bottom: 32px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-blue);
+  min-width: 180px;
+}
+.kicker .ix {
+  color: var(--accent);
+  margin-right: 8px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-shadow: 0 0 12px rgba(74, 143, 248, 0.55);
+}
+
+/* ---- NAV ---- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--canvas);
+  border-bottom: 1px solid var(--line);
+}
+.nav .row {
+  display: flex; align-items: center; height: 72px; gap: 24px;
+}
+.brand { font-weight: 900; font-size: 15px; letter-spacing: -0.02em; }
+.brand .dot {
+  display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent-hi);
+  margin-left: 4px;
+  animation: pulse 2.4s var(--ease) infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--accent-glow); }
+  50% { opacity: 0.6; box-shadow: 0 0 0 6px transparent; }
+}
+.nav .spacer { margin-left: auto; }
+.nav .links { display: none; gap: 32px; font-size: 13px; font-weight: 500; color: var(--ink-muted); }
+.nav .links a:hover { color: var(--ink); }
+.nav .cta {
+  font-size: 13px; font-weight: 700;
+  color: var(--canvas);
+  background: var(--accent);
+  padding: 12px 22px;
+  display: flex; align-items: center; gap: 8px;
+  text-shadow: none;
+  transition: background var(--dur) var(--ease);
+}
+.nav .cta:hover { background: var(--accent-hi); }
+@media (min-width: 760px) { .nav .links { display: flex; } }
+
+/* ---- HERO ---- */
+.hero {
+  padding: 100px 0 80px;
+  border-top: 0;
+}
+.hero h1 { margin-bottom: 32px; max-width: 14ch; }
+.hero .lede { margin-bottom: 40px; max-width: 56ch; font-size: 18px; }
+.hero .meta {
+  display: flex; flex-wrap: wrap; gap: 0;
+  border-top: 1px solid var(--line);
+  margin-top: 36px;
+}
+.hero .meta > div {
+  flex: 1 1 50%;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  padding-right: 24px;
+}
+.hero .meta .k {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
+}
+.hero .meta .v {
+  font-family: var(--serif);
+  font-size: 22px;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+}
+.hero .meta .v .ac {
+  color: var(--accent-hi);
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 16px rgba(74, 143, 248, 0.55);
+}
+@media (max-width: 768px) { .hero .meta > div { flex: 1 1 100%; } }
+
+/* ---- BUTTONS ---- */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 16px; font-weight: 700;
+  padding: 16px 32px; min-height: 52px;
+  transition: background var(--dur) var(--ease);
+  font-family: var(--sans);
+  border: 0; cursor: pointer;
+}
+.btn.primary {
+  background: var(--accent);
+  color: var(--canvas);
+  text-shadow: none;
+}
+.btn.primary:hover { background: var(--accent-hi); }
+.btn.ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+}
+.btn.ghost:hover { border-color: var(--accent-hi); color: var(--accent-hi); }
+.btn .arr { font-size: 18px; }
+
+section { padding: 100px 0; border-top: 1px solid var(--line); }
+@media (max-width: 768px) { section { padding: 64px 0; } }
+
+/* ---- WHAT YOU GET (3 deliverables) ---- */
+.deliv-grid {
+  display: grid; gap: 24px; margin-top: 56px;
+}
+@media (min-width: 760px) { .deliv-grid { grid-template-columns: repeat(3, 1fr); } }
+.deliv {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 32px 28px;
+}
+.deliv .ix {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  color: var(--accent-hi); margin-bottom: 20px;
+  letter-spacing: 0.16em;
+  text-shadow: 0 0 12px rgba(74, 143, 248, 0.5);
+}
+.deliv h3 { margin-bottom: 14px; }
+.deliv .text { color: var(--ink-muted); font-size: 14px; line-height: 1.65; }
+
+/* ---- SAMPLE BOTTLENECKS (illustrative) ---- */
+.bot-grid {
+  display: grid; gap: 0; margin-top: 56px;
+  border-top: 1px solid var(--line);
+}
+.bot {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+  display: grid; gap: 12px;
+  grid-template-columns: 60px 1fr auto;
+  align-items: start;
+}
+@media (max-width: 880px) {
+  .bot { grid-template-columns: 50px 1fr; }
+  .bot .lost { grid-column: 1 / -1; padding-top: 8px; }
+}
+.bot .num {
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  color: var(--accent-hi); padding-top: 4px;
+  letter-spacing: 0.16em;
+}
+.bot h3 { font-size: 18px; }
+.bot .text { color: var(--ink-muted); font-size: 14px; line-height: 1.6; margin-top: 6px; }
+.bot .lost {
+  font-family: var(--mono);
+  font-size: 14px; font-weight: 700;
+  color: var(--amber);
+  text-align: right;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* ---- SAMPLE PDF (mock console) ---- */
+.console {
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  font-family: var(--mono);
+  font-size: 12px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 56px;
+}
+.console-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  background: var(--card);
+}
+.console-head .left { color: var(--ink-muted); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.console-head .meta { color: var(--ink-faint); font-size: 10px; }
+.console-body { padding: 20px 22px; }
+.pdf-page {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  gap: 16px; padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+.pdf-page:last-child { border-bottom: 0; }
+.pdf-page .pn {
+  color: var(--ink-faint); font-size: 10px; letter-spacing: 0.1em;
+}
+.pdf-page .pt {
+  color: var(--ink); font-size: 13px; line-height: 1.5;
+}
+.pdf-page .pt b { color: var(--accent-hi); }
+.pdf-page .pn2 {
+  color: var(--ink-faint); font-size: 10px; text-align: right;
+}
+
+/* ---- MATH ---- */
+.math-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border-top: 1px solid var(--line); margin-top: 56px;
+}
+@media (max-width: 768px) { .math-row { grid-template-columns: 1fr; } }
+.math-col { padding: 36px 0; padding-right: 24px; }
+.math-col + .math-col { border-left: 1px solid var(--line); padding-left: 24px; }
+@media (max-width: 768px) { .math-col + .math-col { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; } }
+.math-col h3 {
+  font-size: 14px; font-family: var(--mono);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-muted); margin-bottom: 18px; font-weight: 500;
+}
+.math-col .num {
+  font-family: var(--serif); font-size: 56px; font-weight: 600;
+  letter-spacing: -0.034em; line-height: 0.95;
+  color: var(--ink);
+  text-shadow: 0 0 14px rgba(232, 236, 241, 0.5), 0 0 28px rgba(74, 143, 248, 0.22);
+}
+.math-col .num .ac {
+  color: var(--accent-hi); font-weight: 700;
+  text-shadow: 0 0 16px rgba(74, 143, 248, 0.55);
+}
+.math-col .num .sym { font-size: 32px; color: var(--ink-muted); margin-right: 4px; }
+.math-col .sub { color: var(--ink-muted); font-size: 13px; margin-top: 14px; line-height: 1.6; }
+
+/* ---- FAQ ---- */
+.faq { border-top: 1px solid var(--line); margin-top: 56px; }
+.faq details {
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+}
+.faq summary {
+  font-family: var(--serif);
+  font-size: 19px; font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  display: flex; justify-content: space-between; align-items: center;
+  letter-spacing: -0.012em;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary .pm {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px;
+  font-family: var(--mono); font-size: 16px; font-weight: 300;
+  color: var(--accent-hi);
+  transition: transform var(--dur) var(--ease);
+}
+.faq details[open] summary .pm { transform: rotate(45deg); }
+.faq .ans {
+  margin-top: 16px;
+  color: var(--ink-muted);
+  font-size: 15px; line-height: 1.65;
+  max-width: 60ch;
+}
+
+/* ---- FINAL CTA ---- */
+.cta-block {
+  text-align: center;
+  padding: 60px 0 0;
+}
+.cta-block h2 { max-width: 18ch; margin: 0 auto; }
+.cta-block .lede { margin: 24px auto 0; max-width: 56ch; font-size: 18px; }
+.cta-block .btn-row {
+  margin-top: 48px;
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+}
+.cta-block .small {
+  display: block; margin-top: 28px;
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ---- FOOTER ---- */
+footer {
+  padding: 60px 0 80px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--ink-muted);
+  line-height: 1.8;
+}
+footer .row { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
+footer a { color: var(--accent-hi); }
+footer .small { color: var(--ink-faint); font-size: 11px; margin-top: 8px; }
+
+/* focus */
+:focus-visible { outline: 2px solid var(--accent-hi); outline-offset: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap row">
+    <a class="brand" href="https://twinthos.com/">Twinthos<span class="dot"></span></a>
+    <div class="links">
+      <a href="https://twinthos.com/#what">What it does</a>
+      <a href="https://twinthos.com/#how">How it works</a>
+      <a href="https://twinthos.com/#proof">Proof</a>
+      <a href="https://twinthos.com/#pricing">Pricing</a>
+    </div>
+    <a class="cta" href="mailto:audit@twinthos.com?subject=Twinthos%20Audit%20enquiry">Book the audit &rarr;</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="kicker"><span class="ix">/audit</span> The Twinthos front door</span>
+    <h1 class="chrome-text">A 6-page map of where your business is <em class="it">leaking</em> money.</h1>
+    <p class="lede">One 45-minute call with the founder. A 6-8 page PDF in 48 hours. Three to seven specific bottlenecks in your business, with the lost-money number on each, and a one-line fix for each. £999 flat. Most audits convert to a Twinthos worker.</p>
+    <div class="meta">
+      <div>
+        <span class="k">Price</span>
+        <span class="v"><span class="ac">£999</span> one-time</span>
+      </div>
+      <div>
+        <span class="k">Format</span>
+        <span class="v">45-min call + PDF</span>
+      </div>
+      <div>
+        <span class="k">Delivery</span>
+        <span class="v">48 hours after call</span>
+      </div>
+      <div>
+        <span class="k">Refund</span>
+        <span class="v">If no bottlenecks, full refund</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="deliverables">
+  <div class="wrap">
+    <span class="kicker"><span class="ix">01</span> What you get</span>
+    <h2>Three deliverables. <em class="it">Zero</em> sales pitch.</h2>
+    <p class="body" style="margin-top:24px;">The audit is paid work, not a free consultation dressed as one. The PDF stands on its own. You do not have to take the worker. About half of audit clients do, because the numbers make it obvious. The other half keep the PDF and run with it. Both are fine.</p>
+
+    <div class="deliv-grid">
+      <div class="deliv">
+        <div class="ix">DELIVERABLE 01</div>
+        <h3>The 45-minute call</h3>
+        <div class="text">You, the owner or MD, and Tyson. No slides. No deck. No pitch. You talk about the business. Tyson asks questions. We map the workflows, the inbox, the booking, the follow-up, the chokepoints. We record with your permission so we do not lose the specifics.</div>
+      </div>
+      <div class="deliv">
+        <div class="ix">DELIVERABLE 02</div>
+        <h3>The 6-8 page PDF</h3>
+        <div class="text">Written in your numbers, your sector, your team size. Each bottleneck gets one page: the problem in plain English, the lost-money number per week or per month, the one-line Twinthos fix, and a confidence rating. You can share it with your accountant, your team, your co-founder.</div>
+      </div>
+      <div class="deliv">
+        <div class="ix">DELIVERABLE 03</div>
+        <h3>The 15-min walkthrough</h3>
+        <div class="text">After the PDF lands, we book a 15-minute call to walk you through it. You ask questions. We answer honestly. If the audit says the worker is the wrong fit, we say so. If the audit says the worker is right, we tell you the price and the next step. No chase. No follow-up sequence.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bottlenecks">
+  <div class="wrap">
+    <span class="kicker"><span class="ix">02</span> What we find</span>
+    <h2>What the bottlenecks <em class="it">look</em> like.</h2>
+    <p class="body" style="margin-top:24px;">These are real examples from real audits. The numbers are illustrative - yours will be different. The pattern is the same: owner is the bottleneck, work is being done by a person that does not need a person, money is being left on the table by a workflow that is half-built.</p>
+
+    <div class="bot-grid">
+      <div class="bot">
+        <div class="num">01</div>
+        <div>
+          <h3>Enquiries answered late, or not at all</h3>
+          <div class="text">A lead fills the website form at 10pm. The owner sees the email at 8am the next morning. The lead has called two competitors by then. Sector data: 78% of buyers hire the first responder (MIT, InsideSales). Lost revenue per missed after-hours enquiry for a £5k service: roughly £1,200 per incident.</div>
+        </div>
+        <div class="lost">~£4-8k/mo</div>
+      </div>
+      <div class="bot">
+        <div class="num">02</div>
+        <div>
+          <h3>Quote follow-up done by hand, slipping through the cracks</h3>
+          <div class="text">Three quotes go out Monday. By Friday two have not been chased. The owner remembers on the weekend. By Monday the buyer has bought elsewhere. Conversion lift from a structured 5-touch follow-up sequence: 30-50% on warm quotes.</div>
+        </div>
+        <div class="lost">~£3-6k/mo</div>
+      </div>
+      <div class="bot">
+        <div class="num">03</div>
+        <div>
+          <h3>Booking back-and-forth eating 5-8 hours of owner time a week</h3>
+          <div class="text">Email tennis. What time works for you. How about Tuesday. Actually Thursday. Owner has 11 of these conversations a day. Owner time is the most expensive time in the business. At £80/hr loaded cost, that is £400-£640/week of owner time spent on calendar admin.</div>
+        </div>
+        <div class="lost">~£1.7-2.5k/mo</div>
+      </div>
+      <div class="bot">
+        <div class="num">04</div>
+        <div>
+          <h3>Customer support questions going to the owner</h3>
+          <div class="text">"Where is my order." "How do I reset my password." "Can you send me the invoice again." Twelve emails a day to the owner. Each one a 6-minute interruption that costs 25 minutes of focus recovery on the actual revenue work.</div>
+        </div>
+        <div class="lost">~£1.5-2k/mo</div>
+      </div>
+      <div class="bot">
+        <div class="num">05</div>
+        <div>
+          <h3>Reporting and admin eating Friday afternoon</h3>
+          <div class="text">Spreadsheet updates. CRM cleanup. Invoice reconciliation. The owner does it because nobody else knows how. Every Friday, 4-6 hours. That is 20% of the owner's productive week gone to work that does not need a person.</div>
+        </div>
+        <div class="lost">~£1.5-2k/mo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sample">
+  <div class="wrap">
+    <span class="kicker"><span class="ix">03</span> A sample page</span>
+    <h2>What the PDF <em class="it">looks</em> like.</h2>
+    <p class="body" style="margin-top:24px;">A live preview of one bottleneck page from a recent audit (sector and name changed). Six to eight pages like this, one per bottleneck, plus a one-page summary at the front and a recommended next step at the back.</p>
+
+    <div class="console" role="img" aria-label="Sample PDF page from a Twinthos audit">
+      <div class="console-head">
+        <div class="left">Twinthos Audit - Page 4 of 7</div>
+        <div class="meta">[CLIENT] Acme Plumbing Ltd - Bath - 8 staff - £1.4m rev</div>
+      </div>
+      <div class="console-body">
+        <div class="pdf-page">
+          <div class="pn">P.04</div>
+          <div class="pt"><b>Bottleneck 03: Quote follow-up done by hand.</b><br><br>7 quotes went out this month. 3 were chased within 48 hours. 4 sat in the inbox until the buyer replied themselves (1 sale) or went cold (3 lost). Industry data: 5-touch follow-up lifts conversion 30-50% on warm quotes.</div>
+          <div class="pn2">CONFIDENCE: HIGH</div>
+        </div>
+        <div class="pdf-page">
+          <div class="pn">FIX</div>
+          <div class="pt">Twinthos runs the follow-up sequence on every quote. Day 1, Day 3, Day 7, Day 14, Day 21. Different message each touch. Stops the moment the buyer replies. Escalates to the owner on a trigger event. Test on 3 quotes first, measure for 30 days, expand if it works.</div>
+          <div class="pn2">EFFORT: 0 HRS</div>
+        </div>
+        <div class="pdf-page">
+          <div class="pn">COST</div>
+          <div class="pt">Estimated lost revenue: <b>£3,200/month</b> from unchased quotes. Audit fee: <b>£999 one-time</b>. Twinthos worker (if you take it): <b>£5,000/month flat, no setup fee, 7-day no-pay guarantee.</b></div>
+          <div class="pn2">PAYBACK: &lt; 1 MO</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="math">
+  <div class="wrap">
+    <span class="kicker"><span class="ix">04</span> The maths</span>
+    <h2>What the audit costs. <em class="it">What</em> the worker costs.</h2>
+    <p class="body" style="margin-top:24px;">The audit is paid work, not a free hook. You do not need to take the worker. You might use the PDF to fix the bottlenecks yourself, or hire a VA, or do nothing. The audit pays for itself if the PDF finds one bottleneck you did not know about.</p>
+
+    <div class="math-row">
+      <div class="math-col">
+        <h3>The audit</h3>
+        <div class="num"><span class="sym">£</span><span class="ac">999</span></div>
+        <div class="sub">One-time. One 45-minute call. A 6-8 page PDF in 48 hours. A 15-minute walkthrough. Yours to keep, share, act on. No follow-up emails. No upsell sequence. Refund if the PDF finds no bottlenecks.</div>
+      </div>
+      <div class="math-col">
+        <h3>The worker (if you take it)</h3>
+        <div class="num"><span class="sym">£</span><span class="ac">5,000</span> <span style="font-size: 22px; color: var(--ink-muted); letter-spacing: 0;">/mo</span></div>
+        <div class="sub">Flat. One bill. No setup fee. No per-seat upcharge. 7-day no-pay guarantee. Live in 48 hours. The worker does not replace the audit - it acts on what the audit found. Most audit clients take the worker in the first 30 days.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <span class="kicker"><span class="ix">05</span> Common questions</span>
+    <h2>What you probably <em class="it">want</em> to ask.</h2>
+
+    <div class="faq">
+      <details>
+        <summary>What do I get for £999?<span class="pm">+</span></summary>
+        <div class="ans">One 45-minute call with the founder, then a 6-8 page PDF delivered in 48 hours. The PDF lists the 3-7 specific bottlenecks in your business, with a lost-money number on each and a one-line Twinthos fix.</div>
+      </details>
+      <details>
+        <summary>Is this a sales call for the £5,000/mo worker?<span class="pm">+</span></summary>
+        <div class="ans">It is paid work, not a free sales call. The PDF stands on its own. About half of audit clients later take the worker. The other half keep the PDF and run with it. Both are fine.</div>
+      </details>
+      <details>
+        <summary>What if the audit finds no bottlenecks?<span class="pm">+</span></summary>
+        <div class="ans">We refund the £999. We have done this once.</div>
+      </details>
+      <details>
+        <summary>Who is on the call?<span class="pm">+</span></summary>
+        <div class="ans">You, the owner or MD, plus Tyson. Forty-five minutes. No slides. No sales pitch. You talk about the business. Tyson asks questions. We go away and write the PDF.</div>
+      </details>
+      <details>
+        <summary>How long until the PDF is ready?<span class="pm">+</span></summary>
+        <div class="ans">Forty-eight hours after the call. We email it to you and schedule a 15-minute walkthrough if you want one.</div>
+      </details>
+      <details>
+        <summary>What size business is this for?<span class="pm">+</span></summary>
+        <div class="ans">UK SMEs with 1-50 staff and £250k-£10m revenue. Owner is the bottleneck. You are answering enquiries, chasing leads, doing admin that should not need a person. If that is you, the audit will find money.</div>
+      </details>
+      <details>
+        <summary>Is my data kept private?<span class="pm">+</span></summary>
+        <div class="ans">Yes. The PDF is delivered to your email only. We do not share the contents, the bottlenecks, or your numbers with anyone. We do not publish case studies from the audit.</div>
+      </details>
+      <details>
+        <summary>What if I already know my bottlenecks?<span class="pm">+</span></summary>
+        <div class="ans">Then the audit is a paid second opinion. Most owners know one or two of theirs. The audit usually finds the third, fourth, and fifth that are not obvious - and prices the lost money in real numbers.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-block">
+      <span class="kicker" style="margin-bottom: 0; border: 0; padding: 0;"><span class="ix">06</span> Book the audit</span>
+      <h2 class="chrome-text" style="margin-top: 28px;">Find the money you are <em class="it">already</em> losing.</h2>
+      <p class="lede">£999. Forty-five minutes. A 6-8 page PDF in 48 hours. No setup, no retainer, no contract beyond the call.</p>
+      <div class="btn-row">
+        <a class="btn primary" href="mailto:audit@twinthos.com?subject=Twinthos%20Audit%20enquiry&body=Name%3A%0ACompany%3A%0ARole%3A%0ARevenue%20band%3A%0AOne%20sentence%20on%20your%20biggest%20bottleneck%3A">Book the audit &rarr;</a>
+        <a class="btn ghost" href="https://twinthos.com/">Back to Twinthos</a>
+      </div>
+      <span class="small">£999 one-time · Refund if no bottlenecks found · 7-day reply guarantee</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <div>
+      <div>Twinthos · autonomous workers for UK business · Bath, UK · ICO registered</div>
+      <div class="small">The £999 audit is a separate product from the £5,000/mo managed worker. Most audits convert to a worker; many do not. Both outcomes are welcome.</div>
+    </div>
+    <div style="display: flex; gap: 24px;">
+      <a href="mailto:audit@twinthos.com">audit@twinthos.com</a>
+      <a href="https://twinthos.com/">Back to Twinthos</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
