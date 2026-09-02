@@ -3,28 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Twinthos - An autonomous employee you own, running 24/7</title>
+<title>Twinthos — An autonomous employee you own</title>
 <meta name="description" content="Twinthos is an autonomous employee you own. It answers every lead, books calls, writes in your voice and closes deals while you sleep. One flat price. Live in 48 hours. £5,000 per month.">
 <meta name="theme-color" content="#050507">
-<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="canonical" href="https://twinthos.com/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<style>
-body:not(.fout) { opacity: 0; }
-</style>
 
 <!-- Open Graph -->
-<meta property="og:title" content="Twinthos - An autonomous employee you own">
-<meta property="og:description" content="An autonomous employee for UK businesses. £5,000/mo flat. Live in 48 hours. 24/7. Never quits.">
-<meta property="og:image" content="https://twinthos.com/og.png">
+<meta property="og:title" content="Twinthos — An autonomous employee you own">
+<meta property="og:description" content="£5,000/mo flat. Live in 48 hours. 24/7. Never quits.">
 <meta property="og:url" content="https://twinthos.com/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Twinthos - An autonomous employee you own">
-<meta name="twitter:description" content="£5,000/mo flat. Live in 48 hours. 24/7. Never quits.">
 
 <!-- FAQPage Schema -->
 <script type="application/ld+json">
@@ -72,17 +63,6 @@ body:not(.fout) { opacity: 0; }
 }
 </script>
 
-<!-- BreadcrumbList -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://twinthos.com/"}
-  ]
-}
-</script>
-
 <!-- WebSite -->
 <script type="application/ld+json">
 {
@@ -98,117 +78,97 @@ body:not(.fout) { opacity: 0; }
 
 <style>
 :root {
-  /* Neutral gunmetal scale - no warm tones */
-  --n9: #050507;
-  --n8: #0a0b0e;
-  --n7: #111318;
-  --n6: #1a1c23;
-  --n5: #2a2e37;
-  --n4: #404552;
-  --n3: #5c6370;
-  --n2: #9ca3af;
-  --n1: #d1d5db;
-  --n0: #f3f4f6;
+  /* Premium dark palette - cold metallics only */
+  --bg: #060608;
+  --surface: #0f1014;
+  --panel: #16181f;
+  --border: #252830;
+  --border-bright: #3a3e4a;
 
-  /* Chrome accent - single saturated color */
-  --chrome: #c7c9d2;
-  --chrome-strong: #e2e6f0;
+  /* Text - high contrast on dark */
+  --text: #e8eaed;
+  --text-muted: #9ba3b2;
+  --text-dim: #6b7280;
+
+  /* Chrome accent - bright visible metals */
+  --chrome: #d4d8e0;
+  -chrome-glow: 0 0 20px rgba(200,210,230,.5), 0 0 60px rgba(200,210,230,.2);
 
   --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  --mono: "JetBrains Mono", ui-monatype, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 
-/* ===== System ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
-  background: var(--n9);
-  color: var(--n1);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
   overflow-x: hidden;
 }
-.body { opacity: 0; }
-.body.fout { opacity: 1; }
 .wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 @media (max-width: 768px) { .wrap { padding: 0 24px; } }
 a { color: inherit; text-decoration: none; }
 
-/* ===== Typography ===== */
+/* Typography */
 .eyebrow {
   font-family: var(--mono); font-size: 12px; font-weight: 600;
   letter-spacing: .16em; text-transform: uppercase;
-  color: var(--n2); margin-bottom: 56px;
+  color: var(--text-muted); margin-bottom: 56px;
 }
 .hero-title {
   font-family: var(--sans);
   font-size: clamp(42px, 11vw, 110px);
   font-weight: 900; letter-spacing: -.04em; line-height: .88;
-  color: var(--n0);
-}
-.hero-title .chrome {
-  color: var(--chrome);
-  font-weight: 900;
+  color: var(--text);
 }
 .hero-sub {
   margin-top: 32px;
   font-size: clamp(18px, 3.6vw, 26px);
-  line-height: 1.55; color: var(--n3);
+  line-height: 1.55; color: var(--text-muted);
   max-width: 58ch; font-weight: 300;
 }
-.hero-sub b { color: var(--n1); font-weight: 500; }
+.hero-sub b { color: var(--text); font-weight: 500; }
 
-/* ===== Chrome text - STATIC metallic, no animation ===== */
+/* Chrome illuminated text - BRIGHT AND VISIBLE */
+.chrome {
+  color: var(--chrome);
+  text-shadow: var(--chrome-glow);
+}
 .chrome-static {
   color: var(--chrome);
-  background: linear-gradient(100deg,
-    transparent 30%,
-    rgba(226,230,240,.4) 50%,
-    transparent 70%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 4px rgba(199,201,210,.3));
+  text-shadow:
+    0 0 15px rgba(212,216,224,.6),
+    0 0 40px rgba(212,216,224,.3);
 }
 
-/* ===== Chrome text - single slow pulse ===== */
-@keyframes slowPulse {
-  0%, 100% { opacity: .9; }
-  50% { opacity: 1; }
-}
-.chrome-pulse {
-  color: var(--chrome);
-  animation: slowPulse 3s ease-in-out infinite;
-}
-
-/* ===== Navigation ===== */
+/* Navigation */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-  background: rgba(5,5,7,.8);
-  border-bottom: 1px solid var(--n5);
+  background: rgba(6,6,8,.85);
+  border-bottom: 1px solid var(--border);
   backdrop-filter: blur(24px) saturate(2);
 }
 .nav .row { display: flex; align-items: center; height: 72px; gap: 24px; }
 .brand { font-weight: 900; font-size: 15px; letter-spacing: -.02em; }
+.brand span { color: var(--chrome); }
 .nav .spacer { margin-left: auto; }
-.nav .links { display: none; gap: 32px; font-size: 14px; font-weight: 500; color: var(--n2); }
-.nav .links a:hover { color: var(--n0); }
+.nav .links { display: none; gap: 32px; font-size: 14px; font-weight: 500; color: var(--text-muted); }
+.nav .links a:hover { color: var(--text); }
 .nav .cta {
   font-size: 14px; font-weight: 700;
-  color: var(--n9);
+  color: var(--bg);
   background: var(--chrome);
   padding: 13px 32px; border-radius: 10px;
-  min-height: 48px;
   display: flex; align-items: center; gap: 10px;
-  box-shadow: 0 0 16px rgba(199,201,210,.25);
+  text-shadow: none;
 }
-.nav .cta:hover { box-shadow: 0 0 24px rgba(199,201,210,.4); }
+.nav .cta:hover { box-shadow: 0 0 24px rgba(212,216,224,.4); }
 @media (min-width: 769px) { .nav .links { display: flex; } }
 
-/* ===== Hero ===== */
+/* Hero */
 .hero {
   position: relative; z-index: 1;
   min-height: 100vh;
@@ -227,21 +187,16 @@ a { color: inherit; text-decoration: none; }
 .hero .stat-band {
   display: flex; flex-wrap: wrap; gap: 32px 48px;
   margin-top: 40px; font-family: var(--mono); font-size: 14px;
-  font-weight: 600; letter-spacing: .04em; color: var(--n2);
+  font-weight: 600; letter-spacing: .04em; color: var(--text-muted);
 }
-.hero .stat-band span { color: var(--n1); }
-.hero .stat-band .dot {
-  display: inline-block; width: 5px; height: 5px;
-  border-radius: 50%; background: var(--chrome);
-  margin-right: 8px; box-shadow: 0 0 6px rgba(199,201,210,.4);
-}
+.hero .stat-band span { color: var(--text); }
 
 /* Product surface - the actual agent UI mock */
 .product-surface {
   position: relative;
   height: 420px;
-  background: var(--n8);
-  border: 1px solid var(--n5);
+  background: var(--panel);
+  border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
   font-size: 13px;
@@ -249,20 +204,20 @@ a { color: inherit; text-decoration: none; }
 }
 .product-surface .surface-header {
   display: flex; align-items: center; gap: 10px;
-  padding: 12px 16px; border-bottom: 1px solid var(--n5);
-  background: rgba(26,28,35,.6);
+  padding: 12px 16px; border-bottom: 1px solid var(--border);
+  background: rgba(24,26,32,.6);
 }
 .product-surface .dot { width: 10px; height: 10px; border-radius: 50%; }
 .product-surface .dot.red { background: #ef4444; }
 .product-surface .dot.yellow { background: #eab308; margin-left: 6px; }
 .product-surface .dot.green { background: #22c55e; margin-left: 6px; }
 .product-surface .surface-title {
-  margin-left: 12px; color: var(--n2);
+  margin-left: 12px; color: var(--text-muted);
   font-size: 12px;
 }
 .product-surface .surface-body {
   padding: 20px;
-  color: var(--n1);
+  color: var(--text);
   height: calc(100% - 44px);
   overflow-y: auto;
 }
@@ -271,45 +226,34 @@ a { color: inherit; text-decoration: none; }
 }
 .product-surface .msg.user { margin-left: auto; text-align: right; }
 .product-surface .msg .author {
-  font-size: 12px; color: var(--n2); margin-bottom: 4px;
+  font-size: 12px; color: var(--text-muted); margin-bottom: 4px;
 }
 .product-surface .msg .content { line-height: 1.5; }
-.product-surface .typing {
-  display: inline-flex; gap: 3px; margin-top: 4px;
-}
-.product-surface .typing span {
-  width: 4px; height: 4px; background: var(--n2); border-radius: 1px;
-  animation: typing 1.4s infinite ease-in-out;
-}
-.product-surface .typing span:nth-child(2) { animation-delay: .16s; }
-.product-surface .typing span:nth-child(3) { animation-delay: .32s; }
-@keyframes typing { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
 
-/* ===== Sections ===== */
+/* Sections */
 .section {
   padding: 140px 0;
-  border-top: 1px solid var(--n5);
+  border-top: 1px solid var(--border);
 }
 @media (max-width: 768px) { .section { padding: 80px 0; } }
 
 .label {
   font-family: var(--mono); font-size: 12px; font-weight: 700;
   letter-spacing: .14em; text-transform: uppercase;
-  color: var(--n2); margin-bottom: 40px;
+  color: var(--text-muted); margin-bottom: 40px;
 }
 .title {
   font-size: clamp(34px, 7vw, 76px);
   font-weight: 900; letter-spacing: -.03em; line-height: .9;
-  color: var(--n0);
+  color: var(--text);
 }
-.title .chrome { color: var(--chrome); }
 .text {
   margin-top: 32px;
   font-size: clamp(17px, 3.2vw, 22px);
-  line-height: 1.65; color: var(--n3);
+  line-height: 1.65; color: var(--text-muted);
   max-width: 60ch; font-weight: 300;
 }
-.text b { color: var(--n1); font-weight: 500; }
+.text b { color: var(--text); font-weight: 500; }
 
 /* Bento grid */
 .bento {
@@ -322,26 +266,26 @@ a { color: inherit; text-decoration: none; }
 }
 
 .bento-item {
-  border: 1px solid var(--n5);
+  border: 1px solid var(--border);
   border-radius: 14px; padding: 32px;
-  background: var(--n8);
+  background: var(--panel);
   transition: border-color .3s, transform .2s;
 }
 .bento-item:hover {
-  border-color: var(--n4);
+  border-color: var(--border-bright);
   transform: translateY(-2px);
 }
 .bento-item .num {
   font-family: var(--mono); font-size: 12px; font-weight: 700;
-  color: var(--n2); margin-bottom: 16px;
+  color: var(--text-muted); margin-bottom: 16px;
 }
 .bento-item .btitle {
   font-size: clamp(18px, 2.8vw, 22px);
   font-weight: 800; letter-spacing: -.015em; line-height: 1.15;
-  color: var(--n0); margin-bottom: 12px;
+  color: var(--text); margin-bottom: 12px;
 }
 .bento-item .bdesc {
-  font-size: 14px; color: var(--n3); line-height: 1.7;
+  font-size: 14px; color: var(--text-muted); line-height: 1.7;
 }
 
 /* Stat band */
@@ -352,23 +296,24 @@ a { color: inherit; text-decoration: none; }
 @media (min-width: 769px) { .stats-bar { grid-template-columns: repeat(4, 1fr); } }
 .stat {
   padding: 24px 16px;
-  border-top: 1px solid var(--n5);
+  border-top: 1px solid var(--border);
   text-align: center;
 }
 @media (min-width: 769px) {
-  .stat { border-top: none; border-left: 1px solid var(--n5); padding: 0 28px; }
+  .stat { border-top: none; border-left: 1px solid var(--border); padding: 0 28px; }
   .stat:first-child { border-left: none; padding-left: 0; }
 }
 .stat .num {
   font-size: clamp(32px, 7vw, 52px);
   font-weight: 900; letter-spacing: -.03em; line-height: 1;
   color: var(--chrome);
+  text-shadow: var(--chrome-glow);
 }
-.stat .unit { font-size: .4em; color: var(--n3); }
+.stat .unit { font-size: .4em; color: var(--text-muted); }
 .stat .label {
   margin-top: 10px; font-family: var(--mono); font-size: 12px;
   font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
-  color: var(--n3);
+  color: var(--text-muted);
 }
 
 /* Pricing cards */
@@ -378,45 +323,48 @@ a { color: inherit; text-decoration: none; }
 }
 @media (min-width: 769px) { .price-grid { grid-template-columns: 1fr 1.2fr; } }
 .price-card {
-  border: 1px solid var(--n5);
+  border: 1px solid var(--border);
   border-radius: 16px; padding: 44px;
-  background: var(--n8);
+  background: var(--panel);
 }
 .price-card.featured {
-  border-color: var(--n3);
+  border-color: var(--border-bright);
 }
 .price-card .who {
   font-family: var(--mono); font-size: 12px; font-weight: 600;
   letter-spacing: .12em; text-transform: uppercase;
-  color: var(--n2); margin-bottom: 20px;
+  color: var(--text-muted); margin-bottom: 20px;
 }
-.price-card.featured .who { color: var(--n1); }
+.price-card.featured .who { color: var(--text); }
 .price-card .big {
   font-size: clamp(32px, 7vw, 56px);
   font-weight: 900; letter-spacing: -.03em; line-height: 1;
 }
-.price-card.featured .big { color: var(--chrome); }
-.price-card .pts {
-  margin-top: 24px; font-size: 15px; color: var(--n3); line-height: 1.7;
+.price-card.featured .big {
+  color: var(--chrome);
+  text-shadow: var(--chrome-glow);
 }
-.price-card .pts b { color: var(--n1); font-weight: 600; }
+.price-card .pts {
+  margin-top: 24px; font-size: 15px; color: var(--text-muted); line-height: 1.7;
+}
+.price-card .pts b { color: var(--text); font-weight: 600; }
 
 /* FAQ Accordion */
 .faq-list { margin-top: 60px; display: grid; gap: 12px; }
 .faq-item {
-  border: 1px solid var(--n5);
+  border: 1px solid var(--border);
   border-radius: 12px;
-  background: var(--n8);
+  background: var(--panel);
   overflow: hidden;
 }
 .faq-item .fq {
   padding: 20px 24px; cursor: pointer;
   font-size: clamp(15px, 3vw, 17px); font-weight: 600;
-  color: var(--n0); display: flex;
+  color: var(--text); display: flex;
   justify-content: space-between; align-items: center;
 }
 .faq-item .fq .arrow {
-  font-size: 16px; color: var(--n3);
+  font-size: 16px; color: var(--text-muted);
   transition: transform .3s;
 }
 .faq-item.active .fq .arrow { transform: rotate(180deg); }
@@ -429,13 +377,13 @@ a { color: inherit; text-decoration: none; }
   max-height: 300px;
   padding: 16px 24px;
 }
-.faq-item .fa p { font-size: 15px; color: var(--n3); line-height: 1.7; }
+.faq-item .fa p { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
 
 /* Final CTA */
 .final { text-align: center; }
 .final .title { max-width: 24ch; margin: 0 auto; }
 .final .sub {
-  margin: 0 auto 48px; color: var(--n3);
+  margin: 0 auto 48px; color: var(--text-muted);
   font-size: 18px; max-width: 600px; line-height: 1.6;
 }
 .final .btn-primary {
@@ -443,28 +391,27 @@ a { color: inherit; text-decoration: none; }
   font-size: 17px; font-weight: 700;
   padding: 18px 48px; border-radius: 12px;
   min-height: 56px;
-  background: var(--chrome); color: var(--n9);
-  box-shadow: 0 0 20px rgba(199,201,210,.25);
+  background: var(--chrome); color: var(--bg);
   transition: transform .2s, box-shadow .2s;
 }
 .final .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 0 30px rgba(199,201,210,.4);
+  box-shadow: 0 0 30px rgba(212,216,224,.4);
 }
 .final .guarantee {
   margin-top: 28px; font-family: var(--mono); font-size: 12px;
-  font-weight: 600; letter-spacing: .06em; color: var(--n3);
+  font-weight: 600; letter-spacing: .06em; color: var(--text-muted);
 }
-.final .guarantee b { color: var(--n1); }
+.final .guarantee b { color: var(--text); }
 .final .urgency {
   margin-top: 20px; display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--mono); font-size: 13px; font-weight: 600;
-  color: var(--n3);
+  font-family: var(--mono); font-size: 14px; font-weight: 600;
+  color: var(--text-muted);
 }
 .final .urgency .dot {
   width: 7px; height: 7px; border-radius: 50%;
   background: var(--chrome);
-  box-shadow: 0 0 6px rgba(199,201,210,.3);
+  box-shadow: 0 0 10px rgba(212,216,224,.5);
 }
 
 .secondary-cta {
@@ -473,14 +420,14 @@ a { color: inherit; text-decoration: none; }
 }
 .secondary-cta a {
   font-size: 14px; font-weight: 500;
-  color: var(--n3); padding: 12px 28px;
-  border-radius: 8px; border: 1px solid var(--n5);
+  color: var(--text-muted); padding: 12px 28px;
+  border-radius: 8px; border: 1px solid var(--border);
   min-height: 44px;
   display: inline-flex; align-items: center;
   transition: color .2s, border-color .2s;
 }
 .secondary-cta a:hover {
-  color: var(--n1); border-color: var(--n3);
+  color: var(--text); border-color: var(--border-bright);
 }
 
 /* Reveal */
@@ -492,12 +439,12 @@ a { color: inherit; text-decoration: none; }
 
 /* Footer */
 footer {
-  padding: 48px 0 60px; border-top: 1px solid var(--n5);
+  padding: 48px 0 60px; border-top: 1px solid var(--border);
   font-family: var(--mono); font-size: 12px;
-  font-weight: 500; letter-spacing: .04em; color: var(--n3);
+  font-weight: 500; letter-spacing: .04em; color: var(--text-muted);
   line-height: 1.8;
 }
-footer b { color: var(--n1); font-weight: 700; }
+footer b { color: var(--text); font-weight: 700; }
 
 /* Accessibility */
 :focus-visible { outline: 2px solid var(--chrome); outline-offset: 3px; border-radius: 3px; }
@@ -510,17 +457,7 @@ footer b { color: var(--n1); font-weight: 700; }
 }
 </style>
 </head>
-
 <body>
-<script>
-if (location.protocol !== 'https:') {
-  location.replace('https://' + location.host + location.pathname + location.search + location.hash);
-}
-document.fonts.ready.then(function() {
-  document.body.classList.add('fout');
-  document.body.classList.add('body');
-});
-</script>
 
 <!-- NAVIGATION -->
 <nav class="nav">
@@ -530,11 +467,12 @@ document.fonts.ready.then(function() {
       <span class="spacer"></span>
       <div class="links">
         <a href="#what">What it does</a>
+        <a href="#how">How it works</a>
         <a href="#proof">Proof</a>
-        <a href="#pricing">The maths</a>
+        <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
       </div>
-      <a class="cta" href="mailto:hello@twinthos.com" style="min-height:48px;">Book a call</a>
+      <a class="cta" href="mailto:hello@twinthos.com">Book a call</a>
     </div>
   </div>
 </nav>
@@ -545,13 +483,13 @@ document.fonts.ready.then(function() {
     <div class="hero-grid">
       <div>
         <div class="eyebrow">Non-Human Intelligence - live now</div>
-        <h1 class="hero-title">An autonomous <span class="chrome-static">employee</span> you own. Running <span class="chrome-pulse">24/7</span>.</h1>
+        <h1 class="hero-title">An autonomous <span class="chrome-static">employee</span> you own. Running <span class="chrome">24/7</span>.</h1>
         <p class="hero-sub">Twinthos answers every lead, books your calls, writes in your voice, and closes deals while you sleep. One flat price. Live in 48 hours.</p>
         <div class="stat-band">
-          <span><span class="dot"></span> Price: <b>£5,000/mo flat</b></span>
-          <span><span class="dot"></span> Setup: <b>about 48 hours</span></span>
-          <span><span class="dot"></span> <b>7-day money-back</b></span>
-          <span><span class="dot"></span> <b>Owned by you</b></span>
+          <span>Price: <b>£5,000/mo flat</b></span>
+          <span>Setup: <b>about 48 hours</b></span>
+          <span><b>7-day money-back</b></span>
+          <span><b>Owned by you</b></span>
         </div>
       </div>
       <div>
@@ -569,7 +507,7 @@ document.fonts.ready.then(function() {
             </div>
             <div class="msg user">
               <div class="author">Twinthos (in your voice)</div>
-              <div class="content">Will do. I'll draft the brief and send it by 9am. In the meantime, here's the pricing structure from our last project.</div>
+              <div class="content">Will do. I will draft the brief and send it by 9am. In the meantime, here is the pricing structure from our last project.</div>
             </div>
             <div class="msg user">
               <div class="author">Twinthos · typing</div>
@@ -603,7 +541,7 @@ document.fonts.ready.then(function() {
       </div>
       <div class="bento-item">
         <div class="num">03</div>
-        <div class="bdesc">Qualifies leads</div>
+        <div class="btitle">Qualifies leads</div>
         <div class="bdesc">Separates serious buyers from time-wasters so you talk to the right people.</div>
       </div>
       <div class="bento-item">
@@ -626,10 +564,10 @@ document.fonts.ready.then(function() {
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="section" id="how" style="background: var(--n8);">
+<section class="section" id="how" style="background: var(--surface);">
   <div class="wrap reveal">
     <div class="label">How it works</div>
-    <h2 class="title">One orchestrator. Four specialist agents. One price.</h2>
+    <h2 class="title">One orchestrator. Four specialist agents.</h2>
     <p class="text">Each Twinthos is a managed employee with an orchestrator that talks to you, and four specialist agents that handle outbound, sales follow-up, content, and support. They run on isolated profiles so a stuck scraper never takes down closing.</p>
     <div class="bento three">
       <div class="bento-item">
@@ -645,7 +583,7 @@ document.fonts.ready.then(function() {
       <div class="bento-item">
         <div class="num">Sales</div>
         <div class="btitle">Follows up until won</div>
-        <div class="bdesc">Tests scripts, tracks replies, escalates to you on price/band/angry-client triggers.</div>
+        <div class="bdesc">Tests scripts, tracks replies, escalates to you on price or angry-client triggers.</div>
       </div>
       <div class="bento-item">
         <div class="num">Content</div>
@@ -670,22 +608,19 @@ document.fonts.ready.then(function() {
 <section class="section" id="proof">
   <div class="wrap reveal">
     <div class="label">Proof</div>
-    <h2 class="title">The page you are reading was built by the <span class="chrome-pulse">thing it sells</span>.</h2>
+    <h2 class="title">The page you are reading was built by the <span class="chrome">thing it sells</span>.</h2>
     <p class="text">We use Twinthos to sell Twinthos. That is the whole pitch. No fake case studies. No invented logos. Just the truth.</p>
     <div class="stats-bar">
-      <div class="stat"><div class="num">£5k<span class="unit">/mo</span></div><div class="label-stat">One flat bill</div></div>
-      <div class="stat"><div class="num">~48<span class="unit">h</span></div><div class="label-stat">Sign-off to live</div></div>
-      <div class="stat"><div class="num">24/7<span class="unit">/365</span></div><div class="label-stat">Always running</div></div>
-      <div class="stat"><div class="num">6<span class="unit"> tools</span></div><div class="label-stat">Computer, browser, code, memory, writing, vision</div></div>
+      <div class="stat"><div class="num">£5k<span class="unit">/mo</span></div><div class="label">One flat bill</div></div>
+      <div class="stat"><div class="num">~48<span class="unit">h</span></div><div class="label">Sign-off to live</div></div>
+      <div class="stat"><div class="num">24/7<span class="unit">/365</span></div><div class="label">Always running</div></div>
+      <div class="stat"><div class="num">8<span class="unit"> parts</span></div><div class="label">Complete agent stack</div></div>
     </div>
-    <p class="quote" style="margin-top:60px; font-size:clamp(22px,4vw,40px); font-weight:700; letter-spacing:-.02em; line-height:1.15; max-width:22ch; color:var(--n0);">
-      We use Twinthos to sell Twinthos. <span class="chrome-static">The page you are reading was produced by the thing it sells.</span>
-    </p>
   </div>
 </section>
 
 <!-- PRICING -->
-<section class="section" id="pricing" style="background: var(--n9);">
+<section class="section" id="pricing" style="background: var(--surface);">
   <div class="wrap reveal">
     <div class="label">The maths</div>
     <h2 class="title">What a human costs.<br>What <span class="chrome-static">Twinthos</span> costs.</h2>
@@ -693,12 +628,12 @@ document.fonts.ready.then(function() {
     <div class="price-grid">
       <div class="price-card">
         <div class="who">A human hire</div>
-        <div class="big">£55-70k<span style="font-size:.5em;color:var(--n3)">/yr</span></div>
-        <div class="pts">Plus 14% employer NICs, 3% pension, 28 days holiday, desk, software, sick pay, and re-hiring when they leave. Total real cost: £75-85k per year for one seat that sleeps eight hours a day and quits on notice.</div>
+        <div class="big">£55-70k<span style="font-size:.5em;color:var(--text-muted)">/yr</span></div>
+        <div class="pts">Plus 14% employer NICs, 3% pension, 28 days holiday, desk, software, sick pay, and re-hiring when they leave. Total real cost: <b>£75-85k per year</b> for one seat that sleeps eight hours a day and quits on notice.</div>
       </div>
       <div class="price-card featured">
         <div class="who">Twinthos</div>
-        <div class="big chrome-static">£5k<span style="font-size:.5em;color:var(--n3)">/mo</span></div>
+        <div class="big">£5k<span style="font-size:.5em">/mo</span></div>
         <div class="pts">Flat. One bill. <b>Never quits.</b> Never sick. Follows up until you say stop. Works every timezone. Owned by you and compounding with use.</div>
       </div>
     </div>
@@ -706,7 +641,7 @@ document.fonts.ready.then(function() {
 </section>
 
 <!-- FAQ -->
-<section class="section" id="faq" style="background: var(--n8);">
+<section class="section" id="faq">
   <div class="wrap reveal">
     <div class="label">Frequently asked</div>
     <h2 class="title">Still questions?<br>We <span class="chrome-static">answer</span> them below.</h2>
@@ -740,13 +675,13 @@ document.fonts.ready.then(function() {
 </section>
 
 <!-- FINAL -->
-<section class="section section--final">
+<section class="section">
   <div class="wrap reveal">
     <div class="label">Decision</div>
     <h2 class="title">Your first <span class="chrome-static">employee</span> that is not a person.</h2>
     <p class="final sub">One call. One scope sign-off. Live in about 48 hours. Then it works while you do the human part.</p>
     <div>
-      <a class="btn-primary" href="mailto:hello@twinthos.com" style="min-height:56px;">Book a call <span style="font-size:18px;">&#8594;</span></a>
+      <a class="btn-primary" href="mailto:hello@twinthos.com">Book a call <span style="font-size:18px;">&#8594;</span></a>
     </div>
     <div class="secondary-cta">
       <a href="mailto:hello@twinthos.com">Email: hello@twinthos.com</a>
