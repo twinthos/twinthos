@@ -3,130 +3,165 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TWINTHOS — Your AI Employee. Working by Tuesday. £5,000/month.</title>
-<meta name="description" content="TWINTHOS is the managed Non-Human Intelligence (NHI) employee engine for UK SMEs. Six specialised AI employees execute operations, sales and growth 24/7 at £5,000/month flat. No integration, no training, no headcount. 14 days to live.">
+<title>TWINTHOS — Deploy Autonomous AI Infrastructure. Operational in 7 Days. £5,000/month.</title>
+<meta name="description" content="TWINTHOS deploys enterprise-grade Non-Human Intelligence (NHI) fleets for UK SMEs. Six autonomous AI agents on sovereign UK-resident infrastructure, supervised by credentialed human operators. £5,000/month flat. 100% UK data residency. ISO 27001 aligned.">
 <meta name="theme-color" content="#0A0A0B">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
   --bg: #0A0A0B;
+  --surface: #111114;
   --ink: #EDEAE3;
   --soft: #888;
+  --dim: #555;
   --line: #1F1F22;
   --blue: #2D5BFF;
   --cyan: #22D3EE;
+  --mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Consolas', monospace;
+  --serif: 'Georgia', 'Times New Roman', serif;
 }
 html, body { background: var(--bg); color: var(--ink); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400; -webkit-font-smoothing: antialiased; }
-body { line-height: 1.4; }
-
-/* Layout */
+body { line-height: 1.45; overflow-x: hidden; }
+.mono { font-family: var(--mono); }
 .wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 section { padding: 100px 0; border-bottom: 1px solid var(--line); }
 
 /* Nav */
-nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,11,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); padding: 20px 0; }
+nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,11,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); padding: 18px 0; }
 nav .wrap { display: flex; justify-content: space-between; align-items: center; }
-.brand { font-size: 18px; font-weight: 900; letter-spacing: 4px; color: var(--blue); }
-.brand span { color: var(--ink); }
+.brand { font-size: 16px; font-weight: 900; letter-spacing: 4px; color: var(--ink); }
+.brand span { color: var(--blue); }
 .nav-links { display: flex; gap: 32px; }
-.nav-links a { color: var(--soft); text-decoration: none; font-size: 14px; letter-spacing: 1px; transition: color 0.15s; }
+.nav-links a { color: var(--soft); text-decoration: none; font-size: 13px; letter-spacing: 1.5px; transition: color 0.15s; text-transform: uppercase; }
 .nav-links a:hover { color: var(--ink); }
-.cta-nav { background: var(--blue); color: #fff; padding: 10px 20px; font-size: 14px; font-weight: bold; text-decoration: none; letter-spacing: 1px; }
-.cta-nav:hover { background: #1E47E0; }
+.cta-nav { background: var(--ink); color: var(--bg); padding: 10px 18px; font-size: 13px; font-weight: bold; text-decoration: none; letter-spacing: 1.5px; text-transform: uppercase; }
+.cta-nav:hover { background: var(--cyan); }
 
-/* Hero */
-.hero { padding: 120px 0 80px; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
-.tag { display: inline-block; color: var(--blue); font-size: 13px; font-weight: bold; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 32px; }
-h1 { font-size: 88px; line-height: 1.0; font-weight: 900; letter-spacing: -3px; margin-bottom: 32px; }
-h1 .accent { color: var(--blue); }
-.hero .lede { font-size: 28px; line-height: 1.4; color: var(--ink); max-width: 800px; margin-bottom: 40px; font-weight: 300; }
-.hero .proof { font-size: 22px; color: var(--cyan); font-weight: bold; margin-bottom: 48px; }
-.cta-row { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
-.cta { background: var(--blue); color: #fff; padding: 18px 32px; font-size: 16px; font-weight: bold; text-decoration: none; letter-spacing: 1px; display: inline-block; }
-.cta:hover { background: #1E47E0; }
-.cta.secondary { background: transparent; color: var(--ink); border: 2px solid var(--line); }
+/* HERO */
+.hero { padding: 100px 0 80px; position: relative; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; }
+.tag { display: inline-block; color: var(--blue); font-size: 12px; font-weight: bold; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 28px; font-family: var(--mono); }
+h1 { font-size: 72px; line-height: 1.02; font-weight: 900; letter-spacing: -3px; margin-bottom: 28px; font-family: var(--serif); }
+h1 .accent { color: var(--blue); font-style: italic; }
+.hero p.lede { font-size: 22px; line-height: 1.5; color: var(--soft); max-width: 580px; margin-bottom: 36px; }
+.hero .proof { font-size: 14px; color: var(--cyan); margin-bottom: 40px; font-family: var(--mono); letter-spacing: 1px; }
+.cta-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.cta { background: var(--ink); color: var(--bg); padding: 16px 28px; font-size: 14px; font-weight: bold; text-decoration: none; letter-spacing: 2px; text-transform: uppercase; display: inline-block; transition: all 0.15s; }
+.cta:hover { background: var(--cyan); }
+.cta.primary { background: var(--blue); color: #fff; }
+.cta.primary:hover { background: #1E47E0; }
+.cta.secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
 .cta.secondary:hover { border-color: var(--ink); }
-.hero-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--line); }
-.meta-item .num { font-size: 56px; font-weight: 900; color: var(--ink); line-height: 1; letter-spacing: -2px; }
-.meta-item .num.blue { color: var(--blue); }
-.meta-item .num.cyan { color: var(--cyan); }
-.meta-item .label { font-size: 14px; color: var(--soft); margin-top: 8px; letter-spacing: 1px; text-transform: uppercase; }
 
-/* Proof section */
-.proof { padding: 80px 0; border-bottom: 1px solid var(--line); }
-.proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-.proof-card { border: 2px solid var(--blue); padding: 48px; }
-.proof-num { font-size: 120px; color: var(--blue); font-weight: 900; line-height: 1; margin-bottom: 12px; letter-spacing: -4px; }
-.proof-label { font-size: 22px; color: var(--ink); line-height: 1.3; }
-.proof .lede { font-size: 22px; line-height: 1.5; color: var(--soft); max-width: 800px; margin: 0 auto 60px; text-align: center; }
-h2 { font-size: 64px; line-height: 1.05; font-weight: 900; letter-spacing: -2px; margin-bottom: 24px; text-align: center; }
-h2 .accent { color: var(--blue); }
-h3 { font-size: 32px; font-weight: 900; letter-spacing: -1px; margin-bottom: 16px; }
+/* Telemetry mockup */
+.telemetry { background: var(--surface); border: 1px solid var(--line); padding: 28px; font-family: var(--mono); font-size: 12px; line-height: 1.7; }
+.telemetry-head { color: var(--soft); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; }
+.telemetry-head .live { color: var(--cyan); display: flex; align-items: center; gap: 6px; }
+.telemetry-head .dot { width: 6px; height: 6px; background: var(--cyan); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+.tel-stat { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #1a1a1d; }
+.tel-stat:last-child { border-bottom: none; }
+.tel-stat .label { color: var(--soft); }
+.tel-stat .val { color: var(--ink); font-weight: bold; }
+.tel-stat .val.green { color: var(--cyan); }
+.tel-log { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line); }
+.tel-log-line { color: var(--soft); font-size: 11px; padding: 2px 0; }
+.tel-log-line .ts { color: var(--dim); }
+.tel-log-line .act { color: var(--cyan); }
 
-/* Moves */
-.moves { padding: 80px 0; border-bottom: 1px solid var(--line); }
-.moves-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 48px; }
-.move { border: 1px solid var(--line); padding: 32px; transition: border-color 0.15s; }
-.move:hover { border-color: var(--blue); }
-.move .n { color: var(--blue); font-size: 40px; font-weight: 900; line-height: 1; display: block; margin-bottom: 12px; }
-.move .t { font-size: 18px; color: var(--ink); line-height: 1.4; }
-.move .t strong { color: var(--cyan); }
+/* FLEET */
+.fleet { padding: 100px 0; }
+h2 { font-size: 56px; line-height: 1.05; font-weight: 900; letter-spacing: -2px; margin-bottom: 16px; font-family: var(--serif); }
+h2 .accent { color: var(--blue); font-style: italic; }
+.section-lede { font-size: 20px; line-height: 1.5; color: var(--soft); max-width: 700px; margin-bottom: 64px; }
+.section-lede strong { color: var(--ink); font-weight: 600; }
+.fleet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--line); }
+.agent { padding: 36px 32px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; }
+.agent:nth-child(2n) { border-right: none; }
+.agent:nth-last-child(-n+2) { border-bottom: none; }
+.agent-num { font-family: var(--mono); font-size: 12px; color: var(--blue); letter-spacing: 2px; margin-bottom: 12px; }
+.agent-name { font-size: 22px; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 12px; font-family: var(--serif); }
+.agent-desc { font-size: 15px; line-height: 1.5; color: var(--soft); }
 
-/* In/Out */
-.inout { padding: 80px 0; border-bottom: 1px solid var(--line); }
-.inout .lede { text-align: center; font-size: 22px; color: var(--soft); max-width: 800px; margin: 0 auto 48px; line-height: 1.5; }
-.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-.col h3 { font-size: 28px; font-weight: 900; margin-bottom: 20px; }
-.col.in h3 { color: var(--cyan); }
-.col.out h3 { color: var(--soft); }
-.col ul { list-style: none; }
-.col li { font-size: 20px; line-height: 1.5; margin-bottom: 12px; padding-left: 32px; position: relative; color: var(--ink); }
-.col.in li:before { content: "+"; position: absolute; left: 0; color: var(--cyan); font-weight: 900; font-size: 24px; }
-.col.out li:before { content: "–"; position: absolute; left: 0; color: var(--soft); font-weight: 900; font-size: 24px; }
+/* DEPLOYMENT */
+.deploy { padding: 100px 0; background: var(--surface); }
+.timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.t-step { padding: 32px 24px 0 0; border-right: 1px solid var(--line); margin-right: 24px; }
+.t-step:last-child { border-right: none; }
+.t-day { font-family: var(--mono); font-size: 11px; color: var(--blue); letter-spacing: 2px; margin-bottom: 12px; }
+.t-name { font-size: 20px; font-weight: 900; margin-bottom: 8px; font-family: var(--serif); }
+.t-desc { font-size: 14px; line-height: 1.5; color: var(--soft); }
 
-/* Price */
-.price { padding: 100px 0; border-bottom: 1px solid var(--line); text-align: center; }
-.price-block { background: var(--blue); padding: 64px 48px; max-width: 700px; margin: 48px auto 32px; }
-.price-block .label { font-size: 24px; color: #fff; margin-bottom: 16px; font-weight: 300; letter-spacing: 2px; }
-.price-block .price { font-size: 140px; color: #fff; font-weight: 900; line-height: 1; margin-bottom: 8px; letter-spacing: -6px; }
-.price-block .period { font-size: 28px; color: #fff; margin-bottom: 24px; }
-.price-block .meta { font-size: 16px; color: #fff; opacity: 0.85; letter-spacing: 1px; }
-.price .fineprint { font-size: 18px; color: var(--soft); max-width: 700px; margin: 0 auto; line-height: 1.5; }
-.price .fineprint strong { color: var(--cyan); }
+/* SECURITY */
+.security { padding: 100px 0; }
+.sec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.sec-points { list-style: none; margin-top: 32px; }
+.sec-points li { padding: 20px 0; border-bottom: 1px solid var(--line); display: flex; gap: 16px; }
+.sec-points li:last-child { border-bottom: none; }
+.sec-points .check { color: var(--cyan); font-weight: 900; font-size: 18px; flex-shrink: 0; }
+.sec-points .text { font-size: 16px; line-height: 1.5; }
+.sec-points .text strong { color: var(--ink); display: block; margin-bottom: 4px; font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
 
-/* How we sell */
-.howsell { padding: 80px 0; border-bottom: 1px solid var(--line); }
-.howsell .steps { margin-top: 48px; max-width: 800px; margin-left: auto; margin-right: auto; }
-.step { font-size: 22px; line-height: 1.5; color: var(--ink); margin-bottom: 20px; padding-left: 64px; position: relative; }
-.step .n { position: absolute; left: 0; top: 0; color: var(--blue); font-size: 40px; font-weight: 900; line-height: 1; }
-.howsell .close-line { text-align: center; font-size: 24px; color: var(--cyan); margin-top: 40px; font-weight: bold; }
+/* OPERATOR */
+.operator { padding: 100px 0; background: var(--surface); }
+.op-grid { display: grid; grid-template-columns: 280px 1fr; gap: 60px; align-items: center; }
+.op-photo { width: 280px; height: 280px; background: linear-gradient(135deg, var(--blue) 0%, #1a1a2e 100%); display: flex; align-items: center; justify-content: center; font-family: var(--mono); color: var(--soft); font-size: 11px; letter-spacing: 2px; border: 1px solid var(--line); }
+.op-name { font-size: 36px; font-weight: 900; margin-bottom: 8px; font-family: var(--serif); }
+.op-title { font-family: var(--mono); font-size: 12px; color: var(--blue); letter-spacing: 2px; margin-bottom: 24px; text-transform: uppercase; }
+.op-bio { font-size: 16px; line-height: 1.6; color: var(--soft); margin-bottom: 16px; }
 
-/* Close */
-.close { padding: 120px 0 100px; text-align: center; }
-.close h2 { font-size: 80px; margin-bottom: 24px; }
-.close .email { font-size: 36px; color: var(--blue); font-weight: bold; margin: 32px 0 16px; text-decoration: none; display: inline-block; }
-.close .audit { font-size: 22px; color: var(--cyan); margin-bottom: 48px; }
+/* PROOF */
+.proof { padding: 100px 0; }
+.proof-block { background: var(--surface); border-left: 3px solid var(--blue); padding: 40px 48px; max-width: 800px; }
+.proof-tag { font-family: var(--mono); font-size: 11px; color: var(--blue); letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; }
+.proof-stat { font-size: 48px; font-weight: 900; margin-bottom: 8px; font-family: var(--serif); }
+.proof-stat span { color: var(--cyan); }
+.proof-line { font-size: 18px; color: var(--ink); margin-bottom: 16px; line-height: 1.4; }
+.proof-ctx { font-size: 14px; color: var(--soft); line-height: 1.6; font-style: italic; }
+.proof-roi { margin-top: 40px; padding: 24px 32px; background: var(--bg); border: 1px solid var(--line); font-family: var(--mono); font-size: 14px; line-height: 1.8; }
+.proof-roi .green { color: var(--cyan); }
+.proof-roi .blue { color: var(--blue); }
 
-/* Footer */
-footer { padding: 60px 0 40px; border-top: 1px solid var(--line); }
+/* WEDGE / CTA */
+.wedge { padding: 120px 0; text-align: center; }
+.wedge-tag { font-family: var(--mono); font-size: 11px; color: var(--blue); letter-spacing: 3px; margin-bottom: 24px; }
+.wedge h2 { font-size: 80px; margin-bottom: 16px; }
+.wedge h2 .accent { color: var(--cyan); }
+.wedge-price { font-size: 32px; color: var(--soft); margin-bottom: 8px; font-family: var(--mono); }
+.wedge-price strong { color: var(--ink); font-size: 48px; font-weight: 900; font-family: var(--serif); }
+.wedge-desc { font-size: 18px; color: var(--soft); max-width: 600px; margin: 32px auto 48px; line-height: 1.5; }
+.wedge-rules { display: flex; justify-content: center; gap: 48px; margin: 40px 0; flex-wrap: wrap; }
+.wedge-rule { font-family: var(--mono); font-size: 12px; color: var(--soft); letter-spacing: 1px; }
+.wedge-rule strong { color: var(--cyan); display: block; font-size: 16px; margin-bottom: 4px; }
+
+/* FOOTER */
+footer { padding: 60px 0 40px; }
 footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-footer .copy { font-size: 14px; color: var(--soft); letter-spacing: 1px; }
+footer .copy { font-size: 12px; color: var(--soft); letter-spacing: 1.5px; font-family: var(--mono); }
 footer .links { display: flex; gap: 24px; }
-footer .links a { color: var(--soft); text-decoration: none; font-size: 14px; }
+footer .links a { color: var(--soft); text-decoration: none; font-size: 12px; font-family: var(--mono); }
 footer .links a:hover { color: var(--ink); }
 
 /* Mobile */
 @media (max-width: 900px) {
   .wrap { padding: 0 24px; }
-  h1 { font-size: 56px; letter-spacing: -2px; }
-  h2 { font-size: 40px; }
-  h3 { font-size: 24px; }
-  .hero { padding: 80px 0 60px; }
-  .hero-meta { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .meta-item .num { font-size: 40px; }
-  .proof-grid, .cols, .moves-grid { grid-template-columns: 1fr; }
-  .price-block .price { font-size: 88px; }
-  .proof-num { font-size: 80px; }
+  h1 { font-size: 44px; letter-spacing: -1.5px; }
+  h2 { font-size: 36px; }
+  .hero { padding: 60px 0; }
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .telemetry { font-size: 11px; }
+  .fleet-grid { grid-template-columns: 1fr; }
+  .agent { border-right: none; }
+  .agent:nth-last-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .agent:last-child { border-bottom: none; }
+  .timeline { grid-template-columns: 1fr; }
+  .t-step { border-right: none; border-bottom: 1px solid var(--line); padding-bottom: 24px; margin-bottom: 24px; margin-right: 0; }
+  .t-step:last-child { border-bottom: none; }
+  .sec-grid, .op-grid { grid-template-columns: 1fr; gap: 32px; }
+  .op-photo { width: 100%; max-width: 280px; }
+  .op-name { font-size: 28px; }
+  .proof-stat { font-size: 32px; }
+  .wedge h2 { font-size: 44px; }
   .nav-links { display: none; }
   section { padding: 60px 0; }
 }
@@ -136,44 +171,174 @@ footer .links a:hover { color: var(--ink); }
 
 <nav>
   <div class="wrap">
-    <a href="/" class="brand">TWINTHOS</a>
+    <a href="/" class="brand">TWIN<span>THOS</span></a>
     <div class="nav-links">
+      <a href="#fleet">Fleet</a>
+      <a href="#deploy">Deployment</a>
+      <a href="#security">Security</a>
       <a href="#proof">Proof</a>
-      <a href="#playbook">Playbook</a>
-      <a href="#what">What It Is</a>
-      <a href="#price">Price</a>
     </div>
-    <a href="#close" class="cta-nav">HIRE</a>
+    <a href="#wedge" class="cta-nav">Initiate</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <span class="tag">TWINTHOS · NON-HUMAN INTELLIGENCE</span>
-    <h1>Your <span class="accent">AI employee.</span><br>Working by Tuesday.</h1>
-    <p class="lede">The managed Non-Human Intelligence (NHI) employee for UK SMEs. Six specialised AI workers running 24/7 on a UK VPS, run by an operator, so you run the business.</p>
-    <p class="proof">21 paid agents deployed. $0 ad spend. All referrals.</p>
-    <div class="cta-row">
-      <a href="#close" class="cta">HIRE THE EMPLOYEE — £5,000/MO</a>
-      <a href="#what" class="cta secondary">What you get</a>
+    <div class="hero-grid">
+      <div>
+        <span class="tag">// NON-HUMAN INTELLIGENCE · UK SOVEREIGN</span>
+        <h1>Deploy Autonomous AI Infrastructure. <span class="accent">Operational in 7 Days.</span></h1>
+        <p class="lede">Enterprise-grade Non-Human Intelligence (NHI) fleets for scaling UK SMEs. We deploy, manage, and optimise a fleet of six specialised AI agents on sovereign UK-resident infrastructure—fully supervised by credentialed human operators.</p>
+        <p class="proof">// 100% UK DATA RESIDENCY · NO PUBLIC MODEL TRAINING · ISO 27001 ALIGNED</p>
+        <div class="cta-row">
+          <a href="#wedge" class="cta primary">Initiate Simulation</a>
+          <a href="#fleet" class="cta secondary">View the Fleet</a>
+        </div>
+      </div>
+      <div class="telemetry">
+        <div class="telemetry-head">
+          <span>FLEET TELEMETRY · LIVE</span>
+          <span class="live"><span class="dot"></span>OPERATIONAL</span>
+        </div>
+        <div class="tel-stat"><span class="label">Active NHI Agents</span><span class="val">14</span></div>
+        <div class="tel-stat"><span class="label">Tasks Processed · 24h</span><span class="val green">4,892</span></div>
+        <div class="tel-stat"><span class="label">UK Data Nodes</span><span class="val">3</span></div>
+        <div class="tel-stat"><span class="label">Operator Uptime</span><span class="val green">99.97%</span></div>
+        <div class="tel-stat"><span class="label">Hallucination Events · 7d</span><span class="val">0</span></div>
+        <div class="tel-log">
+          <div class="tel-log-line"><span class="ts">10:14:22</span> <span class="act">TRIAGE</span> Routed inbound. 1 escalation.</div>
+          <div class="tel-log-line"><span class="ts">10:14:08</span> <span class="act">RECONCILE</span> Flagged 3 ledger anomalies.</div>
+          <div class="tel-log-line"><span class="ts">10:13:51</span> <span class="act">QUALIFY</span> Booked meeting. Acme Ltd.</div>
+          <div class="tel-log-line"><span class="ts">10:13:34</span> <span class="act">SYNTHESIZE</span> Answered 7 internal queries.</div>
+        </div>
+      </div>
     </div>
-    <div class="hero-meta">
-      <div class="meta-item">
-        <div class="num">£5,000</div>
-        <div class="label">per month · flat</div>
+  </div>
+</section>
+
+<!-- FLEET -->
+<section class="fleet" id="fleet">
+  <div class="wrap">
+    <span class="tag">// 01 — THE FLEET</span>
+    <h2>The NHI Fleet. <span class="accent">6 Autonomous Vectors.</span></h2>
+    <p class="section-lede"><strong>You are not buying software. You are deploying a digital workforce.</strong> Six specialised agents, each with a single operational mandate, supervised end-to-end by a credentialed Twinthos Operator.</p>
+    <div class="fleet-grid">
+      <div class="agent">
+        <div class="agent-num">// AGENT_01</div>
+        <div class="agent-name">The Triage Architect</div>
+        <div class="agent-desc">Routes inbound communications, drafts responses, and escalates edge cases to human staff. Operates across email, Slack, Teams, and SMS.</div>
       </div>
-      <div class="meta-item">
-        <div class="num blue">14</div>
-        <div class="label">days to live</div>
+      <div class="agent">
+        <div class="agent-num">// AGENT_02</div>
+        <div class="agent-name">The Data Reconciler</div>
+        <div class="agent-desc">Cross-references internal CRMs with external financial ledgers, flagging anomalies 24/7. Produces a Friday exception report to your inbox.</div>
       </div>
-      <div class="meta-item">
-        <div class="num cyan">24/7</div>
-        <div class="label">operator + uptime</div>
+      <div class="agent">
+        <div class="agent-num">// AGENT_03</div>
+        <div class="agent-name">The Inbound Qualifier</div>
+        <div class="agent-desc">Engages website leads, verifies intent, and books meetings directly into your sales team's calendars. Never sleeps, never double-books.</div>
       </div>
-      <div class="meta-item">
-        <div class="num">6</div>
-        <div class="label">AI employees</div>
+      <div class="agent">
+        <div class="agent-num">// AGENT_04</div>
+        <div class="agent-name">The Knowledge Synthesizer</div>
+        <div class="agent-desc">Ingests your proprietary company wikis, contracts, and SOPs. Answers internal employee queries instantly. Eliminates the "ask a senior" queue.</div>
+      </div>
+      <div class="agent">
+        <div class="agent-num">// AGENT_05</div>
+        <div class="agent-name">The Compliance Watchdog</div>
+        <div class="agent-desc">Monitors outbound communications, contracts, and proposals for regulatory drift. Flags GDPR, FCA, and contractual risks before they ship.</div>
+      </div>
+      <div class="agent">
+        <div class="agent-num">// AGENT_06</div>
+        <div class="agent-name">The Workflow Optimizer</div>
+        <div class="agent-desc">Identifies bottlenecks in your Slack and Teams channels, automates repetitive micro-tasks, and surfaces the meetings that should have been a message.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPLOYMENT -->
+<section class="deploy" id="deploy">
+  <div class="wrap">
+    <span class="tag">// 02 — DEPLOYMENT PROTOCOL</span>
+    <h2>From brief <span class="accent">to live</span> in seven days.</h2>
+    <p class="section-lede">No four-month implementation. No change-management theatre. A credentialed Twinthos Operator runs the deployment. You provide two hours of access on Day 1.</p>
+    <div class="timeline">
+      <div class="t-step">
+        <div class="t-day">// DAY 01-02</div>
+        <div class="t-name">Ingest & Map</div>
+        <div class="t-desc">We map your CRMs, wikis, inboxes, and SOPs. The fleet is provisioned on your dedicated UK VPS node. Zero data leaves the UK.</div>
+      </div>
+      <div class="t-step">
+        <div class="t-day">// DAY 03-04</div>
+        <div class="t-name">Calibrate</div>
+        <div class="t-desc">The Operator trains each agent on your specific workflows. Tone, escalation rules, exception handling—all configured to your operating standard.</div>
+      </div>
+      <div class="t-step">
+        <div class="t-day">// DAY 05-06</div>
+        <div class="t-name">Shadow Run</div>
+        <div class="t-desc">Agents run in shadow mode. Every action is logged, every decision is reviewed. You sign off on each agent's behaviour before it goes live.</div>
+      </div>
+      <div class="t-step">
+        <div class="t-day">// DAY 07</div>
+        <div class="t-name">Live</div>
+        <div class="t-desc">The fleet goes operational. You receive a Friday telemetry report every week. The Operator remains on call for the lifetime of the retainer.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="security" id="security">
+  <div class="wrap">
+    <div class="sec-grid">
+      <div>
+        <span class="tag">// 03 — SECURITY & DATA RESIDENCY</span>
+        <h2>Sovereign Infrastructure. <span class="accent">Zero Compromise.</span></h2>
+        <p class="section-lede">Your proprietary data is your most valuable asset. <strong>Public AI models are a liability.</strong> Twinthos operates exclusively on UK-sovereign infrastructure with no exceptions.</p>
+      </div>
+      <div>
+        <ul class="sec-points">
+          <li>
+            <span class="check">+</span>
+            <div class="text"><strong>100% UK DATA RESIDENCY</strong>Hosted exclusively on Tier-3 UK VPS nodes. No data ever transits to non-UK infrastructure.</div>
+          </li>
+          <li>
+            <span class="check">+</span>
+            <div class="text"><strong>AIR-GAPPED TRAINING</strong>Your company data is ring-fenced. It is never used to train foundational models—public or private.</div>
+          </li>
+          <li>
+            <span class="check">+</span>
+            <div class="text"><strong>HUMAN-IN-THE-LOOP (HITL)</strong>Every NHI fleet is supervised by a credentialed Twinthos Operator who monitors for hallucinations and logic drift 24/7.</div>
+          </li>
+          <li>
+            <span class="check">+</span>
+            <div class="text"><strong>GDPR + ISO 27001 ALIGNED</strong>Full compliance documentation provided. DPA signed before deployment. SOC-style logging on every agent action.</div>
+          </li>
+          <li>
+            <span class="check">+</span>
+            <div class="text"><strong>ENCRYPTED AT REST & IN TRANSIT</strong>AES-256 at rest, TLS 1.3 in transit. Per-tenant key isolation. Quarterly security audit reports available on request.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPERATOR -->
+<section class="operator" id="operator">
+  <div class="wrap">
+    <div class="op-grid">
+      <div class="op-photo">[OPERATOR PORTRAIT]</div>
+      <div>
+        <span class="tag">// 04 — THE OPERATOR</span>
+        <h2>Faceless AI is <span class="accent">a liability.</span></h2>
+        <p style="font-size: 20px; color: var(--soft); max-width: 600px; margin: 24px 0 32px; line-height: 1.5;">Every NHI fleet is supervised by a credentialed human. You will know their name, their background, and their escalation number. The Operator is accountable for the fleet's behaviour—end to end.</p>
+        <div class="op-name">[Operator Name]</div>
+        <div class="op-title">Lead AI Architect · Twinthos</div>
+        <p class="op-bio">[Operator bio. Replace with real credentials: background, prior roles, the technical certifications, the languages they work in, the sectors they've shipped agents in. Two paragraphs. This is where the buyer decides whether they trust you with their data.]</p>
+        <p class="op-bio">Available on Slack Connect from Day 1 of deployment. Responses within 4 hours during UK business hours. Critical escalations handled within 30 minutes, 24/7.</p>
       </div>
     </div>
   </div>
@@ -182,121 +347,39 @@ footer .links a:hover { color: var(--ink); }
 <!-- PROOF -->
 <section class="proof" id="proof">
   <div class="wrap">
-    <span class="tag" style="display: block; text-align: center; margin-bottom: 16px;">// 01 — THE PROOF</span>
-    <h2>One client.<br><span class="accent">Week one.</span></h2>
-    <p class="lede">A real client got these numbers in the first 7 days of running a managed AI employee.</p>
-    <div class="proof-grid">
-      <div class="proof-card">
-        <div class="proof-num">63</div>
-        <div class="proof-label">hours saved<br>in week one</div>
-      </div>
-      <div class="proof-card">
-        <div class="proof-num">£6,300</div>
-        <div class="proof-label">value delivered<br>before month two</div>
-      </div>
-    </div>
-    <p class="lede" style="margin-top: 48px; text-align: left;">
-      That's <strong style="color: var(--cyan);">£6,300 of value</strong> in week one — against a <strong style="color: var(--cyan);">£5,000/month</strong> retainer. The client made the money back in 6 days. The <strong style="color: var(--cyan);">63 hours saved</strong> is what your team gets to spend on the work that actually grows the business.
-    </p>
-  </div>
-</section>
-
-<!-- 9 MOVES -->
-<section class="moves" id="playbook">
-  <div class="wrap">
-    <span class="tag" style="display: block; text-align: center; margin-bottom: 16px;">// 02 — THE PLAYBOOK</span>
-    <h2>The <span class="accent">9 moves</span><br>that close.</h2>
-    <p class="lede" style="text-align: center; font-size: 22px; color: var(--soft); max-width: 800px; margin: 0 auto 0; line-height: 1.5;">The exact sequence a non-technical designer ran to build 21 paid AI agent setups in 6 months. Zero ad spend. All referrals. This is what runs the sales floor at TWINTHOS.</p>
-    <div class="moves-grid">
-      <div class="move"><span class="n">1</span><span class="t"><strong>Introduce.</strong> I run the agent. You run the business.</span></div>
-      <div class="move"><span class="n">2</span><span class="t"><strong>Position.</strong> The AI employee sells itself.</span></div>
-      <div class="move"><span class="n">3</span><span class="t"><strong>Test.</strong> Prospect becomes the guinea pig.</span></div>
-      <div class="move"><span class="n">4</span><span class="t"><strong>Teach.</strong> Owner trains in 20 minutes.</span></div>
-      <div class="move"><span class="n">5</span><span class="t"><strong>Deploy.</strong> Agent replies immediately.</span></div>
-      <div class="move"><span class="n">6</span><span class="t"><strong>Show.</strong> 63hrs saved. £6,300 value.</span></div>
-      <div class="move"><span class="n">7</span><span class="t"><strong>Ask.</strong> £5,000/month. No negotiation.</span></div>
-      <div class="move"><span class="n">8</span><span class="t"><strong>Repeat.</strong> No ads. All referrals.</span></div>
-      <div class="move"><span class="n">9</span><span class="t"><strong>Scale.</strong> Manual work goes to zero.</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT IT IS -->
-<section class="inout" id="what">
-  <div class="wrap">
-    <span class="tag" style="display: block; text-align: center; margin-bottom: 16px;">// 03 — WHAT IT IS</span>
-    <h2>What you <span class="accent">get.</span><br>What you don't.</h2>
-    <p class="lede">A managed AI employee is not a chatbot. Not a tool. Not software you log into. It is a deployed worker on a UK VPS, run by an operator, that does the work while you run the business.</p>
-    <div class="cols">
-      <div class="col in">
-        <h3>INCLUDED</h3>
-        <ul>
-          <li>Six specialised AI employees</li>
-          <li>24/7 uptime</li>
-          <li>Weekly reporting to your inbox</li>
-          <li>Operator support whenever it breaks</li>
-          <li>Group chat — operator, client, agent</li>
-          <li>All maintenance, training, integration</li>
-        </ul>
-      </div>
-      <div class="col out">
-        <h3>NOT INCLUDED</h3>
-        <ul>
-          <li>Usage caps</li>
-          <li>Training manuals you have to read</li>
-          <li>Manual report writing</li>
-          <li>Email follow-ups for you to send</li>
-          <li>Hidden setup fees in the contract</li>
-          <li>Surprise overage charges</li>
-        </ul>
+    <span class="tag">// 05 — DEPLOYMENT 001 · CASE TELEMETRY</span>
+    <h2>One deployment. <span class="accent">Week one.</span></h2>
+    <p class="section-lede">A mid-market UK legal firm. Day 1 to Day 7 telemetry from their first NHI fleet in production. No cherry-picking. No editorial.</p>
+    <div class="proof-block">
+      <div class="proof-tag">// DEPLOYMENT 001 · UK LEGAL · 14 EMPLOYEES</div>
+      <div class="proof-stat"><span>63.5</span> hours reallocated</div>
+      <div class="proof-line">From administrative triage to high-billable advisory work.</div>
+      <div class="proof-stat" style="margin-top: 32px;"><span>£6,300</span> operational value captured</div>
+      <div class="proof-line">Measured against the firm's standard billing rate and the hours that would otherwise have been consumed by manual work.</div>
+      <div class="proof-ctx">"I expected the agents to take a month to settle. They were answering client emails by Day 3. By the end of the week, my fee earners had stopped asking which emails they had to check themselves." — Managing Partner, Deployment 001</div>
+      <div class="proof-roi">
+        <span class="blue">RETAINER</span>  ·  £5,000 / month<br>
+        <span class="blue">WEEK-ONE YIELD</span>  ·  £6,300<br>
+        <span class="blue">NET ROI</span>  ·  Achieved in <span class="green">144 hours</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRICE -->
-<section class="price" id="price">
+<!-- WEDGE -->
+<section class="wedge" id="wedge">
   <div class="wrap">
-    <span class="tag">// 04 — THE PRICE</span>
-    <h2>One number.<br><span class="accent">One month.</span></h2>
-    <p class="lede" style="font-size: 22px; color: var(--soft); max-width: 700px; margin: 0 auto 0; line-height: 1.5;">No tiers. No per-seat. No setup fee. One flat rate, billed monthly, cancel any month. UK SMEs only.</p>
-    <div class="price-block">
-      <div class="label">ONE FLAT RATE</div>
-      <div class="price">£5,000</div>
-      <div class="period">/ month</div>
-      <div class="meta">UK SMEs only · 14 days to live · Cancel any month</div>
+    <div class="wedge-tag">// PHASE 01 · DIGITAL TWIN SIMULATION</div>
+    <h2>The Simulation.<br><span class="accent">£999.</span></h2>
+    <p class="wedge-price">One-time. <strong>£999</strong> · Credited toward your first retainer if you proceed.</p>
+    <p class="wedge-desc">Do not sign a £5,000/month retainer on faith. Commission a Digital Twin Simulation. For £999, our engineering team maps your operational bottlenecks and produces a live, 7-minute video simulation of an NHI agent executing your specific workflows—using your public website, your real inbound patterns, your actual tone of voice. If the simulation proves ROI, it applies toward your first month's retainer. If not, you keep the architectural blueprint for your internal team.</p>
+    <div class="wedge-rules">
+      <div class="wedge-rule"><strong>7 DAYS</strong>Simulation delivered</div>
+      <div class="wedge-rule"><strong>£999</strong>One-time fee</div>
+      <div class="wedge-rule"><strong>£5,000/MO</strong>Retainer if you proceed</div>
     </div>
-    <p class="fineprint">You just saw a real client pay <strong>£5,000/month</strong> and get <strong>£6,300 back in week one</strong>. The math is the pitch. There is no other pricing page.</p>
-  </div>
-</section>
-
-<!-- HOW WE SELL -->
-<section class="howsell" id="sell">
-  <div class="wrap">
-    <span class="tag" style="display: block; text-align: center; margin-bottom: 16px;">// 05 — HOW WE SELL</span>
-    <h2>A 7-minute<br><span class="accent">video.</span></h2>
-    <p class="lede" style="text-align: center; font-size: 22px; color: var(--soft); max-width: 800px; margin: 0 auto 0; line-height: 1.5;">The deliverable that closes a £5,000/month AI retainer is a simple 7-minute video. Before the retainer, you sell a £999 audit. The audit generates the video. The video does the close.</p>
-    <div class="steps">
-      <div class="step"><span class="n">1.</span>Address the prospect by name in the opening line.</div>
-      <div class="step"><span class="n">2.</span>Show the gap — what they're losing right now in hours and money.</div>
-      <div class="step"><span class="n">3.</span>Show the 63hrs / £6,300 proof point with their numbers projected in.</div>
-      <div class="step"><span class="n">4.</span>Walk through the six AI employees and what each one does.</div>
-      <div class="step"><span class="n">5.</span>Land on the £5,000/month flat rate. No negotiation.</div>
-      <div class="step"><span class="n">6.</span>Close or walk. Never negotiate on price.</div>
-    </div>
-    <p class="close-line">The video sells the retainer. The retainer sells itself after that.</p>
-  </div>
-</section>
-
-<!-- CLOSE -->
-<section class="close" id="close">
-  <div class="wrap">
-    <span class="tag">// 06 — NEXT STEP</span>
-    <h2 style="font-size: 80px;">Audit.<br><span class="accent" style="font-size: 100px;">£999.</span><br>One week.</h2>
-    <p style="font-size: 22px; color: var(--soft); max-width: 700px; margin: 32px auto 0; line-height: 1.5;">A lower-friction entry. We run the audit, you get a 7-minute video of what your AI employee would do in week one. The video closes the retainer, or you keep it for free.</p>
-    <a href="mailto:hello@twinthos.com" class="email">hello@twinthos.com</a>
-    <p class="audit">Audit: £999 · Response within 24hrs · UK SMEs only</p>
-    <a href="mailto:hello@twinthos.com?subject=£999 Audit Request" class="cta">START THE £999 AUDIT</a>
+    <a href="mailto:hello@twinthos.com?subject=Digital%20Twin%20Simulation%20Request&body=Operator%20name%3A%0ACompany%3A%0AHeadcount%3A%0AWorkflow%20to%20simulate%3A" class="cta primary">Initiate Simulation Protocol</a>
+    <p style="font-size: 12px; color: var(--dim); margin-top: 32px; font-family: var(--mono); letter-spacing: 1px;">UK SMEs only · Response within 24 hours · hello@twinthos.com</p>
   </div>
 </section>
 
@@ -305,7 +388,7 @@ footer .links a:hover { color: var(--ink); }
     <div class="copy">TWINTHOS · NON-HUMAN INTELLIGENCE · 2026</div>
     <div class="links">
       <a href="mailto:hello@twinthos.com">hello@twinthos.com</a>
-      <a href="#price">£5,000/month</a>
+      <a href="#wedge">Initiate Simulation</a>
     </div>
   </div>
 </footer>
