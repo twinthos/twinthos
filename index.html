@@ -232,6 +232,10 @@ nav .wrap { display: flex; justify-content: space-between; align-items: center; 
 .worker h3 { font-size: 20px; margin-bottom: 6px; }
 .worker .who { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; color: var(--dim); text-transform: uppercase; margin-bottom: 12px; }
 .worker p { font-size: 15px; line-height: 1.6; color: var(--soft); }
+.worker .translation {
+  margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line);
+  font-size: 13px; color: var(--accent-bright); font-family: var(--mono); letter-spacing: 0.5px;
+}
 
 /* ---------- HOW (14 days, plain) ---------- */
 .how { background: var(--surface); }
@@ -241,6 +245,10 @@ nav .wrap { display: flex; justify-content: space-between; align-items: center; 
 .how-step .day { font-family: var(--mono); font-size: 11px; color: var(--accent-bright); letter-spacing: 2px; margin-bottom: 10px; }
 .how-step h3 { font-size: 18px; margin-bottom: 6px; }
 .how-step p { font-size: 14px; line-height: 1.6; color: var(--soft); }
+.how-step .translation {
+  margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line);
+  font-size: 12px; color: var(--accent-bright); font-family: var(--mono); letter-spacing: 0.5px;
+}
 
 /* ---------- SECURITY (plain) ---------- */
 .sec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
@@ -358,6 +366,7 @@ footer .links a:hover { color: var(--accent); }
       <div class="kicker"><span class="dot"></span> FOR UK BUSINESS OWNERS · OPERATIONAL NOW</div>
       <h1>Your business, <span class="accent">running itself.</span></h1>
       <p class="lede">You didn't open your doors to answer emails at 11pm. Twinthos builds you a small team of AI workers that answers, chases, files and follows up — so the work gets done, with or without you.</p>
+      <p class="plain" style="margin-bottom:30px; font-size:15px; color:var(--dim); font-family:var(--mono); letter-spacing:0.5px;"><span class="accent">IN PLAIN ENGLISH:</span> six digital workers who never sleep, never forget, and never need a holiday — for less than the cost of one junior hire.</p>
       <div class="cta-row">
         <a href="#start" class="btn btn-accent">See How It Works</a>
         <a href="#price" class="btn btn-ghost">See Pricing</a>
@@ -470,8 +479,9 @@ footer .links a:hover { color: var(--accent); }
     <div class="story-grid">
       <div>
         <span class="eyebrow">Why we exist</span>
-        <div class="big-quote">You opened your doors to do the work you love. <span class="accent">Everything else should not need you at all.</span></div>
-        <p class="plain">Right now, you are the middle layer. Every email, every unpaid invoice, every "just checking in on this" — it all lands on your desk. That is not a business problem. That is a <strong>life</strong> problem. We believe the draining half of running a company should be handled by something that never gets tired, never resents the 11pm email, and never drops the ball.</p>
+        <div class="big-quote">It is 10:47pm. The bakery closed three hours ago — but you are still here. <span class="accent">You did not become a baker to do this.</span></div>
+        <p class="plain">A supplier invoice. A customer who paid the wrong amount. A reply you owe on a Saturday. Somewhere along the way, the business you built started running you — and the part that runs you is the part nobody enjoys. We have watched the same scene in a hundred trades, shops and practices: the owner, alone, doing the work the business should be doing for them.</p>
+        <p class="plain" style="margin-top:18px"><strong>We believe you opened your doors to do the work you love — and that everything else should not need you at all.</strong> The draining half of running a company can finally just… happen, while you get the hours back to do the part only you can do.</p>
       </div>
       <div class="act-list">
         <div class="act">
@@ -514,36 +524,42 @@ footer .links a:hover { color: var(--accent); }
         <h3>Answers your emails</h3>
         <div class="who">The Front Desk</div>
         <p>Reads every message, replies to the routine ones in your tone, and hands you only the ones that truly need you.</p>
+        <p class="translation">Your inbox gets handled before you open it.</p>
       </div>
       <div class="worker">
         <div class="idx">02</div>
         <h3>Chases the money</h3>
         <div class="who">The Accounts Desk</div>
         <p>Watches invoices, spots late payments, sends polite reminders, and flags anything odd before it becomes a problem.</p>
+        <p class="translation">Your books get a second pair of eyes, 24/7.</p>
       </div>
       <div class="worker">
         <div class="idx">03</div>
         <h3>Books your meetings</h3>
         <div class="who">The Sales Desk</div>
         <p>Talks to people who come to your website, finds the ones actually ready to buy, and puts them in your calendar.</p>
+        <p class="translation">No more warm leads slipping through the cracks.</p>
       </div>
       <div class="worker">
         <div class="idx">04</div>
         <h3>Knows everything</h3>
         <div class="who">The Knowledge Desk</div>
         <p>Learns your business from your own files and answers your team's questions instantly — no more hunting for documents.</p>
+        <p class="translation">New staff get answers in seconds, not from you.</p>
       </div>
       <div class="worker">
         <div class="idx">05</div>
         <h3>Watches the fine print</h3>
         <div class="who">The Compliance Desk</div>
         <p>Checks outgoing messages and contracts for mistakes or risky wording, so you never embarrass yourself or break a rule.</p>
+        <p class="translation">A careful reader on every word you send.</p>
       </div>
       <div class="worker">
         <div class="idx">06</div>
         <h3>Finds the slowdowns</h3>
         <div class="who">The Operations Desk</div>
         <p>Watches how your business actually runs and automates the repetitive steps that eat your team's hours.</p>
+        <p class="translation">The boring work gets done without being asked.</p>
       </div>
     </div>
   </div>
@@ -561,21 +577,25 @@ footer .links a:hover { color: var(--accent); }
         <div class="day">WEEK 1 · DAYS 1–3</div>
         <h3>We learn your business</h3>
         <p>We look at how you work — your emails, your calendar, your systems — and design your AI team around it.</p>
+        <p class="translation">The plumbers come in. You keep working.</p>
       </div>
       <div class="how-step">
         <div class="day">WEEK 2 · DAYS 4–10</div>
         <h3>We build your team</h3>
         <p>We set up each worker, teach it your tone and your rules, and test everything in a safe sandbox first.</p>
+        <p class="translation">They learn your way of working — mistakes and all — before touching a real customer.</p>
       </div>
       <div class="how-step">
         <div class="day">WEEK 2 · DAYS 11–14</div>
         <h3>You watch them work</h3>
         <p>For a few days, the team works alongside you. You see everything they do — and you approve each one before they go live.</p>
+        <p class="translation">A trial week with training wheels. Nothing goes live without your nod.</p>
       </div>
       <div class="how-step">
         <div class="day">AFTER GO-LIVE</div>
         <h3>We stay on watch</h3>
         <p>A real human supervises your team around the clock. Emergencies get handled within 30 minutes — even at 3am.</p>
+        <p class="translation">You are never alone with your AI team.</p>
       </div>
     </div>
   </div>
@@ -608,6 +628,7 @@ footer .links a:hover { color: var(--accent); }
           <div class="text"><strong>EVERYTHING IS LOGGED</strong><span>Every action has a timestamp and a record. Export it anytime for your accountant or regulator.</span></div>
         </li>
       </ul>
+      <p class="translation" style="margin-top:24px; font-size:14px; color:var(--accent-bright); font-family:var(--mono); border-left:2px solid var(--accent); padding-left:14px; line-height:1.7;">IN PLAIN ENGLISH: what happens at Twinthos stays at Twinthos — and stays in the UK.</p>
     </div>
   </div>
 </section>
@@ -660,6 +681,7 @@ footer .links a:hover { color: var(--accent); }
       <span class="rule"><span class="tick">+</span> No hidden extras</span>
       <span class="rule"><span class="tick">+</span> Cancel anytime</span>
     </div>
+    <p class="translation" style="margin:0 auto 40px; max-width:540px; font-size:14px; color:var(--accent-bright); font-family:var(--mono); letter-spacing:0.5px; line-height:1.8;">IN PLAIN ENGLISH: one predictable fee. No meter running in the background.</p>
     <a href="#start" class="btn btn-accent">Start Here</a>
   </div>
 </section>
