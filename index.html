@@ -123,6 +123,7 @@ h3 { font-size: 21px; margin-bottom: 8px; }
 .lede { font-size: clamp(17px, 1.8vw, 21px); line-height: 1.6; color: var(--soft); max-width: 640px; }
 .mono { font-family: var(--mono); }
 .accent { color: var(--accent-bright); }
+.warm { color: #F4F4F6; font-style: italic; text-shadow: 0 0 18px rgba(255,255,255,0.10); }
 .soft { color: var(--soft); }
 .dim { color: var(--dim); }
 .plain { font-size: 17px; line-height: 1.68; color: var(--soft); max-width: 640px; }
@@ -144,6 +145,7 @@ nav {
 nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 70px; }
 .brand { font-family: var(--mono); font-size: 15px; font-weight: 700; letter-spacing: 5px; text-decoration: none; color: var(--ink); }
 .brand .accent { color: var(--accent-bright); }
+.warm { color: #F4F4F6; font-style: italic; text-shadow: 0 0 18px rgba(255,255,255,0.10); }
 .nav-links { display: flex; gap: 30px; align-items: center; }
 .nav-links a:not(.btn) {
   font-family: var(--mono); font-size: 10.5px; letter-spacing: 2.5px; text-transform: uppercase;
@@ -160,9 +162,9 @@ nav .wrap { display: flex; justify-content: space-between; align-items: center; 
 .btn-accent {
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
   color: #050506; font-weight: 700;
-  box-shadow: 0 0 20px rgba(0,240,255,0.25);
+  box-shadow: 0 0 16px rgba(0,240,255,0.18);
 }
-.btn-accent:hover { filter: brightness(1.08); transform: translateY(-1px); box-shadow: 0 0 32px rgba(0,240,255,0.45); }
+.btn-accent:hover { filter: brightness(1.08); transform: translateY(-1px); box-shadow: 0 0 24px rgba(0,240,255,0.28); }
 .btn-ghost { border-color: var(--line-strong); color: var(--ink); background: transparent; }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent-bright); }
 .btn-sm { padding: 10px 18px; font-size: 11px; }
@@ -172,8 +174,8 @@ nav .wrap { display: flex; justify-content: space-between; align-items: center; 
 .hero::before {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background:
-    radial-gradient(1100px 560px at 84% -12%, rgba(0,229,255,0.14), transparent 62%),
-    radial-gradient(800px 460px at 4% 112%, rgba(0,229,255,0.07), transparent 60%);
+    radial-gradient(1100px 560px at 84% -12%, rgba(0,229,255,0.09), transparent 62%),
+    radial-gradient(800px 460px at 4% 112%, rgba(0,229,255,0.05), transparent 60%);
 }
 .hero::after {
   content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
@@ -197,7 +199,7 @@ nav .wrap { display: flex; justify-content: space-between; align-items: center; 
   70% { box-shadow: 0 0 0 9px rgba(52,211,153,0); }
   100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); }
 }
-.hero h1 .accent { text-shadow: 0 0 40px rgba(0,240,255,0.30); }
+.hero h1 .accent { text-shadow: 0 0 22px rgba(0,240,255,0.18); }
 .hero .lede { margin-bottom: 36px; }
 .hero .translation-line {
   margin-bottom: 34px; padding: 14px 18px; border-left: 2px solid var(--accent);
@@ -269,6 +271,7 @@ nav .wrap { display: flex; justify-content: space-between; align-items: center; 
 .stat:hover { border-color: var(--accent); }
 .stat .num { font-family: var(--mono); font-size: clamp(30px, 3vw, 42px); font-weight: 700; color: var(--ink); letter-spacing: -1px; line-height: 1; margin-bottom: 10px; }
 .stat .num.accent { color: var(--accent-bright); }
+.warm { color: #F4F4F6; font-style: italic; text-shadow: 0 0 18px rgba(255,255,255,0.10); }
 .stat .label { font-family: var(--mono); font-size: 10.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); line-height: 1.7; }
 
 /* ---------- STORY / WHY ---------- */
@@ -278,7 +281,7 @@ nav .wrap { display: flex; justify-content: space-between; align-items: center; 
   font-family: var(--serif); font-size: clamp(30px, 3.6vw, 46px); line-height: 1.2; font-weight: 700;
   letter-spacing: -0.015em; margin-bottom: 30px;
 }
-.story .big-quote .accent { color: var(--accent-bright); text-shadow: 0 0 34px rgba(0,240,255,0.25); }
+.story .big-quote .accent { color: var(--accent-bright); text-shadow: none; }
 .story .act-list { display: grid; gap: 0; border-top: 1px solid var(--line); }
 .story .act { display: grid; grid-template-columns: 52px 1fr; gap: 20px; padding: 28px 0; border-bottom: 1px solid var(--line); transition: background .15s; }
 .story .act:hover { background: var(--surface); }
@@ -308,7 +311,7 @@ nav .wrap { display: flex; justify-content: space-between; align-items: center; 
 .how { background: var(--bg-deep); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
 .how-step { padding: 30px 26px 0 0; border-top: 1px solid var(--line); margin-right: 26px; position: relative; }
-.how-step::after { content: ""; position: absolute; top: -3.5px; left: 0; width: 7px; height: 7px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 12px rgba(0,240,255,0.5); }
+.how-step::after { content: ""; position: absolute; top: -3.5px; left: 0; width: 7px; height: 7px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 10px rgba(0,240,255,0.3); }
 .how-step .day { font-family: var(--mono); font-size: 10.5px; color: var(--accent-bright); letter-spacing: 2px; margin-bottom: 12px; }
 .how-step h3 { font-size: 19px; margin-bottom: 8px; }
 .how-step p { font-size: 14px; line-height: 1.62; color: var(--soft); }
@@ -337,26 +340,28 @@ nav .wrap { display: flex; justify-content: space-between; align-items: center; 
 .proof-tag { font-family: var(--mono); font-size: 10.5px; letter-spacing: 2.5px; color: var(--accent-bright); margin-bottom: 24px; text-transform: uppercase; }
 .proof-stat { font-family: var(--serif); font-size: clamp(38px, 4.2vw, 54px); font-weight: 700; line-height: 1.02; margin-bottom: 10px; }
 .proof-stat .accent { color: var(--accent-bright); }
+.warm { color: #F4F4F6; font-style: italic; text-shadow: 0 0 18px rgba(255,255,255,0.10); }
 .proof-line { font-size: 16px; color: var(--ink); margin-bottom: 26px; }
 .proof-ctx { font-size: 15px; color: #C7C7CC; font-style: italic; line-height: 1.8; margin-bottom: 30px; border-left: 2px solid var(--line-strong); padding-left: 18px; }
 .proof-roi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; border-top: 1px solid var(--line); padding-top: 24px; }
 .proof-roi .roi-item .k { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; color: var(--dim); text-transform: uppercase; margin-bottom: 8px; }
 .proof-roi .roi-item .v { font-family: var(--mono); font-size: 21px; font-weight: 700; color: var(--ink); }
 .proof-roi .roi-item .v.accent { color: var(--accent-bright); }
+.warm { color: #F4F4F6; font-style: italic; text-shadow: 0 0 18px rgba(255,255,255,0.10); }
 .proof-roi .roi-item .v.ok { color: var(--ok); }
 
 /* ---------- PRICING ---------- */
 .price { text-align: center; position: relative; overflow: hidden; }
 .price::before {
   content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(900px 480px at 50% 0%, rgba(0,229,255,0.10), transparent 65%);
+  background: radial-gradient(900px 480px at 50% 0%, rgba(0,229,255,0.06), transparent 65%);
 }
 .price .wrap { position: relative; }
 .price .label { font-family: var(--mono); font-size: 11px; letter-spacing: 5px; color: var(--accent-bright); text-transform: uppercase; margin-bottom: 20px; }
 .price-amount {
   font-family: var(--serif); font-size: clamp(92px, 12vw, 156px); font-weight: 700; line-height: 1; letter-spacing: -0.04em; margin-bottom: 10px;
 }
-.price-amount .accent { color: var(--accent-bright); text-shadow: 0 0 60px rgba(0,240,255,0.35); }
+.price-amount .accent { color: var(--accent-bright); text-shadow: 0 0 22px rgba(0,240,255,0.15); }
 .price-period { font-family: var(--mono); font-size: 14px; letter-spacing: 4px; color: var(--soft); margin-bottom: 24px; text-transform: uppercase; }
 .price-meta { font-family: var(--mono); font-size: 12px; letter-spacing: 1px; color: var(--dim); max-width: 560px; margin: 0 auto 38px; line-height: 1.9; }
 .price-rules { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 42px; }
@@ -373,7 +378,7 @@ nav .wrap { display: flex; justify-content: space-between; align-items: center; 
 .cta-final { text-align: center; position: relative; overflow: hidden; border-top: 1px solid var(--line); }
 .cta-final::before {
   content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(900px 500px at 50% 100%, rgba(0,229,255,0.12), transparent 65%);
+  background: radial-gradient(900px 500px at 50% 100%, rgba(0,229,255,0.08), transparent 65%);
 }
 .cta-final .wrap { position: relative; }
 .cta-final h2 { margin-bottom: 16px; }
@@ -382,6 +387,7 @@ nav .wrap { display: flex; justify-content: space-between; align-items: center; 
 .cta-rule { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: var(--dim); text-transform: uppercase; }
 .cta-rule .num { display: block; font-size: 26px; font-weight: 700; color: var(--ink); margin-bottom: 8px; letter-spacing: 0; }
 .cta-rule .num.accent { color: var(--accent-bright); }
+.warm { color: #F4F4F6; font-style: italic; text-shadow: 0 0 18px rgba(255,255,255,0.10); }
 .cta-note { font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.5px; color: var(--dim); margin-top: 30px; }
 
 /* ---------- FOOTER ---------- */
@@ -450,7 +456,7 @@ footer .links a:hover { color: var(--accent-bright); }
     <div>
       <div class="kicker"><span class="dot"></span> For UK Business Owners - Operational Now</div>
       <h1>Your business, <span class="accent">running itself.</span></h1>
-      <p class="lede">You didn't open your doors to answer emails at 11pm. Twinthos builds you a small team of AI workers that answers, chases, files and follows up - so the work gets done, with or without you.</p>
+      <p class="lede">You didn't open your doors to be the one still at it at 10:47pm. Twinthos gives you six digital workers who answer, chase, file and follow up - so the work gets done, with or without you. The business runs. You get your evenings back.</p>
       <div class="translation-line">IN PLAIN ENGLISH: six digital workers who never sleep, never forget, and never need a holiday - for less than the cost of one junior hire.</div>
       <div class="cta-row">
         <a href="#how" class="btn btn-accent">See How It Works</a>
@@ -483,7 +489,7 @@ footer .links a:hover { color: var(--accent-bright); }
         <div class="agent-line">
           <span class="idx">03</span>
           <span class="name">Books meetings</span>
-          <span class="state state-act">On a call</span>
+          <span class="state state-act">On a call ▸</span>
         </div>
         <div class="agent-line">
           <span class="idx">04</span>
@@ -564,7 +570,7 @@ footer .links a:hover { color: var(--accent-bright); }
     <div class="sec-num"><b>01</b> Why we exist</div>
     <div class="story-grid">
       <div>
-        <div class="big-quote">It is 10:47pm. The bakery closed three hours ago - but you are still here. <span class="accent">You did not become a baker to do this.</span></div>
+        <div class="big-quote">It is 10:47pm. The bakery closed three hours ago - but you are still here. <span class="warm">You did not become a baker to do this.</span></div>
         <p class="plain">A supplier invoice. A customer who paid the wrong amount. A reply you owe on a Saturday. Somewhere along the way, the business you built started running you - and the part that runs you is the part nobody enjoys. We have watched the same scene in a hundred trades, shops and practices: the owner, alone, doing the work the business should be doing for them.</p>
         <p class="plain" style="margin-top:20px"><strong>We believe you opened your doors to do the work you love - and that everything else should not need you at all.</strong> The draining half of running a company can finally just happen, while you get the hours back to do the part only you can do.</p>
       </div>
@@ -599,7 +605,7 @@ footer .links a:hover { color: var(--accent-bright); }
 <section class="sec-pad" id="team">
   <div class="wrap">
     <div class="sec-num"><b>02</b> What you get</div>
-    <h2>Six AI workers. One monthly fee.</h2>
+    <h2>Six AI workers. One fee. No meter running.</h2>
     <p class="lede">No jargon. No "agents" or "orchestrators". Just six useful workers, each good at one job, all reporting to you.</p>
   </div>
   <div class="wrap" style="margin-top:56px">
@@ -609,28 +615,28 @@ footer .links a:hover { color: var(--accent-bright); }
         <h3>Answers your emails</h3>
         <div class="who">The Front Desk</div>
         <p>Reads every message, replies to the routine ones in your tone, and hands you only the ones that truly need you.</p>
-        <p class="translation">Your inbox gets handled before you open it.</p>
+        <p class="translation">Your inbox, handled before you open it.</p>
       </div>
       <div class="worker">
         <div class="idx">02</div>
         <h3>Chases the money</h3>
         <div class="who">The Accounts Desk</div>
         <p>Watches invoices, spots late payments, sends polite reminders, and flags anything odd before it becomes a problem.</p>
-        <p class="translation">Your books get a second pair of eyes, 24/7.</p>
+        <p class="translation">Late payers, politely chased - before they become a problem.</p>
       </div>
       <div class="worker">
         <div class="idx">03</div>
         <h3>Books your meetings</h3>
         <div class="who">The Sales Desk</div>
         <p>Talks to people who come to your website, finds the ones actually ready to buy, and puts them in your calendar.</p>
-        <p class="translation">No more warm leads slipping through the cracks.</p>
+        <p class="translation">Ready buyers, booked into your calendar.</p>
       </div>
       <div class="worker">
         <div class="idx">04</div>
         <h3>Knows everything</h3>
         <div class="who">The Knowledge Desk</div>
         <p>Learns your business from your own files and answers your team's questions instantly - no more hunting for documents.</p>
-        <p class="translation">New staff get answers in seconds, not from you.</p>
+        <p class="translation">Answers in seconds - not from you.</p>
       </div>
       <div class="worker">
         <div class="idx">05</div>
@@ -644,7 +650,7 @@ footer .links a:hover { color: var(--accent-bright); }
         <h3>Finds the slowdowns</h3>
         <div class="who">The Operations Desk</div>
         <p>Watches how your business actually runs and automates the repetitive steps that eat your team's hours.</p>
-        <p class="translation">The boring work gets done without being asked.</p>
+        <p class="translation">Finds the bottlenecks - and clears them.</p>
       </div>
     </div>
   </div>
@@ -654,7 +660,7 @@ footer .links a:hover { color: var(--accent-bright); }
 <section class="sec-pad how" id="how">
   <div class="wrap">
     <div class="sec-num"><b>03</b> How it works</div>
-    <h2>Live in 14 days. You barely lift a finger.</h2>
+    <h2>Live in 14 days. You do two hours of talking.</h2>
     <p class="lede">We do the building. You do two hours of "here's how we do things" on day one - then we take it from there.</p>
   </div>
   <div class="wrap" style="margin-top:56px">
@@ -723,7 +729,7 @@ footer .links a:hover { color: var(--accent-bright); }
 <section class="sec-pad" id="proof">
   <div class="wrap">
     <div class="sec-num"><b>05</b> Real results - week one</div>
-    <h2>One business. One week. Here's the log.</h2>
+    <h2>One week. One real business. The full log.</h2>
     <p class="lede">A UK law firm with 14 staff. Their first week with an AI team - the actual numbers, no cherry-picking.</p>
   </div>
   <div class="wrap" style="margin-top:56px">
@@ -757,7 +763,7 @@ footer .links a:hover { color: var(--accent-bright); }
   <div class="wrap">
     <div class="label">Pricing</div>
     <h2>One flat fee. No surprises.</h2>
-    <p class="lede" style="margin:0 auto 48px; max-width:620px">The whole team - all six workers, the setup, the UK hosting, the human supervision, the weekly report - for one monthly fee.</p>
+    <p class="lede" style="margin:0 auto 48px; max-width:620px">The whole team - all six workers, setup, UK hosting, human supervision, the weekly report - for one monthly fee, less than the cost of one junior hire. One price, predictable, forever.</p>
     <div class="price-amount"><span class="accent">£5,000</span></div>
     <div class="price-period">/ month - for the whole team</div>
     <p class="price-meta">Live in 14 days - Cancel with 30 days' notice - hello@twinthos.com</p>
