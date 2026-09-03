@@ -3,973 +3,648 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TWINTHOS — Deploy Autonomous AI Infrastructure. Operational in 14 Days. £5,000/month.</title>
-<meta name="description" content="TWINTHOS deploys enterprise-grade Non-Human Intelligence (NHI) fleets for UK SMEs. Six autonomous AI agents on sovereign UK infrastructure, supervised by credentialed human operators. £5,000/month flat. 100% UK data residency. ISO 27001 aligned.">
-<meta name="theme-color" content="#ffffff">
+<title>Twinthos — Autonomous AI Workforces for UK SMEs · £5,000/month flat</title>
+<meta name="description" content="Twinthos deploys autonomous AI workforces for UK SMEs. Six specialised Non-Human Intelligence (NHI) agents on sovereign UK infrastructure, supervised by credentialed human operators. £5,000/month flat retainer. Live in 14 days.">
+<meta name="theme-color" content="#0A0A0C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Twinthos — Autonomous AI Workforces for UK SMEs">
+<meta property="og:description" content="Six NHI agents. One flat retainer. £5,000/month. Operational in 14 days on sovereign UK infrastructure.">
+<meta property="og:url" content="https://twinthos.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Twinthos — Autonomous AI Workforces for UK SMEs">
+<meta name="twitter:description" content="Six NHI agents. One flat retainer. £5,000/month. Operational in 14 days on sovereign UK infrastructure.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Twinthos",
+  "url": "https://twinthos.com/",
+  "description": "Twinthos deploys autonomous Non-Human Intelligence (NHI) agent workforces for UK SMEs. Six specialised AI agents, fully managed, £5,000/month flat.",
+  "email": "hello@twinthos.com",
+  "areaServed": "GB",
+  "offers": {
+    "@type": "Offer",
+    "price": "5000",
+    "priceCurrency": "GBP",
+    "description": "Managed NHI fleet retainer — six autonomous AI agents, 14 days to live, zero setup fees, zero usage caps."
+  }
+}
+</script>
 <style>
-/* CSS Reset */
+/* ============================================================
+   TWINTHOS v3 — DARK RED / SPEC-OPS / ANTI-GRADIENT
+   Design language: 2026 serious AI product.
+   Capability-named copy · product console hero · single accent ·
+   three-voice type · hairline grid · zero glow, zero gradient.
+   ============================================================ */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  /* Apple-grade light palette */
-  --bg: #ffffff;
-  --surface: #f5f5f7;
-  --ink: #1d1d1f;
-  --soft: #6e6e73;
-  --dim: #8e8e93;
-  --line: #d2d2d7;
-  --accent: #6d28d9;  /* violet accent */
-  --blue: #2D5BFF;    /* electric blue for functional elements */
-  --cyan: #22D3EE;    /* cyan for secondary signals */
-  --mono: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, monospace;
+  --bg: #0A0A0C;
+  --surface: #101013;
+  --surface-2: #16161B;
+  --ink: #F5F5F7;
+  --soft: #A1A1A6;
+  --dim: #6E6E73;
+  --line: rgba(255,255,255,0.08);
+  --line-strong: rgba(255,255,255,0.16);
+  --red: #E11D48;
+  --red-bright: #FB7185;
+  --red-dark: #9F1239;
+  --green: #4ADE80;
+  --mono: "SF Mono", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
   --serif: "Palatino", "Iowan Old Style", "URW Palladio L", "Georgia", serif;
-  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
+html { scroll-behavior: smooth; }
 html, body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
-  line-height: 1.45;
+  line-height: 1.5;
   overflow-x: hidden;
 }
+::selection { background: var(--red); color: #fff; }
+a { color: inherit; }
+img, svg { display: block; }
 
-/* Container */
-.wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+section { scroll-margin-top: 80px; }
+.sec-pad { padding: 110px 0; }
+.border-b { border-bottom: 1px solid var(--line); }
 
-/* Sections */
-section {
-  padding: 100px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-/* NAVIGATION */
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--line);
-  padding: 18px 0;
-}
-nav .wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.brand {
-  font-size: 16px;
-  font-weight: 900;
-  letter-spacing: 4px;
-  color: var(--ink);
-}
-.brand span {
-  color: var(--accent);
-}
-.nav-links {
-  display: flex;
-  gap: 32px;
-}
-.nav-links a {
-  color: var(--soft);
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  transition: color 0.15s;
-  text-transform: uppercase;
-}
-.nav-links a:hover {
-  color: var(--ink);
-}
-.cta-nav {
-  background: var(--ink);
-  color: var(--bg);
-  padding: 10px 18px;
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  border-radius: 980px;
-  transition: all 0.15s;
-}
-.cta-nav:hover {
-  background: var(--accent);
-}
-
-/* HERO */
-.hero {
-  padding: 100px 0 80px;
-  position: relative;
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 80px;
-  align-items: center;
-}
-.tag {
-  display: inline-block;
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-  font-family: var(--mono);
-}
-h1 {
-  font-size: 72px;
-  line-height: 1.02;
-  font-weight: 900;
-  letter-spacing: -3px;
-  margin-bottom: 28px;
-  font-family: var(--serif);
-}
-h1 .accent {
-  color: var(--blue);
-  font-style: italic;
-}
-.lede {
-  font-size: 22px;
-  line-height: 1.5;
-  color: var(--soft);
-  max-width: 580px;
-  margin-bottom: 36px;
-}
-.proof {
-  font-size: 14px;
-  color: var(--cyan);
-  margin-bottom: 40px;
-  font-family: var(--mono);
-  letter-spacing: 1px;
-}
-.cta-row {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.cta {
-  background: var(--ink);
-  color: var(--bg);
-  padding: 16px 28px;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  display: inline-block;
-  border-radius: 980px;
-  transition: all 0.15s;
-}
-.cta:hover {
-  background: var(--accent);
-}
-.cta.primary {
-  background: var(--blue);
-  color: #fff;
-}
-.cta.primary:hover {
-  background: #1E47E0;
-}
-.cta.secondary {
-  background: transparent;
-  color: var(--ink);
-  border: 1px solid var(--line);
-}
-.cta.secondary:hover {
-  border-color: var(--ink);
-}
-
-/* Telemetry mockup */
-.telemetry {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  padding: 28px;
+/* ---------- TYPE ---------- */
+.eyebrow {
   font-family: var(--mono);
   font-size: 12px;
-  line-height: 1.7;
-}
-.telemetry-head {
-  color: var(--soft);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-}
-.telemetry-head .live {
-  color: var(--cyan);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.telemetry-head .dot {
-  width: 6px;
-  height: 6px;
-  background: var(--cyan);
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
-.tel-stat {
-  display: flex;
-  justify-content: space-between;
-  padding: 6px 0;
-  border-bottom: 1px solid #f0f0f3;
-}
-.tel-stat:last-child {
-  border-bottom: none;
-}
-.tel-stat .label {
-  color: var(--soft);
-}
-.tel-stat .val {
-  color: var(--ink);
-  font-weight: 700;
-}
-.tel-stat .val.green {
-  color: var(--cyan);
-}
-.tel-log {
-  margin-top: 16px;
-  padding-top: 12px;
-  border-top: 1px solid var(--line);
-}
-.tel-log-line {
-  color: var(--soft);
-  font-size: 11px;
-  padding: 2px 0;
-}
-.tel-log-line .ts {
-  color: var(--dim);
-}
-.tel-log-line .act {
-  color: var(--cyan);
-}
-
-/* STATS BAR */
-.stats-bar {
-  padding: 40px 0;
-  background: var(--surface);
-  border-bottom: 1px solid var(--line);
-}
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-}
-.stat {
-  padding: 0 24px 0 0;
-  border-right: 1px solid var(--line);
-}
-.stat:last-child {
-  border-right: none;
-  padding-right: 0;
-}
-.stat-num {
-  font-family: var(--mono);
-  font-size: 36px;
-  font-weight: 900;
-  color: var(--ink);
-  line-height: 1;
-  letter-spacing: -1px;
-  margin-bottom: 8px;
-}
-.stat-num.blue {
-  color: var(--blue);
-}
-.stat-num.cyan {
-  color: var(--cyan);
-}
-.stat-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--soft);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-/* FLEET */
-.fleet {
-  padding: 100px 0;
-}
-h2 {
-  font-size: 56px;
-  line-height: 1.05;
-  font-weight: 900;
-  letter-spacing: -2px;
-  margin-bottom: 16px;
-  font-family: var(--serif);
-}
-h2 .accent {
-  color: var(--blue);
-  font-style: italic;
-}
-.section-lede {
-  font-size: 20px;
-  line-height: 1.5;
-  color: var(--soft);
-  max-width: 700px;
-  margin-bottom: 64px;
-}
-.section-lede strong {
-  color: var(--ink);
-  font-weight: 600;
-}
-.fleet-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  border: 1px solid var(--line);
-}
-.agent {
-  padding: 36px 32px;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  position: relative;
-}
-.agent:nth-child(2n) {
-  border-right: none;
-}
-.agent:nth-last-child(-n+2) {
-  border-bottom: none;
-}
-.agent-num {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--accent);
-  letter-spacing: 2px;
-  margin-bottom: 12px;
-}
-.agent-name {
-  font-size: 22px;
-  font-weight: 900;
-  letter-spacing: -0.5px;
-  margin-bottom: 12px;
-  font-family: var(--serif);
-}
-.agent-desc {
-  font-size: 15px;
-  line-height: 1.5;
-  color: var(--soft);
-}
-
-/* DEPLOYMENT */
-.deploy {
-  padding: 100px 0;
-  background: var(--surface);
-}
-.timeline {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  border-top: 1px solid var(--line);
-}
-.t-step {
-  padding: 32px 24px 0 0;
-  border-right: 1px solid var(--line);
-  margin-right: 24px;
-}
-.t-step:last-child {
-  border-right: none;
-}
-.t-day {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--blue);
-  letter-spacing: 2px;
-  margin-bottom: 12px;
-}
-.t-name {
-  font-size: 20px;
-  font-weight: 900;
-  margin-bottom: 8px;
-  font-family: var(--serif);
-}
-.t-desc {
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--soft);
-}
-
-/* SECURITY */
-.security {
-  padding: 100px 0;
-}
-.sec-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-}
-.sec-points {
-  list-style: none;
-  margin-top: 32px;
-}
-.sec-points li {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  gap: 16px;
-}
-.sec-points li:last-child {
-  border-bottom: none;
-}
-.sec-points .check {
-  color: var(--cyan);
-  font-weight: 900;
-  font-size: 18px;
-  flex-shrink: 0;
-}
-.sec-points .text {
-  font-size: 16px;
-  line-height: 1.5;
-}
-.sec-points .text strong {
-  color: var(--ink);
-  display: block;
-  margin-bottom: 4px;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-/* OPERATOR */
-.operator {
-  padding: 100px 0;
-  background: var(--surface);
-}
-.op-grid {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 60px;
-  align-items: center;
-}
-.op-photo {
-  width: 280px;
-  height: 280px;
-  background: linear-gradient(135deg, var(--accent) 0%, #e5e5e8 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--mono);
-  color: var(--soft);
-  font-size: 11px;
-  letter-spacing: 2px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-}
-.op-name {
-  font-size: 36px;
-  font-weight: 900;
-  margin-bottom: 8px;
-  font-family: var(--serif);
-}
-.op-title {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--accent);
-  letter-spacing: 2px;
-  margin-bottom: 24px;
-  text-transform: uppercase;
-}
-.op-bio {
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--soft);
-  margin-bottom: 16px;
-}
-
-/* PROOF */
-.proof {
-  padding: 100px 0;
-}
-.proof-block {
-  background: var(--surface);
-  border-left: 3px solid var(--blue);
-  padding: 40px 48px;
-  max-width: 800px;
-}
-.proof-tag {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--blue);
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-.proof-stat {
-  font-size: 48px;
-  font-weight: 900;
-  margin-bottom: 8px;
-  font-family: var(--serif);
-}
-.proof-stat span {
-  color: var(--cyan);
-}
-.proof-line {
-  font-size: 18px;
-  color: var(--ink);
-  margin-bottom: 16px;
-  line-height: 1.4;
-}
-.proof-ctx {
-  font-size: 14px;
-  color: var(--soft);
-  line-height: 1.6;
-  font-style: italic;
-}
-.proof-roi {
-  margin-top: 40px;
-  padding: 24px 32px;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  font-family: var(--mono);
-  font-size: 14px;
-  line-height: 1.8;
-}
-.proof-roi .green {
-  color: var(--cyan);
-}
-.proof-roi .blue {
-  color: var(--blue);
-}
-
-/* COMMERCIALS */
-.price {
-  padding: 120px 0;
-  background: var(--surface);
-  text-align: center;
-}
-.price .label {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--accent);
-  letter-spacing: 4px;
-  margin-bottom: 24px;
-  text-transform: uppercase;
-}
-.price .price-amount {
-  font-family: var(--serif);
-  font-size: 120px;
-  font-weight: 900;
-  color: var(--ink);
-  line-height: 1;
-  margin: 0 0 16px 0;
-  letter-spacing: -4px;
-}
-.price .period {
-  font-family: var(--mono);
-  font-size: 18px;
-  color: var(--soft);
-  margin-bottom: 24px;
-  letter-spacing: 2px;
-}
-.price .meta {
-  font-size: 14px;
-  color: var(--soft);
-  max-width: 600px;
-  margin: 0 auto 40px;
-  font-family: var(--mono);
-  letter-spacing: 1px;
-}
-.price-block {
-  padding: 0 24px;
-}
-.price-rules {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 32px;
-  flex-wrap: wrap;
-  padding: 0 24px;
-}
-.price-rules .rule {
-  font-family: var(--mono);
-  font-size: 13px;
-  color: var(--accent);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 8px 0;
-}
-
-/* WEDGE / CTA */
-.wedge {
-  padding: 120px 0;
-  text-align: center;
-}
-.wedge-tag {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--accent);
   letter-spacing: 3px;
-  margin-bottom: 24px;
-}
-.wedge h2 {
-  font-size: 80px;
-  margin-bottom: 16px;
-}
-.wedge h2 .accent {
-  color: var(--cyan);
-}
-.wedge-price {
-  font-size: 32px;
-  color: var(--soft);
-  margin-bottom: 8px;
-  font-family: var(--mono);
-}
-.wedge-price strong {
-  color: var(--ink);
-  font-size: 48px;
-  font-weight: 900;
-  font-family: var(--serif);
-}
-.wedge-desc {
-  font-size: 18px;
-  color: var(--soft);
-  max-width: 600px;
-  margin: 32px auto 48px;
-  line-height: 1.5;
-}
-.wedge-rules {
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 20px;
   display: flex;
-  justify-content: center;
-  gap: 48px;
-  margin: 40px 0;
-  flex-wrap: wrap;
-}
-.wedge-rule {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--soft);
-  letter-spacing: 1px;
-}
-.wedge-rule strong {
-  color: var(--cyan);
-  display: block;
-  font-size: 16px;
-  margin-bottom: 4px;
-}
-
-/* FOOTER */
-footer {
-  padding: 60px 0 40px;
-}
-footer .wrap {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
 }
-footer .copy {
-  font-size: 12px;
-  color: var(--soft);
-  letter-spacing: 1.5px;
+.eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--red); flex-shrink: 0; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; }
+h1 { font-size: clamp(48px, 6.5vw, 84px); margin-bottom: 28px; }
+h2 { font-size: clamp(38px, 4.5vw, 60px); margin-bottom: 18px; }
+h3 { font-size: 22px; margin-bottom: 10px; }
+.lede { font-size: clamp(18px, 2vw, 22px); line-height: 1.55; color: var(--soft); max-width: 640px; }
+.mono { font-family: var(--mono); }
+.red { color: var(--red); }
+.soft { color: var(--soft); }
+.dim { color: var(--dim); }
+
+/* ---------- NAV ---------- */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(10,10,12,0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 66px; }
+.brand { font-family: var(--mono); font-size: 16px; font-weight: 700; letter-spacing: 4px; text-decoration: none; color: var(--ink); }
+.brand .red { color: var(--red); }
+.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links a:not(.btn) {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--soft); text-decoration: none; transition: color .15s;
+}
+.nav-links a:not(.btn):hover { color: var(--ink); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  padding: 13px 24px; text-decoration: none; border-radius: 4px;
+  transition: all .18s cubic-bezier(.4,0,.2,1); cursor: pointer; border: 1px solid transparent;
+  white-space: nowrap;
+}
+.btn-red { background: var(--red); color: #fff; }
+.btn-red:hover { background: var(--red-bright); transform: translateY(-1px); }
+.btn-ghost { border-color: var(--line-strong); color: var(--ink); background: transparent; }
+.btn-ghost:hover { border-color: var(--red); color: var(--red); }
+.btn-sm { padding: 9px 16px; font-size: 11px; }
+
+/* ---------- HERO ---------- */
+.hero { padding: 110px 0 90px; position: relative; overflow: hidden; }
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(1200px 500px at 85% -10%, rgba(225,29,72,0.10), transparent 60%),
+    radial-gradient(900px 400px at 10% 110%, rgba(225,29,72,0.05), transparent 60%);
+  pointer-events: none;
+}
+.hero .wrap { position: relative; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 72px; align-items: center; }
+.hero .tagline {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--red); margin-bottom: 24px;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.hero .tagline .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2.2s ease-out infinite; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(74,222,128,0.5); }
+  70% { box-shadow: 0 0 0 8px rgba(74,222,128,0); }
+  100% { box-shadow: 0 0 0 0 rgba(74,222,128,0); }
+}
+.hero h1 .red { color: var(--red); font-style: italic; }
+.hero .lede { margin-bottom: 36px; }
+.hero .proof {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: var(--dim);
+  margin-top: 32px; display: flex; flex-wrap: wrap; gap: 8px 20px;
+}
+.hero .proof span { color: var(--soft); }
+.hero .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* CONSOLE MOCK — the product IS the hero */
+.console {
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  box-shadow: 0 30px 80px -30px rgba(0,0,0,0.7);
+  overflow: hidden;
   font-family: var(--mono);
 }
-footer .links {
-  display: flex;
-  gap: 24px;
+.console-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 16px; border-bottom: 1px solid var(--line);
+  background: var(--surface-2);
 }
-footer .links a {
-  color: var(--soft);
-  text-decoration: none;
-  font-size: 12px;
-  font-family: var(--mono);
+.console-bar .title { font-size: 11px; letter-spacing: 2px; color: var(--soft); text-transform: uppercase; }
+.console-bar .status { display: flex; align-items: center; gap: 6px; font-size: 10px; letter-spacing: 2px; color: var(--green); }
+.console-bar .status .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2.2s ease-out infinite; }
+.console-body { padding: 18px 16px; display: grid; gap: 10px; }
+.agent-row {
+  display: grid; grid-template-columns: 24px 1fr auto; gap: 12px; align-items: center;
+  padding: 12px 14px; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--bg); transition: border-color .15s;
 }
-footer .links a:hover {
-  color: var(--ink);
+.agent-row:hover { border-color: var(--red); }
+.agent-row .idx { font-size: 10px; color: var(--dim); }
+.agent-row .name { font-size: 12px; letter-spacing: 1px; color: var(--ink); }
+.agent-row .state {
+  font-size: 9px; letter-spacing: 2px; padding: 4px 8px; border-radius: 3px; text-transform: uppercase;
+}
+.state-run { color: var(--green); border: 1px solid rgba(74,222,128,0.35); background: rgba(74,222,128,0.08); }
+.state-idle { color: var(--dim); border: 1px solid var(--line); }
+.state-act { color: var(--red-bright); border: 1px solid rgba(225,29,72,0.4); background: rgba(225,29,72,0.08); }
+.console-log { margin-top: 4px; padding: 12px 14px; border-top: 1px solid var(--line); display: grid; gap: 6px; }
+.console-log .log-line { font-size: 10px; color: var(--dim); letter-spacing: 0.5px; }
+.console-log .log-line .ts { color: var(--dim); }
+.console-log .log-line .act { color: var(--red-bright); }
+.console-log .log-line .ok { color: var(--green); }
+
+/* ---------- STATS BAR ---------- */
+.stats-bar { padding: 44px 0; background: var(--surface); border-bottom: 1px solid var(--line); }
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.stat { border-left: 2px solid var(--line); padding-left: 20px; }
+.stat .num { font-family: var(--mono); font-size: clamp(28px, 3vw, 40px); font-weight: 700; color: var(--ink); letter-spacing: -1px; line-height: 1; margin-bottom: 8px; }
+.stat .num.red { color: var(--red); }
+.stat .label { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); }
+
+/* ---------- FLEET ---------- */
+.fleet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.agent {
+  position: relative; padding: 34px 30px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  background: var(--bg); transition: background .18s;
+}
+.agent::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--red); transform: scaleY(0); transform-origin: top; transition: transform .2s; }
+.agent:hover { background: var(--surface); }
+.agent:hover::before { transform: scaleY(1); }
+.agent .idx { font-family: var(--mono); font-size: 11px; color: var(--red); letter-spacing: 2px; margin-bottom: 14px; }
+.agent h3 { font-family: var(--serif); font-size: 21px; font-weight: 700; margin-bottom: 10px; }
+.agent p { font-size: 14px; line-height: 1.6; color: var(--soft); }
+
+/* ---------- DEPLOYMENT ---------- */
+.deploy { background: var(--surface); }
+.timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.t-step { padding: 28px 24px 0 0; border-top: 1px solid var(--line); margin-right: 24px; position: relative; }
+.t-step::after { content: ""; position: absolute; top: -3px; left: 0; width: 5px; height: 5px; background: var(--red); border-radius: 50%; }
+.t-step .day { font-family: var(--mono); font-size: 11px; color: var(--red); letter-spacing: 2px; margin-bottom: 12px; }
+.t-step h3 { font-size: 19px; margin-bottom: 8px; }
+.t-step p { font-size: 13px; line-height: 1.6; color: var(--soft); }
+
+/* ---------- SECURITY ---------- */
+.sec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.sec-points { list-style: none; }
+.sec-points li { padding: 22px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 32px 1fr; gap: 14px; }
+.sec-points li:last-child { border-bottom: none; }
+.sec-points .check { color: var(--red); font-family: var(--mono); font-size: 14px; padding-top: 2px; }
+.sec-points .text strong { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: var(--ink); margin-bottom: 5px; }
+.sec-points .text span { font-size: 15px; line-height: 1.6; color: var(--soft); }
+
+/* ---------- OPERATOR ---------- */
+.op-grid { display: grid; grid-template-columns: 300px 1fr; gap: 64px; align-items: center; }
+.op-card {
+  border: 1px solid var(--line-strong); border-radius: 8px; overflow: hidden; background: var(--surface);
+}
+.op-card .monogram {
+  height: 300px; display: flex; flex-direction: column; gap: 12px;
+  align-items: center; justify-content: center;
+  background: var(--surface-2); border-bottom: 1px solid var(--line);
+}
+.op-card .monogram span { font-family: var(--serif); font-size: 72px; color: var(--red); line-height: 1; }
+.op-card .monogram small { font-family: var(--mono); font-size: 10px; letter-spacing: 3px; color: var(--dim); text-transform: uppercase; }
+.op-card .card-foot { padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
+.op-card .card-foot .role { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: var(--soft); text-transform: uppercase; }
+.op-card .card-foot .state { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; color: var(--green); display: flex; align-items: center; gap: 6px; }
+.op-card .card-foot .state .dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2.2s ease-out infinite; }
+.op-bio { font-size: 16px; line-height: 1.7; color: var(--soft); margin-bottom: 18px; }
+.op-bio strong { color: var(--ink); }
+
+/* ---------- PROOF ---------- */
+.proof-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--red); padding: 44px 48px; border-radius: 0 8px 8px 0; max-width: 820px; }
+.proof-tag { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: var(--red); margin-bottom: 22px; text-transform: uppercase; }
+.proof-stat { font-family: var(--serif); font-size: clamp(36px, 4vw, 52px); font-weight: 700; line-height: 1; margin-bottom: 8px; }
+.proof-stat .red { color: var(--red); }
+.proof-line { font-size: 17px; color: var(--ink); margin-bottom: 26px; }
+.proof-ctx { font-size: 14px; color: var(--soft); font-style: italic; line-height: 1.7; margin-bottom: 30px; border-left: 2px solid var(--line-strong); padding-left: 16px; }
+.proof-roi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; border-top: 1px solid var(--line); padding-top: 24px; }
+.proof-roi .roi-item .k { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; color: var(--dim); text-transform: uppercase; margin-bottom: 6px; }
+.proof-roi .roi-item .v { font-family: var(--mono); font-size: 20px; font-weight: 700; color: var(--ink); }
+.proof-roi .roi-item .v.red { color: var(--red); }
+.proof-roi .roi-item .v.green { color: var(--green); }
+
+/* ---------- PRICING ---------- */
+.price { background: var(--surface); text-align: center; }
+.price .label { font-family: var(--mono); font-size: 12px; letter-spacing: 4px; color: var(--red); text-transform: uppercase; margin-bottom: 20px; }
+.price-amount { font-family: var(--serif); font-size: clamp(88px, 11vw, 140px); font-weight: 700; line-height: 1; letter-spacing: -0.03em; margin-bottom: 8px; }
+.price-amount .red { color: var(--red); }
+.price-period { font-family: var(--mono); font-size: 16px; letter-spacing: 3px; color: var(--soft); margin-bottom: 24px; text-transform: uppercase; }
+.price-meta { font-family: var(--mono); font-size: 12px; letter-spacing: 1px; color: var(--dim); max-width: 560px; margin: 0 auto 40px; line-height: 1.8; }
+.price-rules { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 44px; }
+.price-rules .rule {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ink); border: 1px solid var(--line-strong); border-radius: 999px;
+  padding: 10px 18px; display: inline-flex; align-items: center; gap: 8px;
+}
+.price-rules .rule .tick { color: var(--red); }
+
+/* ---------- WEDGE / CTA ---------- */
+.wedge { text-align: center; position: relative; overflow: hidden; }
+.wedge::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(900px 400px at 50% 0%, rgba(225,29,72,0.12), transparent 65%);
+  pointer-events: none;
+}
+.wedge .wrap { position: relative; }
+.wedge h2 { margin-bottom: 14px; }
+.wedge-price { font-family: var(--mono); font-size: 15px; letter-spacing: 2px; color: var(--soft); margin-bottom: 10px; }
+.wedge-price .red { color: var(--red-bright); font-weight: 700; }
+.wedge-desc { max-width: 640px; margin: 24px auto 40px; font-size: 17px; line-height: 1.7; color: var(--soft); }
+.wedge-rules { display: flex; justify-content: center; gap: 48px; margin: 36px 0; flex-wrap: wrap; }
+.wedge-rule { font-family: var(--mono); font-size: 12px; letter-spacing: 2px; color: var(--dim); text-transform: uppercase; }
+.wedge-rule .num { display: block; font-size: 26px; font-weight: 700; color: var(--ink); margin-bottom: 6px; letter-spacing: 0; }
+.wedge-rule .num.red { color: var(--red); }
+.wedge .note { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; color: var(--dim); margin-top: 30px; }
+
+/* ---------- FOOTER ---------- */
+footer { padding: 56px 0 40px; }
+footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+footer .copy { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: var(--dim); }
+footer .links { display: flex; gap: 24px; }
+footer .links a { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: var(--soft); text-decoration: none; transition: color .15s; }
+footer .links a:hover { color: var(--red); }
+
+/* ---------- REVEAL (load-time fade, content visible by default) ---------- */
+.reveal { animation: revealFade .6s ease both; }
+@keyframes revealFade {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
 }
 
-/* Mobile */
-@media (max-width: 900px) {
-  .price .price-amount { font-size: 80px; }
-  .price-rules { gap: 16px; }
-}
-@media (max-width: 900px) {
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 960px) {
   .wrap { padding: 0 24px; }
-  h1 { font-size: 44px; letter-spacing: -1.5px; }
-  h2 { font-size: 36px; }
-  .hero { padding: 60px 0; }
-  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-  .telemetry { font-size: 11px; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 48px; }
+  .hero { padding: 72px 0 60px; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 28px; }
   .fleet-grid { grid-template-columns: 1fr; }
-  .agent { border-right: none; }
-  .agent:nth-last-child(-n+2) { border-bottom: 1px solid var(--line); }
-  .agent:last-child { border-bottom: none; }
+  .timeline { grid-template-columns: 1fr 1fr; }
+  .t-step { margin-right: 16px; }
+  .sec-grid, .op-grid { grid-template-columns: 1fr; gap: 40px; }
+  .proof-roi { grid-template-columns: 1fr; gap: 18px; }
+  .nav-links a:not(.btn):not(.brand) { display: none; }
+  .wedge-rules { gap: 28px; }
+}
+@media (max-width: 560px) {
   .timeline { grid-template-columns: 1fr; }
-  .t-step { border-right: none; border-bottom: 1px solid var(--line); padding-bottom: 24px; margin-bottom: 24px; margin-right: 0; }
-  .t-step:last-child { border-bottom: none; }
-  .sec-grid, .op-grid { grid-template-columns: 1fr; gap: 32px; }
-  .op-photo { width: 100%; max-width: 280px; }
-  .op-name { font-size: 28px; }
-  .proof-stat { font-size: 32px; }
-  .wedge h2 { font-size: 44px; }
-  .nav-links { display: none; }
-  section { padding: 60px 0; }
+  .stats-row { grid-template-columns: 1fr 1fr; }
+  .proof-block { padding: 32px 24px; }
+  .sec-pad { padding: 80px 0; }
+  h1 { font-size: 40px; }
+  .btn { width: 100%; }
+  .cta-row { flex-direction: column; }
+  nav .wrap { height: 60px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
 }
 </style>
 </head>
 <body>
-
 <nav>
   <div class="wrap">
-    <a href="/" class="brand">TWIN<span>THOS</span></a>
+    <a href="/" class="brand">TWIN<span class="red">THOS</span></a>
     <div class="nav-links">
       <a href="#fleet">Fleet</a>
       <a href="#deploy">Deployment</a>
       <a href="#security">Security</a>
       <a href="#proof">Proof</a>
       <a href="#price">Pricing</a>
+      <a href="#wedge" class="btn btn-red btn-sm">Initiate Simulation</a>
     </div>
-    <a href="#wedge" class="cta-nav">Initiate Simulation</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="hero">
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
   <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <span class="tag">// HIRE TWINTHOS - £5,000/MONTH RETAINER</span>
-        <h1>Hire Twinthos. <span class="accent">One Flat Retainer.</span></h1>
-        <p class="lede">Six autonomous NHI agents deployed on sovereign UK infrastructure. Your entire AI workforce for £5,000/month flat fee. No usage caps. No setup fees.</p>
-        <p class="proof">// SOVEREIGN UK DATA · ZERO PUBLIC TRAINING · ISO 27001</p>
-        <div class="cta-row">
-          <a href="#wedge" class="cta primary">Initiate Simulation Protocol</a>
-          <a href="#price" class="cta secondary">View Pricing</a>
+    <div>
+      <div class="tagline"><span class="dot"></span> UK SME AI WORKFORCE · OPERATIONAL NOW</div>
+      <h1>Twinthos deploys <span class="red">autonomous AI workforces</span> for UK SMEs.</h1>
+      <p class="lede">Six specialised Non-Human Intelligence (NHI) agents, fully managed on sovereign UK infrastructure. Live in 14 days. One flat retainer — no usage caps, no setup fees, no surprises.</p>
+      <div class="cta-row">
+        <a href="#wedge" class="btn btn-red">Initiate Simulation Protocol</a>
+        <a href="#price" class="btn btn-ghost">View Pricing</a>
+      </div>
+      <p class="proof">
+        <span>100% UK DATA RESIDENCY</span>
+        <span>ZERO PUBLIC TRAINING</span>
+        <span>ISO 27001 ALIGNED</span>
+        <span>HUMAN-SUPERVISED</span>
+      </p>
+    </div>
+
+    <div class="console reveal" aria-label="Twinthos fleet console — live status of six autonomous agents">
+      <div class="console-bar">
+        <span class="title">TWINTHOS · FLEET CONSOLE</span>
+        <span class="status"><span class="dot"></span>LIVE</span>
+      </div>
+      <div class="console-body">
+        <div class="agent-row">
+          <span class="idx">01</span>
+          <span class="name">TRIAGE ARCHITECT</span>
+          <span class="state state-run">Running</span>
+        </div>
+        <div class="agent-row">
+          <span class="idx">02</span>
+          <span class="name">LEDGER RECONCILER</span>
+          <span class="state state-run">Running</span>
+        </div>
+        <div class="agent-row">
+          <span class="idx">03</span>
+          <span class="name">INBOUND QUALIFIER</span>
+          <span class="state state-act">Qualifying</span>
+        </div>
+        <div class="agent-row">
+          <span class="idx">04</span>
+          <span class="name">KNOWLEDGE SYNTHESIZER</span>
+          <span class="state state-run">Running</span>
+        </div>
+        <div class="agent-row">
+          <span class="idx">05</span>
+          <span class="name">COMPLIANCE WATCHDOG</span>
+          <span class="state state-idle">Idle</span>
+        </div>
+        <div class="agent-row">
+          <span class="idx">06</span>
+          <span class="name">WORKFLOW OPTIMIZER</span>
+          <span class="state state-run">Running</span>
         </div>
       </div>
-      <div class="telemetry">
-        <div class="telemetry-head">
-          <span>FLEET TELEMETRY · LIVE</span>
-          <span class="live"><span class="dot"></span>OPERATIONAL</span>
-        </div>
-        <div class="tel-stat"><span class="label">Active NHI Agents</span><span class="val">21</span></div>
-        <div class="tel-stat"><span class="label">Tasks Processed · 24h</span><span class="val green">4,892</span></div>
-        <div class="tel-stat"><span class="label">UK Data Nodes</span><span class="val">3</span></div>
-        <div class="tel-stat"><span class="label">Operator Uptime</span><span class="val green">99.97%</span></div>
-        <div class="tel-stat"><span class="label">Hallucination Events · 7d</span><span class="val">0</span></div>
-        <div class="tel-log">
-          <div class="tel-log-line"><span class="ts">10:14:22</span> <span class="act">TRIAGE</span> Routed inbound. 1 escalation.</div>
-          <div class="tel-log-line"><span class="ts">10:14:08</span> <span class="act">RECONCILE</span> Flagged 3 ledger anomalies.</div>
-          <div class="tel-log-line"><span class="ts">10:13:51</span> <span class="act">QUALIFY</span> Booked meeting. Acme Ltd.</div>
-          <div class="tel-log-line"><span class="ts">10:13:34</span> <span class="act">SYNTHESIZE</span> Answered 7 internal queries.</div>
-        </div>
+      <div class="console-log">
+        <div class="log-line"><span class="ts">10:14:22</span> · <span class="act">TRIAGE</span> · Routed 14 inbound · 1 escalation to human</div>
+        <div class="log-line"><span class="ts">10:14:08</span> · <span class="act">RECONCILE</span> · Flagged 3 ledger anomalies</div>
+        <div class="log-line"><span class="ts">10:13:51</span> · <span class="act">QUALIFY</span> · Booked meeting · Acme Ltd</div>
+        <div class="log-line"><span class="ts">10:13:34</span> · <span class="act">SYNTHESIZE</span> · Answered 7 internal queries</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STATS BAR -->
-<section class="stats-bar" id="stats">
+<!-- ============ STATS BAR ============ -->
+<section class="stats-bar" aria-label="Twinthos operational statistics">
   <div class="wrap">
     <div class="stats-row">
-      <div class="stat"><div class="stat-num">21</div><div class="stat-label">Active Deployments</div></div>
-      <div class="stat"><div class="stat-num">3</div><div class="stat-label">UK Data Nodes</div></div>
-      <div class="stat"><div class="stat-num">14</div><div class="stat-label">Days · Contract to Live</div></div>
-      <div class="stat"><div class="stat-num">99.97%</div><div class="stat-label">Operator Uptime</div></div>
+      <div class="stat">
+        <div class="num red" data-count="21">21</div>
+        <div class="label">Active Deployments</div>
+      </div>
+      <div class="stat">
+        <div class="num" data-count="3">3</div>
+        <div class="label">UK Data Nodes</div>
+      </div>
+      <div class="stat">
+        <div class="num" data-count="14">14</div>
+        <div class="label">Days · Contract to Live</div>
+      </div>
+      <div class="stat">
+        <div class="num" data-count="99.97" data-decimals="2">99.97%</div>
+        <div class="label">Operator Uptime</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FLEET -->
-<section class="fleet" id="fleet">
+<!-- ============ FLEET ============ -->
+<section class="sec-pad" id="fleet">
   <div class="wrap">
-    <span class="tag">// 01 — THE ARCHITECTURE</span>
-    <h2>The NHI Fleet. <span class="accent">6 Autonomous Vectors.</span></h2>
-    <p class="section-lede"><strong>We do not deploy chatbots. We deploy autonomous agents</strong> that integrate directly into your CRM, ERP, and communication layers.</p>
+    <span class="eyebrow">01 · The Fleet</span>
+    <h2>Six agents. One workforce.</h2>
+    <p class="lede">We do not deploy chatbots. We deploy autonomous agents that integrate directly into your CRM, ERP, and communication layers — and keep working while your team sleeps.</p>
+  </div>
+  <div class="wrap" style="margin-top:56px">
     <div class="fleet-grid">
       <div class="agent">
-        <div class="agent-num">// AGENT_01</div>
-        <div class="agent-name">The Triage Architect</div>
-        <div class="agent-desc">Routes inbound communications, drafts contextual responses, and escalates edge cases to human staff.</div>
+        <div class="idx">// AGENT_01</div>
+        <h3>The Triage Architect</h3>
+        <p>Routes inbound communications, drafts contextual responses, and escalates edge cases to human staff.</p>
       </div>
       <div class="agent">
-        <div class="agent-num">// AGENT_02</div>
-        <div class="agent-name">The Ledger Reconciler</div>
-        <div class="agent-desc">Cross-references internal financial systems, flagging anomalies and automating invoice processing 24/7.</div>
+        <div class="idx">// AGENT_02</div>
+        <h3>The Ledger Reconciler</h3>
+        <p>Cross-references internal financial systems, flagging anomalies and automating invoice processing 24/7.</p>
       </div>
       <div class="agent">
-        <div class="agent-num">// AGENT_03</div>
-        <div class="agent-name">The Inbound Qualifier</div>
-        <div class="agent-desc">Engages website leads, verifies intent, and books meetings directly into your sales team's calendars.</div>
+        <div class="idx">// AGENT_03</div>
+        <h3>The Inbound Qualifier</h3>
+        <p>Engages website leads, verifies intent, and books meetings directly into your sales team's calendars.</p>
       </div>
       <div class="agent">
-        <div class="agent-num">// AGENT_04</div>
-        <div class="agent-name">The Knowledge Synthesizer</div>
-        <div class="agent-desc">Ingests your proprietary company wikis and answers internal employee queries instantly.</div>
+        <div class="idx">// AGENT_04</div>
+        <h3>The Knowledge Synthesizer</h3>
+        <p>Ingests your proprietary company wikis and answers internal employee queries instantly.</p>
       </div>
       <div class="agent">
-        <div class="agent-num">// AGENT_05</div>
-        <div class="agent-name">The Compliance Watchdog</div>
-        <div class="agent-desc">Monitors outbound communications and contracts for regulatory drift and brand voice consistency.</div>
+        <div class="idx">// AGENT_05</div>
+        <h3>The Compliance Watchdog</h3>
+        <p>Monitors outbound communications and contracts for regulatory drift and brand voice consistency.</p>
       </div>
       <div class="agent">
-        <div class="agent-num">// AGENT_06</div>
-        <div class="agent-name">The Workflow Optimizer</div>
-        <div class="agent-desc">Identifies bottlenecks in your operational channels and automates repetitive micro-tasks.</div>
+        <div class="idx">// AGENT_06</div>
+        <h3>The Workflow Optimizer</h3>
+        <p>Identifies bottlenecks in your operational channels and automates repetitive micro-tasks.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DEPLOYMENT -->
-<section class="deploy" id="deploy">
+<!-- ============ DEPLOYMENT ============ -->
+<section class="sec-pad deploy" id="deploy">
   <div class="wrap">
-    <span class="tag">// 03 — DEPLOYMENT PROTOCOL</span>
-    <h2>From Contract to Live<br><span class="accent">in 14 Days.</span></h2>
-    <p class="section-lede">A credentialed Twinthos Operator runs the deployment end-to-end. You provide two hours of access on Day 1.</p>
+    <span class="eyebrow">02 · Deployment Protocol</span>
+    <h2>Contract to live. 14 days.</h2>
+    <p class="lede">A credentialed Twinthos Operator runs the deployment end-to-end. You provide two hours of access on Day 1.</p>
+  </div>
+  <div class="wrap" style="margin-top:56px">
     <div class="timeline">
       <div class="t-step">
-        <div class="t-day">// PHASE 1 · DAYS 1-3</div>
-        <div class="t-name">Infrastructure Mapping</div>
-        <div class="t-desc">Secure VPS provisioning, API discovery, and integration architecture. Your dedicated UK node is stood up.</div>
+        <div class="day">PHASE 1 · DAYS 1–3</div>
+        <h3>Infrastructure Mapping</h3>
+        <p>Secure VPS provisioning, API discovery, and integration architecture. Your dedicated UK node is stood up.</p>
       </div>
       <div class="t-step">
-        <div class="t-day">// PHASE 2 · DAYS 4-10</div>
-        <div class="t-name">Model Fine-Tuning</div>
-        <div class="t-desc">Workflow integration, sandbox testing, and behaviour calibration against your operating standard.</div>
+        <div class="day">PHASE 2 · DAYS 4–10</div>
+        <h3>Model Fine-Tuning</h3>
+        <p>Workflow integration, sandbox testing, and behaviour calibration against your operating standard.</p>
       </div>
       <div class="t-step">
-        <div class="t-day">// PHASE 3 · DAYS 11-14</div>
-        <div class="t-name">Shadow Run & Go-Live</div>
-        <div class="t-desc">Human-in-the-loop shadowing, team training, and live deployment. You sign off on every agent before it goes live.</div>
+        <div class="day">PHASE 3 · DAYS 11–14</div>
+        <h3>Shadow Run &amp; Go-Live</h3>
+        <p>Human-in-the-loop shadowing, team training, and live deployment. You sign off on every agent before it goes live.</p>
       </div>
       <div class="t-step">
-        <div class="t-day">// ONGOING</div>
-        <div class="t-name">24/7 Operator Supervision</div>
-        <div class="t-desc">Weekly operational telemetry reports. Critical escalations handled within 30 minutes, around the clock.</div>
+        <div class="day">ONGOING</div>
+        <h3>24/7 Operator Supervision</h3>
+        <p>Weekly operational telemetry reports. Critical escalations handled within 30 minutes, around the clock.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SECURITY -->
-<section class="security" id="security">
+<!-- ============ SECURITY ============ -->
+<section class="sec-pad" id="security">
   <div class="wrap">
     <div class="sec-grid">
       <div>
-        <span class="tag">// 02 — GOVERNANCE & SECURITY</span>
-        <h2>Enterprise-Grade Security. <span class="accent">Zero Compromise.</span></h2>
-        <p class="section-lede">Your proprietary data is your most valuable asset. <strong>Public AI models are a liability.</strong> Twinthos operates exclusively on UK-sovereign infrastructure with no exceptions.</p>
+        <span class="eyebrow">03 · Governance &amp; Security</span>
+        <h2>Your data stays in the UK. Full stop.</h2>
+        <p class="lede">Your proprietary data is your most valuable asset — and public AI models are a liability. Twinthos operates exclusively on UK-sovereign infrastructure, with no exceptions and no fine print.</p>
       </div>
-      <div>
-        <ul class="sec-points">
-          <li>
-            <span class="check">+</span>
-            <div class="text"><strong>100% UK DATA RESIDENCY</strong>Hosted exclusively on Tier-3 UK infrastructure.</div>
-          </li>
-          <li>
-            <span class="check">+</span>
-            <div class="text"><strong>AIR-GAPPED TRAINING</strong>Your company data is ring-fenced. It is never used to train foundational models.</div>
-          </li>
-          <li>
-            <span class="check">+</span>
-            <div class="text"><strong>HUMAN-IN-THE-LOOP (HITL)</strong>Every NHI fleet is supervised by a credentialed Twinthos Operator who monitors for logic drift and hallucinations.</div>
-          </li>
-          <li>
-            <span class="check">+</span>
-            <div class="text"><strong>FULL AUDIT TRAILS</strong>Every action taken by an AI agent is logged, timestamped, and exportable for compliance.</div>
-          </li>
-        </ul>
-      </div>
+      <ul class="sec-points">
+        <li>
+          <span class="check">+</span>
+          <div class="text"><strong>100% UK DATA RESIDENCY</strong><span>Hosted exclusively on Tier-3 UK infrastructure.</span></div>
+        </li>
+        <li>
+          <span class="check">+</span>
+          <div class="text"><strong>AIR-GAPPED TRAINING</strong><span>Your company data is ring-fenced. It is never used to train foundational models.</span></div>
+        </li>
+        <li>
+          <span class="check">+</span>
+          <div class="text"><strong>HUMAN-IN-THE-LOOP (HITL)</strong><span>Every NHI fleet is supervised by a credentialed Twinthos Operator who monitors for logic drift and hallucinations.</span></div>
+        </li>
+        <li>
+          <span class="check">+</span>
+          <div class="text"><strong>FULL AUDIT TRAILS</strong><span>Every action taken by an AI agent is logged, timestamped, and exportable for compliance.</span></div>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- OPERATOR -->
-<section class="operator" id="operator">
+<!-- ============ OPERATOR ============ -->
+<section class="sec-pad deploy" id="operator">
   <div class="wrap">
     <div class="op-grid">
-      <div class="op-photo">TWINTHOS</div>
+      <div class="op-card">
+        <div class="monogram"><span>T</span><small>OPERATOR // TW-001</small></div>
+        <div class="card-foot">
+          <span class="role">Credentialed AI Architect</span>
+          <span class="state"><span class="dot"></span>AVAILABLE</span>
+        </div>
+      </div>
       <div>
-        <span class="tag">// 04 — THE OPERATOR</span>
-        <h2>Faceless AI is <span class="accent">a liability.</span></h2>
-        <p style="font-size: 20px; color: var(--soft); max-width: 600px; margin: 24px 0 32px; line-height: 1.5;">Every NHI fleet is supervised by a credentialed human. You will know their name, their background, and their escalation number. The Operator is accountable for the fleet's behaviour—end to end.</p>
-        <div class="op-name">Credentialed AI Architect</div>
-        <div class="op-title">Lead AI Architect · Twinthos</div>
-        <p class="op-bio">Every NHI fleet is supervised by a credentialed human operator. Available on Slack Connect from Day 1 of deployment. Responses within 4 hours during UK business hours. Critical escalations handled within 30 minutes, 24/7.</p>
-        <p class="op-bio">The Operator is accountable for the fleet's behaviour—end to end. Your data is secure and compliant, our teams are vetted and human-supervised, your agents are autonomous and productive, your ROI is measurable and reliable.</p>
+        <span class="eyebrow">04 · The Operator</span>
+        <h2>Faceless AI is a liability.</h2>
+        <p class="lede" style="margin-bottom:28px">Every NHI fleet is supervised by a credentialed human. You will know their name, their background, and their escalation number.</p>
+        <p class="op-bio"><strong>The Operator is accountable for the fleet's behaviour — end to end.</strong> Available on Slack Connect from Day 1 of deployment. Responses within 4 hours during UK business hours; critical escalations handled within 30 minutes, 24/7.</p>
+        <p class="op-bio">Your data is secure and compliant. Your agents are autonomous and productive. Your ROI is measurable and reliable — because a human is watching every decision the fleet makes.</p>
       </div>
     </div>
   </div>
 </section>
-
-<!-- PROOF -->
-<section class="proof" id="proof">
+<!-- ============ PROOF ============ -->
+<section class="sec-pad" id="proof">
   <div class="wrap">
-    <span class="tag">// 05 — DEPLOYMENT 001 · CASE TELEMETRY</span>
-    <h2>One deployment. <span class="accent">Week one.</span></h2>
-    <p class="section-lede">A mid-market UK legal firm. Day 1 to Day 7 telemetry from their first NHI fleet in production. No cherry-picking. No editorial.</p>
+    <span class="eyebrow">05 · Deployment 001 · Case Telemetry</span>
+    <h2>One deployment. Week one.</h2>
+    <p class="lede">A mid-market UK legal firm. Day 1 to Day 7 telemetry from their first NHI fleet in production. No cherry-picking. No editorial.</p>
+  </div>
+  <div class="wrap" style="margin-top:56px">
     <div class="proof-block">
       <div class="proof-tag">// DEPLOYMENT 001 · UK LEGAL · 14 EMPLOYEES</div>
-      <div class="proof-stat"><span>63.5</span> hours reallocated</div>
+      <div class="proof-stat"><span class="red">63.5</span> hours reallocated</div>
       <div class="proof-line">From administrative triage to high-billable advisory work.</div>
-      <div class="proof-stat" style="margin-top: 32px;"><span>£6,300</span> operational value captured</div>
+      <div class="proof-stat"><span class="red">£6,300</span> operational value captured</div>
       <div class="proof-line">Measured against the firm's standard billing rate and the hours that would otherwise have been consumed by manual work.</div>
       <div class="proof-ctx">"I expected the agents to take a month to settle. They were answering client emails by Day 3. By the end of the week, my fee earners had stopped asking which emails they had to check themselves." — Managing Partner, Deployment 001</div>
       <div class="proof-roi">
-        <span class="blue">RETAINER</span>  ·  £5,000 / month<br>
-        <span class="blue">WEEK-ONE YIELD</span>  ·  £6,300<br>
-        <span class="blue">NET ROI</span>  ·  Achieved in <span class="green">144 hours</span>
+        <div class="roi-item">
+          <div class="k">Retainer</div>
+          <div class="v">£5,000 / mo</div>
+        </div>
+        <div class="roi-item">
+          <div class="k">Week-One Yield</div>
+          <div class="v red">£6,300</div>
+        </div>
+        <div class="roi-item">
+          <div class="k">Net ROI achieved in</div>
+          <div class="v green">144 hours</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMMERCIALS -->
-<section class="price" id="price">
+<!-- ============ PRICING ============ -->
+<section class="sec-pad price" id="price">
   <div class="wrap">
-    <span class="tag">// 06 — COMMERCIALS</span>
-    <h2>One Flat Retainer. <span class="accent">Absolute Transparency.</span></h2>
-    <p class="lede" style="font-size: 22px; color: var(--soft); max-width: 700px; margin: 0 auto 0; line-height: 1.5;">Includes the 6-agent fleet, managed cloud infrastructure, 24/7 operator supervision, and weekly operational telemetry reports.</p>
-    <div class="price-block">
-      <div class="label">ONE FLAT RETAINER</div>
-      <div class="price-amount">£5,000</div>
-      <div class="period">/ month</div>
-      <div class="meta">UK SMEs only · 14 days to live · Cancel anytime with 30 days notice</div>
-    </div>
+    <span class="eyebrow" style="justify-content:center">06 · Commercials</span>
+    <h2>One flat retainer. Absolute transparency.</h2>
+    <p class="lede" style="margin:0 auto 48px; max-width:640px">Includes the six-agent fleet, managed cloud infrastructure, 24/7 operator supervision, and weekly operational telemetry reports.</p>
+    <div class="price-amount"><span class="red">£5,000</span></div>
+    <div class="price-period">/ month · UK SMEs</div>
+    <p class="price-meta">14 days to live · Cancel anytime with 30 days notice · hello@twinthos.com</p>
     <div class="price-rules">
-      <div class="rule"><strong>Zero setup fees</strong></div>
-      <div class="rule"><strong>Zero token limits or usage caps</strong></div>
-      <div class="rule"><strong>Cancel anytime · 30 days notice</strong></div>
+      <span class="rule"><span class="tick">+</span> Zero setup fees</span>
+      <span class="rule"><span class="tick">+</span> Zero token limits</span>
+      <span class="rule"><span class="tick">+</span> Zero usage caps</span>
+      <span class="rule"><span class="tick">+</span> Cancel anytime</span>
     </div>
+    <a href="#wedge" class="btn btn-red">Initiate Simulation Protocol</a>
   </div>
 </section>
 
-<!-- WEDGE -->
-<section class="wedge" id="wedge">
+<!-- ============ WEDGE / CTA ============ -->
+<section class="sec-pad wedge" id="wedge">
   <div class="wrap">
-    <div class="wedge-tag">// PHASE 0 · OPERATIONAL SIMULATION</div>
-    <h2>The Operational<br>Simulation.</h2>
-    <p class="wedge-price"><strong>£999</strong> · One-time. Credited toward your first month's retainer if you proceed.</p>
-    <p class="wedge-desc">Do not commit to a retainer on faith. Commission a simulation. For £999, our engineering team will map your current operational bottlenecks and build a high-fidelity, 7-minute video simulation of the NHI fleet executing your specific workflows using your own public data. If you proceed with the deployment, this fee is credited toward your first month's retainer. If not, you retain the architectural blueprint for your internal team.</p>
+    <span class="eyebrow" style="justify-content:center">Phase 0 · Operational Simulation</span>
+    <h2>The Operational Simulation.</h2>
+    <p class="wedge-price"><span class="red">£999</span> · One-time. Credited toward your first month's retainer if you proceed.</p>
+    <p class="wedge-desc">Do not commit to a retainer on faith. Commission a simulation. Our engineering team maps your current operational bottlenecks and builds a high-fidelity, 7-minute video simulation of the NHI fleet executing your specific workflows using your own public data. If you proceed, the fee is credited toward your first month. If not, you retain the architectural blueprint for your internal team.</p>
     <div class="wedge-rules">
-      <div class="wedge-rule"><strong>7 DAYS</strong>Simulation delivered</div>
-      <div class="wedge-rule"><strong>£999</strong>One-time fee</div>
-      <div class="wedge-rule"><strong>£5,000/MO</strong>Retainer if you proceed</div>
+      <div class="wedge-rule"><span class="num">7 DAYS</span>Simulation delivered</div>
+      <div class="wedge-rule"><span class="num red">£999</span>One-time fee</div>
+      <div class="wedge-rule"><span class="num">£5,000/MO</span>Retainer if you proceed</div>
     </div>
-    <a href="mailto:hello@twinthos.com?subject=Operational%20Simulation%20Request" class="cta primary">Initiate Simulation Protocol</a>
-    <p style="font-size: 12px; color: var(--dim); margin-top: 32px; font-family: var(--mono); letter-spacing: 1px;">UK SMEs only · Response within 24 hours · hello@twinthos.com</p>
+    <a href="mailto:hello@twinthos.com?subject=Operational%20Simulation%20Request" class="btn btn-red">Initiate Simulation Protocol</a>
+    <p class="note">UK SMEs only · Response within 24 hours · hello@twinthos.com</p>
   </div>
 </section>
 
@@ -978,9 +653,14 @@ footer .links a:hover {
     <div class="copy">TWINTHOS · NON-HUMAN INTELLIGENCE · 2026</div>
     <div class="links">
       <a href="mailto:hello@twinthos.com">hello@twinthos.com</a>
-      <a href="#wedge">Initiate Simulation</a>
+      <a href="#top">Back to top ↑</a>
     </div>
   </div>
 </footer>
+
+<script>
+// No count-up animation — numbers render as final values from HTML.
+// (Animation caused zero-state flash in renders; static is safer and still premium.)
+</script>
 </body>
 </html>
