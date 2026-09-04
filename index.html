@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- v15-gunmetal: strong black + white writing + gunmetal chrome. Purple killed. -->
+<!-- v16-gunmetal: audit fixes. Em-dashes killed, 5 JSON-LD schemas, day timeline added, AEO copy. -->
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Twinthos - Your business, running itself.</title>
-<meta name="description" content="Twinthos deploys a managed team of AI workers for UK SMEs. Answer, chase, book, file, follow up - so your business runs itself while you sleep. £5,000/month flat. Live in 14 days." />
+<meta name="description" content="What is a managed AI workforce? Twinthos deploys six AI workers for UK SMEs who answer, chase, book, file and follow up - so your business runs itself while you sleep. £5,000/month flat. Live in 14 days." />
 <meta name="theme-color" content="#060708" />
 <link rel="canonical" href="https://twinthos.com/" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -14,6 +14,8 @@
 <meta property="og:description" content="Six AI workers who answer, chase, file and follow up. Live in 14 days. £5,000/month flat." />
 <meta property="og:url" content="https://twinthos.com/" />
 <meta property="og:image" content="https://twinthos.com/og.png" />
+<meta property="og:site_name" content="Twinthos" />
+<meta property="og:locale" content="en_GB" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Twinthos - Your business, running itself." />
 <meta name="twitter:description" content="Six AI workers who answer, chase, file and follow up. Live in 14 days. £5,000/month flat." />
@@ -26,10 +28,46 @@
   "@type": "Organization",
   "name": "Twinthos",
   "url": "https://twinthos.com/",
+  "logo": "https://twinthos.com/favicon.svg",
   "description": "Twinthos deploys a managed team of autonomous AI workers for UK SMEs. £5,000/month flat, live in 14 days, hosted in the UK.",
   "email": "hello@twinthos.com",
   "areaServed": "GB",
+  "contactPoint": { "@type": "ContactPoint", "email": "hello@twinthos.com", "contactType": "sales", "areaServed": "GB", "availableLanguage": "en" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Twinthos",
+  "url": "https://twinthos.com/",
+  "inLanguage": "en-GB",
+  "publisher": { "@type": "Organization", "name": "Twinthos", "url": "https://twinthos.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Managed AI Workforce",
+  "serviceType": "Managed AI employee service",
+  "provider": { "@type": "Organization", "name": "Twinthos", "url": "https://twinthos.com/" },
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "description": "A managed team of six autonomous AI workers for UK SMEs: Front Desk, Accounts, Sales, Knowledge, Compliance and Operations. Live in 14 days, human-supervised, UK-hosted.",
   "offers": { "@type": "Offer", "price": "5000", "priceCurrency": "GBP", "description": "Managed AI workforce retainer - a full team of AI workers, 14 days to live, no setup fees, no usage caps." }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://twinthos.com/" },
+    { "@type": "ListItem", "position": 2, "name": "The Team", "item": "https://twinthos.com/#team" },
+    { "@type": "ListItem", "position": 3, "name": "How It Works", "item": "https://twinthos.com/#how" },
+    { "@type": "ListItem", "position": 4, "name": "Pricing", "item": "https://twinthos.com/#price" },
+    { "@type": "ListItem", "position": 5, "name": "FAQ", "item": "https://twinthos.com/#faq" }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -38,15 +76,18 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type":"Question","name":"Is Twinthos a chatbot?","acceptedAnswer":{"@type":"Answer","text":"No. A chatbot answers one message and forgets you. Twinthos is a managed team of workers that owns a whole job - it answers, chases, books, files and follows up, remembers everything, and works around the clock without you."}},
-    {"@type":"Question","name":"What does Twinthos cost?","acceptedAnswer":{"@type":"Answer","text":"£5,000 a month, flat. That covers the whole team, setup, UK hosting, human supervision and a weekly report. No setup fees and no usage limits."}},
+    {"@type":"Question","name":"What does Twinthos cost?","acceptedAnswer":{"@type":"Answer","text":"£5,000 a month, flat. That covers the whole team, setup, UK hosting, human supervision and a weekly report. No setup fees and no usage limits. Less than the total cost of one junior hire."}},
     {"@type":"Question","name":"What if it does not work for me?","acceptedAnswer":{"@type":"Answer","text":"The first 7 days are a trial. If it is not working for you, you pay nothing. No setup fee, cancel with 30 days notice."}},
-    {"@type":"Question","name":"How long does it take to go live?","acceptedAnswer":{"@type":"Answer","text":"14 days. Week one we learn your business. Week two we build your team and you watch them work with training wheels. Then a human supervises them around the clock."}}
+    {"@type":"Question","name":"How long does it take to go live?","acceptedAnswer":{"@type":"Answer","text":"14 days. Week one we learn your business. Week two we build your team and you watch them work with training wheels. Then a human supervises them around the clock."}},
+    {"@type":"Question","name":"Will it sound like a robot?","acceptedAnswer":{"@type":"Answer","text":"No. Twinthos learns your tone from your own files and replies to routine messages in your voice. You approve anything important before it goes out."}},
+    {"@type":"Question","name":"Is my data safe?","acceptedAnswer":{"@type":"Answer","text":"Yes. Your data stays in the UK, is never used to train AI, and each client runs in their own isolated environment."}},
+    {"@type":"Question","name":"Who is Twinthos for?","acceptedAnswer":{"@type":"Answer","text":"UK small and medium businesses that are drowning in admin: estate agents, law firms, trades, recruiters, accountants and clinics. Anyone whose leads, invoices and inbox need more hours than the day has."}}
   ]
 }
 </script>
 <style>
   /* ============================================================
-     TWINTHOS v15 — GUNMETAL LOCK
+     TWINTHOS v16 - GUNMETAL LOCK
      Strong black backgrounds. White writing. Gunmetal chrome.
      NO purple. NO rainbow. Metal = chrome #B4BCC4 / silver
      #D2D8DE / gun #7A848F on a black #060708 canvas.
@@ -200,7 +241,7 @@
     font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.08;letter-spacing:-.015em;margin:16px 0 18px;color:#fff;text-shadow:0 0 44px rgba(255,255,255,.10)}
   .section-head p{color:var(--soft);font-size:1.12rem}
 
-  /* glass team cards — monochrome steel accent ramp, NO rainbow */
+  /* glass team cards - monochrome steel accent ramp, NO rainbow */
   .team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .team-card{position:relative;padding:32px 28px;border-radius:18px;overflow:hidden;
     background:var(--surface);backdrop-filter:blur(30px) saturate(160%);-webkit-backdrop-filter:blur(30px) saturate(160%);
@@ -222,6 +263,17 @@
   .step h3{font-size:1.25rem;font-weight:600;margin:12px 0 8px}
   .step p{color:var(--soft);font-size:15px}
   @media(max-width:860px){.steps{grid-template-columns:1fr}}
+
+  /* day timeline */
+  .day{border-left:1px solid var(--hairline-strong);margin-left:8px;padding-left:0}
+  .day-row{display:grid;grid-template-columns:170px 1fr;gap:28px;padding:26px 0 26px 32px;position:relative;border-bottom:1px solid var(--hairline)}
+  .day-row:last-child{border-bottom:0}
+  .day-row::before{content:"";position:absolute;left:-5px;top:36px;width:9px;height:9px;border-radius:50%;background:var(--silver);box-shadow:0 0 12px rgba(210,216,222,.5)}
+  .day-row .t{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--chrome);text-transform:uppercase;padding-top:3px}
+  .day-row h3{font-size:1.15rem;font-weight:600;margin-bottom:6px}
+  .day-row p{color:var(--soft);font-size:15px;max-width:60ch}
+  .day-row .you{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);border:1px solid var(--hairline-strong);border-radius:980px;padding:4px 12px}
+  @media(max-width:640px){.day-row{grid-template-columns:1fr;gap:6px;padding-left:24px}}
 
   /* architecture */
   .arch{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline);border-radius:16px;overflow:hidden}
@@ -289,7 +341,7 @@
     <div class="brand"><span class="mark"></span>Twinthos</div>
     <div class="nav-links">
       <a class="mid" href="#team">The team</a>
-      <a class="mid" href="#how">How it works</a>
+      <a class="mid" href="#day">A day with it</a>
       <a class="mid" href="#price">Pricing</a>
       <a href="#faq">FAQ</a>
       <a class="nav-cta" href="mailto:hello@twinthos.com?subject=Hire%20Twinthos">Hire Twinthos</a>
@@ -343,6 +395,21 @@
   </div>
 </section>
 
+<section id="day" class="wrap">
+  <div class="section-head reveal">
+    <div class="eyebrow">A day alongside it</div>
+    <h2>While you sleep, it works.</h2>
+    <p>What actually happens in one ordinary Tuesday.</p>
+  </div>
+  <div class="day reveal">
+    <div class="day-row"><div class="t">06:40</div><div><h3>First enquiries answered</h3><p>The overnight website messages are read, qualified and replied to in your tone. Two are ready to buy and already hold slots in your calendar.</p></div></div>
+    <div class="day-row"><div class="t">09:15</div><div><h3>Your inbox is already zero</h3><p>Routine mail handled, forwarded, filed. Only the three things that genuinely need a human are waiting in one short list.</p><span class="you">You: 10 minutes, not 2 hours</span></div></div>
+    <div class="day-row"><div class="t">12:30</div><div><h3>Late invoices chased</h3><p>Accounts sent four polite reminders, flagged one payer who always pays at 60 days, and reconciled the morning's receipts.</p></div></div>
+    <div class="day-row"><div class="t">17:00</div><div><h3>Dispatch slowdown caught</h3><p>Operations noticed orders queueing on one product line and surfaced it with the numbers, before customers started calling.</p><span class="you">You: one decision, then done</span></div></div>
+    <div class="day-row"><div class="t">21:47</div><div><h3>Nothing needs you</h3><p>Evening enquiries answered, tomorrow's calendar tidy, the day's log written. You are not at your desk, and nothing broke.</p></div></div>
+  </div>
+</section>
+
 <section id="how" class="wrap">
   <div class="section-head reveal">
     <div class="eyebrow">How it works</div>
@@ -393,7 +460,7 @@
   <div class="price reveal">
     <div class="eyebrow">Pricing</div>
     <div class="amount">£5,000<span style="font-size:.4em;color:var(--soft)"> /mo</span></div>
-    <div class="per">For the whole team. Less than one junior hire.</div>
+    <div class="per">For the whole team. Less than the true cost of one junior hire once you add NI, pension and desk.</div>
     <ul>
       <li>All six workers</li>
       <li>Setup included</li>
@@ -423,7 +490,7 @@
     </details>
     <details>
       <summary>What does it cost?<span class="pm">+</span></summary>
-      <div class="a">£5,000 a month, flat. The whole team, setup, UK hosting, human supervision and a weekly report. No setup fees, no usage limits.</div>
+      <div class="a">£5,000 a month, flat. The whole team, setup, UK hosting, human supervision and a weekly report. No setup fees, no usage limits. Less than the true cost of one junior hire once you add National Insurance, pension and desk.</div>
     </details>
     <details>
       <summary>What if it does not work for me?<span class="pm">+</span></summary>
@@ -436,6 +503,10 @@
     <details>
       <summary>Is my data safe?<span class="pm">+</span></summary>
       <div class="a">Yes. Your data stays in the UK, is never used to train AI, and each client runs in their own isolated environment.</div>
+    </details>
+    <details>
+      <summary>Who is Twinthos for?<span class="pm">+</span></summary>
+      <div class="a">UK small and medium businesses drowning in admin: estate agents, law firms, trades, recruiters, accountants, clinics. Anyone whose leads, invoices and inbox need more hours than the day has.</div>
     </details>
   </div>
 </section>
