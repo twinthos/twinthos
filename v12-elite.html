@@ -276,9 +276,11 @@
     });
 
     /* ============ CHOREOGRAPHY: text motion across the screen as you scroll ============
-       Each layer spans diveScroll(1.25) viewport-heights. Copy sub-elements enter
-       with stagger, ride upward through the layer, and exit - so text is always
-       moving. Ghost layer numerals drift slower (parallax). */
+       The engine owns each layer's copy opacity envelope (greets on landing for the
+       first layer, bell-fades for the middle, holds at the end). This script adds MOTION
+       only: each sub-element rides upward at its own rate as you scroll (parallax stack),
+       the title letter-spacing eases in, tags settle with a stagger, and giant ghost
+       numerals drift slower behind. Children stay fully readable (no opacity kills). */
     (function () {
       var DW = 1.25;
       var copies = document.querySelectorAll('.sw-copylayer .sw-copy');
@@ -298,7 +300,6 @@
         els.push({ num: num, eyebrow: eyebrow, title: title, body: body });
         tags.push(tagItems);
 
-        // ghost numeral per layer
         var g = document.createElement('div');
         g.className = 'sw-ghostnum';
         g.textContent = '0' + (i + 1);
@@ -315,34 +316,31 @@
         for (var i = 0; i < NUM; i++) {
           var s0 = i * DW * vh, s1 = (i + 1) * DW * vh;
           var p = clamp((y - s0) / (s1 - s0), 0, 1);
-          // opacity envelope: fade in 0.04-0.20, out 0.86-0.97
-          var inA = smooth(clamp((p - 0.04) / 0.16, 0, 1));
-          var outA = 1 - smooth(clamp((p - 0.86) / 0.11, 0, 1));
-          var vis = Math.min(inA, outA);
-          // continuous upward drift: rises from +90px to -140px across the layer
-          var drift = 90 * (1 - smooth(clamp(p / 0.18, 0, 1))) - 140 * smooth(clamp((p - 0.80) / 0.18, 0, 1));
+          // upward ride: starts settled, rises through the layer, exits past the top
+          var drift = -70 * smooth(clamp(p / 0.4, 0, 1)) - 70 * smooth(clamp((p - 0.78) / 0.2, 0, 1));
+          // title settle + letter-spacing ease in the first beat of the layer
+          var ti = smooth(clamp(p / 0.18, 0, 1));
+          // eyebrow slides in from the right on the first beat
+          var ei = smooth(clamp(p / 0.10, 0, 1));
 
           var e = els[i];
-          if (e.num) { e.num.style.opacity = (0.55 * vis).toFixed(3); e.num.style.transform = 'translateY(' + (drift * 0.5).toFixed(1) + 'px)'; }
-          if (e.eyebrow) { e.eyebrow.style.opacity = (vis).toFixed(3); e.eyebrow.style.transform = 'translateX(' + ((1 - inA) * 34).toFixed(1) + 'px) translateY(' + (drift * 0.72).toFixed(1) + 'px)'; }
+          if (e.num) { e.num.style.transform = 'translateY(' + (drift * 0.5).toFixed(1) + 'px)'; }
+          if (e.eyebrow) { e.eyebrow.style.transform = 'translateX(' + ((1 - ei) * 30).toFixed(1) + 'px) translateY(' + (drift * 0.7).toFixed(1) + 'px)'; }
           if (e.title) {
-            var ti = smooth(clamp((p - 0.06) / 0.2, 0, 1));
-            var ls = -0.024 - (1 - ti) * 0.03;
-            e.title.style.opacity = (Math.min(inA, outA) * ti).toFixed(3);
+            var ls = -0.024 - (1 - ti) * 0.034;
             e.title.style.transform = 'translateY(' + (drift * 0.9).toFixed(1) + 'px) scale(' + (0.985 + ti * 0.015).toFixed(4) + ')';
             e.title.style.letterSpacing = ls.toFixed(4) + 'em';
           }
-          if (e.body) { e.body.style.opacity = (vis * smooth(clamp((p - 0.10) / 0.14, 0, 1))).toFixed(3); e.body.style.transform = 'translateY(' + (drift * 1.05).toFixed(1) + 'px)'; }
+          if (e.body) { e.body.style.transform = 'translateY(' + (drift * 1.08).toFixed(1) + 'px)'; }
 
           var tItems = tags[i];
           for (var k = 0; k < tItems.length; k++) {
-            var tv = smooth(clamp((p - 0.14 - k * 0.035) / 0.1, 0, 1));
-            tItems[k].style.opacity = (vis * tv).toFixed(3);
-            tItems[k].style.transform = 'translateY(' + ((1 - tv) * 22 + drift * 1.15).toFixed(1) + 'px)';
+            var tv = smooth(clamp((p - 0.05 - k * 0.04) / 0.12, 0, 1));
+            tItems[k].style.transform = 'translateY(' + ((1 - tv) * 20 + drift * 1.15).toFixed(1) + 'px)';
           }
 
           var g = ghosts[i];
-          if (g) { g.style.transform = 'translateY(' + (-y * 0.04 + p * 60).toFixed(1) + 'px)'; }
+          if (g) { g.style.transform = 'translateY(' + (-y * 0.04 + p * 50).toFixed(1) + 'px)'; }
         }
         requestAnimationFrame(frame);
       }
