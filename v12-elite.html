@@ -139,6 +139,42 @@
       color: var(--sw-ink); border: 1px solid rgba(244,241,251,.4);
       background: rgba(8,6,15,.3); backdrop-filter: blur(6px);
     }
+
+    /* ---- LIGHTWEIGHT TEXT CHOREOGRAPHY (CSS-transition on state change only - NO per-frame writes) ----
+       The engine owns whole-copy opacity + video scrub. This adds a data-state on each
+       .sw-copy (entering/active/exiting) toggled ONLY at threshold crossings, so children
+       stagger in via pure CSS transitions - zero per-frame JS style churn (that stall is
+       what broke v12.1). Layer 0 greets fully at load (never hidden). */
+    .sw-copy__eyebrow, .sw-copy__title, .sw-copy__body, .sw-copy__tags li, .sw-copy__num {
+      transition: opacity .6s var(--sw-ease), transform .6s var(--sw-ease), filter .6s var(--sw-ease), letter-spacing .6s var(--sw-ease);
+      will-change: transform, opacity;
+    }
+    .sw-copy[data-state="entering"] .sw-copy__eyebrow,
+    .sw-copy[data-state="entering"] .sw-copy__title,
+    .sw-copy[data-state="entering"] .sw-copy__body,
+    .sw-copy[data-state="entering"] .sw-copy__num { opacity: 0; }
+    .sw-copy[data-state="entering"] .sw-copy__eyebrow { transform: translateY(18px); filter: blur(3px); letter-spacing: .5em; }
+    .sw-copy[data-state="entering"] .sw-copy__title  { transform: translateY(26px) scale(.965); }
+    .sw-copy[data-state="entering"] .sw-copy__body   { transform: translateY(18px); filter: blur(2px); }
+    .sw-copy[data-state="entering"] .sw-copy__num    { transform: translateY(12px); }
+    .sw-copy[data-state="entering"] .sw-copy__tags li { opacity: 0; transform: translateY(14px) scale(.94); }
+    /* active = settled, staggered in */
+    .sw-copy[data-state="active"] .sw-copy__eyebrow { transition-delay: .05s; }
+    .sw-copy[data-state="active"] .sw-copy__title   { transition-delay: .13s; }
+    .sw-copy[data-state="active"] .sw-copy__body    { transition-delay: .22s; }
+    .sw-copy[data-state="active"] .sw-copy__tags li { transition-delay: .30s; }
+    .sw-copy[data-state="active"] .sw-copy__tags li:nth-child(2) { transition-delay: .36s; }
+    .sw-copy[data-state="active"] .sw-copy__tags li:nth-child(3) { transition-delay: .42s; }
+    /* exiting = gentle rise before the engine fades the layer out */
+    .sw-copy[data-state="exiting"] .sw-copy__title  { transform: translateY(-16px); opacity: .6; }
+    .sw-copy[data-state="exiting"] .sw-copy__body   { transform: translateY(-22px); opacity: .5; }
+    .sw-copy[data-state="exiting"] .sw-copy__tags li { transform: translateY(-26px); opacity: .4; }
+    @media (max-width: 860px) {
+      .sw-copy__eyebrow, .sw-copy__title, .sw-copy__body, .sw-copy__tags li, .sw-copy__num { transition-duration: .4s; }
+      .sw-copy[data-state="active"] .sw-copy__eyebrow { transition-delay: 0s; }
+      .sw-copy[data-state="active"] .sw-copy__title   { transition-delay: .06s; }
+      .sw-copy[data-state="active"] .sw-copy__body    { transition-delay: .12s; }
+    }
     /* sub-element choreography hooks (driven by JS) */
     .sw-copy .m-el { will-change: transform, opacity; }
     
@@ -262,6 +298,36 @@
       ],
       connectors: [],
     });
+
+    /* ============ LIGHTWEIGHT STATE TOGGLER ============
+       Sets data-state (entering/active/exiting) on each .sw-copy ONLY when a layer
+       crosses a threshold - CSS transitions do the visible stagger. No per-frame
+       writes. Layer 0 is 'active' from the start so the headline greets at load. */
+    (function () {
+      var DW = 1.25, copies = document.querySelectorAll('.sw-copy'), last = [];
+      if (!copies.length) return;
+      var clamp = function (x, a, b) { return Math.min(b, Math.max(a, x)); };
+      function update() {
+        var y = window.scrollY || window.pageYOffset;
+        var vh = window.innerHeight;
+        for (var i = 0; i < copies.length; i++) {
+          var s0 = i * DW * vh, s1 = (i + 1) * DW * vh;
+          var p = clamp((y - s0) / (s1 - s0), 0, 1);
+          var st;
+          if (i === 0) st = (p > 0.88) ? 'exiting' : 'active';
+          else if (p < 0.10) st = 'entering';
+          else if (p > 0.86) st = 'exiting';
+          else st = 'active';
+          if (last[i] !== st) { copies[i].setAttribute('data-state', st); last[i] = st; }
+        }
+      }
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; update(); }); }
+      }, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      update();
+    })();
 
 
   </script>
