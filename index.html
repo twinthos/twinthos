@@ -49,13 +49,13 @@
     #world { min-height: 100vh; }
     ::selection { background: rgba(122,92,255,.35); }
 
-    /* ---- ELITE TOP BAR ---- */
+    /* ---- ELITE TOP BAR (no backdrop-filter: full-width blur over video freezes
+       mobile GPUs - the #1 suspect for 'page won't scroll'. Solid gradient instead.) ---- */
     .sw-topbar {
       padding: clamp(16px, 2.2vw, 24px) clamp(20px, 4.5vw, 56px);
-      background: linear-gradient(180deg, rgba(8,6,15,.86) 0%, rgba(8,6,15,.55) 78%, transparent 100%);
-      backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%);
-      border-bottom: 1px solid rgba(244,241,251,.06);
-      box-shadow: 0 1px 0 rgba(122,92,255,.05) inset;
+      background: linear-gradient(180deg, rgba(8,6,15,.94) 0%, rgba(8,6,15,.82) 60%, rgba(8,6,15,.35) 100%);
+      border-bottom: 1px solid rgba(244,241,251,.05);
+      box-shadow: 0 1px 0 rgba(122,92,255,.04) inset;
     }
     .sw-brand { gap: 12px; }
     .sw-brand__mark {
@@ -105,7 +105,7 @@
       font-family: "JetBrains Mono", ui-monospace, monospace;
       font-size: .7rem; letter-spacing: .34em; color: rgba(154,143,192,.62);
       border: 1px solid rgba(154,143,192,.18); border-radius: 999px;
-      padding: 7px 16px; display: inline-block; backdrop-filter: blur(4px);
+      padding: 7px 16px; display: inline-block; 
     }
     .sw-copy__eyebrow {
       font-family: "JetBrains Mono", ui-monospace, monospace; font-weight: 500;
@@ -127,7 +127,7 @@
       letter-spacing: .12em; text-transform: uppercase; font-weight: 500;
       color: rgba(244,241,251,.85); padding: 8px 16px; border-radius: 999px;
       background: rgba(122,92,255,.10); border: 1px solid rgba(122,92,255,.22);
-      backdrop-filter: blur(6px); transition: background .3s;
+       transition: background .3s;
     }
     .sw-copy__tags li:hover { background: rgba(122,92,255,.2); }
     .sw-btn { letter-spacing: .06em; }
@@ -137,7 +137,7 @@
     }
     .sw-btn--ghost {
       color: var(--sw-ink); border: 1px solid rgba(244,241,251,.4);
-      background: rgba(8,6,15,.3); backdrop-filter: blur(6px);
+      background: rgba(8,6,15,.3); 
     }
 
     /* ---- LIGHTWEIGHT TEXT CHOREOGRAPHY (CSS-transition on state change only - NO per-frame writes) ----
