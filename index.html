@@ -141,18 +141,7 @@
     }
     /* sub-element choreography hooks (driven by JS) */
     .sw-copy .m-el { will-change: transform, opacity; }
-    .sw-ghostnum {
-      position: absolute; z-index: 0; pointer-events: none;
-      font-family: var(--sw-font-display); font-style: italic; font-weight: 200;
-      right: 2vw; top: 12vh; font-size: min(30vw, 420px); line-height: 1;
-      color: transparent; -webkit-text-stroke: 1px rgba(122,92,255,.12);
-      text-shadow: 0 0 80px rgba(122,92,255,.05);
-      user-select: none; opacity: .9;
-      will-change: transform;
-    }
-    /* copy reads above ghost, below nothing */
-    .sw-copy { z-index: 3; }
-
+    
     /* scrollbar hairline - thinner, glowing */
     .sw-scrollbar { height: 2px; }
     .sw-scrollbar span { box-shadow: 0 0 10px rgba(122,92,255,.7); }
@@ -164,8 +153,7 @@
     @media (max-width: 860px) {
       .sw-copy { left: clamp(20px, 6vw, 30px); right: clamp(20px, 6vw, 30px); top: auto; bottom: calc(clamp(72px, 14vh, 118px)); width: auto; max-width: 92vw; }
       .sw-copy__title { font-size: clamp(2rem, 8.2vw, 2.9rem); }
-      .sw-ghostnum { right: 0; top: 8vh; font-size: 46vw; opacity: .55; }
-      .sw-nav { display: none; }
+        .sw-nav { display: none; }
     }
   </style>
 </head>
@@ -275,79 +263,7 @@
       connectors: [],
     });
 
-    /* ============ CHOREOGRAPHY: text motion across the screen as you scroll ============
-       The engine owns each layer's copy opacity envelope (greets on landing for the
-       first layer, bell-fades for the middle, holds at the end). This script adds MOTION
-       only: each sub-element rides upward at its own rate as you scroll (parallax stack),
-       the title letter-spacing eases in, tags settle with a stagger, and giant ghost
-       numerals drift slower behind. Children stay fully readable (no opacity kills). */
-    (function () {
-      var DW = 1.25;
-      var copies = document.querySelectorAll('.sw-copylayer .sw-copy');
-      var ghostHost = document.querySelector('.sw-copylayer');
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var NUM = copies.length;
-      var els = [], ghosts = [], tags = [];
-      if (!ghostHost || !NUM) return;
 
-      copies.forEach(function (c, i) {
-        var num = c.querySelector('.sw-copy__num');
-        var eyebrow = c.querySelector('.sw-copy__eyebrow');
-        var title = c.querySelector('.sw-copy__title');
-        var body = c.querySelector('.sw-copy__body');
-        var tagList = c.querySelector('.sw-copy__tags');
-        var tagItems = tagList ? Array.prototype.slice.call(tagList.children) : [];
-        els.push({ num: num, eyebrow: eyebrow, title: title, body: body });
-        tags.push(tagItems);
-
-        var g = document.createElement('div');
-        g.className = 'sw-ghostnum';
-        g.textContent = '0' + (i + 1);
-        ghostHost.appendChild(g);
-        ghosts.push(g);
-      });
-
-      var clamp = function (x, a, b) { return Math.min(b, Math.max(a, x)); };
-      var smooth = function (x) { x = clamp(x, 0, 1); return x * x * (3 - 2 * x); };
-      var vh = window.innerHeight;
-
-      function frame() {
-        var y = window.scrollY || window.pageYOffset;
-        for (var i = 0; i < NUM; i++) {
-          var s0 = i * DW * vh, s1 = (i + 1) * DW * vh;
-          var p = clamp((y - s0) / (s1 - s0), 0, 1);
-          // upward ride: starts settled, rises through the layer, exits past the top
-          var drift = -70 * smooth(clamp(p / 0.4, 0, 1)) - 70 * smooth(clamp((p - 0.78) / 0.2, 0, 1));
-          // title settle + letter-spacing ease in the first beat of the layer
-          var ti = smooth(clamp(p / 0.18, 0, 1));
-          // eyebrow slides in from the right on the first beat
-          var ei = smooth(clamp(p / 0.10, 0, 1));
-
-          var e = els[i];
-          if (e.num) { e.num.style.transform = 'translateY(' + (drift * 0.5).toFixed(1) + 'px)'; }
-          if (e.eyebrow) { e.eyebrow.style.transform = 'translateX(' + ((1 - ei) * 30).toFixed(1) + 'px) translateY(' + (drift * 0.7).toFixed(1) + 'px)'; }
-          if (e.title) {
-            var ls = -0.024 - (1 - ti) * 0.034;
-            e.title.style.transform = 'translateY(' + (drift * 0.9).toFixed(1) + 'px) scale(' + (0.985 + ti * 0.015).toFixed(4) + ')';
-            e.title.style.letterSpacing = ls.toFixed(4) + 'em';
-          }
-          if (e.body) { e.body.style.transform = 'translateY(' + (drift * 1.08).toFixed(1) + 'px)'; }
-
-          var tItems = tags[i];
-          for (var k = 0; k < tItems.length; k++) {
-            var tv = smooth(clamp((p - 0.05 - k * 0.04) / 0.12, 0, 1));
-            tItems[k].style.transform = 'translateY(' + ((1 - tv) * 20 + drift * 1.15).toFixed(1) + 'px)';
-          }
-
-          var g = ghosts[i];
-          if (g) { g.style.transform = 'translateY(' + (-y * 0.04 + p * 50).toFixed(1) + 'px)'; }
-        }
-        requestAnimationFrame(frame);
-      }
-      function onResize() { vh = window.innerHeight; }
-      window.addEventListener('resize', onResize);
-      if (!reduce) requestAnimationFrame(frame);
-    })();
   </script>
 </body>
 </html>
