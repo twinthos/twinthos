@@ -147,7 +147,6 @@
        what broke v12.1). Layer 0 greets fully at load (never hidden). */
     .sw-copy__eyebrow, .sw-copy__title, .sw-copy__body, .sw-copy__tags li, .sw-copy__num {
       transition: opacity .6s var(--sw-ease), transform .6s var(--sw-ease), filter .6s var(--sw-ease), letter-spacing .6s var(--sw-ease);
-      will-change: transform, opacity;
     }
     .sw-copy[data-state="entering"] .sw-copy__eyebrow,
     .sw-copy[data-state="entering"] .sw-copy__title,
@@ -175,8 +174,8 @@
       .sw-copy[data-state="active"] .sw-copy__title   { transition-delay: .06s; }
       .sw-copy[data-state="active"] .sw-copy__body    { transition-delay: .12s; }
     }
-    /* sub-element choreography hooks (driven by JS) */
-    .sw-copy .m-el { will-change: transform, opacity; }
+    /* (removed dead .m-el will-change rule - no .m-el elements exist; the 45
+       per-child compositing layers were a mobile scroll-stall source) */
     
     /* scrollbar hairline - thinner, glowing */
     .sw-scrollbar { height: 2px; }
@@ -322,14 +321,20 @@
        crosses a threshold - CSS transitions do the visible stagger. No per-frame
        writes. Layer 0 is 'active' from the start so the headline greets at load. */
     (function () {
-      var DW = 1.25, copies = document.querySelectorAll('.sw-copy'), last = [];
+      var copies = document.querySelectorAll('.sw-copy'), last = [];
       if (!copies.length) return;
       var clamp = function (x, a, b) { return Math.min(b, Math.max(a, x)); };
+      // Section widths MUST mirror mountScrollWorld config: hero has scroll:3.0,
+      // every other section uses diveScroll:1.25 (connectors:[] = no connector
+      // segments). Keep this array in sync with the sections[] config above.
+      var widths = [3.0, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25];
       function update() {
         var y = window.scrollY || window.pageYOffset;
         var vh = window.innerHeight;
+        var acc = 0;
         for (var i = 0; i < copies.length; i++) {
-          var s0 = i * DW * vh, s1 = (i + 1) * DW * vh;
+          var s0 = acc * vh, s1 = (acc + widths[i]) * vh;
+          acc += widths[i];
           var p = clamp((y - s0) / (s1 - s0), 0, 1);
           var st;
           if (i === 0) st = (p > 0.88) ? 'exiting' : 'active';
