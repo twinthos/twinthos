@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- v16-gunmetal: audit fixes. Em-dashes killed, 5 JSON-LD schemas, day timeline added, AEO copy. -->
+<!-- v17-gunmetal: audit fixes. Em-dashes killed, 5 JSON-LD schemas, day timeline added, AEO copy. -->
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -26,6 +26,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://twinthos.com/#organization",
   "name": "Twinthos",
   "url": "https://twinthos.com/",
   "logo": "https://twinthos.com/favicon.svg",
@@ -42,7 +43,7 @@
   "name": "Twinthos",
   "url": "https://twinthos.com/",
   "inLanguage": "en-GB",
-  "publisher": { "@type": "Organization", "name": "Twinthos", "url": "https://twinthos.com/" }
+  "publisher": { "@id": "https://twinthos.com/#organization" }
 }
 </script>
 <script type="application/ld+json">
@@ -51,7 +52,7 @@
   "@type": "Service",
   "name": "Managed AI Workforce",
   "serviceType": "Managed AI employee service",
-  "provider": { "@type": "Organization", "name": "Twinthos", "url": "https://twinthos.com/" },
+  "provider": { "@id": "https://twinthos.com/#organization" },
   "areaServed": { "@type": "Country", "name": "United Kingdom" },
   "description": "A managed team of six autonomous AI workers for UK SMEs: Front Desk, Accounts, Sales, Knowledge, Compliance and Operations. Live in 14 days, human-supervised, UK-hosted.",
   "offers": { "@type": "Offer", "price": "5000", "priceCurrency": "GBP", "description": "Managed AI workforce retainer - a full team of AI workers, 14 days to live, no setup fees, no usage caps." }
@@ -76,7 +77,7 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type":"Question","name":"Is Twinthos a chatbot?","acceptedAnswer":{"@type":"Answer","text":"No. A chatbot answers one message and forgets you. Twinthos is a managed team of workers that owns a whole job - it answers, chases, books, files and follows up, remembers everything, and works around the clock without you."}},
-    {"@type":"Question","name":"What does Twinthos cost?","acceptedAnswer":{"@type":"Answer","text":"£5,000 a month, flat. That covers the whole team, setup, UK hosting, human supervision and a weekly report. No setup fees and no usage limits. Less than the total cost of one junior hire."}},
+    {"@type":"Question","name":"What does it cost?","acceptedAnswer":{"@type":"Answer","text":"£5,000 a month, flat. The whole team, setup, UK hosting, human supervision and a weekly report. No setup fees, no usage limits. Less than the true cost of one junior hire once you add National Insurance, pension and desk."}},
     {"@type":"Question","name":"What if it does not work for me?","acceptedAnswer":{"@type":"Answer","text":"The first 7 days are a trial. If it is not working for you, you pay nothing. No setup fee, cancel with 30 days notice."}},
     {"@type":"Question","name":"How long does it take to go live?","acceptedAnswer":{"@type":"Answer","text":"14 days. Week one we learn your business. Week two we build your team and you watch them work with training wheels. Then a human supervises them around the clock."}},
     {"@type":"Question","name":"Will it sound like a robot?","acceptedAnswer":{"@type":"Answer","text":"No. Twinthos learns your tone from your own files and replies to routine messages in your voice. You approve anything important before it goes out."}},
@@ -141,6 +142,8 @@
   }
   ::selection{background:rgba(176,186,196,.35)}
   a{color:inherit;text-decoration:none}
+  .skip-link{position:absolute;left:-9999px;top:0;background:var(--chrome);color:#0A0C0E;padding:10px 18px;border-radius:0 0 10px 0;z-index:100;font-weight:600;font-size:14px}
+  .skip-link:focus{left:0}
   .wrap{max-width:1120px;margin:0 auto;padding:0 32px;position:relative}
 
   /* ---- CURSOR GLOW (hero) ---- */
@@ -229,7 +232,7 @@
 
   /* ---------- STAT BAND (real, sourced) ---------- */
   .statband{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline);border-radius:16px;overflow:hidden;margin-top:64px}
-  .stat{background:rgba(10,12,15,.5);backdrop-filter:blur(20px);padding:30px 24px;text-align:center}
+  .stat{background:var(--surface);backdrop-filter:blur(20px);padding:30px 24px;text-align:center}
   .stat .n{font-family:var(--serif);font-weight:700;font-size:2.7rem;line-height:1;background:linear-gradient(135deg,#fff,var(--chrome));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .stat .l{color:var(--soft);font-size:13px;margin-top:8px;line-height:1.4;font-weight:500}
   @media(max-width:860px){.statband{grid-template-columns:repeat(2,1fr)}}
@@ -239,7 +242,7 @@
   .section-head{max-width:680px;margin-bottom:60px}
   .section-head h2{font-family:var(--serif);font-weight:400;font-variation-settings:'opsz' 48;
     font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.08;letter-spacing:-.015em;margin:16px 0 18px;color:#fff;text-shadow:0 0 44px rgba(255,255,255,.10)}
-  .section-head p{color:var(--soft);font-size:1.12rem}
+  .section-head p{color:var(--soft);font-size:1rem;line-height:1.7}
 
   /* glass team cards - monochrome steel accent ramp, NO rainbow */
   .team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -253,7 +256,8 @@
   .team-card h3{font-size:1.3rem;font-weight:700;margin:14px 0 10px;letter-spacing:-.01em}
   .team-card p{color:var(--soft);font-size:15px;line-height:1.6}
   .team-card .out{display:inline-block;margin-top:16px;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--card-accent,var(--silver));text-shadow:0 0 14px var(--card-accent,var(--silver))}
-  @media(max-width:860px){.team{grid-template-columns:1fr}}
+  @media(max-width:860px){.team{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.team{grid-template-columns:1fr}}
 
   /* steps */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -325,6 +329,9 @@
   footer{border-top:1px solid var(--hairline);padding:40px 0;color:var(--dim);font-size:14px;position:relative}
   footer .inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 
+  @media(max-width:640px){
+    nav,.stat,.team-card,.step,.arch .cell,.compare,.price,.console{backdrop-filter:blur(12px) saturate(160%);-webkit-backdrop-filter:blur(12px) saturate(160%)}
+  }
   @media (prefers-reduced-motion:reduce){
     .js .reveal{opacity:1;transform:none;transition:none}
     .hero h1 .shine,.console-log::after,.status.working,.btn-primary::after{animation:none}
@@ -334,6 +341,7 @@
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <div class="cursor-glow"></div>
 
 <nav>
@@ -349,6 +357,7 @@
   </div>
 </nav>
 
+<main id="main-content">
 <header class="hero wrap">
   <div class="eyebrow">Managed AI workforce · UK</div>
   <h1>Your invoices chased.<br>Your calendar full.<br>Your inbox <span class="shine">empty.</span></h1>
@@ -360,7 +369,7 @@
   <div class="risk"><span class="dot"></span><span><b>7-day trial.</b> If it doesn't work, you pay nothing.</span></div>
 
   <div class="console">
-    <div class="console-head"><span>TWINTHOS · OPERATIONS</span><span class="live"><i></i>LIVE</span></div>
+    <div class="console-head"><span>TWINTHOS · OPERATIONS</span><span class="live" style="color:var(--amber)"><i style="background:var(--amber);box-shadow:0 0 12px rgba(255,176,32,.8)"></i>DEMO</span></div>
     <div class="console-row"><span class="who">Front Desk</span><span class="status working">Working</span><span class="doing">Replied to 14 enquiries in your tone</span></div>
     <div class="console-row"><span class="who">Accounts</span><span class="status working">Working</span><span class="doing">Chased 3 late invoices, politely</span></div>
     <div class="console-row"><span class="who">Sales</span><span class="status oncall">On a call</span><span class="doing">Booked 2 viewings into your calendar</span></div>
@@ -368,6 +377,7 @@
     <div class="console-row"><span class="who">Compliance</span><span class="status working">Working</span><span class="doing">Checked 5 outgoing messages</span></div>
     <div class="console-row"><span class="who">Operations</span><span class="status working">Working</span><span class="doing">Found a slowdown in dispatch</span></div>
     <div class="console-log"><b>></b> 21:47 - nothing needs you right now. Everything is handled.</div>
+    <div style="font-size:11px;color:var(--dim);padding:10px 24px 14px;text-align:center">Illustrative view of the operations console. Not live client data.</div>
   </div>
 
   <div class="statband">
@@ -418,7 +428,7 @@
   <div class="steps">
     <div class="step reveal"><span class="n">Week one</span><h3>We learn your business</h3><p>Two hours of talking and your files. We map how you work, how you talk, and what eats your time.</p></div>
     <div class="step reveal"><span class="n">Week two</span><h3>We build your team</h3><p>Your six workers go live. You watch them work with training wheels, and correct anything that feels off.</p></div>
-    <div class="step reveal"><span class="n">Day 15 onward</span><h3>A human supervises</h3><p>A person watches every worker around the clock. Anything uncertain is flagged to you before it goes out.</p></div>
+    <div class="step reveal"><span class="n">Day 15 onward</span><h3>A human supervises</h3><p>A real person in the UK watches every worker around the clock. Anything uncertain is flagged to you before it goes out.</p></div>
   </div>
 </section>
 
@@ -426,7 +436,7 @@
   <div class="section-head reveal">
     <div class="eyebrow">What it is</div>
     <h2>Eight parts. One worker.</h2>
-    <p>Not a chatbot. A complete employee, built the way real agents are built.</p>
+    <p>Not a chatbot. A complete employee, built the way real agents are built. The category has a name - Non-Human Intelligence. You will just call it your team.</p>
   </div>
   <div class="arch reveal">
     <div class="cell"><div class="k">Computer</div><div class="v">An isolated machine per client</div></div>
@@ -446,12 +456,12 @@
     <h2>Owns the job. Not the message.</h2>
   </div>
   <table class="compare reveal">
-    <thead><tr><th>Chatbot</th><th>Twinthos</th></tr></thead>
+    <thead><tr><th scope="col">Chatbot</th><th scope="col">Twinthos</th></tr></thead>
     <tbody>
-      <tr><td>Answers one message, then forgets</td><td>Remembers everything, compounds every week</td></tr>
-      <tr><td>Waits for you to ask</td><td>Works 24/7 without you</td></tr>
-      <tr><td>Advises</td><td>Acts, and reports what it did</td></tr>
-      <tr><td>Rented software</td><td>Yours, under your rules</td></tr>
+      <tr><td>Answers one message, then forgets</td><td>Remembers everything, compounds every week - the 14th enquiry arrives knowing the first 13</td></tr>
+      <tr><td>Waits for you to ask</td><td>Works 24/7 without you - a 2am enquiry gets a reply and a calendar slot before you wake</td></tr>
+      <tr><td>Advises</td><td>Acts, and reports what it did - invoices chased, viewings booked, bottlenecks flagged</td></tr>
+      <tr><td>Rented software</td><td>Yours, under your rules - UK-hosted, your data never trains AI, isolated environment</td></tr>
     </tbody>
   </table>
 </section>
@@ -494,7 +504,11 @@
     </details>
     <details>
       <summary>What if it does not work for me?<span class="pm">+</span></summary>
-      <div class="a">The first 7 days are a trial. If it is not working for you, you pay nothing. No setup fee, and you can cancel with 30 days' notice.</div>
+      <div class="a">Fair worry - you are handing over work your business runs on. The first 7 days are a full trial: your workers go live, you watch every action, and if it is not for you, you pay £0. No setup fee, ever. After that, 30 days' notice cancels. We only keep clients who would choose us over the junior hire.</div>
+    </details>
+    <details>
+      <summary>How long does it take to go live?<span class="pm">+</span></summary>
+      <div class="a">14 days. Week one we learn your business. Week two we build your team and you watch them work with training wheels. From day 15, a human supervises them around the clock.</div>
     </details>
     <details>
       <summary>Will it sound like a robot?<span class="pm">+</span></summary>
@@ -516,10 +530,11 @@
   <p class="reveal">Every month without this, your replies go unanswered and your invoices go unchased. The business runs with Twinthos - you get the nights and weekends you opened the doors for.</p>
   <a class="btn btn-primary reveal" href="mailto:hello@twinthos.com?subject=Hire%20Twinthos">Hire Twinthos</a>
 </section>
+</main>
 
 <footer>
   <div class="wrap inner">
-    <span>© 2026 Twinthos. UK.</span>
+    <span>© 2026 Twinthos. UK. Built and operated by Tyson Architect, Bath.</span>
     <span><a href="mailto:hello@twinthos.com">hello@twinthos.com</a></span>
   </div>
 </footer>
