@@ -89,7 +89,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:linear-gradient(18
 .menu-toggle{display:none;background:none;border:1px solid var(--hairline-strong);color:var(--ink);font-size:20px;line-height:1;padding:8px 12px;border-radius:6px;cursor:pointer}
 
 /* ---------- HERO ---------- */
-.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:150px 32px 60px;overflow:hidden}
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:128px 32px 56px;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:
   radial-gradient(ellipse 80% 60% at 70% 20%,rgba(180,188,196,.10),transparent 60%),
   radial-gradient(ellipse 60% 50% at 15% 85%,rgba(122,132,143,.08),transparent 60%);pointer-events:none}
@@ -102,15 +102,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:linear-gradient(18
 .hero h1 .row span{display:block;transform:translateY(0)}
 .hero h1 .chrome{background:linear-gradient(100deg,#B4BCC4 0%,#F2F5F8 25%,#7A848F 50%,#E8ECF0 75%,#B4BCC4 100%);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s linear infinite}
 @keyframes sheen{0%{background-position:0% 0}100%{background-position:300% 0}}
-.hero-sub{margin-top:34px;max-width:560px;color:var(--soft);font-size:19px;line-height:1.55}
+.hero-sub{margin-top:28px;max-width:560px;color:var(--soft);font-size:19px;line-height:1.55}
 .hero-sub strong{color:var(--ink);font-weight:600}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
 .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:15px;font-weight:600;padding:15px 26px;border-radius:7px;text-decoration:none;transition:transform .2s var(--ease),box-shadow .2s}
 .btn-primary{color:var(--bg);background:linear-gradient(135deg,var(--silver),var(--chrome));box-shadow:var(--glow-medium)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--glow-strong)}
 .btn-ghost{color:var(--ink);border:1px solid var(--hairline-strong);background:rgba(255,255,255,.02)}
 .btn-ghost:hover{border-color:var(--chrome);background:rgba(255,255,255,.05)}
-.hero-guarantee{margin-top:22px;font-family:var(--mono);font-size:12.5px;color:var(--dim);letter-spacing:.02em}
+.hero-guarantee{margin-top:18px;font-family:var(--mono);font-size:12.5px;color:var(--dim);letter-spacing:.02em}
 .hero-guarantee .g{color:var(--green)}
 
 /* ---------- CONSOLE ---------- */
@@ -298,12 +298,9 @@ footer{border-top:1px solid var(--hairline);padding:44px 0 56px;margin-top:40px}
   <div class="hero-inner">
     <div class="eyebrow"><span class="line"></span>Twinthos · Non-Human Intelligence · UK</div>
     <h1>
-      <span class="row"><span>Your invoices</span></span>
-      <span class="row"><span>chased.</span></span>
-      <span class="row"><span>Your calendar</span></span>
-      <span class="row"><span>full.</span></span>
-      <span class="row"><span>Your inbox</span></span>
-      <span class="row"><span class="chrome">empty.</span></span>
+      <span class="row"><span>Your invoices chased.</span></span>
+      <span class="row"><span>Your calendar full.</span></span>
+      <span class="row"><span class="chrome">Your inbox empty.</span></span>
     </h1>
     <p class="hero-sub">Six AI workers who <strong>answer, chase, book, file and follow up</strong> - so the work gets done without you. Onboarded in 14 days. You stay the boss.</p>
     <div class="hero-ctas">
