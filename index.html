@@ -99,10 +99,52 @@ section{padding:clamp(76px,9vw,128px) 0;border-top:1px solid var(--line)}
 
 </style>
 <style>
+
+/* ===== ULTRAREALISTIC CHROME-SILVER SHIMMER ===== */
+/* Photoreal chrome = multi-stop metallic band + specular highlight,
+   background-clip:text, slow 7s sweep, faint drop-shadow for depth. */
+.chrome{
+  background:linear-gradient(
+    100deg,
+    #4A5058 0%,
+    #9BA3AE 14%,
+    #E8ECF1 26%,
+    #FFFFFF 34%,
+    #7E8794 44%,
+    #3E444D 54%,
+    #AAB2BC 68%,
+    #F5F7FA 78%,
+    #5A616C 92%,
+    #3A3F47 100%
+  );
+  background-size:300% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,.55)) drop-shadow(0 0 2px rgba(199,201,210,.18));
+  animation:chrome-sweep 7s cubic-bezier(.45,.05,.55,.95) infinite;
+  will-change:background-position;
+}
+@keyframes chrome-sweep{
+  0%{background-position:120% 0}
+  55%{background-position:-60% 0}
+  100%{background-position:-120% 0}
+}
+@media (prefers-reduced-motion:reduce){
+  .chrome{animation:none;background-position:35% 0}
+}
+/* brand wordmark: static brushed-chrome */
+.brand.chrome-word{
+  background:linear-gradient(180deg,#FFFFFF 0%,#E4E8ED 38%,#8A929E 52%,#5F6672 60%,#D7DCE3 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,.6));
+}
+
 /* ===== CINEMATIC HERO ===== */
 .hero{padding:clamp(140px,17vh,200px) 0 clamp(64px,7vw,96px);border-top:0;position:relative}
 .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(40px,5vw,68px);align-items:center}
 .hero h1 .accent{color:var(--green)}
+.hero h1.chrome .accent{-webkit-text-fill-color:transparent;background:inherit;background-size:300% 100%;-webkit-background-clip:text;background-clip:text;filter:inherit}
 .hero-sub{color:var(--soft);font-size:clamp(16px,1.6vw,19px);max-width:52ch;margin-top:24px}
 .hero-sub b{color:var(--warm);font-weight:600}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
@@ -158,7 +200,7 @@ section{padding:clamp(76px,9vw,128px) 0;border-top:1px solid var(--line)}
 <a class="skip" href="#main">Skip to content</a>
 <nav class="nav" id="nav" aria-label="Main">
 <div class="nav-inner">
-<a class="brand" href="/"><span class="dot"></span>TWINTHOS</a>
+<a class="brand chrome-word" href="/"><span class="dot"></span>TWINTHOS</a>
 <div class="nav-links">
 <a href="#work">The work</a>
 <a href="#agent">Autonomy</a>
@@ -176,7 +218,7 @@ section{padding:clamp(76px,9vw,128px) 0;border-top:1px solid var(--line)}
 <div class="wrap hero-grid">
 <div>
 <div class="kicker"><span class="live-dot"></span>Autonomous agents for business</div>
-<h1 class="reveal">Stop paying people<br>to <span class="accent">remember work.</span></h1>
+<h1 class="reveal chrome">Stop paying people<br>to <span class="accent">remember work.</span></h1>
 <p class="hero-sub reveal" style="--d:80ms">Twinthos deploys autonomous agents that take responsibility for business work and keep it moving <b>without requiring a human to prompt every step.</b> £5,000/month. Live in 14 days.</p>
 <div class="hero-ctas reveal" style="--d:140ms">
 <a class="btn btn-primary" href="#agent">Watch an agent work <span class="arr">→</span></a>
@@ -668,7 +710,7 @@ Twinthos: <b>running</b>
 
 <footer>
 <div class="foot">
-<a class="brand" href="/"><span class="dot"></span>TWINTHOS</a>
+<a class="brand chrome-word" href="/"><span class="dot"></span>TWINTHOS</a>
 <div class="foot-status"><span class="dot"></span>system online</div>
 <div class="foot-links">
 <a href="/privacy.html">Privacy</a>
