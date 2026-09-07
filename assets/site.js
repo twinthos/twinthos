@@ -1,172 +1,158 @@
-/* Twinthos v30 interactions - demo, workflows, calculator, nav */
+// Twinthos v32 – interactions
 (function () {
   'use strict';
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* MOBILE NAV */
+  /* ---- NAV ---- */
   var burger = document.querySelector('.nav-burger');
   var links = document.querySelector('.nav-links');
   if (burger && links) {
-    burger.addEventListener('click', function () {
-      var open = links.classList.toggle('open');
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
+    burger.addEventListener('click', function () { links.classList.toggle('open'); });
+    links.addEventListener('click', function (e) { if (e.target.tagName === 'A') links.classList.remove('open'); });
   }
 
-  /* DEMO */
-  var demoIdle = document.getElementById('demoIdle');
+  /* ---- REVEAL ---- */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(function (r) { io.observe(r); });
+  } else { reveals.forEach(function (r) { r.classList.add('in'); }); }
+
+  /* ---- WORKFLOWS ---- */
+  var WF = [
+    { i: "A new enquiry arrives by email: “Can we view the Albert Road unit this week?”",
+      o: "Viewing booked and confirmed with the customer. Calendar updated, customer record updated, site team notified. No follow-up needed.",
+      s: "Email · Calendar · Customer record (CRM)",
+      b: "Unusual requests, unapproved pricing and commitments outside your rules." },
+    { i: "A promised callback has not happened within the agreed window.",
+      o: "Follow-up sent and owner notified. Next step scheduled and logged. Escalated if still unresolved.",
+      s: "Email · Messaging · Task list",
+      b: "Sensitive relationship issues and anything needing your judgement." },
+    { i: "A customer invoice is issued and the payment window is closing.",
+      o: "Reminder sent on schedule. Receipt recorded and matched once paid. No duplicate messages.",
+      s: "Invoicing · Payment status · Email",
+      b: "Disputed amounts, refunds and changes to payment terms." },
+    { i: "A booked job is complete and the customer is ready for the next stage.",
+      o: "Completion confirmed, record updated and the next appropriate step prepared. Paused for your approval where required.",
+      s: "Job records · Customer record · Messaging",
+      b: "Scope changes, pricing decisions and anything outside the agreed workflow." }
+  ];
+  var wfBtns = document.querySelectorAll('.wf-btn');
+  var wfPanel = document.getElementById('wfPanel');
+  function setWF(k) {
+    var d = WF[k]; if (!d) return;
+    document.getElementById('wfInput').textContent = d.i;
+    document.getElementById('wfOutput').textContent = d.o;
+    document.getElementById('wfSys').textContent = d.s;
+    document.getElementById('wfBound').textContent = d.b;
+    wfBtns.forEach(function (b, i) { b.classList.toggle('active', i === k); b.setAttribute('aria-selected', i === k ? 'true' : 'false'); });
+    if (wfPanel) { wfPanel.classList.remove('in'); void wfPanel.offsetWidth; wfPanel.classList.add('in'); }
+  }
+  wfBtns.forEach(function (b) { b.addEventListener('click', function () { setWF(parseInt(b.dataset.wf, 10)); }); });
+
+  /* ---- EXCEPTION CARD ---- */
+  var excKeep = document.getElementById('excKeep');
+  var excNote = document.getElementById('excNote');
+  if (excKeep) excKeep.addEventListener('click', function () { if (excNote) excNote.hidden = false; });
+
+  /* ---- TELEMETRY TICKER ---- */
+  var tEl = {
+    time: document.getElementById('tTime'),
+    act: document.getElementById('tAct'),
+    flow: document.getElementById('tFlow'),
+    rec: document.getElementById('tRec')
+  };
+  var flows = ['enquiries', 'bookings', 'invoices', 'follow-ups', 'client ops'];
+  var acts = ['completing', 'monitoring', 'logging', 'handing over', 'awaiting approval'];
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  function tick() {
+    if (tEl.time) { var d = new Date(); tEl.time.textContent = pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds()) + ' UTC'; }
+    if (tEl.act) tEl.act.textContent = acts[Math.floor(Math.random() * acts.length)];
+    if (tEl.flow) tEl.flow.textContent = flows[Math.floor(Math.random() * flows.length)];
+    if (tEl.rec) { var n = (180 + Math.floor(Math.random() * 40)); tEl.rec.textContent = n + ' today'; }
+  }
+  tick(); setInterval(tick, 1400);
+
+  /* ---- DEMO ---- */
   var demoMsg = document.getElementById('demoMsg');
-  var demoStep = document.getElementById('demoStep');
   var demoOut = document.getElementById('demoOut');
   var demoDone = document.getElementById('demoDone');
   var demoExc = document.getElementById('demoExc');
-  var stepEls = Array.prototype.slice.call(document.querySelectorAll('#demoSteps li'));
-  var demoTimer = null;
-
-  function hideAll() {
-    [demoIdle, demoMsg, demoStep, demoOut, demoDone, demoExc].forEach(function (el) { el.hidden = true; });
-    stepEls.forEach(function (li) { li.classList.remove('done'); });
+  var demoSteps = document.getElementById('demoSteps');
+  var demoRun = document.getElementById('demoRun');
+  var demoIdleBox = document.getElementById('demoIdle');
+  function resetDemo() {
+    [demoMsg, demoOut, demoDone, demoExc].forEach(function (e) { if (e) e.hidden = true; });
+    if (demoSteps) demoSteps.querySelectorAll('li').forEach(function (li) { li.classList.remove('done'); });
+    if (demoIdleBox) demoIdleBox.hidden = false;
+    if (demoRun) { demoRun.textContent = 'Run demonstration'; demoRun.disabled = false; }
   }
-  function show(el) { if (el) el.hidden = false; }
-  window.__demoReset = function () {
-    if (demoTimer) { clearTimeout(demoTimer); demoTimer = null; }
-    hideAll(); show(demoIdle);
-  };
-  var stepsText = ['Step 1 · Understanding the request. Request identified as a commercial viewing enquiry. Approved business information loaded.', 'Step 2 · Taking agreed actions. Availability checked with the site team. Reply drafted within approved rules.', 'Step 3 · Checking the outcome. Reply delivered, customer confirmed, records updated.'];
-  window.__demoPlay = function () {
-    window.__demoReset();
-    show(demoMsg);
-    var i = 0;
-    function next() {
-      if (i < 3) {
-        demoStep.textContent = stepsText[i];
-        show(demoStep);
-        stepEls[i].classList.add('done');
-        if (i === 1) { show(demoOut); }
-        if (i === 2) { show(demoDone); }
-        i++;
-        demoTimer = setTimeout(next, reduce ? 300 : 2400);
-      }
-    }
-    next();
-  };
-  function bind(id, fn) {
-    var el = document.getElementById(id);
-    if (el) el.addEventListener('click', fn);
-  }
-  bind('playBtn', window.__demoPlay);
-  bind('replyBtn', function () { window.__demoReset(); show(demoMsg); show(demoOut); });
-  bind('recordBtn', function () { window.__demoReset(); show(demoDone); stepEls.forEach(function (li) { li.classList.add('done'); }); });
-  bind('excBtn', function () { window.__demoReset(); show(demoMsg); show(demoExc); });
-  bind('resetBtn', window.__demoReset);
-
-  /* WORKFLOW SELECTOR */
-  var wfData = [
-    { input: 'A new enquiry arrives by email: \u201CCan we view the Albert Road unit this week?\u201D', output: 'Viewing booked and confirmed with the customer. Calendar updated, CRM record updated, site team notified. No follow-up needed.', sys: 'Email · Calendar · Customer record (CRM)', bound: 'Unusual requests, unapproved pricing and commitments outside your rules.' },
-    { input: 'An agreed follow-up is due: a customer has not replied to a quotation sent three days ago.', output: 'Approved reminder sent and reply recorded. Next action kept visible for the team. No reply needed from staff to trigger it.', sys: 'Email · Sales record · Task list', bound: 'Negotiations, sensitive responses and changes to commercial terms.' },
-    { input: 'A scheduled check runs on issued invoices: three are overdue by more than seven days.', output: 'Agreed reminders sent, payment statuses updated, one missing PO number flagged for the team.', sys: 'Accounting system · Email', bound: 'Disputes, payment changes and refunds.' },
-    { input: 'A new client onboarding begins: welcome pack issued, information requested, documents filed.', output: 'Onboarding checklist advanced. Approved documents organised, records updated, two missing actions flagged.', sys: 'Email · Document store · Client record', bound: 'Incomplete, conflicting or sensitive instructions.' }
-  ];
-  var wfBtns = Array.prototype.slice.call(document.querySelectorAll('.wf-btn'));
-  var wfPanel = document.getElementById('wfPanel');
-  wfBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      wfBtns.forEach(function (b) { b.setAttribute('aria-selected', 'false'); b.classList.remove('active'); });
-      btn.setAttribute('aria-selected', 'true'); btn.classList.add('active');
-      var d = wfData[parseInt(btn.dataset.wf, 10)];
-      if (!d) return;
-      wfPanel.setAttribute('aria-labelledby', btn.id);
-      document.getElementById('wfInput').textContent = d.input;
-      document.getElementById('wfOutput').textContent = d.output;
-      document.getElementById('wfSys').textContent = d.sys;
-      document.getElementById('wfBound').textContent = d.bound;
+  if (demoRun) {
+    demoRun.addEventListener('click', function () {
+      if (demoIdleBox) demoIdleBox.hidden = true;
+      [demoMsg, demoOut, demoDone, demoExc].forEach(function (e) { if (e) e.hidden = false; });
+      demoRun.textContent = 'Running…'; demoRun.disabled = true;
+      var steps = demoSteps ? demoSteps.querySelectorAll('li') : [];
+      steps.forEach(function (li, i) { setTimeout(function () { li.classList.add('done'); }, 700 * (i + 1)); });
+      setTimeout(function () { if (demoRun) { demoRun.textContent = 'Run again'; demoRun.disabled = false; } }, 700 * (steps.length + 1));
     });
-  });
+  }
+  var demoReset = document.getElementById('demoReset');
+  if (demoReset) demoReset.addEventListener('click', resetDemo);
 
-  /* EXCEPTION CARD */
-  bind('excReview', function () {
-    var n = document.getElementById('excNote');
-    if (n) { n.hidden = false; n.textContent = 'Request opened for review with full context. Nothing proceeds until a person decides.'; }
-  });
-  bind('excKeep', function () {
-    var n = document.getElementById('excNote');
-    if (n) { n.hidden = false; n.textContent = 'Stays paused until a person decides. The customer sees no automatic response.'; }
-  });
-
-  /* CALCULATOR */
-  var ids = ['c_hours', 'c_handover', 'c_review', 'c_rate', 'c_cash', 'c_opp', 'c_conv', 'c_gp', 'c_extra'];
-  var FEE = 5000;
-  function val(id) {
-    var el = document.getElementById(id);
-    if (!el) return NaN;
-    var v = parseFloat(el.value);
-    if (isNaN(v) || v < 0) return NaN;
-    if (el.id === 'c_handover' && v > 100) return NaN;
-    return v;
+  /* ---- CALCULATOR ---- */
+  var calc = {
+    hours: document.getElementById('c_hours'), handover: document.getElementById('c_handover'),
+    review: document.getElementById('c_review'), rate: document.getElementById('c_rate'),
+    cash: document.getElementById('c_cash'), opp: document.getElementById('c_opp'),
+    conv: document.getElementById('c_conv'), gp: document.getElementById('c_gp'),
+    extra: document.getElementById('c_extra')
+  };
+  var out = {
+    empty: document.getElementById('calcEmpty'), box: document.getElementById('calcOut'),
+    hours: document.getElementById('r_hours'), capval: document.getElementById('r_capval'),
+    cash: document.getElementById('r_cash'), gp: document.getElementById('r_gp'), gp_note: document.getElementById('r_gp_note'),
+    net: document.getElementById('r_net'), net_note: document.getElementById('r_net_note'),
+    netRow: document.getElementById('r_net_row'), neg: document.getElementById('calcNeg')
+  };
+  function num(v) { var n = parseFloat(v); return isFinite(n) && n >= 0 ? n : null; }
+  function money(n) { return '£' + Math.round(n).toLocaleString('en-GB'); }
+  function recalc() {
+    var h = num(calc.hours && calc.hours.value), hd = num(calc.handover && calc.handover.value),
+        rv = num(calc.review && calc.review.value), rt = num(calc.rate && calc.rate.value),
+        cs = num(calc.cash && calc.cash.value), op = num(calc.opp && calc.opp.value),
+        cv = num(calc.conv && calc.conv.value), gp = num(calc.gp && calc.gp.value),
+        ex = num(calc.extra && calc.extra.value);
+    if (h === null || hd === null || rv === null || rt === null || cs === null || op === null || cv === null || gp === null || ex === null) {
+      if (out.empty) out.empty.hidden = false; if (out.box) out.box.hidden = true; return;
+    }
+    if (out.empty) out.empty.hidden = true; if (out.box) out.box.hidden = false;
+    var monthlyHours = h * 4.33;
+    var recovered = Math.max(0, monthlyHours * (hd / 100) - rv);
+    var capValue = recovered * rt;
+    var gpValue = op * (cv / 100) * gp;
+    var net = cs + gpValue - 5000 - ex;
+    if (out.hours) out.hours.textContent = recovered.toFixed(1) + ' h/mo';
+    if (out.capval) out.capval.textContent = '≈ ' + money(capValue) + ' staff cost equivalent';
+    if (out.cash) out.cash.textContent = money(cs);
+    if (out.gp) out.gp.textContent = money(gpValue);
+    if (out.gp_note) out.gp_note.textContent = 'Based on ' + op + ' opportunities × ' + cv + ' pts × ' + money(gp) + ' – an estimate, not a measurement';
+    if (out.net) out.net.textContent = money(net);
+    if (out.net_note) out.net_note.textContent = money(cs) + ' savings + ' + money(gpValue) + ' est. profit − £5,000 − ' + money(ex) + ' extra';
+    if (out.netRow) out.netRow.classList.toggle('neg', net < 0);
+    if (out.neg) out.neg.hidden = net >= 0;
   }
-  function gbp(n) {
-    var neg = n < 0;
-    var v = Math.abs(Math.round(n));
-    var s = '\u00A3' + v.toLocaleString('en-GB');
-    return neg ? '\u2212' + s : s;
-  }
-  function calc() {
-    var out = document.getElementById('calcOut');
-    var empty = document.getElementById('calcEmpty');
-    var anyInput = ids.some(function (id) { var el = document.getElementById(id); return el && el.value !== ''; });
-    if (!anyInput) { out.hidden = true; empty.hidden = false; return; }
-    empty.hidden = true; out.hidden = false;
-    var hours = val('c_hours') || 0, handover = (val('c_handover') || 0) / 100, review = val('c_review') || 0;
-    var rate = val('c_rate') || 0, cash = val('c_cash') || 0, opp = val('c_opp') || 0;
-    var conv = (val('c_conv') || 0) / 100, gp = val('c_gp') || 0, extra = val('c_extra') || 0;
-    var recHours = Math.max(0, hours * handover - review) * 4.33;
-    var capVal = recHours * rate;
-    var addGp = opp * conv * gp;
-    var net = cash + addGp - FEE - extra;
-    document.getElementById('r_hours').textContent = Math.round(recHours) + ' hours/month';
-    document.getElementById('r_capval').textContent = rate > 0 ? 'Capacity value ' + gbp(capVal) + '/month (time equivalent, not automatic cash)' : 'Enter a staff cost to value this time';
-    document.getElementById('r_cash').textContent = gbp(cash) + '/month';
-    document.getElementById('r_gp').textContent = gbp(addGp) + '/month';
-    document.getElementById('r_gp_note').textContent = (opp > 0 && conv > 0) ? (Math.round(opp * conv) + ' additional customers assumed at ' + gbp(gp) + ' gross profit each. Estimate, not a measurement.') : 'Enter affected opportunities, conversion uplift and gross profit per customer.';
-    document.getElementById('r_net').textContent = gbp(net) + '/month';
-    document.getElementById('r_net_note').textContent = 'Cash savings + estimated gross profit \u2212 ' + gbp(FEE) + ' fee' + (extra > 0 ? ' \u2212 ' + gbp(extra) + ' extra costs' : '');
-    var netRow = document.getElementById('r_net_row');
-    var neg = document.getElementById('calcNeg');
-    if (net < 0) { netRow.classList.add('neg'); neg.hidden = false; }
-    else { netRow.classList.remove('neg'); neg.hidden = true; }
-  }
-  ids.forEach(function (id) {
-    var el = document.getElementById(id);
-    if (el) el.addEventListener('input', calc);
-  });
+  Object.keys(calc).forEach(function (k) { if (calc[k]) calc[k].addEventListener('input', recalc); });
   var exBtn = document.getElementById('calcExample');
   if (exBtn) exBtn.addEventListener('click', function () {
-    var ex = { c_hours: '20', c_handover: '70', c_review: '2', c_rate: '30', c_cash: '1000', c_opp: '100', c_conv: '5', c_gp: '500', c_extra: '200' };
-    Object.keys(ex).forEach(function (k) { var el = document.getElementById(k); if (el) el.value = ex[k]; });
-    calc();
+    var v = { c_hours: '20', c_handover: '70', c_review: '2', c_rate: '30', c_cash: '1000', c_opp: '100', c_conv: '5', c_gp: '500', c_extra: '200' };
+    Object.keys(v).forEach(function (id) { if (calc[id]) calc[id].value = v[id]; }); recalc();
   });
-  var rsBtn = document.getElementById('calcReset');
-  if (rsBtn) rsBtn.addEventListener('click', function () {
-    setTimeout(function () {
-      var out = document.getElementById('calcOut'); var empty = document.getElementById('calcEmpty');
-      out.hidden = true; empty.hidden = false;
-    }, 0);
-  });
-})();
+  var rst = document.getElementById('calcReset');
+  if (rst) rst.addEventListener('click', function () { setTimeout(function () { if (out.empty) out.empty.hidden = false; if (out.box) out.box.hidden = true; }, 10); });
 
-/* SCROLL REVEAL (v31 craft layer) */
-(function () {
-  var els = document.querySelectorAll('.reveal');
-  if (!els.length) return;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce || !('IntersectionObserver' in window)) {
-    els.forEach(function (el) { el.classList.add('in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-  els.forEach(function (el) { io.observe(el); });
+  /* year in footer */
+  var y = document.querySelector('.foot-base .mono');
+  if (y) y.innerHTML = '© 2026 Twinthos · Work handled. Time returned.';
 })();
