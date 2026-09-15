@@ -30,6 +30,7 @@
 }
 @media(max-width:900px){:root{--gut:32px}}
 @media(max-width:600px){:root{--gut:20px}}
+@media(max-width:420px){:root{--gut:14px;--wrap:100%}}
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:92px}
@@ -124,21 +125,21 @@ p{max-width:64ch}
 @media(max-width:900px){.page-hero{padding:calc(70px + 16px) 0}}
 
 /* SECTIONS */
-section{padding:clamp(64px,9vw,100px) 0;position:relative}
+section{padding:clamp(48px,6vw,64px) 0;position:relative}
 .panel-sec{}
 .sec-head{margin-bottom:clamp(36px,5vw,56px)}
 .sec-head h2{margin-bottom:16px;max-width:22ch}
 
 /* HERO */
-.hero{padding:clamp(110px,16vh,200px) 0 clamp(48px,6vw,72px);overflow:hidden}
+.hero{padding:clamp(64px,8vh,96px) 0 clamp(20px,3vw,36px);overflow:hidden}
 .hero-grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(36px,5vw,64px);align-items:center;position:relative;z-index:1}
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
 .hero .eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;display:flex;align-items:center;gap:12px}
 .hero .eyebrow::before{content:"";width:30px;height:1px;background:linear-gradient(90deg,var(--accent),transparent)}
 .hero .lead{font-size:19px;color:var(--lt-sec);margin-top:26px;max-width:56ch}
 .hero .support-line{margin-top:20px}
-.hero-record{position:relative}
-.record{background:rgba(17,25,35,.8);border:1px solid var(--hair);border-radius:20px;padding:30px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 20px 40px -20px rgba(0,0,0,.8);position:relative;z-index:2}
+.hero-record{position:relative;display:grid;gap:clamp(16px,3vw,24px)}
+.record{background:rgba(17,25,35,.8);border:1px solid var(--hair);border-radius:16px;padding:clamp(18px,3vw,24px);box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 12px 24px -12px rgba(0,0,0,.7);position:relative;z-index:2}
 .record-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
 .record-head .mono{font-size:13.5px;color:var(--dk-sec)}
 .record-title{font-size:23px;margin-bottom:18px;font-weight:600;font-family:var(--sans);color:var(--ink)}
