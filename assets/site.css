@@ -140,6 +140,7 @@ section{padding:clamp(48px,6vw,64px) 0;position:relative}
 .hero .eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:24px;display:flex;align-items:center;gap:12px}
 .hero .eyebrow::before{content:"";width:30px;height:1px;background:linear-gradient(90deg,var(--accent),transparent)}
 .hero .lead{font-size:19px;color:var(--lt-sec);margin-top:24px;max-width:50ch}
+@media(max-width:500px){.hero{padding:clamp(40px,7vh,64px) 0 clamp(24px,4vw,36px)}.hero .eyebrow{font-size:13px;margin-bottom:16px}.hero .lead{font-size:17px;line-height:1.55;margin-top:18px;max-width:100%}.hero .support-line{font-size:14px;margin-top:16px}.record-title{font-size:20px}.record-lines li{font-size:15px}}
 .hero .support-line{margin-top:20px}
 .hero-record{position:relative}
 .record{background:rgba(17,25,35,.8);border:1px solid var(--hair);border-radius:16px;padding:clamp(18px,3vw,24px);box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 12px 24px -12px rgba(0,0,0,.7);position:relative;z-index:2}
