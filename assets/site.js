@@ -215,8 +215,7 @@
       if (out.empty) out.empty.hidden = false; if (out.box) out.box.hidden = true; return;
     }
 
-    // Revenue fields are optional — treat as 0 if omitted
-    var rtVal = (rt !== null) ? rt : 0;
+  var rtVal = (rt !== null) ? rt : 0;
     var csVal = (cs !== null) ? cs : 0;
     var opVal = (op !== null) ? op : 0;
     var cvVal = (cv !== null) ? cv : 0;
@@ -289,7 +288,6 @@
     }
   });
 
-  // Example button — uses correct element IDs
   var exBtn = document.getElementById('calcExample');
   var EXAMPLE_VALUES = {
     c_hours: '20', c_handover: '70', c_review: '2', c_rate: '30',
