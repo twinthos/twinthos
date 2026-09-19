@@ -78,19 +78,33 @@
 
 <main id="main">
 
-<!-- A. HERO -->
+<!-- A. HERO: Left column copy, right column ThreeJS Operations Core -->
 <section class="hero">
-  <div class="wrap">
-    <p class="proof-pill">Managed AI employee · enquiries, follow-ups, routine operations</p>
-    <p class="eyebrow">Non-Human Intelligence</p>
-    <h1 class="hero-h1">Spend less time chasing work.<br>Keep your business moving.</h1>
-    <p class="lead">Twinthos handles enquiries, follow-ups and routine admin across the tools you already use. Work moves forward within agreed rules, and important decisions come to you.</p>
-    <p class="lead">We build, monitor and maintain the workflows.</p>
-    <div class="ctarow">
-      <a class="btn btn-primary" href="/book/">Book a fit call</a>
-      <a class="btn btn-ghost" href="#demo">See a workflow example</a>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="proof-pill">Managed AI employee · enquiries, follow-ups, routine operations</p>
+      <p class="eyebrow">Non-Human Intelligence</p>
+      <h1 class="hero-h1"><span>Spend less time chasing work.</span><br><span>Keep your business moving.</span></h1>
+      <p class="lead">Twinthos handles enquiries, follow-ups and routine admin across the tools you already use. Work moves forward within agreed rules, and important decisions come to you.</p>
+      <p class="lead">We build, monitor and maintain the workflows.</p>
+      <div class="ctarow">
+        <a class="btn btn-primary" href="/book/">Book a fit call</a>
+        <a class="btn btn-ghost" href="#demo">See a workflow example</a>
+      </div>
+      <p class="support-line">£5,000 per month for the agreed managed service. Start with one clearly scoped workflow.</p>
     </div>
-    <p class="support-line">&pound;5,000 per month for the agreed managed service. Start with one clearly scoped workflow.</p>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="ops-core-label mono">OPERATIONS CORE</div>
+      <div class="ops-telemetry mono">
+        <span class="tel-item"><span>WF</span><span id="telWF">PAUSED</span></span>
+        <span class="tel-sep"></span>
+        <span class="tel-item"><span>Q</span><span id="telQ">0</span></span>
+        <span class="tel-sep"></span>
+        <span class="tel-item"><span>OUT</span><span id="telOut">0</span></span>
+        <span class="tel-sep"></span>
+        <span class="tel-item"><span>SINCE</span><span id="telSince">—</span></span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -221,10 +235,10 @@
         <p class="exc-title">A customer has requested a refund outside your policy.</p>
         <p>The request and relevant order details are ready for review. No refund has been issued.</p>
         <div class="exc-btns">
-          <button class="btn btn-ghost btn-sm" id="excReview">Review request</button>
-          <button class="btn btn-ghost btn-sm" id="excKeep">Keep paused</button>
+          <button class="btn btn-ghost btn-sm" id="exc2Review">Review request</button>
+          <button class="btn btn-ghost btn-sm" id="exc2Keep">Keep paused</button>
         </div>
-        <p class="exc-note mono" id="excNote" hidden>Stays paused until a person decides. The customer sees no automatic response.</p>
+        <p class="exc-note mono" id="exc2Note" hidden>Stays paused until a person decides. The customer sees no automatic response.</p>
       </div>
     </div>
     <p class="support-line">Agree access, spending boundaries, approval rules and escalation contacts before activation. Demonstration controls never trigger real business actions.</p>
@@ -292,7 +306,10 @@
 
 <section id="pricing" class="panel-sec alt">
   <div class="wrap">
-    <div class="sec-head"><h2><span class="metal">Start with one <span class="h-accent">workflow worth improving.</span></span></h2></div>
+    <div class="sec-head">
+      <h2><span class="metal">One managed service. <span class="h-accent">One clear price.</span></span></h2>
+      <p class="sub">£5,000 per month for the agreed managed service. No per-message fee, no surprise billing. We confirm the scope, the pilot and the ongoing plan in writing.</p>
+    </div>
     <div class="pricing-grid">
       <div class="price-panel panel">
         <p class="price mono">&pound;5,000 <span>per month</span></p>
@@ -333,16 +350,22 @@
 </section>
 
 <!-- J. CLOSING -->
-<section class="panel-sec closing">
-  <div class="wrap">
-    <h2><span class="metal">Your time should belong to <span class="h-accent">more than the next follow-up.</span></span></h2>
-    <p class="sub">A growing business creates work that keeps returning: another enquiry, another update, another thing to chase.</p>
-    <p class="sub">Twinthos exists to carry that work through, so your attention can go to the decisions, relationships and life that need you.</p>
-    <p class="sub"><strong>Start with one workflow. See what changes.</strong></p>
-    <div class="ctarow center"><a class="btn btn-primary" href="/book/">Book a fit call</a></div>
-        <p class="signoff">Work handled. Time returned.</p>
+<section id="closing" class="panel-sec alt">
+  <div class="wrap closing-wrap">
+    <div class="closing-copy">
+      <p class="eyebrow">Book a fit call</p>
+      <h2 class="closing-h">The first workflow is the hardest part. <span class="h-accent">Let's make it easy.</span></h2>
+      <p>A 15-minute call to find the recurring work worth taking off your hands. One workflow, one clear next step, no commitment to anything bigger.</p>
+      <div class="ctarow closing-cta">
+        <a class="btn btn-primary" href="/book/">Book a fit call</a>
+        <a class="btn btn-ghost" href="/operations-audit/">Operations audit</a>
       </div>
-    </section>
+    </div>
+    <div class="closing-trust">
+      <p class="trust-line">Start with one workflow. See it work. Decide from there.</p>
+    </div>
+  </div>
+</section>
 
     </main>
 
@@ -363,149 +386,478 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
-// ThreeJS background — geometric 3D scene
 (function() {
+  'use strict';
+
   var container = document.getElementById('three-container');
-  if (!container || typeof THREE === 'undefined') return;
+  if (!container || typeof THREE === 'undefined') {
+    return;
+  }
+
+  function maxOne(value) {
+    return Math.max(1, value || 1);
+  }
+
+  function lerp(start, end, amount) {
+    return start + (end - start) * amount;
+  }
+
+  var startWidth = maxOne(container.clientWidth || window.innerWidth);
+  var startHeight = maxOne(container.clientHeight || window.innerHeight);
 
   var scene = new THREE.Scene();
-  var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+  var camera = new THREE.PerspectiveCamera(45, startWidth / startHeight, 0.1, 100);
   camera.position.set(0, 0, 12);
+  camera.lookAt(0, 0, 0);
 
-  var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  var renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true,
+      depth: true,
+      stencil: false,
+      powerPreference: 'high-performance'
+    });
+  } catch (error) {
+    return;
+  }
+
+  var reduceMotion = false;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    reduceMotion = true;
+  }
+
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setSize(startWidth, startHeight, false);
   renderer.setClearColor(0x000000, 0);
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.08;
+
+  container.innerHTML = '';
+  renderer.domElement.setAttribute('aria-hidden', 'true');
   container.appendChild(renderer.domElement);
 
-  // --- Objects ---
+  function createEnvironmentMap() {
+    try {
+      var canvas = document.createElement('canvas');
+      canvas.width = 512;
+      canvas.height = 256;
+      var context = canvas.getContext('2d');
+      if (!context || !THREE.PMREMGenerator) {
+        return null;
+      }
 
-  // Central torus knot — main focal element
-  var knotGeo = new THREE.TorusKnotGeometry(1.4, 0.4, 128, 32);
-  var knotMat = new THREE.MeshPhysicalMaterial({
-    color: 0x8B95A1,
-    metalness: 0.7,
-    roughness: 0.25,
-    clearcoat: 0.4,
-    clearcoatRoughness: 0.3,
-    envMapIntensity: 1.0,
-    transparent: true,
-    opacity: 0.85
-  });
-  var knot = new THREE.Mesh(knotGeo, knotMat);
-  knot.position.set(0, 0, 0);
-  scene.add(knot);
+      var gradient = context.createLinearGradient(0, 0, 0, canvas.height);
+      gradient.addColorStop(0, '#F4F7FA');
+      gradient.addColorStop(0.32, '#C7D0DA');
+      gradient.addColorStop(0.62, '#8B95A1');
+      gradient.addColorStop(0.82, '#3A4047');
+      gradient.addColorStop(1, '#090B0E');
+      context.fillStyle = gradient;
+      context.fillRect(0, 0, canvas.width, canvas.height);
 
-  // Orbiting icosahedrons
-  var icosaGeo = new THREE.IcosahedronGeometry(0.5, 0);
-  var icosaMat = new THREE.MeshPhysicalMaterial({
+      var highlight = context.createRadialGradient(128, 62, 0, 128, 62, 150);
+      highlight.addColorStop(0, 'rgba(244,247,250,0.95)');
+      highlight.addColorStop(0.22, 'rgba(199,208,218,0.45)');
+      highlight.addColorStop(1, 'rgba(58,64,71,0)');
+      context.globalCompositeOperation = 'lighter';
+      context.fillStyle = highlight;
+      context.fillRect(0, 0, canvas.width, canvas.height);
+
+      var texture = new THREE.CanvasTexture(canvas);
+      texture.mapping = THREE.EquirectangularReflectionMapping;
+      texture.encoding = THREE.sRGBEncoding;
+      texture.minFilter = THREE.LinearFilter;
+      texture.magFilter = THREE.LinearFilter;
+      texture.generateMipmaps = false;
+
+      var pmrem = new THREE.PMREMGenerator(renderer);
+      pmrem.compileEquirectangularShader();
+      var environment = pmrem.fromEquirectangular(texture).texture;
+      texture.dispose();
+      pmrem.dispose();
+      return environment;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  var environment = createEnvironmentMap();
+  scene.environment = environment;
+  scene.fog = new THREE.FogExp2(0x090B0E, 0.025);
+
+  function createRadialTexture() {
+    var canvas = document.createElement('canvas');
+    canvas.width = 128;
+    canvas.height = 128;
+    var context = canvas.getContext('2d');
+    var gradient = context.createRadialGradient(64, 64, 0, 64, 64, 64);
+    gradient.addColorStop(0, 'rgba(244,247,250,1)');
+    gradient.addColorStop(0.18, 'rgba(199,208,218,0.86)');
+    gradient.addColorStop(0.45, 'rgba(139,149,161,0.24)');
+    gradient.addColorStop(1, 'rgba(58,64,71,0)');
+    context.fillStyle = gradient;
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    var texture = new THREE.CanvasTexture(canvas);
+    texture.minFilter = THREE.LinearFilter;
+    texture.magFilter = THREE.LinearFilter;
+    texture.generateMipmaps = false;
+    return texture;
+  }
+
+  var softTexture = createRadialTexture();
+
+  // Central metallic knot with a thin glass-like shell.
+  var heroGroup = new THREE.Group();
+  scene.add(heroGroup);
+
+  var knotGeometry = new THREE.TorusKnotGeometry(1.28, 0.38, 192, 28, 2, 3);
+  var knotMaterial = new THREE.MeshPhysicalMaterial({
     color: 0xC7D0DA,
-    metalness: 0.3,
-    roughness: 0.4,
-    emissive: 0x1a2025,
-    emissiveIntensity: 0.15,
-    transparent: true,
-    opacity: 0.7
+    metalness: 0.88,
+    roughness: 0.18,
+    clearcoat: 1,
+    clearcoatRoughness: 0.12,
+    emissive: 0x3A4047,
+    emissiveIntensity: 0.12,
+    envMapIntensity: 1.25,
+    transparent: false,
+    opacity: 1
   });
-
-  var orbits = [];
-  var orbitCount = 5;
-  for (var i = 0; i < orbitCount; i++) {
-    var mesh = new THREE.Mesh(icosaGeo, icosaMat.clone());
-    mesh.material.color.setHSL(0.55 + i * 0.04, 0.08, 0.55 + i * 0.04);
-    var angle = (i / orbitCount) * Math.PI * 2;
-    var radius = 3.2 + i * 0.3;
-    mesh.position.set(Math.cos(angle) * radius, Math.sin(angle * 1.3) * 1.2, Math.sin(angle) * radius * 0.4);
-    mesh.userData = { angle: angle, radius: radius, speed: 0.15 + i * 0.02, offsetY: Math.sin(angle * 1.3) * 1.2 };
-    scene.add(mesh);
-    orbits.push(mesh);
+  if (environment) {
+    knotMaterial.envMap = environment;
   }
 
-  // Small floating particles
-  var particleCount = 300;
-  var particleGeo = new THREE.BufferGeometry();
-  var positions = new Float32Array(particleCount * 3);
-  for (var i = 0; i < particleCount; i++) {
-    positions[i*3] = (Math.random() - 0.5) * 30;
-    positions[i*3+1] = (Math.random() - 0.5) * 20;
-    positions[i*3+2] = (Math.random() - 0.5) * 20 - 5;
-  }
-  particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  var particleMat = new THREE.PointsMaterial({
-    color: 0x8B95A1,
-    size: 0.04,
+  var knot = new THREE.Mesh(knotGeometry, knotMaterial);
+  knot.renderOrder = 1;
+  heroGroup.add(knot);
+
+  var glassMaterial = new THREE.MeshPhysicalMaterial({
+    color: 0xF4F7FA,
+    metalness: 0.05,
+    roughness: 0.06,
+    clearcoat: 1,
+    clearcoatRoughness: 0.04,
+    emissive: 0x8B95A1,
+    emissiveIntensity: 0.04,
+    envMapIntensity: 1.45,
     transparent: true,
-    opacity: 0.5,
-    blending: THREE.AdditiveBlending
+    opacity: 0.13,
+    depthWrite: false,
+    side: THREE.FrontSide
   });
-  var particles = new THREE.Points(particleGeo, particleMat);
+  if (environment) {
+    glassMaterial.envMap = environment;
+  }
+
+  var glassShell = new THREE.Mesh(knotGeometry, glassMaterial);
+  glassShell.scale.setScalar(1.035);
+  glassShell.renderOrder = 3;
+  heroGroup.add(glassShell);
+
+  // Five satellites travel on independent tilted elliptical orbits.
+  var satelliteSpecs = [
+    { shape: 'icosa', size: 0.34, radiusX: 2.72, radiusZ: 1.38, height: 0.62, speed: 0.18, phase: 0.0, tiltX: 0.34, tiltY: 0.00, tiltZ: -0.12, spinX: 0.42, spinY: 0.65, color: 0xC7D0DA },
+    { shape: 'octa', size: 0.25, radiusX: 3.25, radiusZ: 1.85, height: 0.90, speed: -0.13, phase: 1.4, tiltX: -0.25, tiltY: 0.18, tiltZ: 0.20, spinX: 0.72, spinY: 0.48, color: 0x8B95A1 },
+    { shape: 'icosa', size: 0.45, radiusX: 3.85, radiusZ: 2.15, height: 0.48, speed: 0.10, phase: 2.8, tiltX: 0.55, tiltY: -0.12, tiltZ: -0.30, spinX: 0.30, spinY: 0.82, color: 0xC7D0DA },
+    { shape: 'octa', size: 0.20, radiusX: 2.35, radiusZ: 1.10, height: 0.45, speed: 0.27, phase: 4.1, tiltX: -0.45, tiltY: 0.24, tiltZ: 0.35, spinX: 0.90, spinY: 0.56, color: 0x8B95A1 },
+    { shape: 'icosa', size: 0.29, radiusX: 4.25, radiusZ: 2.55, height: 1.15, speed: 0.075, phase: 5.2, tiltX: 0.22, tiltY: -0.20, tiltZ: -0.45, spinX: 0.52, spinY: 0.38, color: 0xC7D0DA }
+  ];
+
+  var satellites = [];
+  for (var i = 0; i < satelliteSpecs.length; i++) {
+    var spec = satelliteSpecs[i];
+    var orbit = new THREE.Group();
+    orbit.rotation.set(spec.tiltX, spec.tiltY, spec.tiltZ);
+    scene.add(orbit);
+
+    var carrier = new THREE.Group();
+    orbit.add(carrier);
+
+    var satelliteGeometry = spec.shape === 'octa'
+      ? new THREE.OctahedronGeometry(spec.size, 0)
+      : new THREE.IcosahedronGeometry(spec.size, 0);
+    var satelliteMaterial = new THREE.MeshPhysicalMaterial({
+      color: spec.color,
+      metalness: 0.58,
+      roughness: 0.28,
+      clearcoat: 0.45,
+      clearcoatRoughness: 0.20,
+      emissive: 0x8B95A1,
+      emissiveIntensity: 0.12,
+      envMapIntensity: 0.8,
+      flatShading: true,
+      transparent: true,
+      opacity: 0.92
+    });
+    if (environment) {
+      satelliteMaterial.envMap = environment;
+    }
+
+    var satellite = new THREE.Mesh(satelliteGeometry, satelliteMaterial);
+    satellite.renderOrder = 2;
+    carrier.add(satellite);
+
+    var glowMaterial = new THREE.SpriteMaterial({
+      map: softTexture,
+      color: spec.color,
+      transparent: true,
+      opacity: 0.18,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false
+    });
+    var glow = new THREE.Sprite(glowMaterial);
+    glow.scale.set(spec.size * 3.8, spec.size * 3.8, 1);
+    glow.renderOrder = 4;
+    carrier.add(glow);
+
+    var pathPoints = [];
+    for (var j = 0; j < 128; j++) {
+      var pathAngle = (j / 128) * Math.PI * 2;
+      pathPoints.push(new THREE.Vector3(
+        Math.cos(pathAngle) * spec.radiusX,
+        Math.sin(pathAngle) * spec.height,
+        Math.sin(pathAngle) * spec.radiusZ
+      ));
+    }
+    var pathLine = new THREE.LineLoop(
+      new THREE.BufferGeometry().setFromPoints(pathPoints),
+      new THREE.LineBasicMaterial({
+        color: 0x8B95A1,
+        transparent: true,
+        opacity: 0.075,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false
+      })
+    );
+    orbit.add(pathLine);
+
+    carrier.userData = {
+      mesh: satellite,
+      glowMaterial: glowMaterial,
+      radiusX: spec.radiusX,
+      radiusZ: spec.radiusZ,
+      height: spec.height,
+      speed: spec.speed,
+      phase: spec.phase,
+      spinX: spec.spinX,
+      spinY: spec.spinY
+    };
+    satellites.push(carrier);
+  }
+
+  // Faint torus arcs create a sense of depth behind the hero.
+  var ringGroup = new THREE.Group();
+  ringGroup.position.set(0, 0, -1.25);
+  ringGroup.rotation.set(1.08, -0.18, 0.12);
+  scene.add(ringGroup);
+
+  function addRingArc(radius, tube, arc, opacity, rotationZ) {
+    var ringMaterial = new THREE.MeshPhysicalMaterial({
+      color: 0x3A4047,
+      metalness: 0.9,
+      roughness: 0.22,
+      clearcoat: 0.5,
+      clearcoatRoughness: 0.18,
+      emissive: 0x8B95A1,
+      emissiveIntensity: 0.08,
+      envMapIntensity: 0.65,
+      transparent: true,
+      opacity: opacity,
+      depthWrite: false,
+      side: THREE.DoubleSide
+    });
+    if (environment) {
+      ringMaterial.envMap = environment;
+    }
+    var ring = new THREE.Mesh(
+      new THREE.TorusGeometry(radius, tube, 16, 192, arc),
+      ringMaterial
+    );
+    ring.rotation.z = rotationZ;
+    ring.renderOrder = 0;
+    ringGroup.add(ring);
+    return ring;
+  }
+
+  var ringArcOne = addRingArc(2.85, 0.035, Math.PI * 1.35, 0.34, 0.35);
+  var ringArcTwo = addRingArc(3.55, 0.018, Math.PI * 0.82, 0.16, -0.55);
+
+  // Sparse drifting particle field.
+  var particleCount = 320;
+  var particlePositions = new Float32Array(particleCount * 3);
+  var particleBase = new Float32Array(particleCount * 3);
+  var particlePhase = new Float32Array(particleCount);
+  var particleDrift = new Float32Array(particleCount);
+
+  for (var p = 0; p < particleCount; p++) {
+    var q = p * 3;
+    var particleRadius = 2.1 + Math.random() * 6.8;
+    var particleAngle = Math.random() * Math.PI * 2;
+    particleBase[q] = Math.cos(particleAngle) * particleRadius * (0.8 + Math.random() * 0.55);
+    particleBase[q + 1] = (Math.random() - 0.5) * 8.2;
+    particleBase[q + 2] = Math.sin(particleAngle) * particleRadius * 0.68 - 1.2;
+    particlePhase[p] = Math.random() * Math.PI * 2;
+    particleDrift[p] = 0.12 + Math.random() * 0.28;
+    particlePositions[q] = particleBase[q];
+    particlePositions[q + 1] = particleBase[q + 1];
+    particlePositions[q + 2] = particleBase[q + 2];
+  }
+
+  var particleGeometry = new THREE.BufferGeometry();
+  particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+  var particleMaterial = new THREE.PointsMaterial({
+    size: 0.045,
+    map: softTexture,
+    color: 0xC7D0DA,
+    transparent: true,
+    opacity: 0.48,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    sizeAttenuation: true
+  });
+  var particles = new THREE.Points(particleGeometry, particleMaterial);
+  particles.frustumCulled = false;
+  particles.renderOrder = 0;
   scene.add(particles);
 
-  // Secondary torus ring behind the knot
-  var ringGeo = new THREE.TorusGeometry(2.2, 0.06, 64, 128);
-  var ringMat = new THREE.MeshPhysicalMaterial({
-    color: 0x3A4047,
-    metalness: 0.9,
-    roughness: 0.2,
-    transparent: true,
-    opacity: 0.3
-  });
-  var ring = new THREE.Mesh(ringGeo, ringMat);
-  ring.position.set(0, 0, -0.5);
-  ring.rotation.x = Math.PI / 3;
-  scene.add(ring);
-
-  // --- Lights ---
-  var ambient = new THREE.AmbientLight(0x404060, 0.5);
+  // Cool, directional lighting keeps the chrome legible without flattening it.
+  var ambient = new THREE.AmbientLight(0x8B95A1, 0.42);
   scene.add(ambient);
 
-  var keyLight = new THREE.DirectionalLight(0xF4F7FA, 1.2);
-  keyLight.position.set(5, 5, 5);
+  var keyLight = new THREE.DirectionalLight(0xF4F7FA, 1.22);
+  keyLight.position.set(4, 5, 6);
   scene.add(keyLight);
 
-  var fillLight = new THREE.DirectionalLight(0x8B95A1, 0.6);
+  var fillLight = new THREE.DirectionalLight(0x8B95A1, 0.58);
   fillLight.position.set(-5, -2, 3);
   scene.add(fillLight);
 
-  var rimLight = new THREE.DirectionalLight(0xC7D0DA, 0.8);
-  rimLight.position.set(0, -5, 5);
+  var rimLight = new THREE.DirectionalLight(0xC7D0DA, 0.82);
+  rimLight.position.set(0, -4, -5);
   scene.add(rimLight);
 
-  // --- Resize ---
-  function onResize() {
-    var w = window.innerWidth;
-    var h = window.innerHeight;
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
-    renderer.setSize(w, h);
-  }
-  window.addEventListener('resize', onResize);
-
-  // --- Animate ---
   var clock = new THREE.Clock();
-  function animate() {
-    requestAnimationFrame(animate);
-    var t = clock.getElapsedTime();
+  var elapsed = 0;
+  var pointerX = 0;
+  var pointerY = 0;
+  var targetPointerX = 0;
+  var targetPointerY = 0;
+  var frameId = 0;
+  var running = true;
 
-    knot.rotation.x = t * 0.25;
-    knot.rotation.y = t * 0.35;
-    ring.rotation.z = t * 0.15;
-    ring.rotation.x = Math.PI / 3 + Math.sin(t * 0.2) * 0.1;
+  function updateScene(delta, time) {
+    elapsed += delta;
+    var t = elapsed;
+    var smoothing = Math.min(1, delta * 2.8);
+    pointerX = lerp(pointerX, targetPointerX, smoothing);
+    pointerY = lerp(pointerY, targetPointerY, smoothing);
 
-    for (var i = 0; i < orbits.length; i++) {
-      var o = orbits[i];
-      var a = o.userData.angle + t * o.userData.speed;
-      o.position.x = Math.cos(a) * o.userData.radius;
-      o.position.z = Math.sin(a) * o.userData.radius * 0.4;
-      o.position.y = Math.sin(a * 1.3) * 1.2 + Math.sin(t * 0.5 + i) * 0.3;
-      o.rotation.x = t * (0.5 + i * 0.1);
-      o.rotation.y = t * (0.7 + i * 0.15);
+    camera.position.x = pointerX * 0.28;
+    camera.position.y = -pointerY * 0.16;
+    camera.position.z = 12;
+    camera.lookAt(0, 0, 0);
+
+    heroGroup.rotation.x = t * 0.16 + pointerY * 0.035;
+    heroGroup.rotation.y = t * 0.23 + pointerX * 0.045;
+    heroGroup.position.y = Math.sin(t * 0.42) * 0.055;
+
+    for (var s = 0; s < satellites.length; s++) {
+      var carrier = satellites[s];
+      var data = carrier.userData;
+      var angle = data.phase + t * data.speed;
+      carrier.position.x = Math.cos(angle) * data.radiusX;
+      carrier.position.y = Math.sin(angle) * data.height + Math.sin(t * 0.7 + data.phase) * 0.1;
+      carrier.position.z = Math.sin(angle) * data.radiusZ;
+      data.mesh.rotation.x = t * data.spinX + data.phase;
+      data.mesh.rotation.y = t * data.spinY + data.phase * 0.5;
+      data.glowMaterial.opacity = 0.15 + 0.06 * (0.5 + 0.5 * Math.sin(t * 1.1 + data.phase * 2));
     }
 
-    particles.rotation.y = t * 0.015;
+    var positions = particleGeometry.attributes.position.array;
+    for (var k = 0; k < particleCount; k++) {
+      var index = k * 3;
+      var phase = particlePhase[k];
+      var drift = particleDrift[k];
+      positions[index] = particleBase[index] + Math.sin(t * drift + phase) * 0.12;
+      positions[index + 1] = particleBase[index + 1] + Math.cos(t * drift * 0.7 + phase) * 0.16;
+      positions[index + 2] = particleBase[index + 2] + Math.sin(t * drift * 0.5 + phase * 1.7) * 0.1;
+    }
+    particleGeometry.attributes.position.needsUpdate = true;
+    particles.rotation.y = t * 0.008;
 
-    renderer.render(scene, camera);
+    ringGroup.rotation.z = 0.12 + Math.sin(t * 0.08) * 0.025;
+    ringArcOne.rotation.x = Math.sin(t * 0.12) * 0.06;
+    ringArcTwo.rotation.y = Math.sin(t * 0.1 + 1.2) * 0.08;
   }
+
+  function resize() {
+    var width = maxOne(container.clientWidth || window.innerWidth);
+    var height = maxOne(container.clientHeight || window.innerHeight);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setSize(width, height, false);
+
+    if (reduceMotion) {
+      updateScene(0, elapsed);
+      renderer.render(scene, camera);
+    }
+  }
+
+  function onPointerMove(event) {
+    var x = event.clientX || 0;
+    var y = event.clientY || 0;
+    targetPointerX = Math.max(-1, Math.min(1, (x / window.innerWidth - 0.5) * 2));
+    targetPointerY = Math.max(-1, Math.min(1, (y / window.innerHeight - 0.5) * 2));
+  }
+
+  if ('onpointermove' in window) {
+    window.addEventListener('pointermove', onPointerMove, { passive: true });
+  } else {
+    window.addEventListener('mousemove', onPointerMove, { passive: true });
+  }
+  window.addEventListener('resize', resize, { passive: true });
+  window.addEventListener('orientationchange', resize, { passive: true });
+
+  function renderFrame(delta) {
+    updateScene(delta, elapsed);
+    try {
+      renderer.render(scene, camera);
+    } catch (error) {
+      running = false;
+    }
+  }
+
+  function animate() {
+    if (!running) {
+      return;
+    }
+    frameId = window.requestAnimationFrame(animate);
+    if (document.hidden) {
+      return;
+    }
+    renderFrame(Math.min(clock.getDelta(), 0.05));
+  }
+
+  if (reduceMotion) {
+    updateScene(0, 0);
+    try {
+      renderer.render(scene, camera);
+    } catch (error) {
+      running = false;
+    }
+    return;
+  }
+
+  window.addEventListener('pagehide', function() {
+    running = false;
+    window.cancelAnimationFrame(frameId);
+  });
+
   animate();
 })();
 </script>
