@@ -285,6 +285,20 @@ h1, h2, h3 {
   z-index: 99;
 }
 
+.nav-links.open a {
+  color: var(--text);
+  padding: var(--s3) 0;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--text-base);
+  font-weight: 400;
+}
+
+.nav-links.open a:last-of-type { border-bottom: none; }
+
+.nav-burger[aria-expanded="true"] span { background: var(--signal); }
+.nav-burger[aria-expanded="true"] span::before,
+.nav-burger[aria-expanded="true"] span::after { background: var(--signal); }
+
 /* ============================================
    BUTTON
    ============================================ */
@@ -957,13 +971,13 @@ h1, h2, h3 {
   :root {
     --text-base: 16px;
     --text-lg: 18px;
-    --headline-lg: 42px;
-    --headline-xl: 56px;
-    --headline-xxl: 64px;
-    --display: clamp(42px, 8vw, 60px);
+    --headline-lg: 40px;
+    --headline-xl: 48px;
+    --headline-xxl: 56px;
+    --display: clamp(42px, 9vw, 56px);
   }
 
-  .hero { padding: var(--s10) var(--s4); }
+  .hero { padding: var(--s12) var(--s4); }
 
   .hero-headline {
     font-size: var(--display);
@@ -972,7 +986,13 @@ h1, h2, h3 {
   .hero-mark { max-width: 140px; }
 
   .nav-links { display: none; }
-  .nav-burger { display: flex; }
+  .nav-burger {
+    display: flex;
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav-cta { height: 44px; }
 
   .offer-list { gap: var(--s1) var(--s3); }
   .offer-item { font-size: var(--text-xs); }
@@ -986,6 +1006,11 @@ h1, h2, h3 {
   .footer-brand { align-items: center; }
 
   .footer-links { justify-content: center; }
+
+  .footer-links a {
+    font-size: var(--text-xs);
+    padding: var(--s1) 0;
+  }
 
   .mobile-cta {
     display: flex;
