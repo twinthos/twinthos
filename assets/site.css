@@ -1103,3 +1103,196 @@ h1, h2, h3 {
    ============================================ */
 
 .section { padding: var(--s16) 0; }
+
+/* ============================================
+ ANIMATION — SCROLL REVEAL
+ Restrained: opacity + translate-y only.
+ No bouncy/spring/ease-out-back.
+ Elements start invisible, fade+slide in on scroll.
+ Stagger children via --d1..--d4 custom props.
+ ============================================ */
+
+.reveal {
+opacity: 0;
+transform: translateY(18px);
+transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+will-change: opacity, transform;
+}
+
+.reveal.in {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* Stagger delays for child elements inside revealed parents.
+ Usage: <div class="reveal" style="--d:0ms">...<span class="reveal" style="--d:80ms">... */
+.reveal { transition-delay: var(--d, 0ms); }
+
+/* Faster reveal for small elements (labels, badges, small text) */
+.reveal-fast {
+opacity: 0;
+transform: translateY(10px);
+transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out);
+will-change: opacity, transform;
+}
+.reveal-fast.in { opacity: 1; transform: translateY(0); }
+.reveal-fast { transition-delay: var(--d, 0ms); }
+
+/* ============================================
+ ANIMATION — CTA HOVER LIFT
+ Subtle translate-y + signal glow on primary CTAs.
+ ============================================ */
+
+.btn-primary {
+box-shadow: 0 0 0 0 rgba(32,247,130,0);
+transition: background var(--speed) var(--ease),
+            transform var(--speed-fast) var(--ease),
+            box-shadow var(--speed) var(--ease);
+}
+
+.btn-primary:hover {
+background: var(--signal-bright);
+transform: translateY(-1px);
+box-shadow: 0 4px 20px rgba(32,247,130,0.25);
+}
+
+.btn-primary:active {
+transform: scale(0.97) translateY(0);
+box-shadow: 0 0 0 0 rgba(32,247,130,0);
+}
+
+/* Ghost button: subtle border highlight on hover */
+.btn-ghost {
+transition: color var(--speed) var(--ease),
+            border-color var(--speed) var(--ease),
+            background var(--speed) var(--ease),
+            transform var(--speed-fast) var(--ease);
+}
+
+.btn-ghost:hover {
+color: var(--text);
+border-color: var(--border-strong);
+background: var(--surface);
+transform: translateY(-1px);
+}
+
+.btn-ghost:active {
+transform: scale(0.985) translateY(0);
+}
+
+/* ============================================
+ ANIMATION — NAV LINK HOVER UNDERLINE
+ Animated underline that grows from centre.
+ ============================================ */
+
+.nav-links a {
+position: relative;
+transition: color var(--speed) var(--ease);
+}
+
+.nav-links a::after {
+content: '';
+position: absolute;
+bottom: -2px;
+left: 50%;
+width: 0;
+height: 1px;
+background: var(--signal);
+transition: width var(--speed) var(--ease), left var(--speed) var(--ease);
+transform: translateX(-50%);
+}
+
+.nav-links a:hover {
+color: var(--text);
+}
+
+.nav-links a:hover::after {
+width: 100%;
+left: 0;
+}
+
+/* Mobile nav links (inside .nav-links.open) keep plain underline — no hover underline there */
+.nav-links.open a::after { display: none; }
+
+/* ============================================
+ ANIMATION — HERO ENTRANCE (page load)
+ Hero content fades+slides in on load.
+ Mark appears slightly later for sequence.
+ ============================================ */
+
+@keyframes heroEnter {
+from { opacity: 0; transform: translateY(24px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes markEnter {
+from { opacity: 0; transform: translateY(16px) scale(0.96); }
+to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.hero-content {
+animation: heroEnter 700ms var(--ease-out) both;
+}
+
+.hero-mark {
+animation: markEnter 800ms var(--ease-out) 150ms both;
+}
+
+/* ============================================
+ ANIMATION — PARALLAX-LITE ON MARKS
+ Hero mark and human-arch mark shift subtly on scroll.
+ Implemented in JS — CSS just sets the starting position.
+ ============================================ */
+
+.hero-mark { will-change: transform; }
+.human-mark { will-change: transform; }
+
+/* ============================================
+ ANIMATION — FLOW STEP REVEAL
+ Flow steps stagger on scroll reveal.
+ ============================================ */
+
+.flow-step { transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out); }
+.flow-step.reveal { transform: translateY(12px); }
+.flow-step.in { transform: translateY(0); }
+
+/* ============================================
+ ANIMATION — DIFF POINT REVEAL
+ Different-points children stagger in.
+ ============================================ */
+
+.diff-point { transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out); }
+.diff-point.reveal { transform: translateY(10px); }
+.diff-point.in { transform: translateY(0); }
+
+/* ============================================
+ ANIMATION — ACC ROW REVEAL (security page)
+ ============================================ */
+
+.acc-row { transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out); }
+.acc-row.reveal { transform: translateY(12px); }
+.acc-row.in { transform: translateY(0); }
+
+/* ============================================
+ ANIMATION — STEP LIST REVEAL (book + ops-audit)
+ ============================================ */
+
+.step { transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out); }
+.step.reveal { transform: translateY(12px); }
+.step.in { transform: translateY(0); }
+
+/* ============================================
+ ANIMATION — OFFER LIST REVEAL
+ ============================================ */
+
+.offer-item { transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out); }
+.offer-item.reveal { transform: translateY(8px); }
+.offer-item.in { transform: translateY(0); }
+
+/* ============================================
+ ANIMATION — CTA ROW REVEAL (buttons fade up)
+ ============================================ */
+
+.cta-row { transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out); }
+.cta-row.reveal { transform: translateY(14px); }
+.cta-row.in { transform: translateY(0); }

@@ -48,8 +48,11 @@
     updateNav();
   }
 
-  /* ---- REVEAL (scroll animation) ---- */
-  if ('IntersectionObserver' in window) {
+  /* ---- REDUCED MOTION: skip all animations ---- */
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- SCROLL REVEAL — IntersectionObserver ---- */
+  if (!reduceMotion && 'IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting) {
@@ -57,56 +60,68 @@
           io.unobserve(en.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
-    var reveals = document.querySelectorAll('.reveal');
+    }, { threshold: 0.06, rootMargin: '0px 0px -6% 0px' });
+
+    var reveals = document.querySelectorAll('.reveal, .reveal-fast, .flow-step, .diff-point, .acc-row, .step, .offer-item, .cta_row');
     reveals.forEach(function (r) { io.observe(r); });
   }
 
-  /* ---- SIGNAL GREEN PULSE on hero mark ---- */
-  var heroMark = document.querySelector('.hero-mark');
-  if (heroMark) {
-    var light = heroMark.querySelector('.hero-mark-lit');
-    if (light) {
+  /* ---- PARALLAX-LITE: HERO MARK ---- */
+  if (!reduceMotion) {
+    var heroMark = document.querySelector('.hero-mark');
+    if (heroMark) {
+      var hLight = heroMark.querySelector('.hero-mark-lit');
       var ticking = false;
-      function updateLight() {
+      function updateHeroParallax() {
         var y = window.scrollY || window.pageYOffset || 0;
-        var progress = Math.min(y / 600, 1);
-        var opacity = 0.04 + progress * 0.08;
-        light.style.opacity = opacity;
+        var progress = Math.min(y / 500, 1);
+        // Subtle upward drift: 0 → -10px
+        var dy = -progress * 10;
+        heroMark.style.transform = 'translateY(' + dy + 'px)';
+        // Light opacity: stays in sync
+        if (hLight) {
+          var opacity = 0.04 + progress * 0.08;
+          hLight.style.opacity = opacity;
+        }
         ticking = false;
       }
       window.addEventListener('scroll', function () {
         if (!ticking) {
           ticking = true;
-          requestAnimationFrame(updateLight);
+          requestAnimationFrame(updateHeroParallax);
         }
       }, { passive: true });
-      updateLight();
+      updateHeroParallax();
+    }
+
+    /* ---- PARALLAX-LITE: HUMAN ARCHITECT MARK ---- */
+    var humanMark = document.querySelector('.human-mark');
+    if (humanMark) {
+      var huLight = humanMark.querySelector('.human-light');
+      var ticking = false;
+      function updateHumanParallax() {
+        var y = window.scrollY || window.pageYOffset || 0;
+        var progress = Math.min(y / 700, 1);
+        var dy = -progress * 8;
+        humanMark.style.transform = 'translateY(' + dy + 'px)';
+        if (huLight) {
+          var opacity = 0.03 + progress * 0.06;
+          huLight.style.opacity = opacity;
+        }
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(updateHumanParallax);
+        }
+      }, { passive: true });
+      updateHumanParallax();
     }
   }
 
-  /* ---- HUMAN ARCHITECT MARK LIGHT ---- */
-  var humanMark = document.querySelector('.human-mark');
-  if (humanMark) {
-    var hLight = humanMark.querySelector('.human-light');
-    if (hLight) {
-      var ticking = false;
-      function updateHLight() {
-        var y = window.scrollY || window.pageYOffset || 0;
-        var progress = Math.min(y / 800, 1);
-        var opacity = 0.03 + progress * 0.06;
-        hLight.style.opacity = opacity;
-        ticking = false;
-      }
-      window.addEventListener('scroll', function () {
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(updateHLight);
-        }
-      }, { passive: true });
-      updateHLight();
-    }
-  }
+  /* ---- HERO ENTRANCE: re-trigger if needed (CSS handles it) ---- */
+  // No JS needed — @keyframes heroEnter/markEnter in CSS handle page-load entrance.
 
   /* ---- CONVERSION ANALYTICS ---- */
   function trackEvent(name, data) {
