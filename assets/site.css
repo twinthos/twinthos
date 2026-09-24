@@ -27,34 +27,38 @@
   --signal-dim: rgba(32,247,130,0.15);
   --signal-border: rgba(32,247,130,0.3);
 
+  /* Titanium — mark metallic */
+  --titanium: #8a8d91;
+  --dark-titanium: #4a4d51;
+
   /* Error */
   --error: #FF5C5C;
 
   /* Typography */
   --text-xs: 12px;
   --text-sm: 14px;
-  --text-base: 18px;
+  --text-base: 20px;
   --text-lg: 21px;
   --headline-sm: 32px;
   --headline-md: 48px;
   --headline-lg: 64px;
   --headline-xl: 80px;
-  --headline-xxl: 100px;
+  --headline-xxl: 88px;
   --display: clamp(64px, 9vw, 110px);
 
   /* Spacing */
-  --s1: 4px;
-  --s2: 8px;
-  --s3: 12px;
-  --s4: 16px;
-  --s5: 20px;
-  --s6: 24px;
-  --s8: 32px;
-  --s10: 40px;
-  --s12: 48px;
-  --s16: 64px;
-  --s20: 80px;
-  --s24: 96px;
+  --s1: 8px;
+  --s2: 16px;
+  --s3: 24px;
+  --s4: 32px;
+  --s5: 48px;
+  --s6: 56px;
+  --s8: 64px;
+  --s10: 80px;
+  --s12: 96px;
+  --s16: 120px;
+  --s20: 160px;
+  --s24: 220px;
 
   /* Radius */
   --r-sm: 2px;
@@ -62,7 +66,7 @@
   --r-lg: 6px;
 
   /* Layout */
-  --max-w: 1200px;
+  --max-w: 1320px;
   --nav-h: 64px;
 
   /* Motion */
@@ -85,7 +89,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-size: var(--text-base);
-  line-height: 1.5;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -306,25 +310,86 @@ h1, h2, h3 {
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   height: 48px;
   padding: 0 var(--s6);
-  background: var(--signal);
-  color: #000;
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  color: var(--text);
   font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: -0.01em;
   text-decoration: none;
-  border: none;
   cursor: pointer;
-  transition: background var(--speed) var(--ease), transform var(--speed-fast) var(--ease);
+  transition: border-color var(--speed) var(--ease),
+              color var(--speed) var(--ease),
+              transform var(--speed-fast) var(--ease);
   font-family: inherit;
+  position: relative;
 }
 
-.btn-primary:hover { background: var(--signal-bright); }
+.btn-primary::after {
+  content: '→';
+  margin-left: var(--s2);
+  font-size: calc(var(--text-sm) - 2px);
+  opacity: 0.6;
+  transition: opacity var(--speed) var(--ease), transform var(--speed-fast) var(--ease);
+}
+
+.btn-primary:hover {
+  border-color: var(--signal);
+  color: var(--signal);
+  transform: translateY(-1px);
+}
+
+.btn-primary:hover::after {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
 .btn-primary:active { transform: scale(0.97); }
 
 .btn-primary-lg { height: 54px; padding: 0 var(--s8); font-size: 15px; }
+
+/* Ghost variant: border + signal green text */
+.btn-ghost-primary {
+  display: inline-flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 var(--s6);
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  color: var(--signal);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color var(--speed) var(--ease),
+              color var(--speed) var(--ease),
+              transform var(--speed-fast) var(--ease);
+  font-family: inherit;
+  position: relative;
+}
+
+.btn-ghost-primary::after {
+  content: '→';
+  margin-left: var(--s2);
+  font-size: calc(var(--text-sm) - 2px);
+  opacity: 0.6;
+  transition: opacity var(--speed) var(--ease), transform var(--speed-fast) var(--ease);
+}
+
+.btn-ghost-primary:hover {
+  border-color: var(--signal);
+  color: var(--signal-bright);
+}
+
+.btn-ghost-primary:hover::after {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+.btn-ghost-primary:active { transform: scale(0.97); }
 
 /* ============================================
    HERO
@@ -343,10 +408,7 @@ h1, h2, h3 {
   max-width: var(--max-w);
   margin: 0 auto;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--s16);
-  align-items: center;
+  text-align: left;
 }
 
 .hero-content {
@@ -364,8 +426,8 @@ h1, h2, h3 {
 
 .hero-headline {
   font-size: var(--display);
-  font-weight: 400;
-  letter-spacing: -0.035em;
+  font-weight: 300;
+  letter-spacing: -0.045em;
   line-height: 1.02;
   margin-bottom: var(--s6);
   text-wrap: balance;
@@ -405,68 +467,11 @@ h1, h2, h3 {
 .brand-mark-lg {
   width: 60%;
   height: auto;
-  filter: drop-shadow(0 0 60px rgba(167,171,176,0.08));
 }
 
-.hero-mark-lit {
-  position: absolute;
-  inset: -40%;
-  background: radial-gradient(ellipse at center, rgba(32,247,130,0.06) 0%, transparent 60%);
-  pointer-events: none;
-}
 
 /* ============================================
-   PROBLEM SECTION
-   ============================================ */
-
-.problem {
-  padding: var(--s20) var(--s5);
-  border-top: 1px solid var(--border);
-}
-
-.problem-inner {
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.problem-label {
-  font-size: var(--text-xs);
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--signal);
-  margin-bottom: var(--s4);
-}
-
-.problem-headline {
-  font-size: var(--headline-lg);
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: var(--s8);
-  text-wrap: balance;
-}
-
-.problem-list {
-  font-size: var(--text-lg);
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: var(--s8);
-  letter-spacing: -0.01em;
-}
-
-.problem-list br { line-height: 0; }
-
-.problem-statement {
-  font-size: var(--headline-md);
-  color: var(--text);
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  text-wrap: balance;
-}
-
-/* ============================================
-   SECTION BASE
+   SHARED — SECTION LABEL + HUMAN BOUND
    ============================================ */
 
 .section-label {
@@ -478,90 +483,13 @@ h1, h2, h3 {
   margin-bottom: var(--s4);
 }
 
-.section-headline {
-  font-size: var(--headline-lg);
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.08;
-  margin-bottom: var(--s5);
-  text-wrap: balance;
-}
-
-.section-body {
-  font-size: var(--text-lg);
-  color: var(--text-secondary);
-  line-height: 1.55;
-  max-width: 520px;
-  margin-bottom: var(--s10);
-}
-
-/* ============================================
-   HOW IT WORKS — FLOW
-   ============================================ */
-
-.how {
-  padding: var(--s16) var(--s5);
-  border-top: 1px solid var(--border);
-}
-
-.how-inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-}
-
-.flow {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  flex-wrap: wrap;
-  margin-bottom: var(--s10);
-}
-
-.flow-step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--s2);
-  padding: var(--s4) var(--s5);
-}
-
-.flow-num {
-  font-size: var(--text-xs);
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--text-tertiary);
-  font-variant-numeric: tabular-nums;
-}
-
-.flow-text {
-  font-size: var(--text-sm);
-  color: var(--text);
-  letter-spacing: -0.01em;
-  text-align: center;
-  font-weight: 400;
-}
-
-.flow-arrow {
-  flex: 0 0 24px;
-  height: 1px;
-  background: var(--border-strong);
-  margin-bottom: var(--s3);
-}
-
-.flow-step:last-child .flow-arrow { display: none; }
-
-/* Completed green marker */
-.flow-step.complete .flow-num { color: var(--signal); }
-.flow-step.complete .flow-text { color: var(--signal); }
-
 .human-bound {
   display: flex;
   align-items: center;
   gap: var(--s4);
-  padding: var(--s4) var(--s5);
-  border: 1px solid var(--border);
+  padding: var(--s3) var(--s4);
   border-left: 2px solid var(--signal);
-  background: var(--surface);
+  background: transparent;
 }
 
 .human-label {
@@ -591,40 +519,27 @@ h1, h2, h3 {
 .different-inner {
   max-width: 720px;
   margin: 0 auto;
+  text-align: left;
 }
 
 .different-headline {
   font-size: var(--headline-lg);
-  font-weight: 400;
-  letter-spacing: -0.03em;
+  font-weight: 300;
+  letter-spacing: -0.045em;
   line-height: 1.1;
   margin-bottom: var(--s6);
   text-wrap: balance;
 }
 
-.different-pause {
-  height: 1px;
-  background: var(--border);
-  margin-bottom: var(--s6);
-  width: 60px;
-}
-
 .different-twins {
   font-size: var(--headline-xl);
-  font-weight: 400;
-  letter-spacing: -0.035em;
+  font-weight: 300;
+  letter-spacing: -0.045em;
   line-height: 1.05;
   margin-bottom: var(--s6);
   text-wrap: balance;
 }
 
-.different-body {
-  font-size: var(--text-lg);
-  color: var(--text-secondary);
-  line-height: 1.55;
-  margin-bottom: var(--s10);
-  max-width: 500px;
-}
 
 .different-points {
   display: flex;
@@ -679,6 +594,7 @@ h1, h2, h3 {
 
 .human-content {
   max-width: 480px;
+  text-align: left;
 }
 
 .human-label-lg {
@@ -692,8 +608,8 @@ h1, h2, h3 {
 
 .human-headline {
   font-size: var(--headline-xl);
-  font-weight: 400;
-  letter-spacing: -0.035em;
+  font-weight: 300;
+  letter-spacing: -0.045em;
   line-height: 1.05;
   margin-bottom: var(--s6);
   text-wrap: balance;
@@ -716,12 +632,6 @@ h1, h2, h3 {
   margin-left: auto;
 }
 
-.human-light {
-  position: absolute;
-  inset: -50%;
-  background: radial-gradient(ellipse at center, rgba(32,247,130,0.04) 0%, transparent 60%);
-  pointer-events: none;
-}
 
 /* ============================================
    OFFER / PRICING
@@ -730,7 +640,7 @@ h1, h2, h3 {
 .offer {
   padding: var(--s16) var(--s5);
   border-top: 1px solid var(--border);
-  text-align: center;
+  text-align: left;
 }
 
 .offer-inner {
@@ -750,15 +660,15 @@ h1, h2, h3 {
 .offer-price-row {
   display: flex;
   align-items: baseline;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--s2);
   margin-bottom: var(--s5);
 }
 
 .offer-price {
   font-size: var(--headline-xxl);
-  font-weight: 400;
-  letter-spacing: -0.035em;
+  font-weight: 300;
+  letter-spacing: -0.045em;
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
@@ -779,7 +689,7 @@ h1, h2, h3 {
 .offer-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--s2) var(--s4);
   margin-bottom: var(--s8);
 }
@@ -801,7 +711,7 @@ h1, h2, h3 {
 .offer-cta-row {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--s3);
 }
 
@@ -810,6 +720,149 @@ h1, h2, h3 {
   color: var(--text-tertiary);
   letter-spacing: -0.01em;
 }
+
+/* ============================================
+   STORY SECTION
+   ============================================ */
+
+.story {
+  padding: var(--s20) var(--s5);
+  border-top: 1px solid var(--border);
+}
+
+.story-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.story-label {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: var(--s4);
+}
+
+.story-headline {
+  font-size: var(--headline-lg);
+  font-weight: 300;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+  margin-bottom: var(--s6);
+  text-wrap: balance;
+}
+
+
+/* ============================================
+   ENEMY SECTION
+   ============================================ */
+
+.enemy {
+  padding: var(--s20) var(--s5);
+  border-top: 1px solid var(--border);
+}
+
+.enemy-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.enemy-label {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: var(--s4);
+}
+
+.enemy-headline {
+  font-size: var(--headline-lg);
+  font-weight: 300;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+  margin-bottom: var(--s6);
+  text-wrap: balance;
+}
+
+
+/* ============================================
+   PROOF SECTION
+   ============================================ */
+
+.proof {
+  padding: var(--s20) var(--s5);
+  border-top: 1px solid var(--border);
+}
+
+.proof-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.proof-label {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: var(--s4);
+}
+
+.proof-headline {
+  font-size: var(--headline-lg);
+  font-weight: 300;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+  margin-bottom: var(--s6);
+  text-wrap: balance;
+}
+
+.proof-intro {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--s10);
+  max-width: 500px;
+}
+
+/* ============================================
+   FINAL CTA SECTION
+   ============================================ */
+
+.final-cta {
+  padding: var(--s20) var(--s5);
+  border-top: 1px solid var(--border);
+}
+
+.final-cta-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+
+.final-headline {
+  font-size: var(--headline-xl);
+  font-weight: 300;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  margin-bottom: var(--s8);
+  text-wrap: balance;
+}
+
+.final-cta-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s4);
+  flex-wrap: wrap;
+  margin-top: var(--s10);
+}
+
 
 /* ============================================
    FOOTER
@@ -913,8 +966,6 @@ h1, h2, h3 {
 
 @media (max-width: 860px) {
   .hero-inner {
-    grid-template-columns: 1fr;
-    gap: var(--s10);
     text-align: center;
   }
 
@@ -947,6 +998,7 @@ h1, h2, h3 {
 
   .human-content {
     max-width: 100%;
+    text-align: center;
   }
 
   .human-mark {
@@ -1022,15 +1074,10 @@ h1, h2, h3 {
   .flow-step { padding: var(--s3) var(--s4); }
   .flow-text { font-size: var(--text-xs); }
 
-  .problem { padding: var(--s10) var(--s4); }
-  .how { padding: var(--s10) var(--s4); }
-  .different { padding: var(--s12) var(--s4); }
-  .human-arch { padding: var(--s12) var(--s4); }
-  .offer { padding: var(--s10) var(--s4); }
-  .section { padding: var(--s8) 0; }
-
-  .problem-headline { font-size: var(--headline-md); }
-  .section-headline { font-size: var(--headline-md); }
+  .story-headline { font-size: var(--headline-md); }
+  .enemy-headline { font-size: var(--headline-md); }
+  .proof-headline { font-size: var(--headline-md); }
+  .final-headline { font-size: var(--headline-md); }
   .human-headline { font-size: var(--headline-lg); }
   .different-twins { font-size: var(--headline-lg); }
 }
@@ -1105,23 +1152,23 @@ h1, h2, h3 {
 .section { padding: var(--s16) 0; }
 
 /* ============================================
- ANIMATION — SCROLL REVEAL
- Restrained: opacity + translate-y only.
- No bouncy/spring/ease-out-back.
- Elements start invisible, fade+slide in on scroll.
- Stagger children via --d1..--d4 custom props.
- ============================================ */
+   ANIMATION — SCROLL REVEAL
+   Restrained: opacity + translate-y only.
+   No bouncy/spring/ease-out-back.
+   Elements start invisible, fade+slide in on scroll.
+   Stagger children via --d1..--d4 custom props.
+   ============================================ */
 
 .reveal {
-opacity: 0;
-transform: translateY(18px);
-transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
-will-change: opacity, transform;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+  will-change: opacity, transform;
 }
 
 .reveal.in {
-opacity: 1;
-transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Stagger delays for child elements inside revealed parents.
@@ -1130,169 +1177,326 @@ transform: translateY(0);
 
 /* Faster reveal for small elements (labels, badges, small text) */
 .reveal-fast {
-opacity: 0;
-transform: translateY(10px);
-transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out);
-will-change: opacity, transform;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out);
+  will-change: opacity, transform;
 }
 .reveal-fast.in { opacity: 1; transform: translateY(0); }
 .reveal-fast { transition-delay: var(--d, 0ms); }
 
 /* ============================================
- ANIMATION — CTA HOVER LIFT
- Subtle translate-y + signal glow on primary CTAs.
- ============================================ */
+   ANIMATION — CTA HOVER LIFT
+   Subtle translate-y + signal glow on primary CTAs.
+   ============================================ */
 
 .btn-primary {
-box-shadow: 0 0 0 0 rgba(32,247,130,0);
-transition: background var(--speed) var(--ease),
-            transform var(--speed-fast) var(--ease),
-            box-shadow var(--speed) var(--ease);
+  box-shadow: 0 0 0 0 rgba(32,247,130,0);
+  transition: border-color var(--speed) var(--ease),
+              color var(--speed) var(--ease),
+              transform var(--speed-fast) var(--ease);
 }
 
 .btn-primary:hover {
-background: var(--signal-bright);
-transform: translateY(-1px);
-box-shadow: 0 4px 20px rgba(32,247,130,0.25);
+  border-color: var(--signal);
+  color: var(--signal);
+  transform: translateY(-1px);
 }
 
 .btn-primary:active {
-transform: scale(0.97) translateY(0);
-box-shadow: 0 0 0 0 rgba(32,247,130,0);
+  transform: scale(0.97) translateY(0);
+  box-shadow: 0 0 0 0 rgba(32,247,130,0);
 }
 
 /* Ghost button: subtle border highlight on hover */
 .btn-ghost {
-transition: color var(--speed) var(--ease),
-            border-color var(--speed) var(--ease),
-            background var(--speed) var(--ease),
-            transform var(--speed-fast) var(--ease);
+  transition: color var(--speed) var(--ease),
+              border-color var(--speed) var(--ease),
+              background var(--speed) var(--ease),
+              transform var(--speed-fast) var(--ease);
 }
 
 .btn-ghost:hover {
-color: var(--text);
-border-color: var(--border-strong);
-background: var(--surface);
-transform: translateY(-1px);
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: var(--surface);
+  transform: translateY(-1px);
 }
 
 .btn-ghost:active {
-transform: scale(0.985) translateY(0);
+  transform: scale(0.985) translateY(0);
 }
 
 /* ============================================
- ANIMATION — NAV LINK HOVER UNDERLINE
- Animated underline that grows from centre.
- ============================================ */
+   ANIMATION — NAV LINK HOVER UNDERLINE
+   Animated underline that grows from centre.
+   ============================================ */
 
 .nav-links a {
-position: relative;
-transition: color var(--speed) var(--ease);
+  position: relative;
+  transition: color var(--speed) var(--ease);
 }
 
 .nav-links a::after {
-content: '';
-position: absolute;
-bottom: -2px;
-left: 50%;
-width: 0;
-height: 1px;
-background: var(--signal);
-transition: width var(--speed) var(--ease), left var(--speed) var(--ease);
-transform: translateX(-50%);
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--signal);
+  transition: width var(--speed) var(--ease), left var(--speed) var(--ease);
+  transform: translateX(-50%);
 }
 
 .nav-links a:hover {
-color: var(--text);
+  color: var(--text);
 }
 
 .nav-links a:hover::after {
-width: 100%;
-left: 0;
+  width: 100%;
+  left: 0;
 }
 
 /* Mobile nav links (inside .nav-links.open) keep plain underline — no hover underline there */
 .nav-links.open a::after { display: none; }
 
 /* ============================================
- ANIMATION — HERO ENTRANCE (page load)
- Hero content fades+slides in on load.
- Mark appears slightly later for sequence.
- ============================================ */
+   ANIMATION — HERO ENTRANCE (page load)
+   Hero content fades+slides in on load.
+   Mark appears slightly later for sequence.
+   ============================================ */
 
 @keyframes heroEnter {
-from { opacity: 0; transform: translateY(24px); }
-to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes markEnter {
-from { opacity: 0; transform: translateY(16px) scale(0.96); }
-to   { opacity: 1; transform: translateY(0) scale(1); }
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .hero-content {
-animation: heroEnter 700ms var(--ease-out) both;
+  animation: heroEnter 700ms var(--ease-out) both;
 }
 
 .hero-mark {
-animation: markEnter 800ms var(--ease-out) 150ms both;
+  animation: markEnter 800ms var(--ease-out) 150ms both;
 }
 
 /* ============================================
- ANIMATION — PARALLAX-LITE ON MARKS
- Hero mark and human-arch mark shift subtly on scroll.
- Implemented in JS — CSS just sets the starting position.
- ============================================ */
+   ANIMATION — PARALLAX-LITE ON MARKS
+   Hero mark and human-arch mark shift subtly on scroll.
+   Implemented in JS — CSS just sets the starting position.
+   ============================================ */
 
 .hero-mark { will-change: transform; }
 .human-mark { will-change: transform; }
 
 /* ============================================
- ANIMATION — FLOW STEP REVEAL
- Flow steps stagger on scroll reveal.
- ============================================ */
+   ANIMATION — FLOW STEP REVEAL
+   Flow steps stagger on scroll reveal.
+   ============================================ */
 
 .flow-step { transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out); }
 .flow-step.reveal { transform: translateY(12px); }
 .flow-step.in { transform: translateY(0); }
 
 /* ============================================
- ANIMATION — DIFF POINT REVEAL
- Different-points children stagger in.
- ============================================ */
+   ANIMATION — DIFF POINT REVEAL
+   Different-points children stagger in.
+   ============================================ */
 
 .diff-point { transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out); }
 .diff-point.reveal { transform: translateY(10px); }
 .diff-point.in { transform: translateY(0); }
 
 /* ============================================
- ANIMATION — ACC ROW REVEAL (security page)
- ============================================ */
+   ANIMATION — ACC ROW REVEAL (security page)
+   ============================================ */
 
 .acc-row { transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out); }
 .acc-row.reveal { transform: translateY(12px); }
 .acc-row.in { transform: translateY(0); }
 
 /* ============================================
- ANIMATION — STEP LIST REVEAL (book + ops-audit)
- ============================================ */
+   ANIMATION — STEP LIST REVEAL (book + ops-audit)
+   ============================================ */
 
 .step { transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out); }
 .step.reveal { transform: translateY(12px); }
 .step.in { transform: translateY(0); }
 
 /* ============================================
- ANIMATION — OFFER LIST REVEAL
- ============================================ */
+   ANIMATION — OFFER LIST REVEAL
+   ============================================ */
 
 .offer-item { transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out); }
 .offer-item.reveal { transform: translateY(8px); }
 .offer-item.in { transform: translateY(0); }
 
 /* ============================================
- ANIMATION — CTA ROW REVEAL (buttons fade up)
- ============================================ */
+   ANIMATION — CTA ROW REVEAL (buttons fade up)
+   ============================================ */
 
-.cta-row { transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out); }
-.cta-row.reveal { transform: translateY(14px); }
-.cta-row.in { transform: translateY(0); }
+.cta-row,
+.final-cta-row,
+.offer-cta-row { transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out); }
+.cta-row.reveal,
+.final-cta-row.reveal,
+.offer-cta-row.reveal { transform: translateY(14px); }
+.cta-row.in,
+.final-cta-row.in,
+.offer-cta-row.in { transform: translateY(0); }
+
+/* ============================================
+   STREAM — PRODUCT PROOF FLOW WRAPPER
+   ============================================ */
+
+.stream {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  flex-wrap: nowrap;
+  margin-top: var(--s12);
+}
+
+.stream-arrow {
+  flex: 0 0 24px;
+  font-size: var(--text-xs);
+  color: var(--border-strong);
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.stream-step:last-child ~ .stream-arrow { display: none; }
+
+.stream-step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s2);
+  padding: var(--s2) 0;
+}
+
+.stream-num {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--dark-titanium);
+  font-variant-numeric: tabular-nums;
+  text-transform: uppercase;
+}
+
+.stream-label {
+  font-size: var(--text-sm);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+
+.stream-step:last-child .stream-arrow { display: none; }
+
+/* ============================================
+   ENEMY LIST — OPERATIONAL DRAG
+   Vertical list of the things that drag operations down.
+   Titanium-styled, no cards, flat list.
+   ============================================ */
+
+.enemy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: var(--s8);
+  border-top: 1px solid var(--border);
+  padding-top: var(--s6);
+}
+
+.enemy-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s4);
+  padding: var(--s3) 0;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.enemy-item:last-child { border-bottom: none; }
+
+
+
+/* ============================================
+   COMPLETE STATE — PRODUCT PROOF
+   Green highlight for the final completed step.
+   ============================================ */
+
+.stream-step.complete .stream-num {
+  color: var(--signal);
+}
+
+.stream-step.complete .stream-label {
+  color: var(--signal);
+}
+
+/* ============================================
+   DIFFERENT PAUSE — VISUAL BREAK
+   Hairline separator between the two statements
+   in the different section.
+   ============================================ */
+
+.different-pause {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin: var(--s10) 0;
+}
+
+/* ============================================
+   ENEMY SOLUTION — BRAND MOMENT
+   The green signal moment in the enemy section.
+   ============================================ */
+
+.enemy-solution {
+  font-size: var(--headline-lg);
+  font-weight: 300;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+  color: var(--signal);
+  text-wrap: balance;
+  margin-top: var(--s12);
+}
+
+/* ============================================
+   STORY STATEMENT — EDITORIAL PACING
+   Large editorial statements in the story section.
+   ============================================ */
+
+.story-statement {
+  font-size: var(--headline-md);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  color: var(--text);
+  text-wrap: balance;
+}
+
+.story-statement:not(:first-child) {
+  margin-top: var(--s12);
+}
+
+.story-statement:last-child {
+  margin-top: var(--s12);
+}
+
+
+/* ============================================
+
