@@ -27,15 +27,15 @@
     });
   }
 
-  // Nav background on scroll — darken and add border
+  // Nav background on scroll
   if (navEl) {
     var ticking = false;
     function updateNav() {
       var y = window.scrollY || window.pageYOffset || 0;
       if (y > 20) {
-        navEl.classList.add('scrolled');
+        navEl.style.background = 'rgba(0,0,0,0.96)';
       } else {
-        navEl.classList.remove('scrolled');
+        navEl.style.background = 'rgba(0,0,0,0.92)';
       }
       ticking = false;
     }
@@ -45,7 +45,6 @@
         requestAnimationFrame(updateNav);
       }
     }, { passive: true });
-    window.addEventListener('resize', updateNav);
     updateNav();
   }
 
@@ -61,224 +60,53 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
     var reveals = document.querySelectorAll('.reveal');
     reveals.forEach(function (r) { io.observe(r); });
-  } else {
-    var revFallback = document.querySelectorAll('.reveal');
-    revFallback.forEach(function (r) { r.classList.add('in'); });
   }
 
-  /* ---- OPERATIONS STREAM (hero animation) ---- */
-  var opsItems = document.querySelectorAll('.ops-item');
-  var streamStarted = false;
-
-  function startOpsStream() {
-    if (streamStarted) return;
-    streamStarted = true;
-    opsItems.forEach(function (item, i) {
-      setTimeout(function () {
-        item.classList.add('show');
-      }, i * 650 + 200);
-    });
-  }
-
-  // Start when hero is visible
-  if ('IntersectionObserver' in window && opsItems.length) {
-    var heroObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          startOpsStream();
-          heroObs.unobserve(en.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    var hero = document.querySelector('.hero');
-    if (hero) heroObs.observe(hero);
-  } else if (opsItems.length) {
-    // Fallback: start after a short delay
-    setTimeout(startOpsStream, 800);
-  }
-
-  /* ---- ECONOMIC VALUE STRIP (animation) ---- */
-  var econCards = document.querySelectorAll('.econ-card');
-  var econStarted = false;
-
-  function activateEconCards() {
-    if (econStarted) return;
-    econStarted = true;
-    econCards.forEach(function (card, i) {
-      setTimeout(function () {
-        card.classList.add('active');
-        var val = card.querySelector('.econ-card-value');
-        if (val) {
-          var text = val.textContent;
-          val.textContent = 'Handled';
-          val.classList.add('processed');
-        }
-      }, i * 500 + 1200);
-    });
-  }
-
-  if ('IntersectionObserver' in window && econCards.length) {
-    var econObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          activateEconCards();
-          econObs.unobserve(en.target);
-        }
-      });
-    }, { threshold: 0.4 });
-    var econStrip = document.querySelector('.econ-strip');
-    if (econStrip) econObs.observe(econStrip);
-  }
-
-  /* ---- WORKFLOW DEMO ---- */
-  var demoRunBtn = document.getElementById('demoRunBtn');
-  var demoResetBtn = document.getElementById('demoResetBtn');
-  var demoSteps = document.querySelectorAll('.demo-step');
-  var demoBody = document.getElementById('demoBody');
-  var demoStarted = false;
-  var demoTimer = null;
-
-  function resetDemo() {
-    if (demoTimer) { clearTimeout(demoTimer); demoTimer = null; }
-    demoStarted = false;
-    demoSteps.forEach(function (step) {
-      step.classList.remove('show', 'completed', 'approval');
-    });
-  }
-
-  function runDemoStep(stepIndex) {
-    if (stepIndex >= demoSteps.length) return;
-    var step = demoSteps[stepIndex];
-    step.classList.add('show');
-    if (stepIndex === demoSteps.length - 1) {
-      step.classList.add('approval');
-    } else if (stepIndex < demoSteps.length - 1) {
-      step.classList.add('completed');
-    }
-  }
-
-  function runDemo() {
-    if (demoTimer) { clearTimeout(demoTimer); }
-    if (demoStarted) { resetDemo(); }
-    demoStarted = true;
-    demoTimer = setTimeout(function stagger() {
-      runDemoStep(0);
-      demoTimer = setTimeout(function () {
-        runDemoStep(1);
-        demoTimer = setTimeout(function () {
-          runDemoStep(2);
-          demoTimer = setTimeout(function () {
-            runDemoStep(3);
-            demoTimer = setTimeout(function () {
-              runDemoStep(4);
-            }, 1400);
-          }, 1200);
-        }, 1000);
-      }, 900);
-    }, 400);
-  }
-
-  if (demoRunBtn) {
-    demoRunBtn.addEventListener('click', runDemo);
-  }
-  if (demoResetBtn) {
-    demoResetBtn.addEventListener('click', resetDemo);
-  }
-
-  // Start demo automatically when visible
-  if ('IntersectionObserver' in window && demoBody) {
-    var demoObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting && !demoStarted) {
-          setTimeout(runDemo, 600);
-          demoObs.unobserve(en.target);
-        }
-      });
-    }, { threshold: 0.4 });
-    demoObs.observe(demoBody);
-  }
-
-  /* ---- WORKS CARDS (click to highlight) ---- */
-  var worksCards = document.querySelectorAll('.works-card');
-  worksCards.forEach(function (card) {
-    card.addEventListener('click', function () {
-      worksCards.forEach(function (c) { c.classList.remove('active'); });
-      card.classList.add('active');
-    });
-  });
-
-  /* ---- APPROVAL CARD BUTTONS ---- */
-  var approvalBtns = document.querySelectorAll('.approval-actions .btn');
-  approvalBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var actions = document.querySelectorAll('.approval-actions .btn');
-      actions.forEach(function (b) {
-        b.disabled = true;
-        b.style.opacity = '0.5';
-      });
-      btn.textContent = btn.textContent.indexOf('Approve') === 0 ? 'Approved' :
-                       btn.textContent.indexOf('Decline') === 0 ? 'Declined' : 'Context shown';
-      // Reset after 2s
-      setTimeout(function () {
-        actions.forEach(function (b) {
-          b.disabled = false;
-          b.style.opacity = '1';
-          if (b.textContent === 'Approved') b.textContent = 'Approve';
-          if (b.textContent === 'Declined') b.textContent = 'Decline';
-          if (b.textContent === 'Context shown') b.textContent = 'Review context';
-        });
-      }, 2000);
-    });
-  });
-
-  /* ---- CALCULATOR ---- */
-  
-
-  
-
-    var span = document.getElementById(valueId);
-    if (span) span.textContent = input.value;
-  }
-
-  function fmtMoney(n) {
-    if (!isFinite(n) || n === 0) return '£0';
-    return '£' + Math.round(n).toLocaleString('en-GB');
-  }
-
-  
+  /* ---- SIGNAL GREEN PULSE on hero mark ---- */
+  var heroMark = document.querySelector('.hero-mark');
+  if (heroMark) {
+    var light = heroMark.querySelector('.hero-mark-lit');
+    if (light) {
+      var ticking = false;
+      function updateLight() {
+        var y = window.scrollY || window.pageYOffset || 0;
+        var progress = Math.min(y / 600, 1);
+        var opacity = 0.04 + progress * 0.08;
+        light.style.opacity = opacity;
+        ticking = false;
       }
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(updateLight);
+        }
+      }, { passive: true });
+      updateLight();
     }
   }
 
-  // Bind all inputs
-    if (el) {
-      el.addEventListener('input', function () {
-        var valId = id + '-val';
-        var span = document.getElementById(valId);
-        if (span) span.textContent = el.value;
-      });
-    }
-  });
-
-  // Example button
-  var EXAMPLE_VALUES = {
-  };
-
-  function loadExample() {
-    Object.keys(EXAMPLE_VALUES).forEach(function (id) {
-      if (el) {
-        el.value = EXAMPLE_VALUES[id];
-        var span = document.getElementById(id + '-val');
-        if (span) span.textContent = EXAMPLE_VALUES[id];
+  /* ---- HUMAN ARCHITECT MARK LIGHT ---- */
+  var humanMark = document.querySelector('.human-mark');
+  if (humanMark) {
+    var hLight = humanMark.querySelector('.human-light');
+    if (hLight) {
+      var ticking = false;
+      function updateHLight() {
+        var y = window.scrollY || window.pageYOffset || 0;
+        var progress = Math.min(y / 800, 1);
+        var opacity = 0.03 + progress * 0.06;
+        hLight.style.opacity = opacity;
+        ticking = false;
       }
-    });
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(updateHLight);
+        }
+      }, { passive: true });
+      updateHLight();
+    }
   }
-
-  if (exampleBtn) exampleBtn.addEventListener('click', loadExample);
-  if (loadExampleLink) loadExampleLink.addEventListener('click', function (e) {
-    e.preventDefault();
-    loadExample();
-  });
 
   /* ---- CONVERSION ANALYTICS ---- */
   function trackEvent(name, data) {
@@ -295,125 +123,44 @@
     }
     var blob = new Blob([payload], { type: 'application/json' });
     navigator.sendBeacon('/api/track', blob);
-    // Also record in dataLayer for GTM if present
     if (window.dataLayer) {
       window.dataLayer.push({ event: name, twinthos: data || {} });
     }
   }
 
   // Hero CTA clicks
-  var heroPrimary = document.querySelector('.hero-ctas .btn-primary');
+  var heroPrimary = document.querySelector('.hero-cta-row .btn-primary');
   if (heroPrimary) {
-    heroPrimary.addEventListener('click', function () { trackEvent('hero_cta_click', { cta: 'see_what_you_could_save' }); });
-  }
-  var heroSecondary = document.querySelector('.hero-ctas .btn-secondary');
-  if (heroSecondary) {
-    heroSecondary.addEventListener('click', function () { trackEvent('hero_cta_click', { cta: 'watch_twins_work' }); });
+    heroPrimary.addEventListener('click', function () { trackEvent('hero_cta_click', { cta: 'assess_operation' }); });
   }
 
-  // Demo tracking
-  var demoRunBtn = document.getElementById('demoRunBtn');
-  if (demoRunBtn) {
-    demoRunBtn.addEventListener('click', function () {
-      trackEvent('demo_started');
-      setTimeout(function () { trackEvent('demo_completed'); }, 5200);
-    });
+  // Nav CTA click
+  var navCTA = document.querySelector('.nav-cta');
+  if (navCTA) {
+    navCTA.addEventListener('click', function () { trackEvent('nav_cta_click', { cta: 'assess_operation' }); });
   }
 
-  // Calculator tracking
-      entries.forEach(function (en) {
-        }
-      });
-    }, { threshold: 0.3 });
+  // Mobile CTA click
+  var mobileCTA = document.querySelector('.mobile-cta .btn-primary');
+  if (mobileCTA) {
+    mobileCTA.addEventListener('click', function () { trackEvent('mobile_cta_click', { cta: 'assess_operation' }); });
   }
-    inp.addEventListener('input', function () {
-        var allFilled = true;
-        if (allFilled) {
-        }
+
+  // Offer CTA click
+  var offerCTA = document.querySelector('.offer-cta-row .btn-primary');
+  if (offerCTA) {
+    offerCTA.addEventListener('click', function () { trackEvent('offer_cta_click', { cta: 'assess_operation' }); });
+  }
+
+  /* ---- NAV LINKS (hash tracking) ---- */
+  var navLinks = document.querySelectorAll('.nav-links a');
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      var href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        trackEvent('nav_section_click', { section: href.slice(1) });
       }
     });
   });
-  }
 
-  // Pricing viewed
-  var pricingSection = document.getElementById('pricing');
-  if (pricingSection) {
-    var pricingObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          trackEvent('pricing_viewed');
-          pricingObserver.unobserve(en.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    pricingObserver.observe(pricingSection);
-  }
-
-  // Pilot CTA clicked
-  var pilotCTA = document.querySelector('.pilot-section .btn-primary');
-  if (pilotCTA) {
-    pilotCTA.addEventListener('click', function () { trackEvent('pilot_cta_click'); });
-  }
-
-  // Security viewed
-  var securitySection = document.getElementById('security');
-  if (securitySection) {
-    var secObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          trackEvent('security_viewed');
-          secObserver.unobserve(en.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    secObserver.observe(securitySection);
-  }
-
-  // Operations audit CTA clicked
-  var auditCTA = document.querySelector('#audit-page .btn-primary');
-  if (auditCTA) {
-    auditCTA.addEventListener('click', function () { trackEvent('operations_audit_cta_click'); });
-  }
-
-  // Booking form tracking
-  var bookingForm = document.getElementById('bookingForm');
-  if (bookingForm) {
-    bookingForm.addEventListener('focusin', function () {
-      if (bookingForm.dataset.tracked !== '1') {
-        bookingForm.dataset.tracked = '1';
-        trackEvent('booking_form_started');
-      }
-    });
-    bookingForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      trackEvent('booking_form_submitted', {
-        name: document.getElementById('name') ? document.getElementById('name').value : '',
-        company: document.getElementById('company') ? document.getElementById('company').value : ''
-      });
-      var btn = document.getElementById('bookingSubmit');
-      if (btn) {
-        btn.textContent = 'Sending...';
-        btn.disabled = true;
-        setTimeout(function () {
-          btn.textContent = 'Booking request sent';
-          setTimeout(function () { location.href = '/thank-you/'; }, 1500);
-        }, 800);
-      }
-    });
-  }
-
-  /* ---- LEAKAGE COUNTER ---- */
-    var s = parseInt(document.getElementById('leak-staff-input').value) || 8;
-    var h = parseInt(document.getElementById('leak-hours-input').value) || 4;
-    var total = s * h * 4.33;
-    var el = document.getElementById('leak-staff');
-    var eh = document.getElementById('leak-hours');
-    var et = document.getElementById('leak-total');
-    if (el) el.textContent = s;
-    if (eh) eh.textContent = h;
-    if (et) et.textContent = Math.round(total);
-  }
-  var leakStaffInput = document.getElementById('leak-staff-input');
-  var leakHoursInput = document.getElementById('leak-hours-input');
-
-})();// test 1790266651
+})();
