@@ -15,7 +15,7 @@
 </script>
 </head>
 <body class="page">
-<a class="skip" href="#main">Skip to content</a>
+
 <header class="nav">
   <div class="wrap nav-in">
     <a class="brand" href="/" aria-label="Twinthos home"><svg class="mark" viewBox="0 0 716 716" aria-hidden="true"><use href="#twLogoPath"/></svg><span>TWINTHOS</span></a>
@@ -60,7 +60,7 @@
           </div>
           <div class="calc-field">
             <label for="f_site">Website (optional)</label>
-            <input type="url" id="f_site" name="website" placeholder="https://">
+            <input type="url" id="f_site" name="website" autocomplete="url" placeholder="https://">
           </div>
           <div class="calc-field">
             <label for="f_q">What recurring work takes the most time?</label>
@@ -88,7 +88,146 @@
   <div class="wrap foot-base"><p class="mono">&copy; 2026 Twinthos &middot; Work handled. Time returned.</p></div>
 </footer>
 
-<style>.page-hero{padding:calc(78px + 24px) clamp(48px,10vw,80px) 0}.narrow{max-width:760px}.form-panel{padding:clamp(24px,3vw,36px);display:grid;gap:18px}form{display:grid;gap:18px}.calc-field textarea{width:100%;font-family:var(--sans);font-size:17px;padding:13px 16px;border:1px solid var(--hair);border-radius:8px;background:rgba(15,22,35,.4);color:var(--ink)}.form-msg{font-size:16px;font-weight:500;color:var(--dk-sec)}.form-msg.err{color:var(--error)}</style>
+<style>
+  .page-hero{padding:calc(78px + 24px) clamp(48px,10vw,80px) 0}
+  .narrow{max-width:760px}
+  .form-panel{
+    padding:clamp(24px,3vw,36px);
+    display:grid;
+    gap:18px;
+    background:var(--surface-raised);
+    border:1px solid var(--border);
+    border-radius:12px;
+  }
+  form{display:grid;gap:18px}
+
+  /* ---- field container ---- */
+  .calc-field{
+    display:grid;
+    gap:6px;
+    min-width:0;
+  }
+  .calc-field label{
+    font-size:15px;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    color:var(--text-secondary);
+    padding:0 1px;
+  }
+
+  /* ---- shared input styles ---- */
+  .calc-field input,
+  .calc-field textarea{
+    -webkit-appearance:none;
+    appearance:none;
+    width:100%;
+    min-height:48px;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    font-size:17px;
+    line-height:1.5;
+    padding:13px 16px;
+    border:1px solid var(--border-strong);
+    border-radius:8px;
+    background:rgba(15,22,35,.5);
+    color:var(--text);
+    transition:border-color var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
+  }
+  .calc-field input::placeholder,
+  .calc-field textarea::placeholder{
+    color:var(--text-tertiary);
+    opacity:1;
+  }
+  .calc-field input:hover,
+  .calc-field textarea:hover{
+    border-color:var(--border-strong);
+  }
+  .calc-field input:focus,
+  .calc-field input:focus-visible,
+  .calc-field textarea:focus,
+  .calc-field textarea:focus-visible{
+    outline:none;
+    border-color:var(--signal);
+    box-shadow:0 0 0 3px var(--signal-dim);
+  }
+  .calc-field input[aria-invalid="true"],
+  .calc-field textarea[aria-invalid="true"]{
+    border-color:var(--error);
+  }
+
+  /* ---- textarea extras ---- */
+  .calc-field textarea{
+    resize:vertical;
+    min-height:48px;
+  }
+
+  /* ---- error messages ---- */
+  .field-error{
+    font-size:14px;
+    font-weight:500;
+    color:var(--error);
+    display:block;
+    padding:0 1px;
+    min-height:0;
+    line-height:1.4;
+  }
+
+  /* ---- fineprint ---- */
+  .fineprint{
+    font-size:14px;
+    color:var(--text-secondary);
+    line-height:1.5;
+    padding:0 1px;
+  }
+  .fineprint a{
+    color:var(--signal);
+    text-decoration:underline;
+    text-underline-offset:2px;
+  }
+
+  /* ---- form message ---- */
+  .form-msg{
+    font-size:16px;
+    font-weight:500;
+    color:var(--text);
+    padding:0 1px;
+    line-height:1.5;
+  }
+  .form-msg.err{color:var(--error)}
+
+  /* ---- submit button — full-width inside the form ---- */
+  .form-panel .btn-primary{
+    width:100%;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:rgba(32,247,130,0.15);
+  }
+
+  /* ---- neutralise iOS tap highlight on inputs ---- */
+  .calc-field input,
+  .calc-field textarea{
+    -webkit-tap-highlight-color:rgba(32,247,130,0.12);
+  }
+
+  /* ---- mobile ---- */
+  @media (max-width:640px){
+    .form-panel{
+      padding:clamp(18px,4vw,24px);
+      gap:14px;
+      border-radius:8px;
+    }
+    form{gap:14px}
+    .calc-field input,
+    .calc-field textarea{
+      min-height:44px;
+      font-size:16px;
+      padding:12px 14px;
+    }
+    .calc-field label{font-size:15px}
+    .field-error{font-size:13px}
+    .fineprint{font-size:13px}
+    .form-msg{font-size:15px}
+    .form-panel .btn-primary{height:52px}
+  }
+</style>
 <script>
 document.getElementById('bookForm').addEventListener('submit', function (e) {
   e.preventDefault();
