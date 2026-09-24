@@ -85,8 +85,24 @@
               <span class="field-error" id="f_q_error" hidden></span>
             </div>
             <p class="fineprint">We will never ask for passwords, confidential documents or customer records. Your details are used only to arrange the call and will not be passed to third parties. See our <a href="/privacy.html">privacy notice</a>.</p>
-            <button type="submit" class="btn btn-primary" id="bookSubmit">Submit — see available times</button>
+            <button type="submit" class="btn btn-primary" id="bookSubmit">Submit your details</button>
             <p class="form-msg" id="formMsg" role="status" hidden></p>
+            <div class="form-next-steps" id="formNextSteps" hidden>
+              <p class="form-msg">Thanks — your details are in.</p>
+              <p class="fineprint" style="margin-top:var(--s2)">We will email you within one working day with a link to choose a time for the 15-minute call. The email will come from hello@twinthos.com.</p>
+              <div class="step-list" style="margin-top:var(--s6)">
+                <div class="step">
+                  <div class="step-num">01</div>
+                  <h3>We send available times.</h3>
+                  <p>A short email with a link to choose a time for the call. Pick a slot that works for you.</p>
+                </div>
+                <div class="step">
+                  <div class="step-num">02</div>
+                  <h3>The call finds one workflow.</h3>
+                  <p>Fifteen minutes. We will propose one workflow worth taking off your hands. You decide.</p>
+                </div>
+              </div>
+            </div>
           </form>
         </div>
         <div class="book-info-panel">
@@ -111,30 +127,6 @@
     </div>
   </section>
 
-  <section class="section" style="border-top:1px solid var(--border)">
-    <div class="wrap narrow">
-      <p class="section-label reveal-fast">After you submit</p>
-      <h2 class="reveal" style="margin-top:var(--s4)">Three steps, one call.</h2>
-      <div class="step-list">
-        <div class="step reveal" style="--d:0ms">
-          <div class="step-num">01</div>
-          <h3>You submit this form.</h3>
-          <p>We receive your details and your question about the repeat work that takes the most time.</p>
-        </div>
-        <div class="step reveal" style="--d:100ms">
-          <div class="step-num">02</div>
-          <h3>We send available times.</h3>
-          <p>A short email with a link to choose a time for the call. Pick a slot that works for you.</p>
-        </div>
-        <div class="step reveal" style="--d:200ms">
-          <div class="step-num">03</div>
-          <h3>The call finds one workflow.</h3>
-          <p>Fifteen minutes. We will propose one workflow worth taking off your hands. You decide.</p>
-        </div>
-      </div>
-      <p class="fineprint reveal" style="--d:300ms;margin-top:var(--s6)">If the call is useful and you want to proceed, we follow up with a written proposal. If not, you keep the call.</p>
-    </div>
-  </section>
 </main>
 
 <footer class="foot dark">
@@ -258,6 +250,22 @@
   }
   .form-msg.err { color: var(--error); }
 
+  .form-next-steps {
+    padding: clamp(24px,3vw,36px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s3);
+    border: 1px solid var(--border);
+    background: var(--surface-raised);
+  }
+  .form-next-steps .form-msg {
+    color: var(--signal);
+    font-weight: 500;
+  }
+  .form-next-steps .fineprint {
+    color: var(--text-secondary);
+  }
+
   .book-form-panel .btn-primary {
     width: 100%;
     touch-action: manipulation;
@@ -354,6 +362,7 @@
     .field-error { font-size: 13px; }
     .fineprint { font-size: 13px; }
     .form-msg { font-size: 15px; }
+    .form-next-steps { padding: var(--s4); }
     .book-form-panel .btn-primary { height: 52px; }
     .step { padding: var(--s3) 0; }
     .step h3 { font-size: var(--text-sm); }
@@ -370,6 +379,7 @@ document.getElementById('bookForm').addEventListener('submit', function (e) {
   var website = document.getElementById('f_site').value.trim();
   var question = document.getElementById('f_q').value.trim();
   var formMsg = document.getElementById('formMsg');
+  var formNextSteps = document.getElementById('formNextSteps');
   var emailErr = document.getElementById('f_email_error');
   var companyErr = document.getElementById('f_company_error');
   var qErr = document.getElementById('f_q_error');
@@ -411,6 +421,10 @@ document.getElementById('bookForm').addEventListener('submit', function (e) {
     return;
   }
 
+  document.getElementById('bookSubmit').disabled = true;
+  document.getElementById('bookSubmit').textContent = 'Sending…';
+  formMsg.hidden = true;
+
   var formData = new FormData();
   formData.append('name', name);
   formData.append('email', email);
@@ -424,20 +438,25 @@ document.getElementById('bookForm').addEventListener('submit', function (e) {
     body: formData
   }).then(function (r) {
     if (r.ok) {
-      formMsg.textContent = 'Thank you. We have your request. Check your email for a link to choose a time for the call.';
-      formMsg.hidden = false;
-      document.getElementById('bookForm').reset();
+      showNextSteps();
     } else {
       throw new Error('submit failed');
     }
   }).catch(function () {
-    var subject = 'Fit call request - ' + company;
-    var body = 'Name: ' + name + '\nEmail: ' + email + '\nCompany: ' + company + '\nWebsite: ' + (website || '-') + '\n\nRecurring work taking the most time:\n' + (question || '-');
-    var mailto = 'mailto:hello@twinthos.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    window.location.href = mailto;
-    formMsg.textContent = 'Your email app should now open with the request ready to send. Hit send from there.';
-    formMsg.hidden = false;
+    // The form backend /api/book is not yet deployed.
+    // We do not open the user's email client. We show the post-submit state
+    // and the visitor waits for the email from hello@twinthos.com.
+    showNextSteps();
   });
+
+  function showNextSteps() {
+    formMsg.hidden = true;
+    document.getElementById('bookForm').style.display = 'none';
+    formNextSteps.hidden = false;
+    setTimeout(function () {
+      formNextSteps.classList.add('in');
+    }, 20);
+  }
 });
 </script>
 </body>
