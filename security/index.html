@@ -55,32 +55,35 @@
   </section>
   <section>
     <div class="wrap narrow">
-      <h2>Questions we answer in writing before activation</h2>
-      <div class="acc-list">
-        <div class="acc-row reveal" style="--d:0ms">
-          <div class="acc-h"><span class="ring"></span>Access</div>
-          <p>What information is accessed, why it is needed, and which actions require approval.</p>
+      <div class="security-list">
+        <div class="security-item reveal" style="--d:0ms">
+          <p class="security-q">What can it see?</p>
+          <p class="security-a">The information the workflow needs to do its job — the files, messages and records it must read to complete its tasks. We document exactly what is accessed and why, before activation.</p>
         </div>
-        <div class="acc-row reveal" style="--d:100ms">
-          <div class="acc-h"><span class="ring"></span>Processing</div>
-          <p>Where data is hosted, which providers and models are involved, and their actual training settings.</p>
+        <div class="security-item reveal" style="--d:100ms">
+          <p class="security-q">What can it change?</p>
+          <p class="security-a">The actions the workflow is permitted to take: sending messages, updating records, making appointments, moving information. Every action is within the agreed rules for that workflow.</p>
         </div>
-        <div class="acc-row reveal" style="--d:200ms">
-          <div class="acc-h"><span class="ring"></span>Separation</div>
-          <p>How clients are separated, and how credentials are granted and revoked.</p>
+        <div class="security-item reveal" style="--d:200ms">
+          <p class="security-q">What needs approval?</p>
+          <p class="security-a">The actions that require a person before they happen — spending above a limit, exceptions to the standard process, anything outside the agreed rules. These are identified before deployment and documented in the audit.</p>
         </div>
-        <div class="acc-row reveal" style="--d:300ms">
-          <div class="acc-h"><span class="ring"></span>Records</div>
-          <p>What activity records exist, how retention, export and deletion work.</p>
+        <div class="security-item reveal" style="--d:300ms">
+          <p class="security-q">What happens if something goes wrong?</p>
+          <p class="security-a">The workflow pauses when it cannot continue safely within its instructions. Issues are reported to the person responsible for the service, who handles them directly. The managed service includes issue handling and a review process.</p>
         </div>
-        <div class="acc-row reveal" style="--d:400ms">
-          <div class="acc-h"><span class="ring"></span>Incidents</div>
-          <p>Who handles incidents and what happens when the service ends.</p>
+        <div class="security-item reveal" style="--d:400ms">
+          <p class="security-q">How is access removed?</p>
+          <p class="security-a">Credentials are granted per workflow and can be revoked at any time. When the service ends, access is removed and the working data is exportable on request.</p>
+        </div>
+        <div class="security-item reveal" style="--d:500ms">
+          <p class="security-q">What is recorded?</p>
+          <p class="security-a">Activity records show what the workflow did — the actions taken, the messages sent and the decisions made. Retention, export and deletion are documented per client before activation.</p>
         </div>
       </div>
-      <p class="sub reveal" style="--d:500ms;margin-top:24px">The specifics (providers, locations, retention periods) are documented per client, because they depend on the systems your workflow uses. We do not claim UK-only processing: a UK machine location does not establish how every provider processes data.</p>
-      <p class="sub reveal" style="--d:600ms">Your privacy notice and commercial terms are written to match the implemented service, not a generic template.</p>
-      <div class="cta-row reveal"><a class="btn btn-ghost" href="mailto:hello@twinthos.com?subject=Security%20question">Ask a security question</a></div>
+      <p class="sub reveal" style="--d:600ms;margin-top:var(--s10)">The specifics — providers, locations, retention periods — are documented per client, because they depend on the systems your workflow uses. We do not claim UK-only processing: a UK machine location does not establish how every provider processes data.</p>
+      <p class="sub reveal" style="--d:700ms">Your privacy notice and commercial terms are written to match the implemented service, not a generic template.</p>
+      <div class="ctarow reveal" style="--d:800ms;margin-top:var(--s8)"><a class="btn btn-ghost" href="mailto:hello@twinthos.com?subject=Security%20question">Ask a security question</a></div>
     </div>
   </section>
 </main>
