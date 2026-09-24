@@ -150,7 +150,6 @@
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#value">Value</a>
-      <a href="#calculator">Calculator</a>
       <a href="#demo">See it work</a>
       <a href="#works">What it handles</a>
       <a href="#control">Control</a>
@@ -191,7 +190,7 @@
           Human approval wherever judgement is required.
         </p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#calculator">Assess My Workflow<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a class="btn btn-primary" href="/book/">Assess My Workflow<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           <a class="btn btn-secondary" href="#demo">Watch Twinthos Work</a>
         </div>
         <p class="hero-microcopy">15 minutes · No obligation · Identify one workflow worth automating</p>
@@ -324,7 +323,7 @@
         <p class="econ-problem-body">Enquiries.<br>Follow-ups.<br>Calendar coordination.<br>Record updates.<br>Invoice chasing.<br>Internal handoffs.<br>Status checks.</p>
         <p class="econ-problem-explain">None of them looks expensive alone.<br>Repeated hundreds of times every month, they become a hidden operating cost — and they consume the attention of the people you hired for higher-value work.</p>
         <p class="econ-problem-close">Twinthos takes defined recurring work off their hands and keeps it moving automatically.</p>
-        <a class="btn btn-secondary" href="#calculator">Calculate your own numbers</a>
+        <a class="btn btn-secondary" href="/book/">See your numbers</a>
       </div>
       <div class="econ-problem-visual">
         <div class="card counter-card">
@@ -350,159 +349,7 @@
 </section>
 
 <!-- ====== 03 CALCULATOR ====== -->
-<section class="section calc-section" id="calculator">
-  <div class="wrap">
-    <div class="calc-head">
-      <p class="eyebrow">Your business case</p>
-      <h2 class="headline">Find the work you shouldn't still be paying people to chase.</h2>
-      <p>Estimate the capacity a recurring workflow consumes today and what changing it could mean commercially.</p>
-    </div>
 
-    <div class="calc-grid">
-      <form class="calc-form" id="calcForm" novalidate>
-          <div class="calc-field">
-            <label for="c_hours" >Time spent on this work <span>hours / week</span></label>
-            <div style="display:flex;align-items:center;gap:8px">
-              <input type="range" id="c_hours"  min="0" max="200" step="0.5" placeholder="e.g. 20" oninput="updateCalcField(this, 'c_hours-val')">
-              <span  id="c_hours-val">0</span>
-            </div>
-          </div>
-          <div class="calc-field">
-            <label for="c_handover" >Proportion you could hand over <span>%</span></label>
-            <div style="display:flex;align-items:center;gap:8px">
-              <input type="range" id="c_handover"  min="0" max="100" step="5" placeholder="e.g. 70" oninput="updateCalcField(this, 'c_handover-val')">
-              <span  id="c_handover-val">0</span>
-            </div>
-          </div>
-          <div class="calc-field">
-            <label for="c_review" >Human review still needed <span>hours / week</span></label>
-            <div style="display:flex;align-items:center;gap:8px">
-              <input type="range" id="c_review"  min="0" max="100" step="0.5" placeholder="e.g. 2" oninput="updateCalcField(this, 'c_review-val')">
-              <span  id="c_review-val">0</span>
-            </div>
-          </div>
-          <div class="calc-field">
-            <label for="c_rate" >Loaded hourly staff cost <span>£</span></label>
-            <div style="display:flex;align-items:center;gap:8px">
-              <input type="range" id="c_rate"  min="0" max="500" step="1" placeholder="e.g. 30" oninput="updateCalcField(this, 'c_rate-val')">
-              <span  id="c_rate-val">0</span>
-            </div>
-          </div>
-          <p class="calc-hint">Capacity value is a time equivalent, not automatic cash. Leave the hourly cost blank if you only want to see time recovered.</p>
-        </div>
-
-        <div class="calc-group">
-          <p class="calc-group-title">Cash savings</p>
-          <div class="calc-field" style="margin-bottom:var(--s2)">
-            <label for="c_cash" style="font-size:13px;color:var(--text);font-weight:500;display:block;margin-bottom:6px">Monthly spending that could genuinely stop <span>£</span></label>
-            <div style="display:flex;align-items:center;gap:8px">
-              <input type="range" id="c_cash" style="flex:1;padding:6px 8px;background:var(--surface-raised);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;font-weight:600;text-align:right;font-family:inherit;font-variant-numeric:tabular-nums" min="0" max="100000" step="50" placeholder="e.g. 1000" oninput="updateCalcField(this, 'c_cash-val')">
-              <span style="font-size:13px;font-weight:600;color:var(--text);min-width:40px;text-align:right;font-variant-numeric:tabular-nums" id="c_cash-val">0</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="calc-group">
-          <p class="calc-group-title">Potential additional profit — optional</p>
-          <p class="calc-hint" style="font-size:11px;color:var(--text-tertiary);line-height:1.4;margin-bottom:8px">Leave blank to calculate only time and cash savings.</p>
-          <div class="calc-field" style="margin-bottom:var(--s2)">
-            <label for="c_opp" style="font-size:13px;color:var(--text);font-weight:500;display:block;margin-bottom:6px">Monthly opportunities affected <span>count</span></label>
-            <div style="display:flex;align-items:center;gap:8px">
-              <input type="range" id="c_opp" style="flex:1;padding:6px 8px;background:var(--surface-raised);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;font-weight:600;text-align:right;font-family:inherit;font-variant-numeric:tabular-nums" min="0" max="100000" step="1" placeholder="e.g. 100" oninput="updateCalcField(this, 'c_opp-val')">
-              <span style="font-size:13px;font-weight:600;color:var(--text);min-width:40px;text-align:right;font-variant-numeric:tabular-nums" id="c_opp-val">0</span>
-            </div>
-          </div>
-          <div class="calc-field" style="margin-bottom:var(--s2)">
-            <label for="c_conv" style="font-size:13px;color:var(--text);font-weight:500;display:block;margin-bottom:6px">Estimated conversion increase <span>percentage points</span></label>
-            <div style="display:flex;align-items:center;gap:8px">
-              <input type="range" id="c_conv" style="flex:1;padding:6px 8px;background:var(--surface-raised);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;font-weight:600;text-align:right;font-family:inherit;font-variant-numeric:tabular-nums" min="0" max="50" step="0.5" placeholder="e.g. 5" oninput="updateCalcField(this, 'c_conv-val')">
-              <span style="font-size:13px;font-weight:600;color:var(--text);min-width:40px;text-align:right;font-variant-numeric:tabular-nums" id="c_conv-val">0</span>
-            </div>
-          </div>
-          <div class="calc-field" style="margin-bottom:var(--s2)">
-            <label for="c_gp" style="font-size:13px;color:var(--text);font-weight:500;display:block;margin-bottom:6px">Gross profit per additional customer <span>£</span></label>
-            <div style="display:flex;align-items:center;gap:8px">
-              <input type="range" id="c_gp" style="flex:1;padding:6px 8px;background:var(--surface-raised);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;font-weight:600;text-align:right;font-family:inherit;font-variant-numeric:tabular-nums" min="0" max="100000" step="10" placeholder="e.g. 500" oninput="updateCalcField(this, 'c_gp-val')">
-              <span style="font-size:13px;font-weight:600;color:var(--text);min-width:40px;text-align:right;font-variant-numeric:tabular-nums" id="c_gp-val">0</span>
-            </div>
-          </div>
-          <div class="calc-field" style="margin-bottom:0">
-            <label for="c_extra" style="font-size:13px;color:var(--text);font-weight:500;display:block;margin-bottom:6px">Extra operating costs outside the fee <span>£ / month</span></label>
-            <div style="display:flex;align-items:center;gap:8px">
-              <input type="range" id="c_extra" style="flex:1;padding:6px 8px;background:var(--surface-raised);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px;font-weight:600;text-align:right;font-family:inherit;font-variant-numeric:tabular-nums" min="0" max="100000" step="50" placeholder="e.g. 200" oninput="updateCalcField(this, 'c_extra-val')">
-              <span style="font-size:13px;font-weight:600;color:var(--text);min-width:40px;text-align:right;font-variant-numeric:tabular-nums" id="c_extra-val">0</span>
-            </div>
-          </div>
-        </div>
-
-        <p class="btn btn-secondary" id="calcLoadExample" style="margin-top:8px;height:38px">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><polyline points="20 6 9 17 4 12"/></svg>
-          Load an example
-        </p>
-      </form>
-
-      <div class="calc-results" id="calcResults" aria-live="polite">
-        <div class="calc-results-empty" id="calcEmpty">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
-          <h3 class="calc-title">Build your business case</h3>
-          <p>Enter a few numbers to see whether this workflow could justify automation. Every assumption stays visible. No inflated ROI claims.</p>
-          <button type="button" class="btn" id="calcExampleBtn" style="margin-top:8px">Load an example</button>
-        </div>
-
-        <div class="calc-results-content" id="calcContent">
-          <p class="calc-res-label">Your numbers</p>
-          <div class="calc-res-main">
-            <p class="calc-res-amount" id="r_hours">0</p>
-            <p class="calc-res-unit">hours returned / month</p>
-          </div>
-          <div class="calc-res-sub">Capacity returned — time equivalent, not automatic cash.</div>
-          <div class="calc-res-break" id="r_capval_display">
-            Capacity value: <strong id="r_capval">£0</strong>
-          </div>
-
-          <div class="calc-res-main">
-            <p class="calc-res-amount accent" id="r_cash">£0</p>
-            <p class="calc-res-unit">cash saving / month</p>
-          </div>
-          <div class="calc-res-sub">Actual spending that could stop.</div>
-
-          <div class="calc-res-main" id="r_gp_section" style="display:none">
-            <p class="calc-res-amount accent" id="r_gp">£0</p>
-            <p class="calc-res-unit">potential additional gross profit</p>
-          </div>
-          <div class="calc-res-sub" id="r_gp_sub" style="display:none">Growth estimate — optional input, shown when provided.</div>
-
-          <div class="calc-res-tags">
-            <span class="calc-res-tag">Hours returned · <strong id="r_hours_tag">0</strong>/mo</span>
-            <span class="calc-res-tag">Cash saved · <strong id="r_cash_tag">£0</strong>/mo</span>
-            <span class="calc-res-tag">After £5,000 fee · <strong id="r_net_tag" style="color:var(--text)">£0</strong>/mo</span>
-          </div>
-
-          <p class="calc-disclaimer" style="margin-top:14px;font-size:var(--text-xs);color:var(--text-tertiary);line-height:1.5">
-            Recovered time, cash savings and additional profit are shown separately. This estimate combines avoidable spending and potential additional gross profit. It is not a cash-flow forecast. Every assumption stays visible below.
-          </p>
-
-          <div style="margin-top:12px;padding:12px 16px;background:var(--surface-raised);border:1px solid var(--border);border-radius:var(--r-sm)">
-            <p style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px">Assumptions</p>
-            <ul style="font-size:12px;color:var(--text-secondary);line-height:1.6;list-style:none;padding:0">
-              <li>Hours per month = weekly hours × 4.33.</li>
-              <li>Recovered capacity = (weekly hours × handover ÷ 100) − weekly review hours, then × 4.33.</li>
-              <li>Capacity value = recovered hours × hourly staff cost. This is a time equivalent, not automatic cash.</li>
-              <li>Additional gross profit = affected opportunities × conversion uplift × gross profit per customer. This is an estimate, not a measurement.</li>
-              <li>Monthly contribution = cash savings + estimated gross profit − £5,000 fee − extra costs.</li>
-              <li>Collected invoice amounts are never counted as new revenue.</li>
-            </ul>
-          </div>
-
-          <div class="calc-result-actions">
-            <a class="btn btn-primary btn-lg" href="/book/">Review this business case with us</a>
-            <a class="btn" href="/">Back to overview</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ====== 04 WORKFLOW DEMO ====== -->
 <section class="section works-section" id="works">
@@ -958,7 +805,7 @@
       </ul>
       <div class="pricing-cta-row">
         <a class="btn btn-primary btn-lg" href="/book/">Calculate my business case</a>
-        <a class="pricing-cta-link" href="#calculator">← Back to the calculator</a>
+        
       </div>
     </div>
   </div>
@@ -1234,7 +1081,7 @@
     <p class="body-copy">Every enquiry answered. Every follow-up remembered. Every routine update moved forward.<br><br>Let Twinthos carry the repeatable work. Keep your attention for the things that still need you.</p>
     <div class="final-ctas">
       <a class="btn btn-primary btn-lg" href="/book/">Assess My Workflow<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <a class="btn btn-secondary btn-lg" href="#calculator">See the business case</a>
+      
     </div>
     <div class="final-brand-line">
       <span class="sep"></span>
@@ -1264,7 +1111,7 @@
         <div class="footer-links">
           <a class="footer-link" href="#demo">See it work</a>
           <a class="footer-link" href="#works">What it handles</a>
-          <a class="footer-link" href="#calculator">Business case</a>
+          
           <a class="footer-link" href="#pricing">Pricing</a>
         </div>
       </div>

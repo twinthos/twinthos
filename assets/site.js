@@ -232,32 +232,12 @@
   });
 
   /* ---- CALCULATOR ---- */
-  var calcFields = {
-    c_hours: document.getElementById('c_hours'),
-    c_handover: document.getElementById('c_handover'),
-    c_review: document.getElementById('c_review'),
-    c_rate: document.getElementById('c_rate'),
-    c_cash: document.getElementById('c_cash'),
-    c_opp: document.getElementById('c_opp'),
-    c_conv: document.getElementById('c_conv'),
-    c_gp: document.getElementById('c_gp'),
-    c_extra: document.getElementById('c_extra')
-  };
+  
 
-  var calcOut = {
-    empty: document.getElementById('calcEmpty'),
-    content: document.getElementById('calcContent'),
-    hours: document.getElementById('r_hours'),
-    capval: document.getElementById('r_capval'),
-    cash: document.getElementById('r_cash'),
-    gp: document.getElementById('r_gp'),
-    net: document.getElementById('r_net')
-  };
+  
 
-  function updateCalcField(input, valueId) {
     var span = document.getElementById(valueId);
     if (span) span.textContent = input.value;
-    recalc();
   }
 
   function fmtMoney(n) {
@@ -265,72 +245,33 @@
     return '£' + Math.round(n).toLocaleString('en-GB');
   }
 
-  function recalc() {
-    var h = parseFloat(calcFields.c_hours.value) || 0;
-    var hd = parseFloat(calcFields.c_handover.value) || 0;
-    var rv = parseFloat(calcFields.c_review.value) || 0;
-    var rt = parseFloat(calcFields.c_rate.value) || 0;
-    var cs = parseFloat(calcFields.c_cash.value) || 0;
-    var op = parseFloat(calcFields.c_opp.value) || 0;
-    var cv = parseFloat(calcFields.c_conv.value) || 0;
-    var gp = parseFloat(calcFields.c_gp.value) || 0;
-    var ex = parseFloat(calcFields.c_extra.value) || 0;
-
-    var recovered = Math.max(0, (h * (hd / 100) - rv)) * 4.33;
-    var capValue = recovered * rt;
-    var gpValue = op * (cv / 100) * gp;
-    var net = cs + gpValue - 5000 - ex;
-
-    if (calcOut.empty) calcOut.empty.style.display = 'flex';
-    if (calcOut.content) calcOut.content.classList.remove('show');
-
-    if (h > 0 || hd > 0 || rv > 0 || rt > 0 || cs > 0) {
-      if (calcOut.empty) calcOut.empty.style.display = 'none';
-      if (calcOut.content) {
-        calcOut.content.classList.add('show');
-        if (calcOut.hours) calcOut.hours.textContent = recovered.toFixed(1) + ' h';
-        if (calcOut.capval) calcOut.capval.textContent = capValue > 0 ? fmtMoney(capValue) : '£0';
-        if (calcOut.cash) calcOut.cash.textContent = fmtMoney(cs);
-        if (calcOut.gp) calcOut.gp.textContent = gpValue > 0 ? fmtMoney(gpValue) : '£0';
-        if (calcOut.net) {
-          calcOut.net.textContent = net >= 0 ? fmtMoney(net) : '−' + fmtMoney(Math.abs(net));
-          calcOut.net.style.color = net >= 0 ? 'var(--success)' : 'var(--warn)';
-        }
+  
       }
     }
   }
 
   // Bind all inputs
-  Object.keys(calcFields).forEach(function (id) {
-    var el = calcFields[id];
     if (el) {
       el.addEventListener('input', function () {
         var valId = id + '-val';
         var span = document.getElementById(valId);
         if (span) span.textContent = el.value;
-        recalc();
       });
     }
   });
 
   // Example button
-  var exampleBtn = document.getElementById('calcExampleBtn');
-  var loadExampleLink = document.getElementById('calcLoadExample');
   var EXAMPLE_VALUES = {
-    c_hours: '20', c_handover: '70', c_review: '2', c_rate: '30',
-    c_cash: '1000', c_opp: '100', c_conv: '5', c_gp: '500', c_extra: '200'
   };
 
   function loadExample() {
     Object.keys(EXAMPLE_VALUES).forEach(function (id) {
-      var el = calcFields[id];
       if (el) {
         el.value = EXAMPLE_VALUES[id];
         var span = document.getElementById(id + '-val');
         if (span) span.textContent = EXAMPLE_VALUES[id];
       }
     });
-    recalc();
   }
 
   if (exampleBtn) exampleBtn.addEventListener('click', loadExample);
@@ -338,9 +279,6 @@
     e.preventDefault();
     loadExample();
   });
-
-  // Initial recalc
-  recalc();
 
   /* ---- CONVERSION ANALYTICS ---- */
   function trackEvent(name, data) {
@@ -383,36 +321,18 @@
   }
 
   // Calculator tracking
-  var calcSection = document.getElementById('calculator');
-  var calcStarted = false;
-  if (calcSection) {
-    var calcObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting && !calcStarted) {
-          calcStarted = true;
-          trackEvent('calculator_started');
         }
       });
     }, { threshold: 0.3 });
-    calcObserver.observe(calcSection);
   }
-  var calcInputs = document.querySelectorAll('#calcForm input');
-  var calcCompleted = false;
-  calcInputs.forEach(function (inp) {
     inp.addEventListener('input', function () {
-      if (!calcCompleted && calcInputs.length > 0) {
         var allFilled = true;
-        calcInputs.forEach(function (i) { if (!i.value) allFilled = false; });
         if (allFilled) {
-          calcCompleted = true;
-          trackEvent('calculator_completed');
         }
       }
     });
   });
-  var calcCTA = document.querySelector('.calc-cta-row .btn-primary');
-  if (calcCTA) {
-    calcCTA.addEventListener('click', function () { trackEvent('business_case_cta_click'); });
   }
 
   // Pricing viewed
@@ -482,9 +402,7 @@
     });
   }
 
-
   /* ---- LEAKAGE COUNTER ---- */
-  function updateLeakage(){
     var s = parseInt(document.getElementById('leak-staff-input').value) || 8;
     var h = parseInt(document.getElementById('leak-hours-input').value) || 4;
     var total = s * h * 4.33;
@@ -497,8 +415,5 @@
   }
   var leakStaffInput = document.getElementById('leak-staff-input');
   var leakHoursInput = document.getElementById('leak-hours-input');
-  if (leakStaffInput) leakStaffInput.addEventListener('input', updateLeakage);
-  if (leakHoursInput) leakHoursInput.addEventListener('input', updateLeakage);
-
 
 })();// test 1790266651
