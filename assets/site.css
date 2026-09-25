@@ -95,7 +95,27 @@ flex-shrink: 0;
 }
 .nav-brand svg { height: 28px; width: auto; }
 
-/* ── Logo system ── */
+/* ── Logo: CSS-drawn mark (single source of truth) ── */
+/* Used by sub-pages via <span class="lk"></span> in nav-brand.
+   No inline SVG anywhere on the site — this is the only logo geometry. */
+.lk {
+  display: inline-block;
+  width: 120px;
+  height: 24px;
+  vertical-align: middle;
+}
+.lk::before {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  position: relative;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 48'%3E%3Cpath d='M8 6 L48 6 L48 36 L8 36 Z' fill='white'/%3E%3Cpath d='M8 14 L48 14 L48 26 L8 26 Z' fill='white' opacity='0.85'/%3E%3Cpath d='M18 24 L48 24 L48 32 L18 32 Z' fill='white' opacity='0.6'/%3E%3Cpath d='M28 30 L46 30 L46 36 L28 36 Z' fill='white' opacity='0.4'/%3E%3Ccircle cx='48' cy='36' r='4.5' fill='%2320F782'/%3E%3Ctext x='58' y='34' font-family='Inter, system-ui, sans-serif' font-size='26' font-weight='600' letter-spacing='-0.01em' fill='white'%3ETWINTHOS%3C/text%3E%3C/svg%3E") center/contain no-repeat;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 48'%3E%3Cpath d='M8 6 L48 6 L48 36 L8 36 Z' fill='white'/%3E%3Cpath d='M8 14 L48 14 L48 26 L8 26 Z' fill='white' opacity='0.85'/%3E%3Cpath d='M18 24 L48 24 L48 32 L18 32 Z' fill='white' opacity='0.6'/%3E%3Cpath d='M28 30 L46 30 L46 36 L28 36 Z' fill='white' opacity='0.4'/%3E%3Ccircle cx='48' cy='36' r='4.5' fill='%2320F782'/%3E%3Ctext x='58' y='34' font-family='Inter, system-ui, sans-serif' font-size='26' font-weight='600' letter-spacing='-0.01em' fill='white'%3ETWINTHOS%3C/text%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+/* ── Logo system (homepage nav + hero) ── */
 .logo-mark {
   display: inline-flex;
   align-items: center;
