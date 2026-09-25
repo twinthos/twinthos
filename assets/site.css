@@ -93,6 +93,24 @@ flex-shrink: 0;
   display: flex;
   align-items: center;
 }
+.nav-brand svg { height: 28px; width: auto; }
+
+/* ── Logo system ── */
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.logo-mark svg { height: 28px; width: auto; flex-shrink: 0; }
+.logo-wordmark {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  white-space: nowrap;
+}
 .nav-links {
 display: flex;
   align-items: center;

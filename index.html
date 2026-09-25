@@ -202,8 +202,10 @@ ul, ol { list-style: none; }
   display: inline-block; margin-top: var(--space-4);
   font-size: 14px; font-weight: 400; color: var(--text-faint);
 }
-.hero-brand { flex: 0 0 auto; width: clamp(280px, 22vw, 420px); opacity: 0.92; }
-.hero-brand svg { width: 100%; height: auto; }
+.hero-brand { flex: 0 0 auto; width: clamp(280px, 22vw, 420px); opacity: 0.92; display: flex; align-items: center; }
+.hero-brand .logo-mark { gap: 12px; }
+.hero-brand .logo-mark svg { width: 140px; height: auto; }
+.hero-brand .logo-wordmark { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
 
 @media (max-width: 900px) {
   .hero { padding: var(--space-8) var(--space-5); min-height: auto; }
@@ -636,6 +638,28 @@ ul, ol { list-style: none; }
 .reveal.in { opacity: 1; transform: translateY(0); }
 .reveal-fast.in { opacity: 1; transform: translateY(0); }
 
+/* ═══════════════════════════════════════════════════════════════════════
+   LOGO SYSTEM — Refined flat mark + TWINTHOS wordmark
+   ═══════════════════════════════════════════════════════════════════════ */
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.logo-mark svg { height: 28px; width: auto; flex-shrink: 0; }
+.logo-wordmark {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  white-space: nowrap;
+}
+@media (max-width: 420px) {
+  .logo-wordmark { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal-fast { opacity: 1; transform: none; transition: none; }
   .pipe-particle { animation: none; opacity: 0.4; }
@@ -650,14 +674,21 @@ ul, ol { list-style: none; }
 <nav class="nav" id="nav" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="/" class="nav-brand" aria-label="Twinthos home">
-      <!-- Twinthos mark SVG (flat titanium, black background) -->
-      <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="120" height="40" aria-hidden="true">
-        <rect width="120" height="40" fill="#000000"/>
-        <path d="M12 10 L32 10 L32 30 L12 30 Z" fill="#FFFFFF" opacity="0.9"/>
-        <path d="M36 10 L56 10 L56 18 L44 18 L44 30 L36 30 Z" fill="#FFFFFF"/>
-        <circle cx="72" cy="20" r="5" fill="#20F782"/>
-        <path d="M82 14 L92 20 L82 26 Z" fill="#20F782"/>
-      </svg>
+      <span class="logo-mark">
+        <!-- Refined flat titanium mark + TWINTHOS wordmark lockup -->
+        <svg viewBox="0 0 240 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="120" height="24" aria-hidden="true">
+          <g transform="translate(0,0) scale(2)">
+            <rect width="120" height="40" fill="#000000"/>
+            <path d="M10 10 L34 10 L34 30 L10 30 Z" fill="#FFFFFF"/>
+            <path d="M38 10 L62 10 L62 16 L38 16 Z" fill="#FFFFFF" opacity="0.95"/>
+            <path d="M38 18 L62 18 L62 24 L38 24 Z" fill="#FFFFFF" opacity="0.75"/>
+            <path d="M38 26 L54 26 L54 30 L38 30 Z" fill="#FFFFFF" opacity="0.5"/>
+            <circle cx="64" cy="20" r="4.5" fill="#20F782"/>
+          </g>
+          <text x="250" y="33" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="600" letter-spacing="-0.01em" fill="#FFFFFF">TWINTHOS</text>
+        </svg>
+        <span class="logo-wordmark">TWINTHOS</span>
+      </span>
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#story" class="nav-link">The problem</a>
@@ -705,14 +736,21 @@ ul, ol { list-style: none; }
       <p class="hero-secondary reveal" data-delay="550">No software to buy. No dashboard to learn.</p>
     </div>
     <div class="hero-brand" aria-hidden="true">
-      <!-- Same flat titanium mark, scaled for hero presence -->
-      <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="360" height="120">
-        <rect width="120" height="40" fill="#000000"/>
-        <path d="M12 10 L32 10 L32 30 L12 30 Z" fill="#FFFFFF" opacity="0.9"/>
-        <path d="M36 10 L56 10 L56 18 L44 18 L44 30 L36 30 Z" fill="#FFFFFF"/>
-        <circle cx="72" cy="20" r="5" fill="#20F782"/>
-        <path d="M82 14 L92 20 L82 26 Z" fill="#20F782"/>
-      </svg>
+      <span class="logo-mark">
+        <!-- Refined flat titanium mark + TWINTHOS wordmark, large scale -->
+        <svg viewBox="0 0 240 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="360" height="72" aria-hidden="true">
+          <g transform="translate(0,0) scale(3)">
+            <rect width="120" height="40" fill="#000000"/>
+            <path d="M10 10 L34 10 L34 30 L10 30 Z" fill="#FFFFFF"/>
+            <path d="M38 10 L62 10 L62 16 L38 16 Z" fill="#FFFFFF" opacity="0.95"/>
+            <path d="M38 18 L62 18 L62 24 L38 24 Z" fill="#FFFFFF" opacity="0.75"/>
+            <path d="M38 26 L54 26 L54 30 L38 30 Z" fill="#FFFFFF" opacity="0.5"/>
+            <circle cx="64" cy="20" r="4.5" fill="#20F782"/>
+          </g>
+          <text x="250" y="33" font-family="Inter, system-ui, sans-serif" font-size="42" font-weight="600" letter-spacing="-0.01em" fill="#FFFFFF">TWINTHOS</text>
+        </svg>
+        <span class="logo-wordmark">TWINTHOS</span>
+      </span>
     </div>
   </div>
 </section>
@@ -1084,13 +1122,18 @@ ul, ol { list-style: none; }
 <section class="human-architect" id="human">
   <div class="human-grid">
     <div class="human-mark reveal">
-      <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="300" height="100" aria-hidden="true">
-        <rect width="120" height="40" fill="#000000"/>
-        <path d="M12 10 L32 10 L32 30 L12 30 Z" fill="#FFFFFF" opacity="0.9"/>
-        <path d="M36 10 L56 10 L56 18 L44 18 L44 30 L36 30 Z" fill="#FFFFFF"/>
-        <circle cx="72" cy="20" r="5" fill="#20F782"/>
-        <path d="M82 14 L92 20 L82 26 Z" fill="#20F782"/>
+      <svg viewBox="0 0 240 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="200" height="40" aria-hidden="true">
+        <g transform="translate(0,0) scale(2)">
+          <rect width="120" height="40" fill="#000000"/>
+          <path d="M10 10 L34 10 L34 30 L10 30 Z" fill="#FFFFFF"/>
+          <path d="M38 10 L62 10 L62 16 L38 16 Z" fill="#FFFFFF" opacity="0.95"/>
+          <path d="M38 18 L62 18 L62 24 L38 24 Z" fill="#FFFFFF" opacity="0.75"/>
+          <path d="M38 26 L54 26 L54 30 L38 30 Z" fill="#FFFFFF" opacity="0.5"/>
+          <circle cx="64" cy="20" r="4.5" fill="#20F782"/>
+        </g>
+        <text x="250" y="33" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="600" letter-spacing="-0.01em" fill="#FFFFFF">TWINTHOS</text>
       </svg>
+    </div>
     </div>
     <div class="human-content">
       <p class="human-label reveal-fast">The architect</p>
