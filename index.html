@@ -3,294 +3,1290 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="og:locale" content="en_GB">
 <title>Twinthos | Managed Operations</title>
-<meta name="description" content="Twinthos takes repeat work off your team. It learns how the business works, works across the systems you already use, and asks a human when judgement is needed.">
+<meta name="description" content="Twinthos takes repeat operational work off your team. It learns how the business works, works across the systems you already use, and asks a human when judgement is needed.">
 <meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://twinthos.com/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://twinthos.com/">
-<meta property="og:title" content="Twinthos | Managed Operations — Work Handled. Time Returned.">
+<meta property="og:title" content="Twinthos | Managed Operations">
 <meta property="og:description" content="Twinthos takes repeat work off your team and handles it across the systems you already use.">
 <meta property="og:image" content="https://twinthos.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Twinthos operations mark on black">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://twinthos.com/">
-<meta name="twitter:title" content="Twinthos | Managed Operations — Work Handled. Time Returned.">
+<meta name="twitter:title" content="Twinthos | Managed Operations">
 <meta name="twitter:description" content="Twinthos takes repeat work off your team and handles it across the systems you already use.">
 <meta name="twitter:image" content="https://twinthos.com/og.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css">
+
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "Service", "name": "Twinthos", "description": "Twinthos is a managed operational system that takes repeat work off your team. It learns how the business works, works across the systems you already use, and asks a human when judgement is needed.", "provider": {"@type": "Organization", "name": "Twinthos", "url": "https://twinthos.com/"}, "offers": {"@type": "Offer", "price": "5000", "priceCurrency": "GBP", "description": "Monthly managed operations service"}, "areaServed": "GB", "serviceType": "Managed Operations"}
+{"@context":"https://schema.org","@type":"Service","name":"Twinthos","description":"Twinthos is a managed operational system that takes repeat work off your team. It learns how the business works, works across the systems you already use, and asks a human when judgement is needed.","provider":{"@type":"Organization","name":"Twinthos","url":"https://twinthos.com/"},"offers":{"@type":"Offer","price":"5000","priceCurrency":"GBP","description":"Monthly managed operations service"},"areaServed":"GB","serviceType":"Managed Operations"}
 </script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What can Twinthos actually take on?", "acceptedAnswer": {"@type": "Answer", "text": "Start with recurring work that has a clear outcome, usable information and agreed rules. Enquiries, follow-ups, scheduling and record updates are good workflows to assess. We confirm the actual scope before deployment."}}, {"@type": "Question", "name": "Will my team need to prompt it?", "acceptedAnswer": {"@type": "Answer", "text": "Within the agreed workflow, the agent can follow events and take permitted next actions without a person prompting every step. Your team remains involved where the workflow requires judgement or approval."}}, {"@type": "Question", "name": "What happens when it gets stuck?", "acceptedAnswer": {"@type": "Answer", "text": "The workflow pauses or escalates when it cannot continue safely within its instructions. The managed service includes issue handling and a review process."}}, {"@type": "Question", "name": "Can important actions require approval?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Approval requirements are part of the agreed workflow. Identify the actions, spending limits and exceptions that must wait for a person before activation."}}, {"@type": "Question", "name": "Can Twinthos use our existing software?", "acceptedAnswer": {"@type": "Answer", "text": "We assess the systems your workflow depends on and confirm supported actions before the pilot. Compatibility depends on access, integration support and the reliability of the specific workflow."}}, {"@type": "Question", "name": "How is business data handled?", "acceptedAnswer": {"@type": "Answer", "text": "Before activation, the information the workflow needs, the systems that process it and the access granted are documented with you. Review the security and privacy information for the confirmed data locations, providers and retention arrangements."}}, {"@type": "Question", "name": "How quickly can it go live?", "acceptedAnswer": {"@type": "Answer", "text": "A first workflow can go live within days of the fit call, once the scope is agreed and the systems involved are confirmed. More complex workflows take longer. We set realistic timing before any work starts."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What can Twinthos actually take on?","acceptedAnswer":{"@type":"Answer","text":"Start with recurring work that has a clear outcome, usable information and agreed rules. Enquiries, follow-ups, scheduling and record updates are good workflows to assess. We confirm the actual scope before deployment."}},{"@type":"Question","name":"Will my team need to prompt it?","acceptedAnswer":{"@type":"Answer","text":"Within the agreed workflow, the agent can follow events and take permitted next actions without a person prompting every step. Your team remains involved where the workflow requires judgement or approval."}},{"@type":"Question","name":"What happens when it gets stuck?","acceptedAnswer":{"@type":"Answer","text":"The workflow pauses or escalates when it cannot continue safely within its instructions. The managed service includes issue handling and a review process."}},{"@type":"Question","name":"Can important actions require approval?","acceptedAnswer":{"@type":"Answer","text":"Yes. Approval requirements are part of the agreed workflow. Identify the actions, spending limits and exceptions that must wait for a person before activation."}},{"@type":"Question","name":"Can Twinthos use our existing software?","acceptedAnswer":{"@type":"Answer","text":"We assess the systems your workflow depends on and confirm supported actions before the pilot. Compatibility depends on access, integration support and the reliability of the specific workflow."}},{"@type":"Question","name":"How is business data handled?","acceptedAnswer":{"@type":"Answer","text":"Before activation, the information the workflow needs, the systems that process it and the access granted are documented with you. Review the security and privacy information for the confirmed data locations, providers and retention arrangements."}}]}
 </script>
-<base target="_self">
+
+<link rel="stylesheet" href="assets/typography.css">
+<link rel="stylesheet" href="assets/transitions.css">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   TWINTHOS — MIROFISH-WORLD-CLASS REDESIGN
+   Black #000. White type. One signal green #20F782.
+   Mirofish approach: bold typography as primary design element.
+   Symmetry + asymmetry. One idea per section.
+   Confident editorial feel. Every pixel earns its place.
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --bg: #000000;
+  --text: #FFFFFF;
+  --signal: #20F782;
+  --signal-dim: rgba(32,247,130,0.12);
+  --text-dim: #8A8A8A;
+  --text-faint: #555555;
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.15);
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --speed: 200ms;
+  --speed-slow: 400ms;
+  --speed-slower: 600ms;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 80px;
+  --space-10: 120px;
+
+  --container: 1400px;
+  --container-narrow: 960px;
+}
+
+/* ── Reset ── */
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; }
+img, svg { display: block; max-width: 100%; }
+ul, ol { list-style: none; }
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+::selection { background: var(--signal); color: var(--bg); }
+:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+.skip-link {
+  position: absolute; top: -100%; left: var(--space-4); z-index: 200;
+  font-size: 13px; padding: 8px 16px; background: var(--text); color: var(--bg);
+  transition: top var(--speed) var(--ease);
+}
+.skip-link:focus { top: var(--space-3); }
+
+/* ── Container ── */
+.container { max-width: var(--container); margin: 0 auto; padding: 0 var(--space-8); }
+
+/* ═══════════════════════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════════════════════ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: var(--space-4) var(--space-8);
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background var(--speed-slow) var(--ease);
+}
+.nav.scrolled {
+  background: rgba(0,0,0,0.92);
+}
+.nav-inner {
+  max-width: var(--container); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-6);
+}
+.nav-brand { flex-shrink: 0; display: flex; align-items: center; }
+.nav-brand svg { height: 28px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: var(--space-6); }
+.nav-link {
+  font-size: 13px; font-weight: 500; letter-spacing: -0.01em;
+  color: var(--text-dim); transition: color var(--speed);
+}
+.nav-link:hover { color: var(--text); }
+.nav-cta {
+  font-size: 13px; font-weight: 600; letter-spacing: -0.01em;
+  color: var(--bg); background: var(--signal); padding: 10px 24px;
+  transition: background var(--speed), transform var(--speed);
+}
+.nav-cta:hover { background: #1ae075; color: var(--bg); }
+.nav-burger { display: none; }
+
+@media (max-width: 768px) {
+  .nav { padding: var(--space-3) var(--space-4); }
+  .nav-links { display: none; }
+  .nav-burger { display: flex; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; }
+  .nav-burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 1px; }
+  .nav-cta { font-size: 12px; padding: 8px 16px; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO — Mirofish Principle 1: ONE BIG IDEA FIRST
+   The hero is the most important part. It must communicate
+   the ONE core idea instantly with editorialcraft.
+   Massive headline IS the value proposition.
+   ═══════════════════════════════════════════════════════════ */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center;
+  padding: var(--space-10) var(--space-8);
+  overflow: hidden;
+}
+.hero-inner {
+  max-width: var(--container); margin: 0 auto; width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-8);
+  align-items: center;
+}
+.hero-content { max-width: 780px; }
+.hero-label {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--text-dim); margin-bottom: var(--space-5);
+}
+.hero-headline {
+  font-size: clamp(64px, 9vw, 110px);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.035em;
+  color: var(--text);
+  margin-bottom: var(--space-5);
+  /* Word-by-word reveal via JS */
+}
+.hero-headline .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity var(--speed-slower) var(--ease), transform var(--speed-slower) var(--ease);
+}
+.hero-headline .word.in { opacity: 1; transform: translateY(0); }
+.hero-body {
+  font-size: 20px; font-weight: 400; line-height: 1.6;
+  letter-spacing: 0.01em; color: var(--text-dim); max-width: 44ch;
+}
+.hero-cta {
+  display: inline-block; margin-top: var(--space-7);
+  font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
+  color: var(--bg); background: var(--signal);
+  padding: 18px 32px;
+  transition: background var(--speed), transform var(--speed);
+  border: none; cursor: pointer;
+}
+.hero-cta:hover { background: #1ae075; color: var(--bg); transform: translateY(-1px); }
+.hero-secondary {
+  display: inline-block; margin-top: var(--space-4);
+  font-size: 14px; font-weight: 400; color: var(--text-faint);
+}
+.hero-brand { flex: 0 0 auto; width: clamp(280px, 22vw, 420px); opacity: 0.92; }
+.hero-brand svg { width: 100%; height: auto; }
+
+@media (max-width: 900px) {
+  .hero { padding: var(--space-8) var(--space-5); min-height: auto; }
+  .hero-inner { grid-template-columns: 1fr; gap: var(--space-6); }
+  .hero-brand { width: 200px; order: -1; }
+}
+@media (max-width: 480px) {
+  .hero { padding: var(--space-6) var(--space-4); }
+  .hero-headline { font-size: clamp(48px, 12vw, 64px); }
+  .hero-body { font-size: 16px; }
+  .hero-cta { width: 100%; justify-content: center; padding: 16px 20px; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STORY — "The problem"
+   ═══════════════════════════════════════════════════════════ */
+.story { padding: var(--space-10) 0; }
+.story-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8);
+  align-items: start;
+}
+.story-text { max-width: 50ch; }
+.story-stat {
+  padding: var(--space-7) var(--space-6);
+  border: 1px solid var(--border);
+  background: #0a0a0a;
+  display: flex; flex-direction: column; gap: var(--space-4);
+}
+.story-stat-number {
+  font-size: 56px; font-weight: 300; line-height: 1.0; letter-spacing: -0.03em;
+}
+.story-stat-label {
+  font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-dim);
+}
+@media (max-width: 768px) {
+  .story-grid { grid-template-columns: 1fr; gap: var(--space-5); }
+  .story { padding: var(--space-8) 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ENEMY — "The drag"
+   Mirofish Principle 3: VISUAL METAPHOR
+   Operational drag as piled-up cards — visual clutter
+   that represents the problem. Each card is a "post-it"
+   that's stuck, displaced, piled on top of each other.
+   Mirofish: abstract concepts need concrete visual form.
+   ═══════════════════════════════════════════════════════════ */
+.enemy { padding: var(--space-10) 0; }
+.enemy-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
+.enemy-headline {
+  font-size: clamp(48px, 6vw, 72px);
+  font-weight: 300; line-height: 1.05; letter-spacing: -0.025em;
+  color: var(--text); margin-bottom: var(--space-8); max-width: 65ch;
+}
+.enemy-chaos {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+  align-items: start;
+  perspective: 1200px;
+}
+.drag-card {
+  position: relative;
+  padding: var(--space-5) var(--space-4);
+  background: #0a0a0a;
+  border: 1px solid var(--border);
+  min-height: 130px;
+  display: flex; flex-direction: column; gap: var(--space-3);
+  transform-origin: center center;
+  transition: transform var(--speed-slow) var(--ease), box-shadow var(--speed-slow) var(--ease), border-color var(--speed-slow) var(--ease), z-index var(--speed-slow) var(--ease);
+  cursor: default;
+}
+.drag-card:hover {
+  transform: translateY(-4px) scale(1.02) rotate(0deg);
+  border-color: var(--border-strong);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  z-index: 30;
+}
+.card-tape {
+  position: absolute; top: -7px; left: 50%; transform: translateX(-50%);
+  width: 44px; height: 14px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 1px;
+  opacity: 0.5;
+}
+.card-tape--side {
+  top: 22px; left: -8px; width: 16px; height: 34px; transform: none;
+}
+.card-tape--top { top: -9px; width: 52px; }
+.card-rough { display: flex; flex-direction: column; gap: var(--space-2); position: relative; z-index: 1; }
+.card-icon { color: var(--text-faint); display: flex; align-items: center; }
+.card-icon svg { width: 22px; height: 22px; }
+.card-label {
+  font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: var(--text);
+}
+.card-sub {
+  font-size: 13px; font-weight: 400; color: var(--text-dim);
+  line-height: 1.4; letter-spacing: 0.01em;
+}
+.card-rough--wide { align-items: flex-start; }
+.card-body { display: flex; flex-direction: column; gap: var(--space-2); }
+
+/* Enemy card positions — organized chaos */
+[data-d="0"]  { transform: none; }                                      /* CHECK — top left, normal */
+[data-d="1"]  { transform: translate(-30px, 24px) rotate(-1.5deg); }    /* CHASE — offset left */
+[data-d="2"]  { transform: translate(38px, 42px) rotate(1.2deg); }      /* COPY — overlapping right */
+[data-d="3"]  { transform: translate(14px, 62px) rotate(0.4deg); }      /* UPDATE — bottom right */
+[data-d="4"]  { transform: translate(-10px, 82px) rotate(-0.8deg); opacity: 0.9; }  /* BOOK — buried */
+[data-d="5"]  { transform: translate(50px, 14px) rotate(0.8deg); }      /* FOLLOW UP — top, dislodged */
+[data-d="6"]  { grid-column: 1 / -1; padding: var(--space-5) var(--space-5); min-height: 100px; transform: translate(-6px, 34px) rotate(2deg); z-index: 10; }  /* MOVE INFO — on top, widest */
+
+@media (max-width: 900px) {
+  .enemy-chaos { grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
+  .drag-card[data-d="6"] { grid-column: 1 / -1; }
+}
+@media (max-width: 500px) {
+  .enemy-chaos { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PROOF — "How it works"
+   Mirofish Principle 3: the proof stream as a flowing pipe.
+   Vertical conduit with animated particle. Each step is a node.
+   Work enters at top, flows through stages, exits at bottom.
+   ═══════════════════════════════════════════════════════════ */
+.proof { padding: var(--space-10) 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.proof-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
+.proof-headline {
+  font-size: clamp(48px, 6vw, 72px);
+  font-weight: 300; line-height: 1.05; letter-spacing: -0.025em;
+  color: var(--text); margin-bottom: var(--space-4); max-width: 50ch;
+}
+.proof-intro { font-size: 20px; font-weight: 400; color: var(--text-dim); max-width: 40ch; margin-bottom: var(--space-8); }
+.proof-pipe {
+  position: relative;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+  align-items: start;
+}
+.pipe-conduit {
+  position: absolute;
+  top: 32px; bottom: 0;
+  left: calc(50% + 32px);
+  right: 0;
+  pointer-events: none; z-index: 0;
+}
+.pipe-line {
+  position: absolute; top: 0; bottom: 0;
+  left: 50%; width: 1px;
+  background: var(--border);
+  transform: translateX(-50%);
+}
+.pipe-particle {
+  position: absolute; top: 0; left: 50%;
+  width: 6px; height: 6px;
+  background: var(--signal);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 12px rgba(32,247,130,0.4);
+  animation: pipeParticle 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@keyframes pipeParticle {
+  0% { top: 0; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { top: calc(100% - 6px); opacity: 0; }
+}
+.pipe-step {
+  position: relative; display: flex; gap: var(--space-5);
+  align-items: flex-start; padding: var(--space-4) 0; z-index: 1;
+}
+.pipe-node {
+  flex: 0 0 auto; width: 60px; height: 60px;
+  border: 1px solid var(--border-strong); background: var(--bg);
+  display: flex; align-items: center; justify-content: center; position: relative;
+}
+.pipe-node--active { border-color: var(--signal); background: var(--signal-dim); }
+.pipe-num { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-dim); }
+.pipe-node--active .pipe-num { color: var(--signal); }
+.pipe-dot {
+  position: absolute; bottom: -4px; right: -4px;
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 1px solid var(--border-strong); background: var(--bg);
+}
+.pipe-dot--signal { background: var(--signal); border-color: var(--signal); }
+.pipe-body { display: flex; flex-direction: column; gap: var(--space-1); padding-top: var(--space-1); }
+.pipe-label { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; color: var(--text); }
+.pipe-desc { font-size: 13px; font-weight: 400; color: var(--text-dim); line-height: 1.5; letter-spacing: 0.01em; max-width: 32ch; }
+.pipe-step--complete .pipe-node { border-color: var(--signal); background: var(--signal-dim); }
+.pipe-step--complete .pipe-num { color: var(--signal); }
+.pipe-step--complete .pipe-dot { background: var(--signal); border-color: var(--signal); }
+.human-bound {
+  margin-top: var(--space-8);
+  padding: var(--space-5) var(--space-6);
+  border: 1px dashed var(--border-strong);
+  display: flex; flex-direction: column; gap: var(--space-2);
+}
+.human-label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
+.human-desc { font-size: 18px; font-weight: 400; color: var(--text); line-height: 1.5; }
+
+@media (max-width: 768px) {
+  .proof-pipe { grid-template-columns: 48px 1fr; }
+  .pipe-node { width: 48px; height: 48px; }
+  .pipe-num { font-size: 14px; }
+  .pipe-conduit { left: calc(50% + 24px); }
+  .proof { padding: var(--space-8) 0; }
+}
+@media (max-width: 480px) {
+  .proof-pipe { grid-template-columns: 1fr; }
+  .pipe-step { flex-direction: column; align-items: center; text-align: center; }
+  .pipe-node { width: 56px; height: 56px; }
+  .pipe-body { align-items: center; }
+  .pipe-desc { max-width: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DIFFERENCE — "Most software vs Twinthos"
+   Two-column contrast. Software: dim, crossed-out feel.
+   Twinthos: signal green accent, positive.
+   ═══════════════════════════════════════════════════════════ */
+.difference { padding: var(--space-10) 0; }
+.difference-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
+.difference-headline {
+  font-size: clamp(40px, 5vw, 56px);
+  font-weight: 300; line-height: 1.1; letter-spacing: -0.025em;
+  color: var(--text); margin-bottom: var(--space-7); max-width: 65ch;
+}
+.difference-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5);
+  margin-top: var(--space-7); align-items: start;
+}
+.difference-col {
+  padding: var(--space-7) var(--space-6);
+  border: 1px solid var(--border);
+  background: #0a0a0a;
+}
+.difference-col--twinthos {
+  border-color: rgba(32,247,130,0.2);
+  background: var(--signal-dim);
+  position: relative;
+}
+.difference-col--twinthos::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px; background: var(--signal);
+}
+.difference-col-label {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-4);
+}
+.difference-col--twinthos .difference-col-label { color: var(--signal); }
+.difference-col-title { font-size: 28px; font-weight: 300; line-height: 1.1; letter-spacing: -0.02em; color: var(--text); margin-bottom: var(--space-6); }
+.difference-col--software .difference-col-title { color: var(--text-faint); }
+.difference-list { display: flex; flex-direction: column; gap: var(--space-5); }
+.difference-item { display: flex; align-items: flex-start; gap: var(--space-3); font-size: 20px; font-weight: 400; line-height: 1.6; }
+.difference-item--bad { color: var(--text-faint); }
+.difference-item--good { color: var(--text); }
+.difference-item-icon { flex: 0 0 24px; margin-top: 2px; display: flex; align-items: center; }
+.difference-item-icon--bad { color: var(--text-faint); }
+.difference-item-icon--good { color: var(--signal); }
+@media (max-width: 768px) {
+  .difference-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+  .difference { padding: var(--space-8) 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   REDACTED EXAMPLE — "A real audit"
+   Mirofish Principle 4: SIGNAL AND NOISE
+   Premium document feel. Not a list — a record.
+   Each item is a structured entry in an audit document.
+   Careful alignment. Thin rules. Quiet weight.
+   ═══════════════════════════════════════════════════════════ */
+.redacted { padding: var(--space-10) 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.redacted-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
+.redacted-headline {
+  font-size: clamp(40px, 5vw, 56px);
+  font-weight: 300; line-height: 1.1; letter-spacing: -0.025em;
+  color: var(--text); margin-bottom: var(--space-5); max-width: 60ch;
+}
+.redacted-desc { font-size: 20px; font-weight: 400; color: var(--text-dim); max-width: 58ch; line-height: 1.6; margin-bottom: var(--space-7); }
+.redacted-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  margin-top: var(--space-7);
+}
+.redacted-item {
+  padding: var(--space-6) var(--space-5);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: #0a0a0a;
+}
+.redacted-item:nth-child(3n) { border-right: none; }
+.redacted-item-label {
+  display: flex; align-items: center; gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+.redacted-item-num {
+  font-size: 14px; font-weight: 300; letter-spacing: -0.02em;
+  color: var(--signal); font-variant-numeric: tabular-nums;
+}
+.redacted-item-title {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim);
+}
+.redacted-item-body {
+  font-size: 18px; font-weight: 300; line-height: 1.8; letter-spacing: -0.01em; color: var(--text);
+}
+.redacted-cta-row {
+  margin-top: var(--space-7);
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-5);
+}
+.redacted-cta-note { font-size: 13px; color: var(--text-faint); letter-spacing: 0.03em; }
+@media (max-width: 768px) {
+  .redacted-grid { grid-template-columns: 1fr; }
+  .redacted-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .redacted-item:nth-child(3n) { border-right: 1px solid var(--border); }
+  .redacted-item:last-child, .redacted-item:nth-last-child(2), .redacted-item:nth-last-child(3) { border-bottom: none; }
+  .redacted { padding: var(--space-8) 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HUMAN ARCHITECT
+   Mirofish Principle 4: A position statement
+   "Humans set the direction. Twinthos carries the work."
+   ═══════════════════════════════════════════════════════════ */
+.human-architect { padding: var(--space-10) 0; background: #0a0a0a; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.human-grid {
+  max-width: 1200px; margin: 0 auto; padding: 0 var(--space-8);
+  display: grid; grid-template-columns: auto 1fr; gap: var(--space-8); align-items: center;
+}
+.human-mark { flex-shrink: 0; opacity: 0.92; }
+.human-mark svg { width: 100%; height: auto; }
+.human-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
+.human-headline {
+  font-size: clamp(40px, 5vw, 56px);
+  font-weight: 300; line-height: 1.1; letter-spacing: -0.025em;
+  color: var(--text); margin-bottom: var(--space-5); max-width: 55ch;
+}
+.human-sub { font-size: 20px; font-weight: 400; color: var(--text-dim); line-height: 1.6; max-width: 50ch; }
+@media (max-width: 768px) {
+  .human-grid { grid-template-columns: 1fr; gap: var(--space-5); text-align: center; }
+  .human-mark { order: -1; }
+  .human-headline { max-width: 100%; }
+  .human-sub { max-width: 48ch; margin: 0 auto; }
+  .human-architect { padding: var(--space-8) 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   OFFER — "The offer"
+   Mirofish Principle 4: £5,000/month is the hero
+   Confident. No apology. The price commands the section.
+   ═══════════════════════════════════════════════════════════ */
+.offer { padding: var(--space-10) var(--space-8); text-align: center; border-top: 1px solid var(--border); }
+.offer-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
+.offer-price-block { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); margin-bottom: var(--space-7); }
+.offer-price { font-size: clamp(64px, 10vw, 110px); font-weight: 300; line-height: 1.0; letter-spacing: -0.035em; color: var(--text); }
+.offer-price-unit { font-size: 22px; font-weight: 500; color: var(--text-dim); letter-spacing: 0.02em; }
+.offer-price-note { font-size: 13px; color: var(--text-faint); letter-spacing: 0.06em; text-transform: uppercase; margin-top: var(--space-1); }
+.offer-desc { font-size: 20px; font-weight: 400; color: var(--text-dim); max-width: 46ch; margin: 0 auto var(--space-8) auto; line-height: 1.6; }
+.offer-list { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); max-width: 56ch; margin: 0 auto var(--space-8) auto; }
+.offer-list-item {
+  display: flex; align-items: center; gap: var(--space-3);
+  font-size: 20px; font-weight: 400; color: var(--text); flex-wrap: wrap; justify-content: center;
+}
+.offer-list-sep { width: 4px; height: 4px; border-radius: 50%; background: var(--border-strong); flex-shrink: 0; }
+.offer-cta-row { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); }
+.offer-cta { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: var(--bg); background: var(--signal); padding: 18px 32px; transition: background var(--speed), transform var(--speed); }
+.offer-cta:hover { background: #1ae075; color: var(--bg); }
+.offer-cta-sub { font-size: 13px; color: var(--text-faint); letter-spacing: 0.03em; }
+@media (max-width: 600px) {
+  .offer { padding: var(--space-8) var(--space-4); }
+  .offer-list-item { font-size: 16px; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FINAL CTA — "The ask"
+   Mirofish Principle 6: FLOW AND NARRATIVE
+   The culmination of the story. Not an afterthought.
+   ═══════════════════════════════════════════════════════════ */
+.final-cta { padding: var(--space-10) 0; text-align: center; background: #0a0a0a; border-top: 1px solid var(--border); }
+.final-cta-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
+.final-cta-headline {
+  font-size: clamp(40px, 5vw, 56px);
+  font-weight: 300; line-height: 1.1; letter-spacing: -0.025em;
+  color: var(--text); margin-bottom: var(--space-5); max-width: 60ch; margin-left: auto; margin-right: auto;
+}
+.final-cta-sub { font-size: 20px; font-weight: 400; color: var(--text-dim); max-width: 42ch; margin: 0 auto var(--space-7) auto; line-height: 1.6; }
+.final-cta-actions { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); }
+.final-cta-btn { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; color: var(--bg); background: var(--signal); padding: 18px 32px; transition: background var(--speed), transform var(--speed); }
+.final-cta-btn:hover { background: #1ae075; color: var(--bg); }
+.final-cta-secondary { font-size: 14px; color: var(--text-faint); }
+@media (max-width: 600px) {
+  .final-cta { padding: var(--space-8) 0; }
+  .final-cta-headline { font-size: 32px; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════ */
+.footer { padding: var(--space-6) 0; border-top: 1px solid var(--border); }
+.footer-inner {
+  max-width: var(--container); margin: 0 auto; padding: 0 var(--space-8);
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-5);
+}
+.footer-copy { font-size: 13px; color: var(--text-faint); letter-spacing: -0.01em; }
+.footer-links { display: flex; gap: var(--space-5); }
+.footer-link { font-size: 13px; color: var(--text-dim); transition: color var(--speed); }
+.footer-link:hover { color: var(--text); }
+@media (max-width: 600px) {
+  .footer-inner { flex-direction: column; text-align: center; gap: var(--space-4); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLL REVEAL SYSTEM
+   Elements start invisible, cascade in when visible.
+   Uses IntersectionObserver for performance.
+   Stagger via data-delay attribute (ms).
+   ═══════════════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--speed-slower) var(--ease), transform var(--speed-slower) var(--ease);
+}
+.reveal-fast {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 350ms var(--ease), transform 350ms var(--ease);
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal-fast.in { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-fast { opacity: 1; transform: none; transition: none; }
+  .pipe-particle { animation: none; opacity: 0.4; }
+}
+</style>
 </head>
 <body>
 
-<!-- NAV -->
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
 <nav class="nav" id="nav" aria-label="Main navigation">
   <div class="nav-inner">
-    <a class="brand" href="/" aria-label="Twinthos · Managed operations">
-      <svg class="brand-mark" viewBox="0 0 716 716" aria-hidden="true"><use href="#twSymbol"/></svg>
+    <a href="/" class="nav-brand" aria-label="Twinthos home">
+      <!-- Twinthos mark SVG (flat titanium, black background) -->
+      <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="120" height="40" aria-hidden="true">
+        <rect width="120" height="40" fill="#000000"/>
+        <path d="M12 10 L32 10 L32 30 L12 30 Z" fill="#FFFFFF" opacity="0.9"/>
+        <path d="M36 10 L56 10 L56 18 L44 18 L44 30 L36 30 Z" fill="#FFFFFF"/>
+        <circle cx="72" cy="20" r="5" fill="#20F782"/>
+        <path d="M82 14 L92 20 L82 26 Z" fill="#20F782"/>
+      </svg>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#how">How it works</a>
-      <a href="#use-cases">Use cases</a>
-      <a href="#security">Security</a>
+      <a href="#story" class="nav-link">The problem</a>
+      <a href="#enemy" class="nav-link">The drag</a>
+      <a href="#proof" class="nav-link">How it works</a>
+      <a href="#redacted" class="nav-link">A real audit</a>
+      <a href="#offer" class="nav-link">The offer</a>
     </div>
-    <a class="nav-cta" href="/book/">Assess your operation</a>
+    <a href="#offer" class="nav-cta">Assess your operation</a>
     <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-<defs>
-<linearGradient id="twChrome" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0" stop-color="#1d1d1f"/><stop offset=".4" stop-color="#6e6e73"/><stop offset=".75" stop-color="#86868b"/><stop offset="1" stop-color="#1d1d1f"/>
-</linearGradient>
-<linearGradient id="twSilver" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0" stop-color="#a7abb0"/><stop offset=".5" stop-color="#d1d5db"/><stop offset="1" stop-color="#a7abb0"/>
-</linearGradient>
-<path id="twSymbol" d="M508.749 317.399C516.777 287.314 508.991 253.884 485.389 230.282C461.788 206.681 428.36 198.895 398.273 206.923C376.231 184.928 343.39 174.956 311.148 183.596C278.906 192.234 255.45 217.292 247.36 247.361C217.291 255.451 192.233 278.91 183.595 311.149C174.957 343.391 184.927 376.232 206.924 398.274C198.896 428.359 206.683 461.789 230.284 485.391C253.885 508.992 287.313 516.779 317.401 508.75C339.442 530.745 372.286 540.717 404.525 532.079C436.767 523.441 460.223 498.384 468.313 468.315C498.383 460.224 523.44 436.766 532.078 404.526C540.716 372.285 530.747 339.443 508.749 317.402V317.399ZM470.899 244.776C486.892 260.77 493.488 282.601 490.687 303.412L415.577 260.046C412.411 258.218 408.509 258.218 405.345 260.046L317.401 310.82V277.526C317.401 275.191 318.652 273.005 320.676 271.837L387.644 233.174C414.178 218.353 448.346 222.223 470.901 244.776H470.899ZM357.837 311.144L398.275 334.491V381.185L357.837 404.532L317.398 381.185V334.491L357.837 311.144ZM264.776 269.693C265.207 239.305 285.644 211.649 316.453 203.393C338.3 197.54 360.505 202.744 377.127 215.573L302.014 258.937C298.848 260.764 296.898 264.144 296.898 267.798V369.346L268.065 352.699C266.043 351.531 264.776 349.353 264.776 347.017V269.691V269.693ZM203.391 316.454C209.244 294.608 224.854 277.978 244.276 269.999V356.73C244.276 360.384 246.226 363.763 249.392 365.591L337.337 416.365L308.503 433.013C306.481 434.181 303.961 434.188 301.939 433.02L234.971 394.357C208.868 378.789 195.138 347.261 203.391 316.454ZM244.775 470.9C228.781 454.906 222.186 433.075 224.986 412.264L300.096 455.63C303.263 457.457 307.164 457.457 310.328 455.63L398.273 404.856V438.149C398.273 440.485 397.022 442.671 394.997 443.839L328.029 482.502C301.495 497.322 267.327 493.452 244.772 470.9H244.775ZM450.897 445.982C450.466 476.371 430.029 504.027 399.22 512.283C377.373 518.136 355.168 512.932 338.547 500.102L413.659 456.738C416.826 454.911 418.775 451.532 418.775 447.877V346.329L447.609 362.977C449.631 364.145 450.899 366.075 450.899 368.185V509.834L419.726 493.186C409.577 489.552 401.701 481.441 398.444 471.961L323.332 414.425C313.111 406.168 308.949 394.973 309.947 382.792L367.565 367.494C369.564 364.16 373.844 361.979 378.109 361.979H405.345L468.313 401.824C477.065 406.525 488.611 413.284 501.986 418.495V317.399C501.986 305.106 488.199 297.75 470.899 297.75H450.897V244.776H470.899C476.107 244.776 480.235 245.944 482.461 248.17L415.577 307.324L357.837 269.584L264.776 344.696V369.346C264.776 381.645 274.541 391.409 286.84 391.409H320.676L398.275 334.491L357.837 311.144L264.776 269.696V269.693ZM203.391 316.454C209.244 294.608 224.854 277.978 244.276 269.999V356.73C244.276 360.384 246.226 363.763 249.392 365.591L337.337 416.365L308.503 433.013C306.481 434.181 303.961 434.188 301.939 433.02L234.971 394.357C208.868 378.789 195.138 347.261 203.391 316.454ZM244.775 470.9C228.781 454.906 222.186 433.075 224.986 412.264L300.096 455.63C303.263 457.457 307.164 457.457 310.328 455.63L398.273 404.856V438.149C398.273 440.485 397.022 442.671 394.997 443.839L328.029 482.502C301.495 497.322 267.327 493.452 244.772 470.9H244.775ZM450.897 445.982C450.466 476.371 430.029 504.027 399.22 512.283C377.373 518.136 355.168 512.932 338.547 500.102L413.659 456.738C416.826 454.911 418.775 451.532 418.775 447.877V346.329L447.609 362.977C449.631 364.145 450.899 366.075 450.899 368.185V509.834L419.726 493.186C409.577 489.552 401.701 481.441 398.444 471.961L323.332 414.425C313.111 406.168 308.949 394.973 309.947 382.792L367.565 367.494C369.564 364.16 373.844 361.979 378.109 361.979H405.345L468.313 401.824C477.065 406.525 488.611 413.284 501.986 418.495V317.399C501.986 305.106 488.199 297.75 470.899 297.75H450.897V244.776H470.899C476.107 244.776 480.235 245.944 482.461 248.17L415.577 307.324L357.837 269.584L264.776 344.696V369.346C264.776 381.645 274.541 391.409 286.84 391.409H320.676L398.275 334.491L357.837 311.144L264.776 269.693Z"/>
-</defs>
-</svg>
-
 <main id="main">
 
-<!-- ====== 01 HERO ====== -->
+<!-- ═══════════════════════ 01 HERO ═══════════════════════ -->
+<!-- Mirofish Principle 1: ONE BIG IDEA FIRST -->
+<!-- The hero communicates the core value prop instantly. -->
+<!-- Editorial. Confident. No clutter. -->
 <section class="hero" id="hero">
   <div class="hero-inner">
     <div class="hero-content">
-      <p class="hero-label">Managed operations</p>
-      <h1 class="hero-headline reveal">Your business<br>shouldn't need<br>your attention<br>for everything.</h1>
-      <p class="hero-body reveal">Twinthos takes repeat operational work off your team.</p>
-      <div class="hero-cta-row reveal">
-        <a class="btn-primary" href="/book/">Assess your operation</a>
-      </div>
+      <p class="hero-label reveal-fast">Managed operations</p>
+      <h1 class="hero-headline" id="heroHeadline">
+        <span class="word">Your</span>
+        <span class="word">team</span>
+        <span class="word">shouldn't</span>
+        <span class="word">spend</span>
+        <span class="word">their</span>
+        <span class="word">day</span>
+        <span class="word">on</span>
+        <span class="word">work</span>
+        <span class="word">a</span>
+        <span class="word">machine</span>
+        <span class="word">could</span>
+        <span class="word">do</span>
+        <span class="word">.</span>
+      </h1>
+      <p class="hero-body reveal" data-delay="300">
+        Twinthos removes the operational glue work — chasing updates, updating records, following up — so your operation runs without constant attention.
+      </p>
+      <a href="#offer" class="hero-cta reveal" data-delay="450">Assess your operation</a>
+      <p class="hero-secondary reveal" data-delay="550">No software to buy. No dashboard to learn.</p>
     </div>
-    <div class="hero-mark">
-      <svg class="brand-mark-lg" viewBox="0 0 716 716" aria-hidden="true"><use href="#twSymbol"/></svg>
+    <div class="hero-brand" aria-hidden="true">
+      <!-- Same flat titanium mark, scaled for hero presence -->
+      <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="360" height="120">
+        <rect width="120" height="40" fill="#000000"/>
+        <path d="M12 10 L32 10 L32 30 L12 30 Z" fill="#FFFFFF" opacity="0.9"/>
+        <path d="M36 10 L56 10 L56 18 L44 18 L44 30 L36 30 Z" fill="#FFFFFF"/>
+        <circle cx="72" cy="20" r="5" fill="#20F782"/>
+        <path d="M82 14 L92 20 L82 26 Z" fill="#20F782"/>
+      </svg>
     </div>
   </div>
 </section>
 
-<!-- ====== 02 THE STORY ====== -->
+<!-- ═══════════════════════ 02 STORY ═══════════════════════ -->
+<!-- "Software multiplied. Work didn't disappear." -->
 <section class="story" id="story">
-  <div class="story-inner">
-    <p class="story-label reveal-fast">The problem</p>
-    <h2 class="story-headline reveal">Software was supposed<br>to remove work.</h2>
-    <p class="story-statement reveal" style="margin-top:var(--s16)">The software multiplied.</p>
-    <p class="story-statement reveal" style="margin-top:var(--s12)">The work didn't disappear.</p>
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-text">
+        <p class="enemy-label reveal-fast">The problem</p>
+        <h2 class="story-headline reveal">
+          <span class="word">Software</span>
+          <span class="word">multiplied</span>
+          <span class="word">.</span>
+          <span class="word">Work</span>
+          <span class="word">didn't</span>
+          <span class="word">disappear</span>
+          <span class="word">.</span>
+        </h2>
+        <p class="story-body reveal" data-delay="150">
+          Every team bought tools to make work easier. Each one created something new to check, update, chase, copy, book and follow up on. The operation didn't get simpler. It got heavier.
+        </p>
+        <p class="story-body reveal" data-delay="250">
+          The work didn't go away. It changed shape. It became the quiet, constant background task that keeps good people busy and prevents them from doing the work they were hired for.
+        </p>
+      </div>
+      <div class="story-stat reveal" data-delay="200">
+        <span class="story-stat-number">92%</span>
+        <span class="story-stat-label">of companies plan to increase AI investment over 3 years — McKinsey</span>
+        <div style="height:1px;background:var(--border);margin:var(--space-5) 0;"></div>
+        <span class="story-stat-label">but</span>
+        <span class="story-stat-number" style="font-size:32px;">only 1%</span>
+        <span class="story-stat-label">of leaders call their company mature on AI deployment — McKinsey</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ====== 03 THE ENEMY ====== -->
+<!-- ═══════════════════════ 03 ENEMY ═══════════════════════ -->
+<!-- Mirofish Principle 3: VISUAL METAPHOR -->
+<!-- Operational drag as physical clutter — piled-up cards -->
+<!-- Each card is a "post-it" that's stuck, displaced, piled. -->
 <section class="enemy" id="enemy">
-  <div class="enemy-inner">
-    <p class="enemy-label reveal-fast">Operational drag</p>
-    <h2 class="enemy-headline reveal">People became<br>the glue<br>between systems.</h2>
-    <div class="enemy-list reveal" style="margin-top:var(--s16)">
-      <div class="enemy-item">Check</div>
-      <div class="enemy-item">Chase</div>
-      <div class="enemy-item">Copy</div>
-      <div class="enemy-item">Update</div>
-      <div class="enemy-item">Book</div>
-      <div class="enemy-item">Follow up</div>
-      <div class="enemy-item">Move information</div>
+  <div class="container">
+    <p class="enemy-label reveal-fast">The enemy</p>
+    <h2 class="enemy-headline reveal">
+      <span class="word">People</span>
+      <span class="word">became</span>
+      <span class="word">the</span>
+      <span class="word">glue</span>
+      <span class="word">between</span>
+      <span class="word">systems</span>
+      <span class="word">.</span>
+    </h2>
+    <div class="enemy-chaos reveal">
+      <!-- Card 1: CHECK — top left, normal -->
+      <div class="drag-card" data-d="0">
+        <div class="card-tape" aria-hidden="true"></div>
+        <div class="card-rough">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 7v5l3 2"/>
+            </svg>
+          </div>
+          <span class="card-label">Check</span>
+          <span class="card-sub">Look it up. Read it. Confirm it.</span>
+        </div>
+      </div>
+      <!-- Card 2: CHASE — offset left -->
+      <div class="drag-card" data-d="1">
+        <div class="card-tape card-tape--side" aria-hidden="true"></div>
+        <div class="card-rough">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M4 16c0-4 3-7 8-7s8 3 8 7"/>
+              <circle cx="18" cy="7" r="1.5" fill="currentColor" stroke="none"/>
+              <path d="M20 9l2 2"/>
+            </svg>
+          </div>
+          <span class="card-label">Chase</span>
+          <span class="card-sub">Send again. Follow up. Wait.</span>
+        </div>
+      </div>
+      <!-- Card 3: COPY — overlapping right -->
+      <div class="drag-card" data-d="2">
+        <div class="card-tape card-tape--side" aria-hidden="true"></div>
+        <div class="card-rough">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="8" y="6" width="10" height="13" rx="1"/>
+              <path d="M4 10h12M4 14h12"/>
+            </svg>
+          </div>
+          <span class="card-label">Copy</span>
+          <span class="card-sub">Paste it here. Paste it there. Paste it again.</span>
+        </div>
+      </div>
+      <!-- Card 4: UPDATE — bottom right -->
+      <div class="drag-card" data-d="3">
+        <div class="card-rough">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M11 4H4v12l9 6 9-6V4z"/>
+              <path d="M11 4v6h6"/>
+            </svg>
+          </div>
+          <span class="card-label">Update</span>
+          <span class="card-sub">Change one system. Then change the other.</span>
+        </div>
+      </div>
+      <!-- Card 5: BOOK — buried -->
+      <div class="drag-card" data-d="4">
+        <div class="card-rough">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="1"/>
+              <path d="M3 9h18"/>
+            </svg>
+          </div>
+          <span class="card-label">Book</span>
+          <span class="card-sub">Find the slot. Send the invite. Confirm it.</span>
+        </div>
+      </div>
+      <!-- Card 6: FOLLOW UP — top, dislodged -->
+      <div class="drag-card" data-d="5">
+        <div class="card-tape card-tape--top" aria-hidden="true"></div>
+        <div class="card-rough">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M4 4l16 16"/>
+              <circle cx="18" cy="6" r="3"/>
+              <circle cx="6" cy="18" r="3"/>
+            </svg>
+          </div>
+          <span class="card-label">Follow up</span>
+          <span class="card-sub">One message becomes four.</span>
+        </div>
+      </div>
+      <!-- Card 7: MOVE INFORMATION — on top, widest, most dislodged (the worst offender) -->
+      <div class="drag-card" data-d="6" style="z-index:10;">
+        <div class="card-tape" aria-hidden="true"></div>
+        <div class="card-rough card-rough--wide">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+          <span class="card-label">Move information</span>
+          <span class="card-sub">From here. To there. Then back again.</span>
+        </div>
+      </div>
     </div>
-    <p class="enemy-solution reveal" style="margin-top:var(--s12)">Twinthos removes the glue work.</p>
   </div>
 </section>
 
-<!-- ====== 04 PRODUCT PROOF ====== -->
+<!-- ═══════════════════════ 04 PROOF ═══════════════════════ -->
+<!-- Mirofish Principle 3: the proof stream as a flowing pipe -->
+<!-- Vertical conduit. Work enters at top, flows through stages, exits complete. -->
 <section class="proof" id="proof">
-  <div class="proof-inner">
-    <p class="proof-label reveal-fast">See it work</p>
-    <h2 class="proof-headline reveal">Watch work<br>disappear.</h2>
-    <p class="proof-intro reveal" style="margin-top:var(--s10)">One workflow. No dashboard. No control panel.</p>
-    <div class="stream" style="margin-top:var(--s12)">
-      <div class="stream-step reveal" style="--d:0ms">
-        <span class="stream-num">01</span>
-        <span class="stream-label">Enquiry</span>
+  <div class="container">
+    <p class="proof-label reveal-fast">The proof</p>
+    <h2 class="proof-headline reveal">
+      <span class="word">Watch</span>
+      <span class="word">work</span>
+      <span class="word">disappear</span>
+      <span class="word">.</span>
+    </h2>
+    <p class="proof-intro reveal" data-delay="200">One workflow. No dashboard. No control panel.</p>
+
+    <div class="proof-pipe">
+      <!-- Animated conduit -->
+      <div class="pipe-conduit" aria-hidden="true">
+        <div class="pipe-line"></div>
+        <div class="pipe-particle"></div>
       </div>
-      <div class="stream-arrow">↓</div>
-      <div class="stream-step reveal" style="--d:80ms">
-        <span class="stream-num">02</span>
-        <span class="stream-label">Understand</span>
+
+      <!-- Step 01: Enquiry -->
+      <div class="pipe-step reveal" data-delay="300">
+        <div class="pipe-node">
+          <span class="pipe-num">01</span>
+          <span class="pipe-dot"></span>
+        </div>
+        <div class="pipe-body">
+          <span class="pipe-label">Enquiry</span>
+          <span class="pipe-desc">A message arrives — email, form, enquiry. The workflow notices it.</span>
+        </div>
       </div>
-      <div class="stream-arrow">↓</div>
-      <div class="stream-step reveal" style="--d:160ms">
-        <span class="stream-num">03</span>
-        <span class="stream-label">Check</span>
+
+      <!-- Step 02: Understand -->
+      <div class="pipe-step reveal" data-delay="400">
+        <div class="pipe-node">
+          <span class="pipe-num">02</span>
+          <span class="pipe-dot"></span>
+        </div>
+        <div class="pipe-body">
+          <span class="pipe-label">Understand</span>
+          <span class="pipe-desc">It reads what was sent. Works out what it means. Knows what to do next.</span>
+        </div>
       </div>
-      <div class="stream-arrow">↓</div>
-      <div class="stream-step reveal" style="--d:240ms">
-        <span class="stream-num">04</span>
-        <span class="stream-label">Act</span>
+
+      <!-- Step 03: Check -->
+      <div class="pipe-step reveal" data-delay="500">
+        <div class="pipe-node">
+          <span class="pipe-num">03</span>
+          <span class="pipe-dot"></span>
+        </div>
+        <div class="pipe-body">
+          <span class="pipe-label">Check</span>
+          <span class="pipe-desc">Looks across the systems. Confirms the details. Finds what's relevant.</span>
+        </div>
       </div>
-      <div class="stream-arrow">↓</div>
-      <div class="stream-step reveal" style="--d:320ms">
-        <span class="stream-num">05</span>
-        <span class="stream-label">Update</span>
+
+      <!-- Step 04: Act -->
+      <div class="pipe-step reveal" data-delay="600">
+        <div class="pipe-node">
+          <span class="pipe-num">04</span>
+          <span class="pipe-dot"></span>
+        </div>
+        <div class="pipe-body">
+          <span class="pipe-label">Act</span>
+          <span class="pipe-desc">Does what it's allowed to do — books, updates, sends, copies. Without asking.</span>
+        </div>
       </div>
-      <div class="stream-arrow">↓</div>
-      <div class="stream-step complete reveal" style="--d:400ms">
-        <span class="stream-num">06</span>
-        <span class="stream-label">Complete</span>
+
+      <!-- Step 05: Update -->
+      <div class="pipe-step reveal" data-delay="700">
+        <div class="pipe-node">
+          <span class="pipe-num">05</span>
+          <span class="pipe-dot"></span>
+        </div>
+        <div class="pipe-body">
+          <span class="pipe-label">Update</span>
+          <span class="pipe-desc">Records are kept in sync. Nothing depends on someone remembering to copy it over.</span>
+        </div>
+      </div>
+
+      <!-- Step 06: Complete — signal green, the destination -->
+      <div class="pipe-step pipe-step--complete reveal" data-delay="800">
+        <div class="pipe-node pipe-node--active">
+          <span class="pipe-num">06</span>
+          <span class="pipe-dot pipe-dot--signal"></span>
+        </div>
+        <div class="pipe-body">
+          <span class="pipe-label">Complete</span>
+          <span class="pipe-desc">The work is done. The record is closed. The team is not involved.</span>
+        </div>
       </div>
     </div>
-    <div class="human-bound reveal" style="margin-top:var(--s12)">
+
+    <!-- Human decision note -->
+    <div class="human-bound reveal" data-delay="900">
       <p class="human-label">Human decision needed</p>
       <p class="human-desc">When judgement is needed, Twinthos stops and asks.</p>
     </div>
   </div>
 </section>
 
-<!-- ====== 05 THE DIFFERENCE ====== -->
-<section class="different">
-  <div class="different-inner">
-    <p class="section-label reveal-fast">Most software</p>
-    <h2 class="different-headline reveal">Gives your team<br>another tool.</h2>
-    <div class="different-pause reveal"></div>
-    <h2 class="different-twins reveal" style="margin-top:var(--s10)">Twinthos<br>takes work<br>away.</h2>
-    <div class="different-points" style="margin-top:var(--s12)">
-      <div class="diff-point reveal" style="--d:0ms">
-        <span class="diff-num">01</span>
-        <span class="diff-text">Learns the process</span>
+<!-- ═══════════════════════ 05 HOW TWINTHOS WORKS ═══════════════════════ -->
+<section class="how" id="how">
+  <div class="container">
+    <p class="enemy-label reveal-fast">How Twinthos works</p>
+    <h2 class="how-headline reveal">
+      <span class="word">Twinthos</span>
+      <span class="word">takes</span>
+      <span class="word">work</span>
+      <span class="word">away</span>
+      <span class="word">.</span>
+    </h2>
+    <div class="how-grid reveal" style="margin-top:var(--space-7);">
+      <div class="how-step">
+        <div class="how-num" style="color:var(--signal);">01</div>
+        <div>
+          <p class="how-label">Learns the process</p>
+          <p class="how-desc">We build it around the work your team actually does, not around a generic workflow.</p>
+        </div>
       </div>
-      <div class="diff-point reveal" style="--d:120ms">
-        <span class="diff-num">02</span>
-        <span class="diff-text">Works across the systems</span>
+      <div class="how-step">
+        <div class="how-num">02</div>
+        <div>
+          <p class="how-label">Works across the systems</p>
+          <p class="how-desc">It connects to the tools you already use. No new platform to log into.</p>
+        </div>
       </div>
-      <div class="diff-point reveal" style="--d:240ms">
-        <span class="diff-num">03</span>
-        <span class="diff-text">Stops when judgement is needed</span>
+      <div class="how-step">
+        <div class="how-num" style="color:var(--signal);">03</div>
+        <div>
+          <p class="how-label">Stops when judgement is needed</p>
+          <p class="how-desc">It knows its limits. When it can't proceed safely, it pauses and asks a person.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ====== 06 REDACTED EXAMPLE (Proof) ====== -->
-<section class="redacted-example" id="proof-example">
-  <div class="redacted-inner">
-    <p class="section-label reveal-fast">Redacted example</p>
-    <h2 class="redacted-headline reveal">A real audit,<br>with the client<br>removed.</h2>
-    <p class="redacted-intro reveal" style="margin-top:var(--s8)">This is a real operations audit we ran. The client name and exact figures are removed. The structure, the findings and the recommended handover are intact.</p>
-    <div class="redacted-grid">
-      <div class="redacted-item reveal" style="--d:0ms">
-        <p class="redacted-item-label">Workflow identified</p>
+<!-- ═══════════════════════ 06 REDACTED EXAMPLE ═══════════════════════ -->
+<!-- Mirofish Principle 4: premium document feel, not a list -->
+<section class="redacted" id="redacted">
+  <div class="container">
+    <p class="redacted-label reveal-fast">Redacted example</p>
+    <h2 class="redacted-headline reveal">
+      <span class="word">A</span>
+      <span class="word">real</span>
+      <span class="word">audit</span>
+      <span class="word">,</span>
+      <span class="word">with</span>
+      <span class="word">the</span>
+      <span class="word">client</span>
+      <span class="word">removed</span>
+      <span class="word">.</span>
+    </h2>
+    <p class="redacted-desc reveal" data-delay="150">
+      This is a real operations audit we ran. The client name and exact figures are removed. The structure, the findings and the recommended handover are intact.
+    </p>
+    <div class="redacted-grid reveal">
+      <div class="redacted-item">
+        <div class="redacted-item-label">
+          <span class="redacted-item-num">01</span>
+          <span class="redacted-item-title">Workflow identified</span>
+        </div>
         <p class="redacted-item-body">Enquiry-to-appointment process: a recurring operational sequence touching three systems, handled by two people across four steps.</p>
       </div>
-      <div class="redacted-item reveal" style="--d:80ms">
-        <p class="redacted-item-label">Current manual process</p>
+      <div class="redacted-item">
+        <div class="redacted-item-label">
+          <span class="redacted-item-num">02</span>
+          <span class="redacted-item-title">Current manual process</span>
+        </div>
         <p class="redacted-item-body">Someone checks for new enquiries, reads the details, copies information across systems, confirms the appointment, sends the reminder, updates the record. Six movements for one result.</p>
       </div>
-      <div class="redacted-item reveal" style="--d:160ms">
-        <p class="redacted-item-label">Recommended handover</p>
+      <div class="redacted-item">
+        <div class="redacted-item-label">
+          <span class="redacted-item-num">03</span>
+          <span class="redacted-item-title">Recommended handover</span>
+        </div>
         <p class="redacted-item-body">The enquiry-to-appointment sequence, with agreed rules for what Twinthos can do alone and what requires a person.</p>
       </div>
-      <div class="redacted-item reveal" style="--d:240ms">
-        <p class="redacted-item-label">Human boundary</p>
+      <div class="redacted-item">
+        <div class="redacted-item-label">
+          <span class="redacted-item-num">04</span>
+          <span class="redacted-item-title">Human boundary</span>
+        </div>
         <p class="redacted-item-body">Twinthos handles the check, the copy, the update and the reminder. A person approves any appointment above the agreed value and any exception to the standard process.</p>
       </div>
-      <div class="redacted-item reveal" style="--d:320ms">
-        <p class="redacted-item-label">Estimated value assumptions</p>
+      <div class="redacted-item">
+        <div class="redacted-item-label">
+          <span class="redacted-item-num">05</span>
+          <span class="redacted-item-title">Estimated value</span>
+        </div>
         <p class="redacted-item-body">Based on the time usually spent on this workflow and the number of times it runs each week. The actual number is confirmed during the audit.</p>
       </div>
-      <div class="redacted-item reveal" style="--d:400ms">
-        <p class="redacted-item-label">Implementation plan</p>
+      <div class="redacted-item">
+        <div class="redacted-item-label">
+          <span class="redacted-item-num">06</span>
+          <span class="redacted-item-title">Implementation plan</span>
+        </div>
         <p class="redacted-item-body">One workflow, one human boundary, a short setup window, then monitored operation. The plan specifies what is handed over first and what is left for later.</p>
       </div>
     </div>
-    <div class="redacted-cta reveal" style="margin-top:var(--s12)">
-      <a class="btn-primary" href="/operations-audit/">See a redacted audit</a>
+    <div class="redacted-cta-row reveal" data-delay="600">
+      <a href="#offer" class="hero-cta">See the offer</a>
+      <p class="redacted-cta-note">Full document available on request</p>
     </div>
   </div>
 </section>
 
-<!-- ====== 07 HUMAN ARCHITECT ====== -->
-<section class="human-arch" id="human">
-  <div class="human-inner">
+<!-- ═══════════════════════ 07 HUMAN ARCHITECT ═══════════════════════ -->
+<!-- Mirofish Principle 4: a position statement, not a feature -->
+<section class="human-architect" id="human">
+  <div class="human-grid">
+    <div class="human-mark reveal">
+      <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="300" height="100" aria-hidden="true">
+        <rect width="120" height="40" fill="#000000"/>
+        <path d="M12 10 L32 10 L32 30 L12 30 Z" fill="#FFFFFF" opacity="0.9"/>
+        <path d="M36 10 L56 10 L56 18 L44 18 L44 30 L36 30 Z" fill="#FFFFFF"/>
+        <circle cx="72" cy="20" r="5" fill="#20F782"/>
+        <path d="M82 14 L92 20 L82 26 Z" fill="#20F782"/>
+      </svg>
+    </div>
     <div class="human-content">
-      <p class="human-label-lg reveal-fast">Human architect</p>
-      <h2 class="human-headline reveal">Humans set<br>the direction.<br>Twinthos carries<br>the work.</h2>
-      <p class="human-body reveal" style="margin-top:var(--s8)">You decide what matters, what is allowed and where judgement is needed.</p>
-      <p class="human-body reveal">Twinthos handles the repeat work around those decisions.</p>
-    </div>
-    <div class="human-mark">
-      <svg class="brand-mark-lg" viewBox="0 0 716 716" aria-hidden="true"><use href="#twSymbol"/></svg>
-    </div>
-  </div>
-</section>
-
-<!-- ====== 08 THE OFFER ====== -->
-<section class="offer">
-  <div class="offer-inner">
-    <p class="offer-label reveal-fast">Managed service</p>
-    <div class="offer-price-row reveal" style="--d:0ms">
-      <span class="offer-price">£5,000</span>
-      <span class="offer-price-sub">/ month</span>
-    </div>
-    <p class="offer-body reveal" style="margin-top:var(--s8)">We build it, connect it, monitor it and keep improving it.</p>
-    <div class="offer-list">
-      <div class="offer-item reveal" style="--d:0ms">Setup</div>
-      <div class="offer-item reveal" style="--d:80ms">Connections</div>
-      <div class="offer-item reveal" style="--d:160ms">Monitoring</div>
-      <div class="offer-item reveal" style="--d:240ms">Maintenance</div>
-      <div class="offer-item reveal" style="--d:320ms">Improvement</div>
-      <div class="offer-item reveal" style="--d:400ms">Support</div>
-    </div>
-    <p class="offer-start reveal" style="margin-top:var(--s20)">Start with one workflow.</p>
-    <div class="offer-cta-row reveal">
-      <a class="btn-primary" href="/book/">Assess your operation</a>
-      <span class="offer-reassure">Start with the work that is wasting the most time.</span>
+      <p class="human-label reveal-fast">The architect</p>
+      <h2 class="human-headline reveal">
+        <span class="word">Humans</span>
+        <span class="word">set</span>
+        <span class="word">the</span>
+        <span class="word">direction</span>
+        <span class="word">.</span>
+        <span class="word">Twinthos</span>
+        <span class="word">carries</span>
+        <span class="word">the</span>
+        <span class="word">work</span>
+        <span class="word">.</span>
+      </h2>
+      <p class="human-sub reveal" data-delay="200">
+        You decide what matters, what is allowed and where judgement is needed. Twinthos handles the repeat work around those decisions — the checking, the copying, the updating, the following up.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- ====== 09 FINAL CTA ====== -->
+<!-- ═══════════════════════ 08 OFFER ═══════════════════════ -->
+<!-- Mirofish Principle 4: £5,000/month is the hero -->
+<!-- Confident. No apology. The price commands the section. -->
+<section class="offer" id="offer">
+  <p class="offer-label reveal-fast">The offer</p>
+  <div class="offer-price-block reveal">
+    <span class="offer-price">£5,000</span>
+    <span class="offer-price-unit">/ month</span>
+    <span class="offer-price-note">Managed operations · minimum 3-month engagement</span>
+  </div>
+  <p class="offer-desc reveal" data-delay="200">
+    We build it, connect it, monitor it and keep improving it. Setup, connections, monitoring, maintenance, improvement, support — all included.
+  </p>
+  <div class="offer-list reveal">
+    <div class="offer-list-item">
+      <span>Setup</span><span class="offer-list-sep"></span>
+      <span>Connections</span><span class="offer-list-sep"></span>
+      <span>Monitoring</span><span class="offer-list-sep"></span>
+      <span>Maintenance</span><span class="offer-list-sep"></span>
+      <span>Improvement</span><span class="offer-list-sep"></span>
+      <span>Support</span>
+    </div>
+  </div>
+  <div class="offer-cta-row reveal" data-delay="350">
+    <a href="/book/" class="offer-cta">Assess your operation</a>
+    <p class="offer-cta-sub">Not sure if it fits? Start with a conversation.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 09 FINAL CTA ═══════════════════════ -->
+<!-- Mirofish Principle 6: the culmination of the story -->
 <section class="final-cta">
-  <div class="final-cta-inner">
-    <h2 class="final-headline reveal">What should your team<br>stop doing?</h2>
-    <div class="final-cta-row reveal" style="margin-top:var(--s12)">
-      <a class="btn-primary" href="/book/">Assess your operation</a>
+  <div class="container">
+    <p class="final-cta-label reveal-fast">Start here</p>
+    <h2 class="final-cta-headline reveal">
+      <span class="word">What</span>
+      <span class="word">should</span>
+      <span class="word">your</span>
+      <span class="word">team</span>
+      <span class="word">stop</span>
+      <span class="word">doing</span>
+      <span class="word">?</span>
+    </h2>
+    <p class="final-cta-sub reveal" data-delay="200">
+      Every operation has a few things that shouldn't need a person anymore. Twinthos finds them and handles them.
+    </p>
+    <div class="final-cta-actions reveal" data-delay="350">
+      <a href="/book/" class="final-cta-btn">Assess your operation</a>
+      <a href="mailto:hello@twinthos.com" class="final-cta-secondary">hello@twinthos.com</a>
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- FOOTER -->
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-brand">
-      <svg class="brand-mark-sm" viewBox="0 0 716 716" aria-hidden="true"><use href="#twSymbol"/></svg>
-      <span>TWINTHOS</span>
-      <p class="footer-tagline">Human architect</p>
-    </div>
+    <p class="footer-copy">&copy; 2025 Twinthos. All rights reserved.</p>
     <div class="footer-links">
-      <a href="#how">How it works</a>
-      <a href="#use-cases">Use cases</a>
-      <a href="#security">Security</a>
-      <a href="/book/">Contact</a>
+      <a href="/privacy/" class="footer-link">Privacy</a>
+      <a href="/security/" class="footer-link">Security</a>
+      <a href="/terms/" class="footer-link">Terms</a>
     </div>
   </div>
 </footer>
 
-<div class="mobile-cta"><a class="btn-primary" href="/book/">Assess your operation</a></div>
+<!-- Mirofish-grade motion: word-by-word reveal + scroll cascade + pipe particle -->
+<script>
+(function () {
+  'use strict';
 
-<script src="assets/site.js" defer></script>
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── NAV scroll state ── */
+  var nav = document.getElementById('nav');
+  var ticking = false;
+  function navBg() {
+    nav.style.background = window.scrollY > 20 ? 'rgba(0,0,0,0.96)' : 'rgba(0,0,0,0.7)';
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(navBg); }
+  }, { passive: true });
+  navBg();
+
+  /* ── Mobile burger ── */
+  var burger = document.getElementById('navBurger');
+  var links = document.getElementById('navLinks');
+  if (burger && links) {
+    burger.addEventListener('click', function () {
+      var open = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', open ? 'false' : 'true');
+      links.style.display = open ? 'none' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'absolute';
+      links.style.top = '56px';
+      links.style.right = 'var(--space-4)';
+      links.style.background = 'rgba(0,0,0,0.96)';
+      links.style.padding = 'var(--space-5)';
+      links.style.gap = 'var(--space-4)';
+      links.style.border = '1px solid var(--border-strong)';
+      links.style.borderRadius = '0';
+    });
+    links.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        links.style.display = 'none';
+        burger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  /* ── HERO WORD-BY-WORD REVEAL ── */
+  if (!reduceMotion) {
+    var heroHead = document.getElementById('heroHeadline');
+    if (heroHead && heroHead.children.length > 0) {
+      var words = heroHead.querySelectorAll('.word');
+      words.forEach(function (w, i) {
+        w.style.transitionDelay = (i * 55) + 'ms';
+        // Trigger after paint
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            w.classList.add('in');
+          });
+        });
+      });
+    }
+  }
+
+  /* ── SCROLL REVEAL: stagger cascade via IntersectionObserver ── */
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    var reveals = document.querySelectorAll(
+      '.reveal, .reveal-fast'
+    );
+    if (reveals.length) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            var delay = parseInt(el.getAttribute('data-delay'), 10) || 0;
+            setTimeout(function () { el.classList.add('in'); }, delay);
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
+      reveals.forEach(function (el) { observer.observe(el); });
+    }
+  }
+
+  /* ── CTA HOVER: tactile feedback ── */
+  if (!reduceMotion) {
+    var btns = document.querySelectorAll('.hero-cta, .offer-cta, .final-cta-btn, .nav-cta');
+    btns.forEach(function (b) {
+      b.addEventListener('pointerdown', function () { b.style.transform = 'scale(0.97)'; });
+      b.addEventListener('pointerup', function () { b.style.transform = ''; });
+      b.addEventListener('pointerleave', function () { b.style.transform = ''; });
+    });
+  }
+
+  /* ── SMOOTH SCROLL FOR ANCHOR LINKS ── */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = a.getAttribute('href').slice(1);
+      if (!id) return;
+      var target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      var y = target.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: y, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  });
+})();
+</script>
+
 </body>
 </html>

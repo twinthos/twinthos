@@ -1,181 +1,247 @@
+/**
+ * TWINTHOS — Mirofish-grade motion and interaction
+ *
+ * Every animation has a purpose:
+ *  - Guides attention to what matters
+ *  - Teaches the user about the system
+ *  - Never decorative, never accidental
+ *
+ * Under 4KB. Respects reduced-motion.
+ */
+
 (function () {
   'use strict';
 
-  /* ---- NAV (burger + scroll state) ---- */
-  var burger = document.querySelector('.nav-burger');
-  var links = document.querySelector('.nav-links');
-  var navEl = document.querySelector('.nav');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (burger && links) {
-    burger.addEventListener('click', function () {
-      var expanded = burger.getAttribute('aria-expanded') === 'true';
-      burger.setAttribute('aria-expanded', !expanded);
-      links.classList.toggle('open');
-    });
-    links.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        links.classList.remove('open');
-        burger.setAttribute('aria-expanded', 'false');
-      }
-    });
-    burger.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        links.classList.remove('open');
-        burger.setAttribute('aria-expanded', 'false');
-        burger.focus();
-      }
-    });
-  }
+  /* ── DOM helpers ── */
+  const el = (sel, ctx = document) => ctx.querySelector(sel);
+  const els = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
-  // Nav background on scroll
-  if (navEl) {
-    var ticking = false;
-    function updateNav() {
-      var y = window.scrollY || window.pageYOffset || 0;
-      if (y > 20) {
-        navEl.style.background = 'rgba(0,0,0,0.96)';
+  /* ── Navigation: scroll-aware background (smooth, not jarring) ── */
+  function initNav() {
+    const nav = el('.nav');
+    if (!nav) return;
+
+    let ticking = false;
+    function update() {
+      const y = window.scrollY;
+      if (y > 32) {
+        nav.classList.add('scrolled');
       } else {
-        navEl.style.background = 'rgba(0,0,0,0.92)';
+        nav.classList.remove('scrolled');
       }
       ticking = false;
     }
+
     window.addEventListener('scroll', function () {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(updateNav);
-      }
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
     }, { passive: true });
-    updateNav();
+
+    update();
   }
 
-  /* ---- REDUCED MOTION: skip all animations ---- */
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* ── Hero: stagger word-by-word reveal on load ── */
+  function initHeroReveal() {
+    if (reduceMotion) {
+      const s = el('.hero-statement');
+      if (s) { s.style.opacity = '1'; s.style.transform = 'none'; }
+      return;
+    }
 
-  /* ---- SCROLL REVEAL — IntersectionObserver ---- */
-  if (!reduceMotion && 'IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          en.target.classList.add('in');
-          io.unobserve(en.target);
+    const statement = el('.hero-statement');
+    if (!statement) return;
+
+    // Already has .line1 and .line2 spans — animate their entrance
+    const lines = els('.hero-statement .line1, .hero-statement .line2');
+    if (!lines.length) return;
+
+    lines.forEach(function (line, i) {
+      line.style.opacity = '0';
+      line.style.transform = 'translateY(16px)';
+      line.style.transition =
+        'opacity 400ms cubic-bezier(0.16,1,0.3,1), ' +
+        'transform 400ms cubic-bezier(0.16,1,0.3,1)';
+      line.style.transitionDelay = (i * 120) + 'ms';
+
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          line.style.opacity = '1';
+          line.style.transform = 'translateY(0)';
+        });
+      });
+    });
+  }
+
+  /* ── Scroll-reveal: stagger cascade ── */
+  function initScrollReveal() {
+    if (reduceMotion) {
+      els('.reveal, .reveal-fast, [data-stagger-child]')
+        .forEach(function (n) { n.classList.add('in'); });
+      return;
+    }
+
+    const items = els(
+      '.reveal, .reveal-fast, [data-stagger-child], ' +
+      '.pipe-step, .enemy-card, .redacted-item, ' +
+      '.difference-col, .offer-list-item'
+    );
+
+    if (!items.length) return;
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        const node = entry.target;
+
+        // Determine delay: data-reveal-delay takes precedence,
+        // then index-based stagger for sibling groups
+        let delay = 0;
+        const parent = node.parentNode;
+        const siblings = parent ? Array.from(parent.children) : [];
+        const idx = siblings.indexOf(node);
+        const staggerChild = parseInt(node.getAttribute('data-stagger-child'), 10);
+        const revealDelay = parseInt(node.getAttribute('data-reveal-delay'), 10);
+
+        if (!isNaN(revealDelay) && revealDelay > 0) {
+          delay = revealDelay;
+        } else if (!isNaN(staggerChild) && staggerChild >= 0) {
+          delay = staggerChild * 60;
+        } else if (idx >= 0) {
+          // Group-based stagger: check if siblings share a reveal class
+          const revealSiblings = siblings.filter(function (s) {
+            return s.classList.contains('reveal') ||
+                   s.classList.contains('reveal-fast') ||
+                   s.classList.contains('pipe-step') ||
+                   s.classList.contains('enemy-card') ||
+                   s.classList.contains('redacted-item') ||
+                   s.classList.contains('difference-col');
+          });
+          if (revealSiblings.length > 1) {
+            delay = idx * 80;
+          } else {
+            delay = idx * 120;
+          }
+        }
+
+        node.style.transitionDelay = delay + 'ms';
+        node.classList.add('in');
+        observer.unobserve(node);
+      });
+    }, {
+      threshold: 0.10,
+      rootMargin: '0px 0px -30px 0px'
+    });
+
+    items.forEach(function (node) { observer.observe(node); });
+  }
+
+  /* ── Proof pipe: animate the particle ── */
+  function initPipeParticle() {
+    if (reduceMotion) return;
+
+    const conduit = el('.pipe-conduit');
+    if (!conduit) return;
+
+    // The CSS animation handles the loop — this ensures it starts
+    // only when the section is visible
+    const stream = el('.proof-pipe');
+    if (!stream) return;
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          const particle = el('.pipe-particle', conduit);
+          if (particle) particle.style.animationPlayState = 'running';
+          observer.unobserve(stream);
         }
       });
-    }, { threshold: 0.06, rootMargin: '0px 0px -6% 0px' });
+    }, { threshold: 0.2 });
 
-    var reveals = document.querySelectorAll('.reveal, .reveal-fast, .flow-step, .diff-point, .acc-row, .step, .offer-item, .cta_row');
-    reveals.forEach(function (r) { io.observe(r); });
+    observer.observe(stream);
   }
 
-  /* ---- PARALLAX-LITE: HERO MARK ---- */
-  if (!reduceMotion) {
-    var heroMark = document.querySelector('.hero-mark');
-    if (heroMark) {
-      var hLight = heroMark.querySelector('.hero-mark-lit');
-      var ticking = false;
-      function updateHeroParallax() {
-        var y = window.scrollY || window.pageYOffset || 0;
-        var progress = Math.min(y / 500, 1);
-        // Subtle upward drift: 0 → -10px
-        var dy = -progress * 10;
-        heroMark.style.transform = 'translateY(' + dy + 'px)';
-        // Light opacity: stays in sync
-        if (hLight) {
-          var opacity = 0.04 + progress * 0.08;
-          hLight.style.opacity = opacity;
-        }
-        ticking = false;
-      }
-      window.addEventListener('scroll', function () {
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(updateHeroParallax);
-        }
-      }, { passive: true });
-      updateHeroParallax();
-    }
+  /* ── Enemy cards: 3D tilt on hover (subtle, purposeful) ── */
+  function initCardTilt() {
+    if (reduceMotion) return;
 
-    /* ---- PARALLAX-LITE: HUMAN ARCHITECT MARK ---- */
-    var humanMark = document.querySelector('.human-mark');
-    if (humanMark) {
-      var huLight = humanMark.querySelector('.human-light');
-      var ticking = false;
-      function updateHumanParallax() {
-        var y = window.scrollY || window.pageYOffset || 0;
-        var progress = Math.min(y / 700, 1);
-        var dy = -progress * 8;
-        humanMark.style.transform = 'translateY(' + dy + 'px)';
-        if (huLight) {
-          var opacity = 0.03 + progress * 0.06;
-          huLight.style.opacity = opacity;
-        }
-        ticking = false;
-      }
-      window.addEventListener('scroll', function () {
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(updateHumanParallax);
-        }
-      }, { passive: true });
-      updateHumanParallax();
-    }
-  }
+    const cards = els('.enemy-card');
+    if (!cards.length) return;
 
-  /* ---- HERO ENTRANCE: re-trigger if needed (CSS handles it) ---- */
-  // No JS needed — @keyframes heroEnter/markEnter in CSS handle page-load entrance.
+    cards.forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        const rotateY = x * 4;
+        const rotateX = y * -3;
 
-  /* ---- CONVERSION ANALYTICS ---- */
-  function trackEvent(name, data) {
-    if (!('sendBeacon' in navigator)) return;
-    var payload = JSON.stringify({
-      event: name,
-      ts: new Date().toISOString(),
-      path: window.location.pathname,
-      ref: document.referrer || '',
-      v: 1
+        card.style.transform =
+          'perspective(600px) rotateX(' + rotateX + 'deg) ' +
+          'rotateY(' + rotateY + 'deg) translateY(-3px)';
+        card.style.boxShadow = '0 16px 40px rgba(0,0,0,0.5)';
+      });
+
+      card.addEventListener('mouseleave', function () {
+        card.style.transform = '';
+        card.style.boxShadow = '';
+      });
     });
-    if (data) {
-      try { Object.keys(data).forEach(function (k) { payload = payload.replace('"}', ',' + k + ':' + JSON.stringify(data[k]) + '}'); }); } catch(e) {}
-    }
-    var blob = new Blob([payload], { type: 'application/json' });
-    navigator.sendBeacon('/api/track', blob);
-    if (window.dataLayer) {
-      window.dataLayer.push({ event: name, twinthos: data || {} });
-    }
   }
 
-  // Hero CTA clicks
-  var heroPrimary = document.querySelector('.hero-cta-row .btn-primary');
-  if (heroPrimary) {
-    heroPrimary.addEventListener('click', function () { trackEvent('hero_cta_click', { cta: 'assess_operation' }); });
-  }
+  /* ── CTA press feedback ── */
+  function initCTAFeedback() {
+    if (reduceMotion) return;
 
-  // Nav CTA click
-  var navCTA = document.querySelector('.nav-cta');
-  if (navCTA) {
-    navCTA.addEventListener('click', function () { trackEvent('nav_cta_click', { cta: 'assess_operation' }); });
-  }
-
-  // Mobile CTA click
-  var mobileCTA = document.querySelector('.mobile-cta .btn-primary');
-  if (mobileCTA) {
-    mobileCTA.addEventListener('click', function () { trackEvent('mobile_cta_click', { cta: 'assess_operation' }); });
-  }
-
-  // Offer CTA click
-  var offerCTA = document.querySelector('.offer-cta-row .btn-primary');
-  if (offerCTA) {
-    offerCTA.addEventListener('click', function () { trackEvent('offer_cta_click', { cta: 'assess_operation' }); });
-  }
-
-  /* ---- NAV LINKS (hash tracking) ---- */
-  var navLinks = document.querySelectorAll('.nav-links a');
-  navLinks.forEach(function (link) {
-    link.addEventListener('click', function () {
-      var href = link.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        trackEvent('nav_section_click', { section: href.slice(1) });
-      }
+    const buttons = els('.btn--primary, .nav-cta');
+    buttons.forEach(function (btn) {
+      btn.addEventListener('pointerdown', function () {
+        btn.style.transform = 'scale(0.97)';
+      });
+      btn.addEventListener('pointerup', function () {
+        btn.style.transform = '';
+      });
+      btn.addEventListener('pointerleave', function () {
+        btn.style.transform = '';
+      });
     });
-  });
+  }
 
+  /* ── Smooth scroll for hash links ── */
+  function initSmoothScroll() {
+    els('a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+
+        e.preventDefault();
+        const offset = 80; // nav height
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+        window.history.pushState(null, '', link.getAttribute('href'));
+
+        window.scrollTo({
+          top: top,
+          behavior: reduceMotion ? 'auto' : 'smooth'
+        });
+      });
+    });
+  }
+
+  /* ── Initialise ── */
+  function init() {
+    initNav();
+    initHeroReveal();
+    initScrollReveal();
+    initPipeParticle();
+    initCardTilt();
+    initCTAFeedback();
+    initSmoothScroll();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();

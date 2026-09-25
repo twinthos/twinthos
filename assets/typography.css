@@ -1,0 +1,407 @@
+/* ═══════════════════════════════════════════════════════════
+   TWINTHOS — MIROFISH-WORLD-CLASS TYPOGRAPHY SYSTEM
+   Black #000. White type. One signal green #20F782.
+   Mirofish: bold typography as primary design element.
+   Deliberate type scale. Weight as design tool.
+   Every level has a clear purpose. No random sizes.
+   ═══════════════════════════════════════════════════════════ */
+
+/* Google Font: Inter (loaded in HTML head) */
+
+/* ── Design Tokens ── */
+:root {
+  /* Colours */
+  --bg: #000000;
+  --text: #FFFFFF;
+  --signal: #20F782;
+  --signal-dim: rgba(32,247,130,0.12);
+  --text-dim: #8A8A8A;
+  --text-faint: #555555;
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.15);
+
+  /* Type Scale — 10 levels, each with a clear purpose */
+  /* Level 1: Micro labels (legal, footnotes, tags) */
+  --micro: 11px;
+  /* Level 2: Section labels / eyebrows (uppercase, letter-spaced) */
+  --label: 12px;
+  /* Level 3: Small UI text, captions */
+  --caption: 13px;
+  /* Level 4: Small body text */
+  --text-sm: 14px;
+  /* Level 5: Standard body text */
+  --body: 16px;
+  /* Level 6: Lead paragraphs, introductory text */
+  --lead: 18px;
+  /* Level 7: Standard paragraph text (used throughout site) */
+  --text-lg: 20px;
+  /* Level 8: Section subheadings */
+  --h3: 28px;
+  /* Level 9: Major section headings */
+  --h2: 40px;
+  /* Level 10: Page-level headings */
+  --h1: 56px;
+  /* Display sizes — used sparingly for maximum impact */
+  --display-sm: 72px;
+  --display: clamp(64px, 9vw, 110px);
+  --display-lg: clamp(72px, 11.5vw, 130px);
+
+  /* Weight assignments — weight is a design tool, not decoration */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Line-height system — tighter for display, looser for body */
+  --lh-tight: 1.0;
+  --lh-display: 1.0;
+  --lh-heading: 1.05;
+  --lh-body: 1.6;
+  --lh-loose: 1.75;
+
+  /* Spacing scale (rem-based) */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.5rem;    /* 24px */
+  --space-6: 2rem;      /* 32px */
+  --space-7: 3rem;      /* 48px */
+  --space-8: 4rem;      /* 64px */
+  --space-9: 5rem;      /* 80px */
+  --space-10: 7.5rem;   /* 120px */
+  --space-11: 10rem;    /* 160px */
+
+  /* Motion tokens */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 120ms;
+  --duration: 250ms;
+  --duration-slow: 400ms;
+  --duration-slower: 600ms;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: var(--weight-regular);
+  font-size: var(--body);
+  line-height: var(--lh-body);
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; }
+ul, ol { list-style: none; }
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
+
+/* ── Text selection ── */
+::selection { background: var(--signal); color: var(--bg); }
+
+/* ── Focus ── */
+:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+
+/* ── Screen reader only ── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ── Skip link ── */
+.skip-link {
+  position: absolute; top: -100%; left: var(--space-4); z-index: 200;
+  font-size: var(--caption); padding: var(--space-2) var(--space-4);
+  background: var(--text); color: var(--bg);
+  transition: top var(--duration-fast) var(--ease-out);
+}
+.skip-link:focus { top: var(--space-3); }
+
+/* ═══════════════════════════════════════════════════════════
+   TYPE UTILITIES — the Mirofish type scale in action
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Label / eyebrow pattern ──
+   Small uppercase text before sections. Letter-spaced.
+   Used FOR EVERY SECTION HEADER in the site. Consistent.
+   This is the Mirofish "editorial" touch — every section
+   starts with a label that tells you what you're reading. */
+.label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: var(--weight-semibold);
+  font-size: var(--label);
+  line-height: var(--lh-tight);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: var(--space-5);
+}
+
+.label--signal {
+  color: var(--signal);
+}
+
+/* ── Paragraphs ── */
+.paragraph {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: var(--weight-regular);
+  font-size: var(--text-lg);
+  line-height: var(--lh-body);
+  letter-spacing: 0.01em;
+  color: var(--text);
+  margin-bottom: var(--space-5);
+}
+
+.paragraph:last-child { margin-bottom: 0; }
+
+.paragraph--dim {
+  color: var(--text-dim);
+}
+
+.paragraph--sm {
+  font-size: var(--body);
+  line-height: var(--lh-body);
+}
+
+/* ── Headings ── */
+
+/* Display — the biggest, most commanding. Used for hero headlines. */
+.display-lg {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: var(--weight-light);
+  font-size: var(--display-lg);
+  line-height: var(--lh-display);
+  letter-spacing: -0.035em;
+  color: var(--text);
+}
+
+.display {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: var(--weight-light);
+  font-size: var(--display);
+  line-height: var(--lh-display);
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+/* h1 — page-level heading */
+.h1 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: var(--weight-light);
+  font-size: var(--h1);
+  line-height: var(--lh-heading);
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin: 0 0 var(--space-5) 0;
+}
+
+/* h2 — major section heading */
+.h2 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: var(--weight-light);
+  font-size: var(--h2);
+  line-height: var(--lh-heading);
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin: 0 0 var(--space-5) 0;
+}
+
+/* h3 — section subheading */
+.h3 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: var(--weight-medium);
+  font-size: var(--h3);
+  line-height: var(--lh-heading);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0 0 var(--space-4) 0;
+}
+
+/* ── Small text utilities ── */
+.caption {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: var(--caption);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  color: var(--text-dim);
+}
+
+.micro {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: var(--micro);
+  line-height: var(--lh-tight);
+  letter-spacing: 0.02em;
+  color: var(--text-faint);
+}
+
+/* ── Bold/emphasis ── */
+.strong {
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.01em;
+}
+
+/* ── Inline text variants ── */
+.text-dim { color: var(--text-dim); }
+.text-faint { color: var(--text-faint); }
+.text-signal { color: var(--signal); }
+
+/* ═══════════════════════════════════════════════════════════
+   CONTAINER SYSTEM
+   ═══════════════════════════════════════════════════════════ */
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-8);
+}
+
+.container-narrow {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--space-8);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GRID UTILITIES
+   ═══════════════════════════════════════════════════════════ */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BUTTON SYSTEM
+   ═══════════════════════════════════════════════════════════ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: var(--weight-semibold);
+  font-size: var(--caption);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  padding: 16px var(--space-6);
+  border-radius: 0;
+  transition: all var(--duration-fast) var(--ease-out);
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  background: none;
+}
+
+.btn--primary {
+  color: var(--bg);
+  background: var(--signal);
+}
+
+.btn--primary:hover {
+  background: #1ae075;
+  color: var(--bg);
+}
+
+.btn--primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn--ghost {
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border-strong);
+}
+
+.btn--ghost:hover {
+  border-color: var(--text);
+  background: rgba(255,255,255,0.03);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DIVIDER
+   ═══════════════════════════════════════════════════════════ */
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+
+.divider--strong {
+  background: var(--border-strong);
+}
+
+.divider--signal {
+  background: var(--signal);
+  height: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  :root {
+    --space-8: 2rem;
+    --space-7: 2rem;
+    --space-6: 1.5rem;
+    --space-5: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --text-lg: 16px;
+    --body: 15px;
+    --display: clamp(48px, 12vw, 64px);
+    --display-lg: clamp(56px, 14vw, 80px);
+    --space-8: 1.25rem;
+    --space-7: 1.5rem;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
