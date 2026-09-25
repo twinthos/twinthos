@@ -1,96 +1,18 @@
-/* ═══════════════════════════════════════════════════════════════
-   TWINTHOS — WORLD-CLASS DARK ARCHITECTURAL
-   Mirofish-grade redesign. Black #000. White type. One signal green.
-   Every pixel earns its place. No cards, no pills, no SaaS patterns.
-
-   Complete production stylesheet — single file, self-contained.
-   ═══════════════════════════════════════════════════════════════ */
-
-/* ── Google Font preloaded in HTML ── */
-
-/* ── Design Tokens ── */
-:root {
-  /* Colours */
-  --bg: #000000;
-  --surface: #0a0a0a;
-  --surface-2: #111111;
-  --border: rgba(255,255,255,0.08);
-  --border-strong: rgba(255,255,255,0.15);
-  --text: #ffffff;
-  --text-dim: #8a8a8a;
-  --text-faint: #5a5a5a;
-  --signal: #20F782;
-  --signal-dim: rgba(32,247,130,0.12);
-  --signal-hover: #1ae075;
-
-  /* Type scale (Mirofish deliberate hierarchy) */
-  --micro: 11px;
-  --label: 12px;
-  --caption: 13px;
-  --text-sm: 14px;
-  --body: 16px;
-  --lead: 18px;
-  --text-lg: 20px;
-  --h3: 28px;
-  --h2: 40px;
-  --h1: 56px;
-  --display-sm: 72px;
-  --display: clamp(64px, 9vw, 110px);
-  --display-lg: clamp(72px, 11.5vw, 130px);
-
-  /* Weight assignments */
-  --weight-light: 300;
-  --weight-regular: 400;
-  --weight-medium: 500;
-  --weight-semibold: 600;
-  --weight-bold: 700;
-
-  /* Line height */
-  --lh-tight: 1.0;
-  --lh-display: 1.0;
-  --lh-heading: 1.05;
-  --lh-body: 1.6;
-  --lh-loose: 1.8;
-
-  /* Spacing scale (rem-based, 1rem = 16px) */
-  --space-1: 0.25rem;   /* 4px */
-  --space-2: 0.5rem;    /* 8px */
-  --space-3: 0.75rem;   /* 12px */
-  --space-4: 1rem;      /* 16px */
-  --space-5: 1.5rem;    /* 24px */
-  --space-6: 2rem;      /* 32px */
-  --space-7: 3rem;      /* 48px */
-  --space-8: 4rem;      /* 64px */
-  --space-9: 5rem;      /* 80px */
-  --space-10: 7.5rem;   /* 120px */
-  --space-11: 10rem;    /* 160px */
-
-  /* Motion */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in: cubic-bezier(0.4, 0, 1, 1);
-  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-  --duration-fast: 120ms;
-  --duration: 250ms;
-  --duration-slow: 450ms;
-  --duration-slower: 700ms;
-}
+/* ═══════════════════════════════════════════════════════════
+   TWINTHOS — SHARED STYLES (used by all pages)
+   Base styles, nav, buttons, footer, reveals, typography tokens.
+   Homepage-specific styles are inline in index.html
+   ═══════════════════════════════════════════════════════════ */
 
 /* ── Reset ── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 html {
-  -webkit-font-smoothing: antialiased;
+-webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
 }
-
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-weight: var(--weight-regular);
   font-size: var(--body);
   line-height: var(--lh-body);
@@ -99,52 +21,25 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
 }
-
-img, svg {
-  display: block;
+svg {
+display: block;
   max-width: 100%;
 }
-
 a {
-  color: inherit;
+color: inherit;
   text-decoration: none;
 }
-
 button {
-  font: inherit;
+font: inherit;
   cursor: pointer;
   border: none;
   background: none;
 }
-
-ul, ol {
-  list-style: none;
+ol {
+list-style: none;
 }
-
-/* ── Custom scrollbar ── */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb {
-  background: var(--border-strong);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
-
-/* ── Text selection ── */
-::selection {
-  background: var(--signal);
-  color: var(--bg);
-}
-
-/* ── Focus ── */
-:focus-visible {
-  outline: 2px solid var(--signal);
-  outline-offset: 3px;
-}
-
-/* ── Screen reader only ── */
 .sr-only {
-  position: absolute;
+position: absolute;
   width: 1px;
   height: 1px;
   padding: 0;
@@ -154,94 +49,84 @@ ul, ol {
   white-space: nowrap;
   border: 0;
 }
-
-/* ── Skip link ── */
-.skip-link {
-  position: absolute;
-  top: -100%;
-  left: var(--space-4);
-  z-index: 200;
-  font-size: var(--caption);
-  padding: var(--space-2) var(--space-4);
-  background: var(--text);
-  color: var(--bg);
-  transition: top var(--duration-fast) var(--ease-out);
+svg {
+height: 28px;
+  width: auto;
 }
-.skip-link:focus {
-  top: var(--space-3);
+svg {
+width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* ═══════════════════════════════════════════════════
-   LAYOUT UTILITIES
-   ═══════════════════════════════════════════════════ */
-
+/* ── Layout ── */
 .container {
-  max-width: 1400px;
+max-width: 1400px;
   margin: 0 auto;
   padding: 0 var(--space-8);
 }
 
-.container-narrow {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 var(--space-8);
+/* ── Navigation ── */
+.nav {
+position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: var(--space-4) var(--space-8);
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background var(--duration-slow) var(--ease-out),
+              box-shadow var(--duration-slow) var(--ease-out);
 }
-
-/* ═══════════════════════════════════════════════════
-   TYPOGRAPHY SYSTEM — Mirofish deliberate hierarchy
-   ═══════════════════════════════════════════════════ */
-
-/* Section label / eyebrow */
-.label {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-semibold);
-  font-size: var(--label);
-  line-height: var(--lh-tight);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+.nav-inner {
+max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+.nav-brand {
+flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.nav-links {
+display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+.nav-link {
+font-family: 'Inter', system-ui, sans-serif;
+  font-weight: var(--weight-medium);
+  font-size: var(--caption);
+  line-height: 1;
+  letter-spacing: -0.01em;
   color: var(--text-dim);
-  margin-bottom: var(--space-5);
+  transition: color var(--duration-fast) var(--ease-out);
+  padding: var(--space-2) 0;
+}
+.nav-cta {
+font-family: 'Inter', system-ui, sans-serif;
+  font-weight: var(--weight-semibold);
+  font-size: var(--caption);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--bg);
+  background: var(--signal);
+  padding: 10px var(--space-5);
+  transition: background var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
+}
+.nav-links {
+display: none;
 }
 
-.label--signal {
-  color: var(--signal);
-}
-
-/* Body text */
-.paragraph {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-regular);
-  font-size: var(--text-lg);
-  line-height: var(--lh-body);
-  letter-spacing: 0.01em;
-  color: var(--text);
-  margin-bottom: var(--space-5);
-}
-.paragraph:last-child { margin-bottom: 0; }
-.paragraph--dim { color: var(--text-dim); }
-.paragraph--sm {
-  font-size: var(--body);
-  line-height: var(--lh-body);
-}
-
-/* Headings */
-.section-heading {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-light);
-  font-size: var(--h1);
-  line-height: var(--lh-heading);
-  letter-spacing: -0.025em;
-  color: var(--text);
-  margin: 0 0 var(--space-6) 0;
-  max-width: 70ch;
-}
-
-/* ═══════════════════════════════════════════════════
-   BUTTON SYSTEM
-   ═══════════════════════════════════════════════════ */
-
+/* ── Buttons ── */
 .btn {
-  display: inline-flex;
+display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
@@ -258,1139 +143,24 @@ ul, ol {
   border: none;
   background: none;
 }
-
 .btn--primary {
-  color: var(--bg);
+color: var(--bg);
   background: var(--signal);
 }
-.btn--primary:hover {
-  background: var(--signal-hover);
-  color: var(--bg);
-}
-.btn--primary:active {
-  transform: translateY(0) scale(0.98);
-}
-
 .btn--ghost {
-  color: var(--text);
+color: var(--text);
   background: transparent;
   border: 1px solid var(--border-strong);
 }
-.btn--ghost:hover {
-  border-color: var(--text);
-  background: rgba(255,255,255,0.03);
-}
 
-/* ═══════════════════════════════════════════════════
-   NAVIGATION
-   ═══════════════════════════════════════════════════ */
-
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  padding: var(--space-4) var(--space-8);
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: background var(--duration-slow) var(--ease-out),
-              box-shadow var(--duration-slow) var(--ease-out);
-}
-
-.nav.scrolled {
-  background: rgba(0,0,0,0.92);
-  box-shadow: 0 1px 0 var(--border);
-}
-
-.nav-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-6);
-}
-
-.nav-brand {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-}
-
-.nav-brand svg {
-  height: 28px;
-  width: auto;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: var(--space-6);
-}
-
-.nav-link {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-medium);
-  font-size: var(--caption);
-  line-height: 1;
-  letter-spacing: -0.01em;
-  color: var(--text-dim);
-  transition: color var(--duration-fast) var(--ease-out);
-  padding: var(--space-2) 0;
-}
-
-.nav-link:hover { color: var(--text); }
-
-.nav-cta {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-semibold);
-  font-size: var(--caption);
-  line-height: 1;
-  letter-spacing: -0.01em;
-  color: var(--bg);
-  background: var(--signal);
-  padding: 10px var(--space-5);
-  transition: background var(--duration-fast) var(--ease-out),
-              transform var(--duration-fast) var(--ease-out);
-}
-.nav-cta:hover {
-  background: var(--signal-hover);
-  color: var(--bg);
-}
-
-@media (max-width: 900px) {
-  .nav-links { display: none; }
-}
-
-/* ═══════════════════════════════════════════════════
-   HERO — Mirofish Principle 1: ONE BIG IDEA FIRST
-   Massive. Editorial. No clutter. The value prop
-   is the headline itself.
-   ═══════════════════════════════════════════════════ */
-
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: var(--space-10) var(--space-8);
-  overflow: hidden;
-}
-
-.hero-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: var(--space-7);
-  align-items: center;
-}
-
-/* The ONE BIG IDEA */
-.hero-statement {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-light);
-  font-size: var(--display-lg);
-  line-height: var(--lh-display);
-  letter-spacing: -0.035em;
-  color: var(--text);
-  margin: 0 0 var(--space-5) 0;
-  max-width: 12ch;
-}
-
-.hero-statement .line1 {
-  display: block;
-  font-weight: var(--weight-light);
-  font-size: var(--display-lg);
-  line-height: var(--lh-display);
-  letter-spacing: -0.035em;
-  color: var(--text);
-}
-
-.hero-statement .line2 {
-  display: block;
-  font-weight: var(--weight-medium);
-  font-size: clamp(20px, 2.2vw, 26px);
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  color: var(--text-dim);
-  margin-top: var(--space-4);
-}
-
-/* Supporting sentence */
-.hero-support {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-regular);
-  font-size: var(--text-lg);
-  line-height: var(--lh-body);
-  letter-spacing: 0.01em;
-  color: var(--text-dim);
-  margin: 0 0 var(--space-7) 0;
-  max-width: 36ch;
-}
-
-/* CTA */
-.hero-cta {
-  display: inline-flex;
-  align-self: flex-start;
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-semibold);
-  font-size: var(--caption);
-  line-height: 1;
-  letter-spacing: -0.01em;
-  color: var(--bg);
-  background: var(--signal);
-  padding: 18px var(--space-6);
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background var(--duration-fast) var(--ease-out),
-              transform var(--duration-fast) var(--ease-out);
-}
-
-.hero-cta:hover {
-  background: var(--signal-hover);
-  color: var(--bg);
-}
-
-/* Brand mark */
-.hero-brand {
-  flex: 0 0 auto;
-  width: clamp(280px, 20vw, 420px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.92;
-}
-
-.hero-brand svg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ═══════════════════════════════════════════════════
-   STORY SECTION
-   ═══════════════════════════════════════════════════ */
-
-.story {
-  padding: var(--space-11) 0;
-}
-
-.story-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-8);
-  align-items: start;
-}
-
-.story-text { max-width: 50ch; }
-
-.story-stat {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  padding: var(--space-8) var(--space-7);
-  border: 1px solid var(--border);
-  background: var(--surface);
-}
-
-.story-stat-number {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-light);
-  font-size: var(--h1);
-  line-height: var(--lh-tight);
-  letter-spacing: -0.03em;
-  color: var(--text);
-}
-
-.story-stat-label {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-medium);
-  font-size: var(--caption);
-  line-height: var(--lh-tight);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-}
-
-@media (max-width: 900px) {
-  .story-grid { grid-template-columns: 1fr; gap: var(--space-5); }
-  .story { padding: var(--space-8) 0; }
-}
-
-/* ═══════════════════════════════════════════════════
-   ENEMY SECTION — Mirofish Principle 3
-   Visual metaphor: piled-up cards that look like
-   actual friction. Handwritten feel, torn edges,
-   tape marks. Each card represents real work.
-   ═══════════════════════════════════════════════════ */
-
-.enemy {
-  padding: var(--space-10) 0;
-}
-
-.enemy-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 var(--space-8);
-}
-
-.enemy-headline {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-light);
-  font-size: var(--h1);
-  line-height: var(--lh-heading);
-  letter-spacing: -0.025em;
-  color: var(--text);
-  margin: 0 0 var(--space-8) 0;
-  max-width: 60ch;
-}
-
-.enemy-grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-4);
-  margin-top: var(--space-7);
-  align-items: start;
-}
-
-/* Each enemy card: feel like a post-it / handwritten note */
-.enemy-card {
-  position: relative;
-  padding: var(--space-5) var(--space-4) var(--space-4);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  min-height: 120px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-2);
-  transform-origin: center;
-  cursor: default;
-  transition: transform var(--duration-slow) var(--ease-out),
-              box-shadow var(--duration-slow) var(--ease-out),
-              border-color var(--duration-slow) var(--ease-out);
-}
-
-.enemy-card:hover {
-  transform: translateY(-3px) scale(1.02);
-  border-color: var(--border-strong);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-  z-index: 20;
-}
-
-/* Tape detail — visual metaphor for "stuck on" work */
-.card-tape {
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 14px;
-  background: rgba(255,255,255,0.12);
-  border-radius: 1px;
-  opacity: 0.6;
-}
-.card-tape--top { top: -8px; width: 48px; height: 12px; }
-.card-tape--side {
-  top: 20px;
-  left: -8px;
-  width: 16px;
-  height: 32px;
-  transform: none;
-}
-
-.card-inner {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  position: relative;
-  z-index: 1;
-}
-
-.card-icon {
-  color: var(--text-faint);
-  display: flex;
-  align-items: center;
-}
-
-.card-label {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-semibold);
-  font-size: var(--body);
-  line-height: var(--lh-tight);
-  letter-spacing: -0.01em;
-  color: var(--text);
-}
-
-.card-sub {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-regular);
-  font-size: var(--text-sm);
-  line-height: 1.4;
-  letter-spacing: 0.01em;
-  color: var(--text-dim);
-}
-
-.card-inner--wide {
-  align-items: flex-start;
-}
-
-/* Enemy card base positions (the chaos layout) */
-.enemy-card[data-stagger-child="0"] {
-  /* CHECK — top left, slightly tilted */
-}
-
-.enemy-card[data-stagger-child="1"] {
-  /* CHASE — offset left */
-}
-
-.enemy-card[data-stagger-child="2"] {
-  /* COPY — overlapping */
-}
-
-.enemy-card[data-stagger-child="3"] {
-  /* UPDATE — bottom */
-}
-
-.enemy-card[data-stagger-child="4"] {
-  /* BOOK — jammed behind */
-}
-
-.enemy-card[data-stagger-child="5"] {
-  /* FOLLOW UP — top layer */
-}
-
-.enemy-card[data-stagger-child="6"] {
-  /* MOVE INFORMATION — largest, on top, most dislodged */
-  grid-column: 1 / -1;
-  padding: var(--space-5) var(--space-5);
-  min-height: 100px;
-}
-
-@media (max-width: 900px) {
-  .enemy-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-3);
-  }
-  .enemy-card[data-stagger-child="6"] {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 500px) {
-  .enemy-grid { grid-template-columns: 1fr; }
-}
-
-/* ═══════════════════════════════════════════════════
-   PROOF SECTION — Mirofish Principle 3
-   The 6-step stream as a flowing vertical pipe.
-   Work enters at the top, flows through stages,
-   exits complete. Animated particle travels the conduit.
-   ═══════════════════════════════════════════════════ */
-
-.proof {
-  padding: var(--space-10) 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.proof-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 var(--space-8);
-}
-
-.proof-headline {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-light);
-  font-size: var(--h1);
-  line-height: var(--lh-heading);
-  letter-spacing: -0.025em;
-  color: var(--text);
-  margin: 0 0 var(--space-4) 0;
-  max-width: 50ch;
-}
-
-.proof-intro {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-regular);
-  font-size: var(--text-lg);
-  line-height: var(--lh-body);
-  letter-spacing: 0.01em;
-  color: var(--text-dim);
-  margin: 0;
-}
-
-/* The pipe: vertical conduit with animated particle */
-.proof-pipe {
-  position: relative;
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  gap: var(--space-6);
-  margin-top: var(--space-8);
-  align-items: start;
-}
-
-/* Conduit background */
-.pipe-conduit {
-  position: absolute;
-  top: 32px;
-  bottom: 0;
-  left: 52px;
-  right: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.pipe-line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-  background: var(--border);
-  transform: translateX(-50%);
-}
-
-/* Animated particle — the "work" moving through the system */
-.pipe-particle {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 6px;
-  height: 6px;
-  background: var(--signal);
-  border-radius: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 0 12px rgba(32,247,130,0.4);
-  animation: pipe-particle-flow 4s var(--ease-in-out) infinite;
-}
-
-@keyframes pipe-particle-flow {
-  0%   { top: 0; opacity: 0; }
-  10%  { opacity: 1; }
-  90%  { opacity: 1; }
-  100% { top: calc(100% - 6px); opacity: 0; }
-}
-
-/* Each step node */
-.pipe-step {
-  position: relative;
-  display: flex;
-  gap: var(--space-5);
-  align-items: flex-start;
-  padding: var(--space-4) 0;
-  z-index: 1;
-}
-
-.pipe-node {
-  flex: 0 0 auto;
-  width: 60px;
-  height: 60px;
-  border: 1px solid var(--border-strong);
-  background: var(--bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.pipe-num {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-semibold);
-  font-size: var(--text-lg);
-  line-height: var(--lh-tight);
-  letter-spacing: -0.02em;
-  color: var(--text-dim);
-}
-
-.pipe-dot {
-  position: absolute;
-  bottom: -4px;
-  right: -4px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 1px solid var(--border-strong);
-  background: var(--bg);
-}
-
-.pipe-dot--signal {
-  background: var(--signal);
-  border-color: var(--signal);
-}
-
-.pipe-body {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  padding-top: var(--space-1);
-}
-
-.pipe-label {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-semibold);
-  font-size: var(--body);
-  line-height: var(--lh-tight);
-  letter-spacing: -0.01em;
-  color: var(--text);
-}
-
-.pipe-desc {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-regular);
-  font-size: var(--text-sm);
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-  color: var(--text-dim);
-}
-
-.pipe-step--complete .pipe-node {
-  border-color: var(--signal);
-  background: var(--signal-dim);
-}
-
-.pipe-step--complete .pipe-num {
-  color: var(--signal);
-}
-
-.pipe-step--complete .pipe-dot {
-  background: var(--signal);
-  border-color: var(--signal);
-}
-
-/* Human decision note */
-.human-bound {
-  margin-top: var(--space-8);
-  padding: var(--space-5) var(--space-6);
-  border: 1px dashed var(--border-strong);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.human-label {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-semibold);
-  font-size: var(--caption);
-  line-height: var(--lh-tight);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-}
-
-.human-desc {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-regular);
-  font-size: var(--text-lg);
-  line-height: var(--lh-body);
-  letter-spacing: 0.01em;
-  color: var(--text);
-}
-
-@media (max-width: 768px) {
-  .proof-pipe {
-    grid-template-columns: 48px 1fr;
-    gap: var(--space-4);
-  }
-  .pipe-node { width: 48px; height: 48px; }
-  .pipe-num { font-size: var(--text-base); }
-  .pipe-step { padding: var(--space-3) 0; }
-  .pipe-conduit { left: 42px; }
-}
-
-/* ═══════════════════════════════════════════════════
-   DIFFERENCE SECTION — Mirofish Principle 4
-   Most software vs Twinthos.
-   Two-column contrast. Software in dim, Twinthos
-   with signal green accent on the border.
-   ═══════════════════════════════════════════════════ */
-
-.difference {
-  padding: var(--space-10) 0;
-}
-
-.difference-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-8);
-}
-
-.difference-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-5);
-  margin-top: var(--space-7);
-  align-items: start;
-}
-
-.difference-col {
-  padding: var(--space-7) var(--space-6);
-  border: 1px solid var(--border);
-  background: var(--surface);
-}
-
-.difference-col--twinthos {
-  border-color: rgba(32,247,130,0.2);
-  background: var(--signal-dim);
-  position: relative;
-}
-
-.difference-col--twinthos::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--signal);
-}
-
-.difference-col-label {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-semibold);
-  font-size: var(--label);
-  line-height: var(--lh-tight);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  margin-bottom: var(--space-4);
-}
-
-.difference-col--twinthos .difference-col-label {
-  color: var(--signal);
-}
-
-.difference-col-title {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-light);
-  font-size: var(--h3);
-  line-height: var(--lh-heading);
-  letter-spacing: -0.02em;
-  color: var(--text);
-  margin-bottom: var(--space-6);
-}
-
-.difference-col--software .difference-col-title {
-  color: var(--text-faint);
-}
-
-.difference-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-}
-
-.difference-item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-regular);
-  font-size: var(--text-lg);
-  line-height: var(--lh-body);
-  letter-spacing: 0.01em;
-}
-
-.difference-item.is-good {
-  color: var(--text);
-}
-
-.difference-item-icon {
-  flex: 0 0 24px;
-  margin-top: 2px;
-  display: flex;
-  align-items: center;
-}
-
-.difference-item-icon.is-bad { color: var(--text-faint); }
-.difference-item-icon.is-good { color: var(--signal); }
-
-@media (max-width: 900px) {
-  .difference-grid { grid-template-columns: 1fr; gap: var(--space-4); }
-  .difference { padding: var(--space-8) 0; }
-}
-
-/* ═══════════════════════════════════════════════════
-   REDACTED EXAMPLE — Mirofish Principle 4
-   Premium document feel. Not a list — a record.
-   Each item is a structured entry in an audit.
-   Thin rules. Careful alignment. Quiet weight.
-   ═══════════════════════════════════════════════════ */
-
-.redacted {
-  padding: var(--space-10) 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background: var(--bg);
-}
-
-.redacted-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-8);
-}
-
-.redacted-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  margin-top: var(--space-7);
-}
-
-.redacted-item {
-  padding: var(--space-6) var(--space-5);
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background: var(--surface);
-  position: relative;
-}
-
-.redacted-item:nth-child(3n) {
-  border-right: none;
-}
-
-.redacted-item-label {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  margin-bottom: var(--space-4);
-}
-
-.redacted-item-num {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-light);
-  font-size: var(--text-sm);
-  line-height: var(--lh-tight);
-  color: var(--signal);
-  letter-spacing: -0.02em;
-  font-variant-numeric: tabular-nums;
-}
-
-.redacted-item-label span:last-child {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-semibold);
-  font-size: var(--caption);
-  line-height: var(--lh-tight);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-}
-
-.redacted-item-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-light);
-  font-size: var(--text-lg);
-  line-height: var(--lh-loose);
-  letter-spacing: -0.01em;
-  color: var(--text);
-}
-
-.redacted-cta-row {
-  margin-top: var(--space-7);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-5);
-}
-
-.redacted-cta-note {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-regular);
-  font-size: var(--caption);
-  line-height: var(--lh-tight);
-  letter-spacing: 0.03em;
-  color: var(--text-faint);
-}
-
-@media (max-width: 900px) {
-  .redacted-grid { grid-template-columns: 1fr; }
-  .redacted-item { border-right: none; border-bottom: 1px solid var(--border); }
-  .redacted-item:nth-child(3n) { border-right: 1px solid var(--border); }
-  .redacted-item:last-child,
-  .redacted-item:nth-last-child(2),
-  .redacted-item:nth-last-child(3) {
-    border-bottom: none;
-  }
-  .redacted { padding: var(--space-8) 0; }
-}
-
-/* ═══════════════════════════════════════════════════
-   HUMAN ARCHITECT — Mirofish Principle 4
-   A position statement. Not a feature — a differentiator.
-   ═══════════════════════════════════════════════════ */
-
-.human-architect {
-  padding: var(--space-10) 0;
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.human-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-8);
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--space-8);
-  align-items: center;
-}
-
-.human-mark {
-  flex-shrink: 0;
-  opacity: 0.92;
-}
-
-.human-text { max-width: 56ch; }
-
-.human-statement {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-light);
-  font-size: var(--h1);
-  line-height: var(--lh-heading);
-  letter-spacing: -0.025em;
-  color: var(--text);
-  margin: 0 0 var(--space-5) 0;
-}
-
-.human-sub {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-regular);
-  font-size: var(--text-lg);
-  line-height: var(--lh-body);
-  letter-spacing: 0.01em;
-  color: var(--text-dim);
-}
-
-@media (max-width: 768px) {
-  .human-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-5);
-    text-align: center;
-  }
-  .human-mark { order: -1; }
-  .human-statement { max-width: 100%; }
-  .human-sub { max-width: 48ch; margin: 0 auto; }
-  .human-architect { padding: var(--space-8) 0; }
-}
-
-/* ═══════════════════════════════════════════════════
-   OFFER SECTION — Mirofish Principle 4
-   £5,000/month leads. The price is the hero.
-   Confident. No apology. Elegant service list.
-   ═══════════════════════════════════════════════════ */
-
-.offer {
-  padding: var(--space-11) var(--space-8);
-  border-top: 1px solid var(--border);
-  text-align: center;
-}
-
-.offer-inner {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.offer-price-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-2);
-  margin-bottom: var(--space-7);
-}
-
-.offer-price {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-light);
-  font-size: var(--display);
-  line-height: var(--lh-tight);
-  letter-spacing: -0.035em;
-  color: var(--text);
-}
-
-.offer-price-unit {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-medium);
-  font-size: var(--text-lg);
-  line-height: var(--lh-tight);
-  letter-spacing: 0.02em;
-  color: var(--text-dim);
-}
-
-.offer-price-note {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-light);
-  font-size: var(--caption);
-  line-height: var(--lh-tight);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  margin-top: var(--space-1);
-}
-
-.offer-description {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-light);
-  font-size: var(--text-lg);
-  line-height: var(--lh-body);
-  letter-spacing: 0.01em;
-  color: var(--text-dim);
-  max-width: 50ch;
-  margin: 0 auto var(--space-8) auto;
-}
-
-.offer-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-3);
-  max-width: 60ch;
-  margin: 0 auto var(--space-8) auto;
-}
-
-.offer-list-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-medium);
-  font-size: var(--text-lg);
-  line-height: var(--lh-body);
-  letter-spacing: 0.01em;
-  color: var(--text);
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.offer-list-sep {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--border-strong);
-  flex-shrink: 0;
-}
-
-.offer-cta-row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-4);
-}
-
-.offer-cta-btn {
-  font-size: var(--body);
-  padding: 18px var(--space-7);
-}
-
-.offer-cta-sub {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-regular);
-  font-size: var(--text-sm);
-  line-height: var(--lh-tight);
-  letter-spacing: 0.02em;
-  color: var(--text-faint);
-}
-
-@media (max-width: 600px) {
-  .offer {
-    padding: var(--space-8) var(--space-4);
-  }
-  .offer-price {
-    font-size: var(--display-sm);
-  }
-  .offer-list-item {
-    font-size: var(--text-base);
-  }
-}
-
-/* ═══════════════════════════════════════════════════
-   FINAL CTA — Mirofish Principle 6
-   The culmination. Not an afterthought.
-   ═══════════════════════════════════════════════════ */
-
-.final-cta {
-  padding: var(--space-10) 0;
-  text-align: center;
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-}
-
-.final-cta-inner {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 var(--space-8);
-}
-
-.final-cta-heading {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-light);
-  font-size: var(--h1);
-  line-height: var(--lh-heading);
-  letter-spacing: -0.025em;
-  color: var(--text);
-  margin: 0 0 var(--space-5) 0;
-  max-width: 60ch;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.final-cta-sub {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-regular);
-  font-size: var(--text-lg);
-  line-height: var(--lh-body);
-  letter-spacing: 0.01em;
-  color: var(--text-dim);
-  margin-bottom: var(--space-7);
-  max-width: 42ch;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.final-cta-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-4);
-}
-
-.final-cta-btn {
-  font-size: var(--body);
-  padding: 18px var(--space-7);
-}
-
-.final-cta-secondary {
-  font-size: var(--text-sm);
-  padding: 12px var(--space-5);
-}
-
-@media (max-width: 600px) {
-  .final-cta { padding: var(--space-8) 0; }
-  .final-cta-heading {
-    font-size: var(--h3);
-    letter-spacing: -0.02em;
-  }
-}
-
-/* ═══════════════════════════════════════════════════
-   FOOTER
-   ═══════════════════════════════════════════════════ */
-
+/* ── Footer ── */
 .footer {
-  padding: var(--space-6) 0;
+padding: var(--space-6) 0;
   border-top: 1px solid var(--border);
   background: var(--bg);
 }
-
 .footer-inner {
-  max-width: 1400px;
+max-width: 1400px;
   margin: 0 auto;
   padding: 0 var(--space-8);
   display: flex;
@@ -1398,23 +168,20 @@ ul, ol {
   justify-content: space-between;
   gap: var(--space-5);
 }
-
 .footer-copy {
-  font-family: 'Inter', system-ui, sans-serif;
+font-family: 'Inter', system-ui, sans-serif;
   font-weight: var(--weight-regular);
   font-size: var(--caption);
   line-height: var(--lh-tight);
   letter-spacing: -0.01em;
   color: var(--text-faint);
 }
-
 .footer-links {
-  display: flex;
+display: flex;
   gap: var(--space-5);
 }
-
 .footer-link {
-  font-family: 'Inter', system-ui, sans-serif;
+font-family: 'Inter', system-ui, sans-serif;
   font-weight: var(--weight-medium);
   font-size: var(--caption);
   line-height: var(--lh-tight);
@@ -1422,65 +189,27 @@ ul, ol {
   color: var(--text-dim);
   transition: color var(--duration-fast) var(--ease-out);
 }
-
-.footer-link:hover { color: var(--text); }
-
-@media (max-width: 600px) {
-  .footer-inner {
-    flex-direction: column;
+.footer-inner {
+flex-direction: column;
     text-align: center;
     gap: var(--space-4);
-  }
-  .footer { padding: var(--space-5) 0; }
+}
+.footer {
+padding: var(--space-5) 0;
 }
 
-/* ═══════════════════════════════════════════════════
-   REVEAL ANIMATIONS — scroll-triggered
-   Elements start invisible, cascade in when visible.
-   Each section uses data-reveal-delay for stagger.
-   ═══════════════════════════════════════════════════ */
-
+/* ── Reveals ── */
 .reveal {
-  opacity: 0;
+opacity: 0;
   transform: translateY(20px);
   transition: opacity var(--duration-slower) var(--ease-out),
               transform var(--duration-slower) var(--ease-out);
 }
-
 .reveal-fast {
-  opacity: 0;
+opacity: 0;
   transform: translateY(12px);
   transition: opacity 350ms var(--ease-out),
               transform 350ms var(--ease-out);
 }
 
-.reveal.in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Stagger children within a revealed parent */
-[data-stagger-child] {
-  opacity: 0;
-  transition: opacity var(--duration-slower) var(--ease-out),
-              transform var(--duration-slower) var(--ease-out);
-}
-
-[data-stagger-child].in {
-  opacity: 1;
-}
-
-/* Reduced motion: show everything immediately */
-@media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .reveal-fast,
-  [data-stagger-child] {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-  .pipe-particle {
-    animation: none;
-    opacity: 0.3;
-  }
-}
+/* ── Page elements ── */
