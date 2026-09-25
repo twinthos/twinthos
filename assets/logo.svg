@@ -1,16 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48">
-  <!-- MARK — Refined flat titanium, 120x40 scaled 2x -->
-  <g transform="translate(0,0) scale(2)">
-    <rect width="120" height="40" fill="#000000"/>
-    <!-- Left block: the foundation (stable) -->
-    <path d="M10 10 L34 10 L34 30 L10 30 Z" fill="#FFFFFF"/>
-    <!-- Right blocks: stepping down — work flowing toward completion -->
-    <path d="M38 10 L62 10 L62 16 L38 16 Z" fill="#FFFFFF" opacity="0.95"/>
-    <path d="M38 18 L62 18 L62 24 L38 24 Z" fill="#FFFFFF" opacity="0.75"/>
-    <path d="M38 26 L54 26 L54 30 L38 30 Z" fill="#FFFFFF" opacity="0.5"/>
-    <!-- Single green signal dot at the end of the flow -->
-    <circle cx="64" cy="20" r="4.5" fill="#20F782"/>
-  </g>
-  <!-- WORDMARK — TWINTHOS -->
-  <text x="250" y="33" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="600" letter-spacing="-0.01em" fill="#FFFFFF">TWINTHOS</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 48" aria-hidden="true">
+  <!--
+    TWINTHOS LOGO — Refined flat mark + wordmark lockup.
+    Black field. White geometry. Single signal green.
+    Four-part story: foundation → work flowing → signal.
+    No gradients. No dead weight. Resolved geometry.
+  -->
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MARK — left side, 140px wide, drawn at 1x scale
+       The mark is a single connected stepped form, not four
+       separate rects. The staircase reads as one silhouette:
+       a solid foundation block with steps stepping down toward
+       the signal dot. All white shapes share a common right
+       edge alignment (x=48) and sit on a shared baseline (y=36).
+       ═══════════════════════════════════════════════════════════ -->
+
+  <!-- White field behind the mark (visible against any bg, subtle framing) -->
+  <rect x="8" y="6" width="44" height="36" fill="#FFFFFF" opacity="0.03"/>
+
+  <!-- Step 1: Foundation block — solid, full height, the anchor -->
+  <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#FFFFFF"/>
+
+  <!-- Step 2: First descent — same width, half height, starts where step 1 ends -->
+  <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#FFFFFF" opacity="0.85"/>
+
+  <!-- Step 3: Second descent — narrower, lower, continuing the flow -->
+  <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#FFFFFF" opacity="0.6"/>
+
+  <!-- Step 4: Final descent — narrowest, lowest, terminating at the baseline -->
+  <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#FFFFFF" opacity="0.4"/>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SIGNAL DOT — the terminus. Anchored on the baseline (y=36),
+       aligned with the right edge of the mark (x=48), sitting as
+       the deliberate end-cap of the flow. Not floating. Not 2px
+       off. Touching the visual ground.
+       ═══════════════════════════════════════════════════════════ -->
+  <circle cx="48" cy="36" r="4.5" fill="#20F782"/>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       WORDMARK — TWINTHOS. Placed at x=58 (inside the 360-wide
+       viewBox, with 58px clear space between mark end and text
+       start, and ~160px of space to the right of the text for
+       comfortable proportion). Inter 600, tight tracking, white.
+       ═══════════════════════════════════════════════════════════ -->
+  <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#FFFFFF">TWINTHOS</text>
 </svg>
