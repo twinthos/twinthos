@@ -38,10 +38,13 @@
 <style>
 /* ═══════════════════════════════════════════════════════════
    TWINTHOS — MIROFISH-WORLD-CLASS REDESIGN
-   Black #000. White type. One signal green #20F782.
-   Mirofish approach: bold typography as primary design element.
-   Symmetry + asymmetry. One idea per section.
-   Confident editorial feel. Every pixel earns its place.
+   Synthesis of 6-agent swarm (deleg_3b46758c):
+     sa-0 Hero/One Big Idea  →  "Your operation without the glue work."
+     sa-1 Typography System  →  assets/typography.css
+     sa-2 Enemy+Proof Metaphors →  physical pile + horizontal pipe
+     sa-3 Signal+Noise        →  premium redacted doc + confident offer
+     sa-4 Motion+Purpose JS   →  assets/site.js
+     sa-5 Flow+Narrative      →  assets/transitions.css
    ═══════════════════════════════════════════════════════════ */
 
 :root {
@@ -53,12 +56,10 @@
   --text-faint: #555555;
   --border: rgba(255,255,255,0.08);
   --border-strong: rgba(255,255,255,0.15);
-
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --speed: 200ms;
   --speed-slow: 400ms;
   --speed-slower: 600ms;
-
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -69,21 +70,14 @@
   --space-8: 64px;
   --space-9: 80px;
   --space-10: 120px;
-
   --container: 1400px;
   --container-narrow: 960px;
 }
 
 /* ── Reset ── */
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
-  min-height: 100vh;
-}
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; min-height: 100vh; font-weight: 400; line-height: 1.6; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; cursor: pointer; border: none; background: none; }
 img, svg { display: block; max-width: 100%; }
@@ -93,50 +87,23 @@ ul, ol { list-style: none; }
 ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
 ::selection { background: var(--signal); color: var(--bg); }
 :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
-.skip-link {
-  position: absolute; top: -100%; left: var(--space-4); z-index: 200;
-  font-size: 13px; padding: 8px 16px; background: var(--text); color: var(--bg);
-  transition: top var(--speed) var(--ease);
-}
+.skip-link { position: absolute; top: -100%; left: var(--space-4); z-index: 200; font-size: 13px; padding: 8px 16px; background: var(--text); color: var(--bg); transition: top var(--speed) var(--ease); }
 .skip-link:focus { top: var(--space-3); }
 
-/* ── Container ── */
 .container { max-width: var(--container); margin: 0 auto; padding: 0 var(--space-8); }
 
-/* ═══════════════════════════════════════════════════════════
-   NAVIGATION
-   ═══════════════════════════════════════════════════════════ */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  padding: var(--space-4) var(--space-8);
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: background var(--speed-slow) var(--ease);
-}
-.nav.scrolled {
-  background: rgba(0,0,0,0.92);
-}
-.nav-inner {
-  max-width: var(--container); margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between; gap: var(--space-6);
-}
+/* ── NAVIGATION ── */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: var(--space-4) var(--space-8); background: rgba(0,0,0,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: background var(--speed-slow) var(--ease); }
+.nav.scrolled { background: rgba(0,0,0,0.92); }
+.nav-inner { max-width: var(--container); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); }
 .nav-brand { flex-shrink: 0; display: flex; align-items: center; }
 .nav-brand svg { height: 28px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: var(--space-6); }
-.nav-link {
-  font-size: 13px; font-weight: 500; letter-spacing: -0.01em;
-  color: var(--text-dim); transition: color var(--speed);
-}
+.nav-link { font-size: 13px; font-weight: 500; letter-spacing: -0.01em; color: var(--text-dim); transition: color var(--speed); }
 .nav-link:hover { color: var(--text); }
-.nav-cta {
-  font-size: 13px; font-weight: 600; letter-spacing: -0.01em;
-  color: var(--bg); background: var(--signal); padding: 10px 24px;
-  transition: background var(--speed), transform var(--speed);
-}
+.nav-cta { font-size: 13px; font-weight: 600; letter-spacing: -0.01em; color: var(--bg); background: var(--signal); padding: 10px 24px; transition: background var(--speed), transform var(--speed); }
 .nav-cta:hover { background: #1ae075; color: var(--bg); }
 .nav-burger { display: none; }
-
 @media (max-width: 768px) {
   .nav { padding: var(--space-3) var(--space-4); }
   .nav-links { display: none; }
@@ -146,67 +113,23 @@ ul, ol { list-style: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════
-   HERO — Mirofish Principle 1: ONE BIG IDEA FIRST
-   The hero is the most important part. It must communicate
-   the ONE core idea instantly with editorialcraft.
-   Massive headline IS the value proposition.
+   HERO — Mirofish Principle 1 + Agent 0
+   "Your operation without the glue work."
    ═══════════════════════════════════════════════════════════ */
-.hero {
-  position: relative; min-height: 100vh;
-  display: flex; align-items: center;
-  padding: var(--space-10) var(--space-8);
-  overflow: hidden;
-}
-.hero-inner {
-  max-width: var(--container); margin: 0 auto; width: 100%;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: var(--space-8);
-  align-items: center;
-}
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: var(--space-10) var(--space-8); overflow: hidden; }
+.hero-inner { max-width: var(--container); margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr auto; gap: var(--space-8); align-items: center; }
 .hero-content { max-width: 780px; }
-.hero-label {
-  font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--text-dim); margin-bottom: var(--space-5);
-}
-.hero-headline {
-  font-size: clamp(64px, 9vw, 110px);
-  font-weight: 300;
-  line-height: 1.0;
-  letter-spacing: -0.035em;
-  color: var(--text);
-  margin-bottom: var(--space-5);
-  /* Word-by-word reveal via JS */
-}
-.hero-headline .word {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity var(--speed-slower) var(--ease), transform var(--speed-slower) var(--ease);
-}
+.hero-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
+.hero-headline { font-size: clamp(64px, 9vw, 110px); font-weight: 300; line-height: 1.0; letter-spacing: -0.035em; color: var(--text); margin-bottom: var(--space-5); }
+.hero-headline .word { display: inline-block; opacity: 0; transform: translateY(14px); transition: opacity var(--speed-slower) var(--ease), transform var(--speed-slower) var(--ease); }
 .hero-headline .word.in { opacity: 1; transform: translateY(0); }
-.hero-body {
-  font-size: 20px; font-weight: 400; line-height: 1.6;
-  letter-spacing: 0.01em; color: var(--text-dim); max-width: 44ch;
-}
-.hero-cta {
-  display: inline-block; margin-top: var(--space-7);
-  font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
-  color: var(--bg); background: var(--signal);
-  padding: 18px 32px;
-  transition: background var(--speed), transform var(--speed);
-  border: none; cursor: pointer;
-}
+.hero-body { font-size: 20px; font-weight: 400; line-height: 1.6; letter-spacing: 0.01em; color: var(--text-dim); max-width: 44ch; }
+.hero-cta { display: inline-block; margin-top: var(--space-7); font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: var(--bg); background: var(--signal); padding: 18px 32px; transition: background var(--speed), transform var(--speed); border: none; cursor: pointer; }
 .hero-cta:hover { background: #1ae075; color: var(--bg); transform: translateY(-1px); }
-.hero-secondary {
-  display: inline-block; margin-top: var(--space-4);
-  font-size: 14px; font-weight: 400; color: var(--text-faint);
-}
 .hero-brand { flex: 0 0 auto; width: clamp(280px, 22vw, 420px); opacity: 0.92; display: flex; align-items: center; }
 .hero-brand .logo-mark { gap: 12px; }
 .hero-brand .logo-mark svg { width: 140px; height: auto; }
 .hero-brand .logo-wordmark { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
-
 @media (max-width: 900px) {
   .hero { padding: var(--space-8) var(--space-5); min-height: auto; }
   .hero-inner { grid-template-columns: 1fr; gap: var(--space-6); }
@@ -223,153 +146,93 @@ ul, ol { list-style: none; }
    STORY — "The problem"
    ═══════════════════════════════════════════════════════════ */
 .story { padding: var(--space-10) 0; }
-.story-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8);
-  align-items: start;
-}
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: start; }
 .story-text { max-width: 50ch; }
-.story-stat {
-  padding: var(--space-7) var(--space-6);
-  border: 1px solid var(--border);
-  background: #0a0a0a;
-  display: flex; flex-direction: column; gap: var(--space-4);
-}
-.story-stat-number {
-  font-size: 56px; font-weight: 300; line-height: 1.0; letter-spacing: -0.03em;
-}
-.story-stat-label {
-  font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--text-dim);
-}
-@media (max-width: 768px) {
-  .story-grid { grid-template-columns: 1fr; gap: var(--space-5); }
-  .story { padding: var(--space-8) 0; }
-}
+.story-stat { padding: var(--space-7) var(--space-6); border: 1px solid var(--border); background: #0a0a0a; display: flex; flex-direction: column; gap: var(--space-4); }
+.story-stat-number { font-size: 56px; font-weight: 300; line-height: 1.0; letter-spacing: -0.03em; }
+.story-stat-label { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); }
+@media (max-width: 768px) { .story-grid { grid-template-columns: 1fr; gap: var(--space-5); } .story { padding: var(--space-8) 0; } }
 
 /* ═══════════════════════════════════════════════════════════
-   ENEMY — "The drag"
+   ENEMY — Agent 2: physical pile of torn notes
    Mirofish Principle 3: VISUAL METAPHOR
-   Operational drag as piled-up cards — visual clutter
-   that represents the problem. Each card is a "post-it"
-   that's stuck, displaced, piled on top of each other.
-   Mirofish: abstract concepts need concrete visual form.
+   Operational drag as physical, tangible pile.
    ═══════════════════════════════════════════════════════════ */
 .enemy { padding: var(--space-10) 0; }
 .enemy-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
-.enemy-headline {
-  font-size: clamp(48px, 6vw, 72px);
-  font-weight: 300; line-height: 1.05; letter-spacing: -0.025em;
-  color: var(--text); margin-bottom: var(--space-8); max-width: 65ch;
-}
-.enemy-chaos {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-4);
-  margin-top: var(--space-7);
-  align-items: start;
-  perspective: 1200px;
-}
-.drag-card {
-  position: relative;
-  padding: var(--space-5) var(--space-4);
-  background: #0a0a0a;
-  border: 1px solid var(--border);
-  min-height: 130px;
-  display: flex; flex-direction: column; gap: var(--space-3);
-  transform-origin: center center;
-  transition: transform var(--speed-slow) var(--ease), box-shadow var(--speed-slow) var(--ease), border-color var(--speed-slow) var(--ease), z-index var(--speed-slow) var(--ease);
+.enemy-headline { font-size: clamp(48px, 6vw, 72px); font-weight: 300; line-height: 1.05; letter-spacing: -0.025em; color: var(--text); margin-bottom: var(--space-8); max-width: 65ch; }
+.enemy-wrap { position: relative; margin: var(--space-8) 0 var(--space-10); }
+.enemy-grid { position: relative; display: grid; grid-template-columns: repeat(7, 1fr); gap: var(--space-4); max-width: 1300px; margin: 0 auto; perspective: 1200px; }
+.enemy-card {
+  position: relative; display: flex; flex-direction: column; gap: var(--space-3);
+  background: #0a0a0a; border: 1px solid var(--border); border-radius: 2px;
+  padding: var(--space-5) var(--space-4); min-height: 130px;
+  transform-origin: center center; transition: transform 400ms var(--ease), box-shadow 400ms var(--ease), border-color 400ms var(--ease), z-index 400ms var(--ease);
   cursor: default;
 }
-.drag-card:hover {
-  transform: translateY(-4px) scale(1.02) rotate(0deg);
-  border-color: var(--border-strong);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-  z-index: 30;
+.enemy-card:hover { transform: translateY(-4px) scale(1.02); border-color: var(--border-strong); box-shadow: 0 24px 60px rgba(0,0,0,0.6); z-index: 50; }
+.enemy-card-icon { color: var(--text-faint); display: flex; align-items: center; }
+.enemy-card-icon svg { width: 22px; height: 22px; }
+.enemy-card-label { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: var(--text); }
+.enemy-card-sub { font-size: 13px; font-weight: 400; color: var(--text-dim); line-height: 1.4; letter-spacing: 0.01em; }
+.enemy-card::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  border-radius: 2px;
+  background:
+    linear-gradient(135deg, transparent 48%, rgba(255,255,255,0.03) 49%, transparent 50%),
+    linear-gradient(225deg, transparent 48%, rgba(255,255,255,0.03) 49%, transparent 50%);
 }
-.card-tape {
-  position: absolute; top: -7px; left: 50%; transform: translateX(-50%);
-  width: 44px; height: 14px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 1px;
-  opacity: 0.5;
-}
-.card-tape--side {
-  top: 22px; left: -8px; width: 16px; height: 34px; transform: none;
-}
-.card-tape--top { top: -9px; width: 52px; }
-.card-rough { display: flex; flex-direction: column; gap: var(--space-2); position: relative; z-index: 1; }
-.card-icon { color: var(--text-faint); display: flex; align-items: center; }
-.card-icon svg { width: 22px; height: 22px; }
-.card-label {
-  font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: var(--text);
-}
-.card-sub {
-  font-size: 13px; font-weight: 400; color: var(--text-dim);
-  line-height: 1.4; letter-spacing: 0.01em;
-}
-.card-rough--wide { align-items: flex-start; }
-.card-body { display: flex; flex-direction: column; gap: var(--space-2); }
-
-/* Enemy card positions — organized chaos */
-[data-d="0"]  { transform: none; }                                      /* CHECK — top left, normal */
-[data-d="1"]  { transform: translate(-30px, 24px) rotate(-1.5deg); }    /* CHASE — offset left */
-[data-d="2"]  { transform: translate(38px, 42px) rotate(1.2deg); }      /* COPY — overlapping right */
-[data-d="3"]  { transform: translate(14px, 62px) rotate(0.4deg); }      /* UPDATE — bottom right */
-[data-d="4"]  { transform: translate(-10px, 82px) rotate(-0.8deg); opacity: 0.9; }  /* BOOK — buried */
-[data-d="5"]  { transform: translate(50px, 14px) rotate(0.8deg); }      /* FOLLOW UP — top, dislodged */
-[data-d="6"]  { grid-column: 1 / -1; padding: var(--space-5) var(--space-5); min-height: 100px; transform: translate(-6px, 34px) rotate(2deg); z-index: 10; }  /* MOVE INFO — on top, widest */
-
+.enemy-card[data-e="0"]  { transform: rotate(-1.5deg) translate(-8px, 12px); }
+.enemy-card[data-e="1"]  { transform: rotate(1.2deg) translate(24px, 20px); }
+.enemy-card[data-e="2"]  { transform: rotate(-0.8deg) translate(42px, 8px); }
+.enemy-card[data-e="3"]  { transform: rotate(0.6deg) translate(-18px, 30px); }
+.enemy-card[data-e="4"]  { transform: rotate(-2deg) translate(12px, 38px); opacity: 0.85; }
+.enemy-card[data-e="5"]  { transform: rotate(1.8deg) translate(-30px, -6px); }
+.enemy-card[data-e="6"]  { transform: rotate(-2.5deg) translate(6px, 44px); grid-column: 1 / -1; min-height: 90px; padding: var(--space-4) var(--space-5); }
+.enemy-card[data-e="6"] .enemy-card-label { font-size: 20px; }
 @media (max-width: 900px) {
-  .enemy-chaos { grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
-  .drag-card[data-d="6"] { grid-column: 1 / -1; }
+  .enemy-grid { grid-template-columns: repeat(4, 1fr); }
+  .enemy-card[data-e="6"] { grid-column: 1 / -1; }
 }
-@media (max-width: 500px) {
-  .enemy-chaos { grid-template-columns: 1fr; }
+@media (max-width: 560px) {
+  .enemy-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
+  .enemy-card[data-e="6"] { grid-column: 1 / -1; }
+}
+@media (max-width: 400px) {
+  .enemy-grid { grid-template-columns: 1fr; }
 }
 
 /* ═══════════════════════════════════════════════════════════
-   PROOF — "How it works"
-   Mirofish Principle 3: the proof stream as a flowing pipe.
-   Vertical conduit with animated particle. Each step is a node.
-   Work enters at top, flows through stages, exits at bottom.
+   PROOF — Agent 2: horizontal underground pipe
+   Mirofish Principle 3: VISUAL METAPHOR
+   Work flows through stages in a pipe underground.
    ═══════════════════════════════════════════════════════════ */
 .proof { padding: var(--space-10) 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .proof-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
-.proof-headline {
-  font-size: clamp(48px, 6vw, 72px);
-  font-weight: 300; line-height: 1.05; letter-spacing: -0.025em;
-  color: var(--text); margin-bottom: var(--space-4); max-width: 50ch;
-}
+.proof-headline { font-size: clamp(48px, 6vw, 72px); font-weight: 300; line-height: 1.05; letter-spacing: -0.025em; color: var(--text); margin-bottom: var(--space-4); max-width: 50ch; }
 .proof-intro { font-size: 20px; font-weight: 400; color: var(--text-dim); max-width: 40ch; margin-bottom: var(--space-8); }
-.proof-pipe {
-  position: relative;
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  gap: var(--space-6);
-  margin-top: var(--space-8);
-  align-items: start;
+.proof-pipe { position: relative; display: grid; grid-template-columns: 1fr 60px; gap: var(--space-8); margin-top: var(--space-8); align-items: start; }
+.pipe-ground {
+  position: relative; height: 100%; min-width: 300px;
+  background: linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
+  border: 1px solid var(--border);
+  border-radius: 0 0 4px 4px;
+  overflow: hidden;
 }
-.pipe-conduit {
-  position: absolute;
-  top: 32px; bottom: 0;
-  left: calc(50% + 32px);
-  right: 0;
-  pointer-events: none; z-index: 0;
+.pipe-casing {
+  position: absolute; top: 0; bottom: 0; left: 0; right: 0;
+  border: 1px solid var(--border); pointer-events: none;
 }
 .pipe-line {
-  position: absolute; top: 0; bottom: 0;
-  left: 50%; width: 1px;
-  background: var(--border);
-  transform: translateX(-50%);
+  position: absolute; top: 0; bottom: 0; left: 50%; width: 1px;
+  background: var(--border); transform: translateX(-50%);
+  box-shadow: 0 0 8px rgba(255,255,255,0.04);
 }
 .pipe-particle {
-  position: absolute; top: 0; left: 50%;
-  width: 6px; height: 6px;
-  background: var(--signal);
-  border-radius: 50%;
+  position: absolute; top: 0; left: 50%; width: 6px; height: 6px;
+  background: var(--signal); border-radius: 50%;
   transform: translateX(-50%);
-  box-shadow: 0 0 12px rgba(32,247,130,0.4);
+  box-shadow: 0 0 12px rgba(32,247,130,0.5), 0 0 30px rgba(32,247,130,0.15);
   animation: pipeParticle 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 @keyframes pipeParticle {
@@ -378,154 +241,86 @@ ul, ol { list-style: none; }
   92% { opacity: 1; }
   100% { top: calc(100% - 6px); opacity: 0; }
 }
-.pipe-step {
-  position: relative; display: flex; gap: var(--space-5);
-  align-items: flex-start; padding: var(--space-4) 0; z-index: 1;
+.pipe-station {
+  position: relative; display: flex; flex-direction: column; gap: var(--space-3);
+  padding: var(--space-4) 0; z-index: 1;
 }
-.pipe-node {
-  flex: 0 0 auto; width: 60px; height: 60px;
-  border: 1px solid var(--border-strong); background: var(--bg);
-  display: flex; align-items: center; justify-content: center; position: relative;
+.pipe-station-num {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-faint); font-variant-numeric: tabular-nums;
 }
-.pipe-node--active { border-color: var(--signal); background: var(--signal-dim); }
-.pipe-num { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-dim); }
-.pipe-node--active .pipe-num { color: var(--signal); }
-.pipe-dot {
-  position: absolute; bottom: -4px; right: -4px;
-  width: 12px; height: 12px; border-radius: 50%;
-  border: 1px solid var(--border-strong); background: var(--bg);
+.pipe-station-title { font-size: 24px; font-weight: 300; line-height: 1.1; letter-spacing: -0.02em; color: var(--text); }
+.pipe-station-desc { font-size: 14px; font-weight: 400; color: var(--text-dim); line-height: 1.5; letter-spacing: 0.01em; max-width: 30ch; }
+.pipe-station-response {
+  margin-top: var(--space-2); padding-top: var(--space-3);
+  border-top: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 2px;
 }
-.pipe-dot--signal { background: var(--signal); border-color: var(--signal); }
-.pipe-body { display: flex; flex-direction: column; gap: var(--space-1); padding-top: var(--space-1); }
-.pipe-label { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; color: var(--text); }
-.pipe-desc { font-size: 13px; font-weight: 400; color: var(--text-dim); line-height: 1.5; letter-spacing: 0.01em; max-width: 32ch; }
-.pipe-step--complete .pipe-node { border-color: var(--signal); background: var(--signal-dim); }
-.pipe-step--complete .pipe-num { color: var(--signal); }
-.pipe-step--complete .pipe-dot { background: var(--signal); border-color: var(--signal); }
-.human-bound {
-  margin-top: var(--space-8);
-  padding: var(--space-5) var(--space-6);
+.pipe-station-resp-label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); }
+.pipe-station-resp-text { font-size: 13px; font-weight: 400; color: var(--text-dim); letter-spacing: 0.01em; }
+.pipe-station[data-progress="done"] .pipe-station-num { color: var(--signal); }
+.pipe-station[data-progress="done"] .pipe-station-title { color: var(--text); }
+.proof-human {
+  margin-top: var(--space-8); padding: var(--space-5) var(--space-6);
   border: 1px dashed var(--border-strong);
   display: flex; flex-direction: column; gap: var(--space-2);
 }
-.human-label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
-.human-desc { font-size: 18px; font-weight: 400; color: var(--text); line-height: 1.5; }
-
-@media (max-width: 768px) {
-  .proof-pipe { grid-template-columns: 48px 1fr; }
-  .pipe-node { width: 48px; height: 48px; }
-  .pipe-num { font-size: 14px; }
-  .pipe-conduit { left: calc(50% + 24px); }
-  .proof { padding: var(--space-8) 0; }
+.proof-human-label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
+.proof-human-desc { font-size: 18px; font-weight: 400; color: var(--text); line-height: 1.5; }
+@media (max-width: 900px) {
+  .proof-pipe { grid-template-columns: 1fr; }
+  .pipe-ground { min-width: 0; width: 100%; height: 60px; }
 }
 @media (max-width: 480px) {
-  .proof-pipe { grid-template-columns: 1fr; }
-  .pipe-step { flex-direction: column; align-items: center; text-align: center; }
-  .pipe-node { width: 56px; height: 56px; }
-  .pipe-body { align-items: center; }
-  .pipe-desc { max-width: none; }
+  .proof { padding: var(--space-8) 0; }
+  .pipe-station-title { font-size: 20px; }
 }
 
 /* ═══════════════════════════════════════════════════════════
-   DIFFERENCE — "Most software vs Twinthos"
-   Two-column contrast. Software: dim, crossed-out feel.
-   Twinthos: signal green accent, positive.
+   HOW TWINTHOS WORKS
    ═══════════════════════════════════════════════════════════ */
-.difference { padding: var(--space-10) 0; }
-.difference-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
-.difference-headline {
-  font-size: clamp(40px, 5vw, 56px);
-  font-weight: 300; line-height: 1.1; letter-spacing: -0.025em;
-  color: var(--text); margin-bottom: var(--space-7); max-width: 65ch;
-}
-.difference-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5);
-  margin-top: var(--space-7); align-items: start;
-}
-.difference-col {
-  padding: var(--space-7) var(--space-6);
-  border: 1px solid var(--border);
-  background: #0a0a0a;
-}
-.difference-col--twinthos {
-  border-color: rgba(32,247,130,0.2);
-  background: var(--signal-dim);
-  position: relative;
-}
-.difference-col--twinthos::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0;
-  height: 2px; background: var(--signal);
-}
-.difference-col-label {
-  font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-4);
-}
-.difference-col--twinthos .difference-col-label { color: var(--signal); }
-.difference-col-title { font-size: 28px; font-weight: 300; line-height: 1.1; letter-spacing: -0.02em; color: var(--text); margin-bottom: var(--space-6); }
-.difference-col--software .difference-col-title { color: var(--text-faint); }
-.difference-list { display: flex; flex-direction: column; gap: var(--space-5); }
-.difference-item { display: flex; align-items: flex-start; gap: var(--space-3); font-size: 20px; font-weight: 400; line-height: 1.6; }
-.difference-item--bad { color: var(--text-faint); }
-.difference-item--good { color: var(--text); }
-.difference-item-icon { flex: 0 0 24px; margin-top: 2px; display: flex; align-items: center; }
-.difference-item-icon--bad { color: var(--text-faint); }
-.difference-item-icon--good { color: var(--signal); }
+.how { padding: var(--space-10) 0; }
+.how-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
+.how-headline { font-size: clamp(40px, 5vw, 56px); font-weight: 300; line-height: 1.1; letter-spacing: -0.025em; color: var(--text); margin-bottom: var(--space-7); max-width: 60ch; }
+.how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-7); align-items: start; }
+.how-step { display: flex; gap: var(--space-5); align-items: flex-start; }
+.how-num { font-size: 48px; font-weight: 300; line-height: 1.0; letter-spacing: -0.03em; color: var(--text-faint); flex-shrink: 0; padding-top: 4px; }
+.how-num--signal { color: var(--signal); }
+.how-step-body { max-width: 28ch; }
+.how-step-label { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: var(--text); margin-bottom: var(--space-2); }
+.how-step-desc { font-size: 15px; font-weight: 400; color: var(--text-dim); line-height: 1.6; letter-spacing: 0.01em; }
 @media (max-width: 768px) {
-  .difference-grid { grid-template-columns: 1fr; gap: var(--space-4); }
-  .difference { padding: var(--space-8) 0; }
+  .how-grid { grid-template-columns: 1fr; gap: var(--space-5); }
+  .how { padding: var(--space-8) 0; }
 }
 
 /* ═══════════════════════════════════════════════════════════
-   REDACTED EXAMPLE — "A real audit"
+   REDACTED EXAMPLE — Agent 3: premium document
    Mirofish Principle 4: SIGNAL AND NOISE
-   Premium document feel. Not a list — a record.
-   Each item is a structured entry in an audit document.
-   Careful alignment. Thin rules. Quiet weight.
+   A real audit document, with the client removed.
    ═══════════════════════════════════════════════════════════ */
 .redacted { padding: var(--space-10) 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .redacted-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
-.redacted-headline {
-  font-size: clamp(40px, 5vw, 56px);
-  font-weight: 300; line-height: 1.1; letter-spacing: -0.025em;
-  color: var(--text); margin-bottom: var(--space-5); max-width: 60ch;
-}
+.redacted-headline { font-size: clamp(40px, 5vw, 56px); font-weight: 300; line-height: 1.1; letter-spacing: -0.025em; color: var(--text); margin-bottom: var(--space-5); max-width: 60ch; }
 .redacted-desc { font-size: 20px; font-weight: 400; color: var(--text-dim); max-width: 58ch; line-height: 1.6; margin-bottom: var(--space-7); }
-.redacted-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
-  margin-top: var(--space-7);
+.redacted-doc { max-width: 740px; margin: 0 auto; padding: 0 var(--space-8); }
+.redacted-doc-inner {
+  background: #080808; border: 1px solid var(--border);
+  padding: var(--space-6) var(--space-7); position: relative;
 }
-.redacted-item {
-  padding: var(--space-6) var(--space-5);
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background: #0a0a0a;
+.redacted-doc-inner::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--border-strong);
 }
-.redacted-item:nth-child(3n) { border-right: none; }
-.redacted-item-label {
-  display: flex; align-items: center; gap: var(--space-3);
-  margin-bottom: var(--space-4);
-}
-.redacted-item-num {
-  font-size: 14px; font-weight: 300; letter-spacing: -0.02em;
-  color: var(--signal); font-variant-numeric: tabular-nums;
-}
-.redacted-item-title {
-  font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim);
-}
-.redacted-item-body {
-  font-size: 18px; font-weight: 300; line-height: 1.8; letter-spacing: -0.01em; color: var(--text);
-}
-.redacted-cta-row {
-  margin-top: var(--space-7);
-  display: flex; align-items: center; justify-content: space-between; gap: var(--space-5);
-}
+.redacted-entry { padding: var(--space-4) 0; border-bottom: 1px solid var(--border); }
+.redacted-entry:last-child { border-bottom: none; }
+.redacted-entry-top { display: flex; align-items: baseline; gap: var(--space-4); margin-bottom: var(--space-3); }
+.redacted-entry-num { font-size: 14px; font-weight: 300; color: var(--signal); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.redacted-entry-title { font-size: 16px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-dim); }
+.redacted-entry-body { font-size: 17px; font-weight: 300; line-height: 1.7; letter-spacing: -0.01em; color: var(--text); }
+.redacted-cta-row { margin-top: var(--space-7); display: flex; align-items: center; justify-content: space-between; gap: var(--space-5); max-width: 740px; margin-left: auto; margin-right: auto; padding: 0 var(--space-8); }
 .redacted-cta-note { font-size: 13px; color: var(--text-faint); letter-spacing: 0.03em; }
-@media (max-width: 768px) {
-  .redacted-grid { grid-template-columns: 1fr; }
-  .redacted-item { border-right: none; border-bottom: 1px solid var(--border); }
-  .redacted-item:nth-child(3n) { border-right: 1px solid var(--border); }
-  .redacted-item:last-child, .redacted-item:nth-last-child(2), .redacted-item:nth-last-child(3) { border-bottom: none; }
-  .redacted { padding: var(--space-8) 0; }
-}
+@media (max-width: 768px) { .redacted { padding: var(--space-8) 0; } }
 
 /* ═══════════════════════════════════════════════════════════
    HUMAN ARCHITECT
@@ -533,18 +328,11 @@ ul, ol { list-style: none; }
    "Humans set the direction. Twinthos carries the work."
    ═══════════════════════════════════════════════════════════ */
 .human-architect { padding: var(--space-10) 0; background: #0a0a0a; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.human-grid {
-  max-width: 1200px; margin: 0 auto; padding: 0 var(--space-8);
-  display: grid; grid-template-columns: auto 1fr; gap: var(--space-8); align-items: center;
-}
+.human-grid { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-8); display: grid; grid-template-columns: auto 1fr; gap: var(--space-8); align-items: center; }
 .human-mark { flex-shrink: 0; opacity: 0.92; }
 .human-mark svg { width: 100%; height: auto; }
 .human-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
-.human-headline {
-  font-size: clamp(40px, 5vw, 56px);
-  font-weight: 300; line-height: 1.1; letter-spacing: -0.025em;
-  color: var(--text); margin-bottom: var(--space-5); max-width: 55ch;
-}
+.human-headline { font-size: clamp(40px, 5vw, 56px); font-weight: 300; line-height: 1.1; letter-spacing: -0.025em; color: var(--text); margin-bottom: var(--space-5); max-width: 55ch; }
 .human-sub { font-size: 20px; font-weight: 400; color: var(--text-dim); line-height: 1.6; max-width: 50ch; }
 @media (max-width: 768px) {
   .human-grid { grid-template-columns: 1fr; gap: var(--space-5); text-align: center; }
@@ -555,9 +343,8 @@ ul, ol { list-style: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════
-   OFFER — "The offer"
+   OFFER — Agent 3: confident price
    Mirofish Principle 4: £5,000/month is the hero
-   Confident. No apology. The price commands the section.
    ═══════════════════════════════════════════════════════════ */
 .offer { padding: var(--space-10) var(--space-8); text-align: center; border-top: 1px solid var(--border); }
 .offer-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
@@ -567,102 +354,61 @@ ul, ol { list-style: none; }
 .offer-price-note { font-size: 13px; color: var(--text-faint); letter-spacing: 0.06em; text-transform: uppercase; margin-top: var(--space-1); }
 .offer-desc { font-size: 20px; font-weight: 400; color: var(--text-dim); max-width: 46ch; margin: 0 auto var(--space-8) auto; line-height: 1.6; }
 .offer-list { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); max-width: 56ch; margin: 0 auto var(--space-8) auto; }
-.offer-list-item {
-  display: flex; align-items: center; gap: var(--space-3);
-  font-size: 20px; font-weight: 400; color: var(--text); flex-wrap: wrap; justify-content: center;
-}
+.offer-list-item { display: flex; align-items: center; gap: var(--space-3); font-size: 20px; font-weight: 400; color: var(--text); flex-wrap: wrap; justify-content: center; }
 .offer-list-sep { width: 4px; height: 4px; border-radius: 50%; background: var(--border-strong); flex-shrink: 0; }
 .offer-cta-row { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); }
 .offer-cta { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: var(--bg); background: var(--signal); padding: 18px 32px; transition: background var(--speed), transform var(--speed); }
 .offer-cta:hover { background: #1ae075; color: var(--bg); }
 .offer-cta-sub { font-size: 13px; color: var(--text-faint); letter-spacing: 0.03em; }
-@media (max-width: 600px) {
-  .offer { padding: var(--space-8) var(--space-4); }
-  .offer-list-item { font-size: 16px; }
-}
+@media (max-width: 600px) { .offer { padding: var(--space-8) var(--space-4); } .offer-list-item { font-size: 16px; } }
 
 /* ═══════════════════════════════════════════════════════════
    FINAL CTA — "The ask"
    Mirofish Principle 6: FLOW AND NARRATIVE
-   The culmination of the story. Not an afterthought.
    ═══════════════════════════════════════════════════════════ */
 .final-cta { padding: var(--space-10) 0; text-align: center; background: #0a0a0a; border-top: 1px solid var(--border); }
 .final-cta-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
-.final-cta-headline {
-  font-size: clamp(40px, 5vw, 56px);
-  font-weight: 300; line-height: 1.1; letter-spacing: -0.025em;
-  color: var(--text); margin-bottom: var(--space-5); max-width: 60ch; margin-left: auto; margin-right: auto;
-}
+.final-cta-headline { font-size: clamp(40px, 5vw, 56px); font-weight: 300; line-height: 1.1; letter-spacing: -0.025em; color: var(--text); margin-bottom: var(--space-5); max-width: 60ch; margin-left: auto; margin-right: auto; }
 .final-cta-sub { font-size: 20px; font-weight: 400; color: var(--text-dim); max-width: 42ch; margin: 0 auto var(--space-7) auto; line-height: 1.6; }
 .final-cta-actions { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); }
 .final-cta-btn { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; color: var(--bg); background: var(--signal); padding: 18px 32px; transition: background var(--speed), transform var(--speed); }
 .final-cta-btn:hover { background: #1ae075; color: var(--bg); }
 .final-cta-secondary { font-size: 14px; color: var(--text-faint); }
-@media (max-width: 600px) {
-  .final-cta { padding: var(--space-8) 0; }
-  .final-cta-headline { font-size: 32px; }
-}
+@media (max-width: 600px) { .final-cta { padding: var(--space-8) 0; } .final-cta-headline { font-size: 32px; } }
 
 /* ═══════════════════════════════════════════════════════════
    FOOTER
    ═══════════════════════════════════════════════════════════ */
 .footer { padding: var(--space-6) 0; border-top: 1px solid var(--border); }
-.footer-inner {
-  max-width: var(--container); margin: 0 auto; padding: 0 var(--space-8);
-  display: flex; align-items: center; justify-content: space-between; gap: var(--space-5);
-}
+.footer-inner { max-width: var(--container); margin: 0 auto; padding: 0 var(--space-8); display: flex; align-items: center; justify-content: space-between; gap: var(--space-5); }
 .footer-copy { font-size: 13px; color: var(--text-faint); letter-spacing: -0.01em; }
 .footer-links { display: flex; gap: var(--space-5); }
 .footer-link { font-size: 13px; color: var(--text-dim); transition: color var(--speed); }
 .footer-link:hover { color: var(--text); }
-@media (max-width: 600px) {
-  .footer-inner { flex-direction: column; text-align: center; gap: var(--space-4); }
-}
+@media (max-width: 600px) { .footer-inner { flex-direction: column; text-align: center; gap: var(--space-4); } }
 
 /* ═══════════════════════════════════════════════════════════
    SCROLL REVEAL SYSTEM
-   Elements start invisible, cascade in when visible.
-   Uses IntersectionObserver for performance.
-   Stagger via data-delay attribute (ms).
    ═══════════════════════════════════════════════════════════ */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity var(--speed-slower) var(--ease), transform var(--speed-slower) var(--ease);
-}
-.reveal-fast {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 350ms var(--ease), transform 350ms var(--ease);
-}
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity var(--speed-slower) var(--ease), transform var(--speed-slower) var(--ease); }
+.reveal-fast { opacity: 0; transform: translateY(10px); transition: opacity 350ms var(--ease), transform 350ms var(--ease); }
 .reveal.in { opacity: 1; transform: translateY(0); }
 .reveal-fast.in { opacity: 1; transform: translateY(0); }
 
-/* ═══════════════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════
    LOGO SYSTEM — Refined flat mark + TWINTHOS wordmark
-   ═══════════════════════════════════════════════════════════════════════ */
-.logo-mark {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
+   ═══════════════════════════════════════════════════════════ */
+.logo-mark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
 .logo-mark svg { height: 28px; width: auto; flex-shrink: 0; }
-.logo-wordmark {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--text);
-  white-space: nowrap;
-}
-@media (max-width: 420px) {
-  .logo-wordmark { display: none; }
-}
+.logo-wordmark { font-family: 'Inter', system-ui, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: -0.01em; color: var(--text); white-space: nowrap; }
+@media (max-width: 420px) { .logo-wordmark { display: none; } }
+
+.reveal .word { display: inline-block; transition: opacity var(--speed-slower) var(--ease), transform var(--speed-slower) var(--ease); }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal-fast { opacity: 1; transform: none; transition: none; }
   .pipe-particle { animation: none; opacity: 0.4; }
+  .reveal .word { opacity: 1; transform: none; transition: none; }
 }
 </style>
 </head>
@@ -675,20 +421,12 @@ ul, ol { list-style: none; }
   <div class="nav-inner">
     <a href="/" class="nav-brand" aria-label="Twinthos home">
       <span class="logo-mark">
-        <!-- Refined flat titanium mark + TWINTHOS wordmark lockup -->
         <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="180" height="24" aria-hidden="true">
-          <!-- Mark: refined stepped flow, 140px wide, drawn at 1x scale -->
-          <!-- Foundation block -->
           <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#FFFFFF"/>
-          <!-- First descent -->
           <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#FFFFFF" opacity="0.85"/>
-          <!-- Second descent -->
           <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#FFFFFF" opacity="0.6"/>
-          <!-- Final descent -->
           <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#FFFFFF" opacity="0.4"/>
-          <!-- Signal dot — terminus end-cap on baseline -->
           <circle cx="48" cy="36" r="4.5" fill="#20F782"/>
-          <!-- Wordmark -->
           <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#FFFFFF">TWINTHOS</text>
         </svg>
         <span class="logo-wordmark">TWINTHOS</span>
@@ -712,49 +450,36 @@ ul, ol { list-style: none; }
 
 <!-- ═══════════════════════ 01 HERO ═══════════════════════ -->
 <!-- Mirofish Principle 1: ONE BIG IDEA FIRST -->
-<!-- The hero communicates the core value prop instantly. -->
-<!-- Editorial. Confident. No clutter. -->
+<!-- Agent 0: "Your operation without the glue work." -->
 <section class="hero" id="hero">
   <div class="hero-inner">
     <div class="hero-content">
       <p class="hero-label reveal-fast">Managed operations</p>
-      <h1 class="hero-headline" id="heroHeadline">
+      <h1 class="hero-headline" id="heroHeadline" aria-label="Your operation without the glue work.">
         <span class="word">Your</span>
-        <span class="word">team</span>
-        <span class="word">shouldn't</span>
-        <span class="word">spend</span>
-        <span class="word">their</span>
-        <span class="word">day</span>
-        <span class="word">on</span>
+        <span class="word">operation</span>
+        <span class="word">without</span>
+        <span class="word">the</span>
+        <span class="word">glue</span>
         <span class="word">work</span>
-        <span class="word">a</span>
-        <span class="word">machine</span>
-        <span class="word">could</span>
-        <span class="word">do</span>
         <span class="word">.</span>
       </h1>
-      <p class="hero-body reveal" data-delay="300">
-        Twinthos removes the operational glue work — chasing updates, updating records, following up — so your operation runs without constant attention.
+      <p class="hero-body reveal" data-delay="200">
+        Twinthos takes the chasing, copying, updating and follow-up
+        that hold every operation together — and handles it quietly,
+        across the systems you already use. Your team keeps doing
+        the work only people can do.
       </p>
-      <a href="#offer" class="hero-cta reveal" data-delay="450">Assess your operation</a>
-      <p class="hero-secondary reveal" data-delay="550">No software to buy. No dashboard to learn.</p>
+      <a href="#offer" class="hero-cta reveal" data-delay="350">Assess your operation</a>
     </div>
     <div class="hero-brand" aria-hidden="true">
       <span class="logo-mark">
-        <!-- Refined flat titanium mark + TWINTHOS wordmark, large scale -->
-        <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="360" height="72" aria-hidden="true">
-          <!-- Mark: refined stepped flow, 140px wide, drawn at 1x scale -->
-          <!-- Foundation block -->
+        <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="140" height="18" aria-hidden="true">
           <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#FFFFFF"/>
-          <!-- First descent -->
           <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#FFFFFF" opacity="0.85"/>
-          <!-- Second descent -->
           <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#FFFFFF" opacity="0.6"/>
-          <!-- Final descent -->
           <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#FFFFFF" opacity="0.4"/>
-          <!-- Signal dot — terminus end-cap on baseline -->
           <circle cx="48" cy="36" r="4.5" fill="#20F782"/>
-          <!-- Wordmark -->
           <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#FFFFFF">TWINTHOS</text>
         </svg>
         <span class="logo-wordmark">TWINTHOS</span>
@@ -799,9 +524,8 @@ ul, ol { list-style: none; }
 </section>
 
 <!-- ═══════════════════════ 03 ENEMY ═══════════════════════ -->
-<!-- Mirofish Principle 3: VISUAL METAPHOR -->
-<!-- Operational drag as physical clutter — piled-up cards -->
-<!-- Each card is a "post-it" that's stuck, displaced, piled. -->
+<!-- Mirofish Principle 3: VISUAL METAPHOR — Agent 2 -->
+<!-- Physical pile of torn notes = operational drag -->
 <section class="enemy" id="enemy">
   <div class="container">
     <p class="enemy-label reveal-fast">The enemy</p>
@@ -814,102 +538,78 @@ ul, ol { list-style: none; }
       <span class="word">systems</span>
       <span class="word">.</span>
     </h2>
-    <div class="enemy-chaos reveal">
-      <!-- Card 1: CHECK — top left, normal -->
-      <div class="drag-card" data-d="0">
-        <div class="card-tape" aria-hidden="true"></div>
-        <div class="card-rough">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+    <div class="enemy-wrap reveal">
+      <div class="enemy-grid">
+        <div class="enemy-card" data-e="0">
+          <div class="enemy-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <circle cx="12" cy="12" r="9"/>
               <path d="M12 7v5l3 2"/>
             </svg>
           </div>
-          <span class="card-label">Check</span>
-          <span class="card-sub">Look it up. Read it. Confirm it.</span>
+          <span class="enemy-card-label">Check</span>
+          <span class="enemy-card-sub">Look it up. Read it. Confirm it.</span>
         </div>
-      </div>
-      <!-- Card 2: CHASE — offset left -->
-      <div class="drag-card" data-d="1">
-        <div class="card-tape card-tape--side" aria-hidden="true"></div>
-        <div class="card-rough">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <div class="enemy-card" data-e="1">
+          <div class="enemy-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M4 16c0-4 3-7 8-7s8 3 8 7"/>
               <circle cx="18" cy="7" r="1.5" fill="currentColor" stroke="none"/>
               <path d="M20 9l2 2"/>
             </svg>
           </div>
-          <span class="card-label">Chase</span>
-          <span class="card-sub">Send again. Follow up. Wait.</span>
+          <span class="enemy-card-label">Chase</span>
+          <span class="enemy-card-sub">Send again. Follow up. Wait.</span>
         </div>
-      </div>
-      <!-- Card 3: COPY — overlapping right -->
-      <div class="drag-card" data-d="2">
-        <div class="card-tape card-tape--side" aria-hidden="true"></div>
-        <div class="card-rough">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <div class="enemy-card" data-e="2">
+          <div class="enemy-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <rect x="8" y="6" width="10" height="13" rx="1"/>
               <path d="M4 10h12M4 14h12"/>
             </svg>
           </div>
-          <span class="card-label">Copy</span>
-          <span class="card-sub">Paste it here. Paste it there. Paste it again.</span>
+          <span class="enemy-card-label">Copy</span>
+          <span class="enemy-card-sub">Paste it here. Paste it there. Paste it again.</span>
         </div>
-      </div>
-      <!-- Card 4: UPDATE — bottom right -->
-      <div class="drag-card" data-d="3">
-        <div class="card-rough">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <div class="enemy-card" data-e="3">
+          <div class="enemy-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M11 4H4v12l9 6 9-6V4z"/>
               <path d="M11 4v6h6"/>
             </svg>
           </div>
-          <span class="card-label">Update</span>
-          <span class="card-sub">Change one system. Then change the other.</span>
+          <span class="enemy-card-label">Update</span>
+          <span class="enemy-card-sub">Change one system. Then change the other.</span>
         </div>
-      </div>
-      <!-- Card 5: BOOK — buried -->
-      <div class="drag-card" data-d="4">
-        <div class="card-rough">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <div class="enemy-card" data-e="4">
+          <div class="enemy-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <rect x="3" y="5" width="18" height="14" rx="1"/>
               <path d="M3 9h18"/>
             </svg>
           </div>
-          <span class="card-label">Book</span>
-          <span class="card-sub">Find the slot. Send the invite. Confirm it.</span>
+          <span class="enemy-card-label">Book</span>
+          <span class="enemy-card-sub">Find the slot. Send the invite. Confirm it.</span>
         </div>
-      </div>
-      <!-- Card 6: FOLLOW UP — top, dislodged -->
-      <div class="drag-card" data-d="5">
-        <div class="card-tape card-tape--top" aria-hidden="true"></div>
-        <div class="card-rough">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <div class="enemy-card" data-e="5">
+          <div class="enemy-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M4 4l16 16"/>
               <circle cx="18" cy="6" r="3"/>
               <circle cx="6" cy="18" r="3"/>
             </svg>
           </div>
-          <span class="card-label">Follow up</span>
-          <span class="card-sub">One message becomes four.</span>
+          <span class="enemy-card-label">Follow up</span>
+          <span class="enemy-card-sub">One message becomes four.</span>
         </div>
-      </div>
-      <!-- Card 7: MOVE INFORMATION — on top, widest, most dislodged (the worst offender) -->
-      <div class="drag-card" data-d="6" style="z-index:10;">
-        <div class="card-tape" aria-hidden="true"></div>
-        <div class="card-rough card-rough--wide">
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <div class="enemy-card" data-e="6">
+          <div class="enemy-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </div>
-          <span class="card-label">Move information</span>
-          <span class="card-sub">From here. To there. Then back again.</span>
+          <span class="enemy-card-label">Move information</span>
+          <span class="enemy-card-sub">From here. To there. Then back again. The work that never ends.</span>
         </div>
       </div>
     </div>
@@ -917,8 +617,8 @@ ul, ol { list-style: none; }
 </section>
 
 <!-- ═══════════════════════ 04 PROOF ═══════════════════════ -->
-<!-- Mirofish Principle 3: the proof stream as a flowing pipe -->
-<!-- Vertical conduit. Work enters at top, flows through stages, exits complete. -->
+<!-- Mirofish Principle 3: VISUAL METAPHOR — Agent 2 -->
+<!-- Horizontal underground pipe: work flows through stages -->
 <section class="proof" id="proof">
   <div class="container">
     <p class="proof-label reveal-fast">The proof</p>
@@ -931,89 +631,73 @@ ul, ol { list-style: none; }
     <p class="proof-intro reveal" data-delay="200">One workflow. No dashboard. No control panel.</p>
 
     <div class="proof-pipe">
-      <!-- Animated conduit -->
-      <div class="pipe-conduit" aria-hidden="true">
+      <div class="pipe-stations">
+        <div class="pipe-station reveal" data-delay="100" data-progress="done">
+          <span class="pipe-station-num">01</span>
+          <span class="pipe-station-title">Enquiry</span>
+          <span class="pipe-station-desc">A message arrives — email, form, enquiry. The workflow notices it.</span>
+          <div class="pipe-station-response">
+            <span class="pipe-station-resp-label">System sees it</span>
+            <span class="pipe-station-resp-text">Before anyone opens their inbox.</span>
+          </div>
+        </div>
+        <div class="pipe-station reveal" data-delay="180" data-progress="done">
+          <span class="pipe-station-num">02</span>
+          <span class="pipe-station-title">Understand</span>
+          <span class="pipe-station-desc">It reads what was sent. Works out what it means. Knows what to do next.</span>
+          <div class="pipe-station-response">
+            <span class="pipe-station-resp-label">Context read</span>
+            <span class="pipe-station-resp-text">No need to restate what's obvious.</span>
+          </div>
+        </div>
+        <div class="pipe-station reveal" data-delay="260" data-progress="done">
+          <span class="pipe-station-num">03</span>
+          <span class="pipe-station-title">Check</span>
+          <span class="pipe-station-desc">Looks across the systems. Confirms the details. Finds what's relevant.</span>
+          <div class="pipe-station-response">
+            <span class="pipe-station-resp-label">Verified</span>
+            <span class="pipe-station-resp-text">Across every system it touches.</span>
+          </div>
+        </div>
+        <div class="pipe-station reveal" data-delay="340" data-progress="done">
+          <span class="pipe-station-num">04</span>
+          <span class="pipe-station-title">Act</span>
+          <span class="pipe-station-desc">Does what it's allowed to do — books, updates, sends, copies. Without asking.</span>
+          <div class="pipe-station-response">
+            <span class="pipe-station-resp-label">Action taken</span>
+            <span class="pipe-station-resp-text">Without a person prompting each step.</span>
+          </div>
+        </div>
+        <div class="pipe-station reveal" data-delay="420" data-progress="done">
+          <span class="pipe-station-num">05</span>
+          <span class="pipe-station-title">Update</span>
+          <span class="pipe-station-desc">Records are kept in sync. Nothing depends on someone remembering to copy it over.</span>
+          <div class="pipe-station-response">
+            <span class="pipe-station-resp-label">Systems synced</span>
+            <span class="pipe-station-resp-text">One action, every record updated.</span>
+          </div>
+        </div>
+        <div class="pipe-station reveal" data-delay="500" data-progress="done">
+          <span class="pipe-station-num">06</span>
+          <span class="pipe-station-title">Complete</span>
+          <span class="pipe-station-desc">The work is done. The record is closed. The team is not involved.</span>
+          <div class="pipe-station-response">
+            <span class="pipe-station-resp-label" style="color:var(--signal);">Work gone</span>
+            <span class="pipe-station-resp-text" style="color:var(--text);">Not deferred. Not parked. Done.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pipe-ground" aria-hidden="true">
+        <div class="pipe-casing"></div>
         <div class="pipe-line"></div>
         <div class="pipe-particle"></div>
       </div>
-
-      <!-- Step 01: Enquiry -->
-      <div class="pipe-step reveal" data-delay="300">
-        <div class="pipe-node">
-          <span class="pipe-num">01</span>
-          <span class="pipe-dot"></span>
-        </div>
-        <div class="pipe-body">
-          <span class="pipe-label">Enquiry</span>
-          <span class="pipe-desc">A message arrives — email, form, enquiry. The workflow notices it.</span>
-        </div>
-      </div>
-
-      <!-- Step 02: Understand -->
-      <div class="pipe-step reveal" data-delay="400">
-        <div class="pipe-node">
-          <span class="pipe-num">02</span>
-          <span class="pipe-dot"></span>
-        </div>
-        <div class="pipe-body">
-          <span class="pipe-label">Understand</span>
-          <span class="pipe-desc">It reads what was sent. Works out what it means. Knows what to do next.</span>
-        </div>
-      </div>
-
-      <!-- Step 03: Check -->
-      <div class="pipe-step reveal" data-delay="500">
-        <div class="pipe-node">
-          <span class="pipe-num">03</span>
-          <span class="pipe-dot"></span>
-        </div>
-        <div class="pipe-body">
-          <span class="pipe-label">Check</span>
-          <span class="pipe-desc">Looks across the systems. Confirms the details. Finds what's relevant.</span>
-        </div>
-      </div>
-
-      <!-- Step 04: Act -->
-      <div class="pipe-step reveal" data-delay="600">
-        <div class="pipe-node">
-          <span class="pipe-num">04</span>
-          <span class="pipe-dot"></span>
-        </div>
-        <div class="pipe-body">
-          <span class="pipe-label">Act</span>
-          <span class="pipe-desc">Does what it's allowed to do — books, updates, sends, copies. Without asking.</span>
-        </div>
-      </div>
-
-      <!-- Step 05: Update -->
-      <div class="pipe-step reveal" data-delay="700">
-        <div class="pipe-node">
-          <span class="pipe-num">05</span>
-          <span class="pipe-dot"></span>
-        </div>
-        <div class="pipe-body">
-          <span class="pipe-label">Update</span>
-          <span class="pipe-desc">Records are kept in sync. Nothing depends on someone remembering to copy it over.</span>
-        </div>
-      </div>
-
-      <!-- Step 06: Complete — signal green, the destination -->
-      <div class="pipe-step pipe-step--complete reveal" data-delay="800">
-        <div class="pipe-node pipe-node--active">
-          <span class="pipe-num">06</span>
-          <span class="pipe-dot pipe-dot--signal"></span>
-        </div>
-        <div class="pipe-body">
-          <span class="pipe-label">Complete</span>
-          <span class="pipe-desc">The work is done. The record is closed. The team is not involved.</span>
-        </div>
-      </div>
     </div>
 
-    <!-- Human decision note -->
-    <div class="human-bound reveal" data-delay="900">
-      <p class="human-label">Human decision needed</p>
-      <p class="human-desc">When judgement is needed, Twinthos stops and asks.</p>
+    <div class="proof-human reveal" data-delay="600">
+      <p class="proof-human-label">Human decision needed</p>
+      <p class="proof-human-desc">When judgement is needed, Twinthos stops and asks.</p>
     </div>
   </div>
 </section>
@@ -1021,7 +705,7 @@ ul, ol { list-style: none; }
 <!-- ═══════════════════════ 05 HOW TWINTHOS WORKS ═══════════════════════ -->
 <section class="how" id="how">
   <div class="container">
-    <p class="enemy-label reveal-fast">How Twinthos works</p>
+    <p class="how-label reveal-fast">How Twinthos works</p>
     <h2 class="how-headline reveal">
       <span class="word">Twinthos</span>
       <span class="word">takes</span>
@@ -1029,26 +713,26 @@ ul, ol { list-style: none; }
       <span class="word">away</span>
       <span class="word">.</span>
     </h2>
-    <div class="how-grid reveal" style="margin-top:var(--space-7);">
+    <div class="how-grid reveal">
       <div class="how-step">
-        <div class="how-num" style="color:var(--signal);">01</div>
-        <div>
-          <p class="how-label">Learns the process</p>
-          <p class="how-desc">We build it around the work your team actually does, not around a generic workflow.</p>
+        <div class="how-num how-num--signal">01</div>
+        <div class="how-step-body">
+          <p class="how-step-label">Learns the process</p>
+          <p class="how-step-desc">We build it around the work your team actually does, not around a generic workflow.</p>
         </div>
       </div>
       <div class="how-step">
         <div class="how-num">02</div>
-        <div>
-          <p class="how-label">Works across the systems</p>
-          <p class="how-desc">It connects to the tools you already use. No new platform to log into.</p>
+        <div class="how-step-body">
+          <p class="how-step-label">Works across the systems</p>
+          <p class="how-step-desc">It connects to the tools you already use. No new platform to log into.</p>
         </div>
       </div>
       <div class="how-step">
-        <div class="how-num" style="color:var(--signal);">03</div>
-        <div>
-          <p class="how-label">Stops when judgement is needed</p>
-          <p class="how-desc">It knows its limits. When it can't proceed safely, it pauses and asks a person.</p>
+        <div class="how-num how-num--signal">03</div>
+        <div class="how-step-body">
+          <p class="how-step-label">Stops when judgement is needed</p>
+          <p class="how-step-desc">It knows its limits. When it can't proceed safely, it pauses and asks a person.</p>
         </div>
       </div>
     </div>
@@ -1056,7 +740,8 @@ ul, ol { list-style: none; }
 </section>
 
 <!-- ═══════════════════════ 06 REDACTED EXAMPLE ═══════════════════════ -->
-<!-- Mirofish Principle 4: premium document feel, not a list -->
+<!-- Mirofish Principle 4: SIGNAL AND NOISE — Agent 3 -->
+<!-- Premium document feel: a real audit, client removed -->
 <section class="redacted" id="redacted">
   <div class="container">
     <p class="redacted-label reveal-fast">Redacted example</p>
@@ -1074,51 +759,53 @@ ul, ol { list-style: none; }
     <p class="redacted-desc reveal" data-delay="150">
       This is a real operations audit we ran. The client name and exact figures are removed. The structure, the findings and the recommended handover are intact.
     </p>
-    <div class="redacted-grid reveal">
-      <div class="redacted-item">
-        <div class="redacted-item-label">
-          <span class="redacted-item-num">01</span>
-          <span class="redacted-item-title">Workflow identified</span>
+    <div class="redacted-doc reveal" data-delay="250">
+      <div class="redacted-doc-inner">
+        <div class="redacted-entry">
+          <div class="redacted-entry-top">
+            <span class="redacted-entry-num">01</span>
+            <span class="redacted-entry-title">Workflow identified</span>
+          </div>
+          <p class="redacted-entry-body">Enquiry-to-appointment process: a recurring operational sequence touching three systems, handled by two people across four steps.</p>
         </div>
-        <p class="redacted-item-body">Enquiry-to-appointment process: a recurring operational sequence touching three systems, handled by two people across four steps.</p>
-      </div>
-      <div class="redacted-item">
-        <div class="redacted-item-label">
-          <span class="redacted-item-num">02</span>
-          <span class="redacted-item-title">Current manual process</span>
+        <div class="redacted-entry">
+          <div class="redacted-entry-top">
+            <span class="redacted-entry-num">02</span>
+            <span class="redacted-entry-title">Current manual process</span>
+          </div>
+          <p class="redacted-entry-body">Someone checks for new enquiries, reads the details, copies information across systems, confirms the appointment, sends the reminder, updates the record. Six movements for one result.</p>
         </div>
-        <p class="redacted-item-body">Someone checks for new enquiries, reads the details, copies information across systems, confirms the appointment, sends the reminder, updates the record. Six movements for one result.</p>
-      </div>
-      <div class="redacted-item">
-        <div class="redacted-item-label">
-          <span class="redacted-item-num">03</span>
-          <span class="redacted-item-title">Recommended handover</span>
+        <div class="redacted-entry">
+          <div class="redacted-entry-top">
+            <span class="redacted-entry-num">03</span>
+            <span class="redacted-entry-title">Recommended handover</span>
+          </div>
+          <p class="redacted-entry-body">The enquiry-to-appointment sequence, with agreed rules for what Twinthos can do alone and what requires a person.</p>
         </div>
-        <p class="redacted-item-body">The enquiry-to-appointment sequence, with agreed rules for what Twinthos can do alone and what requires a person.</p>
-      </div>
-      <div class="redacted-item">
-        <div class="redacted-item-label">
-          <span class="redacted-item-num">04</span>
-          <span class="redacted-item-title">Human boundary</span>
+        <div class="redacted-entry">
+          <div class="redacted-entry-top">
+            <span class="redacted-entry-num">04</span>
+            <span class="redacted-entry-title">Human boundary</span>
+          </div>
+          <p class="redacted-entry-body">Twinthos handles the check, the copy, the update and the reminder. A person approves any appointment above the agreed value and any exception to the standard process.</p>
         </div>
-        <p class="redacted-item-body">Twinthos handles the check, the copy, the update and the reminder. A person approves any appointment above the agreed value and any exception to the standard process.</p>
-      </div>
-      <div class="redacted-item">
-        <div class="redacted-item-label">
-          <span class="redacted-item-num">05</span>
-          <span class="redacted-item-title">Estimated value</span>
+        <div class="redacted-entry">
+          <div class="redacted-entry-top">
+            <span class="redacted-entry-num">05</span>
+            <span class="redacted-entry-title">Estimated value</span>
+          </div>
+          <p class="redacted-entry-body">Based on the time usually spent on this workflow and the number of times it runs each week. The actual number is confirmed during the audit.</p>
         </div>
-        <p class="redacted-item-body">Based on the time usually spent on this workflow and the number of times it runs each week. The actual number is confirmed during the audit.</p>
-      </div>
-      <div class="redacted-item">
-        <div class="redacted-item-label">
-          <span class="redacted-item-num">06</span>
-          <span class="redacted-item-title">Implementation plan</span>
+        <div class="redacted-entry">
+          <div class="redacted-entry-top">
+            <span class="redacted-entry-num">06</span>
+            <span class="redacted-entry-title">Implementation plan</span>
+          </div>
+          <p class="redacted-entry-body">One workflow, one human boundary, a short setup window, then monitored operation. The plan specifies what is handed over first and what is left for later.</p>
         </div>
-        <p class="redacted-item-body">One workflow, one human boundary, a short setup window, then monitored operation. The plan specifies what is handed over first and what is left for later.</p>
       </div>
     </div>
-    <div class="redacted-cta-row reveal" data-delay="600">
+    <div class="redacted-cta-row reveal" data-delay="500">
       <a href="#offer" class="hero-cta">See the offer</a>
       <p class="redacted-cta-note">Full document available on request</p>
     </div>
@@ -1138,7 +825,6 @@ ul, ol { list-style: none; }
         <circle cx="48" cy="36" r="4.5" fill="#20F782"/>
         <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#FFFFFF">TWINTHOS</text>
       </svg>
-    </div>
     </div>
     <div class="human-content">
       <p class="human-label reveal-fast">The architect</p>
@@ -1162,31 +848,32 @@ ul, ol { list-style: none; }
 </section>
 
 <!-- ═══════════════════════ 08 OFFER ═══════════════════════ -->
-<!-- Mirofish Principle 4: £5,000/month is the hero -->
-<!-- Confident. No apology. The price commands the section. -->
+<!-- Mirofish Principle 4: £5,000/month is the hero — Agent 3 -->
 <section class="offer" id="offer">
-  <p class="offer-label reveal-fast">The offer</p>
-  <div class="offer-price-block reveal">
-    <span class="offer-price">£5,000</span>
-    <span class="offer-price-unit">/ month</span>
-    <span class="offer-price-note">Managed operations · minimum 3-month engagement</span>
-  </div>
-  <p class="offer-desc reveal" data-delay="200">
-    We build it, connect it, monitor it and keep improving it. Setup, connections, monitoring, maintenance, improvement, support — all included.
-  </p>
-  <div class="offer-list reveal">
-    <div class="offer-list-item">
-      <span>Setup</span><span class="offer-list-sep"></span>
-      <span>Connections</span><span class="offer-list-sep"></span>
-      <span>Monitoring</span><span class="offer-list-sep"></span>
-      <span>Maintenance</span><span class="offer-list-sep"></span>
-      <span>Improvement</span><span class="offer-list-sep"></span>
-      <span>Support</span>
+  <div class="container">
+    <p class="offer-label reveal-fast">The offer</p>
+    <div class="offer-price-block reveal">
+      <span class="offer-price">£5,000</span>
+      <span class="offer-price-unit">/ month</span>
+      <span class="offer-price-note">Managed operations · minimum 3-month engagement</span>
     </div>
-  </div>
-  <div class="offer-cta-row reveal" data-delay="350">
-    <a href="/book/" class="offer-cta">Assess your operation</a>
-    <p class="offer-cta-sub">Not sure if it fits? Start with a conversation.</p>
+    <p class="offer-desc reveal" data-delay="200">
+      We build it, connect it, monitor it and keep improving it. Setup, connections, monitoring, maintenance, improvement, support — all included.
+    </p>
+    <div class="offer-list reveal">
+      <div class="offer-list-item">
+        <span>Setup</span><span class="offer-list-sep"></span>
+        <span>Connections</span><span class="offer-list-sep"></span>
+        <span>Monitoring</span><span class="offer-list-sep"></span>
+        <span>Maintenance</span><span class="offer-list-sep"></span>
+        <span>Improvement</span><span class="offer-list-sep"></span>
+        <span>Support</span>
+      </div>
+    </div>
+    <div class="offer-cta-row reveal" data-delay="350">
+      <a href="/book/" class="offer-cta">Assess your operation</a>
+      <p class="offer-cta-sub">Not sure if it fits? Start with a conversation.</p>
+    </div>
   </div>
 </section>
 
@@ -1228,113 +915,7 @@ ul, ol { list-style: none; }
   </div>
 </footer>
 
-<!-- Mirofish-grade motion: word-by-word reveal + scroll cascade + pipe particle -->
-<script>
-(function () {
-  'use strict';
-
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ── NAV scroll state ── */
-  var nav = document.getElementById('nav');
-  var ticking = false;
-  function navBg() {
-    nav.style.background = window.scrollY > 20 ? 'rgba(0,0,0,0.96)' : 'rgba(0,0,0,0.7)';
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-    ticking = false;
-  }
-  window.addEventListener('scroll', function () {
-    if (!ticking) { ticking = true; requestAnimationFrame(navBg); }
-  }, { passive: true });
-  navBg();
-
-  /* ── Mobile burger ── */
-  var burger = document.getElementById('navBurger');
-  var links = document.getElementById('navLinks');
-  if (burger && links) {
-    burger.addEventListener('click', function () {
-      var open = burger.getAttribute('aria-expanded') === 'true';
-      burger.setAttribute('aria-expanded', open ? 'false' : 'true');
-      links.style.display = open ? 'none' : 'flex';
-      links.style.flexDirection = 'column';
-      links.style.position = 'absolute';
-      links.style.top = '56px';
-      links.style.right = 'var(--space-4)';
-      links.style.background = 'rgba(0,0,0,0.96)';
-      links.style.padding = 'var(--space-5)';
-      links.style.gap = 'var(--space-4)';
-      links.style.border = '1px solid var(--border-strong)';
-      links.style.borderRadius = '0';
-    });
-    links.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        links.style.display = 'none';
-        burger.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
-
-  /* ── HERO WORD-BY-WORD REVEAL ── */
-  if (!reduceMotion) {
-    var heroHead = document.getElementById('heroHeadline');
-    if (heroHead && heroHead.children.length > 0) {
-      var words = heroHead.querySelectorAll('.word');
-      words.forEach(function (w, i) {
-        w.style.transitionDelay = (i * 55) + 'ms';
-        // Trigger after paint
-        requestAnimationFrame(function () {
-          requestAnimationFrame(function () {
-            w.classList.add('in');
-          });
-        });
-      });
-    }
-  }
-
-  /* ── SCROLL REVEAL: stagger cascade via IntersectionObserver ── */
-  if (!reduceMotion && 'IntersectionObserver' in window) {
-    var reveals = document.querySelectorAll(
-      '.reveal, .reveal-fast'
-    );
-    if (reveals.length) {
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            var el = entry.target;
-            var delay = parseInt(el.getAttribute('data-delay'), 10) || 0;
-            setTimeout(function () { el.classList.add('in'); }, delay);
-            observer.unobserve(el);
-          }
-        });
-      }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
-      reveals.forEach(function (el) { observer.observe(el); });
-    }
-  }
-
-  /* ── CTA HOVER: tactile feedback ── */
-  if (!reduceMotion) {
-    var btns = document.querySelectorAll('.hero-cta, .offer-cta, .final-cta-btn, .nav-cta');
-    btns.forEach(function (b) {
-      b.addEventListener('pointerdown', function () { b.style.transform = 'scale(0.97)'; });
-      b.addEventListener('pointerup', function () { b.style.transform = ''; });
-      b.addEventListener('pointerleave', function () { b.style.transform = ''; });
-    });
-  }
-
-  /* ── SMOOTH SCROLL FOR ANCHOR LINKS ── */
-  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      var id = a.getAttribute('href').slice(1);
-      if (!id) return;
-      var target = document.getElementById(id);
-      if (!target) return;
-      e.preventDefault();
-      var y = target.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: y, behavior: reduceMotion ? 'auto' : 'smooth' });
-    });
-  });
-})();
-</script>
+<script src="assets/site.js" defer></script>
 
 </body>
 </html>

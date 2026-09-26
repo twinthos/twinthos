@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twinthos — Redesigned Page Structure &amp; Narrative Arc</title>
+<style>
+  :root { --bg: #0a0a0a; --text: #f0f0f0; --dim: #888; --signal: #20F782;
+           --ease: cubic-bezier(0.4,0,0.2,1); }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif;
+         -webkit-font-smoothing: antialiased; padding: 48px 0; }
+  .page { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+  h1.page-title { font-size: clamp(40px,5vw,64px); font-weight: 300;
+                  letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 8px; }
+  .page-sub { font-size: 14px; color: var(--dim); letter-spacing: 0.04em; margin-bottom: 64px;
+              padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .legend { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 56px; font-size: 12px;
+            letter-spacing: 0.06em; text-transform: uppercase; color: var(--dim); }
+  .legend-item { display: flex; align-items: center; gap: 8px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot.hero { background: #fff; } .dot.problem { background: #ff5e5e; }
+  .dot.enemy { background: #ff9500; } .dot.resolution { background: var(--signal); }
+  .dot.proof { background: #7ec8e3; } .dot.evidence { background: #b388ff; }
+  .dot.diff { background: #69f0ae; } .dot.human { background: #ffd740; }
+  .dot.offer { background: #ff6d00; } .dot.cta { background: #ff1744; }
+
+  .beat { margin-bottom: 0; }
+  .beat-header {
+    display: grid; grid-template-columns: 48px 1fr auto;
+    gap: 16px; align-items: baseline; padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .beat-num { font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+              text-transform: uppercase; color: var(--dim); text-align: right; }
+  .beat-title { font-size: 22px; font-weight: 400; letter-spacing: -0.01em; color: var(--text); }
+  .beat-id { font-size: 12px; color: var(--dim); letter-spacing: 0.04em; font-family: monospace; }
+  .beat-body { padding: 24px 0 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+               align-items: start; }
+  .beat-col-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+                    text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+  .beat-col p { font-size: 14px; line-height: 1.7; color: var(--dim); letter-spacing: 0.01em; }
+  .beat-col p + p { margin-top: 8px; }
+  .beat-col strong { color: var(--text); font-weight: 400; }
+  .section-ref { font-family: 'Inter', monospace; font-size: 12px; color: var(--signal);
+                 letter-spacing: -0.01em; background: rgba(32,247,130,0.08);
+                 padding: 2px 6px; border-radius: 2px; }
+
+  /* Current vs redesigned contrast */
+  .before-after { margin-top: 64px; padding-top: 32px;
+                  border-top: 1px solid rgba(255,255,255,0.08); }
+  .ba-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+              text-transform: uppercase; color: var(--dim); margin-bottom: 24px; }
+  .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .ba-col { padding: 20px; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); }
+  .ba-col-title { font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+                   text-transform: uppercase; margin-bottom: 16px; }
+  .ba-col-title.current { color: #ff5e5e; }
+  .ba-col-title.desired  { color: var(--signal); }
+  .ba-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .ba-list li { font-size: 13px; color: var(--dim); line-height: 1.6; letter-spacing: 0.01em;
+                padding-left: 16px; position: relative; }
+  .ba-list li::before { content: '›'; position: absolute; left: 0; color: var(--dim); }
+  .ba-list li.remove { color: #ff5e5e; text-decoration: line-through; text-decoration-color: rgba(255,94,94,0.3); }
+  .ba-list li.add    { color: var(--signal); }
+
+  .transition-note { margin-top: 48px; padding: 24px;
+                     border: 1px solid rgba(32,247,130,0.15);
+                     background: rgba(32,247,130,0.04); }
+  .tn-title { font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+              text-transform: uppercase; color: var(--signal); margin-bottom: 12px; }
+  .tn-body { font-size: 13px; line-height: 1.7; color: var(--dim); letter-spacing: 0.01em;
+             max-width: 68ch; }
+  .tn-body strong { color: var(--text); }
+
+  @media (max-width: 720px) {
+    .page { padding: 0 20px; }
+    .beat-body { grid-template-columns: 1fr; gap: 20px; }
+    .ba-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<h1 class="page-title">Twinthos — Page Structure &amp; Narrative Architecture</h1>
+<p class="page-sub">Mirofish Principle 6: Flow and Narrative. The page reads as a story with tension and release. Every section earns its place by advancing the arc.</p>
+
+<div class="legend">
+  <span class="legend-item"><span class="dot hero"></span> Hero — Big idea</span>
+  <span class="legend-item"><span class="dot problem"></span> Problem — Tension</span>
+  <span class="legend-item"><span class="dot enemy"></span> Enemy — Tension peaks</span>
+  <span class="legend-item"><span class="dot resolution"></span> Resolution — The turn</span>
+  <span class="legend-item"><span class="dot proof"></span> Proof — Evidence in motion</span>
+  <span class="legend-item"><span class="dot evidence"></span> Evidence — Concrete</span>
+  <span class="legend-item"><span class="dot diff"></span> Differentiator — Contrast</span>
+  <span class="legend-item"><span class="dot human"></span> Human Architect — Principle</span>
+  <span class="legend-item"><span class="dot offer"></span> Offer — Culmination begins</span>
+  <span class="legend-item"><span class="dot cta"></span> Final CTA — Culmination</span>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- BEAT 01 — HERO                                            ▸ big idea -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div class="beat">
+  <div class="beat-header">
+    <span class="beat-num">Beat 01</span>
+    <span class="beat-title">Hero — The Big Idea</span>
+    <span class="beat-id">id="hero" &nbsp;→&nbsp; unchanged</span>
+  </div>
+  <div class="beat-body">
+    <div class="beat-col">
+      <p class="beat-col-label">What it does in the arc</p>
+      <p>Opens the page with the <strong>one thing</strong>. Not a product description — a statement that reframes the reader's reality. "Your team shouldn't spend their day on work a machine could do." Everything that follows is an elaboration of this sentence.</p>
+    </div>
+    <div class="beat-col">
+      <p class="beat-col-label">Placement rationale</p>
+      <p>First and non-negotiable. Principle 1. The page must communicate its thesis before the user reads a second line. The hero is the thesis statement of the entire narrative.</p>
+      <p style="margin-top:8px;"><strong>Transition out:</strong> The supporting body text ("removes the operational glue work") carries the reader directly into the problem — it names "chasing updates, updating records, following up," which is the arrival point of Beat 02.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- BEAT 02 — PROBLEM                                         ▸ tension   -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div class="beat">
+  <div class="beat-header">
+    <span class="beat-num">Beat 02</span>
+    <span class="beat-title">Problem — The Tension</span>
+    <span class="beat-id">id="story" &nbsp;→&nbsp; unchanged position</span>
+  </div>
+  <div class="beat-body">
+    <div class="beat-col">
+      <p class="beat-col-label">What it does in the arc</p>
+      <p>Validates the reader's experience. "Software multiplied. Work didn't disappear." This is the moment the reader nods — yes, that's exactly what happened. The section does not blame the reader; it names a structural condition they didn't choose.</p>
+    </div>
+    <div class="beat-col">
+      <p class="beat-col-label">Placement rationale</p>
+      <p>Immediately after the hero, because the hero makes a claim and the problem section provides the evidence that the claim is worth hearing. Without the problem, the hero is just a bold statement with no stakes.</p>
+      <p style="margin-top:8px;"><strong>Transition out:</strong> The problem names "check, update, chase, copy, book, follow up" — the specific activities the enemy section then makes physical. The story-section closing line ("the work they were hired for") is the hinge into the enemy.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- BEAT 03 — ENEMY                                          ▸ tension↑  -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div class="beat">
+  <div class="beat-header">
+    <span class="beat-num">Beat 03</span>
+    <span class="beat-title">Enemy — The Drag Peaks</span>
+    <span class="beat-id">id="enemy" &nbsp;→&nbsp; unchanged position</span>
+  </div>
+  <div class="beat-body">
+    <div class="beat-col">
+      <p class="beat-col-label">What it does in the arc</p>
+      <p>Gives the problem a body. Each card is a physical thing the reader has held: a sticky note that must be copied, a form that must be re-checked, a reminder that must be chased. The visual chaos peaks here — this is the worst moment of the story before the turn.</p>
+    </div>
+    <div class="beat-col">
+      <p class="beat-col-label">Placement rationale</p>
+      <p>Tension peaks after the problem establishes the condition and before the resolution offers relief. The reader should feel the weight before feeling the lift. Moving the enemy section later would deflate it; moving it earlier would make the problem section redundant.</p>
+      <p style="margin-top:8px;"><strong>Transition out:</strong> The enemy cards' chaos resolves into the proof pipe's ordered flow. The contrast between "things piled on top of each other" (enemy) and "work entering a conduit and exiting complete" (proof) IS the resolution. No separate transition text needed — the sections speak to each other.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- BEAT 04 — RESOLUTION                          ▸ the turn ▸ merged proof+how -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div class="beat">
+  <div class="beat-header">
+    <span class="beat-num">Beat 04</span>
+    <span class="beat-title">Resolution — The Turn</span>
+    <span class="beat-id">id="proof" &nbsp;→&nbsp; expanded; "how" section removed</span>
+  </div>
+  <div class="beat-body">
+    <div class="beat-col">
+      <p class="beat-col-label">What it does in the arc</p>
+      <p>The turn. After the enemy shows the chaos, this section shows what ordered work looks like. The pipe is the visual answer to the enemy's pile: work enters as enquiry, passes through stages, and exits complete — without anyone touching it. The "human-bound" note inside this section ("When judgement is needed, Twinthos stops and asks") is the key qualifier that prevents the resolution from feeling like automation overreach.</p>
+    </div>
+    <div class="beat-col">
+      <p class="beat-col-label">Placement rationale &amp; change</p>
+      <p>Currently split across two sections: <span class="section-ref">proof</span> (the pipe) and <span class="section-ref">how</span> ("Twinthos takes work away" — three numbered steps). This is <strong>redundant</strong>. The pipe already shows the work disappearing; the "how" section says the same thing in text.</p>
+      <p style="margin-top:8px;"><strong>Move:</strong> Absorb "how" content into an expanded proof section. The three "how" points (learns the process, works across systems, stops when judgement is needed) become a sub-block inside the resolution — either below the pipe as a calm explanatory note, or as a fourth layer of the pipe narrative. Then <span class="section-ref">how</span> is removed entirely.</p>
+      <p style="margin-top:8px;"><strong>Transition out:</strong> The proof pipe ends at "Complete — the team is not involved." That is the exact setup for the redacted evidence: "Here's what that looks like in practice."</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- BEAT 05 — PROOF (concrete evidence stream)                ▸ evidence  -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div class="beat">
+  <div class="beat-header">
+    <span class="beat-num">Beat 05</span>
+    <span class="beat-title">Proof — Evidence in Motion</span>
+    <span class="beat-id">id="proof" (pipe) &nbsp;→&nbsp; remains Beat 04 / 05 joint</span>
+  </div>
+  <div class="beat-body">
+    <div class="beat-col">
+      <p class="beat-col-label">What it does in the arc</p>
+      <p>Demonstrates the resolution as a process the reader can see, not just a claim they can hear. The pipe is physical: a conduit with a moving particle, numbered stages, a destination node. This is Mirofish Principle 3 (visual metaphor) doing the narrative work — showing rather than telling.</p>
+    </div>
+    <div class="beat-col">
+      <p class="beat-col-label">Placement rationale</p>
+      <p>After the enemy and before the redacted document. The pipe makes the abstract concrete; the redacted document then gives a real-world instance. Proof (the system) → Evidence (a real audit of that system in action).</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- BEAT 06 — EVIDENCE                         ▸ concrete ▸ redacted example  -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div class="beat">
+  <div class="beat-header">
+    <span class="beat-num">Beat 06</span>
+    <span class="beat-title">Evidence — A Real Audit</span>
+    <span class="beat-id">id="redacted" &nbsp;→&nbsp; unchanged position</span>
+  </div>
+  <div class="beat-body">
+    <div class="beat-col">
+      <p class="beat-col-label">What it does in the arc</p>
+      <p>Gives the reader something tangible. Not a testimonial, not a vague promise — a structured record of an actual operations audit. The redacted format (numbers, titles, structured body copy, thin rules) communicates: "We do this properly. Here's what proper looks like." Mirofish Principle 4 (signal and noise): premium document feel, not a list.</p>
+    </div>
+    <div class="beat-col">
+      <p class="beat-col-label">Placement rationale</p>
+      <p>After the proof pipe and before the differentiator. The pipe shows the system; the audit shows the system applied to a real operation. Together they form the evidence base that makes the offer credible. The CTA inside this section ("See the offer") is a mid-arc prompt — it doesn't close the story, it points ahead.</p>
+      <p style="margin-top:8px;"><strong>Transition out:</strong> The audit's last item ("Implementation plan: one workflow, one human boundary") leads directly into the differentiator's contrast question: "What makes this different from buying another tool?"</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- BEAT 07 — DIFFERENTIATOR                         ▸ contrast ▸ NEW section  -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div class="beat">
+  <div class="beat-header">
+    <span class="beat-num">Beat 07</span>
+    <span class="beat-title">Differentiator — Most Tools vs. Twinthos</span>
+    <span class="beat-id">id="difference" &nbsp;→&nbsp; NEW &nbsp;★ moved before Human</span>
+  </div>
+  <div class="beat-body">
+    <div class="beat-col">
+      <p class="beat-col-label">What it does in the arc</p>
+      <p>A dramatic before/after. Left column: the tool-based approach — dim, crossed-out, what the reader already knows doesn't work. Right column: Twinthos — signal green, the alternative. This is the moment the reader understands not just <em>that</em> Twinthos is different, but <em>why</em> in terms they already understand.</p>
+    </div>
+    <div class="beat-col">
+      <p class="beat-col-label">Placement rationale &amp; change</p>
+      <p>Currently the "difference" CSS class exists in the stylesheet but the section is <strong>not present in the HTML</strong>. This is a gap. The differentiator belongs <strong>after evidence and before the human architect</strong>, because:</p>
+      <p style="margin-top:8px;">1. Evidence proves it works.<br>2. Differentiator explains <em>why</em> it's not just another tool.<br>3. Human architect then states the underlying principle — which only makes sense after the contrast has landed.</p>
+      <p style="margin-top:8px;">Placing it before the human architect means the human section reads as the philosophical foundation of the contrast, not as a standalone statement.</p>
+      <p style="margin-top:8px;"><strong>Transition out:</strong> The differentiator's Twinthos column ends on the principle that humans set direction. That is the exact lead-in to the human architect's headline: "Humans set the direction. Twinthos carries the work."</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- BEAT 08 — HUMAN ARCHITECT                              ▸ principle   -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div class="beat">
+  <div class="beat-header">
+    <span class="beat-num">Beat 08</span>
+    <span class="beat-title">Human Architect — The Principle Statement</span>
+    <span class="beat-id">id="human" &nbsp;→&nbsp; unchanged position</span>
+  </div>
+  <div class="beat-body">
+    <div class="beat-col">
+      <p class="beat-col-label">What it does in the arc</p>
+      <p>Not a feature. Not a testimonial. A position. "Humans set the direction. Twinthos carries the work." This is the philosophical ground the entire page has been building toward. It reframes the reader's relationship to the service: you're not outsourcing your judgement, you're freeing it.</p>
+    </div>
+    <div class="beat-col">
+      <p class="beat-col-label">Placement rationale</p>
+      <p>After the differentiator, because the differentiator establishes <em>what</em> Twinthos is (not a tool), and the human architect establishes <em>why</em> that matters (because humans still matter). The principle statement should feel like the conclusion of the intellectual argument, not a separate sales pitch.</p>
+      <p style="margin-top:8px;"><strong>Transition out:</strong> The human architect's sub-text ("the checking, the copying, the updating, the following up") lists the very enemy activities from Beat 03. This circular reference — naming the enemy activities as the things Twinthos now carries — is the hinge into the offer.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- BEAT 09 — OFFER                                         ▸ culmination begins -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div class="beat">
+  <div class="beat-header">
+    <span class="beat-num">Beat 09</span>
+    <span class="beat-title">Offer — The Price as Hero</span>
+    <span class="beat-id">id="offer" &nbsp;→&nbsp; unchanged position</span>
+  </div>
+  <div class="beat-body">
+    <div class="beat-col">
+      <p class="beat-col-label">What it does in the arc</p>
+      <p>The culmination begins. After 8 beats of argument, the reader has earned the price. £5,000/month is presented with no apology and no comparison — it's not positioned as expensive or affordable, it's presented as the cost of the thing the reader now understands they need. The service list (Setup, Connections, Monitoring, Maintenance, Improvement, Support) is the proof that this is a complete service, not a per-task fee.</p>
+    </div>
+    <div class="beat-col">
+      <p class="beat-col-label">Placement rationale</p>
+      <p>The penultimate section. The story has done its work; the reader knows the problem, feels the enemy, understands the resolution, has seen the evidence, absorbed the contrast, and accepted the principle. Now: what does it cost, and what do you do next?</p>
+      <p style="margin-top:8px;"><strong>Transition out:</strong> The offer's closing line ("Not sure if it fits? Start with a conversation.") softens the hard close and leads naturally into the final CTA, which is the same action framed as the culmination of everything.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- BEAT 10 — FINAL CTA                                   ▸ culmination      -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div class="beat">
+  <div class="beat-header">
+    <span class="beat-num">Beat 10</span>
+    <span class="beat-title">Final CTA — The Culmination</span>
+    <span class="beat-id">&lt;section class="final-cta"&gt; &nbsp;→&nbsp; unchanged position</span>
+  </div>
+  <div class="beat-body">
+    <div class="beat-col">
+      <p class="beat-col-label">What it does in the arc</p>
+      <p>Not a footer CTA. Not a repeated offer. The culmination of the entire narrative. "What should your team stop doing?" is the question the whole page has been answering. It's not asking for a sale — it's asking the reader to complete the thought the page started. The button ("Assess your operation") is the action; the email link ("hello@twinthos.com") is the soft alternative for readers not ready to commit.</p>
+    </div>
+    <div class="beat-col">
+      <p class="beat-col-label">Why it's a culmination, not an afterthought</p>
+      <p>A footer CTA is a separate concern appended at the end. A culmination CTA is the same concern the page has been pursuing all along, now presented as the natural next step. The headline question is the thesis of the page, turned into an invitation. Every previous section has prepared the reader for this moment.</p>
+      <p style="margin-top:8px;"><strong>Contrast with a typical page:</strong> A typical page ends with "Contact us" or "Get started" — generic, disconnected from the body. This page ends with the question the body has been answering, making the CTA feel like closure, not a pitch.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- BEFORE / AFTER SUMMARY                                     -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div class="before-after">
+  <p class="ba-label">Current structure &nbsp;→&nbsp; Redesigned structure</p>
+  <div class="ba-grid">
+    <div class="ba-col">
+      <p class="ba-col-title current">Current — 9 sections + footer</p>
+      <ul class="ba-list">
+        <li>01. <strong>hero</strong> — "Your team shouldn't spend their day on work a machine could do."</li>
+        <li>02. <strong>story</strong> — "Software multiplied. Work didn't disappear."</li>
+        <li>03. <strong>enemy</strong> — "People became the glue between systems."</li>
+        <li>04. <strong>proof</strong> — "Watch work disappear." (pipe flow)</li>
+        <li class="remove">05. <strong>how</strong> — "Twinthos takes work away." ← <em>redundant with proof; remove</em></li>
+        <li>06. <strong>redacted</strong> — "A real audit, with the client removed."</li>
+        <li>07. <strong>human</strong> — "Humans set the direction. Twinthos carries the work."</li>
+        <li>08. <strong>offer</strong> — £5,000/month</li>
+        <li>09. <strong>final-cta</strong> — "What should your team stop doing?"</li>
+      </ul>
+    </div>
+    <div class="ba-col">
+      <p class="ba-col-title desired">Redesigned — 9 sections + footer (aligned to arc)</p>
+      <ul class="ba-list">
+        <li>01. <strong>hero</strong> — Beat 01: Big idea ← <em>unchanged</em></li>
+        <li>02. <strong>story</strong> — Beat 02: Problem ← <em>unchanged</em></li>
+        <li>03. <strong>enemy</strong> — Beat 03: Enemy ← <em>unchanged</em></li>
+        <li>04. <strong>proof</strong> — Beat 04+05: Resolution + Proof ← <em>expanded; absorbs "how" content</em></li>
+        <li>06. <strong>redacted</strong> — Beat 06: Evidence ← <em>unchanged</em></li>
+        <li class="add">07. <strong>difference</strong> — Beat 07: Differentiator ← <em>new section; before human</em></li>
+        <li>08. <strong>human</strong> — Beat 08: Human Architect ← <em>unchanged position; preceded by contrast</em></li>
+        <li>09. <strong>offer</strong> — Beat 09: Offer ← <em>unchanged</em></li>
+        <li>10. <strong>final-cta</strong> — Beat 10: Culmination ← <em>unchanged</em></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- TRANSITIONS — how sections flow into each other                   -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div class="transition-note">
+  <p class="tn-title">Section transitions &nbsp;→&nbsp; see transitions.css</p>
+  <p class="tn-body">
+    <strong>Each section uses <span class="section-ref">.reveal</span> / <span class="section-ref">.reveal-fast</span> on its children</strong> — the transitions are delivered in CSS via IntersectionObserver-triggered class toggling (already implemented in the page's inline JS). The <span class="section-ref">transitions.css</span> file adds: (1) <strong>inter-section crossfades</strong> so consecutive sections don't feel like hard cuts, (2) <strong>scroll-driven section entrance styling</strong> — each section's first child enters with a directional bias that points toward the next section, (3) <strong>hero exit behaviour</strong> — the hero fades as you scroll, letting the problem section take over the viewport, (4) <strong>nav link state</strong> tied to section visibility so the active nav link tracks where the reader is in the story.
+  </p>
+  <p class="tn-body" style="margin-top:12px;">
+    The narrative-critical transitions are:
+    <br><strong>Hero → Problem:</strong> hero fades, story label ("The problem") fades in first — the reader is told what section they're entering before they read it.
+    <br><strong>Problem → Enemy:</strong> the problem section's headline ("Software multiplied…") is the setup; the enemy section's headline ("People became the glue…") is the punchline. The transition between them should feel like a breath before the visual chaos hits.
+    <br><strong>Enemy → Proof:</strong> the strongest transition in the page. Chaos → order. The enemy cards are scattered with rotations and offsets; the proof pipe is a clean vertical line with a moving particle. The section change is the turnaround moment.
+    <br><strong>Redacted → Differentiator:</strong> the audit document is calm and structured; the differentiator is a two-column contrast. The transition carries the reader from "here's what it looks like" to "here's why it's not what you already have."
+    <br><strong>Differentiator → Human:</strong> the contrast resolves into a principle. The human architect section is quiet — smaller type, centred on mobile, a single statement. After the drama of the contrast, this is the exhale.
+    <br><strong>Human → Offer:</strong> the principle statement ends with the enemy activities listed as what Twinthos now carries. The offer picks up from that list: "Setup, Connections, Monitoring…" — the practical answer to the principle.
+    <br><strong>Offer → Final CTA:</strong> the offer's soft close ("Start with a conversation") flows into the final CTA's question ("What should your team stop doing?"). Same action, deeper framing.
+  </p>
+</div>
+
+</div>
+</body>
+</html>

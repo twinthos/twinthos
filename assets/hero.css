@@ -1,0 +1,171 @@
+/* ═══════════════════════════════════════════════════════════
+   TWINTHOS — HERO (Mirofish Principle 1: ONE BIG IDEA FIRST)
+   Redesigned hero: communicates what Twinthos is in a single
+   breath. Editorial typography, black field, white type,
+   one signal-green CTA. Brand mark anchors the structural
+   left margin. No decorative wallpaper, no secondary CTA.
+   ═══════════════════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: var(--space-10) var(--space-8);
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.hero-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+/* Content column — left, asymmetric */
+.hero-content {
+  max-width: 780px;
+}
+
+/* Label — eyebrow, ticks in at 12px uppercase, dim */
+.hero-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: var(--caption);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: var(--space-5);
+}
+
+/* Headline — the value proposition, big and confident */
+.hero-headline {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(64px, 10vw, 120px);
+  font-weight: var(--weight-light);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  margin-bottom: var(--space-5);
+  /* Word-by-word reveal via JS (see site.js) */
+}
+
+/* Each word: invisible until JS adds .in */
+.hero-headline .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+
+.hero-headline .word.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Supporting body — reinforces without repeating */
+.hero-body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: var(--weight-regular);
+  line-height: 1.6;
+  letter-spacing: 0.005em;
+  color: var(--text-dim);
+  max-width: 48ch;
+  margin-bottom: var(--space-7);
+}
+
+/* Single CTA — signal green, no ghost secondary in hero */
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: var(--weight-semibold);
+  font-size: var(--caption);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--bg);
+  background: var(--signal);
+  padding: 18px var(--space-6);
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.hero-cta:hover {
+  background: #1ae075;
+  color: var(--bg);
+  transform: translateY(-1px);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 900px) {
+  .hero {
+    padding: var(--space-8) var(--space-5);
+    min-height: auto;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .hero-brand {
+    width: 100%;
+    justify-content: flex-start;
+    order: -1;
+    margin-bottom: var(--space-2);
+  }
+
+  .hero-brand .logo-mark svg {
+    width: 110px;
+    height: auto;
+  }
+
+  .hero-brand .logo-wordmark {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .hero-headline {
+    font-size: clamp(48px, 14vw, 64px);
+  }
+
+  .hero-body {
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .hero-cta {
+    width: 100%;
+    justify-content: center;
+    padding: 16px var(--space-4);
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-headline .word {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

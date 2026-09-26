@@ -1,12 +1,10 @@
-/* ═══════════════════════════════════════════════════════════
-   TWINTHOS — MIROFISH-WORLD-CLASS TYPOGRAPHY SYSTEM
+/* ═══════════════════════════════════════════════════════════════════════
+   TWINTHOS — MIROFISH TYPOGRAPHY SYSTEM
    Black #000. White type. One signal green #20F782.
-   Mirofish: bold typography as primary design element.
-   Deliberate type scale. Weight as design tool.
+   Inter font. 10+ level type scale. Weight as design tool.
+   One label/eyebrow pattern across ALL sections and ALL pages.
    Every level has a clear purpose. No random sizes.
-   ═══════════════════════════════════════════════════════════ */
-
-/* Google Font: Inter (loaded in HTML head) */
+   ═══════════════════════════════════════════════════════════════════════ */
 
 /* ── Design Tokens ── */
 :root {
@@ -15,52 +13,96 @@
   --text: #FFFFFF;
   --signal: #20F782;
   --signal-dim: rgba(32,247,130,0.12);
-  --text-dim: #8A8A8A;
-  --text-faint: #555555;
+  --text-dim: #9A9A9A;
+  --text-faint: #5E5E5E;
   --border: rgba(255,255,255,0.08);
   --border-strong: rgba(255,255,255,0.15);
 
-  /* Type Scale — 10 levels, each with a clear purpose */
-  /* Level 1: Micro labels (legal, footnotes, tags) */
+  /* ═══════════════════════════════════════════════════════════════════
+     TYPE SCALE — 10+ levels, each with a deliberate purpose
+     Scale: 11 / 12 / 13 / 14 / 15 / 16 / 18 / 20 / 28 / 40 / 56 / 72 / 110
+     Ratio: ~1.125 (major third) with deliberate jumps at display sizes
+     ═══════════════════════════════════════════════════════════════════ */
+
+  /* Level 1: Micro — legal, footnotes, tags, fineprint (11px) */
   --micro: 11px;
-  /* Level 2: Section labels / eyebrows (uppercase, letter-spaced) */
+
+  /* Level 2: Label / eyebrow — section markers, uppercase, letter-spaced (12px) */
   --label: 12px;
-  /* Level 3: Small UI text, captions */
+
+  /* Level 3: Caption — nav links, footer, small UI (13px) */
   --caption: 13px;
-  /* Level 4: Small body text */
-  --text-sm: 14px;
-  /* Level 5: Standard body text */
+
+  /* Level 4: Small — secondary body, form labels, step numbers (14px) */
+  --text-xs: 14px;
+
+  /* Level 5: Body small — compact reading, book form inputs (15px) */
+  --text-sm: 15px;
+
+  /* Level 6: Body — standard reading size (16px) */
   --body: 16px;
-  /* Level 6: Lead paragraphs, introductory text */
+
+  /* Level 7: Lead — introductory paragraphs, statistics body (18px) */
   --lead: 18px;
-  /* Level 7: Standard paragraph text (used throughout site) */
+
+  /* Level 8: Text large — emphasis paragraphs, proof descriptions (20px) */
   --text-lg: 20px;
-  /* Level 8: Section subheadings */
+
+  /* Level 9: H3 — subsection headings within a section (28px) */
   --h3: 28px;
-  /* Level 9: Major section headings */
+
+  /* Level 10: H2 — major section headings (40px) */
   --h2: 40px;
-  /* Level 10: Page-level headings */
+
+  /* Level 11: H1 — page-level headings (56px) */
   --h1: 56px;
-  /* Display sizes — used sparingly for maximum impact */
+
+  /* Level 12: Display sm — secondary hero headlines, big stats (72px) */
   --display-sm: 72px;
+
+  /* Level 13: Display — primary hero headline (clamp 64–110px) */
   --display: clamp(64px, 9vw, 110px);
+
+  /* Level 14: Display lg — hero brand mark, massive impact (clamp 72–130px) */
   --display-lg: clamp(72px, 11.5vw, 130px);
 
-  /* Weight assignments — weight is a design tool, not decoration */
+  /* ═══════════════════════════════════════════════════════════════════
+     WEIGHT SYSTEM — weight is a design tool, not decoration
+     300 = display headlines (light, airy, editorial)
+     400 = body text (normal, readable)
+     500 = secondary emphasis, stats numbers
+     600 = labels, eyebrows, UI controls, strong emphasis
+     ═══════════════════════════════════════════════════════════════════ */
   --weight-light: 300;
   --weight-regular: 400;
   --weight-medium: 500;
   --weight-semibold: 600;
-  --weight-bold: 700;
 
-  /* Line-height system — tighter for display, looser for body */
+  /* ═══════════════════════════════════════════════════════════════════
+     LINE-HEIGHT SYSTEM
+     Tight (1.0) for display/headlines — letters sit on baseline
+     Heading (1.05–1.1) for section headings — slight breathing room
+     Body (1.6) for reading text — optimal line spacing for 16–20px
+     Loose (1.75) for large body — luxury editorial feel
+     ═══════════════════════════════════════════════════════════════════ */
   --lh-tight: 1.0;
-  --lh-display: 1.0;
   --lh-heading: 1.05;
   --lh-body: 1.6;
   --lh-loose: 1.75;
 
-  /* Spacing scale (rem-based) */
+  /* ═══════════════════════════════════════════════════════════════════
+     LETTER-SPACING SYSTEM
+     Negative for display/headings — tight, confident, cinematic
+     Zero/near-zero for body — neutral, readable
+     Positive for labels/eyebrows — spaced, authoritative, archival
+     ═══════════════════════════════════════════════════════════════════ */
+  --ls-display: -0.035em;
+  --ls-heading: -0.025em;
+  --ls-body: 0.01em;
+  --ls-label: 0.15em;
+  --ls-caption: -0.01em;
+
+  /* Spacing scale */
   --space-1: 0.25rem;   /* 4px */
   --space-2: 0.5rem;    /* 8px */
   --space-3: 0.75rem;   /* 12px */
@@ -81,6 +123,10 @@
   --duration: 250ms;
   --duration-slow: 400ms;
   --duration-slower: 600ms;
+
+  /* Layout */
+  --container: 1400px;
+  --container-narrow: 960px;
 }
 
 /* ── Reset ── */
@@ -90,6 +136,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -135,96 +182,130 @@ ul, ol { list-style: none; }
 }
 .skip-link:focus { top: var(--space-3); }
 
-/* ═══════════════════════════════════════════════════════════
-   TYPE UTILITIES — the Mirofish type scale in action
-   ═══════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════════════
+   LABEL / EYEBROW — ONE PATTERN, EVERYWHERE
+   The single most important consistency rule on the site.
+   Every section starts with a label. Every label looks the same.
+   12px / 600 weight / 0.15em letter-spacing / uppercase / text-dim
+   This is the Mirofish "editorial" signature — the page is a document.
+   ═══════════════════════════════════════════════════════════════════════ */
 
-/* ── Label / eyebrow pattern ──
-   Small uppercase text before sections. Letter-spaced.
-   Used FOR EVERY SECTION HEADER in the site. Consistent.
-   This is the Mirofish "editorial" touch — every section
-   starts with a label that tells you what you're reading. */
 .label {
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: var(--weight-semibold);
   font-size: var(--label);
   line-height: var(--lh-tight);
-  letter-spacing: 0.15em;
+  letter-spacing: var(--ls-label);
   text-transform: uppercase;
   color: var(--text-dim);
-  margin-bottom: var(--space-5);
+  margin: 0 0 var(--space-5) 0;
 }
 
+/* Label with signal green accent (for Twinthos-colum-coloured sections) */
 .label--signal {
   color: var(--signal);
 }
 
-/* ── Paragraphs ── */
-.paragraph {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: var(--weight-regular);
-  font-size: var(--text-lg);
-  line-height: var(--lh-body);
-  letter-spacing: 0.01em;
-  color: var(--text);
-  margin-bottom: var(--space-5);
+/* Tight label — when margin-bottom needs to be smaller */
+.label--tight {
+  margin-bottom: var(--space-3);
 }
 
-.paragraph:last-child { margin-bottom: 0; }
+/* ═══════════════════════════════════════════════════════════════════════
+   BODY TEXT UTILITIES
+   ═══════════════════════════════════════════════════════════════════════ */
 
-.paragraph--dim {
+/* .body — standard body text (16px, weight 400, lh 1.6) */
+.body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: var(--weight-regular);
+  font-size: var(--body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+  color: var(--text);
+  margin: 0 0 var(--space-4) 0;
+}
+
+.body:last-child { margin-bottom: 0; }
+
+/* .body--dim — secondary body text (16px, dimmed) */
+.body--dim {
   color: var(--text-dim);
 }
 
-.paragraph--sm {
-  font-size: var(--body);
+/* .body--sm — compact body (15px) */
+.body--sm {
+  font-size: var(--text-sm);
   line-height: var(--lh-body);
 }
 
-/* ── Headings ── */
+/* .body--lead — lead/intro paragraph (18px, slightly looser) */
+.body--lead {
+  font-size: var(--lead);
+  line-height: var(--lh-loose);
+  margin-bottom: var(--space-5);
+}
 
-/* Display — the biggest, most commanding. Used for hero headlines. */
+/* .body--lg — large emphasis body (20px) */
+.body--lg {
+  font-size: var(--text-lg);
+  line-height: var(--lh-loose);
+  margin-bottom: var(--space-5);
+}
+
+.body--lg:last-child { margin-bottom: 0; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HEADING UTILITIES
+   All headings use weight 300 (light) for that editorial Mirofish feel.
+   Tight line-height. Negative letter-spacing. White.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* .display-lg — the most commanding (clamp 72–130px) */
 .display-lg {
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: var(--weight-light);
   font-size: var(--display-lg);
-  line-height: var(--lh-display);
-  letter-spacing: -0.035em;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
   color: var(--text);
+  margin: 0;
 }
 
+/* .display — primary hero headline (clamp 64–110px) */
 .display {
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: var(--weight-light);
   font-size: var(--display);
-  line-height: var(--lh-display);
-  letter-spacing: -0.03em;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
   color: var(--text);
+  margin: 0;
 }
 
-/* h1 — page-level heading */
+/* .h1 — page-level heading (56px) */
 .h1 {
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: var(--weight-light);
   font-size: var(--h1);
   line-height: var(--lh-heading);
-  letter-spacing: -0.025em;
+  letter-spacing: var(--ls-heading);
   color: var(--text);
   margin: 0 0 var(--space-5) 0;
 }
 
-/* h2 — major section heading */
+/* .h2 — major section heading (40px) */
 .h2 {
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: var(--weight-light);
   font-size: var(--h2);
   line-height: var(--lh-heading);
-  letter-spacing: -0.025em;
+  letter-spacing: var(--ls-heading);
   color: var(--text);
   margin: 0 0 var(--space-5) 0;
 }
 
-/* h3 — section subheading */
+/* .h3 — subsection heading (28px) */
 .h3 {
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: var(--weight-medium);
@@ -235,15 +316,31 @@ ul, ol { list-style: none; }
   margin: 0 0 var(--space-4) 0;
 }
 
-/* ── Small text utilities ── */
+/* ═══════════════════════════════════════════════════════════════════════
+   SMALL TEXT UTILITIES
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* .caption — nav links, footer text, small UI (13px) */
 .caption {
   font-family: 'Inter', system-ui, sans-serif;
   font-size: var(--caption);
   line-height: var(--lh-tight);
-  letter-spacing: -0.01em;
+  letter-spacing: var(--ls-caption);
   color: var(--text-dim);
 }
 
+/* .caption--strong — caption with more weight (for footer links) */
+.caption--strong {
+  font-weight: var(--weight-medium);
+  color: var(--text);
+}
+
+/* .caption--faint — very dim caption (footer copyright) */
+.caption--faint {
+  color: var(--text-faint);
+}
+
+/* .micro — legal, fineprint, tags (11px) */
 .micro {
   font-family: 'Inter', system-ui, sans-serif;
   font-size: var(--micro);
@@ -252,63 +349,100 @@ ul, ol { list-style: none; }
   color: var(--text-faint);
 }
 
-/* ── Bold/emphasis ── */
-.strong {
-  font-weight: var(--weight-semibold);
-  letter-spacing: -0.01em;
-}
+/* ═══════════════════════════════════════════════════════════════════════
+   COMPOSE: label + heading pairs
+   The most common pattern on the site: label above a heading.
+   Use these to get correct spacing between label and heading.
+   ═══════════════════════════════════════════════════════════════════════ */
 
-/* ── Inline text variants ── */
+/* label + h1 pair */
+.label-h1 {
+  margin-bottom: var(--space-5);
+}
+.label-h1 .label { margin-bottom: var(--space-4); }
+
+/* label + h2 pair */
+.label-h2 {
+  margin-bottom: var(--space-5);
+}
+.label-h2 .label { margin-bottom: var(--space-4); }
+
+/* label + h3 pair */
+.label-h3 {
+  margin-bottom: var(--space-4);
+}
+.label-h3 .label { margin-bottom: var(--space-3); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   UTILITY: inline text modifiers
+   ═══════════════════════════════════════════════════════════════════════ */
 .text-dim { color: var(--text-dim); }
 .text-faint { color: var(--text-faint); }
 .text-signal { color: var(--signal); }
+.strong { font-weight: var(--weight-semibold); letter-spacing: -0.01em; }
+.mono { font-family: 'SF Mono', 'Fira Code', monospace; }
 
-/* ═══════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════════════════
    CONTAINER SYSTEM
-   ═══════════════════════════════════════════════════════════ */
-
+   ═══════════════════════════════════════════════════════════════════════ */
 .container {
-  max-width: 1400px;
+  max-width: var(--container);
   margin: 0 auto;
   padding: 0 var(--space-8);
 }
 
 .container-narrow {
-  max-width: 960px;
+  max-width: var(--container-narrow);
   margin: 0 auto;
   padding: 0 var(--space-8);
 }
 
-/* ═══════════════════════════════════════════════════════════
-   GRID UTILITIES
-   ═══════════════════════════════════════════════════════════ */
-
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-6);
+.wrap {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-8);
 }
 
-.grid-3 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 0;
+.wrap.narrow {
+  max-width: 760px;
 }
 
-.grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+/* ═══════════════════════════════════════════════════════════════════════
+   SHARED SECTION ELEMENTS
+   These are used across homepage and sub-pages.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Page hero — shared by all sub-pages */
+.page-hero {
+  padding: calc(78px + var(--space-5)) var(--space-8) 0;
+}
+
+/* Reveal animations — shared across all pages */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-slower) var(--ease-out),
+              transform var(--duration-slower) var(--ease-out);
+}
+.reveal-fast {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 350ms var(--ease-out),
+              transform 350ms var(--ease-out);
+}
+.reveal.in { opacity: 1; transform: none; }
+.reveal-fast.in { opacity: 1; transform: none; }
+
+/* CTA row — shared */
+.cta-row {
+  display: flex;
   gap: var(--space-4);
+  margin-top: var(--space-6);
+  flex-wrap: wrap;
 }
+.cta-row.center { justify-content: center; }
 
-@media (max-width: 768px) {
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-}
-
-/* ═══════════════════════════════════════════════════════════
-   BUTTON SYSTEM
-   ═══════════════════════════════════════════════════════════ */
-
+/* Button system — shared across all pages */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -318,7 +452,7 @@ ul, ol { list-style: none; }
   font-weight: var(--weight-semibold);
   font-size: var(--caption);
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--ls-caption);
   padding: 16px var(--space-6);
   border-radius: 0;
   transition: all var(--duration-fast) var(--ease-out);
@@ -327,54 +461,98 @@ ul, ol { list-style: none; }
   border: none;
   background: none;
 }
-
 .btn--primary {
   color: var(--bg);
   background: var(--signal);
 }
-
-.btn--primary:hover {
-  background: #1ae075;
-  color: var(--bg);
-}
-
-.btn--primary:active {
-  transform: translateY(0) scale(0.98);
-}
-
+.btn--primary:hover { background: #1ae075; color: var(--bg); }
 .btn--ghost {
   color: var(--text);
   background: transparent;
   border: 1px solid var(--border-strong);
 }
-
 .btn--ghost:hover {
   border-color: var(--text);
   background: rgba(255,255,255,0.03);
 }
 
-/* ═══════════════════════════════════════════════════════════
-   DIVIDER
-   ═══════════════════════════════════════════════════════════ */
+/* Footer — shared */
+.footer {
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--border);
+}
+.footer-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.footer-links {
+  display: flex;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+.footer-link {
+  font-size: var(--caption);
+  color: var(--text-dim);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+.footer-link:hover { color: var(--text); }
 
-.divider {
-  width: 100%;
-  height: 1px;
-  background: var(--border);
+/* Grid utilities */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
 }
 
-.divider--strong {
-  background: var(--border-strong);
+/* Steps list — used on audit page */
+.steps {
+  display: grid;
+  gap: var(--space-5);
+  padding: 0;
+  list-style: none;
+}
+.steps .step {
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--border);
+}
+.steps .step:last-child { border-bottom: none; }
+.steps .step h3 {
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-1);
+}
+.steps .step p {
+  font-size: var(--text-base);
+  color: var(--text-dim);
+  line-height: var(--lh-body);
+  max-width: 560px;
 }
 
-.divider--signal {
-  background: var(--signal);
-  height: 2px;
-}
-
-/* ═══════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════════════════
    RESPONSIVE
-   ═══════════════════════════════════════════════════════════ */
+   ═══════════════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .container, .container-narrow, .wrap { padding: 0 var(--space-5); }
+  .page-hero { padding: calc(64px + var(--space-4)) var(--space-5) 0; }
+}
 
 @media (max-width: 768px) {
   :root {
@@ -382,15 +560,25 @@ ul, ol { list-style: none; }
     --space-7: 2rem;
     --space-6: 1.5rem;
     --space-5: 1.25rem;
+    --display: clamp(48px, 12vw, 64px);
+    --display-lg: clamp(56px, 14vw, 80px);
+    --h1: 40px;
+    --h2: 32px;
+    --h3: 24px;
+    --text-lg: 18px;
+    --lead: 17px;
   }
+  .container, .container-narrow, .wrap { padding: 0 var(--space-4); }
+  .page-hero { padding: calc(60px + var(--space-4)) var(--space-4) 0; }
+  .footer-inner { flex-direction: column; text-align: center; gap: var(--space-4); }
 }
 
 @media (max-width: 480px) {
   :root {
     --text-lg: 16px;
     --body: 15px;
-    --display: clamp(48px, 12vw, 64px);
-    --display-lg: clamp(56px, 14vw, 80px);
+    --display: clamp(40px, 14vw, 52px);
+    --display-lg: clamp(48px, 16vw, 64px);
     --space-8: 1.25rem;
     --space-7: 1.5rem;
   }
@@ -404,4 +592,5 @@ ul, ol { list-style: none; }
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .reveal, .reveal-fast { opacity: 1; transform: none; }
 }

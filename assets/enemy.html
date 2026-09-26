@@ -1,0 +1,165 @@
+<!-- ═══════════════════════ 03 ENEMY — RENDERED CONTENT ═══════════════════════ -->
+<!-- Mirofish Principle 3: VISUAL METAPHOR — expanded -->
+<!-- Operational drag as a physical pile of torn notes — actual friction you can see -->
+<!-- Swap into index.html: replace everything between <section class="enemy" id="enemy"> and its closing </section> -->
+<section class="enemy" id="enemy">
+  <div class="container">
+    <p class="enemy-label reveal-fast">The enemy</p>
+    <h2 class="enemy-headline reveal">
+      <span class="word">People</span>
+      <span class="word">became</span>
+      <span class="word">the</span>
+      <span class="word">glue</span>
+      <span class="word">between</span>
+      <span class="word">systems</span>
+      <span class="word">.</span>
+    </h2>
+
+    <div class="enemy-stack reveal">
+
+      <!-- ── PILE ARMATURE ── -->
+      <!-- Cards stack bottom-to-top. Each sits behind the next via z-index. -->
+      <!-- Drifts and rotations create the sense of an unstable, accumulating pile. -->
+      <!-- "Move information" at the bottom is the widest, heaviest card — the anchor. -->
+
+      <!-- Card 1 (bottom of pile): MOVE INFORMATION — the heaviest offender -->
+      <!-- position: bottom, widest, flat on the desk, slightly skewed -->
+      <div class="drag-card drag-card--base" data-d="base">
+        <div class="card-torn card-torn--edge" aria-hidden="true"></div>
+        <div class="card-torn card-torn--corner card-torn--corner-tr" aria-hidden="true"></div>
+        <div class="card-inner">
+          <div class="card-sticky-top" aria-hidden="true"></div>
+          <div class="card-row card-row--icon">
+            <svg class="card-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+          <div class="card-row">
+            <span class="card-label">Move information</span>
+            <span class="card-sub">From here. To there. Then back again.</span>
+          </div>
+          <div class="card-edge card-edge--tapeLeft" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- Card 2: BOOK — buried in the pile, rotated down -->
+      <div class="drag-card drag-card--pile" data-d="0">
+        <div class="card-inner">
+          <div class="card-sticky-top" aria-hidden="true"></div>
+          <div class="card-row card-row--icon">
+            <svg class="card-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="1.5"/>
+              <path d="M3 9.5h18"/>
+              <path d="M7 5v14M11 5v14M15 5v14"/>
+            </svg>
+          </div>
+          <div class="card-row">
+            <span class="card-label">Book</span>
+            <span class="card-sub">Find the slot. Send the invite. Confirm it.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: UPDATE — displaced, pulled out -->
+      <div class="drag-card drag-card--pile" data-d="1">
+        <div class="card-inner">
+          <div class="card-sticky-top" aria-hidden="true"></div>
+          <div class="card-row card-row--icon">
+            <svg class="card-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M11 4H4v12l9 6 9-6V4z"/>
+              <path d="M11 4v6h6"/>
+            </svg>
+          </div>
+          <div class="card-row">
+            <span class="card-label">Update</span>
+            <span class="card-sub">Change one system. Then change the other.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: COPY — half-covered by the pile above -->
+      <div class="drag-card drag-card--pile" data-d="2">
+        <div class="card-inner">
+          <div class="card-sticky-top" aria-hidden="true"></div>
+          <div class="card-row card-row--icon">
+            <svg class="card-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <rect x="8" y="6" width="10" height="13" rx="1.5"/>
+              <path d="M4 10h12M4 14h12"/>
+            </svg>
+          </div>
+          <div class="card-row">
+            <span class="card-label">Copy</span>
+            <span class="card-sub">Paste it here. Paste it there. Paste it again.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: FOLLOW UP — loose at the top of the pile, most dislodged -->
+      <div class="drag-card drag-card--top" data-d="3">
+        <div class="card-inner">
+          <div class="card-sticky-top" aria-hidden="true"></div>
+          <div class="card-row card-row--icon">
+            <svg class="card-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M4 4l16 16"/>
+              <circle cx="18" cy="6" r="3.5"/>
+              <circle cx="6" cy="18" r="3.5"/>
+            </svg>
+          </div>
+          <div class="card-row">
+            <span class="card-label">Follow up</span>
+            <span class="card-sub">One message becomes four.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: CHASE — stands off to the side, dislodged but readable -->
+      <div class="drag-card drag-card--tether" data-d="4">
+        <div class="card-inner">
+          <div class="card-sticky-top" aria-hidden="true"></div>
+          <div class="card-row card-row--icon">
+            <svg class="card-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <path d="M4 16c0-4 3-7 8-7s8 3 8 7"/>
+              <circle cx="18" cy="7.5" r="2" fill="currentColor" stroke="none"/>
+              <path d="M20 9.5l2 2"/>
+            </svg>
+          </div>
+          <div class="card-row">
+            <span class="card-label">Chase</span>
+            <span class="card-sub">Send again. Follow up. Wait.</span>
+          </div>
+        </div>
+        <!-- Visible tether: a thin line anchoring this card to the pile -->
+        <div class="tether" aria-hidden="true"></div>
+      </div>
+
+      <!-- Card 7: CHECK — sits furthest out, barely tethered, the lingering loose end -->
+      <div class="drag-card drag-card--tether" data-d="5">
+        <div class="card-inner">
+          <div class="card-sticky-top" aria-hidden="true"></div>
+          <div class="card-row card-row--icon">
+            <svg class="card-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 7v5l3 2"/>
+            </svg>
+          </div>
+          <div class="card-row">
+            <span class="card-label">Check</span>
+            <span class="card-sub">Look it up. Read it. Confirm it.</span>
+          </div>
+        </div>
+        <div class="tether" aria-hidden="true"></div>
+      </div>
+
+    </div><!-- /enemy-stack -->
+
+    <!-- ── ENEMY CAPTION ── -->
+    <!-- Physical caption: states the metaphor's cost in plain language -->
+    <p class="enemy-caption reveal" data-delay="400">
+      <span class="enemy-caption-label">Operational drag</span>
+      <span class="enemy-caption-text">
+        Seven movements, one outcome. Each one is a person keeping the operation alive.
+      </span>
+    </p>
+
+  </div><!-- /container -->
+</section>
