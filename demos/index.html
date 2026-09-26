@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demos — Twinthos</title>
+<meta name="theme-color" content="#050505">
+<meta name="description" content="Twinthos demo video — Work Handled. Time Returned.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050505;
+    --text: #F4F4F0;
+    --green: #20F782;
+    --dim: #6B6B6B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: clamp(14px, 1.8vw, 22px);
+    line-height: 1.6;
+    letter-spacing: -0.02em;
+    overflow: hidden;
+  }
+  #stage {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+    background: var(--bg);
+    overflow: hidden;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 32px;
+    opacity: 0;
+  }
+  .headline {
+    font-size: clamp(40px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--text);
+    opacity: 0;
+  }
+  .headline.green {
+    color: var(--green);
+  }
+  .tagline {
+    position: absolute;
+    left: 80px;
+    bottom: 80px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    opacity: 0;
+  }
+  .tagline-line {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+  .tagline-sep {
+    display: inline-block;
+    width: 8px;
+    height: 1px;
+    background: var(--text);
+    margin: 0 16px;
+    vertical-align: middle;
+  }
+  .tagline-green { color: var(--green); }
+  .player {
+    position: absolute;
+    left: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(80vw, 1200px);
+    opacity: 0;
+  }
+  .player video {
+    width: 100%;
+    display: block;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .player-note {
+    font-size: 14px;
+    color: var(--dim);
+    margin-top: 20px;
+    text-align: left;
+  }
+  .green-flash {
+    position: absolute;
+    inset: 0;
+    background: var(--green);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .timestamp {
+    position: absolute;
+    right: 80px;
+    bottom: 80px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--dim);
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div id="stage" data-composition-id="twinthos-demo-page" data-duration="21" data-width="1920" data-height="1080">
+
+  <div class="clip" data-start="0" data-duration="21000" style="position:absolute;left:0;right:0;top:540;height:1px;background:rgba(255,255,255,0.03)"></div>
+
+  <div id="green-flash" class="clip green-flash" data-start="17000" data-duration="300"></div>
+
+  <div class="clip eyebrow" data-start="0" data-duration="21000" style="position:absolute;left:80px;top:80px">
+    <p class="eyebrow">The demo</p>
+  </div>
+
+  <div class="clip headline" data-start="0" data-duration="21000" style="position:absolute;left:80px;top:160px">
+    <p class="headline">Work handled.<br>Time returned.</p>
+  </div>
+
+  <div class="clip player" data-start="2000" data-duration="17000">
+    <video controls preload="metadata" poster="" style="width:100%;display:block;border:1px solid rgba(255,255,255,0.08)">
+      <source src="https://github.com/twinthos/twinthos/raw/master/demos/twinthos-demo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p class="player-note">HyperFrames render · 28s · black / white / green · Inter · 1920×1080</p>
+  </div>
+
+  <div id="scene-5" class="clip tagline" data-start="17000" data-duration="4000" style="position:absolute;left:80px;bottom:80px;display:flex;align-items:center;gap:0">
+    <span class="tagline-line">WORK HANDLED</span>
+    <span class="tagline-sep"></span>
+    <span class="tagline-line tagline-green">TIME RETURNED</span>
+    <span class="tagline-sep"></span>
+  </div>
+
+  <div class="timestamp">TWINTHOS · DEMOS</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+  window.__timelines['twinthos-demo-page'] = tl;
+
+  tl.set('#green-flash', { opacity: 0 }, 0);
+
+  tl.fromTo('.clip.eyebrow .eyebrow', { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0.5)
+    .fromTo('.clip.headline .headline', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 0.9)
+    .fromTo('.clip.player', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, 2.0)
+    .fromTo('#scene-5', { opacity: 0 }, { opacity: 1, duration: 0.6, ease: 'power2.out' }, 17.5)
+    .fromTo('#green-flash', { opacity: 0 }, { opacity: 0.07, duration: 0.06, ease: 'power1.out' }, 17.0)
+    .fromTo('#green-flash', { opacity: 0.07 }, { opacity: 0, duration: 0.22, ease: 'power1.in' }, 17.06);
+</script>
+
+</body>
+</html>
