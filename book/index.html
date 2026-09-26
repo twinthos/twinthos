@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book an assessment | Twinthos</title>
-  <meta name="description" content="15 minutes. One workflow. One next step.">
+  <meta name="description" content="15 minutes. No presentation. One repetitive workflow. We'll tell you whether it is worth handing over.">
   <meta name="theme-color" content="#050505">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,21 +13,21 @@
   <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="/" class="nav__brand" aria-label="Twinthos — home">
         <span class="nav__logo">
           <svg class="nav__logo-mark" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F4F4F0"/>
-            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F4F4F0" opacity="0.85"/>
-            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F4F4F0" opacity="0.6"/>
-            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F4F4F0" opacity="0.4"/>
-            <circle cx="48" cy="36" r="4.5" fill="#B7FF00"/>
-            <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#F4F4F0">TWINTHOS</text>
+            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F3F3EF"/>
+            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F3F3EF" opacity="0.85"/>
+            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F3F3EF" opacity="0.6"/>
+            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F3F3EF" opacity="0.4"/>
+            <circle cx="48" cy="36" r="4.5" fill="#B5FF00"/>
+            <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#F3F3EF">TWINTHOS</text>
           </svg>
         </span>
-        <span class="nav__wordmark">TWINTHOS</span>
       </a>
       <div class="nav__links">
         <a href="/#how" class="nav__link">How it works</a>
@@ -36,7 +36,7 @@
         <a href="/security/" class="nav__link">Security</a>
         <a href="/about/" class="nav__link">About</a>
       </div>
-      <a href="#form" class="nav__cta">Assess your operation</a>
+      <a href="/book/" class="nav__cta">Assess your operation</a>
       <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
     </div>
     <div class="nav__mobile" id="navMobile" role="menu">
@@ -45,92 +45,141 @@
       <a href="/operations-audit/" class="nav__mobile-link">Audit</a>
       <a href="/security/" class="nav__mobile-link">Security</a>
       <a href="/about/" class="nav__mobile-link">About</a>
-      <a href="#form" class="btn btn--primary" style="margin-top:var(--space-4);text-align:center;display:block;">Assess your operation</a>
+      <a href="/book/" class="btn btn--primary" style="margin-top:var(--space-4);text-align:center;display:block;">Assess your operation</a>
     </div>
   </nav>
+
   <main id="main">
-    <section class="hero" style="padding-top:var(--space-10);">
-      <div class="container--text" style="max-width:680px;">
-        <p class="section-label reveal--fast">Book an assessment</p>
-        <h1 class="display--xs reveal" style="margin-bottom:var(--space-5);">Find one workflow worth removing.</h1>
-        <p class="body body--lead reveal" data-delay="150" style="margin-bottom:var(--space-5);">15 minutes. No presentation. No software demo.</p>
-        <p class="body body--lead reveal" data-delay="250">We'll understand one repetitive process and tell you whether it is worth handing over.</p>
-      </div>
-    </section>
-    <section class="section" id="form" style="padding-top:var(--space-10);">
-      <div class="container--text">
-        <form class="reveal" id="assessmentForm" novalidate>
-          <div class="form__row">
-            <div class="form__field">
-              <label class="form__label" for="formName">Name</label>
-              <input type="text" id="formName" name="name" class="form__input" placeholder="Your name" autocomplete="name" required>
-              <p class="form__error" role="alert" aria-live="polite"></p>
-            </div>
-            <div class="form__field">
-              <label class="form__label" for="formEmail">Work email</label>
-              <input type="email" id="formEmail" name="email" class="form__input" placeholder="you@company.com" autocomplete="email" required>
-            </div>
+
+    <section class="section section--stage">
+      <div class="section__inner">
+        <div style="max-width:680px;margin:0 auto;">
+          <div class="sep--system sep--system--center" style="margin-bottom:var(--space-8);">
+            <span class="sep--system__label">01</span>
+            <span class="sep--system__line"></span>
+            <span class="sep--system__label">BOOK AN ASSESSMENT</span>
           </div>
-          <div class="form__row" style="margin-top:var(--space-4);">
-            <div class="form__field">
-              <label class="form__label" for="formCompany">Company</label>
-              <input type="text" id="formCompany" name="company" class="form__input" placeholder="Company name" autocomplete="organization">
-            </div>
-            <div class="form__field">
-              <label class="form__label" for="formWebsite">Website</label>
-              <input type="url" id="formWebsite" name="website" class="form__input" placeholder="company.com" autocomplete="url">
-            </div>
-          </div>
-          <div class="form__field" style="margin-top:var(--space-4);">
-            <label class="form__label" for="formQuestion">What repetitive work takes the most time?</label>
-            <textarea id="formQuestion" name="question" class="form__textarea" rows="4" placeholder="Describe one process — what happens, who touches it, what systems are involved." required></textarea>
-            <p class="form__error" role="alert" aria-live="polite"></p>
-          </div>
-          <button type="submit" class="btn" style="margin-top:var(--space-6);width:100%;justify-content:center;">Request assessment</button>
-          <p class="meta" style="margin-top:var(--space-4);">We'll email you within one working day with available times.</p>
-        </form>
-      </div>
-    </section>
-    <section class="section" style="padding-top:var(--space-10);">
-      <div class="container--text" style="max-width:560px;">
-        <p class="section-label reveal--fast">What happens next</p>
-        <div class="reveal--left">
-          <span class="number-md" style="display:block;color:var(--accent);margin-bottom:var(--space-2);">01</span>
-          <p class="body body--sm" style="margin-bottom:var(--space-4);"><strong>You submit the form.</strong> One name, one work email, one description of the work.</p>
-        </div>
-        <div class="reveal--left" data-delay="100" style="margin-top:var(--space-4);">
-          <span class="number-md" style="display:block;color:var(--accent);margin-bottom:var(--space-2);">02</span>
-          <p class="body body--sm" style="margin-bottom:var(--space-4);"><strong>We read it.</strong> No long questionnaire. No demo request. Just the one workflow.</p>
-        </div>
-        <div class="reveal--left" data-delay="200" style="margin-top:var(--space-4);">
-          <span class="number-md" style="display:block;color:var(--accent);margin-bottom:var(--space-2);">03</span>
-          <p class="body body--sm"><strong>We reply within one working day.</strong> We'll suggest available times for a 15-minute call and tell you whether it looks worth pursuing.</p>
+          <h1 class="display display--md" style="margin-bottom:var(--space-5);">
+            Find one workflow<br>worth removing.
+          </h1>
+          <p class="body body--lead" style="margin-bottom:var(--space-5);">
+            15 minutes. No presentation. No software demo.
+          </p>
+          <p class="body body--lead">
+            We'll understand one repetitive process and tell you whether it is worth handing over.
+          </p>
         </div>
       </div>
     </section>
+
+    <section class="section">
+      <div class="section__inner">
+        <div style="max-width:880px;margin:0 auto;">
+          <div class="sep--system" style="margin-bottom:var(--space-8);">
+            <span class="sep--system__label">02</span>
+            <span class="sep--system__line"></span>
+            <span class="sep--system__label">THE FORM</span>
+          </div>
+          <form class="assessment-form" id="assessmentForm" novalidate>
+            <div class="assessment-form__row">
+              <div class="assessment-form__field">
+                <label class="assessment-form__label" for="formName">Name</label>
+                <input type="text" id="formName" name="name" class="assessment-form__input" placeholder="Your name" autocomplete="name" required>
+                <p class="assessment-form__error" role="alert" aria-live="polite"></p>
+              </div>
+              <div class="assessment-form__field">
+                <label class="assessment-form__label" for="formEmail">Work email</label>
+                <input type="email" id="formEmail" name="email" class="assessment-form__input" placeholder="you@company.com" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="assessment-form__row" style="margin-top:var(--space-3);">
+              <div class="assessment-form__field">
+                <label class="assessment-form__label" for="formCompany">Company</label>
+                <input type="text" id="formCompany" name="company" class="assessment-form__input" placeholder="Company name" autocomplete="organization">
+              </div>
+              <div class="assessment-form__field">
+                <label class="assessment-form__label" for="formWebsite">Website</label>
+                <input type="url" id="formWebsite" name="website" class="assessment-form__input" placeholder="company.com" autocomplete="url">
+              </div>
+            </div>
+            <div class="assessment-form__field" style="margin-top:var(--space-4);">
+              <label class="assessment-form__label" for="formQuestion">What repetitive work takes the most time?</label>
+              <textarea id="formQuestion" name="question" class="assessment-form__textarea" rows="4" placeholder="Describe one process — what happens, who touches it, what systems are involved." required></textarea>
+              <p class="assessment-form__error" role="alert" aria-live="polite"></p>
+            </div>
+            <button type="submit" class="btn btn--primary" style="margin-top:var(--space-5);width:100%;justify-content:center;">Request assessment</button>
+            <p class="meta" style="margin-top:var(--space-3);">We'll email you within one working day with available times.</p>
+          </form>
+          <div class="form-confirmation" style="display:none;margin-top:var(--space-6);padding:var(--space-6);border:1px solid var(--divider);background:var(--black-01);">
+            <p class="form-confirmation__label" style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--space-2);">Received.</p>
+            <p class="body body--lead">We'll email you within one working day with available times.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div style="background:var(--black-01);padding-bottom:var(--space-10);">
+      <div class="section__inner" style="margin:0 auto;max-width:680px;padding:0 var(--space-8);">
+        <div class="sep--system sep--system--center" style="margin-bottom:var(--space-8);">
+          <span class="sep--system__label">03</span>
+          <span class="sep--system__line"></span>
+          <span class="sep--system__label">WHAT HAPPENS NEXT</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--space-5);">
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-4);align-items:start;padding:10px 0;border-top:1px solid var(--hairline);">
+            <span style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);padding-top:4px;">01</span>
+            <div>
+              <p class="body body--sm" style="margin-bottom:var(--space-1);"><strong>You submit the form.</strong></p>
+              <p class="meta meta--small">One name. One work email. One description of the work.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-4);align-items:start;padding:10px 0;border-top:1px solid var(--hairline);">
+            <span style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);padding-top:4px;">02</span>
+            <div>
+              <p class="body body--sm" style="margin-bottom:var(--space-1);"><strong>We read it.</strong></p>
+              <p class="meta meta--small">No long questionnaire. No demo request. Just the one workflow.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-4);align-items:start;padding:10px 0;border-top:1px solid var(--hairline);">
+            <span style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);padding-top:4px;">03</span>
+            <div>
+              <p class="body body--sm" style="margin-bottom:var(--space-1);"><strong>We reply within one working day.</strong></p>
+              <p class="meta meta--small">We'll suggest available times for a 15-minute call and tell you whether it looks worth pursuing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer class="footer">
       <div class="footer__inner">
-        <a href="/" class="footer__brand" aria-label="Home">
-          <svg class="footer__logo" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F4F4F0"/>
-            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F4F4F0" opacity="0.85"/>
-            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F4F4F0" opacity="0.6"/>
-            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F4F4F0" opacity="0.4"/>
-            <circle cx="48" cy="36" r="4.5" fill="#B7FF00"/>
+        <div class="footer__brand">
+          <svg class="footer__mark" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F3F3EF"/>
+            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F3F3EF" opacity="0.85"/>
+            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F3F3EF" opacity="0.6"/>
+            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F3F3EF" opacity="0.4"/>
+            <circle cx="48" cy="36" r="4.5" fill="#B5FF00"/>
           </svg>
-          <span class="footer__wordmark">TWINTHOS</span>
-        </a>
-        <div class="footer__links">
+          <div>
+            <p class="footer__wordmark">TWINTHOS</p>
+            <p class="footer__tagline">Work handled. Time returned.</p>
+          </div>
+        </div>
+        <nav class="footer__nav" aria-label="Footer links">
           <a href="/#how" class="footer__link">How it works</a>
           <a href="/#use-cases" class="footer__link">Use cases</a>
           <a href="/operations-audit/" class="footer__link">Audit</a>
           <a href="/security/" class="footer__link">Security</a>
           <a href="/about/" class="footer__link">About</a>
-        </div>
-        <p class="footer__meta">&copy; 2026 Twinthos</p>
+          <a href="/book/" class="footer__link">Contact</a>
+        </nav>
+        <p class="footer__copyright">© 2026 Twinthos</p>
       </div>
     </footer>
+
   </main>
+
   <script src="/assets/site.js"></script>
   <script>
   (function(){
@@ -146,13 +195,12 @@
       ];
       for (var i = 0; i < fields.length; i++) {
         var f = fields[i], el = document.getElementById(f.id);
-        var errEl = el.closest('.form__field') ? el.closest('.form__field').querySelector('.form__error') : null;
+        var errEl = el.closest('.assessment-form__field') ? el.closest('.assessment-form__field').querySelector('.assessment-form__error') : null;
         var val = (el.value || '').trim();
         if (!val) { valid = false; if (errEl) errEl.textContent = f.label + ' is required.'; }
         else { if (errEl) errEl.textContent = ''; }
         if (f.key === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-          valid = false; if (errEl) errEl.textContent = 'Enter a valid email address.';
-        }
+          valid = false; if (errEl) errEl.textContent = 'Enter a valid email address.'; }
       }
       if (!valid) return;
       var btn = form.querySelector('button[type=submit]');
@@ -173,8 +221,9 @@
           if (existing) existing.remove();
           var wrapper = document.createElement('div');
           wrapper.className = 'form-confirmation';
-          wrapper.innerHTML = '<div class="confirmation"><p class="confirmation__label">Received.</p><p class="body body--lead">We\'ll email you within one working day with available times.</p></div>';
+          wrapper.innerHTML = '<p class="form-confirmation__label">Received.</p><p class="body body--lead">We\'ll email you within one working day with available times.</p>';
           form.closest('.section').appendChild(wrapper);
+          wrapper.style.display = 'block';
           btn.textContent = 'Request assessment'; btn.disabled = false;
           setTimeout(function(){ form.reset(); }, 2000);
         } else { btn.textContent = 'Request assessment'; btn.disabled = false; }

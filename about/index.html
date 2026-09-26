@@ -13,29 +13,30 @@
   <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="/" class="nav__brand" aria-label="Twinthos — home">
         <span class="nav__logo">
           <svg class="nav__logo-mark" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F4F4F0"/>
-            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F4F4F0" opacity="0.85"/>
-            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F4F4F0" opacity="0.6"/>
-            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F4F4F0" opacity="0.4"/>
-            <circle cx="48" cy="36" r="4.5" fill="#B7FF00"/>
-            <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#F4F4F0">TWINTHOS</text>
+            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F3F3EF"/>
+            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F3F3EF" opacity="0.85"/>
+            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F3F3EF" opacity="0.6"/>
+            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F3F3EF" opacity="0.4"/>
+            <circle cx="48" cy="36" r="4.5" fill="#B5FF00"/>
+            <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#F3F3EF">TWINTHOS</text>
           </svg>
         </span>
-        <span class="nav__wordmark">TWINTHOS</span>
       </a>
       <div class="nav__links">
         <a href="/#how" class="nav__link">How it works</a>
         <a href="/#use-cases" class="nav__link">Use cases</a>
         <a href="/operations-audit/" class="nav__link">Audit</a>
         <a href="/security/" class="nav__link">Security</a>
+        <a href="/about/" class="nav__link">About</a>
       </div>
-      <a href="/book/" class="nav__cta">Book an assessment</a>
+      <a href="/book/" class="nav__cta">Assess your operation</a>
       <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
     </div>
     <div class="nav__mobile" id="navMobile" role="menu">
@@ -43,91 +44,191 @@
       <a href="/#use-cases" class="nav__mobile-link">Use cases</a>
       <a href="/operations-audit/" class="nav__mobile-link">Audit</a>
       <a href="/security/" class="nav__mobile-link">Security</a>
-      <a href="/book/" class="btn btn--primary" style="margin-top:var(--space-4);text-align:center;display:block;">Book an assessment</a>
+      <a href="/about/" class="nav__mobile-link">About</a>
+      <a href="/book/" class="btn btn--primary" style="margin-top:var(--space-4);text-align:center;display:block;">Assess your operation</a>
     </div>
   </nav>
+
   <main id="main">
-    <section class="hero" style="padding-top:var(--space-10);">
-      <div class="container--text" style="max-width:720px;">
-        <p class="section-label reveal--fast">About</p>
-        <h1 class="display reveal" style="margin-bottom:var(--space-6);">We don't think businesses<br>need another dashboard.</h1>
-        <p class="body body--lead reveal" data-delay="150" style="margin-bottom:var(--space-6);">They need less work.</p>
-        <p class="body body--lead reveal" data-delay="250">Software already runs almost every part of a modern company. The remaining problem is the human effort required to keep those systems coordinated.</p>
-        <p class="body body--lead reveal" data-delay="350">Twinthos exists to remove that layer.</p>
+
+    <section class="section section--stage" id="about">
+      <div class="section__inner">
+        <div class="sep--system sep--system--center" style="margin-bottom:var(--space-8);">
+          <span class="sep--system__label">01</span>
+          <span class="sep--system__line"></span>
+          <span class="sep--system__label">ABOUT</span>
+        </div>
+        <div style="max-width:720px;margin:0 auto;">
+          <h1 class="display display--md" style="margin-bottom:var(--space-5);">
+            We don't think businesses<br>need another dashboard.
+          </h1>
+          <p class="display display--xs" style="margin-bottom:var(--space-5);">
+            They need less work.
+          </p>
+          <p class="body body--lead" style="margin-bottom:var(--space-5);">
+            Software already runs almost every part of a modern company. The remaining problem is the human effort required to keep those systems coordinated.
+          </p>
+          <p class="body body--lead">
+            Twinthos exists to remove that layer.
+          </p>
+        </div>
       </div>
     </section>
-    <section class="section" style="padding-top:var(--space-10);">
-      <div class="container--text" style="max-width:640px;">
-        <p class="section-label reveal--fast">The belief</p>
-        <h2 class="display--xs reveal" style="margin-bottom:var(--space-6);">Human intelligence should not be spent operating software.</h2>
-        <p class="body body--lead reveal" data-delay="150">People should decide, create, negotiate and solve.</p>
-        <p class="body body--lead reveal" data-delay="250">Machines should handle the repeatable operational work around those decisions.</p>
-        <p class="display--xs reveal" style="margin-top:var(--space-8);">Humans set the direction.<br>Twinthos carries the work.</p>
+
+    <section class="section">
+      <div class="section__inner">
+        <div style="max-width:720px;margin:0 auto;">
+          <div class="sep--system" style="margin-bottom:var(--space-8);">
+            <span class="sep--system__label">02</span>
+            <span class="sep--system__line"></span>
+            <span class="sep--system__label">THE BELIEF</span>
+          </div>
+          <h2 class="display display--sm" style="margin-bottom:var(--space-6);">
+            Human intelligence should not be spent operating software.
+          </h2>
+          <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;">
+            <span class="capability">DECIDE</span>
+            <span class="capability">CREATE</span>
+            <span class="capability">NEGOTIATE</span>
+            <span class="capability">SOLVE</span>
+          </div>
+          <p class="body body--lead" style="margin-top:var(--space-6);max-width:52ch;">
+            People should decide, create, negotiate and solve.
+          </p>
+          <p class="body body--lead" style="margin-top:var(--space-4);max-width:52ch;">
+            Machines should handle the repeatable operational work around those decisions.
+          </p>
+          <p class="display display--xs" style="margin-top:var(--space-7);text-align:center;">
+            Humans set the direction.<br>Twinthos carries the work.
+          </p>
+        </div>
       </div>
     </section>
-    <section class="section" style="padding-top:var(--space-10);border-top:1px solid var(--border-subtle);">
-      <div class="container--text" style="max-width:640px;">
-        <p class="section-label reveal--fast">What Twinthos is</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);align-items:start;">
-          <div class="reveal--left">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">A</span>
-            <p class="body" style="margin-bottom:var(--space-2);"><strong>A managed operational service.</strong> We learn your work, connect to your systems, and operate the repeatable parts of it.</p>
+
+    <section class="section">
+      <div class="section__inner">
+        <div style="max-width:960px;margin:0 auto;">
+          <div class="sep--system" style="margin-bottom:var(--space-8);">
+            <span class="sep--system__label">03</span>
+            <span class="sep--system__line"></span>
+            <span class="sep--system__label">WHAT TWINTHOS IS</span>
           </div>
-          <div class="reveal--left" data-delay="100">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">B</span>
-            <p class="body" style="margin-bottom:var(--space-2);"><strong>Built around your existing systems.</strong> No new platform to log into. No new dashboard to operate. We work with what you already use.</p>
-          </div>
-          <div class="reveal--left" data-delay="200" style="margin-top:var(--space-4);">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">C</span>
-            <p class="body" style="margin-bottom:var(--space-2);"><strong>Transparent about boundaries.</strong> What the workflow can do, what it cannot do, and what requires a person — defined before deployment.</p>
-          </div>
-          <div class="reveal--left" data-delay="300">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">D</span>
-            <p class="body" style="margin-bottom:var(--space-2);"><strong>Founder-led, end to end.</strong> From workflow design through live operation. No handoff to an anonymous team. No ticket queue.</p>
-          </div>
-          <div class="reveal--left" data-delay="400" style="margin-top:var(--space-4);">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">E</span>
-            <p class="body" style="margin-bottom:var(--space-2);"><strong>Obvious, not clever.</strong> Every sentence on this site is written to be understood immediately. No jargon. No abstraction.</p>
-          </div>
-          <div class="reveal--left" data-delay="500">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">F</span>
-            <p class="body"><strong>Honest about what we don't do.</strong> We don't make claims we can't support. If information does not exist, we say so.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);align-items:start;">
+            <div style="padding:10px 0;border-top:1px solid var(--hairline);">
+              <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-3);align-items:start;">
+                <span class="about-letter">A</span>
+                <div>
+                  <p class="body body--sm" style="margin-bottom:var(--space-1);"><strong>A managed operational service.</strong></p>
+                  <p class="meta meta--small">We learn your work, connect to your systems, and operate the repeatable parts of it.</p>
+                </div>
+              </div>
+            </div>
+            <div style="padding:10px 0;border-top:1px solid var(--hairline);">
+              <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-3);align-items:start;">
+                <span class="about-letter">B</span>
+                <div>
+                  <p class="body body--sm" style="margin-bottom:var(--space-1);"><strong>Built around your existing systems.</strong></p>
+                  <p class="meta meta--small">No new platform to log into. No new dashboard to operate. We work with what you already use.</p>
+                </div>
+              </div>
+            </div>
+            <div style="padding:10px 0;border-top:1px solid var(--hairline);">
+              <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-3);align-items:start;">
+                <span class="about-letter">C</span>
+                <div>
+                  <p class="body body--sm" style="margin-bottom:var(--space-1);"><strong>Transparent about boundaries.</strong></p>
+                  <p class="meta meta--small">What the workflow can do, what it cannot do, and what requires a person — defined before deployment.</p>
+                </div>
+              </div>
+            </div>
+            <div style="padding:10px 0;border-top:1px solid var(--hairline);">
+              <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-3);align-items:start;">
+                <span class="about-letter">D</span>
+                <div>
+                  <p class="body body--sm" style="margin-bottom:var(--space-1);"><strong>Founder-led, end to end.</strong></p>
+                  <p class="meta meta--small">From workflow design through live operation. No handoff to an anonymous team. No ticket queue.</p>
+                </div>
+              </div>
+            </div>
+            <div style="padding:10px 0;border-top:1px solid var(--hairline);">
+              <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-3);align-items:start;">
+                <span class="about-letter">E</span>
+                <div>
+                  <p class="body body--sm" style="margin-bottom:var(--space-1);"><strong>Obvious, not clever.</strong></p>
+                  <p class="meta meta--small">Every sentence on this site is written to be understood immediately. No jargon. No abstraction.</p>
+                </div>
+              </div>
+            </div>
+            <div style="padding:10px 0;border-top:1px solid var(--hairline);">
+              <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-3);align-items:start;">
+                <span class="about-letter">F</span>
+                <div>
+                  <p class="body body--sm" style="margin-bottom:var(--space-1);"><strong>Honest about what we don't do.</strong></p>
+                  <p class="meta meta--small">We don't make claims we can't support. If information does not exist, we say so.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="section" style="padding-top:var(--space-10);border-top:1px solid var(--border-subtle);">
-      <div class="container--text" style="max-width:640px;">
-        <p class="section-label reveal--fast">Founder accountability</p>
-        <h2 class="display--sm reveal" style="margin-bottom:var(--space-6);">The person designing your operation<br>stays responsible for it.</h2>
-        <p class="body body--lead reveal" data-delay="150">Twinthos deployments are currently founder-led from workflow design through live operation.</p>
-        <p class="body body--lead reveal" data-delay="250">No handoff to an anonymous implementation team.</p>
-        <p class="body body--lead reveal" data-delay="350">No ticket queue between you and the person responsible for the workflow.</p>
-        <p class="body body--lead reveal" data-delay="450">If something stops working, there is a human accountable for fixing it.</p>
+
+    <section class="section">
+      <div class="section__inner">
+        <div style="max-width:720px;margin:0 auto;">
+          <div class="sep--system" style="margin-bottom:var(--space-8);">
+            <span class="sep--system__label">04</span>
+            <span class="sep--system__line"></span>
+            <span class="sep--system__label">FOUNDER ACCOUNTABILITY</span>
+          </div>
+          <h2 class="display display--sm" style="margin-bottom:var(--space-6);">
+            The person designing your operation<br>stays responsible for it.
+          </h2>
+          <p class="body body--lead" style="margin-bottom:var(--space-4);max-width:56ch;">
+            Twinthos deployments are currently founder-led from workflow design through live operation.
+          </p>
+          <p class="body body--lead" style="margin-bottom:var(--space-4);max-width:56ch;">
+            No handoff to an anonymous implementation team.
+          </p>
+          <p class="body body--lead" style="margin-bottom:var(--space-4);max-width:56ch;">
+            No ticket queue between you and the person responsible for the workflow.
+          </p>
+          <p class="body body--lead" style="max-width:56ch;">
+            If something stops working, there is a human accountable for fixing it.
+          </p>
+        </div>
       </div>
     </section>
+
     <footer class="footer">
       <div class="footer__inner">
-        <a href="/" class="footer__brand" aria-label="Home">
-          <svg class="footer__logo" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F4F4F0"/>
-            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F4F4F0" opacity="0.85"/>
-            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F4F4F0" opacity="0.6"/>
-            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F4F4F0" opacity="0.4"/>
-            <circle cx="48" cy="36" r="4.5" fill="#B7FF00"/>
+        <div class="footer__brand">
+          <svg class="footer__mark" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F3F3EF"/>
+            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F3F3EF" opacity="0.85"/>
+            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F3F3EF" opacity="0.6"/>
+            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F3F3EF" opacity="0.4"/>
+            <circle cx="48" cy="36" r="4.5" fill="#B5FF00"/>
           </svg>
-          <span class="footer__wordmark">TWINTHOS</span>
-        </a>
-        <div class="footer__links">
+          <div>
+            <p class="footer__wordmark">TWINTHOS</p>
+            <p class="footer__tagline">Work handled. Time returned.</p>
+          </div>
+        </div>
+        <nav class="footer__nav" aria-label="Footer links">
           <a href="/#how" class="footer__link">How it works</a>
           <a href="/#use-cases" class="footer__link">Use cases</a>
           <a href="/operations-audit/" class="footer__link">Audit</a>
           <a href="/security/" class="footer__link">Security</a>
-        </div>
-        <p class="footer__meta">&copy; 2026 Twinthos</p>
+          <a href="/about/" class="footer__link">About</a>
+          <a href="/book/" class="footer__link">Contact</a>
+        </nav>
+        <p class="footer__copyright">© 2026 Twinthos</p>
       </div>
     </footer>
+
   </main>
+
   <script src="/assets/site.js"></script>
 </body>
 </html>

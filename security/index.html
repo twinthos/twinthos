@@ -13,120 +13,183 @@
   <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="/" class="nav__brand" aria-label="Twinthos — home">
         <span class="nav__logo">
           <svg class="nav__logo-mark" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F4F4F0"/>
-            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F4F4F0" opacity="0.85"/>
-            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F4F4F0" opacity="0.6"/>
-            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F4F4F0" opacity="0.4"/>
-            <circle cx="48" cy="36" r="4.5" fill="#B7FF00"/>
-            <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#F4F4F0">TWINTHOS</text>
+            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F3F3EF"/>
+            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F3F3EF" opacity="0.85"/>
+            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F3F3EF" opacity="0.6"/>
+            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F3F3EF" opacity="0.4"/>
+            <circle cx="48" cy="36" r="4.5" fill="#B5FF00"/>
+            <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#F3F3EF">TWINTHOS</text>
           </svg>
         </span>
-        <span class="nav__wordmark">TWINTHOS</span>
       </a>
       <div class="nav__links">
         <a href="/#how" class="nav__link">How it works</a>
         <a href="/#use-cases" class="nav__link">Use cases</a>
         <a href="/operations-audit/" class="nav__link">Audit</a>
+        <a href="/security/" class="nav__link">Security</a>
         <a href="/about/" class="nav__link">About</a>
       </div>
-      <a href="/book/" class="nav__cta">Book an assessment</a>
+      <a href="/book/" class="nav__cta">Assess your operation</a>
       <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
     </div>
     <div class="nav__mobile" id="navMobile" role="menu">
       <a href="/#how" class="nav__mobile-link">How it works</a>
       <a href="/#use-cases" class="nav__mobile-link">Use cases</a>
       <a href="/operations-audit/" class="nav__mobile-link">Audit</a>
+      <a href="/security/" class="nav__mobile-link">Security</a>
       <a href="/about/" class="nav__mobile-link">About</a>
-      <a href="/book/" class="btn btn--primary" style="margin-top:var(--space-4);text-align:center;display:block;">Book an assessment</a>
+      <a href="/book/" class="btn btn--primary" style="margin-top:var(--space-4);text-align:center;display:block;">Assess your operation</a>
     </div>
   </nav>
+
   <main id="main">
-    <section class="hero" style="padding-top:var(--space-10);">
-      <div class="container--text" style="max-width:720px;">
-        <p class="section-label reveal--fast">Security & control</p>
-        <h1 class="display--xs reveal" style="margin-bottom:var(--space-5);">What the workflow can read.<br>What it can change.<br>What remains with you.</h1>
-        <p class="body body--lead reveal" data-delay="150" style="margin-top:var(--space-6);">A Twinthos deployment is built around clear boundaries. We define what the workflow is allowed to do before anything is activated, and we document it with you.</p>
+
+    <section class="section section--stage">
+      <div class="section__inner">
+        <div class="sep--system sep--system--center" style="margin-bottom:var(--space-8);">
+          <span class="sep--system__label">01</span>
+          <span class="sep--system__line"></span>
+          <span class="sep--system__label">SECURITY & CONTROL</span>
+        </div>
+        <div style="max-width:720px;margin:0 auto;">
+          <h1 class="display display--md" style="margin-bottom:var(--space-5);">
+            What the workflow can read.<br>What it can change.<br>What remains with you.
+          </h1>
+          <p class="body body--lead" style="margin-top:var(--space-5);">
+            A Twinthos deployment is built around clear boundaries. We define what the workflow is allowed to do before anything is activated, and we document it with you.
+          </p>
+        </div>
       </div>
     </section>
-    <section class="section" style="padding-top:var(--space-10);">
-      <div class="container--wide">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);align-items:start;">
-          <div class="reveal--left">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">01</span>
-            <h2 class="heading-md" style="margin-bottom:var(--space-2);">Access</h2>
-            <p class="body body--sm" style="color:var(--text-secondary);margin-bottom:var(--space-4);">What the workflow can read.</p>
-            <p class="body body--sm">We identify the information the workflow needs to do its job, and only that information. Before activation, we document with you exactly what the workflow can access, where that information lives, and which systems provide it.</p>
+
+    <section class="section">
+      <div class="section__inner">
+        <div style="max-width:1280px;margin:0 auto;">
+          <div class="sep--system" style="margin-bottom:var(--space-8);">
+            <span class="sep--system__label">02</span>
+            <span class="sep--system__line"></span>
+            <span class="sep--system__label">THE SIX BOUNDARIES</span>
           </div>
-          <div class="reveal--left" data-delay="100">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">02</span>
-            <h2 class="heading-md" style="margin-bottom:var(--space-2);">Authority</h2>
-            <p class="body body--sm" style="color:var(--text-secondary);margin-bottom:var(--space-4);">What the workflow can change.</p>
-            <p class="body body--sm">The workflow can only take actions that have been approved in advance. We define what it is allowed to update, send, create or modify — and what it is not allowed to touch. Anything outside those rules stays under human control.</p>
-          </div>
-          <div class="reveal--left" data-delay="200" style="margin-top:var(--space-4);">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">03</span>
-            <h2 class="heading-md" style="margin-bottom:var(--space-2);">Approval</h2>
-            <p class="body body--sm" style="color:var(--text-secondary);margin-bottom:var(--space-4);">What requires a human.</p>
-            <p class="body body--sm">Some actions are too important to automate without review. We identify the actions, spending limits and exceptions that must wait for a person before they happen, and we build the escalation into the workflow.</p>
-          </div>
-          <div class="reveal--left" data-delay="300">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">04</span>
-            <h2 class="heading-md" style="margin-bottom:var(--space-2);">Failure</h2>
-            <p class="body body--sm" style="color:var(--text-secondary);margin-bottom:var(--space-4);">What happens when it cannot continue.</p>
-            <p class="body body--sm">When something is outside the agreed rules, or the workflow cannot continue safely, it pauses and escalates. It does not guess. It does not force a result. A human is notified and the situation is handed back.</p>
-          </div>
-          <div class="reveal--left" data-delay="400" style="margin-top:var(--space-4);">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">05</span>
-            <h2 class="heading-md" style="margin-bottom:var(--space-2);">Auditability</h2>
-            <p class="body body--sm" style="color:var(--text-secondary);margin-bottom:var(--space-4);">What actions are recorded.</p>
-            <p class="body body--sm">Every action the workflow takes is recorded. You can see what it read, what it changed, what it sent, and when. The record is available for review as part of the managed service.</p>
-          </div>
-          <div class="reveal--left" data-delay="500">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">06</span>
-            <h2 class="heading-md" style="margin-bottom:var(--space-2);">Offboarding</h2>
-            <p class="body body--sm" style="color:var(--text-secondary);margin-bottom:var(--space-4);">How access is revoked.</p>
-            <p class="body body--sm">If the relationship ends, the access the workflow was granted is revoked. The documentation of what was connected, what it could read, and what it could change is handed over so the boundaries are clear.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);align-items:start;">
+            <div style="padding:10px 0;border-top:1px solid var(--hairline);">
+              <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-3);align-items:start;">
+                <span class="security-num">01</span>
+                <div>
+                  <p class="security-heading">Access</p>
+                  <p class="security-sub">What the workflow can read.</p>
+                  <p class="body body--sm" style="margin-top:var(--space-2);">We identify the information the workflow needs to do its job, and only that information. Before activation, we document with you exactly what the workflow can access, where that information lives, and which systems provide it.</p>
+                </div>
+              </div>
+            </div>
+            <div style="padding:10px 0;border-top:1px solid var(--hairline);">
+              <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-3);align-items:start;">
+                <span class="security-num">02</span>
+                <div>
+                  <p class="security-heading">Authority</p>
+                  <p class="security-sub">What the workflow can change.</p>
+                  <p class="body body--sm" style="margin-top:var(--space-2);">The workflow can only take actions that have been approved in advance. We define what it is allowed to update, send, create or modify — and what it is not allowed to touch. Anything outside those rules stays under human control.</p>
+                </div>
+              </div>
+            </div>
+            <div style="padding:10px 0;border-top:1px solid var(--hairline);">
+              <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-3);align-items:start;">
+                <span class="security-num">03</span>
+                <div>
+                  <p class="security-heading">Approval</p>
+                  <p class="security-sub">What requires a human.</p>
+                  <p class="body body--sm" style="margin-top:var(--space-2);">Some actions are too important to automate without review. We identify the actions, spending limits and exceptions that must wait for a person before they happen, and we build the escalation into the workflow.</p>
+                </div>
+              </div>
+            </div>
+            <div style="padding:10px 0;border-top:1px solid var(--hairline);">
+              <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-3);align-items:start;">
+                <span class="security-num">04</span>
+                <div>
+                  <p class="security-heading">Failure</p>
+                  <p class="security-sub">What happens when it cannot continue.</p>
+                  <p class="body body--sm" style="margin-top:var(--space-2);">When something is outside the agreed rules, or the workflow cannot continue safely, it pauses and escalates. It does not guess. It does not force a result. A human is notified and the situation is handed back.</p>
+                </div>
+              </div>
+            </div>
+            <div style="padding:10px 0;border-top:1px solid var(--hairline);">
+              <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-3);align-items:start;">
+                <span class="security-num">05</span>
+                <div>
+                  <p class="security-heading">Auditability</p>
+                  <p class="security-sub">What actions are recorded.</p>
+                  <p class="body body--sm" style="margin-top:var(--space-2);">Every action the workflow takes is recorded. You can see what it read, what it changed, what it sent, and when. The record is available for review as part of the managed service.</p>
+                </div>
+              </div>
+            </div>
+            <div style="padding:10px 0;border-top:1px solid var(--hairline);">
+              <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-3);align-items:start;">
+                <span class="security-num">06</span>
+                <div>
+                  <p class="security-heading">Offboarding</p>
+                  <p class="security-sub">How access is revoked.</p>
+                  <p class="body body--sm" style="margin-top:var(--space-2);">If the relationship ends, the access the workflow was granted is revoked. The documentation of what was connected, what it could read, and what it could change is handed over so the boundaries are clear.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="section" style="padding-top:var(--space-10);border-top:1px solid var(--border-subtle);">
-      <div class="container--text" style="max-width:600px;">
-        <p class="section-label reveal--fast">In plain language</p>
-        <p class="body body--lead reveal" data-delay="100" style="margin-bottom:var(--space-4);">Twinthos does not have unrestricted access to your systems.</p>
-        <p class="body body--lead reveal" data-delay="200" style="margin-bottom:var(--space-4);">It can only do what has been agreed in the specific workflow it is running.</p>
-        <p class="body body--lead reveal" data-delay="300" style="margin-bottom:var(--space-4);">It escalates when something is outside those rules.</p>
-        <p class="body body--lead reveal" data-delay="400">And if you stop using it, the access ends.</p>
+
+    <section class="section">
+      <div class="section__inner">
+        <div style="max-width:640px;margin:0 auto;">
+          <div class="sep--system sep--system--center" style="margin-bottom:var(--space-7);">
+            <span class="sep--system__label">03</span>
+            <span class="sep--system__line"></span>
+            <span class="sep--system__label">IN PLAIN LANGUAGE</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--space-3);">
+            <p class="body body--lead">Twinthos does not have unrestricted access to your systems.</p>
+            <p class="body body--lead">It can only do what has been agreed in the specific workflow it is running.</p>
+            <p class="body body--lead">It escalates when something is outside those rules.</p>
+            <p class="body body--lead">And if you stop using it, the access ends.</p>
+          </div>
+        </div>
       </div>
     </section>
+
     <footer class="footer">
       <div class="footer__inner">
-        <a href="/" class="footer__brand" aria-label="Home">
-          <svg class="footer__logo" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F4F4F0"/>
-            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F4F4F0" opacity="0.85"/>
-            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F4F4F0" opacity="0.6"/>
-            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F4F4F0" opacity="0.4"/>
-            <circle cx="48" cy="36" r="4.5" fill="#B7FF00"/>
+        <div class="footer__brand">
+          <svg class="footer__mark" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F3F3EF"/>
+            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F3F3EF" opacity="0.85"/>
+            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F3F3EF" opacity="0.6"/>
+            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F3F3EF" opacity="0.4"/>
+            <circle cx="48" cy="36" r="4.5" fill="#B5FF00"/>
           </svg>
-          <span class="footer__wordmark">TWINTHOS</span>
-        </a>
-        <div class="footer__links">
+          <div>
+            <p class="footer__wordmark">TWINTHOS</p>
+            <p class="footer__tagline">Work handled. Time returned.</p>
+          </div>
+        </div>
+        <nav class="footer__nav" aria-label="Footer links">
           <a href="/#how" class="footer__link">How it works</a>
           <a href="/#use-cases" class="footer__link">Use cases</a>
           <a href="/operations-audit/" class="footer__link">Audit</a>
+          <a href="/security/" class="footer__link">Security</a>
           <a href="/about/" class="footer__link">About</a>
-        </div>
-        <p class="footer__meta">&copy; 2026 Twinthos</p>
+          <a href="/book/" class="footer__link">Contact</a>
+        </nav>
+        <p class="footer__copyright">© 2026 Twinthos</p>
       </div>
     </footer>
+
   </main>
+
   <script src="/assets/site.js"></script>
 </body>
 </html>

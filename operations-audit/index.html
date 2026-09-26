@@ -13,157 +13,202 @@
   <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="/" class="nav__brand" aria-label="Twinthos — home">
         <span class="nav__logo">
           <svg class="nav__logo-mark" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F4F4F0"/>
-            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F4F4F0" opacity="0.85"/>
-            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F4F4F0" opacity="0.6"/>
-            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F4F4F0" opacity="0.4"/>
-            <circle cx="48" cy="36" r="4.5" fill="#B7FF00"/>
-            <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#F4F4F0">TWINTHOS</text>
+            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F3F3EF"/>
+            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F3F3EF" opacity="0.85"/>
+            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F3F3EF" opacity="0.6"/>
+            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F3F3EF" opacity="0.4"/>
+            <circle cx="48" cy="36" r="4.5" fill="#B5FF00"/>
+            <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#F3F3EF">TWINTHOS</text>
           </svg>
         </span>
-        <span class="nav__wordmark">TWINTHOS</span>
       </a>
       <div class="nav__links">
         <a href="/#how" class="nav__link">How it works</a>
         <a href="/#use-cases" class="nav__link">Use cases</a>
+        <a href="/operations-audit/" class="nav__link">Audit</a>
         <a href="/security/" class="nav__link">Security</a>
         <a href="/about/" class="nav__link">About</a>
       </div>
-      <a href="/book/" class="nav__cta">Book an assessment</a>
+      <a href="/book/" class="nav__cta">Assess your operation</a>
       <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
     </div>
     <div class="nav__mobile" id="navMobile" role="menu">
       <a href="/#how" class="nav__mobile-link">How it works</a>
       <a href="/#use-cases" class="nav__mobile-link">Use cases</a>
+      <a href="/operations-audit/" class="nav__mobile-link">Audit</a>
       <a href="/security/" class="nav__mobile-link">Security</a>
       <a href="/about/" class="nav__mobile-link">About</a>
-      <a href="/book/" class="btn btn--primary" style="margin-top:var(--space-4);text-align:center;display:block;">Book an assessment</a>
+      <a href="/book/" class="btn btn--primary" style="margin-top:var(--space-4);text-align:center;display:block;">Assess your operation</a>
     </div>
   </nav>
+
   <main id="main">
-    <section class="hero" style="padding-top:var(--space-10);">
-      <div class="container--text" style="max-width:720px;">
-        <p class="section-label reveal--fast">Operations audit</p>
-        <h1 class="display--xs reveal" style="margin-bottom:var(--space-5);">Know exactly what to automate<br>before spending money automating it.</h1>
-        <p class="body body--lead reveal" data-delay="150" style="margin-bottom:var(--space-6);">A focused audit of one workflow. We map the current process, measure how long it takes, and show you what can be handed over — with the numbers behind it.</p>
-        <p class="meta reveal" data-delay="250" style="margin-bottom:var(--space-10);">£999 <span class="meta__accent" style="color:var(--text);">— credited in full against your first managed-service month if you proceed.</span></p>
-        <a href="/book/" class="btn reveal" style="display:inline-flex;">Book a 15-minute assessment</a>
-      </div>
-    </section>
-    <section class="section" style="padding-top:var(--space-10);">
-      <div class="container--wide">
-        <p class="section-label reveal--fast">What you get</p>
-        <h2 class="display--sm reveal" style="margin-bottom:var(--space-10);">A clear map of one workflow<br>before any automation is built.</h2>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);align-items:start;">
-          <div class="reveal--left">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">01</span>
-            <p class="body" style="margin-bottom:var(--space-4);"><strong>Current-state workflow map.</strong> A step-by-step map of the process as it actually runs today — not as it is described in policy.</p>
-          </div>
-          <div class="reveal--left" data-delay="100">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">02</span>
-            <p class="body" style="margin-bottom:var(--space-4);"><strong>Time and frequency analysis.</strong> How many times the process runs each week, how long each run takes, and who touches each step.</p>
-          </div>
-          <div class="reveal--left" data-delay="200" style="margin-top:var(--space-4);">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">03</span>
-            <p class="body" style="margin-bottom:var(--space-4);"><strong>System dependencies.</strong> Every system the workflow touches, with the specific actions that require access.</p>
-          </div>
-          <div class="reveal--left" data-delay="300">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">04</span>
-            <p class="body" style="margin-bottom:var(--space-4);"><strong>Automation boundary.</strong> The part of the workflow that can be handed over to Twinthos under agreed rules.</p>
-          </div>
-          <div class="reveal--left" data-delay="400" style="margin-top:var(--space-4);">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">05</span>
-            <p class="body" style="margin-bottom:var(--space-4);"><strong>Human approval boundary.</strong> The decisions that must stay with a person, and the conditions under which Twinthos escalates.</p>
-          </div>
-          <div class="reveal--left" data-delay="500">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">06</span>
-            <p class="body" style="margin-bottom:var(--space-4);"><strong>Business-case assumptions.</strong> The numbers behind the recommendation — measured, not estimated. Clearly labelled.</p>
-          </div>
-          <div class="reveal--left" data-delay="600" style="margin-top:var(--space-4);">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">07</span>
-            <p class="body" style="margin-bottom:var(--space-4);"><strong>Deployment plan.</strong> What happens first, what happens next, what is left for later — in order.</p>
-          </div>
-          <div class="reveal--left" data-delay="700">
-            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">08</span>
-            <p class="body"><strong>First recommended workflow.</strong> The single workflow we would start with, and why it makes sense as the first step.</p>
-          </div>
+
+    <section class="section section--stage">
+      <div class="section__inner">
+        <div class="sep--system sep--system--center" style="margin-bottom:var(--space-8);">
+          <span class="sep--system__label">01</span>
+          <span class="sep--system__line"></span>
+          <span class="sep--system__label">OPERATIONS AUDIT</span>
+        </div>
+        <div style="max-width:720px;margin:0 auto;text-align:center;">
+          <h1 class="display display--md" style="margin-bottom:var(--space-5);">
+            Know exactly what to automate<br>before spending money automating it.
+          </h1>
+          <p class="body body--lead" style="margin-bottom:var(--space-5);">
+            A focused audit of one workflow. We map the current process, measure how long it takes, and show you what can be handed over — with the numbers behind it.
+          </p>
+          <p class="body body--lead" style="margin-bottom:var(--space-7);">
+            £999 — credited in full against your first managed-service month if you proceed.
+          </p>
+          <a href="/book/" class="btn btn--primary" style="display:inline-flex;">Book a 15-minute assessment</a>
         </div>
       </div>
     </section>
-    <section class="section" style="padding-top:var(--space-10);border-top:1px solid var(--border-subtle);">
-      <div class="container--text" style="max-width:600px;">
-        <p class="section-label reveal--fast">How the audit works</p>
-        <div class="process">
-          <div class="process__row reveal--left">
-            <span class="process__num">Step 01</span>
-            <div class="process__content">
-              <p class="process__title">15-minute assessment</p>
-              <p class="process__desc">A short call to understand one repetitive process and whether it is worth auditing.</p>
-            </div>
+
+    <section class="section">
+      <div class="section__inner">
+        <div style="max-width:1280px;margin:0 auto;">
+          <div class="sep--system" style="margin-bottom:var(--space-8);">
+            <span class="sep--system__label">02</span>
+            <span class="sep--system__line"></span>
+            <span class="sep--system__label">WHAT YOU GET</span>
           </div>
-          <div class="process__row reveal--left" data-delay="100">
-            <span class="process__num">Step 02</span>
-            <div class="process__content">
-              <p class="process__title">We observe the work</p>
-              <p class="process__desc">We map the workflow as it is performed — who does what, which systems, how long it takes.</p>
+          <h2 class="display display--md" style="margin-bottom:var(--space-9);">
+            A clear map of one workflow<br>before any automation is built.
+          </h2>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);align-items:start;">
+            <div class="audit-deliverable">
+              <p class="audit-deliverable__num">01</p>
+              <p class="audit-deliverable__desc"><strong>Current-state workflow map.</strong> A step-by-step map of the process as it actually runs today — not as it is described in policy.</p>
             </div>
-          </div>
-          <div class="process__row reveal--left" data-delay="200">
-            <span class="process__num">Step 03</span>
-            <div class="process__content">
-              <p class="process__title">We document the findings</p>
-              <p class="process__desc">A written audit covering the eight outputs above, with the numbers behind each one.</p>
+            <div class="audit-deliverable">
+              <p class="audit-deliverable__num">02</p>
+              <p class="audit-deliverable__desc"><strong>Time and frequency analysis.</strong> How many times the process runs each week, how long each run takes, and who touches each step.</p>
             </div>
-          </div>
-          <div class="process__row reveal--left" data-delay="300">
-            <span class="process__num">Step 04</span>
-            <div class="process__content">
-              <p class="process__title">We walk through it with you</p>
-              <p class="process__desc">A call to review the audit, answer questions, and decide whether to proceed.</p>
+            <div class="audit-deliverable">
+              <p class="audit-deliverable__num">03</p>
+              <p class="audit-deliverable__desc"><strong>System dependencies.</strong> Every system the workflow touches, with the specific actions that require access.</p>
+            </div>
+            <div class="audit-deliverable">
+              <p class="audit-deliverable__num">04</p>
+              <p class="audit-deliverable__desc"><strong>Automation boundary.</strong> The part of the workflow that can be handed over to Twinthos under agreed rules.</p>
+            </div>
+            <div class="audit-deliverable">
+              <p class="audit-deliverable__num">05</p>
+              <p class="audit-deliverable__desc"><strong>Human approval boundary.</strong> The decisions that must stay with a person, and the conditions under which Twinthos escalates.</p>
+            </div>
+            <div class="audit-deliverable">
+              <p class="audit-deliverable__num">06</p>
+              <p class="audit-deliverable__desc"><strong>Business-case assumptions.</strong> The numbers behind the recommendation — measured, not estimated. Clearly labelled.</p>
+            </div>
+            <div class="audit-deliverable">
+              <p class="audit-deliverable__num">07</p>
+              <p class="audit-deliverable__desc"><strong>Deployment plan.</strong> What happens first, what happens next, what is left for later — in order.</p>
+            </div>
+            <div class="audit-deliverable">
+              <p class="audit-deliverable__num">08</p>
+              <p class="audit-deliverable__desc"><strong>First recommended workflow.</strong> The single workflow we would start with, and why it makes sense as the first step.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="section" style="padding-top:var(--space-10);border-top:1px solid var(--border-subtle);text-align:center;">
-      <div class="container--text" style="max-width:480px;">
-        <p class="section-label reveal--fast" style="margin-bottom:var(--space-4);">The cost</p>
-        <p class="meta reveal--scale" style="margin-bottom:var(--space-2);">£999</p>
-        <p class="body body--sm reveal" data-delay="100">Credited in full against your first managed-service month if you proceed.</p>
-        <div style="margin-top:var(--space-8);" class="reveal--scale">
-          <a href="/book/" class="btn">Book a 15-minute assessment</a>
+
+    <div style="background:var(--black-01);">
+      <div class="section__inner" style="margin:0 auto;max-width:880px;padding:0 var(--space-8);">
+        <div class="sep--system" style="margin-bottom:var(--space-8);">
+          <span class="sep--system__label">03</span>
+          <span class="sep--system__line"></span>
+          <span class="sep--system__label">HOW THE AUDIT WORKS</span>
         </div>
-        <p class="meta reveal" data-delay="200" style="margin-top:var(--space-4);">Not sure? Start with the assessment. No commitment.</p>
+        <div style="display:flex;flex-direction:column;gap:var(--space-4);">
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-4);align-items:start;padding:8px 0;border-top:1px solid var(--hairline);">
+            <span class="step-num">Step 01</span>
+            <div>
+              <p class="body body--sm" style="margin-bottom:var(--space-1);"><strong>15-minute assessment.</strong></p>
+              <p class="meta meta--small">A short call to understand one repetitive process and whether it is worth auditing.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-4);align-items:start;padding:8px 0;border-top:1px solid var(--hairline);">
+            <span class="step-num">Step 02</span>
+            <div>
+              <p class="body body--sm" style="margin-bottom:var(--space-1);"><strong>We observe the work.</strong></p>
+              <p class="meta meta--small">We map the workflow as it is performed — who does what, which systems, how long it takes.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-4);align-items:start;padding:8px 0;border-top:1px solid var(--hairline);">
+            <span class="step-num">Step 03</span>
+            <div>
+              <p class="body body--sm" style="margin-bottom:var(--space-1);"><strong>We document the findings.</strong></p>
+              <p class="meta meta--small">A written audit covering the eight outputs above, with the numbers behind each one.</p>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:var(--space-4);align-items:start;padding:8px 0;border-top:1px solid var(--hairline);">
+            <span class="step-num">Step 04</span>
+            <div>
+              <p class="body body--sm" style="margin-bottom:var(--space-1);"><strong>We walk through it with you.</strong></p>
+              <p class="meta meta--small">A call to review the audit, answer questions, and decide whether to proceed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="section__inner" style="text-align:center;">
+        <div style="max-width:480px;margin:0 auto;">
+          <div class="sep--system sep--system--center" style="margin-bottom:var(--space-7);">
+            <span class="sep--system__label">04</span>
+            <span class="sep--system__line"></span>
+            <span class="sep--system__label">THE COST</span>
+          </div>
+          <p class="offer__price" style="font-size:clamp(56px,7vw,76px);align-self:center;display:inline-block;line-height:1;">£999</p>
+          <p class="body body--lead" style="margin-top:var(--space-3);max-width:40ch;margin-left:auto;margin-right:auto;">Credited in full against your first managed-service month if you proceed.</p>
+          <div style="margin-top:var(--space-7);">
+            <a href="/book/" class="btn btn--primary btn--lg">Book a 15-minute assessment</a>
+          </div>
+          <p class="meta" style="margin-top:var(--space-4);">Not sure? Start with the assessment. No commitment.</p>
+        </div>
       </div>
     </section>
+
     <footer class="footer">
       <div class="footer__inner">
-        <a href="/" class="footer__brand" aria-label="Home">
-          <svg class="footer__logo" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F4F4F0"/>
-            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F4F4F0" opacity="0.85"/>
-            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F4F4F0" opacity="0.6"/>
-            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F4F4F0" opacity="0.4"/>
-            <circle cx="48" cy="36" r="4.5" fill="#B7FF00"/>
+        <div class="footer__brand">
+          <svg class="footer__mark" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F3F3EF"/>
+            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F3F3EF" opacity="0.85"/>
+            <path d="M18 24 L48 24 L48 32 L8 32 Z" fill="#F3F3EF" opacity="0.6"/>
+            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F3F3EF" opacity="0.4"/>
+            <circle cx="48" cy="36" r="4.5" fill="#B5FF00"/>
           </svg>
-          <span class="footer__wordmark">TWINTHOS</span>
-        </a>
-        <div class="footer__links">
+          <div>
+            <p class="footer__wordmark">TWINTHOS</p>
+            <p class="footer__tagline">Work handled. Time returned.</p>
+          </div>
+        </div>
+        <nav class="footer__nav" aria-label="Footer links">
           <a href="/#how" class="footer__link">How it works</a>
           <a href="/#use-cases" class="footer__link">Use cases</a>
+          <a href="/operations-audit/" class="footer__link">Audit</a>
           <a href="/security/" class="footer__link">Security</a>
           <a href="/about/" class="footer__link">About</a>
-        </div>
-        <p class="footer__meta">&copy; 2026 Twinthos</p>
+          <a href="/book/" class="footer__link">Contact</a>
+        </nav>
+        <p class="footer__copyright">© 2026 Twinthos</p>
       </div>
     </footer>
+
   </main>
+
   <script src="/assets/site.js"></script>
 </body>
 </html>

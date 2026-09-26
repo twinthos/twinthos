@@ -1,157 +1,202 @@
 /* ═════════════════════════════════════════════════════════════════
-   TWINTHOS — SCROLL REVEAL + HERO VISUAL + CALCULATOR
+   TWINTHOS — 2027 SCROLL REVEAL + NAV + WORK DISAPPEAR
    Reveal on scroll: sections fade in as they enter viewport.
-   Hero visual: systems fade out, Twinthos line appears.
-   Calculator: compute monthly hours, cost, automatable portion.
+   Nav: scroll-aware border + mobile toggle.
+   Work disappear: system actions mute as user scrolls past hero.
    ═════════════════════════════════════════════════════════════════ */
 
 (function () {
   'use strict';
 
-  /* ── SCROLL REVEAL ── */
-  var reveals = document.querySelectorAll('.reveal, .reveal--fast, .reveal--left, .reveal--right, .reveal--scale');
-  if (reveals.length) {
+  /* ── Token helpers ── */
+  var qs = function (sel, ctx) { return (ctx || document).querySelector(sel); };
+  var qsa = function (sel, ctx) { return (ctx || document).querySelectorAll(sel); };
+
+  /* ── Scroll reveal ── */
+  var revealEls = qsa('.reveal, .reveal--left, .reveal--right, .reveal--scale, .reveal--fast');
+  if (revealEls.length) {
     var revealObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           var el = entry.target;
           var delay = el.getAttribute('data-delay');
           if (delay) {
-            setTimeout(function () { el.classList.add('is-in'); }, parseInt(delay, 10));
-          } else {
-            el.classList.add('is-in');
+            el.style.transitionDelay = delay + 'ms';
           }
+          el.classList.add('is-in');
           revealObserver.unobserve(el);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(function (r) { revealObserver.observe(r); });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
   }
 
-  /* ── HERO VISUAL ── */
-  var heroSystems = document.querySelectorAll('#heroSystems .hero__sys-row');
-  var heroLine = document.getElementById('heroLine');
-  if (heroSystems.length && heroLine) {
-    var heroVisualObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          heroSystems.forEach(function (row, i) {
-            setTimeout(function () { row.classList.add('is-removed'); }, i * 180);
-          });
-          setTimeout(function () { heroLine.classList.add('is-visible'); }, heroSystems.length * 180 + 100);
-          heroVisualObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    heroVisualObserver.observe(document.getElementById('heroSystems'));
-  }
+  /* ── Nav: scroll-aware hairline ── */
+  var nav = qs('#nav');
+  var navInner = nav ? qs('.nav__inner', nav) : null;
+  var scrolled = false;
+  var ticking = false;
 
-  /* ── WORKFLOW HUMAN TASKS ── */
-  var workflowSection = document.getElementById('show-work');
-  var humanTasks = document.querySelectorAll('#humanTasks .human-task');
-  if (workflowSection && humanTasks.length) {
-    var workflowObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          humanTasks.forEach(function (task, i) {
-            setTimeout(function () { task.classList.add('is-removed'); }, i * 120);
-          });
-          workflowObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    workflowObserver.observe(workflowSection);
-  }
-
-  /* ── NAV SCROLL ── */
-  var nav = document.getElementById('nav');
-  if (nav) {
-    window.addEventListener('scroll', function () {
-      if (window.pageYOffset > 20) {
-        nav.classList.add('nav--scrolled');
-      } else {
-        nav.classList.remove('nav--scrolled');
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () {
+      var y = window.scrollY || window.pageYOffset || 0;
+      scrolled = y > 40;
+      if (navInner) {
+        navInner.style.borderBottom = scrolled
+          ? '1px solid rgba(255,255,255,0.08)'
+          : '1px solid transparent';
       }
-    }, { passive: true });
+      ticking = false;
+    });
   }
 
-  /* ── MOBILE NAV TOGGLE ── */
-  var navToggle = document.getElementById('navToggle');
-  var navMobile = document.getElementById('navMobile');
-  if (navToggle && navMobile) {
-    navToggle.addEventListener('click', function () {
-      var expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      navMobile.classList.toggle('nav__mobile--open');
-      document.body.style.overflow = !expanded ? 'hidden' : '';
-    });
-    document.querySelectorAll('.nav__mobile-link, .nav__mobile [role="menuitem"]').forEach(function (link) {
-      link.addEventListener('click', function () {
-        navToggle.setAttribute('aria-expanded', 'false');
-        navMobile.classList.remove('nav__mobile--open');
-        document.body.style.overflow = '';
-      });
-    });
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 900) {
-        navToggle.setAttribute('aria-expanded', 'false');
-        navMobile.classList.remove('nav__mobile--open');
-        document.body.style.overflow = '';
+  if (navInner) {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ── Mobile nav toggle ── */
+  var toggle = qs('#navToggle');
+  var mobileMenu = qs('#navMobile');
+  if (toggle && mobileMenu) {
+    toggle.addEventListener('click', function () {
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      mobileMenu.style.display = open ? 'none' : 'flex';
+      if (!open) {
+        mobileMenu.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            toggle.setAttribute('aria-expanded', 'false');
+            mobileMenu.style.display = 'none';
+          });
+        });
       }
     });
+    mobileMenu.style.display = 'none';
   }
 
-  /* ── CALCULATOR ── */
-  var calcRuns = document.getElementById('calcRuns');
-  var calcMinutes = document.getElementById('calcMinutes');
-  var calcPeople = document.getElementById('calcPeople');
-  var calcRate = document.getElementById('calcRate');
-  var calcHours = document.getElementById('calcHours');
-  var calcCost = document.getElementById('calcCost');
-  var calcAuto = document.getElementById('calcAuto');
-
-  function isNumeric(v) {
-    return v !== '' && !isNaN(parseFloat(v)) && isFinite(v);
-  }
-
-  function formatGBP(n) {
-    return '\u00A3' + Math.round(n).toLocaleString('en-GB');
-  }
-
-  function calculate() {
-    var runs = isNumeric(calcRuns.value) ? parseFloat(calcRuns.value) : 0;
-    var minutes = isNumeric(calcMinutes.value) ? parseFloat(calcMinutes.value) : 0;
-    var people = isNumeric(calcPeople.value) ? parseFloat(calcPeople.value) : 0;
-    var rate = isNumeric(calcRate.value) ? parseFloat(calcRate.value) : 0;
-
-    var monthlyHours = (runs * minutes * 52 / 12 / 60) * people;
-    var monthlyCost = monthlyHours * rate;
-    var automatableCost = monthlyCost * 0.70;
-
-    if (calcHours) calcHours.textContent = monthlyHours.toFixed(1);
-    if (calcCost) calcCost.textContent = formatGBP(monthlyCost);
-    if (calcAuto) calcAuto.textContent = formatGBP(automatableCost);
-  }
-
-  if (calcRuns && calcMinutes && calcPeople && calcRate && calcHours && calcCost && calcAuto) {
-    [calcRuns, calcMinutes, calcPeople, calcRate].forEach(function (el) {
-      el.addEventListener('input', calculate);
-    });
-    calculate();
-  }
-
-  /* ── SMOOTH SCROLL ── */
+  /* ── Smooth scroll for in-page anchors ── */
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (e) {
-      var targetId = link.getAttribute('href');
-      if (targetId.length <= 1) return;
-      var target = document.querySelector(targetId);
+      var href = link.getAttribute('href');
+      if (href.length < 2) return;
+      var target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
-      var navHeight = 72;
-      var targetY = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 24;
-      window.scrollTo({ top: targetY, behavior: 'smooth' });
+      var y = target.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      history.replaceState(null, '', href);
     });
   });
 
+  /* ── Work disappear: system actions mute on scroll ── */
+  var heroActions = qsa('.systems-list__action');
+  var heroComplete = false;
+
+  function fadeActions() {
+    if (heroComplete) return;
+    var hero = qs('.section--hero');
+    if (!hero) return;
+    var rect = hero.getBoundingClientRect();
+    if (rect.bottom < 120) {
+      heroComplete = true;
+      heroActions.forEach(function (el, i) {
+        var delay = i * 60;
+        (function (el, delay) {
+          setTimeout(function () {
+            el.classList.add('systems-list__action--muted');
+          }, delay);
+        })(el, delay);
+      });
+    }
+  }
+
+  if (heroActions.length) {
+    window.addEventListener('scroll', fadeActions, { passive: true });
+    fadeActions();
+  }
+
+  /* ── Process axis: active step on scroll ── */
+  var processSteps = qsa('.process-step');
+  var processActive = false;
+
+  function updateProcessAxis() {
+    if (processActive) return;
+    var axis = qs('.process-axis');
+    if (!axis || processSteps.length === 0) return;
+    var rect = axis.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      processActive = true;
+      var count = processSteps.length;
+      processSteps.forEach(function (step, i) {
+        var delay = i * 120;
+        (function (step, delay) {
+          setTimeout(function () {
+            step.classList.add('process-step--complete');
+          }, delay);
+        })(step, delay);
+      });
+    }
+  }
+
+  if (processSteps.length) {
+    window.addEventListener('scroll', updateProcessAxis, { passive: true });
+    updateProcessAxis();
+  }
+
+  /* ── Process steps block (how it works): active stage ── */
+  var stepBlocks = qsa('.process-step-block');
+  var stepsActive = false;
+
+  function updateStepBlocks() {
+    if (stepsActive) return;
+    var section = qs('#how');
+    if (!section || stepBlocks.length === 0) return;
+    var rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 200) {
+      stepsActive = true;
+      stepBlocks.forEach(function (block, i) {
+        var delay = i * 200;
+        (function (block, delay) {
+          setTimeout(function () {
+            block.classList.add('process-step-block--active');
+          }, delay);
+        })(block, delay);
+      });
+    }
+  }
+
+  if (stepBlocks.length) {
+    window.addEventListener('scroll', updateStepBlocks, { passive: true });
+    updateStepBlocks();
+  }
+
+  /* ── Vertical axis (hero): pulse the dot on first view ── */
+  var heroAxis = qs('.systems-axis');
+  var heroAxisViewed = false;
+
+  function pulseAxis() {
+    if (heroAxisViewed) return;
+    var hero = qs('.section--hero');
+    if (!hero) return;
+    var rect = hero.getBoundingClientRect();
+    if (rect.bottom > 100) {
+      heroAxisViewed = true;
+      if (heroAxis) {
+        heroAxis.style.opacity = '1';
+        heroAxis.style.transform = 'scaleY(1)';
+      }
+    }
+  }
+
+  if (heroAxis) {
+    heroAxis.style.opacity = '0.3';
+    heroAxis.style.transform = 'scaleY(0.6)';
+    heroAxis.style.transformOrigin = 'top';
+    heroAxis.style.transition = 'opacity 800ms ease-out, transform 800ms ease-out';
+    window.addEventListener('scroll', pulseAxis, { passive: true });
+    pulseAxis();
+  }
 })();
