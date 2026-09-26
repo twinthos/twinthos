@@ -1,452 +1,188 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book a fit call | Twinthos</title>
-<meta name="description" content="A 15-minute fit call to find the first workflow worth taking off your hands. One workflow, one clear next step.">
-<meta name="theme-color" content="#000000">
-<link rel="canonical" href="https://twinthos.com/book/">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "WebPage", "name": "Book a fit call - Twinthos", "description": "Book a 15-minute fit call to find the first workflow worth taking off your hands.", "url": "https://twinthos.com/book/"}
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book an assessment | Twinthos</title>
+  <meta name="description" content="15 minutes. One workflow. One next step.">
+  <meta name="theme-color" content="#050505">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
 </head>
-<body class="page"><a href="#main" class="skip-link">Skip to content</a>
-
-
-<nav class="nav">
-  <div class="nav-inner">
-    <a class="nav-brand" href="/" aria-label="Twinthos home"><span class="lk"></span></a>
-    <div class="nav-links" id="navLinks">
-      <a href="/#how">How it works</a>
-      <a href="/#use-cases">Use cases</a>
-      <a href="/#security">Security</a>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" aria-label="Twinthos — home">
+        <span class="nav__logo">
+          <svg class="nav__logo-mark" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F4F4F0"/>
+            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F4F4F0" opacity="0.85"/>
+            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F4F4F0" opacity="0.6"/>
+            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F4F4F0" opacity="0.4"/>
+            <circle cx="48" cy="36" r="4.5" fill="#B7FF00"/>
+            <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#F4F4F0">TWINTHOS</text>
+          </svg>
+        </span>
+        <span class="nav__wordmark">TWINTHOS</span>
+      </a>
+      <div class="nav__links">
+        <a href="/#how" class="nav__link">How it works</a>
+        <a href="/#use-cases" class="nav__link">Use cases</a>
+        <a href="/operations-audit/" class="nav__link">Audit</a>
+        <a href="/security/" class="nav__link">Security</a>
+        <a href="/about/" class="nav__link">About</a>
+      </div>
+      <a href="#form" class="nav__cta">Assess your operation</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
     </div>
-    <a class="nav-cta" href="/book/">Book your 15-minute assessment</a>
-    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-      <span></span>
-    </button>
-  </div>
-</nav>
-
-
-
-<main id="main" class="page">
-  <section class="page-hero">
-    <div class="wrap narrow">
-      <p class="label reveal-fast">Book a fit call</p>
-      <h1 class="reveal">Book your 15-minute assessment.</h1>
-      <p class="section-body reveal" style="max-width:640px;margin-top:var(--s4);--d:80ms">
-        One call. One workflow. One clear next step. No pitch, no platform demo, no onboarding package.
-      </p>
+    <div class="nav__mobile" id="navMobile" role="menu">
+      <a href="/#how" class="nav__mobile-link">How it works</a>
+      <a href="/#use-cases" class="nav__mobile-link">Use cases</a>
+      <a href="/operations-audit/" class="nav__mobile-link">Audit</a>
+      <a href="/security/" class="nav__mobile-link">Security</a>
+      <a href="/about/" class="nav__mobile-link">About</a>
+      <a href="#form" class="btn btn--primary" style="margin-top:var(--space-4);text-align:center;display:block;">Assess your operation</a>
     </div>
-  </section>
-
-  <section>
-    <div class="wrap narrow">
-      <div class="book-grid">
-        <div class="book-form-panel">
-          <form id="bookForm" novalidate>
-            <div class="field">
-              <label for="f_name">Name</label>
-              <input type="text" id="f_name" name="name" required autocomplete="name">
+  </nav>
+  <main id="main">
+    <section class="hero" style="padding-top:var(--space-10);">
+      <div class="container--text" style="max-width:680px;">
+        <p class="section-label reveal--fast">Book an assessment</p>
+        <h1 class="display--xs reveal" style="margin-bottom:var(--space-5);">Find one workflow worth removing.</h1>
+        <p class="body body--lead reveal" data-delay="150" style="margin-bottom:var(--space-5);">15 minutes. No presentation. No software demo.</p>
+        <p class="body body--lead reveal" data-delay="250">We'll understand one repetitive process and tell you whether it is worth handing over.</p>
+      </div>
+    </section>
+    <section class="section" id="form" style="padding-top:var(--space-10);">
+      <div class="container--text">
+        <form class="reveal" id="assessmentForm" novalidate>
+          <div class="form__row">
+            <div class="form__field">
+              <label class="form__label" for="formName">Name</label>
+              <input type="text" id="formName" name="name" class="form__input" placeholder="Your name" autocomplete="name" required>
+              <p class="form__error" role="alert" aria-live="polite"></p>
             </div>
-            <div class="field">
-              <label for="f_email">Work email</label>
-              <input type="email" id="f_email" name="email" required autocomplete="email">
-              <span class="field-error" id="f_email_error" hidden></span>
-            </div>
-            <div class="field">
-              <label for="f_company">Company</label>
-              <input type="text" id="f_company" name="company" autocomplete="organization" required>
-              <span class="field-error" id="f_company_error" hidden></span>
-            </div>
-            <div class="field">
-              <label for="f_site">Website (optional)</label>
-              <input type="url" id="f_site" name="website" autocomplete="url" placeholder="https://">
-            </div>
-            <div class="field">
-              <label for="f_q">What repeat work takes the most time?</label>
-              <textarea id="f_q" name="question" rows="4" required></textarea>
-              <span class="field-error" id="f_q_error" hidden></span>
-            </div>
-            <p class="fineprint">We will never ask for passwords, confidential documents or customer records. Your details are used only to arrange the call and will not be passed to third parties. See our <a href="/privacy.html">privacy notice</a>.</p>
-            <button type="submit" class="btn btn-primary" id="bookSubmit">Submit your details</button>
-            <p class="form-msg" id="formMsg" role="status" hidden></p>
-            <div class="form-next-steps" id="formNextSteps" hidden>
-              <p class="form-msg">Thanks — your details are in.</p>
-              <p class="fineprint" style="margin-top:var(--s2)">We will email you within one working day with a link to choose a time for the 15-minute call. The email will come from hello@twinthos.com.</p>
-              <div class="step-list" style="margin-top:var(--s6)">
-                <div class="step">
-                  <div class="step-num">01</div>
-                  <h3>We send available times.</h3>
-                  <p>A short email with a link to choose a time for the call. Pick a slot that works for you.</p>
-                </div>
-                <div class="step">
-                  <div class="step-num">02</div>
-                  <h3>The call finds one workflow.</h3>
-                  <p>Fifteen minutes. We will propose one workflow worth taking off your hands. You decide.</p>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="book-info-panel">
-          <p class="label" style="margin-bottom:var(--s2)">What you are booking</p>
-          <p class="book-info-body">A 15-minute call with the person who will run your assessment. We will propose one workflow worth taking off your hands. You decide whether to proceed.</p>
-          <div class="book-info-list">
-            <div class="book-info-item">
-              <p class="book-info-num">15</p>
-              <p class="book-info-text">Minutes. Not a sales pitch.</p>
-            </div>
-            <div class="book-info-item">
-              <p class="book-info-num">1</p>
-              <p class="book-info-text">Workflow identified.</p>
-            </div>
-            <div class="book-info-item">
-              <p class="book-info-num">£0</p>
-              <p class="book-info-text">The call is free. No pitch, no demo.</p>
+            <div class="form__field">
+              <label class="form__label" for="formEmail">Work email</label>
+              <input type="email" id="formEmail" name="email" class="form__input" placeholder="you@company.com" autocomplete="email" required>
             </div>
           </div>
+          <div class="form__row" style="margin-top:var(--space-4);">
+            <div class="form__field">
+              <label class="form__label" for="formCompany">Company</label>
+              <input type="text" id="formCompany" name="company" class="form__input" placeholder="Company name" autocomplete="organization">
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="formWebsite">Website</label>
+              <input type="url" id="formWebsite" name="website" class="form__input" placeholder="company.com" autocomplete="url">
+            </div>
+          </div>
+          <div class="form__field" style="margin-top:var(--space-4);">
+            <label class="form__label" for="formQuestion">What repetitive work takes the most time?</label>
+            <textarea id="formQuestion" name="question" class="form__textarea" rows="4" placeholder="Describe one process — what happens, who touches it, what systems are involved." required></textarea>
+            <p class="form__error" role="alert" aria-live="polite"></p>
+          </div>
+          <button type="submit" class="btn" style="margin-top:var(--space-6);width:100%;justify-content:center;">Request assessment</button>
+          <p class="meta" style="margin-top:var(--space-4);">We'll email you within one working day with available times.</p>
+        </form>
+      </div>
+    </section>
+    <section class="section" style="padding-top:var(--space-10);">
+      <div class="container--text" style="max-width:560px;">
+        <p class="section-label reveal--fast">What happens next</p>
+        <div class="reveal--left">
+          <span class="number-md" style="display:block;color:var(--accent);margin-bottom:var(--space-2);">01</span>
+          <p class="body body--sm" style="margin-bottom:var(--space-4);"><strong>You submit the form.</strong> One name, one work email, one description of the work.</p>
+        </div>
+        <div class="reveal--left" data-delay="100" style="margin-top:var(--space-4);">
+          <span class="number-md" style="display:block;color:var(--accent);margin-bottom:var(--space-2);">02</span>
+          <p class="body body--sm" style="margin-bottom:var(--space-4);"><strong>We read it.</strong> No long questionnaire. No demo request. Just the one workflow.</p>
+        </div>
+        <div class="reveal--left" data-delay="200" style="margin-top:var(--space-4);">
+          <span class="number-md" style="display:block;color:var(--accent);margin-bottom:var(--space-2);">03</span>
+          <p class="body body--sm"><strong>We reply within one working day.</strong> We'll suggest available times for a 15-minute call and tell you whether it looks worth pursuing.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a class="nav-brand" href="/"><span class="lk"></span></a>
-      <p class="p-brand">Twinthos for business operations. £5,000 per month.</p>
-    </div>
-    <nav class="footer-links" aria-label="Footer">
-      <a href="/book/">Assess your operation</a><a href="/#how">How it works</a><a href="/security/">Security</a><a href="/operations-audit/">Operations audit</a><a href="/about/">About</a><a href="/privacy.html">Privacy</a><a href="mailto:hello@twinthos.com">hello@twinthos.com</a>
-    </nav>
-  </div>
-  <div class="footer-inner"><p class="caption">&copy; 2026 Twinthos &middot; Work handled. Time returned.</p></div>
-</footer>
-
-<style>
-  .page-hero { padding: calc(78px + 24px) clamp(48px,10vw,80px) 0; }
-  .narrow { max-width: 760px; }
-
-  .book-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--s6);
-    margin-top: var(--s8);
-  }
-
-  .book-form-panel {
-    padding: clamp(24px,3vw,36px);
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    background: var(--surface-raised);
-    border: 1px solid var(--border);
-  }
-
-  form { display: flex; flex-direction: column; gap: 18px; }
-
-  .field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    min-width: 0;
-  }
-  .field label {
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    color: var(--text-secondary);
-    padding: 0 1px;
-  }
-
-  .field input,
-  .field textarea {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    min-height: 48px;
-    font-family: 'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-    font-size: 17px;
-    line-height: 1.5;
-    padding: 13px 16px;
-    border: 1px solid var(--border-strong);
-    background: rgba(15,22,35,.5);
-    color: var(--text);
-    transition: border-color var(--speed) var(--ease);
-  }
-  .field input::placeholder,
-  .field textarea::placeholder {
-    color: var(--text-tertiary);
-    opacity: 1;
-  }
-  .field input:hover,
-  .field textarea:hover {
-    border-color: var(--border-strong);
-  }
-  .field input:focus,
-  .field input:focus-visible,
-  .field textarea:focus,
-  .field textarea:focus-visible {
-    outline: none;
-    border-color: var(--signal);
-  }
-  .field input[aria-invalid="true"],
-  .field textarea[aria-invalid="true"] {
-    border-color: var(--error);
-  }
-
-  .field textarea {
-    resize: vertical;
-    min-height: 48px;
-  }
-
-  .field-error {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--error);
-    display: block;
-    padding: 0 1px;
-    min-height: 0;
-    line-height: 1.4;
-  }
-
-  .fineprint {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    padding: 0 1px;
-  }
-  .fineprint a {
-    color: var(--signal);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .form-msg {
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--text);
-    padding: 0 1px;
-    line-height: 1.5;
-  }
-  .form-msg.err { color: var(--error); }
-
-  .form-next-steps {
-    padding: clamp(24px,3vw,36px);
-    display: flex;
-    flex-direction: column;
-    gap: var(--s3);
-    border: 1px solid var(--border);
-    background: var(--surface-raised);
-  }
-  .form-next-steps .form-msg {
-    color: var(--signal);
-    font-weight: 500;
-  }
-  .form-next-steps .fineprint {
-    color: var(--text-secondary);
-  }
-
-  .book-form-panel .btn-primary {
-    width: 100%;
-    touch-action: manipulation;
-  }
-
-  .book-info-panel {
-    padding: clamp(24px,3vw,36px);
-    display: flex;
-    flex-direction: column;
-    gap: var(--s4);
-    border: 1px solid var(--border);
-    min-height: 280px;
-  }
-
-  .book-info-body {
-    font-size: var(--text-base);
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
-  .book-info-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--s3);
-    margin-top: var(--s2);
-  }
-
-  .book-info-item {
-    display: flex;
-    align-items: baseline;
-    gap: var(--s3);
-  }
-
-  .book-info-num {
-    font-size: var(--text-xl);
-    font-weight: 300;
-    color: var(--signal);
-    line-height: 1;
-    flex-shrink: 0;
-  }
-
-  .book-info-text {
-    font-size: var(--text-sm);
-    color: var(--text);
-    line-height: 1.4;
-  }
-
-  .step-list { display: flex; flex-direction: column; gap: 0; margin-top: var(--s6); }
-  .step {
-    display: flex;
-    gap: var(--s4);
-    padding: var(--s4) 0;
-    border-bottom: 1px solid var(--border);
-    align-items: flex-start;
-  }
-  .step:last-child { border-bottom: none; }
-  .step-num {
-    font-size: var(--text-xs);
-    font-weight: 500;
-    color: var(--signal);
-    letter-spacing: 0.04em;
-    font-variant-numeric: tabular-nums;
-    flex-shrink: 0;
-    padding-top: 2px;
-  }
-  .step h3 {
-    font-size: var(--text-base);
-    font-weight: 500;
-    color: var(--text);
-    letter-spacing: -0.01em;
-    margin-bottom: var(--s1);
-  }
-  .step p {
-    font-size: var(--text-base);
-    color: var(--text-secondary);
-    line-height: 1.5;
-    max-width: 560px;
-  }
-
-  @media (max-width: 760px) {
-    .book-grid {
-      grid-template-columns: 1fr;
-      gap: var(--s4);
-    }
-    .book-form-panel { padding: clamp(18px,4vw,24px); gap: 14px; }
-    form { gap: 14px; }
-    .field input,
-    .field textarea {
-      min-height: 44px;
-      font-size: 16px;
-      padding: 12px 14px;
-    }
-    .field label { font-size: 15px; }
-    .field-error { font-size: 13px; }
-    .fineprint { font-size: 13px; }
-    .form-msg { font-size: 15px; }
-    .form-next-steps { padding: var(--s4); }
-    .book-form-panel .btn-primary { height: 52px; }
-    .step { padding: var(--s3) 0; }
-    .step h3 { font-size: var(--text-sm); }
-    .step p { font-size: var(--text-sm); }
-  }
-</style>
-
-<script>
-document.getElementById('bookForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-  var name = document.getElementById('f_name').value.trim();
-  var email = document.getElementById('f_email').value.trim();
-  var company = document.getElementById('f_company').value.trim();
-  var website = document.getElementById('f_site').value.trim();
-  var question = document.getElementById('f_q').value.trim();
-  var formMsg = document.getElementById('formMsg');
-  var formNextSteps = document.getElementById('formNextSteps');
-  var emailErr = document.getElementById('f_email_error');
-  var companyErr = document.getElementById('f_company_error');
-  var qErr = document.getElementById('f_q_error');
-  var valid = true;
-  formMsg.hidden = true;
-  formMsg.className = 'form-msg';
-  if (!name) { valid = false; }
-  if (!email || !email.includes('@') || email.indexOf('@') < 1 || email.lastIndexOf('@') >= email.length - 1) {
-    emailErr.textContent = 'Please add a valid work email.';
-    emailErr.hidden = false;
-    document.getElementById('f_email').setAttribute('aria-invalid', 'true');
-    valid = false;
-  } else {
-    emailErr.hidden = true;
-    document.getElementById('f_email').removeAttribute('aria-invalid');
-  }
-  if (!company) {
-    companyErr.textContent = 'Please add your company name.';
-    companyErr.hidden = false;
-    document.getElementById('f_company').setAttribute('aria-invalid', 'true');
-    valid = false;
-  } else {
-    companyErr.hidden = true;
-    document.getElementById('f_company').removeAttribute('aria-invalid');
-  }
-  if (!question) {
-    qErr.textContent = 'Please describe the recurring work you want to hand over.';
-    qErr.hidden = false;
-    document.getElementById('f_q').setAttribute('aria-invalid', 'true');
-    valid = false;
-  } else {
-    qErr.hidden = true;
-    document.getElementById('f_q').removeAttribute('aria-invalid');
-  }
-  if (!valid) {
-    formMsg.textContent = 'Please fix the highlighted fields and try again.';
-    formMsg.className = 'form-msg err';
-    formMsg.hidden = false;
-    return;
-  }
-
-  document.getElementById('bookSubmit').disabled = true;
-  document.getElementById('bookSubmit').textContent = 'Sending…';
-  formMsg.hidden = true;
-
-  var formData = new FormData();
-  formData.append('name', name);
-  formData.append('email', email);
-  formData.append('company', company);
-  formData.append('website', website);
-  formData.append('question', question);
-  formData.append('subject', 'Fit call request - ' + company);
-
-  fetch('/api/book', {
-    method: 'POST',
-    body: formData
-  }).then(function (r) {
-    if (r.ok) {
-      showNextSteps();
-    } else {
-      throw new Error('submit failed');
-    }
-  }).catch(function () {
-    // The form backend /api/book is not yet deployed.
-    // We do not open the user's email client. We show the post-submit state
-    // and the visitor waits for the email from hello@twinthos.com.
-    showNextSteps();
-  });
-
-  function showNextSteps() {
-    formMsg.hidden = true;
-    document.getElementById('bookForm').style.display = 'none';
-    formNextSteps.hidden = false;
-    setTimeout(function () {
-      formNextSteps.classList.add('in');
-    }, 20);
-  }
-});
-</script>
+    </section>
+    <footer class="footer">
+      <div class="footer__inner">
+        <a href="/" class="footer__brand" aria-label="Home">
+          <svg class="footer__logo" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F4F4F0"/>
+            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F4F4F0" opacity="0.85"/>
+            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F4F4F0" opacity="0.6"/>
+            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F4F4F0" opacity="0.4"/>
+            <circle cx="48" cy="36" r="4.5" fill="#B7FF00"/>
+          </svg>
+          <span class="footer__wordmark">TWINTHOS</span>
+        </a>
+        <div class="footer__links">
+          <a href="/#how" class="footer__link">How it works</a>
+          <a href="/#use-cases" class="footer__link">Use cases</a>
+          <a href="/operations-audit/" class="footer__link">Audit</a>
+          <a href="/security/" class="footer__link">Security</a>
+          <a href="/about/" class="footer__link">About</a>
+        </div>
+        <p class="footer__meta">&copy; 2026 Twinthos</p>
+      </div>
+    </footer>
+  </main>
+  <script src="/assets/site.js"></script>
+  <script>
+  (function(){
+    var form = document.getElementById('assessmentForm');
+    if (!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var valid = true;
+      var fields = [
+        { id: 'formName', key: 'name', label: 'Your name' },
+        { id: 'formEmail', key: 'email', label: 'A work email' },
+        { id: 'formQuestion', key: 'question', label: 'The repetitive work' }
+      ];
+      for (var i = 0; i < fields.length; i++) {
+        var f = fields[i], el = document.getElementById(f.id);
+        var errEl = el.closest('.form__field') ? el.closest('.form__field').querySelector('.form__error') : null;
+        var val = (el.value || '').trim();
+        if (!val) { valid = false; if (errEl) errEl.textContent = f.label + ' is required.'; }
+        else { if (errEl) errEl.textContent = ''; }
+        if (f.key === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+          valid = false; if (errEl) errEl.textContent = 'Enter a valid email address.';
+        }
+      }
+      if (!valid) return;
+      var btn = form.querySelector('button[type=submit]');
+      btn.textContent = 'Sending…'; btn.disabled = true;
+      var data = {
+        name: document.getElementById('formName').value.trim(),
+        email: document.getElementById('formEmail').value.trim(),
+        company: document.getElementById('formCompany').value.trim(),
+        website: document.getElementById('formWebsite').value.trim(),
+        question: document.getElementById('formQuestion').value.trim()
+      };
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/api/contact', true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.onload = function(){
+        if (xhr.status >= 200 && xhr.status < 300) {
+          var existing = document.querySelector('.form-confirmation');
+          if (existing) existing.remove();
+          var wrapper = document.createElement('div');
+          wrapper.className = 'form-confirmation';
+          wrapper.innerHTML = '<div class="confirmation"><p class="confirmation__label">Received.</p><p class="body body--lead">We\'ll email you within one working day with available times.</p></div>';
+          form.closest('.section').appendChild(wrapper);
+          btn.textContent = 'Request assessment'; btn.disabled = false;
+          setTimeout(function(){ form.reset(); }, 2000);
+        } else { btn.textContent = 'Request assessment'; btn.disabled = false; }
+      };
+      xhr.onerror = function(){ btn.textContent = 'Request assessment'; btn.disabled = false; };
+      xhr.send(JSON.stringify(data));
+    });
+  })();
+  </script>
 </body>
 </html>

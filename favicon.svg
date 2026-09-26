@@ -1,18 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Favicon: Twinthos refined mark at 32×32.
-       Same stepped-flow geometry as the brand mark, scaled to fit.
-       White shapes on black, single green signal dot. -->
-  <rect width="32" height="32" fill="#000000"/>
-  <g transform="translate(3, 3) scale(0.333)">
-    <!-- Foundation block -->
-    <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#FFFFFF"/>
-    <!-- First descent -->
-    <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#FFFFFF" opacity="0.85"/>
-    <!-- Second descent -->
-    <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#FFFFFF" opacity="0.6"/>
-    <!-- Final descent -->
-    <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#FFFFFF" opacity="0.4"/>
-    <!-- Signal dot -->
-    <circle cx="48" cy="36" r="4.5" fill="#20F782"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+  <!-- Favicon: Twinthos stepped mark — new visual system.
+       Black field. White stepped form. #B7FF00 signal dot.
+       Same geometry as the brand mark, scaled into 32×32. -->
+
+  <!-- Black background -->
+  <rect width="32" height="32" fill="#050505"/>
+
+  <!-- White stepped mark -->
+  <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F4F4F0" transform="translate(3,3) scale(0.333)"/>
+  <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F4F4F0" opacity="0.85" transform="translate(3,3) scale(0.333)"/>
+  <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F4F4F0" opacity="0.6" transform="translate(3,3) scale(0.333)"/>
+  <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F4F4F0" opacity="0.4" transform="translate(3,3) scale(0.333)"/>
+
+  <!-- Signal dot -->
+  <circle cx="48" cy="36" r="4.5" fill="#B7FF00" transform="translate(3,3) scale(0.333)"/>
 </svg>

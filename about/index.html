@@ -1,76 +1,133 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About | Twinthos</title>
-<meta name="description" content="Twinthos takes repeat work off your team. It learns how the business works, works across the systems you already use, and asks a human when judgement is needed.">
-<meta name="theme-color" content="#000000">
-<link rel="canonical" href="https://twinthos.com/about/">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "AboutPage", "name": "About Twinthos", "url": "https://twinthos.com/about/"}
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Twinthos</title>
+  <meta name="description" content="We don't think businesses need another dashboard. They need less work. Twinthos exists to remove the layer of human effort required to keep modern software systems coordinated.">
+  <meta name="theme-color" content="#050505">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
 </head>
-<body class="page"><a href="#main" class="skip-link">Skip to content</a>
-
-
-<nav class="nav">
-  <div class="nav-inner">
-    <a class="nav-brand" href="/" aria-label="Twinthos home"><span class="lk"></span></a>
-    <div class="nav-links" id="navLinks">
-      <a href="/#how">How it works</a>
-      <a href="/#use-cases">Use cases</a>
-      <a href="/#security">Security</a>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" aria-label="Twinthos — home">
+        <span class="nav__logo">
+          <svg class="nav__logo-mark" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F4F4F0"/>
+            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F4F4F0" opacity="0.85"/>
+            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F4F4F0" opacity="0.6"/>
+            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F4F4F0" opacity="0.4"/>
+            <circle cx="48" cy="36" r="4.5" fill="#B7FF00"/>
+            <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#F4F4F0">TWINTHOS</text>
+          </svg>
+        </span>
+        <span class="nav__wordmark">TWINTHOS</span>
+      </a>
+      <div class="nav__links">
+        <a href="/#how" class="nav__link">How it works</a>
+        <a href="/#use-cases" class="nav__link">Use cases</a>
+        <a href="/operations-audit/" class="nav__link">Audit</a>
+        <a href="/security/" class="nav__link">Security</a>
+      </div>
+      <a href="/book/" class="nav__cta">Book an assessment</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
     </div>
-    <a class="nav-cta" href="/book/">Book your 15-minute assessment</a>
-    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-      <span></span>
-    </button>
-  </div>
-</nav>
-
-
-
-<main id="main" class="page">
-  <section class="page-hero">
-    <div class="wrap narrow">
-      <p class="label reveal-fast">About</p>
-      <h1 class="reveal">Built to remove work.<br>Not add more software.</h1>
-      <p class="sub reveal" style="--d:80ms">Businesses already have enough tools.</p>
-      <p class="sub reveal" style="--d:160ms">The problem is the work between them.</p>
-      <p class="sub reveal" style="--d:240ms">The checking. The chasing. The updating. The follow-up. The moving of information from one place to another.</p>
-      <p class="sub reveal" style="--d:320ms">Twinthos exists to handle that work.</p>
-      <p class="sub reveal" style="--d:400ms">It learns a repeat process, works across the systems involved and handles the work within agreed rules. When judgement is needed, it asks a human.</p>
+    <div class="nav__mobile" id="navMobile" role="menu">
+      <a href="/#how" class="nav__mobile-link">How it works</a>
+      <a href="/#use-cases" class="nav__mobile-link">Use cases</a>
+      <a href="/operations-audit/" class="nav__mobile-link">Audit</a>
+      <a href="/security/" class="nav__mobile-link">Security</a>
+      <a href="/book/" class="btn btn--primary" style="margin-top:var(--space-4);text-align:center;display:block;">Book an assessment</a>
     </div>
-  </section>
-
-  <section>
-    <div class="wrap narrow">
-      <p class="label reveal-fast" style="margin-top:var(--s12)">Founder-led deployment</p>
-      <p class="sub reveal" style="--d:480ms">Every Twinthos deployment is currently overseen from workflow design through live operation. The same person who designs the workflow monitors its performance and handles issues directly.</p>
-      <p class="sub reveal" style="--d:560ms">No handoff to a team you have never met. No ticket system between you and the people running your workflows. No black box.</p>
-      <p class="sub reveal" style="--d:640ms">If a workflow gets stuck, you know who handles it. If the service is not delivering, you know who to ask.</p>
-      <div class="cta-row reveal" style="--d:720ms;margin-top:var(--s10)"><a class="btn btn-primary" href="/book/">Assess your operation</a></div>
-    </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a class="nav-brand" href="/"><span class="lk"></span></a>
-      <p class="p-brand">Twinthos for business operations. £5,000 per month.</p>
-    </div>
-    <nav class="footer-links" aria-label="Footer">
-      <a href="/book/">Assess your operation</a><a href="/#how">How it works</a><a href="/security/">Security</a><a href="/operations-audit/">Operations audit</a><a href="/about/">About</a><a href="/privacy.html">Privacy</a><a href="mailto:hello@twinthos.com">hello@twinthos.com</a>
-    </nav>
-  </div>
-  <div class="footer-inner"><p class="caption">&copy; 2026 Twinthos &middot; Work handled. Time returned.</p></div>
-</footer>
-
-<script src="/assets/site.js" defer></script>
+  </nav>
+  <main id="main">
+    <section class="hero" style="padding-top:var(--space-10);">
+      <div class="container--text" style="max-width:720px;">
+        <p class="section-label reveal--fast">About</p>
+        <h1 class="display reveal" style="margin-bottom:var(--space-6);">We don't think businesses<br>need another dashboard.</h1>
+        <p class="body body--lead reveal" data-delay="150" style="margin-bottom:var(--space-6);">They need less work.</p>
+        <p class="body body--lead reveal" data-delay="250">Software already runs almost every part of a modern company. The remaining problem is the human effort required to keep those systems coordinated.</p>
+        <p class="body body--lead reveal" data-delay="350">Twinthos exists to remove that layer.</p>
+      </div>
+    </section>
+    <section class="section" style="padding-top:var(--space-10);">
+      <div class="container--text" style="max-width:640px;">
+        <p class="section-label reveal--fast">The belief</p>
+        <h2 class="display--xs reveal" style="margin-bottom:var(--space-6);">Human intelligence should not be spent operating software.</h2>
+        <p class="body body--lead reveal" data-delay="150">People should decide, create, negotiate and solve.</p>
+        <p class="body body--lead reveal" data-delay="250">Machines should handle the repeatable operational work around those decisions.</p>
+        <p class="display--xs reveal" style="margin-top:var(--space-8);">Humans set the direction.<br>Twinthos carries the work.</p>
+      </div>
+    </section>
+    <section class="section" style="padding-top:var(--space-10);border-top:1px solid var(--border-subtle);">
+      <div class="container--text" style="max-width:640px;">
+        <p class="section-label reveal--fast">What Twinthos is</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);align-items:start;">
+          <div class="reveal--left">
+            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">A</span>
+            <p class="body" style="margin-bottom:var(--space-2);"><strong>A managed operational service.</strong> We learn your work, connect to your systems, and operate the repeatable parts of it.</p>
+          </div>
+          <div class="reveal--left" data-delay="100">
+            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">B</span>
+            <p class="body" style="margin-bottom:var(--space-2);"><strong>Built around your existing systems.</strong> No new platform to log into. No new dashboard to operate. We work with what you already use.</p>
+          </div>
+          <div class="reveal--left" data-delay="200" style="margin-top:var(--space-4);">
+            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">C</span>
+            <p class="body" style="margin-bottom:var(--space-2);"><strong>Transparent about boundaries.</strong> What the workflow can do, what it cannot do, and what requires a person — defined before deployment.</p>
+          </div>
+          <div class="reveal--left" data-delay="300">
+            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">D</span>
+            <p class="body" style="margin-bottom:var(--space-2);"><strong>Founder-led, end to end.</strong> From workflow design through live operation. No handoff to an anonymous team. No ticket queue.</p>
+          </div>
+          <div class="reveal--left" data-delay="400" style="margin-top:var(--space-4);">
+            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">E</span>
+            <p class="body" style="margin-bottom:var(--space-2);"><strong>Obvious, not clever.</strong> Every sentence on this site is written to be understood immediately. No jargon. No abstraction.</p>
+          </div>
+          <div class="reveal--left" data-delay="500">
+            <span class="number-md" style="color:var(--accent);margin-bottom:var(--space-2);">F</span>
+            <p class="body"><strong>Honest about what we don't do.</strong> We don't make claims we can't support. If information does not exist, we say so.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" style="padding-top:var(--space-10);border-top:1px solid var(--border-subtle);">
+      <div class="container--text" style="max-width:640px;">
+        <p class="section-label reveal--fast">Founder accountability</p>
+        <h2 class="display--sm reveal" style="margin-bottom:var(--space-6);">The person designing your operation<br>stays responsible for it.</h2>
+        <p class="body body--lead reveal" data-delay="150">Twinthos deployments are currently founder-led from workflow design through live operation.</p>
+        <p class="body body--lead reveal" data-delay="250">No handoff to an anonymous implementation team.</p>
+        <p class="body body--lead reveal" data-delay="350">No ticket queue between you and the person responsible for the workflow.</p>
+        <p class="body body--lead reveal" data-delay="450">If something stops working, there is a human accountable for fixing it.</p>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer__inner">
+        <a href="/" class="footer__brand" aria-label="Home">
+          <svg class="footer__logo" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F4F4F0"/>
+            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F4F4F0" opacity="0.85"/>
+            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F4F4F0" opacity="0.6"/>
+            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F4F4F0" opacity="0.4"/>
+            <circle cx="48" cy="36" r="4.5" fill="#B7FF00"/>
+          </svg>
+          <span class="footer__wordmark">TWINTHOS</span>
+        </a>
+        <div class="footer__links">
+          <a href="/#how" class="footer__link">How it works</a>
+          <a href="/#use-cases" class="footer__link">Use cases</a>
+          <a href="/operations-audit/" class="footer__link">Audit</a>
+          <a href="/security/" class="footer__link">Security</a>
+        </div>
+        <p class="footer__meta">&copy; 2026 Twinthos</p>
+      </div>
+    </footer>
+  </main>
+  <script src="/assets/site.js"></script>
 </body>
 </html>
