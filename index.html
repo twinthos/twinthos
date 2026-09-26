@@ -1,921 +1,521 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Twinthos | Managed Operations</title>
-<meta name="description" content="Twinthos takes repeat operational work off your team. It learns how the business works, works across the systems you already use, and asks a human when judgement is needed.">
-<meta name="theme-color" content="#000000">
-<link rel="canonical" href="https://twinthos.com/">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://twinthos.com/">
-<meta property="og:title" content="Twinthos | Managed Operations">
-<meta property="og:description" content="Twinthos takes repeat work off your team and handles it across the systems you already use.">
-<meta property="og:image" content="https://twinthos.com/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://twinthos.com/">
-<meta name="twitter:title" content="Twinthos | Managed Operations">
-<meta name="twitter:description" content="Twinthos takes repeat work off your team and handles it across the systems you already use.">
-<meta name="twitter:image" content="https://twinthos.com/og.png">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Service","name":"Twinthos","description":"Twinthos is a managed operational system that takes repeat work off your team. It learns how the business works, works across the systems you already use, and asks a human when judgement is needed.","provider":{"@type":"Organization","name":"Twinthos","url":"https://twinthos.com/"},"offers":{"@type":"Offer","price":"5000","priceCurrency":"GBP","description":"Monthly managed operations service"},"areaServed":"GB","serviceType":"Managed Operations"}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What can Twinthos actually take on?","acceptedAnswer":{"@type":"Answer","text":"Start with recurring work that has a clear outcome, usable information and agreed rules. Enquiries, follow-ups, scheduling and record updates are good workflows to assess. We confirm the actual scope before deployment."}},{"@type":"Question","name":"Will my team need to prompt it?","acceptedAnswer":{"@type":"Answer","text":"Within the agreed workflow, the agent can follow events and take permitted next actions without a person prompting every step. Your team remains involved where the workflow requires judgement or approval."}},{"@type":"Question","name":"What happens when it gets stuck?","acceptedAnswer":{"@type":"Answer","text":"The workflow pauses or escalates when it cannot continue safely within its instructions. The managed service includes issue handling and a review process."}},{"@type":"Question","name":"Can important actions require approval?","acceptedAnswer":{"@type":"Answer","text":"Yes. Approval requirements are part of the agreed workflow. Identify the actions, spending limits and exceptions that must wait for a person before activation."}},{"@type":"Question","name":"Can Twinthos use our existing software?","acceptedAnswer":{"@type":"Answer","text":"We assess the systems your workflow depends on and confirm supported actions before the pilot. Compatibility depends on access, integration support and the reliability of the specific workflow."}},{"@type":"Question","name":"How is business data handled?","acceptedAnswer":{"@type":"Answer","text":"Before activation, the information the workflow needs, the systems that process it and the access granted are documented with you. Review the security and privacy information for the confirmed data locations, providers and retention arrangements."}}]}
-</script>
-
-<link rel="stylesheet" href="assets/typography.css">
-<link rel="stylesheet" href="assets/transitions.css">
-<style>
-/* ═══════════════════════════════════════════════════════════
-   TWINTHOS — MIROFISH-WORLD-CLASS REDESIGN
-   Synthesis of 6-agent swarm (deleg_3b46758c):
-     sa-0 Hero/One Big Idea  →  "Your operation without the glue work."
-     sa-1 Typography System  →  assets/typography.css
-     sa-2 Enemy+Proof Metaphors →  physical pile + horizontal pipe
-     sa-3 Signal+Noise        →  premium redacted doc + confident offer
-     sa-4 Motion+Purpose JS   →  assets/site.js
-     sa-5 Flow+Narrative      →  assets/transitions.css
-   ═══════════════════════════════════════════════════════════ */
-
-:root {
-  --bg: #000000;
-  --text: #FFFFFF;
-  --signal: #20F782;
-  --signal-dim: rgba(32,247,130,0.12);
-  --text-dim: #8A8A8A;
-  --text-faint: #555555;
-  --border: rgba(255,255,255,0.08);
-  --border-strong: rgba(255,255,255,0.15);
-  --ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --speed: 200ms;
-  --speed-slow: 400ms;
-  --speed-slower: 600ms;
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 48px;
-  --space-8: 64px;
-  --space-9: 80px;
-  --space-10: 120px;
-  --container: 1400px;
-  --container-narrow: 960px;
-}
-
-/* ── Reset ── */
-*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
-body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; min-height: 100vh; font-weight: 400; line-height: 1.6; }
-a { color: inherit; text-decoration: none; }
-button { font: inherit; cursor: pointer; border: none; background: none; }
-img, svg { display: block; max-width: 100%; }
-ul, ol { list-style: none; }
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
-::selection { background: var(--signal); color: var(--bg); }
-:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
-.skip-link { position: absolute; top: -100%; left: var(--space-4); z-index: 200; font-size: 13px; padding: 8px 16px; background: var(--text); color: var(--bg); transition: top var(--speed) var(--ease); }
-.skip-link:focus { top: var(--space-3); }
-
-.container { max-width: var(--container); margin: 0 auto; padding: 0 var(--space-8); }
-
-/* ── NAVIGATION ── */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: var(--space-4) var(--space-8); background: rgba(0,0,0,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: background var(--speed-slow) var(--ease); }
-.nav.scrolled { background: rgba(0,0,0,0.92); }
-.nav-inner { max-width: var(--container); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); }
-.nav-brand { flex-shrink: 0; display: flex; align-items: center; }
-.nav-brand svg { height: 28px; width: auto; }
-.nav-links { display: flex; align-items: center; gap: var(--space-6); }
-.nav-link { font-size: 13px; font-weight: 500; letter-spacing: -0.01em; color: var(--text-dim); transition: color var(--speed); }
-.nav-link:hover { color: var(--text); }
-.nav-cta { font-size: 13px; font-weight: 600; letter-spacing: -0.01em; color: var(--bg); background: var(--signal); padding: 10px 24px; transition: background var(--speed), transform var(--speed); }
-.nav-cta:hover { background: #1ae075; color: var(--bg); }
-.nav-burger { display: none; }
-@media (max-width: 768px) {
-  .nav { padding: var(--space-3) var(--space-4); }
-  .nav-links { display: none; }
-  .nav-burger { display: flex; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; }
-  .nav-burger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 1px; }
-  .nav-cta { font-size: 12px; padding: 8px 16px; }
-}
-
-/* ═══════════════════════════════════════════════════════════
-   HERO — Mirofish Principle 1 + Agent 0
-   "Your operation without the glue work."
-   ═══════════════════════════════════════════════════════════ */
-.hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: var(--space-10) var(--space-8); overflow: hidden; }
-.hero-inner { max-width: var(--container); margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr auto; gap: var(--space-8); align-items: center; }
-.hero-content { max-width: 780px; }
-.hero-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
-.hero-headline { font-size: clamp(64px, 9vw, 110px); font-weight: 300; line-height: 1.0; letter-spacing: -0.035em; color: var(--text); margin-bottom: var(--space-5); }
-.hero-headline .word { display: inline-block; opacity: 0; transform: translateY(14px); transition: opacity var(--speed-slower) var(--ease), transform var(--speed-slower) var(--ease); }
-.hero-headline .word.in { opacity: 1; transform: translateY(0); }
-.hero-body { font-size: 20px; font-weight: 400; line-height: 1.6; letter-spacing: 0.01em; color: var(--text-dim); max-width: 44ch; }
-.hero-cta { display: inline-block; margin-top: var(--space-7); font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: var(--bg); background: var(--signal); padding: 18px 32px; transition: background var(--speed), transform var(--speed); border: none; cursor: pointer; }
-.hero-cta:hover { background: #1ae075; color: var(--bg); transform: translateY(-1px); }
-.hero-brand { flex: 0 0 auto; width: clamp(280px, 22vw, 420px); opacity: 0.92; display: flex; align-items: center; }
-.hero-brand .logo-mark { gap: 12px; }
-.hero-brand .logo-mark svg { width: 140px; height: auto; }
-.hero-brand .logo-wordmark { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
-@media (max-width: 900px) {
-  .hero { padding: var(--space-8) var(--space-5); min-height: auto; }
-  .hero-inner { grid-template-columns: 1fr; gap: var(--space-6); }
-  .hero-brand { width: 200px; order: -1; }
-}
-@media (max-width: 480px) {
-  .hero { padding: var(--space-6) var(--space-4); }
-  .hero-headline { font-size: clamp(48px, 12vw, 64px); }
-  .hero-body { font-size: 16px; }
-  .hero-cta { width: 100%; justify-content: center; padding: 16px 20px; }
-}
-
-/* ═══════════════════════════════════════════════════════════
-   STORY — "The problem"
-   ═══════════════════════════════════════════════════════════ */
-.story { padding: var(--space-10) 0; }
-.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: start; }
-.story-text { max-width: 50ch; }
-.story-stat { padding: var(--space-7) var(--space-6); border: 1px solid var(--border); background: #0a0a0a; display: flex; flex-direction: column; gap: var(--space-4); }
-.story-stat-number { font-size: 56px; font-weight: 300; line-height: 1.0; letter-spacing: -0.03em; }
-.story-stat-label { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); }
-@media (max-width: 768px) { .story-grid { grid-template-columns: 1fr; gap: var(--space-5); } .story { padding: var(--space-8) 0; } }
-
-/* ═══════════════════════════════════════════════════════════
-   ENEMY — Agent 2: physical pile of torn notes
-   Mirofish Principle 3: VISUAL METAPHOR
-   Operational drag as physical, tangible pile.
-   ═══════════════════════════════════════════════════════════ */
-.enemy { padding: var(--space-10) 0; }
-.enemy-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
-.enemy-headline { font-size: clamp(48px, 6vw, 72px); font-weight: 300; line-height: 1.05; letter-spacing: -0.025em; color: var(--text); margin-bottom: var(--space-8); max-width: 65ch; }
-.enemy-wrap { position: relative; margin: var(--space-8) 0 var(--space-10); }
-.enemy-grid { position: relative; display: grid; grid-template-columns: repeat(7, 1fr); gap: var(--space-4); max-width: 1300px; margin: 0 auto; perspective: 1200px; }
-.enemy-card {
-  position: relative; display: flex; flex-direction: column; gap: var(--space-3);
-  background: #0a0a0a; border: 1px solid var(--border); border-radius: 2px;
-  padding: var(--space-5) var(--space-4); min-height: 130px;
-  transform-origin: center center; transition: transform 400ms var(--ease), box-shadow 400ms var(--ease), border-color 400ms var(--ease), z-index 400ms var(--ease);
-  cursor: default;
-}
-.enemy-card:hover { transform: translateY(-4px) scale(1.02); border-color: var(--border-strong); box-shadow: 0 24px 60px rgba(0,0,0,0.6); z-index: 50; }
-.enemy-card-icon { color: var(--text-faint); display: flex; align-items: center; }
-.enemy-card-icon svg { width: 22px; height: 22px; }
-.enemy-card-label { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: var(--text); }
-.enemy-card-sub { font-size: 13px; font-weight: 400; color: var(--text-dim); line-height: 1.4; letter-spacing: 0.01em; }
-.enemy-card::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  border-radius: 2px;
-  background:
-    linear-gradient(135deg, transparent 48%, rgba(255,255,255,0.03) 49%, transparent 50%),
-    linear-gradient(225deg, transparent 48%, rgba(255,255,255,0.03) 49%, transparent 50%);
-}
-.enemy-card[data-e="0"]  { transform: rotate(-1.5deg) translate(-8px, 12px); }
-.enemy-card[data-e="1"]  { transform: rotate(1.2deg) translate(24px, 20px); }
-.enemy-card[data-e="2"]  { transform: rotate(-0.8deg) translate(42px, 8px); }
-.enemy-card[data-e="3"]  { transform: rotate(0.6deg) translate(-18px, 30px); }
-.enemy-card[data-e="4"]  { transform: rotate(-2deg) translate(12px, 38px); opacity: 0.85; }
-.enemy-card[data-e="5"]  { transform: rotate(1.8deg) translate(-30px, -6px); }
-.enemy-card[data-e="6"]  { transform: rotate(-2.5deg) translate(6px, 44px); grid-column: 1 / -1; min-height: 90px; padding: var(--space-4) var(--space-5); }
-.enemy-card[data-e="6"] .enemy-card-label { font-size: 20px; }
-@media (max-width: 900px) {
-  .enemy-grid { grid-template-columns: repeat(4, 1fr); }
-  .enemy-card[data-e="6"] { grid-column: 1 / -1; }
-}
-@media (max-width: 560px) {
-  .enemy-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
-  .enemy-card[data-e="6"] { grid-column: 1 / -1; }
-}
-@media (max-width: 400px) {
-  .enemy-grid { grid-template-columns: 1fr; }
-}
-
-/* ═══════════════════════════════════════════════════════════
-   PROOF — Agent 2: horizontal underground pipe
-   Mirofish Principle 3: VISUAL METAPHOR
-   Work flows through stages in a pipe underground.
-   ═══════════════════════════════════════════════════════════ */
-.proof { padding: var(--space-10) 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.proof-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
-.proof-headline { font-size: clamp(48px, 6vw, 72px); font-weight: 300; line-height: 1.05; letter-spacing: -0.025em; color: var(--text); margin-bottom: var(--space-4); max-width: 50ch; }
-.proof-intro { font-size: 20px; font-weight: 400; color: var(--text-dim); max-width: 40ch; margin-bottom: var(--space-8); }
-.proof-pipe { position: relative; display: grid; grid-template-columns: 1fr 60px; gap: var(--space-8); margin-top: var(--space-8); align-items: start; }
-.pipe-ground {
-  position: relative; height: 100%; min-width: 300px;
-  background: linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
-  border: 1px solid var(--border);
-  border-radius: 0 0 4px 4px;
-  overflow: hidden;
-}
-.pipe-casing {
-  position: absolute; top: 0; bottom: 0; left: 0; right: 0;
-  border: 1px solid var(--border); pointer-events: none;
-}
-.pipe-line {
-  position: absolute; top: 0; bottom: 0; left: 50%; width: 1px;
-  background: var(--border); transform: translateX(-50%);
-  box-shadow: 0 0 8px rgba(255,255,255,0.04);
-}
-.pipe-particle {
-  position: absolute; top: 0; left: 50%; width: 6px; height: 6px;
-  background: var(--signal); border-radius: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 0 12px rgba(32,247,130,0.5), 0 0 30px rgba(32,247,130,0.15);
-  animation: pipeParticle 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-@keyframes pipeParticle {
-  0% { top: 0; opacity: 0; }
-  8% { opacity: 1; }
-  92% { opacity: 1; }
-  100% { top: calc(100% - 6px); opacity: 0; }
-}
-.pipe-station {
-  position: relative; display: flex; flex-direction: column; gap: var(--space-3);
-  padding: var(--space-4) 0; z-index: 1;
-}
-.pipe-station-num {
-  font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--text-faint); font-variant-numeric: tabular-nums;
-}
-.pipe-station-title { font-size: 24px; font-weight: 300; line-height: 1.1; letter-spacing: -0.02em; color: var(--text); }
-.pipe-station-desc { font-size: 14px; font-weight: 400; color: var(--text-dim); line-height: 1.5; letter-spacing: 0.01em; max-width: 30ch; }
-.pipe-station-response {
-  margin-top: var(--space-2); padding-top: var(--space-3);
-  border-top: 1px solid var(--border);
-  display: flex; flex-direction: column; gap: 2px;
-}
-.pipe-station-resp-label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); }
-.pipe-station-resp-text { font-size: 13px; font-weight: 400; color: var(--text-dim); letter-spacing: 0.01em; }
-.pipe-station[data-progress="done"] .pipe-station-num { color: var(--signal); }
-.pipe-station[data-progress="done"] .pipe-station-title { color: var(--text); }
-.proof-human {
-  margin-top: var(--space-8); padding: var(--space-5) var(--space-6);
-  border: 1px dashed var(--border-strong);
-  display: flex; flex-direction: column; gap: var(--space-2);
-}
-.proof-human-label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
-.proof-human-desc { font-size: 18px; font-weight: 400; color: var(--text); line-height: 1.5; }
-@media (max-width: 900px) {
-  .proof-pipe { grid-template-columns: 1fr; }
-  .pipe-ground { min-width: 0; width: 100%; height: 60px; }
-}
-@media (max-width: 480px) {
-  .proof { padding: var(--space-8) 0; }
-  .pipe-station-title { font-size: 20px; }
-}
-
-/* ═══════════════════════════════════════════════════════════
-   HOW TWINTHOS WORKS
-   ═══════════════════════════════════════════════════════════ */
-.how { padding: var(--space-10) 0; }
-.how-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
-.how-headline { font-size: clamp(40px, 5vw, 56px); font-weight: 300; line-height: 1.1; letter-spacing: -0.025em; color: var(--text); margin-bottom: var(--space-7); max-width: 60ch; }
-.how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-7); align-items: start; }
-.how-step { display: flex; gap: var(--space-5); align-items: flex-start; }
-.how-num { font-size: 48px; font-weight: 300; line-height: 1.0; letter-spacing: -0.03em; color: var(--text-faint); flex-shrink: 0; padding-top: 4px; }
-.how-num--signal { color: var(--signal); }
-.how-step-body { max-width: 28ch; }
-.how-step-label { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: var(--text); margin-bottom: var(--space-2); }
-.how-step-desc { font-size: 15px; font-weight: 400; color: var(--text-dim); line-height: 1.6; letter-spacing: 0.01em; }
-@media (max-width: 768px) {
-  .how-grid { grid-template-columns: 1fr; gap: var(--space-5); }
-  .how { padding: var(--space-8) 0; }
-}
-
-/* ═══════════════════════════════════════════════════════════
-   REDACTED EXAMPLE — Agent 3: premium document
-   Mirofish Principle 4: SIGNAL AND NOISE
-   A real audit document, with the client removed.
-   ═══════════════════════════════════════════════════════════ */
-.redacted { padding: var(--space-10) 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.redacted-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
-.redacted-headline { font-size: clamp(40px, 5vw, 56px); font-weight: 300; line-height: 1.1; letter-spacing: -0.025em; color: var(--text); margin-bottom: var(--space-5); max-width: 60ch; }
-.redacted-desc { font-size: 20px; font-weight: 400; color: var(--text-dim); max-width: 58ch; line-height: 1.6; margin-bottom: var(--space-7); }
-.redacted-doc { max-width: 740px; margin: 0 auto; padding: 0 var(--space-8); }
-.redacted-doc-inner {
-  background: #080808; border: 1px solid var(--border);
-  padding: var(--space-6) var(--space-7); position: relative;
-}
-.redacted-doc-inner::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: var(--border-strong);
-}
-.redacted-entry { padding: var(--space-4) 0; border-bottom: 1px solid var(--border); }
-.redacted-entry:last-child { border-bottom: none; }
-.redacted-entry-top { display: flex; align-items: baseline; gap: var(--space-4); margin-bottom: var(--space-3); }
-.redacted-entry-num { font-size: 14px; font-weight: 300; color: var(--signal); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
-.redacted-entry-title { font-size: 16px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-dim); }
-.redacted-entry-body { font-size: 17px; font-weight: 300; line-height: 1.7; letter-spacing: -0.01em; color: var(--text); }
-.redacted-cta-row { margin-top: var(--space-7); display: flex; align-items: center; justify-content: space-between; gap: var(--space-5); max-width: 740px; margin-left: auto; margin-right: auto; padding: 0 var(--space-8); }
-.redacted-cta-note { font-size: 13px; color: var(--text-faint); letter-spacing: 0.03em; }
-@media (max-width: 768px) { .redacted { padding: var(--space-8) 0; } }
-
-/* ═══════════════════════════════════════════════════════════
-   HUMAN ARCHITECT
-   Mirofish Principle 4: A position statement
-   "Humans set the direction. Twinthos carries the work."
-   ═══════════════════════════════════════════════════════════ */
-.human-architect { padding: var(--space-10) 0; background: #0a0a0a; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.human-grid { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-8); display: grid; grid-template-columns: auto 1fr; gap: var(--space-8); align-items: center; }
-.human-mark { flex-shrink: 0; opacity: 0.92; }
-.human-mark svg { width: 100%; height: auto; }
-.human-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
-.human-headline { font-size: clamp(40px, 5vw, 56px); font-weight: 300; line-height: 1.1; letter-spacing: -0.025em; color: var(--text); margin-bottom: var(--space-5); max-width: 55ch; }
-.human-sub { font-size: 20px; font-weight: 400; color: var(--text-dim); line-height: 1.6; max-width: 50ch; }
-@media (max-width: 768px) {
-  .human-grid { grid-template-columns: 1fr; gap: var(--space-5); text-align: center; }
-  .human-mark { order: -1; }
-  .human-headline { max-width: 100%; }
-  .human-sub { max-width: 48ch; margin: 0 auto; }
-  .human-architect { padding: var(--space-8) 0; }
-}
-
-/* ═══════════════════════════════════════════════════════════
-   OFFER — Agent 3: confident price
-   Mirofish Principle 4: £5,000/month is the hero
-   ═══════════════════════════════════════════════════════════ */
-.offer { padding: var(--space-10) var(--space-8); text-align: center; border-top: 1px solid var(--border); }
-.offer-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
-.offer-price-block { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); margin-bottom: var(--space-7); }
-.offer-price { font-size: clamp(64px, 10vw, 110px); font-weight: 300; line-height: 1.0; letter-spacing: -0.035em; color: var(--text); }
-.offer-price-unit { font-size: 22px; font-weight: 500; color: var(--text-dim); letter-spacing: 0.02em; }
-.offer-price-note { font-size: 13px; color: var(--text-faint); letter-spacing: 0.06em; text-transform: uppercase; margin-top: var(--space-1); }
-.offer-desc { font-size: 20px; font-weight: 400; color: var(--text-dim); max-width: 46ch; margin: 0 auto var(--space-8) auto; line-height: 1.6; }
-.offer-list { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); max-width: 56ch; margin: 0 auto var(--space-8) auto; }
-.offer-list-item { display: flex; align-items: center; gap: var(--space-3); font-size: 20px; font-weight: 400; color: var(--text); flex-wrap: wrap; justify-content: center; }
-.offer-list-sep { width: 4px; height: 4px; border-radius: 50%; background: var(--border-strong); flex-shrink: 0; }
-.offer-cta-row { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); }
-.offer-cta { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: var(--bg); background: var(--signal); padding: 18px 32px; transition: background var(--speed), transform var(--speed); }
-.offer-cta:hover { background: #1ae075; color: var(--bg); }
-.offer-cta-sub { font-size: 13px; color: var(--text-faint); letter-spacing: 0.03em; }
-@media (max-width: 600px) { .offer { padding: var(--space-8) var(--space-4); } .offer-list-item { font-size: 16px; } }
-
-/* ═══════════════════════════════════════════════════════════
-   FINAL CTA — "The ask"
-   Mirofish Principle 6: FLOW AND NARRATIVE
-   ═══════════════════════════════════════════════════════════ */
-.final-cta { padding: var(--space-10) 0; text-align: center; background: #0a0a0a; border-top: 1px solid var(--border); }
-.final-cta-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--space-5); }
-.final-cta-headline { font-size: clamp(40px, 5vw, 56px); font-weight: 300; line-height: 1.1; letter-spacing: -0.025em; color: var(--text); margin-bottom: var(--space-5); max-width: 60ch; margin-left: auto; margin-right: auto; }
-.final-cta-sub { font-size: 20px; font-weight: 400; color: var(--text-dim); max-width: 42ch; margin: 0 auto var(--space-7) auto; line-height: 1.6; }
-.final-cta-actions { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); }
-.final-cta-btn { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; color: var(--bg); background: var(--signal); padding: 18px 32px; transition: background var(--speed), transform var(--speed); }
-.final-cta-btn:hover { background: #1ae075; color: var(--bg); }
-.final-cta-secondary { font-size: 14px; color: var(--text-faint); }
-@media (max-width: 600px) { .final-cta { padding: var(--space-8) 0; } .final-cta-headline { font-size: 32px; } }
-
-/* ═══════════════════════════════════════════════════════════
-   FOOTER
-   ═══════════════════════════════════════════════════════════ */
-.footer { padding: var(--space-6) 0; border-top: 1px solid var(--border); }
-.footer-inner { max-width: var(--container); margin: 0 auto; padding: 0 var(--space-8); display: flex; align-items: center; justify-content: space-between; gap: var(--space-5); }
-.footer-copy { font-size: 13px; color: var(--text-faint); letter-spacing: -0.01em; }
-.footer-links { display: flex; gap: var(--space-5); }
-.footer-link { font-size: 13px; color: var(--text-dim); transition: color var(--speed); }
-.footer-link:hover { color: var(--text); }
-@media (max-width: 600px) { .footer-inner { flex-direction: column; text-align: center; gap: var(--space-4); } }
-
-/* ═══════════════════════════════════════════════════════════
-   SCROLL REVEAL SYSTEM
-   ═══════════════════════════════════════════════════════════ */
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity var(--speed-slower) var(--ease), transform var(--speed-slower) var(--ease); }
-.reveal-fast { opacity: 0; transform: translateY(10px); transition: opacity 350ms var(--ease), transform 350ms var(--ease); }
-.reveal.in { opacity: 1; transform: translateY(0); }
-.reveal-fast.in { opacity: 1; transform: translateY(0); }
-
-/* ═══════════════════════════════════════════════════════════
-   LOGO SYSTEM — Refined flat mark + TWINTHOS wordmark
-   ═══════════════════════════════════════════════════════════ */
-.logo-mark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
-.logo-mark svg { height: 28px; width: auto; flex-shrink: 0; }
-.logo-wordmark { font-family: 'Inter', system-ui, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: -0.01em; color: var(--text); white-space: nowrap; }
-@media (max-width: 420px) { .logo-wordmark { display: none; } }
-
-.reveal .word { display: inline-block; transition: opacity var(--speed-slower) var(--ease), transform var(--speed-slower) var(--ease); }
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal, .reveal-fast { opacity: 1; transform: none; transition: none; }
-  .pipe-particle { animation: none; opacity: 0.4; }
-  .reveal .word { opacity: 1; transform: none; transition: none; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twinthos — Managed operations across your existing systems</title>
+  <meta name="description" content="Twinthos removes the repetitive operational work between your people and your software. Checking, chasing, updating, moving information and following up — handled across the systems you already use.">
+  <meta name="theme-color" content="#050505">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"Twinthos","description":"Twinthos is a managed operational service that takes the repetitive work between your systems and handles it across the platforms you already use. No new dashboard. No new platform.","provider":{"@type":"Organization","name":"Twinthos","url":"https://twinthos.com/"},"offers":{"@type":"Offer","price":"5000","priceCurrency":"GBP","description":"Monthly managed operations service — minimum 3-month engagement"},"areaServed":"GB","serviceType":"Managed Operations"}
+  </script>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-<a href="#main" class="skip-link">Skip to content</a>
-
-<!-- ═══════════════════════ NAV ═══════════════════════ -->
-<nav class="nav" id="nav" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="/" class="nav-brand" aria-label="Twinthos home">
-      <span class="logo-mark">
-        <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="180" height="24" aria-hidden="true">
-          <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#FFFFFF"/>
-          <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#FFFFFF" opacity="0.85"/>
-          <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#FFFFFF" opacity="0.6"/>
-          <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#FFFFFF" opacity="0.4"/>
-          <circle cx="48" cy="36" r="4.5" fill="#20F782"/>
-          <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#FFFFFF">TWINTHOS</text>
-        </svg>
-        <span class="logo-wordmark">TWINTHOS</span>
-      </span>
-    </a>
-    <div class="nav-links" id="navLinks">
-      <a href="#story" class="nav-link">The problem</a>
-      <a href="#enemy" class="nav-link">The drag</a>
-      <a href="#proof" class="nav-link">How it works</a>
-      <a href="#redacted" class="nav-link">A real audit</a>
-      <a href="#offer" class="nav-link">The offer</a>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" aria-label="Twinthos — home">
+        <span class="nav__logo">
+          <svg class="nav__logo-mark" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F4F4F0"/>
+            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F4F4F0" opacity="0.85"/>
+            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F4F4F0" opacity="0.6"/>
+            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F4F4F0" opacity="0.4"/>
+            <circle cx="48" cy="36" r="4.5" fill="#B7FF00"/>
+            <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#F4F4F0">TWINTHOS</text>
+          </svg>
+        </span>
+        <span class="nav__wordmark">TWINTHOS</span>
+      </a>
+      <div class="nav__links">
+        <a href="/#how" class="nav__link">How it works</a>
+        <a href="/#use-cases" class="nav__link">Use cases</a>
+        <a href="/operations-audit/" class="nav__link">Audit</a>
+        <a href="/security/" class="nav__link">Security</a>
+        <a href="/about/" class="nav__link">About</a>
+      </div>
+      <a href="/book/" class="nav__cta">Assess your operation</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <a href="#offer" class="nav-cta">Assess your operation</a>
-    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<main id="main">
-
-<!-- ═══════════════════════ 01 HERO ═══════════════════════ -->
-<!-- Mirofish Principle 1: ONE BIG IDEA FIRST -->
-<!-- Agent 0: "Your operation without the glue work." -->
-<section class="hero" id="hero">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <p class="hero-label reveal-fast">Managed operations</p>
-      <h1 class="hero-headline" id="heroHeadline" aria-label="Your operation without the glue work.">
-        <span class="word">Your</span>
-        <span class="word">operation</span>
-        <span class="word">without</span>
-        <span class="word">the</span>
-        <span class="word">glue</span>
-        <span class="word">work</span>
-        <span class="word">.</span>
-      </h1>
-      <p class="hero-body reveal" data-delay="200">
-        Twinthos takes the chasing, copying, updating and follow-up
-        that hold every operation together — and handles it quietly,
-        across the systems you already use. Your team keeps doing
-        the work only people can do.
-      </p>
-      <a href="#offer" class="hero-cta reveal" data-delay="350">Assess your operation</a>
+    <div class="nav__mobile" id="navMobile" role="menu">
+      <a href="/#how" class="nav__mobile-link">How it works</a>
+      <a href="/#use-cases" class="nav__mobile-link">Use cases</a>
+      <a href="/operations-audit/" class="nav__mobile-link">Audit</a>
+      <a href="/security/" class="nav__mobile-link">Security</a>
+      <a href="/about/" class="nav__mobile-link">About</a>
+      <a href="/book/" class="btn btn--primary" style="margin-top:var(--space-4);text-align:center;display:block;">Assess your operation</a>
     </div>
-    <div class="hero-brand" aria-hidden="true">
-      <span class="logo-mark">
-        <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="140" height="18" aria-hidden="true">
-          <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#FFFFFF"/>
-          <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#FFFFFF" opacity="0.85"/>
-          <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#FFFFFF" opacity="0.6"/>
-          <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#FFFFFF" opacity="0.4"/>
-          <circle cx="48" cy="36" r="4.5" fill="#20F782"/>
-          <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#FFFFFF">TWINTHOS</text>
-        </svg>
-        <span class="logo-wordmark">TWINTHOS</span>
-      </span>
-    </div>
-  </div>
-</section>
+  </nav>
 
-<!-- ═══════════════════════ 02 STORY ═══════════════════════ -->
-<!-- "Software multiplied. Work didn't disappear." -->
-<section class="story" id="story">
-  <div class="container">
-    <div class="story-grid">
-      <div class="story-text">
-        <p class="enemy-label reveal-fast">The problem</p>
-        <h2 class="story-headline reveal">
-          <span class="word">Software</span>
-          <span class="word">multiplied</span>
-          <span class="word">.</span>
-          <span class="word">Work</span>
-          <span class="word">didn't</span>
-          <span class="word">disappear</span>
-          <span class="word">.</span>
+  <main id="main">
+
+    <section class="hero" id="hero">
+      <div class="container--wide hero__inner">
+        <div class="hero__content">
+          <p class="section-label reveal--fast">Managed operations</p>
+          <h1 class="display reveal">
+            Your people weren't hired<br>to operate software.
+          </h1>
+          <p class="body body--lead reveal" data-delay="200">
+            Twinthos takes over the repetitive work between your systems — checking, chasing, updating, moving information and following up — so your team can spend their time on work that actually requires them.
+          </p>
+          <div class="hero__actions reveal" data-delay="300">
+            <a href="/book/" class="btn">Find the work we can remove</a>
+            <a href="/operations-audit/" class="btn btn--ghost" style="margin-left:var(--space-3);">See the offer</a>
+          </div>
+          <p class="meta reveal" data-delay="400" style="margin-top:var(--space-5);">
+            No new platform. No new dashboard. Built around the systems you already use.
+          </p>
+        </div>
+
+        <div class="hero__visual reveal--scale">
+          <div class="hero__systems" id="heroSystems">
+            <div class="hero__sys-row">
+              <span class="hero__sys-name">EMAIL</span>
+              <span class="hero__sys-action">check</span>
+            </div>
+            <div class="hero__sys-row">
+              <span class="hero__sys-name">CRM</span>
+              <span class="hero__sys-action">copy</span>
+            </div>
+            <div class="hero__sys-row">
+              <span class="hero__sys-name">CALENDAR</span>
+              <span class="hero__sys-action">update</span>
+            </div>
+            <div class="hero__sys-row">
+              <span class="hero__sys-name">FILES</span>
+              <span class="hero__sys-action">chase</span>
+            </div>
+          </div>
+          <div class="hero__twinthos-line" id="heroLine">
+            <span class="hero__twinthos-dot"></span>
+            <span class="hero__twinthos-label">TWINTHOS</span>
+            <span class="hero__twinthos-text">connects the work between your systems</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contradiction" id="contradiction">
+      <div class="container--text">
+        <p class="section-label reveal--fast">The problem</p>
+        <h2 class="display--sm reveal">
+          Software multiplied.<br>Work didn't disappear.
         </h2>
-        <p class="story-body reveal" data-delay="150">
-          Every team bought tools to make work easier. Each one created something new to check, update, chase, copy, book and follow up on. The operation didn't get simpler. It got heavier.
+        <p class="body body--lead reveal" data-delay="150" style="margin-top:var(--space-6);">
+          Every new system promised efficiency. But every system also created another place someone had to check, update, copy from, paste into and remember.
         </p>
-        <p class="story-body reveal" data-delay="250">
-          The work didn't go away. It changed shape. It became the quiet, constant background task that keeps good people busy and prevents them from doing the work they were hired for.
+        <p class="body body--lead reveal" data-delay="250">
+          The software changed. The work moved between it.
+        </p>
+        <p class="display--xs reveal" style="margin-top:var(--space-8);">
+          People became <strong>the glue between systems</strong>.
+        </p>
+        <div class="contradiction__work reveal" style="margin-top:var(--space-10);">
+          <div class="contradiction__item">
+            <span class="contradiction__word">CHECK</span>
+            <span class="contradiction__desc">Look it up. Read it. Confirm it.</span>
+          </div>
+          <div class="contradiction__item">
+            <span class="contradiction__word">CHASE</span>
+            <span class="contradiction__desc">Send it again. Follow up. Wait.</span>
+          </div>
+          <div class="contradiction__item">
+            <span class="contradiction__word">COPY</span>
+            <span class="contradiction__desc">From here. Into there. Again.</span>
+          </div>
+          <div class="contradiction__item">
+            <span class="contradiction__word">UPDATE</span>
+            <span class="contradiction__desc">Change one system. Then the next.</span>
+          </div>
+          <div class="contradiction__item">
+            <span class="contradiction__word">BOOK</span>
+            <span class="contradiction__desc">Find the slot. Confirm it. Record it.</span>
+          </div>
+          <div class="contradiction__item">
+            <span class="contradiction__word">FOLLOW UP</span>
+            <span class="contradiction__desc">One message becomes four.</span>
+          </div>
+          <div class="contradiction__item">
+            <span class="contradiction__word">MOVE</span>
+            <span class="contradiction__desc">Information from one system to another.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section why" id="why">
+      <div class="container--text">
+        <p class="section-label reveal--fast">The belief</p>
+        <h2 class="display reveal" style="margin-bottom:var(--space-6);">
+          Human intelligence is too valuable<br>to spend operating software.
+        </h2>
+        <p class="body body--lead reveal" data-delay="150">
+          People should decide, create, negotiate and solve. Machines should handle the repeatable operational work around those decisions.
+        </p>
+        <p class="display--xs reveal" style="margin-top:var(--space-8);">
+          Humans set the direction.<br>Twinthos carries the work.
         </p>
       </div>
-      <div class="story-stat reveal" data-delay="200">
-        <span class="story-stat-number">92%</span>
-        <span class="story-stat-label">of companies plan to increase AI investment over 3 years — McKinsey</span>
-        <div style="height:1px;background:var(--border);margin:var(--space-5) 0;"></div>
-        <span class="story-stat-label">but</span>
-        <span class="story-stat-number" style="font-size:32px;">only 1%</span>
-        <span class="story-stat-label">of leaders call their company mature on AI deployment — McKinsey</span>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ═══════════════════════ 03 ENEMY ═══════════════════════ -->
-<!-- Mirofish Principle 3: VISUAL METAPHOR — Agent 2 -->
-<!-- Physical pile of torn notes = operational drag -->
-<section class="enemy" id="enemy">
-  <div class="container">
-    <p class="enemy-label reveal-fast">The enemy</p>
-    <h2 class="enemy-headline reveal">
-      <span class="word">People</span>
-      <span class="word">became</span>
-      <span class="word">the</span>
-      <span class="word">glue</span>
-      <span class="word">between</span>
-      <span class="word">systems</span>
-      <span class="word">.</span>
-    </h2>
-    <div class="enemy-wrap reveal">
-      <div class="enemy-grid">
-        <div class="enemy-card" data-e="0">
-          <div class="enemy-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M12 7v5l3 2"/>
-            </svg>
+    <section class="section show-work" id="show-work">
+      <div class="container--wide">
+        <p class="section-label reveal--fast">One workflow</p>
+        <h2 class="display--sm reveal" style="margin-bottom:var(--space-10);">
+          Watch the work leave.
+        </h2>
+        <div class="show-work__layout">
+          <div class="show-work__workflow reveal--left">
+            <div class="workflow" id="workflow">
+              <div class="workflow__step">
+                <span class="workflow__step-num">01</span>
+                <span class="workflow__step-title">ENQUIRY</span>
+                <span class="workflow__step-desc">Incoming request arrives</span>
+              </div>
+              <div class="workflow__connector"></div>
+              <div class="workflow__step">
+                <span class="workflow__step-num">02</span>
+                <span class="workflow__step-title">UNDERSTAND</span>
+                <span class="workflow__step-desc">Read and classify the request</span>
+              </div>
+              <div class="workflow__connector"></div>
+              <div class="workflow__step">
+                <span class="workflow__step-num">03</span>
+                <span class="workflow__step-title">CHECK</span>
+                <span class="workflow__step-desc">Verify against existing records</span>
+              </div>
+              <div class="workflow__connector"></div>
+              <div class="workflow__step">
+                <span class="workflow__step-num">04</span>
+                <span class="workflow__step-title">ACT</span>
+                <span class="workflow__step-desc">Complete the approved action</span>
+              </div>
+              <div class="workflow__connector"></div>
+              <div class="workflow__step">
+                <span class="workflow__step-num">05</span>
+                <span class="workflow__step-title">UPDATE</span>
+                <span class="workflow__step-desc">Record the result across systems</span>
+              </div>
+              <div class="workflow__connector"></div>
+              <div class="workflow__step workflow__step--complete">
+                <span class="workflow__step-num">06</span>
+                <span class="workflow__step-title">COMPLETE</span>
+                <span class="workflow__step-desc">Confirm and close the loop</span>
+              </div>
+            </div>
           </div>
-          <span class="enemy-card-label">Check</span>
-          <span class="enemy-card-sub">Look it up. Read it. Confirm it.</span>
-        </div>
-        <div class="enemy-card" data-e="1">
-          <div class="enemy-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M4 16c0-4 3-7 8-7s8 3 8 7"/>
-              <circle cx="18" cy="7" r="1.5" fill="currentColor" stroke="none"/>
-              <path d="M20 9l2 2"/>
-            </svg>
-          </div>
-          <span class="enemy-card-label">Chase</span>
-          <span class="enemy-card-sub">Send again. Follow up. Wait.</span>
-        </div>
-        <div class="enemy-card" data-e="2">
-          <div class="enemy-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="8" y="6" width="10" height="13" rx="1"/>
-              <path d="M4 10h12M4 14h12"/>
-            </svg>
-          </div>
-          <span class="enemy-card-label">Copy</span>
-          <span class="enemy-card-sub">Paste it here. Paste it there. Paste it again.</span>
-        </div>
-        <div class="enemy-card" data-e="3">
-          <div class="enemy-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M11 4H4v12l9 6 9-6V4z"/>
-              <path d="M11 4v6h6"/>
-            </svg>
-          </div>
-          <span class="enemy-card-label">Update</span>
-          <span class="enemy-card-sub">Change one system. Then change the other.</span>
-        </div>
-        <div class="enemy-card" data-e="4">
-          <div class="enemy-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="3" y="5" width="18" height="14" rx="1"/>
-              <path d="M3 9h18"/>
-            </svg>
-          </div>
-          <span class="enemy-card-label">Book</span>
-          <span class="enemy-card-sub">Find the slot. Send the invite. Confirm it.</span>
-        </div>
-        <div class="enemy-card" data-e="5">
-          <div class="enemy-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M4 4l16 16"/>
-              <circle cx="18" cy="6" r="3"/>
-              <circle cx="6" cy="18" r="3"/>
-            </svg>
-          </div>
-          <span class="enemy-card-label">Follow up</span>
-          <span class="enemy-card-sub">One message becomes four.</span>
-        </div>
-        <div class="enemy-card" data-e="6">
-          <div class="enemy-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </div>
-          <span class="enemy-card-label">Move information</span>
-          <span class="enemy-card-sub">From here. To there. Then back again. The work that never ends.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ 04 PROOF ═══════════════════════ -->
-<!-- Mirofish Principle 3: VISUAL METAPHOR — Agent 2 -->
-<!-- Horizontal underground pipe: work flows through stages -->
-<section class="proof" id="proof">
-  <div class="container">
-    <p class="proof-label reveal-fast">The proof</p>
-    <h2 class="proof-headline reveal">
-      <span class="word">Watch</span>
-      <span class="word">work</span>
-      <span class="word">disappear</span>
-      <span class="word">.</span>
-    </h2>
-    <p class="proof-intro reveal" data-delay="200">One workflow. No dashboard. No control panel.</p>
-
-    <div class="proof-pipe">
-      <div class="pipe-stations">
-        <div class="pipe-station reveal" data-delay="100" data-progress="done">
-          <span class="pipe-station-num">01</span>
-          <span class="pipe-station-title">Enquiry</span>
-          <span class="pipe-station-desc">A message arrives — email, form, enquiry. The workflow notices it.</span>
-          <div class="pipe-station-response">
-            <span class="pipe-station-resp-label">System sees it</span>
-            <span class="pipe-station-resp-text">Before anyone opens their inbox.</span>
-          </div>
-        </div>
-        <div class="pipe-station reveal" data-delay="180" data-progress="done">
-          <span class="pipe-station-num">02</span>
-          <span class="pipe-station-title">Understand</span>
-          <span class="pipe-station-desc">It reads what was sent. Works out what it means. Knows what to do next.</span>
-          <div class="pipe-station-response">
-            <span class="pipe-station-resp-label">Context read</span>
-            <span class="pipe-station-resp-text">No need to restate what's obvious.</span>
-          </div>
-        </div>
-        <div class="pipe-station reveal" data-delay="260" data-progress="done">
-          <span class="pipe-station-num">03</span>
-          <span class="pipe-station-title">Check</span>
-          <span class="pipe-station-desc">Looks across the systems. Confirms the details. Finds what's relevant.</span>
-          <div class="pipe-station-response">
-            <span class="pipe-station-resp-label">Verified</span>
-            <span class="pipe-station-resp-text">Across every system it touches.</span>
-          </div>
-        </div>
-        <div class="pipe-station reveal" data-delay="340" data-progress="done">
-          <span class="pipe-station-num">04</span>
-          <span class="pipe-station-title">Act</span>
-          <span class="pipe-station-desc">Does what it's allowed to do — books, updates, sends, copies. Without asking.</span>
-          <div class="pipe-station-response">
-            <span class="pipe-station-resp-label">Action taken</span>
-            <span class="pipe-station-resp-text">Without a person prompting each step.</span>
-          </div>
-        </div>
-        <div class="pipe-station reveal" data-delay="420" data-progress="done">
-          <span class="pipe-station-num">05</span>
-          <span class="pipe-station-title">Update</span>
-          <span class="pipe-station-desc">Records are kept in sync. Nothing depends on someone remembering to copy it over.</span>
-          <div class="pipe-station-response">
-            <span class="pipe-station-resp-label">Systems synced</span>
-            <span class="pipe-station-resp-text">One action, every record updated.</span>
-          </div>
-        </div>
-        <div class="pipe-station reveal" data-delay="500" data-progress="done">
-          <span class="pipe-station-num">06</span>
-          <span class="pipe-station-title">Complete</span>
-          <span class="pipe-station-desc">The work is done. The record is closed. The team is not involved.</span>
-          <div class="pipe-station-response">
-            <span class="pipe-station-resp-label" style="color:var(--signal);">Work gone</span>
-            <span class="pipe-station-resp-text" style="color:var(--text);">Not deferred. Not parked. Done.</span>
+          <div class="show-work__human reveal--right">
+            <p class="section-label" style="margin-bottom:var(--space-4);">What disappears from the employee</p>
+            <div class="human-tasks" id="humanTasks">
+              <div class="human-task">Inbox checking</div>
+              <div class="human-task">Data copying</div>
+              <div class="human-task">Record lookup</div>
+              <div class="human-task">Calendar update</div>
+              <div class="human-task">Reminder</div>
+              <div class="human-task">CRM update</div>
+            </div>
+            <div class="human-boundary reveal--scale" style="margin-top:var(--space-8);">
+              <span class="human-boundary__dot"></span>
+              <span class="human-boundary__text">Human decision boundary</span>
+            </div>
+            <p class="body body--sm reveal" data-delay="150" style="margin-top:var(--space-4);max-width:36ch;">
+              Twinthos acts automatically inside approved rules. Anything outside those rules is escalated. Without requiring routine human prompting.
+            </p>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="pipe-ground" aria-hidden="true">
-        <div class="pipe-casing"></div>
-        <div class="pipe-line"></div>
-        <div class="pipe-particle"></div>
-      </div>
-    </div>
-
-    <div class="proof-human reveal" data-delay="600">
-      <p class="proof-human-label">Human decision needed</p>
-      <p class="proof-human-desc">When judgement is needed, Twinthos stops and asks.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ 05 HOW TWINTHOS WORKS ═══════════════════════ -->
-<section class="how" id="how">
-  <div class="container">
-    <p class="how-label reveal-fast">How Twinthos works</p>
-    <h2 class="how-headline reveal">
-      <span class="word">Twinthos</span>
-      <span class="word">takes</span>
-      <span class="word">work</span>
-      <span class="word">away</span>
-      <span class="word">.</span>
-    </h2>
-    <div class="how-grid reveal">
-      <div class="how-step">
-        <div class="how-num how-num--signal">01</div>
-        <div class="how-step-body">
-          <p class="how-step-label">Learns the process</p>
-          <p class="how-step-desc">We build it around the work your team actually does, not around a generic workflow.</p>
+    <section class="section how it-works" id="how">
+      <div class="container--text">
+        <p class="section-label reveal--fast">The process</p>
+        <h2 class="display--sm reveal" style="margin-bottom:var(--space-10);">
+          Built around the operation<br>you already have.
+        </h2>
+        <div class="how__stages">
+          <div class="stage reveal--left">
+            <span class="stage__num">01</span>
+            <h3 class="stage__title">Observe</h3>
+            <p class="stage__desc">We map the work as your team actually performs it.</p>
+          </div>
+          <div class="stage reveal--left" data-delay="100">
+            <span class="stage__num">02</span>
+            <h3 class="stage__title">Define</h3>
+            <p class="stage__desc">We identify repeatable work, rules, permissions and human boundaries.</p>
+          </div>
+          <div class="stage reveal--left" data-delay="200">
+            <span class="stage__num">03</span>
+            <h3 class="stage__title">Hand over</h3>
+            <p class="stage__desc">Twinthos begins performing the approved workflow across your existing systems.</p>
+          </div>
+          <div class="stage reveal--left" data-delay="300">
+            <span class="stage__num">04</span>
+            <h3 class="stage__title">Operate</h3>
+            <p class="stage__desc">We monitor performance, handle exceptions and continuously improve the workflow.</p>
+          </div>
         </div>
       </div>
-      <div class="how-step">
-        <div class="how-num">02</div>
-        <div class="how-step-body">
-          <p class="how-step-label">Works across the systems</p>
-          <p class="how-step-desc">It connects to the tools you already use. No new platform to log into.</p>
+    </section>
+
+    <section class="section economics" id="economics">
+      <div class="container--text">
+        <p class="section-label reveal--fast">The economics</p>
+        <h2 class="display--sm reveal" style="margin-bottom:var(--space-6);">
+          Measure the work<br>before automating it.
+        </h2>
+        <p class="body body--lead reveal" data-delay="100">
+          We measure how often a process runs, how long it takes, who touches it and what systems are involved. Then we show you what can be handed over.
+        </p>
+        <div class="calculator reveal" style="margin-top:var(--space-10);" id="calculator">
+          <p class="meta" style="margin-bottom:var(--space-4);">Illustrative example — based on the figures you enter.</p>
+          <div class="calc__row">
+            <div class="calc__field">
+              <label class="calc__label" for="calcRuns">Runs per week</label>
+              <input type="number" id="calcRuns" class="calc__input" value="200" min="0" step="10">
+            </div>
+            <div class="calc__field">
+              <label class="calc__label" for="calcMinutes">Minutes per run</label>
+              <input type="number" id="calcMinutes" class="calc__input" value="12" min="0" step="1">
+            </div>
+          </div>
+          <div class="calc__row" style="margin-top:var(--space-4);">
+            <div class="calc__field">
+              <label class="calc__label" for="calcPeople">People involved</label>
+              <input type="number" id="calcPeople" class="calc__input" value="2" min="0" step="1">
+            </div>
+            <div class="calc__field">
+              <label class="calc__label" for="calcRate">Loaded hourly cost (£)</label>
+              <input type="number" id="calcRate" class="calc__input" value="35" min="0" step="5">
+            </div>
+          </div>
+          <div class="calc__results" style="margin-top:var(--space-6);">
+            <div class="calc__result">
+              <span class="calc__result-label">Monthly human hours</span>
+              <span class="calc__result-value number-lg" id="calcHours">0</span>
+            </div>
+            <div class="calc__result">
+              <span class="calc__result-label">Monthly process cost</span>
+              <span class="calc__result-value number-lg" id="calcCost">£0</span>
+            </div>
+            <div class="calc__result calc__result--accent">
+              <span class="calc__result-label">Estimated automatable portion</span>
+              <span class="calc__result-value number-lg" id="calcAuto">£0</span>
+            </div>
+          </div>
+          <a href="/book/" class="btn" style="margin-top:var(--space-8);display:inline-flex;">Measure your operation</a>
         </div>
       </div>
-      <div class="how-step">
-        <div class="how-num how-num--signal">03</div>
-        <div class="how-step-body">
-          <p class="how-step-label">Stops when judgement is needed</p>
-          <p class="how-step-desc">It knows its limits. When it can't proceed safely, it pauses and asks a person.</p>
+    </section>
+
+    <section class="section audit" id="audit">
+      <div class="container--wide">
+        <div class="audit__layout">
+          <div class="audit__content reveal--left">
+            <p class="section-label reveal--fast">Redacted client audit</p>
+            <h2 class="display--sm reveal" style="margin-bottom:var(--space-4);">
+              Before anything is automated,<br>we understand the work.
+            </h2>
+            <p class="body body--lead reveal" data-delay="100">
+              A real operational audit — redacted — showing what we map before any automation is built.
+            </p>
+            <a href="/operations-audit/" class="btn" style="margin-top:var(--space-6);display:inline-flex;">View the operations audit</a>
+          </div>
+          <div class="doc reveal--right" data-delay="150">
+            <p class="doc__rubric">Redacted client audit</p>
+            <h3 class="doc__title">Enquiry to appointment — current state</h3>
+            <div class="doc__meta">
+              <div class="doc__meta-row"><span class="doc__meta-label">Workflow</span><span class="doc__meta-value">Enquiry → Appointment</span></div>
+              <div class="doc__meta-row" style="margin-top:var(--space-2);"><span class="doc__meta-label">Current process</span><span class="doc__meta-value">Three systems · Two people · Six manual movements</span></div>
+            </div>
+            <div class="doc__section" style="margin-top:var(--space-5);">
+              <p class="doc__section-label">Twinthos handover</p>
+              <ol class="doc__list">
+                <li>Read enquiry</li>
+                <li>Check existing record</li>
+                <li>Update system</li>
+                <li>Confirm appointment</li>
+                <li>Send reminder</li>
+              </ol>
+            </div>
+            <div class="doc__section" style="margin-top:var(--space-5);">
+              <p class="doc__section-label">Human boundary</p>
+              <p class="doc__section-desc">Exceptions and approvals outside the agreed rules remain with the client.</p>
+            </div>
+            <div class="doc__section" style="margin-top:var(--space-5);">
+              <p class="doc__section-label">Business case</p>
+              <p class="doc__section-desc">Calculated from actual workflow frequency and time measurements during the audit.</p>
+            </div>
+            <div class="doc__section" style="margin-top:var(--space-5);">
+              <p class="doc__section-label">Implementation</p>
+              <p class="doc__section-desc">One workflow first. Monitor. Verify. Expand only after it works.</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ═══════════════════════ 06 REDACTED EXAMPLE ═══════════════════════ -->
-<!-- Mirofish Principle 4: SIGNAL AND NOISE — Agent 3 -->
-<!-- Premium document feel: a real audit, client removed -->
-<section class="redacted" id="redacted">
-  <div class="container">
-    <p class="redacted-label reveal-fast">Redacted example</p>
-    <h2 class="redacted-headline reveal">
-      <span class="word">A</span>
-      <span class="word">real</span>
-      <span class="word">audit</span>
-      <span class="word">,</span>
-      <span class="word">with</span>
-      <span class="word">the</span>
-      <span class="word">client</span>
-      <span class="word">removed</span>
-      <span class="word">.</span>
-    </h2>
-    <p class="redacted-desc reveal" data-delay="150">
-      This is a real operations audit we ran. The client name and exact figures are removed. The structure, the findings and the recommended handover are intact.
-    </p>
-    <div class="redacted-doc reveal" data-delay="250">
-      <div class="redacted-doc-inner">
-        <div class="redacted-entry">
-          <div class="redacted-entry-top">
-            <span class="redacted-entry-num">01</span>
-            <span class="redacted-entry-title">Workflow identified</span>
+    <section class="section control" id="control">
+      <div class="container--text">
+        <p class="section-label reveal--fast">Control</p>
+        <h2 class="display--sm reveal" style="margin-bottom:var(--space-10);">
+          Autonomous where it should be.<br>Human where it matters.
+        </h2>
+        <div class="control__grid">
+          <div class="control__column reveal--left">
+            <p class="control__heading control__heading--may">Twinthos may</p>
+            <ul class="control__list">
+              <li>Read approved information</li>
+              <li>Update approved systems</li>
+              <li>Send approved communications</li>
+              <li>Complete approved workflows</li>
+            </ul>
           </div>
-          <p class="redacted-entry-body">Enquiry-to-appointment process: a recurring operational sequence touching three systems, handled by two people across four steps.</p>
+          <div class="control__column reveal--right">
+            <p class="control__heading control__heading--escalates">Twinthos escalates</p>
+            <ul class="control__list">
+              <li>Exceptions</li>
+              <li>Unrecognised situations</li>
+              <li>High-value decisions</li>
+              <li>Actions requiring judgement</li>
+              <li>Anything outside agreed rules</li>
+            </ul>
+          </div>
         </div>
-        <div class="redacted-entry">
-          <div class="redacted-entry-top">
-            <span class="redacted-entry-num">02</span>
-            <span class="redacted-entry-title">Current manual process</span>
-          </div>
-          <p class="redacted-entry-body">Someone checks for new enquiries, reads the details, copies information across systems, confirms the appointment, sends the reminder, updates the record. Six movements for one result.</p>
+        <p class="body body--lead reveal" style="margin-top:var(--space-8);max-width:48ch;">
+          Authority is defined before deployment.
+        </p>
+        <a href="/security/" class="btn btn--ghost reveal" style="margin-top:var(--space-5);display:inline-flex;">Security & control</a>
+      </div>
+    </section>
+
+    <section class="section offer" id="offer">
+      <div class="container--text" style="text-align:center;">
+        <p class="section-label reveal--fast" style="margin-bottom:var(--space-5);">Managed operations</p>
+        <div class="offer__price reveal--scale">
+          <span class="offer__currency">£</span><span class="offer__amount number-lg">5,000</span>
+          <span class="offer__period">/ month</span>
         </div>
-        <div class="redacted-entry">
-          <div class="redacted-entry-top">
-            <span class="redacted-entry-num">03</span>
-            <span class="redacted-entry-title">Recommended handover</span>
-          </div>
-          <p class="redacted-entry-body">The enquiry-to-appointment sequence, with agreed rules for what Twinthos can do alone and what requires a person.</p>
+        <p class="meta reveal" data-delay="100" style="margin-top:var(--space-3);">Minimum 3-month engagement.</p>
+        <div class="offer__inclusions reveal" style="margin-top:var(--space-8);text-align:left;max-width:520px;margin-left:auto;margin-right:auto;">
+          <p class="offer__inclusions-label">Included</p>
+          <ul class="offer__list">
+            <li>Workflow design</li>
+            <li>Connections</li>
+            <li>Deployment</li>
+            <li>Monitoring</li>
+            <li>Maintenance</li>
+            <li>Exception handling</li>
+            <li>Continuous improvement</li>
+            <li>Support</li>
+          </ul>
         </div>
-        <div class="redacted-entry">
-          <div class="redacted-entry-top">
-            <span class="redacted-entry-num">04</span>
-            <span class="redacted-entry-title">Human boundary</span>
-          </div>
-          <p class="redacted-entry-body">Twinthos handles the check, the copy, the update and the reminder. A person approves any appointment above the agreed value and any exception to the standard process.</p>
-        </div>
-        <div class="redacted-entry">
-          <div class="redacted-entry-top">
-            <span class="redacted-entry-num">05</span>
-            <span class="redacted-entry-title">Estimated value</span>
-          </div>
-          <p class="redacted-entry-body">Based on the time usually spent on this workflow and the number of times it runs each week. The actual number is confirmed during the audit.</p>
-        </div>
-        <div class="redacted-entry">
-          <div class="redacted-entry-top">
-            <span class="redacted-entry-num">06</span>
-            <span class="redacted-entry-title">Implementation plan</span>
-          </div>
-          <p class="redacted-entry-body">One workflow, one human boundary, a short setup window, then monitored operation. The plan specifies what is handed over first and what is left for later.</p>
+        <div class="offer__start reveal--scale" style="margin-top:var(--space-10);">
+          <p class="body body--lead" style="margin-bottom:var(--space-3);">Start smaller.</p>
+          <p class="meta" style="margin-bottom:var(--space-2);">£999</p>
+          <p class="body body--sm" style="margin-bottom:var(--space-5);">Credited in full against your first managed-service month if you proceed.</p>
+          <a href="/book/" class="btn">Book the 15-minute assessment</a>
         </div>
       </div>
-    </div>
-    <div class="redacted-cta-row reveal" data-delay="500">
-      <a href="#offer" class="hero-cta">See the offer</a>
-      <p class="redacted-cta-note">Full document available on request</p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ═══════════════════════ 07 HUMAN ARCHITECT ═══════════════════════ -->
-<!-- Mirofish Principle 4: a position statement, not a feature -->
-<section class="human-architect" id="human">
-  <div class="human-grid">
-    <div class="human-mark reveal">
-      <svg viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="200" height="40" aria-hidden="true">
-        <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#FFFFFF"/>
-        <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#FFFFFF" opacity="0.85"/>
-        <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#FFFFFF" opacity="0.6"/>
-        <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#FFFFFF" opacity="0.4"/>
-        <circle cx="48" cy="36" r="4.5" fill="#20F782"/>
-        <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600" letter-spacing="-0.01em" fill="#FFFFFF">TWINTHOS</text>
-      </svg>
-    </div>
-    <div class="human-content">
-      <p class="human-label reveal-fast">The architect</p>
-      <h2 class="human-headline reveal">
-        <span class="word">Humans</span>
-        <span class="word">set</span>
-        <span class="word">the</span>
-        <span class="word">direction</span>
-        <span class="word">.</span>
-        <span class="word">Twinthos</span>
-        <span class="word">carries</span>
-        <span class="word">the</span>
-        <span class="word">work</span>
-        <span class="word">.</span>
-      </h2>
-      <p class="human-sub reveal" data-delay="200">
-        You decide what matters, what is allowed and where judgement is needed. Twinthos handles the repeat work around those decisions — the checking, the copying, the updating, the following up.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ 08 OFFER ═══════════════════════ -->
-<!-- Mirofish Principle 4: £5,000/month is the hero — Agent 3 -->
-<section class="offer" id="offer">
-  <div class="container">
-    <p class="offer-label reveal-fast">The offer</p>
-    <div class="offer-price-block reveal">
-      <span class="offer-price">£5,000</span>
-      <span class="offer-price-unit">/ month</span>
-      <span class="offer-price-note">Managed operations · minimum 3-month engagement</span>
-    </div>
-    <p class="offer-desc reveal" data-delay="200">
-      We build it, connect it, monitor it and keep improving it. Setup, connections, monitoring, maintenance, improvement, support — all included.
-    </p>
-    <div class="offer-list reveal">
-      <div class="offer-list-item">
-        <span>Setup</span><span class="offer-list-sep"></span>
-        <span>Connections</span><span class="offer-list-sep"></span>
-        <span>Monitoring</span><span class="offer-list-sep"></span>
-        <span>Maintenance</span><span class="offer-list-sep"></span>
-        <span>Improvement</span><span class="offer-list-sep"></span>
-        <span>Support</span>
+    <section class="section founder" id="founder">
+      <div class="container--text">
+        <p class="section-label reveal--fast">Founder accountability</p>
+        <h2 class="display--sm reveal" style="margin-bottom:var(--space-6);">
+          The person designing your operation<br>stays responsible for it.
+        </h2>
+        <p class="body body--lead reveal" data-delay="150">
+          Twinthos deployments are currently founder-led from workflow design through live operation.
+        </p>
+        <p class="body body--lead reveal" data-delay="250">
+          No handoff to an anonymous implementation team. No ticket queue between you and the person responsible for the workflow.
+        </p>
+        <p class="body body--lead reveal" data-delay="350">
+          If something stops working, there is a human accountable for fixing it.
+        </p>
       </div>
-    </div>
-    <div class="offer-cta-row reveal" data-delay="350">
-      <a href="/book/" class="offer-cta">Assess your operation</a>
-      <p class="offer-cta-sub">Not sure if it fits? Start with a conversation.</p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ═══════════════════════ 09 FINAL CTA ═══════════════════════ -->
-<!-- Mirofish Principle 6: the culmination of the story -->
-<section class="final-cta">
-  <div class="container">
-    <p class="final-cta-label reveal-fast">Start here</p>
-    <h2 class="final-cta-headline reveal">
-      <span class="word">What</span>
-      <span class="word">should</span>
-      <span class="word">your</span>
-      <span class="word">team</span>
-      <span class="word">stop</span>
-      <span class="word">doing</span>
-      <span class="word">?</span>
-    </h2>
-    <p class="final-cta-sub reveal" data-delay="200">
-      Every operation has a few things that shouldn't need a person anymore. Twinthos finds them and handles them.
-    </p>
-    <div class="final-cta-actions reveal" data-delay="350">
-      <a href="/book/" class="final-cta-btn">Assess your operation</a>
-      <a href="mailto:hello@twinthos.com" class="final-cta-secondary">hello@twinthos.com</a>
-    </div>
-  </div>
-</section>
+    <section class="section use-cases" id="use-cases">
+      <div class="container--wide">
+        <p class="section-label reveal--fast" style="text-align:center;margin-bottom:var(--space-5);">Use cases</p>
+        <h2 class="display--sm reveal--scale" style="text-align:center;margin-bottom:var(--space-10);">
+          Work that appears in almost every operation.
+        </h2>
+        <div class="use-cases__grid" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);align-items:start;">
+          <div class="use-case reveal--scale" style="padding:var(--space-6);border-top:1px solid var(--border-subtle);">
+            <p class="use-case__title" style="font-size:clamp(24px,2.5vw,32px);font-weight:300;line-height:1.1;letter-spacing:-0.02em;color:var(--text-primary);margin-bottom:var(--space-3);">Enquiry to appointment</p>
+            <p class="body body--sm">Read the enquiry, check the record, book the slot, confirm, remind.</p>
+          </div>
+          <div class="use-case reveal--scale" data-delay="100" style="padding:var(--space-6);border-top:1px solid var(--border-subtle);">
+            <p class="use-case__title" style="font-size:clamp(24px,2.5vw,32px);font-weight:300;line-height:1.1;letter-spacing:-0.02em;color:var(--text-primary);margin-bottom:var(--space-3);">Invoice to payment</p>
+            <p class="body body--sm">Read the invoice, check the order, send the reminder, record the payment.</p>
+          </div>
+          <div class="use-case reveal--scale" data-delay="200" style="padding:var(--space-6);border-top:1px solid var(--border-subtle);">
+            <p class="use-case__title" style="font-size:clamp(24px,2.5vw,32px);font-weight:300;line-height:1.1;letter-spacing:-0.02em;color:var(--text-primary);margin-bottom:var(--space-3);">Request to approval</p>
+            <p class="body body--sm">Receive the request, check the policy, route for approval, record the decision.</p>
+          </div>
+          <div class="use-case reveal--scale" data-delay="300" style="padding:var(--space-6);border-top:1px solid var(--border-subtle);">
+            <p class="use-case__title" style="font-size:clamp(24px,2.5vw,32px);font-weight:300;line-height:1.1;letter-spacing:-0.02em;color:var(--text-primary);margin-bottom:var(--space-3);">Lead to follow-up</p>
+            <p class="body body--sm">Capture the lead, check the CRM, send the first message, log the response.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</main>
+    <section class="section final-cta" id="final-cta">
+      <div class="container--text" style="text-align:center;">
+        <p class="section-label reveal--fast" style="margin-bottom:var(--space-5);">Start here</p>
+        <h2 class="display reveal--scale" style="margin-bottom:var(--space-5);">
+          What should your team<br>stop doing?
+        </h2>
+        <p class="body body--lead reveal" data-delay="150" style="max-width:48ch;margin:0 auto var(--space-8);">
+          Show us one repetitive process. We'll identify what can be handed over, what should remain human and whether the economics make sense.
+        </p>
+        <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap;">
+          <a href="/book/" class="btn reveal--scale" data-delay="200">Assess your operation</a>
+        </div>
+        <p class="meta reveal" data-delay="300" style="margin-top:var(--space-5);">
+          15 minutes. One workflow. No obligation.
+        </p>
+      </div>
+    </section>
 
-<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
-<footer class="footer">
-  <div class="footer-inner">
-    <p class="footer-copy">&copy; 2025 Twinthos. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="/privacy/" class="footer-link">Privacy</a>
-      <a href="/security/" class="footer-link">Security</a>
-      <a href="/terms/" class="footer-link">Terms</a>
-    </div>
-  </div>
-</footer>
+    <footer class="footer">
+      <div class="footer__inner">
+        <a href="/" class="footer__brand" aria-label="Twinthos — home">
+          <svg class="footer__logo" viewBox="0 0 360 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 6 L48 6 L48 36 L8 36 Z" fill="#F4F4F0"/>
+            <path d="M8 14 L48 14 L48 26 L8 26 Z" fill="#F4F4F0" opacity="0.85"/>
+            <path d="M18 24 L48 24 L48 32 L18 32 Z" fill="#F4F4F0" opacity="0.6"/>
+            <path d="M28 30 L46 30 L46 36 L28 36 Z" fill="#F4F4F0" opacity="0.4"/>
+            <circle cx="48" cy="36" r="4.5" fill="#B7FF00"/>
+          </svg>
+          <span class="footer__wordmark">TWINTHOS</span>
+        </a>
+        <div class="footer__links">
+          <a href="/#how" class="footer__link">How it works</a>
+          <a href="/#use-cases" class="footer__link">Use cases</a>
+          <a href="/operations-audit/" class="footer__link">Audit</a>
+          <a href="/security/" class="footer__link">Security</a>
+          <a href="/about/" class="footer__link">About</a>
+          <a href="/book/" class="footer__link">Assess your operation</a>
+        </div>
+        <p class="footer__meta">© 2026 Twinthos</p>
+      </div>
+    </footer>
 
-<script src="assets/site.js" defer></script>
+  </main>
 
+  <script src="/assets/site.js"></script>
 </body>
 </html>
