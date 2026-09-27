@@ -3,168 +3,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demos — Twinthos</title>
-<meta name="theme-color" content="#050505">
-<meta name="description" content="Twinthos demo video — Work Handled. Time Returned.">
+<title>Workflow demo — Twinthos</title>
+<meta name="description" content="Watch a Twinthos workflow from incoming enquiry to confirmed booking — including the moment a request outside policy is handed back to a person.">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://twinthos.com/demo/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://twinthos.com/demo/">
+<meta property="og:title" content="Workflow demo — Twinthos">
+<meta property="og:description" content="Watch a Twinthos workflow handle an enquiry from start to finish — including the moment it pauses for a person's decision.">
+<meta property="og:image" content="https://twinthos.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Twinthos — Workflow demo">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://twinthos.com/demo/">
+<meta name="twitter:title" content="Workflow demo — Twinthos">
+<meta name="twitter:description" content="An enquiry arrives, gets handled, and the moment it needs a person — it stops.">
+<meta name="twitter:image" content="https://twinthos.com/og.png">
+<meta name="twitter:image:alt" content="Twinthos — Workflow demo">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #050505;
-    --text: #F4F4F0;
-    --green: #20F782;
-    --dim: #6B6B6B;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', -apple-system, sans-serif;
-    font-size: clamp(14px, 1.8vw, 22px);
-    line-height: 1.6;
-    letter-spacing: -0.02em;
-    overflow: hidden;
-  }
-  #stage {
-    width: 1920px;
-    height: 1080px;
-    position: relative;
-    background: var(--bg);
-    overflow: hidden;
-  }
-  .eyebrow {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--dim);
-    margin-bottom: 32px;
-    opacity: 0;
-  }
-  .headline {
-    font-size: clamp(40px, 7vw, 96px);
-    font-weight: 300;
-    line-height: 1.05;
-    letter-spacing: -0.04em;
-    color: var(--text);
-    opacity: 0;
-  }
-  .headline.green {
-    color: var(--green);
-  }
-  .tagline {
-    position: absolute;
-    left: 80px;
-    bottom: 80px;
-    display: flex;
-    align-items: center;
-    gap: 0;
-    opacity: 0;
-  }
-  .tagline-line {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--dim);
-  }
-  .tagline-sep {
-    display: inline-block;
-    width: 8px;
-    height: 1px;
-    background: var(--text);
-    margin: 0 16px;
-    vertical-align: middle;
-  }
-  .tagline-green { color: var(--green); }
-  .player {
-    position: absolute;
-    left: 80px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: min(80vw, 1200px);
-    opacity: 0;
-  }
-  .player video {
-    width: 100%;
-    display: block;
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-  .player-note {
-    font-size: 14px;
-    color: var(--dim);
-    margin-top: 20px;
-    text-align: left;
-  }
-  .green-flash {
-    position: absolute;
-    inset: 0;
-    background: var(--green);
-    opacity: 0;
-    pointer-events: none;
-  }
-  .timestamp {
-    position: absolute;
-    right: 80px;
-    bottom: 80px;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    color: var(--dim);
-    text-transform: uppercase;
-  }
-</style>
-</head>
-<body>
-<div id="stage" data-composition-id="twinthos-demo-page" data-duration="21" data-width="1920" data-height="1080">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <div class="clip" data-start="0" data-duration="21000" style="position:absolute;left:0;right:0;top:540;height:1px;background:rgba(255,255,255,0.03)"></div>
+<link rel="stylesheet" href="/global.css">
 
-  <div id="green-flash" class="clip green-flash" data-start="17000" data-duration="300"></div>
-
-  <div class="clip eyebrow" data-start="0" data-duration="21000" style="position:absolute;left:80px;top:80px">
-    <p class="eyebrow">The demo</p>
-  </div>
-
-  <div class="clip headline" data-start="0" data-duration="21000" style="position:absolute;left:80px;top:160px">
-    <p class="headline">Work handled.<br>Time returned.</p>
-  </div>
-
-  <div class="clip player" data-start="2000" data-duration="17000">
-    <video controls preload="metadata" poster="" style="width:100%;display:block;border:1px solid rgba(255,255,255,0.08)">
-      <source src="https://github.com/twinthos/twinthos/raw/master/demos/twinthos-demo.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <p class="player-note">HyperFrames render · 28s · black / white / green · Inter · 1920×1080</p>
-  </div>
-
-  <div id="scene-5" class="clip tagline" data-start="17000" data-duration="4000" style="position:absolute;left:80px;bottom:80px;display:flex;align-items:center;gap:0">
-    <span class="tagline-line">WORK HANDLED</span>
-    <span class="tagline-sep"></span>
-    <span class="tagline-line tagline-green">TIME RETURNED</span>
-    <span class="tagline-sep"></span>
-  </div>
-
-  <div class="timestamp">TWINTHOS · DEMOS</div>
-
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script>
-  window.__timelines = window.__timelines || {};
-  const tl = gsap.timeline({ paused: true });
-  window.__timelines['twinthos-demo-page'] = tl;
-
-  tl.set('#green-flash', { opacity: 0 }, 0);
-
-  tl.fromTo('.clip.eyebrow .eyebrow', { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0.5)
-    .fromTo('.clip.headline .headline', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 0.9)
-    .fromTo('.clip.player', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, 2.0)
-    .fromTo('#scene-5', { opacity: 0 }, { opacity: 1, duration: 0.6, ease: 'power2.out' }, 17.5)
-    .fromTo('#green-flash', { opacity: 0 }, { opacity: 0.07, duration: 0.06, ease: 'power1.out' }, 17.0)
-    .fromTo('#green-flash', { opacity: 0.07 }, { opacity: 0, duration: 0.22, ease: 'power1.in' }, 17.06);
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://twinthos.com/demo/#webpage",
+      "url": "https://twinthos.com/demo/",
+      "name": "Workflow demo — Twinthos",
+      "description": "Watch a Twinthos workflow handle an enquiry from start to finish — including the moment it pauses for a person's decision.",
+      "isPartOf": { "@id": "https://twinthos.com/#website" },
+      "about": { "@id": "https://twinthos.com/#organization" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://twinthos.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Workflow demo", "item": "https://twinthos.com/demo/" }
+        ]
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://twinthos.com/demo/#application",
+      "name": "Twinthos Workflow Demo",
+      "description": "An interactive demonstration of a Twinthos managed workflow — from incoming enquiry to confirmed booking, including the moment a request outside policy is handed back to a person.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP"
+      }
+    }
+  ]
+}
 </script>
+</head>
 
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-in">
+    <a class="nav-brand" href="/" aria-label="Twinthos — home">
+      <svg viewBox="0 0 360 48" aria-hidden="true" fill="none">
+        <path d="M4 24 L20 24 L20 12 L44 12 L44 36 L20 36 L20 24 L4 24 Z" fill="#ffffff"/>
+        <rect x="48" y="12" width="3" height="36" fill="#ffffff"/>
+        <rect x="56" y="24" width="3" height="24" fill="#ffffff"/>
+        <rect x="64" y="18" width="3" height="30" fill="#ffffff" opacity="0.6"/>
+        <rect x="72" y="12" width="3" height="36" fill="#20F782"/>
+      </svg>
+      <span class="brand-name">TWINTHOS</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="/">Home</a>
+      <a href="/book/">Book a call</a>
+      <a href="/security/">Security</a>
+      <a href="/about/">About</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="/book/" style="padding:10px 22px;font-size:14px">Book a fit call</a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
+  </div>
+</nav>
+
+<main id="main">
+
+<section class="page-hero" style="border-bottom:1px solid var(--hair)">
+  <div class="wrap">
+    <div class="eyebrow">Workflow demo</div>
+    <h1>An enquiry arrives.<br>The work follows through.</h1>
+    <p class="sub" style="margin-top:20px;max-width:62ch">Press run to watch a new enquiry move from incoming message to confirmed booking — including the moment a request outside your policy is handed back to a person.</p>
+    <p class="support" style="margin-top:16px">This is an illustrative workflow using sample data. Demonstration controls never trigger real business actions.</p>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(32px,4vw,48px);align-items:start">
+      <div>
+        <div id="demoFrame" style="border-top:1px solid var(--hair);padding:32px 0;min-height:260px">
+          <p style="color:var(--lt);font-size:17px;line-height:1.6">Press run to watch the workflow. The agent receives the enquiry, checks availability, books the appointment, and updates the records — then pauses when a request outside policy comes through.</p>
+        </div>
+        <div id="demoStatus" style="font-family:var(--mono);font-size:13px;color:var(--dk);letter-spacing:.08em;text-transform:uppercase;margin-top:16px"></div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+          <button class="btn btn-primary" id="demoRun">Run example</button>
+          <button class="btn btn-ghost" id="demoReset">Reset</button>
+        </div>
+        <p class="support" style="margin-top:16px">Illustrative workflow. Demonstration controls never trigger real business actions.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:24px;justify-content:center">
+        <div class="step-num" style="font-family:var(--mono);font-size:12px;color:var(--signal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">The fourth step</div>
+        <h3 style="font-size:clamp(22px,3vw,30px);font-weight:300;letter-spacing:-.025em;line-height:1.2">The agent knows when to stop.</h3>
+        <p style="font-size:16px;color:var(--lt);line-height:1.65">A discount below your approval rule is requested. The agent pauses. No discount is applied. The customer is told it's under review. Your decision is required before anything happens.</p>
+        <hr class="sep">
+        <div class="label" style="margin-bottom:12px">What the agent does</div>
+        <ul style="list-style:none;display:grid;gap:10px">
+          <li style="display:flex;gap:10px;align-items:start;font-size:16px;color:var(--lt)"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L5.5 10.5 L12 3.5" stroke="#20F782" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Receives the enquiry</li>
+          <li style="display:flex;gap:10px;align-items:start;font-size:16px;color:var(--lt)"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L5.5 10.5 L12 3.5" stroke="#20F782" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Checks availability</li>
+          <li style="display:flex;gap:10px;align-items:start;font-size:16px;color:var(--lt)"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L5.5 10.5 L12 3.5" stroke="#20F782" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Books and confirms</li>
+          <li style="display:flex;gap:10px;align-items:start;font-size:16px;color:var(--lt)"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L5.5 10.5 L12 3.5" stroke="#20F782" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Updates records</li>
+          <li style="display:flex;gap:10px;align-items:start;font-size:16px;color:var(--lt)"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L5.5 10.5 L12 3.5" stroke="#20F782" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Notifies the team</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="steps" style="border-top:1px solid var(--hair)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The workflow</div>
+      <h2>Four steps. The fourth is the point.</h2>
+    </div>
+    <ol class="steps-display">
+      <li class="step-item">
+        <div class="step-num">Step 01</div>
+        <h3>Enquiry received</h3>
+        <p>A new enquiry arrives by email: "Can we view the Albert Road unit this week?"</p>
+      </li>
+      <li class="step-item">
+        <div class="step-num">Step 02</div>
+        <h3>Agent action</h3>
+        <p>Checks availability, finds Thursday 6pm and Saturday 10am open. Books the Thursday slot. Sends confirmation. Updates the customer record. Notifies the team.</p>
+      </li>
+      <li class="step-item">
+        <div class="step-num">Step 03</div>
+        <h3>Complete</h3>
+        <p>Viewing confirmed. Customer record updated. Team notified. No follow-up needed.</p>
+      </li>
+      <li class="step-item">
+        <div class="step-num">Step 04</div>
+        <h3>Approval</h3>
+        <p>A 15% early-payment discount on invoice INV-2026-042 is requested — below the 20% approval rule. The agent pauses. No discount applied. Customer notified. Awaiting your decision.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-in">
+      <div>
+        <div class="foot-brand">
+          <svg viewBox="0 0 360 48" aria-hidden="true" fill="none" width="20" height="20">
+            <path d="M4 24 L20 24 L20 12 L44 12 L44 36 L20 36 L20 24 L4 24 Z" fill="#ffffff"/>
+            <rect x="48" y="12" width="3" height="36" fill="#ffffff"/>
+            <rect x="56" y="24" width="3" height="24" fill="#ffffff"/>
+            <rect x="64" y="18" width="3" height="30" fill="#ffffff" opacity="0.6"/>
+            <rect x="72" y="12" width="3" height="36" fill="#20F782"/>
+          </svg>
+          <span class="brand-name">TWINTHOS</span>
+        </div>
+        <p>Work handled. Time returned.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/book/">Book a call</a></li>
+          <li><a href="/security/">Security and data</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--hair)">
+      <p>&copy; 2026 Twinthos. All rights reserved.</p>
+      <p style="display:flex;gap:16px;flex-wrap:wrap;margin-top:12px">
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="mailto:hello@twinthos.com">hello@twinthos.com</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="/site.js" defer></script>
 </body>
 </html>
