@@ -4,51 +4,72 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Workflow demo — Twinthos</title>
-<meta name="description" content="Watch a Twinthos workflow handle an enquiry from receipt to confirmed booking — including the moment a request outside your policy is paused for your decision. Illustrative example using sample data.">
-<meta name="theme-color" content="#050505">
+<meta name="description" content="Watch a Twinthos workflow from incoming enquiry to confirmed booking — including the moment a request outside policy is handed back to a person.">
+<meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://twinthos.com/demo/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml">
+
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://twinthos.com/demo/">
 <meta property="og:title" content="Workflow demo — Twinthos">
-<meta property="og:description" content="One enquiry, followed through. Watch how a Twinthos workflow handles an enquiry — and when it pauses for your decision.">
+<meta property="og:description" content="Watch a Twinthos workflow handle an enquiry from start to finish — including the moment it pauses for a person's decision.">
 <meta property="og:image" content="https://twinthos.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Twinthos — Workflow demo">
+
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://twinthos.com/demo/">
+<meta name="twitter:title" content="Workflow demo — Twinthos">
+<meta name="twitter:description" content="An enquiry arrives, gets handled, and the moment it needs a person — it stops.">
+<meta name="twitter:image" content="https://twinthos.com/og.png">
+<meta name="twitter:image:alt" content="Twinthos — Workflow demo">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/global.css">
-<style>
-.demo-workcard{
-  background:var(--bg-2);border:1px solid var(--hair);border-radius:0;padding:24px 28px;
-  transition:border-color .3s,var(--ease);
-}
-.demo-workcard-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--hair)}
-.demo-workcard-label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dk)}
-.demo-workcard-time{font-family:var(--mono);font-size:12px;color:var(--dk);letter-spacing:.06em}
-.demo-workcard-body{font-size:17px;color:var(--ink);line-height:1.5;margin-bottom:16px}
-.demo-workcard-body strong{color:var(--signal);font-weight:500}
-.demo-workcard-footer{font-size:14px;color:var(--dk);border-top:1px solid var(--hair);padding-top:12px}
-.demo-check-item{display:block;font-size:15px;color:var(--lt);padding-left:24px;position:relative;margin-bottom:4px}
-.demo-check-item::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;background:var(--signal);border-radius:50%}
-.demo-workstate{transition:opacity 350ms var(--ease)}
-.demo-workcard{position:relative;overflow:hidden}
-.demo-workcard::before{
-  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
-  background:var(--hair);transition:background 350ms var(--ease);
-}
-.demo-workstate[data-state="1"] .demo-workcard::before,
-.demo-workcard[data-state="2"] .demo-workcard::before,
-.demo-workcard[data-state="3"] .demo-workcard::before{
-  background:var(--signal);
-}
 
-@media(prefers-reduced-motion:reduce){
-  .demo-workstate,.demo-workcard{transition:none}
+<link rel="stylesheet" href="/global.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://twinthos.com/demo/#webpage",
+      "url": "https://twinthos.com/demo/",
+      "name": "Workflow demo — Twinthos",
+      "description": "Watch a Twinthos workflow handle an enquiry from start to finish — including the moment it pauses for a person's decision.",
+      "isPartOf": { "@id": "https://twinthos.com/#website" },
+      "about": { "@id": "https://twinthos.com/#organization" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://twinthos.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Workflow demo", "item": "https://twinthos.com/demo/" }
+        ]
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://twinthos.com/demo/#application",
+      "name": "Twinthos Workflow Demo",
+      "description": "An interactive demonstration of a Twinthos managed workflow — from incoming enquiry to confirmed booking, including the moment a request outside policy is handed back to a person.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP"
+      }
+    }
+  ]
 }
-</style>
+</script>
 </head>
+
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
@@ -66,146 +87,90 @@
     </a>
     <div class="nav-links" id="navLinks">
       <a href="/">Home</a>
-      <a href="/about/">About</a>
+      <a href="/book/">Book a call</a>
       <a href="/security/">Security</a>
-      <a href="/faq/">FAQ</a>
+      <a href="/about/">About</a>
     </div>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="/book/">Request a fit call</a>
+      <a class="btn btn-primary" href="/book/" style="padding:10px 22px;font-size:14px">Book a fit call</a>
     </div>
     <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
   </div>
 </nav>
 
 <main id="main">
+
 <section class="page-hero" style="border-bottom:1px solid var(--hair)">
   <div class="wrap">
     <div class="eyebrow">Workflow demo</div>
-    <h1>One enquiry. Followed through.</h1>
-    <p class="sub" style="margin-top:20px;max-width:62ch">Watch a Twinthos workflow handle an enquiry from receipt to confirmed booking — including the moment a request outside your policy is paused for your decision. This is an illustrative example using sample data.</p>
+    <h1>An enquiry arrives.<br>The work follows through.</h1>
+    <p class="sub" style="margin-top:20px;max-width:62ch">Press run to watch a new enquiry move from incoming message to confirmed booking — including the moment a request outside your policy is handed back to a person.</p>
+    <p class="support" style="margin-top:16px">This is an illustrative workflow using sample data. Demonstration controls never trigger real business actions.</p>
   </div>
 </section>
 
-<section style="border-top:1px solid var(--hair)">
+<section id="demo">
   <div class="wrap">
     <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(32px,4vw,48px);align-items:start">
-      <!-- Demo stage -->
       <div>
-        <div style="border-top:1px solid var(--hair);padding:32px 0">
-          <div style="font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dk);margin-bottom:20px">ILLUSTRATIVE WORKFLOW · ENQUIRY TO CONFIRMED VIEWING</div>
-          <div id="demoState" style="max-width:520px">
-            <!-- State 0 -->
-            <div class="demo-workstate" data-state="0">
-              <div class="demo-workcard">
-                <div class="demo-workcard-header">
-                  <span class="demo-workcard-label">NEW ENQUIRY</span>
-                  <span class="demo-workcard-time">Received 14:32</span>
-                </div>
-                <p class="demo-workcard-body">"Can we view the Albert Road unit this week? We're hoping for an evening viewing."</p>
-                <div class="demo-workcard-footer">From: Prospective tenant · Status: New</div>
-              </div>
-            </div>
-            <!-- State 1 -->
-            <div class="demo-workstate" data-state="1" style="display:none">
-              <div class="demo-workcard">
-                <div class="demo-workcard-header" style="border-left:3px solid var(--signal)">
-                  <span class="demo-workcard-label" style="color:var(--signal)">CHECKING</span>
-                  <span class="demo-workcard-time">Active</span>
-                </div>
-                <p class="demo-workcard-body">
-                  <span class="demo-check-item">Checking calendar — Thursday evenings available</span>
-                  <span class="demo-check-item" style="margin-top:6px">Checking calendar — Saturday mornings available</span>
-                  <span class="demo-check-item" style="margin-top:6px">Checking viewing-hours rule — within approved window</span>
-                </p>
-                <div class="demo-workcard-footer" style="color:var(--signal)">All checks passing · Proceeding to confirm</div>
-              </div>
-            </div>
-            <!-- State 2 -->
-            <div class="demo-workstate" data-state="2" style="display:none">
-              <div class="demo-workcard">
-                <div class="demo-workcard-header" style="border-left:3px solid var(--signal)">
-                  <span class="demo-workcard-label" style="color:var(--signal)">CONFIRMED</span>
-                  <span class="demo-workcard-time">Viewing booked</span>
-                </div>
-                <p class="demo-workcard-body">
-                  <strong>Thursday 6pm — Albert Road unit</strong>
-                  <span class="demo-check-item" style="margin-top:12px;color:var(--signal)">✓ Confirmation sent to customer</span>
-                  <span class="demo-check-item" style="color:var(--signal)">✓ Calendar updated</span>
-                  <span class="demo-check-item" style="color:var(--signal)">✓ CRM updated</span>
-                  <span class="demo-check-item" style="color:var(--signal)">✓ Site team notified</span>
-                </p>
-                <div class="demo-workcard-footer">All steps completed within agreed rules</div>
-              </div>
-            </div>
-            <!-- State 3: Exception -->
-            <div class="demo-workstate" data-state="3" style="display:none">
-              <div class="demo-workcard" style="border-color:var(--signal)">
-                <div class="demo-workcard-header" style="border-left:3px solid var(--signal);border-bottom-color:var(--signal)">
-                  <span class="demo-workcard-label" style="color:var(--signal)">PAUSED</span>
-                  <span class="demo-workcard-time">Awaiting your decision</span>
-                </div>
-                <p class="demo-workcard-body">
-                  <strong>Outside approved viewing hours.</strong>
-                  <span class="demo-check-item" style="margin-top:12px">Requested: Monday 9am</span>
-                  <span class="demo-check-item">Approved hours: Mon–Fri 4pm–8pm, Sat 10am–4pm</span>
-                  <span class="demo-check-item" style="margin-top:12px;color:var(--signal)">No booking has been confirmed.</span>
-                </p>
-                <div class="demo-workcard-footer" style="color:var(--signal)">Awaiting your decision · Customer told it's under review</div>
-              </div>
-            </div>
-          </div>
+        <div id="demoFrame" style="border-top:1px solid var(--hair);padding:32px 0;min-height:260px">
+          <p style="color:var(--lt);font-size:17px;line-height:1.6">Press run to watch the workflow. The agent receives the enquiry, checks availability, books the appointment, and updates the records — then pauses when a request outside policy comes through.</p>
         </div>
-
-        <!-- Progress + controls -->
-        <div style="border-top:1px solid var(--hair);padding-top:24px;margin-top:8px">
-          <div class="demo-progress-bar" style="height:3px;background:var(--hair);border-radius:0;overflow:hidden">
-            <div id="demoProgressFill" style="width:0%;height:100%;background:var(--signal);transition:width 400ms var(--ease)"></div>
-          </div>
-          <div style="display:flex;gap:16px;justify-content:center;margin-top:20px">
-            <button class="btn btn-primary" id="demoRun">Run example</button>
-            <button class="btn btn-ghost" id="demoSkip">Skip to exception</button>
-            <button class="btn btn-ghost" id="demoReset">Reset</button>
-            <button class="btn btn-ghost" id="demoReplay" style="display:none">Replay</button>
-          </div>
-          <p class="support" style="margin-top:16px;text-align:center">Illustrative · sample data · Never triggers real actions</p>
+        <div id="demoStatus" style="font-family:var(--mono);font-size:13px;color:var(--dk);letter-spacing:.08em;text-transform:uppercase;margin-top:16px"></div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+          <button class="btn btn-primary" id="demoRun">Run example</button>
+          <button class="btn btn-ghost" id="demoReset">Reset</button>
         </div>
+        <p class="support" style="margin-top:16px">Illustrative workflow. Demonstration controls never trigger real business actions.</p>
       </div>
-
-      <!-- Side panel -->
-      <div>
-        <div style="border-top:1px solid var(--hair);padding-top:0">
-          <p style="font-size:18px;font-weight:400;line-height:1.5">The agent knows when to stop.</p>
-          <p style="font-size:16px;color:var(--lt);margin-top:12px;line-height:1.5">The fourth step in this example — a viewing request outside your approved hours — is where the agent pauses and waits for your decision. No booking is made. The customer is told it's under review.</p>
-        </div>
-        <div style="border-top:1px solid var(--hair);padding-top:24px">
-          <p style="font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dk);margin-bottom:16px">What you see</p>
-          <ul style="list-style:none;display:grid;gap:10px">
-            <li style="font-size:15px;color:var(--lt)"><span style="color:var(--signal)">→</span>A single enquiry becomes an active work item</li>
-            <li style="font-size:15px;color:var(--lt)"><span style="color:var(--signal)">→</span>Availability and rules are checked before confirmation</li>
-            <li style="font-size:15px;color:var(--lt)"><span style="color:var(--signal)">→</span>The confirmed booking shows what was updated</li>
-            <li style="font-size:15px;color:var(--lt)"><span style="color:var(--signal)">→</span>An out-of-policy request is paused — not confirmed, not ignored</li>
-          </ul>
-        </div>
-        <div style="border-top:1px solid var(--hair);padding-top:24px">
-          <p style="font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dk);margin-bottom:12px">How to use this demo</p>
-          <p style="font-size:15px;color:var(--lt);line-height:1.5">Press <strong>Run example</strong> to watch the full sequence. Press <strong>Skip to exception</strong> to see the paused state directly. Press <strong>Reset</strong> at any time to return to the start. Press <strong>Replay</strong> to watch again.</p>
-        </div>
+      <div style="display:flex;flex-direction:column;gap:24px;justify-content:center">
+        <div class="step-num" style="font-family:var(--mono);font-size:12px;color:var(--signal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">The fourth step</div>
+        <h3 style="font-size:clamp(22px,3vw,30px);font-weight:300;letter-spacing:-.025em;line-height:1.2">The agent knows when to stop.</h3>
+        <p style="font-size:16px;color:var(--lt);line-height:1.65">A discount below your approval rule is requested. The agent pauses. No discount is applied. The customer is told it's under review. Your decision is required before anything happens.</p>
+        <hr class="sep">
+        <div class="label" style="margin-bottom:12px">What the agent does</div>
+        <ul style="list-style:none;display:grid;gap:10px">
+          <li style="display:flex;gap:10px;align-items:start;font-size:16px;color:var(--lt)"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L5.5 10.5 L12 3.5" stroke="#20F782" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Receives the enquiry</li>
+          <li style="display:flex;gap:10px;align-items:start;font-size:16px;color:var(--lt)"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L5.5 10.5 L12 3.5" stroke="#20F782" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Checks availability</li>
+          <li style="display:flex;gap:10px;align-items:start;font-size:16px;color:var(--lt)"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L5.5 10.5 L12 3.5" stroke="#20F782" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Books and confirms</li>
+          <li style="display:flex;gap:10px;align-items:start;font-size:16px;color:var(--lt)"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L5.5 10.5 L12 3.5" stroke="#20F782" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Updates records</li>
+          <li style="display:flex;gap:10px;align-items:start;font-size:16px;color:var(--lt)"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L5.5 10.5 L12 3.5" stroke="#20F782" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Notifies the team</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section style="border-top:1px solid var(--hair)">
+<section id="steps" style="border-top:1px solid var(--hair)">
   <div class="wrap">
-    <p style="font-size:16px;color:var(--lt);max-width:62ch;line-height:1.6">This demonstration uses sample data and shows an illustrative workflow. The controls never trigger real business actions, access any real system, or handle real customer information. To see how a workflow would work with your actual tools and rules, request a fit call and we'll scope a specific example with you.</p>
-    <div class="cta-row" style="margin-top:32px">
-      <a class="btn btn-primary" href="/book/">Request a 15-minute fit call</a>
-      <a class="btn btn-ghost" href="/">Back to homepage</a>
+    <div class="sec-head">
+      <div class="eyebrow">The workflow</div>
+      <h2>Four steps. The fourth is the point.</h2>
     </div>
+    <ol class="steps-display">
+      <li class="step-item">
+        <div class="step-num">Step 01</div>
+        <h3>Enquiry received</h3>
+        <p>A new enquiry arrives by email: "Can we view the Albert Road unit this week?"</p>
+      </li>
+      <li class="step-item">
+        <div class="step-num">Step 02</div>
+        <h3>Agent action</h3>
+        <p>Checks availability, finds Thursday 6pm and Saturday 10am open. Books the Thursday slot. Sends confirmation. Updates the customer record. Notifies the team.</p>
+      </li>
+      <li class="step-item">
+        <div class="step-num">Step 03</div>
+        <h3>Complete</h3>
+        <p>Viewing confirmed. Customer record updated. Team notified. No follow-up needed.</p>
+      </li>
+      <li class="step-item">
+        <div class="step-num">Step 04</div>
+        <h3>Approval</h3>
+        <p>A 15% early-payment discount on invoice INV-2026-042 is requested — below the 20% approval rule. The agent pauses. No discount applied. Customer notified. Awaiting your decision.</p>
+      </li>
+    </ol>
   </div>
 </section>
-
-</main>
 
 <footer class="foot">
   <div class="wrap">
@@ -221,22 +186,21 @@
           </svg>
           <span class="brand-name">TWINTHOS</span>
         </div>
-        <p>Your business runs. Without you chasing it.</p>
+        <p>Work handled. Time returned.</p>
       </div>
       <div class="foot-col">
         <h4>Pages</h4>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/about/">About</a></li>
+          <li><a href="/book/">Book a call</a></li>
           <li><a href="/security/">Security and data</a></li>
-          <li><a href="/faq/">FAQ</a></li>
-          <li><a href="/book/">Request a fit call</a></li>
+          <li><a href="/about/">About</a></li>
         </ul>
       </div>
     </div>
-    <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--hair);display:grid;grid-template-columns:1.4fr 1fr;gap:48px">
+    <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--hair)">
       <p>&copy; 2026 Twinthos. All rights reserved.</p>
-      <p style="display:flex;gap:16px;flex-wrap:wrap">
+      <p style="display:flex;gap:16px;flex-wrap:wrap;margin-top:12px">
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
         <a href="mailto:hello@twinthos.com">hello@twinthos.com</a>
@@ -245,91 +209,13 @@
   </div>
 </footer>
 
-<script>
-(function(){
-  var states = ['0','1','2','3'];
-  var currentState = 0;
-  var progressFill = document.getElementById('demoProgressFill');
-  var demoState = document.getElementById('demoState');
+<script src="/site.js" defer></script>
 
-  function showState(n){
-    var states_els = demoState.querySelectorAll('.demo-workstate');
-    states_els.forEach(function(el){
-      el.style.display = (parseInt(el.dataset.state) === n) ? 'block' : 'none';
-    });
-    currentState = n;
-    var pct = (n / (states.length - 1)) * 100;
-    progressFill.style.width = pct + '%';
-  }
+    <video controls autoplay muted playsinline preload="metadata" poster="/og.png">
+        <source src="/demos/twinthos-demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-  function runSequence(){
-    var step = 0;
-    showState(0);
-    var interval = setInterval(function(){
-      step++;
-      if(step >= states.length){
-        clearInterval(interval);
-        document.getElementById('demoRun').style.display = 'none';
-        document.getElementById('demoSkip').style.display = 'none';
-        document.getElementById('demoReplay').style.display = 'inline-flex';
-        return;
-      }
-      showState(step);
-    }, 1200);
-  }
-
-  document.getElementById('demoRun').addEventListener('click', runSequence);
-  document.getElementById('demoSkip').addEventListener('click', function(){
-    showState(3);
-    document.getElementById('demoRun').style.display = 'none';
-    document.getElementById('demoSkip').style.display = 'none';
-    document.getElementById('demoReplay').style.display = 'inline-flex';
-  });
-  document.getElementById('demoReset').addEventListener('click', function(){
-    showState(0);
-    progressFill.style.width = '0%';
-    document.getElementById('demoRun').style.display = 'inline-flex';
-    document.getElementById('demoSkip').style.display = 'inline-flex';
-    document.getElementById('demoReplay').style.display = 'none';
-  });
-  document.getElementById('demoReplay').addEventListener('click', function(){
-    showState(0);
-    progressFill.style.width = '0%';
-    document.getElementById('demoRun').style.display = 'none';
-    document.getElementById('demoSkip').style.display = 'none';
-    document.getElementById('demoReplay').style.display = 'none';
-    runSequence();
-  });
-
-  // Hero mini demo
-  var heroStates = document.querySelectorAll('#heroDemoStage .demo-state');
-  var heroDots = document.querySelectorAll('#heroDemoStage .demo-dot');
-  var heroCurrent = 0;
-
-  function showHeroState(n){
-    heroStates.forEach(function(el){
-      el.style.display = (parseInt(el.dataset.state) === n) ? 'block' : 'none';
-    });
-    heroDots.forEach(function(dot){
-      dot.classList.toggle('active', parseInt(dot.dataset.step) === n);
-    });
-    heroCurrent = n;
-  }
-
-  document.getElementById('heroDemoNext').addEventListener('click', function(){
-    heroCurrent = (heroCurrent + 1) % 4;
-    showHeroState(heroCurrent);
-  });
-  document.getElementById('heroDemoReset').addEventListener('click', function(){
-    showHeroState(0);
-  });
-  document.getElementById('heroDemoException').addEventListener('click', function(){
-    showHeroState(3);
-  });
-
-  // Initial state
-  showHeroState(0);
-})();
-</script>
 </body>
 </html>
+// rebuild trigger Sun Sep 27 18:30:48 UTC 2026
