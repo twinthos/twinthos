@@ -3,74 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Workflow demo — Twinthos</title>
-<meta name="description" content="Watch a Twinthos workflow from incoming enquiry to confirmed booking — including the moment a request outside policy is handed back to a person.">
-<meta name="theme-color" content="#000000">
+<title>Follow-through demonstration — Twinthos</title>
+<meta name="description" content="An illustrative example showing how Twinthos could handle a commercial enquiry — from the incoming message to the follow-up being sent. Sample data, no real messages sent.">
+<meta name="theme-color" content="#050505">
 <link rel="canonical" href="https://twinthos.com/demo/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml">
-
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://twinthos.com/demo/">
-<meta property="og:title" content="Workflow demo — Twinthos">
-<meta property="og:description" content="Watch a Twinthos workflow handle an enquiry from start to finish — including the moment it pauses for a person's decision.">
+<meta property="og:title" content="Follow-through demonstration — Twinthos">
 <meta property="og:image" content="https://twinthos.com/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Twinthos — Workflow demo">
-
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://twinthos.com/demo/">
-<meta name="twitter:title" content="Workflow demo — Twinthos">
-<meta name="twitter:description" content="An enquiry arrives, gets handled, and the moment it needs a person — it stops.">
-<meta name="twitter:image" content="https://twinthos.com/og.png">
-<meta name="twitter:image:alt" content="Twinthos — Workflow demo">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/global.css">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://twinthos.com/demo/#webpage",
-      "url": "https://twinthos.com/demo/",
-      "name": "Workflow demo — Twinthos",
-      "description": "Watch a Twinthos workflow handle an enquiry from start to finish — including the moment it pauses for a person's decision.",
-      "isPartOf": { "@id": "https://twinthos.com/#website" },
-      "about": { "@id": "https://twinthos.com/#organization" },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://twinthos.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Workflow demo", "item": "https://twinthos.com/demo/" }
-        ]
-      }
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": "https://twinthos.com/demo/#application",
-      "name": "Twinthos Workflow Demo",
-      "description": "An interactive demonstration of a Twinthos managed workflow — from incoming enquiry to confirmed booking, including the moment a request outside policy is handed back to a person.",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "GBP"
-      }
-    }
-  ]
-}
-</script>
 </head>
-
 <body>
+<!-- demo page rebuilt [REBUILD_MARKER_2026-09-27] -->
 <a class="skip" href="#main">Skip to content</a>
 
 <nav class="nav" aria-label="Main navigation">
@@ -87,12 +37,12 @@
     </a>
     <div class="nav-links" id="navLinks">
       <a href="/">Home</a>
-      <a href="/book/">Book a call</a>
-      <a href="/security/">Security</a>
       <a href="/about/">About</a>
+      <a href="/security/">Security</a>
+      <a href="/operations-audit/">Audit</a>
     </div>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="/book/" style="padding:10px 22px;font-size:14px">Book a fit call</a>
+      <a class="btn btn-primary" href="/book/" style="padding:10px 20px;font-size:14px">Find the work worth handing over</a>
     </div>
     <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
   </div>
@@ -100,75 +50,281 @@
 
 <main id="main">
 
-<section class="page-hero" style="border-bottom:1px solid var(--hair)">
+<!-- Stage 0: Initial state — empty stage with play button -->
+<section id="demo-stage-section" class="demo-stage" data-state="0" style="border-top:1px solid var(--hair);padding-top:clamp(64px,8vw,96px)">
   <div class="wrap">
-    <div class="eyebrow">Workflow demo</div>
-    <h1>An enquiry arrives.<br>The work follows through.</h1>
-    <p class="sub" style="margin-top:20px;max-width:62ch">Press run to watch a new enquiry move from incoming message to confirmed booking — including the moment a request outside your policy is handed back to a person.</p>
-    <p class="support" style="margin-top:16px">This is an illustrative workflow using sample data. Demonstration controls never trigger real business actions.</p>
-  </div>
-</section>
+    <div class="eyebrow">Demonstration</div>
+    <h1>See what follow-through<br>looks like.</h1>
+    <p class="sub" style="margin-top:16px;max-width:56ch">A customer asks for a quote. The next steps need to happen across email and the customer record. Here is one illustrative way Twinthos could handle that process.</p>
+    <p class="support" style="margin-top:8px">This is a commercial-enquiry example grounded in the contractor playbooks — a recommended sales example, not a claim of an existing deployment.</p>
 
-<section id="demo">
-  <div class="wrap">
-    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(32px,4vw,48px);align-items:start">
-      <div>
-        <div id="demoFrame" style="border-top:1px solid var(--hair);padding:32px 0;min-height:260px">
-          <p style="color:var(--lt);font-size:17px;line-height:1.6">Press run to watch the workflow. The agent receives the enquiry, checks availability, books the appointment, and updates the records — then pauses when a request outside policy comes through.</p>
+    <!-- Demo control bar (state 0) -->
+    <div class="demo-control-bar" id="demoControlBarTop" style="margin-top:32px">
+      <button class="btn btn-primary" id="demoPlay" style="background:var(--signal);color:var(--bg);border-color:var(--signal)">Play example</button>
+    </div>
+
+    <!-- Demo frame — the main workcard area -->
+    <div class="demo-frame" id="demoFrame" style="margin-top:28px">
+
+      <!-- State 0: Empty stage -->
+      <div id="state0" class="demo-state" style="display:block">
+        <div class="demo-frame-empty">
+          <svg viewBox="0 0 48 48" width="40" height="40" fill="none" style="margin:0 auto 12px;color:var(--dk)">
+            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1"/>
+            <path d="M17 28 L24 34 L33 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p>Press Play to begin the example.</p>
+          <p style="font-size:13px;color:var(--dk);margin-top:8px">An enquiry arrives, information is requested, the record is updated, and a follow-up is sent.</p>
         </div>
-        <div id="demoStatus" style="font-family:var(--mono);font-size:13px;color:var(--dk);letter-spacing:.08em;text-transform:uppercase;margin-top:16px"></div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
-          <button class="btn btn-primary" id="demoRun">Run example</button>
+      </div>
+
+      <!-- State 1: Enquiry arrives -->
+      <div id="state1" class="demo-state" style="display:none">
+        <div class="demo-workcard has-signal">
+          <div class="demo-workcard-header">
+            <div class="demo-workcard-label signal">NEW · ENQUIRY RECEIVED</div>
+            <div class="demo-workcard-time">T+0:00</div>
+          </div>
+          <div class="demo-message">
+            <div class="msg-sender">Enquiry · AC Services Ltd</div>
+            <div class="msg-body">"Could you quote for servicing the air conditioning at our office?"</div>
+          </div>
+          <div class="demo-workcard-footer" style="margin-top:14px">
+            <span class="mono" style="font-size:12px;color:var(--signal)">▸ Work item created · No decision yet</span>
+          </div>
+        </div>
+
+        <div class="demo-control-bar" style="margin-top:20px">
+          <button class="btn btn-primary" id="demoNext1" style="background:var(--signal);color:var(--bg);border-color:var(--signal)">Continue →</button>
+          <button class="btn btn-ghost" id="demoReplay1">Replay</button>
+        </div>
+      </div>
+
+      <!-- State 2: Missing information requested -->
+      <div id="state2" class="demo-state" style="display:none">
+        <div class="demo-workcard has-signal">
+          <div class="demo-workcard-header">
+            <div class="demo-workcard-label signal">IN PROGRESS · INFO REQUESTED</div>
+            <div class="demo-workcard-time">T+0:02</div>
+          </div>
+          <div class="demo-message" style="margin-bottom:12px">
+            <div class="msg-sender">Reply · Twinthos (on your behalf)</div>
+            <div class="msg-body">"Please send the site postcode, the number of units and your preferred timing."</div>
+          </div>
+          <div class="demo-status-row">
+            <span class="demo-status done">✓ Enquiry received</span>
+            <span class="demo-status pending">◀ Info requested</span>
+            <span class="demo-status">Customer record untouched</span>
+          </div>
+          <div class="demo-workcard-footer" style="margin-top:14px">
+            <span class="mono" style="font-size:12px;color:var(--dk)">▸ No assumptions made · Missing details flagged</span>
+          </div>
+        </div>
+
+        <div class="demo-control-bar" style="margin-top:20px">
+          <button class="btn btn-primary" id="demoNext2" style="background:var(--signal);color:var(--bg);border-color:var(--signal)">Details received →</button>
+          <button class="btn btn-ghost" id="demoPrev2">← Back</button>
+          <button class="btn btn-ghost" id="demoReplay2">Replay</button>
+        </div>
+      </div>
+
+      <!-- State 3: Details reach the right person -->
+      <div id="state3" class="demo-state" style="display:none">
+        <div class="demo-workcard has-signal">
+          <div class="demo-workcard-header">
+            <div class="demo-workcard-label signal">RECORD UPDATED · READY FOR QUOTE</div>
+            <div class="demo-workcard-time">T+0:04</div>
+          </div>
+          <div class="demo-workcard-body">
+            <p style="margin-bottom:12px">The information has been recorded and the enquiry is assigned for quotation.</p>
+            <div class="demo-status-row">
+              <span class="demo-status done">✓ Site postcode recorded</span>
+              <span class="demo-status done">✓ Unit count recorded</span>
+              <span class="demo-status done">✓ Preferred timing recorded</span>
+              <span class="demo-status done">✓ Enquiry assigned for quotation</span>
+            </div>
+          </div>
+          <div class="demo-workcard-footer" style="margin-top:14px">
+            <p><strong style="color:var(--signal)">Quote preparation stays with your team.</strong> Twinthos has handled the coordination — the quotation itself is your expertise.</p>
+          </div>
+        </div>
+
+        <div class="demo-control-bar" style="margin-top:20px">
+          <button class="btn btn-primary" id="demoNext3" style="background:var(--signal);color:var(--bg);border-color:var(--signal)">Quote prepared →</button>
+          <button class="btn btn-ghost" id="demoPrev3">← Back</button>
+          <button class="btn btn-ghost" id="demoReplay3">Replay</button>
+        </div>
+      </div>
+
+      <!-- State 3b: Quote prepared by team (intermediate) -->
+      <div id="state3b" class="demo-state" style="display:none">
+        <div class="demo-workcard has-signal">
+          <div class="demo-workcard-header">
+            <div class="demo-workcard-label signal">QUOTE PREPARED · AWAITING TEAM</div>
+            <div class="demo-workcard-time">T+0:24</div>
+          </div>
+          <div class="demo-workcard-body">
+            <p style="margin-bottom:12px">Your team has prepared the quote. The agreed follow-up is now due.</p>
+            <div class="demo-status-row">
+              <span class="demo-status done">✓ Quote prepared by your team</span>
+              <span class="demo-status done">✓ Follow-up scheduled</span>
+              <span class="demo-status">Awaiting team action</span>
+            </div>
+          </div>
+          <div class="demo-workcard-footer" style="margin-top:14px">
+            <p style="font-size:14px;color:var(--dk)">This is where Twinthos hands off to your team. The quote is yours — the follow-up trigger is set.</p>
+          </div>
+        </div>
+
+        <div class="demo-control-bar" style="margin-top:20px">
+          <button class="btn btn-primary" id="demoNext3b" style="background:var(--signal);color:var(--bg);border-color:var(--signal)">Follow-up sent →</button>
+          <button class="btn btn-ghost" id="demoPrev3b">← Back</button>
+          <button class="btn btn-ghost" id="demoReplay3b">Replay</button>
+        </div>
+      </div>
+
+      <!-- State 4: Follow-up sent, record current -->
+      <div id="state4" class="demo-state" style="display:none">
+        <div class="demo-workcard" style="border-left:3px solid var(--signal)">
+          <div class="demo-workcard-header">
+            <div class="demo-workcard-label signal">COMPLETE · FOLLOW-UP SENT</div>
+            <div class="demo-workcard-time">T+0:36</div>
+          </div>
+          <div class="demo-workcard-body">
+            <p style="margin-bottom:8px;font-size:18px;color:var(--signal);font-weight:450">The enquiry has a next step.</p>
+            <p style="margin-bottom:8px">The record is current.</p>
+            <p>Your team can see what needs attention.</p>
+          </div>
+          <div class="demo-status-row" style="margin-top:12px">
+            <span class="demo-status done">✓ Quote sent by your team</span>
+            <span class="demo-status done">✓ Agreed follow-up triggered</span>
+            <span class="demo-status done">✓ Follow-up sent</span>
+            <span class="demo-status done">✓ Reply recorded</span>
+          </div>
+          <div class="demo-workcard-footer" style="margin-top:14px">
+            <p style="font-size:14px;color:var(--dk)">No more chasing. The record is current. The next step is visible.</p>
+          </div>
+        </div>
+
+        <div class="demo-control-bar" style="margin-top:20px">
+          <button class="btn btn-ghost" id="demoReplay4">Replay</button>
           <button class="btn btn-ghost" id="demoReset">Reset</button>
+          <span style="font-size:13px;color:var(--dk);margin-left:auto">Illustrative example · sample data · no real messages sent</span>
         </div>
-        <p class="support" style="margin-top:16px">Illustrative workflow. Demonstration controls never trigger real business actions.</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:24px;justify-content:center">
-        <div class="step-num" style="font-family:var(--mono);font-size:12px;color:var(--signal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">The fourth step</div>
-        <h3 style="font-size:clamp(22px,3vw,30px);font-weight:300;letter-spacing:-.025em;line-height:1.2">The agent knows when to stop.</h3>
-        <p style="font-size:16px;color:var(--lt);line-height:1.65">A discount below your approval rule is requested. The agent pauses. No discount is applied. The customer is told it's under review. Your decision is required before anything happens.</p>
-        <hr class="sep">
-        <div class="label" style="margin-bottom:12px">What the agent does</div>
-        <ul style="list-style:none;display:grid;gap:10px">
-          <li style="display:flex;gap:10px;align-items:start;font-size:16px;color:var(--lt)"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L5.5 10.5 L12 3.5" stroke="#20F782" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Receives the enquiry</li>
-          <li style="display:flex;gap:10px;align-items:start;font-size:16px;color:var(--lt)"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L5.5 10.5 L12 3.5" stroke="#20F782" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Checks availability</li>
-          <li style="display:flex;gap:10px;align-items:start;font-size:16px;color:var(--lt)"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L5.5 10.5 L12 3.5" stroke="#20F782" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Books and confirms</li>
-          <li style="display:flex;gap:10px;align-items:start;font-size:16px;color:var(--lt)"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L5.5 10.5 L12 3.5" stroke="#20F782" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Updates records</li>
-          <li style="display:flex;gap:10px;align-items:start;font-size:16px;color:var(--lt)"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L5.5 10.5 L12 3.5" stroke="#20F782" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Notifies the team</li>
-        </ul>
+
+      <!-- State 4b: Exception — approval required -->
+      <div id="state4b" class="demo-state" style="display:none">
+        <div class="demo-workcard" style="border-left:3px solid var(--signal)">
+          <div class="demo-workcard-header">
+            <div class="demo-workcard-label signal">EXCEPTION · APPROVAL REQUIRED</div>
+            <div class="demo-workcard-time">T+0:36</div>
+          </div>
+          <div class="demo-workcard-body">
+            <div class="demo-message" style="margin-bottom:12px">
+              <div class="msg-sender">Exception · Customer request</div>
+              <div class="msg-body">"Can you reduce the quote by 15%?"</div>
+            </div>
+            <div class="demo-status-row">
+              <span class="demo-status pending">⚠ Discount request: 15%</span>
+              <span class="demo-status pending">Approval required</span>
+              <span class="demo-status">Policy: discounts above 10% need approval</span>
+            </div>
+            <p style="margin-top:12px;font-size:15px;color:var(--lt)">The request and the relevant details are ready for your team to review. The quote has <strong style="color:var(--signal)">not</strong> been changed.</p>
+          </div>
+          <div class="demo-workcard-footer" style="margin-top:14px">
+            <p style="font-size:14px;color:var(--dk)">This is the decision that stays with you. Twinthos surfaces it — your team decides.</p>
+          </div>
+        </div>
+
+        <div class="demo-control-bar" style="margin-top:20px">
+          <button class="btn btn-ghost" id="demoShowApproval" style="background:var(--signal);color:var(--bg);border-color:var(--signal)">See full approval step →</button>
+          <button class="btn btn-ghost" id="demoBackFromException">← Back to completion</button>
+          <button class="btn btn-ghost" id="demoReplay4b">Replay</button>
+          <span style="font-size:13px;color:var(--dk);margin-left:auto">Illustrative example · sample data</span>
+        </div>
       </div>
+
+      <!-- State 5: Full approval step (detailed) -->
+      <div id="state5" class="demo-state" style="display:none">
+        <div class="demo-workcard" style="border-left:3px solid var(--signal)">
+          <div class="demo-workcard-header">
+            <div class="demo-workcard-label signal">APPROVAL STEP · YOUR TEAM REVIEW</div>
+            <div class="demo-workcard-time">T+0:36</div>
+          </div>
+          <div class="demo-workcard-body">
+            <p style="margin-bottom:12px">The following is ready for your team's review:</p>
+            <div style="display:grid;gap:8px;margin-bottom:16px">
+              <div style="padding:10px 14px;background:var(--bg-2);border:1px solid var(--hair);font-size:15px">
+                <span style="color:var(--signal)">▸</span> Original quote value
+              </div>
+              <div style="padding:10px 14px;background:var(--bg-2);border:1px solid var(--hair);font-size:15px">
+                <span style="color:var(--signal)">▸</span> Customer's requested reduction: 15%
+              </div>
+              <div style="padding:10px 14px;background:var(--bg-2);border:1px solid var(--hair);font-size:15px">
+                <span style="color:var(--signal)">▸</span> Policy threshold: 10% — approval required above this
+              </div>
+              <div style="padding:10px 14px;background:var(--bg-2);border:1px solid var(--hair);font-size:15px">
+                <span style="color:var(--signal)">▸</span> The quote has <strong style="color:var(--ink)">not</strong> been changed
+              </div>
+            </div>
+            <p style="font-size:15px;color:var(--lt)">Your team reviews and decides. Twinthos records the outcome and takes the next step if the decision permits it.</p>
+          </div>
+          <div class="demo-workcard-footer" style="margin-top:14px">
+            <p style="font-size:14px;color:var(--dk)">No automation bypasses this step. The policy is clear. The decision is yours.</p>
+          </div>
+        </div>
+
+        <div class="demo-control-bar" style="margin-top:20px">
+          <button class="btn btn-ghost" id="demoBackFromApproval">← Back to exception</button>
+          <button class="btn btn-ghost" id="demoReplay5">Replay</button>
+          <span style="font-size:13px;color:var(--dk);margin-left:auto">Illustrative example · sample data</span>
+        </div>
+      </div>
+
+    </div><!-- /demo-frame -->
+
+    <!-- Permanent disclosure -->
+    <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--hair);font-size:13px;color:var(--dk)">
+      <p><strong>Illustrative example using sample data.</strong> No real messages are sent. No real customer information is used. This is one illustrative way Twinthos could handle a process — it is not a claim of an existing deployment or a promise of specific results.</p>
     </div>
+
+    <!-- Keyboard help -->
+    <div style="margin-top:16px;font-size:12px;color:var(--dk);font-family:var(--mono);letter-spacing:.06em">
+      Keyboard: <span style="color:var(--signal)">Space</span> play/pause · <span style="color:var(--signal)">R</span> replay · <span style="color:var(--signal)">Esc</span> reset
+    </div>
+
   </div>
 </section>
 
-<section id="steps" style="border-top:1px solid var(--hair)">
+<!-- What this demonstrates -->
+<section style="border-top:1px solid var(--hair);padding-bottom:clamp(48px,6vw,64px)">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">The workflow</div>
-      <h2>Four steps. The fourth is the point.</h2>
+    <div class="divider-label">
+      <span>What this shows</span>
     </div>
-    <ol class="steps-display">
-      <li class="step-item">
-        <div class="step-num">Step 01</div>
-        <h3>Enquiry received</h3>
-        <p>A new enquiry arrives by email: "Can we view the Albert Road unit this week?"</p>
-      </li>
-      <li class="step-item">
-        <div class="step-num">Step 02</div>
-        <h3>Agent action</h3>
-        <p>Checks availability, finds Thursday 6pm and Saturday 10am open. Books the Thursday slot. Sends confirmation. Updates the customer record. Notifies the team.</p>
-      </li>
-      <li class="step-item">
-        <div class="step-num">Step 03</div>
-        <h3>Complete</h3>
-        <p>Viewing confirmed. Customer record updated. Team notified. No follow-up needed.</p>
-      </li>
-      <li class="step-item">
-        <div class="step-num">Step 04</div>
-        <h3>Approval</h3>
-        <p>A 15% early-payment discount on invoice INV-2026-042 is requested — below the 20% approval rule. The agent pauses. No discount applied. Customer notified. Awaiting your decision.</p>
-      </li>
-    </ol>
+    <div style="display:grid;gap:20px;max-width:720px">
+      <div style="display:grid;gap:6px;padding:16px 0;border-top:1px solid var(--hair)">
+        <span class="mono" style="font-size:12px;color:var(--signal);letter-spacing:.08em">0–2s</span>
+        <p style="font-size:16px;color:var(--lt)">The enquiry arrives. A work item is created. No assumptions are made.</p>
+      </div>
+      <div style="display:grid;gap:6px;padding:16px 0;border-top:1px solid var(--hair)">
+        <span class="mono" style="font-size:12px;color:var(--signal);letter-spacing:.08em">2–4s</span>
+        <p style="font-size:16px;color:var(--lt)">Missing information is requested. The customer record stays untouched until the details are in.</p>
+      </div>
+      <div style="display:grid;gap:6px;padding:16px 0;border-top:1px solid var(--hair)">
+        <span class="mono" style="font-size:12px;color:var(--signal);letter-spacing:.08em">4–24s</span>
+        <p style="font-size:16px;color:var(--lt)">The details are recorded. The enquiry is assigned for quotation. Quote preparation stays with your team.</p>
+      </div>
+      <div style="display:grid;gap:6px;padding:16px 0;border-top:1px solid var(--hair)">
+        <span class="mono" style="font-size:12px;color:var(--signal);letter-spacing:.08em">24–36s</span>
+        <p style="font-size:16px;color:var(--lt)">The quote is prepared by your team. The agreed follow-up is triggered, sent, and recorded.</p>
+      </div>
+      <div style="display:grid;gap:6px;padding:16px 0;border-top:1px solid var(--hair)">
+        <span class="mono" style="font-size:12px;color:var(--signal);letter-spacing:.08em">Exception</span>
+        <p style="font-size:16px;color:var(--lt)">A discount request above the policy threshold is surfaced for your team. The quote is not changed without approval.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -177,7 +333,7 @@
     <div class="foot-in">
       <div>
         <div class="foot-brand">
-          <svg viewBox="0 0 360 48" aria-hidden="true" fill="none" width="20" height="20">
+          <svg viewBox="0 0 360 48" aria-hidden="true" fill="none" width="18" height="18">
             <path d="M4 24 L20 24 L20 12 L44 12 L44 36 L20 36 L20 24 L4 24 Z" fill="#ffffff"/>
             <rect x="48" y="12" width="3" height="36" fill="#ffffff"/>
             <rect x="56" y="24" width="3" height="24" fill="#ffffff"/>
@@ -192,15 +348,16 @@
         <h4>Pages</h4>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/book/">Book a call</a></li>
-          <li><a href="/security/">Security and data</a></li>
           <li><a href="/about/">About</a></li>
+          <li><a href="/security/">Security and data</a></li>
+          <li><a href="/operations-audit/">Operations audit</a></li>
+          <li><a href="/book/">Book a fit call</a></li>
         </ul>
       </div>
     </div>
-    <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--hair)">
+    <div class="foot-bottom" style="margin-top:24px;padding-top:20px;border-top:1px solid var(--hair);display:grid;grid-template-columns:1.3fr 1fr;gap:40px">
       <p>&copy; 2026 Twinthos. All rights reserved.</p>
-      <p style="display:flex;gap:16px;flex-wrap:wrap;margin-top:12px">
+      <p style="display:flex;gap:14px;flex-wrap:wrap">
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
         <a href="mailto:hello@twinthos.com">hello@twinthos.com</a>
@@ -209,13 +366,8 @@
   </div>
 </footer>
 
+<script src="/demo.js" defer></script>
 <script src="/site.js" defer></script>
-
-    <video controls autoplay muted playsinline preload="metadata" poster="/og.png">
-        <source src="/demos/twinthos-demo.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
 </body>
 </html>
-// rebuild trigger Sun Sep 27 18:30:48 UTC 2026
+<!-- rebuilt 2026-09-27T20:52:26Z — commercial rewrite verification -->
