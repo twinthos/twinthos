@@ -10,7 +10,7 @@
   --hair-soft:#111;
   --ink:#F4F4F0;
   --lt:#b0b0b0;
-  --dk:#666;
+  --dk:#999;
   --signal:#20F782;
   --signal-dim:#15805a;
   --sans:'Inter',system-ui,-apple-system,sans-serif;
@@ -89,11 +89,13 @@ hr.sep{border:none;border-top:1px solid var(--hair);margin:0}
 }
 
 /* Buttons */
-.btn{display:inline-flex;align-items:center;font-family:var(--sans);font-size:15px;font-weight:500;letter-spacing:.02em;padding:13px 28px;min-height:48px;border:1px solid transparent;cursor:pointer;transition:transform .15s var(--ease),background .15s,color .15s,border-color .15s}
+.btn{display:inline-flex;align-items:center;font-family:var(--sans);font-size:15px;font-weight:500;letter-spacing:.02em;padding:13px 28px;min-height:48px;border:1px solid transparent;cursor:pointer;transition:transform .18s var(--ease),background .18s,color .18s,border-color .18s}
 .btn-primary{background:var(--signal);color:var(--bg);border-color:var(--signal)}
 .btn-primary:hover{background:var(--signal-dim);border-color:var(--signal-dim);transform:translateY(-1px)}
+.btn-primary:active{transform:translateY(0);background:var(--bg);color:var(--signal)}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--hair)}
 .btn-ghost:hover{border-color:var(--lt);color:var(--lt)}
+.btn-ghost:active{background:var(--bg-2);border-color:var(--ink)}
 .btn-text{background:none;color:var(--lt);padding:8px 0;min-height:0;font-size:15px}
 .btn-text:hover{color:var(--ink)}
 .btn-sm{padding:9px 18px;font-size:14px;min-height:38px}
@@ -266,3 +268,44 @@ section + section{border-top:1px solid var(--hair)}
   .nav-links{gap:0}
   section{padding:56px 0}
 }
+
+/* ============================================
+   MOTION SYSTEM — premium, purposeful, restrained
+   ============================================ */
+
+/* Entry animations */
+@keyframes fadeUp {
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeIn {
+  from{opacity:0}
+  to{opacity:1}
+}
+@keyframes workflowStep {
+  from{opacity:0;transform:translateX(-8px)}
+  to{opacity:1;transform:translateX(0)}
+}
+
+/* Section entrance — triggered once via JS */
+.section-enter{animation:fadeUp 400ms var(--ease) both}
+
+/* Workflow state transitions */
+.workflow-state{transition:opacity 400ms var(--ease),transform 400ms var(--ease)}
+.workflow-state.active{animation:workflowStep 500ms var(--ease) both}
+
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce){
+  .section-enter{animation:none;opacity:1}
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+
+/* ============================================
+   TYPOGRAPHY HIERARCHY
+   ============================================ */
+
+/* Body — already 18px desktop, within 17-19 range */
+/* Sub — already 19px, good */
+
+/* Fix: #666 on black is too subdued for small text */
