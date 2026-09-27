@@ -20,7 +20,6 @@
 <link rel="stylesheet" href="/global.css">
 </head>
 <body>
-<!-- demo page rebuilt [REBUILD_MARKER_2026-09-27] -->
 <a class="skip" href="#main">Skip to content</a>
 
 <nav class="nav" aria-label="Main navigation">
@@ -50,7 +49,6 @@
 
 <main id="main">
 
-<!-- Stage 0: Initial state — empty stage with play button -->
 <section id="demo-stage-section" class="demo-stage" data-state="0" style="border-top:1px solid var(--hair);padding-top:clamp(64px,8vw,96px)">
   <div class="wrap">
     <div class="eyebrow">Demonstration</div>
@@ -58,12 +56,10 @@
     <p class="sub" style="margin-top:16px;max-width:56ch">A customer asks for a quote. The next steps need to happen across email and the customer record. Here is one illustrative way Twinthos could handle that process.</p>
     <p class="support" style="margin-top:8px">This is a commercial-enquiry example grounded in the contractor playbooks — a recommended sales example, not a claim of an existing deployment.</p>
 
-    <!-- Demo control bar (state 0) -->
     <div class="demo-control-bar" id="demoControlBarTop" style="margin-top:32px">
       <button class="btn btn-primary" id="demoPlay" style="background:var(--signal);color:var(--bg);border-color:var(--signal)">Play example</button>
     </div>
 
-    <!-- Demo frame — the main workcard area -->
     <div class="demo-frame" id="demoFrame" style="margin-top:28px">
 
       <!-- State 0: Empty stage -->
@@ -93,7 +89,6 @@
             <span class="mono" style="font-size:12px;color:var(--signal)">▸ Work item created · No decision yet</span>
           </div>
         </div>
-
         <div class="demo-control-bar" style="margin-top:20px">
           <button class="btn btn-primary" id="demoNext1" style="background:var(--signal);color:var(--bg);border-color:var(--signal)">Continue →</button>
           <button class="btn btn-ghost" id="demoReplay1">Replay</button>
@@ -120,7 +115,6 @@
             <span class="mono" style="font-size:12px;color:var(--dk)">▸ No assumptions made · Missing details flagged</span>
           </div>
         </div>
-
         <div class="demo-control-bar" style="margin-top:20px">
           <button class="btn btn-primary" id="demoNext2" style="background:var(--signal);color:var(--bg);border-color:var(--signal)">Details received →</button>
           <button class="btn btn-ghost" id="demoPrev2">← Back</button>
@@ -148,7 +142,6 @@
             <p><strong style="color:var(--signal)">Quote preparation stays with your team.</strong> Twinthos has handled the coordination — the quotation itself is your expertise.</p>
           </div>
         </div>
-
         <div class="demo-control-bar" style="margin-top:20px">
           <button class="btn btn-primary" id="demoNext3" style="background:var(--signal);color:var(--bg);border-color:var(--signal)">Quote prepared →</button>
           <button class="btn btn-ghost" id="demoPrev3">← Back</button>
@@ -175,7 +168,6 @@
             <p style="font-size:14px;color:var(--dk)">This is where Twinthos hands off to your team. The quote is yours — the follow-up trigger is set.</p>
           </div>
         </div>
-
         <div class="demo-control-bar" style="margin-top:20px">
           <button class="btn btn-primary" id="demoNext3b" style="background:var(--signal);color:var(--bg);border-color:var(--signal)">Follow-up sent →</button>
           <button class="btn btn-ghost" id="demoPrev3b">← Back</button>
@@ -205,10 +197,10 @@
             <p style="font-size:14px;color:var(--dk)">No more chasing. The record is current. The next step is visible.</p>
           </div>
         </div>
-
         <div class="demo-control-bar" style="margin-top:20px">
           <button class="btn btn-ghost" id="demoReplay4">Replay</button>
           <button class="btn btn-ghost" id="demoReset">Reset</button>
+          <button class="btn btn-ghost" id="demoPause" style="display:none">Pause</button>
           <span style="font-size:13px;color:var(--dk);margin-left:auto">Illustrative example · sample data · no real messages sent</span>
         </div>
       </div>
@@ -228,7 +220,7 @@
             <div class="demo-status-row">
               <span class="demo-status pending">⚠ Discount request: 15%</span>
               <span class="demo-status pending">Approval required</span>
-              <span class="demo-status">Policy: discounts above 10% need approval</span>
+              <span class="demo-status">Policy: Discounts above 10% need approval</span>
             </div>
             <p style="margin-top:12px;font-size:15px;color:var(--lt)">The request and the relevant details are ready for your team to review. The quote has <strong style="color:var(--signal)">not</strong> been changed.</p>
           </div>
@@ -236,11 +228,11 @@
             <p style="font-size:14px;color:var(--dk)">This is the decision that stays with you. Twinthos surfaces it — your team decides.</p>
           </div>
         </div>
-
         <div class="demo-control-bar" style="margin-top:20px">
-          <button class="btn btn-ghost" id="demoShowApproval" style="background:var(--signal);color:var(--bg);border-color:var(--signal)">See full approval step →</button>
+          <button class="btn btn-ghost" id="demoShowApproval" style="background:var(--signal);color:var(--bg);border-color:var(--signal)">See the approval step →</button>
           <button class="btn btn-ghost" id="demoBackFromException">← Back to completion</button>
           <button class="btn btn-ghost" id="demoReplay4b">Replay</button>
+          <button class="btn btn-ghost" id="demoPause" style="display:none">Pause</button>
           <span style="font-size:13px;color:var(--dk);margin-left:auto">Illustrative example · sample data</span>
         </div>
       </div>
@@ -274,22 +266,20 @@
             <p style="font-size:14px;color:var(--dk)">No automation bypasses this step. The policy is clear. The decision is yours.</p>
           </div>
         </div>
-
         <div class="demo-control-bar" style="margin-top:20px">
           <button class="btn btn-ghost" id="demoBackFromApproval">← Back to exception</button>
           <button class="btn btn-ghost" id="demoReplay5">Replay</button>
+          <button class="btn btn-ghost" id="demoPause" style="display:none">Pause</button>
           <span style="font-size:13px;color:var(--dk);margin-left:auto">Illustrative example · sample data</span>
         </div>
       </div>
 
     </div><!-- /demo-frame -->
 
-    <!-- Permanent disclosure -->
     <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--hair);font-size:13px;color:var(--dk)">
       <p><strong>Illustrative example using sample data.</strong> No real messages are sent. No real customer information is used. This is one illustrative way Twinthos could handle a process — it is not a claim of an existing deployment or a promise of specific results.</p>
     </div>
 
-    <!-- Keyboard help -->
     <div style="margin-top:16px;font-size:12px;color:var(--dk);font-family:var(--mono);letter-spacing:.06em">
       Keyboard: <span style="color:var(--signal)">Space</span> play/pause · <span style="color:var(--signal)">R</span> replay · <span style="color:var(--signal)">Esc</span> reset
     </div>
@@ -297,12 +287,9 @@
   </div>
 </section>
 
-<!-- What this demonstrates -->
 <section style="border-top:1px solid var(--hair);padding-bottom:clamp(48px,6vw,64px)">
   <div class="wrap">
-    <div class="divider-label">
-      <span>What this shows</span>
-    </div>
+    <div class="divider-label"><span>What this shows</span></div>
     <div style="display:grid;gap:20px;max-width:720px">
       <div style="display:grid;gap:6px;padding:16px 0;border-top:1px solid var(--hair)">
         <span class="mono" style="font-size:12px;color:var(--signal);letter-spacing:.08em">0–2s</span>
@@ -370,4 +357,3 @@
 <script src="/site.js" defer></script>
 </body>
 </html>
-<!-- rebuilt 2026-09-27T20:52:26Z — commercial rewrite verification -->
