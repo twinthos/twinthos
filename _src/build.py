@@ -14,7 +14,7 @@ VER = hashlib.sha1((css + js).encode()).hexdigest()[:8]
 
 fav = open(f"{OUT}/favicon.svg").read()
 MARK_D = re.search(r'<path[^>]*d="([^"]+)"', fav).group(1)
-MARK = f'<svg viewBox="8 8 50 50" aria-hidden="true"><path fill="currentColor" d="{MARK_D}"/></svg>'
+MARK = f'<svg viewBox="8 8 48 48" aria-hidden="true"><path fill="currentColor" d="{MARK_D}"/></svg>'
 
 ARROW = '<svg class="ar" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>'
 NAV = [("How it works", "/how-it-works/", "how"), ("Demo", "/demo/", "demo"), ("Pricing", "/pricing/", "pricing"),
@@ -55,7 +55,7 @@ def layout(meta, body):
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..600&family=Geist+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/assets/tw.css?v={VER}">
 <script src="/assets/tw.js?v={VER}" defer></script>
 {ld}
@@ -85,6 +85,7 @@ def layout(meta, body):
       <div><h4>Start</h4><ul><li><a href="/book/">Book a 15-minute fit call</a></li><li><a href="mailto:hello@twinthos.com">hello@twinthos.com</a></li></ul></div>
     </div>
     <div class="foot-base"><span>© 2026 Twinthos. Work handled. Time returned.</span><span><a href="/privacy/">Privacy</a> &nbsp;·&nbsp; <a href="/terms/">Terms</a></span></div>
+    <p class="foot-mark" aria-hidden="true">Twinthos</p>
   </div>
 </footer>
 </body>

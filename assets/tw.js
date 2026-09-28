@@ -136,3 +136,53 @@
   d.addEventListener('visibilitychange',function(){ if(d.hidden) v.pause(); else sync(); });
   sync();
 })();
+
+/* Authority Line instrument: routine work flows below the line and completes on its own.
+   One exception rises above the line, waits for the team, is approved, and rejoins the flow.
+   Time-based, transform-only, pauses off screen. Reduced motion keeps the authored static frame. */
+(function(){
+  var d=document, root=d.querySelector('[data-al]'); if(!root) return;
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var stage=root.querySelector('[data-al-stage]'); if(!stage) return;
+  var LAB=['Enquiry logged','Missing details requested','Follow-up sent','Customer record updated','Next action assigned','Document received','Reminder sent','Booking confirmed'];
+  var STEP=[1,6,19,4,11,2,9,14], mins=9*60+10, n=0, acc=1e9, items=[], W=0, V=56, DY=-84, GAP=260, onScreen=true, raf=0, last=0;
+  function eo(t){return t>=1?1:1-Math.pow(2,-10*t);}           /* expo out  */
+  function io(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}   /* cubic in-out */
+  function hhmm(){mins+=STEP[n%8];var h=Math.floor(mins/60)%24,m=mins%60;return (h<10?'0':'')+h+':'+(m<10?'0':'')+m;}
+  function measure(){W=stage.clientWidth;var sm=W<700;V=sm?40:58;DY=sm?-74:-84;GAP=Math.max(sm?220:320,W/4.2);}
+  function spawn(){
+    var exc=(n%7===4), el=d.createElement('span'); el.className='al-it'+(exc?' exc':'');
+    var t=d.createElement('time'); t.textContent=hhmm(); el.appendChild(t);
+    el.appendChild(d.createTextNode(exc?'Asks for 15% off':LAB[n%LAB.length]));
+    if(exc){var em=d.createElement('em');em.textContent='Waiting for you';el.appendChild(em);}
+    stage.appendChild(el); var w=el.offsetWidth;
+    items.push({el:el,x:-w-24,y:0,exc:exc,st:0,t:0,done:false,em:el.querySelector('em'),lab:el.childNodes[1]}); n++;
+  }
+  function update(dt){
+    acc+=V*dt; if(acc>=GAP){acc=0;spawn();}
+    for(var i=items.length-1;i>=0;i--){
+      var it=items[i];
+      if(it.exc&&it.st<4){
+        if(it.st===0){it.x+=V*dt; if(it.x>=W*.40){it.st=1;it.t=0;}}
+        else{ it.t+=dt;
+          if(it.st===1){it.y=DY*eo(it.t/1.0); if(it.t>=1.0){it.st=2;it.t=0;}}            /* rises to the team */
+          else if(it.st===2){ if(it.t>=2.6){it.st=3;it.t=0;it.em.textContent='Approved by your team';it.el.classList.add('ok');}}
+          else if(it.st===3){ if(it.t>=1.1){ var k=Math.min(1,(it.t-1.1)/.8); it.y=DY*(1-io(k));
+              if(k>=1){it.st=4;it.y=0;it.em.remove();it.el.classList.remove('exc','ok');it.lab.nodeValue='Agreed discount applied';}}}
+        }
+      } else { it.x+=V*dt; }
+      if(!it.done&&!it.exc&&it.x>W*.6){it.done=true;it.el.classList.add('done');}
+      if(it.x>W+40){it.el.remove();items.splice(i,1);continue;}
+      it.el.style.transform='translate3d('+it.x.toFixed(1)+'px,'+it.y.toFixed(1)+'px,0)';
+    }
+  }
+  function frame(ts){ if(!last)last=ts; var dt=Math.min(.05,(ts-last)/1000); last=ts; update(dt); raf=requestAnimationFrame(frame); }
+  function play(){ if(!raf&&onScreen&&!d.hidden){last=0;raf=requestAnimationFrame(frame);} }
+  function stop(){ if(raf){cancelAnimationFrame(raf);raf=0;} }
+  stage.innerHTML=''; root.classList.add('js-al'); measure();
+  for(var s=0;s<260;s++) update(.1);   /* start mid-flow, never on an empty line */
+  window.addEventListener('resize',measure,{passive:true});
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(en){onScreen=en[0].isIntersecting; onScreen?play():stop();}).observe(root); }
+  d.addEventListener('visibilitychange',function(){ d.hidden?stop():play(); });
+  play();
+})();
