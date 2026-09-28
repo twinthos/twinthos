@@ -115,7 +115,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero-copy .lead+.lead{margin-top:12px}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 .hero-support{font-size:14px;color:var(--mute);margin:14px 0 0}
-.hero-meta span{color:var(--mute)}
+.hero-meta span{color:var(--ink-2)}
 .hero-meta{display:flex;flex-wrap:wrap;gap:4px 16px;margin:24px 0 0;padding-top:16px;max-width:640px;border-top:1px solid var(--line);font-size:15px;color:var(--ink-2)}
 .hero-meta strong{color:var(--ink);font-weight:500}
 .hero-side{grid-column:9/13}
