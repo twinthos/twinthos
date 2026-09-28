@@ -1,9 +1,11 @@
 <!--{"title":"Twinthos · Managed AI for business operations","desc":"Twinthos builds and manages AI agents that carry recurring operational work through your existing systems, with your team handling the decisions that need them. £5,000/month for an agreed scope.","path":"","nav":""}-->
 <section class="hero">
   <div class="wrap hero-grid">
-    <div class="hero-copy">
+    <div class="hero-head">
       <p class="eyebrow rv"><span class="dot"></span>Managed AI for business operations</p>
-      <h1 class="h1 rv"><span class="ln">Your business shouldn’t</span><span class="ln">run on reminders.</span></h1>
+      <h1 class="h1 hero-h1"><span class="ln"><span class="w">Your business shouldn’t</span></span> <span class="ln"><span class="w">run on reminders.</span></span></h1>
+    </div>
+    <div class="hero-copy">
       <p class="lead rv">An enquiry needs a reply. A quote needs a follow-up. A client file needs one more document.</p>
       <p class="lead rv">Twinthos builds and manages AI agents that carry this work through your existing systems, with your team handling the decisions that need them.</p>
       <div class="hero-actions rv">
@@ -14,16 +16,16 @@
       <p class="hero-meta rv"><strong>Managed service: £5,000/month</strong> for an agreed scope <span>· 3-month minimum · excl. VAT</span></p>
     </div>
     <aside class="hero-side" aria-label="Completed example">
-      <p class="tag-ill" style="margin-bottom:14px">Illustrative example · sample data</p>
-      <div class="ledger">
-        <div class="ledger-hd"><span>Quote enquiry · BV Controls</span><span class="live">Complete</span></div>
-        <div class="ledger-row rv"><time>Mon 09:14</time><span class="what">Enquiry received</span><span class="st">logged</span></div>
-        <div class="ledger-row rv"><time>Mon 09:15</time><span class="what">Missing details requested</span><span class="st">sent</span></div>
-        <div class="ledger-row rv"><time>Mon 11:03</time><span class="what">Assigned to your team to quote</span><span class="st">yours</span></div>
-        <div class="ledger-row done rv"><time>Thu 10:00</time><span class="what">Follow-up sent</span><span class="st"><span class="tick"></span></span></div>
-        <div class="ledger-row done rv"><time>10:00</time><span class="what">Customer record updated</span><span class="st"><span class="tick"></span></span></div>
-        <div class="ledger-row done rv"><time>10:01</time><span class="what">Next action recorded</span><span class="st"><span class="tick"></span></span></div>
-        <p class="ledger-sum rv"><b>Nobody had to remember.</b> The enquiry has a next step and the record is current.</p>
+      <div class="ledger-top"><p class="tag-ill">Illustrative example · sample data</p><button class="ledger-replay" type="button" data-replay hidden>Replay</button></div>
+      <div class="ledger" data-ledger>
+        <div class="ledger-hd"><span>Quote enquiry · BV Controls</span><span class="ledger-state" aria-live="polite"><span class="clock num" data-clock>Thu 10:01</span><span class="live" data-state>Complete</span></span></div>
+        <div class="ledger-row"><time>Mon 09:14</time><span class="what">Enquiry received</span><span class="st">logged</span></div>
+        <div class="ledger-row"><time>Mon 09:15</time><span class="what">Missing details requested</span><span class="st">sent</span></div>
+        <div class="ledger-row"><time>Mon 11:03</time><span class="what">Assigned to your team to quote</span><span class="st">yours</span></div>
+        <div class="ledger-row done"><time>Thu 10:00</time><span class="what">Follow-up sent</span><span class="st"><span class="tick"></span></span></div>
+        <div class="ledger-row done"><time>Thu 10:00</time><span class="what">Customer record updated</span><span class="st"><span class="tick"></span></span></div>
+        <div class="ledger-row done"><time>Thu 10:01</time><span class="what">Next action recorded</span><span class="st"><span class="tick"></span></span></div>
+        <p class="ledger-sum"><b>Nobody had to remember.</b> The enquiry has a next step and the record is current.</p>
       </div>
     </aside>
   </div>
@@ -40,12 +42,13 @@
     </div>
     <div class="grid12"><div class="col-body">
       <ul class="drag-list" aria-label="Questions that signal operational drag">
-        <li><span class="who">Monday, 09:02</span><span class="q">Did anyone reply to them?</span></li>
-        <li><span class="who">Monday, 11:40</span><span class="q">Can you chase this?</span></li>
-        <li><span class="who">Tuesday, 15:15</span><span class="q">Has the record been updated?</span></li>
-        <li><span class="who">Wednesday, 10:30</span><span class="q">Who owns this now?</span></li>
-        <li><span class="who">Friday, 16:55</span><span class="q">Can you remind me next week?</span></li>
+        <li><span class="who">Monday, 09:02</span><span class="q"><span class="qt">Did anyone reply to them?</span></span><span class="res"><span class="tick"></span>Handled</span></li>
+        <li><span class="who">Monday, 11:40</span><span class="q"><span class="qt">Can you chase this?</span></span><span class="res"><span class="tick"></span>Handled</span></li>
+        <li><span class="who">Tuesday, 15:15</span><span class="q"><span class="qt">Has the record been updated?</span></span><span class="res"><span class="tick"></span>Handled</span></li>
+        <li><span class="who">Wednesday, 10:30</span><span class="q"><span class="qt">Who owns this now?</span></span><span class="res"><span class="tick"></span>Handled</span></li>
+        <li><span class="who">Friday, 16:55</span><span class="q"><span class="qt">Can you remind me next week?</span></span><span class="res"><span class="tick"></span>Handled</span></li>
       </ul>
+      <p class="drag-cap small">When the follow-through is handled, each of these already has an answer in the record. Nobody needs to ask.</p>
       <div class="drag-def">
         <p class="eyebrow rv" style="margin-bottom:18px">The name for it</p>
         <h3 class="h2 rv">That is operational drag.</h3>

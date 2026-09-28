@@ -66,7 +66,7 @@ def layout(meta, body):
   <div class="wrap">
     <a class="brand" href="/" aria-label="Twinthos home">{MARK}<span>Twinthos</span></a>
     <nav class="nav-links" id="navLinks" aria-label="Main">{links}</nav>
-    <a class="btn btn-ink btn-sm" href="/book/">Book a fit call</a>
+    <a class="btn btn-ink btn-sm" href="/book/">Request a fit call</a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
   </div>
 </header>
