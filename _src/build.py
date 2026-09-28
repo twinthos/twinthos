@@ -14,7 +14,7 @@ VER = hashlib.sha1((css + js).encode()).hexdigest()[:8]
 
 fav = open(f"{OUT}/favicon.svg").read()
 MARK_D = re.search(r'<path[^>]*d="([^"]+)"', fav).group(1)
-MARK = f'<svg viewBox="176 176 364 364" aria-hidden="true"><path fill="currentColor" d="{MARK_D}"/></svg>'
+MARK = f'<svg viewBox="8 8 50 50" aria-hidden="true"><path fill="currentColor" d="{MARK_D}"/></svg>'
 
 ARROW = '<svg class="ar" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>'
 NAV = [("How it works", "/how-it-works/", "how"), ("Demo", "/demo/", "demo"), ("Pricing", "/pricing/", "pricing"),

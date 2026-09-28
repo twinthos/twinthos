@@ -122,3 +122,13 @@
 .drag-list .qt{background:linear-gradient(var(--mute),var(--mute)) 0 56%/0 1.5px no-repeat;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .9s cubic-bezier(.65,0,.35,1)}
 .drag-list.struck .qt{background-size:100% 1.5px}
 @media (max-width:900px){.stage{min-height:460px}}
+
+/* Showreel */
+.reel-head{display:grid;gap:18px;margin-bottom:clamp(32px,4vw,56px);max-width:44em}
+.reel-frame{position:relative;margin:0;border:1px solid var(--line);background:#000;aspect-ratio:16/9;overflow:hidden}
+.reel-video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
+.reel-toggle{position:absolute;left:16px;bottom:16px;font:500 12px/1 Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink);background:rgba(0,0,0,.6);border:1px solid var(--line-2);padding:9px 12px;cursor:pointer}
+.reel-toggle:hover{border-color:var(--ink)}
+.reel-toggle:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+.reel-cap{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}

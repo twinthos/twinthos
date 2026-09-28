@@ -121,3 +121,18 @@
     });
   });
 })();
+
+/* Showreel: muted autoplay only while on screen; honours reduced motion; explicit pause control */
+(function(){
+  var d=document, v=d.querySelector('.reel-video'); if(!v) return;
+  var b=d.querySelector('.reel-toggle'), RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var want=!RM, onScreen=false;
+  if(window.innerWidth<900&&v.dataset.srcSm){v.src=v.dataset.srcSm;}
+  function sync(){ if(want&&onScreen){var p=v.play(); if(p&&p.catch)p.catch(function(){});} else v.pause();
+    b.textContent=want?'Pause':'Play'; b.setAttribute('aria-pressed',String(!want)); }
+  b.addEventListener('click',function(){want=!want; if(want&&v.ended)v.currentTime=0; sync();});
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(en){en.forEach(function(x){onScreen=x.isIntersecting; sync();});},{threshold:.35}).observe(v); }
+  else { onScreen=true; }
+  d.addEventListener('visibilitychange',function(){ if(d.hidden) v.pause(); else sync(); });
+  sync();
+})();
