@@ -4,63 +4,64 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Security and data · Twinthos</title>
-<meta name="description" content="Before an agent operates in your business you should know what it can access, what it can do and who is responsible. The five questions we answer in writing before activation.">
+<meta name="description" content="Before a Twinthos workflow runs, you get written answers about access, processing, separation, records and what happens when the service ends.">
 <link rel="canonical" href="https://twinthos.com/security/">
-<meta name="theme-color" content="#050505">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#F4F0E6">
+<meta name="color-scheme" content="light">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Twinthos">
 <meta property="og:url" content="https://twinthos.com/security/">
 <meta property="og:title" content="Security and data · Twinthos">
-<meta property="og:description" content="Before an agent operates in your business you should know what it can access, what it can do and who is responsible. The five questions we answer in writing before activation.">
+<meta property="og:description" content="Before a Twinthos workflow runs, you get written answers about access, processing, separation, records and what happens when the service ends.">
 <meta property="og:image" content="https://twinthos.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@300..600&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=Geist+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/tw.css?v=f551c4cc">
-<script src="/assets/tw.js?v=f551c4cc" defer></script>
+<link rel="preload" href="/assets/fonts/InterTight-normal-400-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/tw.css?v=c065f1a9">
+<script>document.documentElement.classList.replace('no-js','js')</script>
+<script src="/assets/tw.js?v=c065f1a9" defer></script>
 
 </head>
-<body>
+<body class="pg-page">
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav">
-  <div class="wrap">
+  <div class="wrap nav-in">
     <a class="brand" href="/" aria-label="Twinthos home"><svg viewBox="8 8 48 48" aria-hidden="true"><path fill="currentColor" d="M11 12H30.75V52H26V20H11ZM33.25 12H53V20H38V52H33.25Z"/></svg><span>Twinthos</span></a>
-    <nav class="nav-links" id="navLinks" aria-label="Main"><a href="/how-it-works/">How it works</a><a href="/demo/">Demo</a><a href="/pricing/">Pricing</a><a href="/operations-audit/">Audit</a><a href="/security/" aria-current="page">Security</a><a href="/about/">About</a></nav>
-    <a class="btn btn-ink btn-sm" href="/book/">Request a fit call</a>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+    <a class="nav-price" href="/pricing/">Pricing</a>
+    <nav class="nav-links" id="navLinks" aria-label="Main"><a href="/how-it-works/">How it works</a><a href="/security/" aria-current="page">Security</a><a href="/about/">About</a><a class="nav-book" href="/book/?interest=fit">Request a call</a></nav>
+    <a class="btn btn-ink btn-sm nav-cta" href="/book/?interest=fit">Request a call</a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
   </div>
 </header>
 <main id="main">
 
-<section class="phero">
+<section class="phead">
   <div class="wrap">
-    <p class="eyebrow rv"><span class="dot"></span>Security and data</p>
-    <h1 class="h1 rv">Know what has access. <span class="dim">Know who is responsible.</span></h1>
-    <p class="lead rv">Before an agent operates in your business, you should understand the information it needs, the actions it can take and the people responsible for the service. The specifics depend on your systems, so we document them for each client.</p>
+    <p class="eyebrow">Security and data</p>
+    <h1 class="d2">Know what it can reach. Know who is responsible.</h1>
+    <p class="lede">Every setup is different, so we write the answers down for your setup. You see them before anything goes live.</p>
   </div>
 </section>
-<section class="sec">
+<section class="psec">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-idx"><span class="n">01</span><span class="eyebrow">Answered in writing</span></div>
-      <div class="sec-title"><h2 class="h2">Five questions, answered before anything runs.</h2><p class="lead">Not a policy page. The answers are specific to your setup, and you see them before a workflow is activated.</p></div>
+    <h2 class="d3 psec-h">Five questions, answered in writing</h2>
+    <ol class="steps steps-2">
+      <li><span class="n">01</span><div><h3>Access</h3><p>What it can see, why it needs it, and which actions need a person’s approval.</p></div></li>
+      <li><span class="n">02</span><div><h3>Processing</h3><p>Where data is hosted, and which providers and AI models are used, including their training settings.</p></div></li>
+      <li><span class="n">03</span><div><h3>Separation</h3><p>How your setup is kept apart from other clients, and how passwords and access are given and taken away.</p></div></li>
+      <li><span class="n">04</span><div><h3>Records</h3><p>What is logged, for how long, and how you can export or delete it.</p></div></li>
+      <li><span class="n">05</span><div><h3>Problems and endings</h3><p>Who handles incidents, and what happens to data, access and records when the service ends.</p></div></li>
+    </ol>
+  </div>
+</section>
+<section class="psec psec-alt">
+  <div class="wrap two">
+    <div><h2 class="d3 psec-h">A note on claims</h2></div>
+    <div class="prose">
+      <p>We do not claim that all processing happens in the UK. Where a computer sits does not tell you how every provider in a workflow handles data.</p>
+      <p>If that matters to you, we will write down exactly what each provider in your setup does.</p>
+      <p><a class="tlink" href="/book/?interest=unsure">Ask a specific question</a></p>
     </div>
-    <div class="rows">
-      <div class="row"><span class="n">01 · Access</span><h3>What is accessed, why, and which actions need approval</h3><p>The data each workflow needs and the reason for it, and which actions sit within the agent’s authority versus which require a person.</p></div>
-      <div class="row"><span class="n">02 · Processing</span><h3>Where data is hosted and which providers and models are involved</h3><p>The providers, hosting locations and model settings your workflow actually uses, including their training settings.</p></div>
-      <div class="row"><span class="n">03 · Separation</span><h3>How clients are separated and credentials are granted and revoked</h3><p>How environments are isolated, how credentials are scoped, and how access ends when a workflow or a team member changes.</p></div>
-      <div class="row"><span class="n">04 · Records</span><h3>What activity is recorded, and how retention, export and deletion work</h3><p>What the service logs, for how long, how you can export it and how deletion is handled.</p></div>
-      <div class="row"><span class="n">05 · Incidents</span><h3>Who handles incidents and what happens when the service ends</h3><p>Escalation, responsibility and the wind-down: data, credentials and records.</p></div>
-    </div>
-    <div class="grid12"><div class="col-body"><div class="note">
-      <span class="p-kind">A note on claims</span>
-      <p>We do not claim UK-only processing. A UK machine location does not establish how every provider in a workflow processes data. If that matters for your business, we will document exactly what each provider in your setup does.</p>
-    </div>
-    <div class="hero-actions" style="margin-top:40px"><a class="btn btn-line" href="mailto:hello@twinthos.com?subject=Security%20question">Ask a specific question</a></div>
-    </div></div>
   </div>
 </section>
 
@@ -68,16 +69,15 @@
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div>
+      <div class="foot-brand">
         <a class="brand" href="/" aria-label="Twinthos home"><svg viewBox="8 8 48 48" aria-hidden="true"><path fill="currentColor" d="M11 12H30.75V52H26V20H11ZM33.25 12H53V20H38V52H33.25Z"/></svg><span>Twinthos</span></a>
-        <p style="margin-top:16px;max-width:22em">Managed AI workflows. Built around your business.</p>
+        <p class="foot-line">Work handled. Time returned.</p>
       </div>
-      <div><h4>Service</h4><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/demo/">Demo</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/operations-audit/">Operations audit</a></li></ul></div>
-      <div><h4>Company</h4><ul><li><a href="/about/">About</a></li><li><a href="/security/">Security and data</a></li><li><a href="/faq/">Questions</a></li></ul></div>
-      <div><h4>Start</h4><ul><li><a href="/book/">Request a 15-minute call</a></li><li><a href="mailto:hello@twinthos.com">hello@twinthos.com</a></li></ul></div>
+      <div><h2 class="foot-h">Service</h2><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/operations-audit/">Operations audit</a></li></ul></div>
+      <div><h2 class="foot-h">Company</h2><ul><li><a href="/about/">About</a></li><li><a href="/security/">Security and data</a></li><li><a href="/faq/">Questions</a></li></ul></div>
+      <div><h2 class="foot-h">Start</h2><ul><li><a href="/book/?interest=fit">Request a 15-minute call</a></li><li><a href="mailto:hello@twinthos.com">hello@twinthos.com</a></li></ul></div>
     </div>
-    <div class="foot-base"><span>© 2026 Twinthos. Work handled. Time returned.</span><span><a href="/privacy/">Privacy</a> &nbsp;·&nbsp; <a href="/terms/">Terms</a></span></div>
-    <p class="foot-mark" aria-hidden="true">Twinthos</p>
+    <div class="foot-base"><span>© 2026 Twinthos</span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>
   </div>
 </footer>
 </body>

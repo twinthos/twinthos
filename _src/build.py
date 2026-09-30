@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
-"""Twinthos static build. Source: _src/. Output: repo root. Run: python3 _src/build.py"""
-import os, re, json, glob, html, hashlib
+"""Twinthos static build. Source: _src/. Output: repo root. Run: python3 _src/build.py
+PREVIEW=1 marks every page noindex (private review builds)."""
+import os, re, json, glob, html, hashlib, sys
 SRC = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.dirname(SRC)
 SITE = "https://twinthos.com"
+PREVIEW = os.environ.get("PREVIEW") == "1"
+sys.path.insert(0, SRC)
+import wheel
 
 css = "".join(open(p).read() for p in sorted(glob.glob(f"{SRC}/css/*.css")))
-js = open(f"{SRC}/js/tw.js").read()
+js = open(f"{SRC}/js/tw.js").read().replace("/*GEO*/{}", wheel.geo_js())
 os.makedirs(f"{OUT}/assets", exist_ok=True)
 open(f"{OUT}/assets/tw.css", "w").write(css)
 open(f"{OUT}/assets/tw.js", "w").write(js)
@@ -15,25 +19,35 @@ VER = hashlib.sha1((css + js).encode()).hexdigest()[:8]
 fav = open(f"{OUT}/favicon.svg").read()
 MARK_D = re.search(r'<path[^>]*d="([^"]+)"', fav).group(1)
 MARK = f'<svg viewBox="8 8 48 48" aria-hidden="true"><path fill="currentColor" d="{MARK_D}"/></svg>'
+ARROW = '<svg class="ar" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>'
+NAV = [("How it works", "/how-it-works/", "how"), ("Security", "/security/", "security"), ("About", "/about/", "about")]
 
-ARROW = '<svg class="ar" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>'
-NAV = [("How it works", "/how-it-works/", "how"), ("Demo", "/demo/", "demo"), ("Pricing", "/pricing/", "pricing"),
-       ("Audit", "/operations-audit/", "audit"), ("Security", "/security/", "security"), ("About", "/about/", "about")]
+PARTS = {"wheel": wheel.wheel_svg, "hero_wheel": lambda: wheel.wheel_svg("hero-svg"),
+         "map_audit": lambda: wheel.map_svg("audit"), "map_managed": lambda: wheel.map_svg("managed")}
 
 def partial(name):
-    return open(f"{SRC}/partials/{name}.html").read()
+    if name in PARTS:
+        return PARTS[name]()
+    body = open(f"{SRC}/partials/{name}.html").read()
+    return re.sub(r"\{\{(\w+)\}\}", lambda x: partial(x.group(1)), body)
 
 def layout(meta, body):
     title = meta["title"]; desc = meta["desc"]; path = meta["path"]; key = meta.get("nav", "")
-    links = "".join(f'<a href="{h}"{" aria-current=\"page\"" if k == key else ""}>{t}</a>' for t, h, k in NAV)
-    robots = '<meta name="robots" content="noindex">' if meta.get("noindex") else ""
+    home = path == ""
+    pricing = "#pricing" if home else "/pricing/"
+    cur = lambda k: ' aria-current="page"' if k == key else ""
+    links = "".join(f'<a href="{h}"{cur(k)}>{t}</a>' for t, h, k in NAV)
+    robots = '<meta name="robots" content="noindex, nofollow">\n' if (meta.get("noindex") or PREVIEW) else ""
     ld = ""
-    if path == "":
+    if home:
         ld = '<script type="application/ld+json">' + json.dumps({
             "@context": "https://schema.org", "@type": "ProfessionalService", "name": "Twinthos",
             "url": SITE + "/", "email": "hello@twinthos.com", "areaServed": "GB",
-            "description": "Managed AI for business operations. Twinthos builds and manages AI agents that carry recurring operational work through existing systems.",
-            "priceRange": "£999–£5,000/month"}) + '</script>'
+            "description": "Twinthos builds and manages recurring work across a business's existing tools. Decisions outside agreed rules go to the client's team.",
+            "makesOffer": [
+                {"@type": "Offer", "name": "Operations audit", "price": "999", "priceCurrency": "GBP", "description": "One-off written assessment and plan."},
+                {"@type": "Offer", "name": "Managed workflow", "price": "5000", "priceCurrency": "GBP", "description": "Monthly implementation and management of one agreed workflow. Three-month minimum."}]},
+            ensure_ascii=False) + '</script>'
     body = body.replace('<span class="ar">→</span>', ARROW)
     return f'''<!DOCTYPE html>
 <html lang="en-GB" class="no-js">
@@ -43,8 +57,8 @@ def layout(meta, body):
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
 {robots}<link rel="canonical" href="{SITE}/{path}">
-<meta name="theme-color" content="#050505">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#F4F0E6">
+<meta name="color-scheme" content="light">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Twinthos">
@@ -53,21 +67,21 @@ def layout(meta, body):
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:image" content="{SITE}/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@300..600&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="preload" href="/assets/fonts/InterTight-normal-400-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/tw.css?v={VER}">
+<script>document.documentElement.classList.replace('no-js','js')</script>
 <script src="/assets/tw.js?v={VER}" defer></script>
 {ld}
 </head>
-<body>
+<body class="pg-{meta.get('body', 'page')}">
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav">
-  <div class="wrap">
+  <div class="wrap nav-in">
     <a class="brand" href="/" aria-label="Twinthos home">{MARK}<span>Twinthos</span></a>
-    <nav class="nav-links" id="navLinks" aria-label="Main">{links}</nav>
-    <a class="btn btn-ink btn-sm" href="/book/">Request a fit call</a>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+    <a class="nav-price" href="{pricing}"{cur('pricing')}>Pricing</a>
+    <nav class="nav-links" id="navLinks" aria-label="Main">{links}<a class="nav-book" href="/book/?interest=fit">Request a call</a></nav>
+    <a class="btn btn-ink btn-sm nav-cta" href="/book/?interest=fit">Request a call</a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
   </div>
 </header>
 <main id="main">
@@ -76,16 +90,15 @@ def layout(meta, body):
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div>
+      <div class="foot-brand">
         <a class="brand" href="/" aria-label="Twinthos home">{MARK}<span>Twinthos</span></a>
-        <p style="margin-top:16px;max-width:22em">Managed AI workflows. Built around your business.</p>
+        <p class="foot-line">Work handled. Time returned.</p>
       </div>
-      <div><h4>Service</h4><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/demo/">Demo</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/operations-audit/">Operations audit</a></li></ul></div>
-      <div><h4>Company</h4><ul><li><a href="/about/">About</a></li><li><a href="/security/">Security and data</a></li><li><a href="/faq/">Questions</a></li></ul></div>
-      <div><h4>Start</h4><ul><li><a href="/book/">Request a 15-minute call</a></li><li><a href="mailto:hello@twinthos.com">hello@twinthos.com</a></li></ul></div>
+      <div><h2 class="foot-h">Service</h2><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/operations-audit/">Operations audit</a></li></ul></div>
+      <div><h2 class="foot-h">Company</h2><ul><li><a href="/about/">About</a></li><li><a href="/security/">Security and data</a></li><li><a href="/faq/">Questions</a></li></ul></div>
+      <div><h2 class="foot-h">Start</h2><ul><li><a href="/book/?interest=fit">Request a 15-minute call</a></li><li><a href="mailto:hello@twinthos.com">hello@twinthos.com</a></li></ul></div>
     </div>
-    <div class="foot-base"><span>© 2026 Twinthos. Work handled. Time returned.</span><span><a href="/privacy/">Privacy</a> &nbsp;·&nbsp; <a href="/terms/">Terms</a></span></div>
-    <p class="foot-mark" aria-hidden="true">Twinthos</p>
+    <div class="foot-base"><span>© 2026 Twinthos</span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>
   </div>
 </footer>
 </body>
@@ -112,16 +125,16 @@ for name, files in groups.items():
     built.append(meta)
 
 REDIRECTS = {"services/": "/how-it-works/", "audit/": "/operations-audit/", "questions/": "/faq/",
-             "demos/": "/demo/", "contact/": "/book/", "thankyou/": "/book/"}
+             "demo/": "/#wheel", "demos/": "/#wheel", "contact/": "/book/", "thankyou/": "/book/"}
 for src, to in REDIRECTS.items():
     os.makedirs(f"{OUT}/{src}", exist_ok=True)
     open(f"{OUT}/{src}index.html", "w").write(
         f'<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8"><title>Twinthos</title>'
         f'<meta name="robots" content="noindex"><link rel="canonical" href="{SITE}{to}">'
         f'<meta http-equiv="refresh" content="0; url={to}"></head>'
-        f'<body style="background:#050505;color:#F4F4F0;font-family:sans-serif"><a href="{to}" style="color:#F4F4F0">Continue to {to}</a></body></html>')
+        f'<body style="background:#F4F0E6;color:#161815;font-family:sans-serif"><a href="{to}">Continue</a></body></html>')
 
 urls = [m["path"] for m in built if not m.get("noindex") and m["path"] != "404"]
 open(f"{OUT}/sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"<url><loc>{SITE}/{u}</loc></url>\n" for u in sorted(urls, key=lambda u: (u != "", u))) + "</urlset>\n")
-print(f"built {len(built)} pages, {len(REDIRECTS)} redirects, css {len(css)}B js {len(js)}B v={VER}")
+print(f"built {len(built)} pages, {len(REDIRECTS)} redirects, css {len(css)}B js {len(js)}B v={VER} preview={PREVIEW}")
