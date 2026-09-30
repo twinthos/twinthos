@@ -775,11 +775,13 @@ body{font-family:var(--f);font-size:16px;line-height:1.55;color:var(--light);bac
   .hx-footbar .btn{justify-content:center}
   .hx-footprice{margin-left:0;text-align:center;justify-content:center}
   .hx-stage{min-height:clamp(440px,68vh,680px)}
+  .hx-video{object-fit:contain;background:#050708}
 }
 @media (max-width:480px){
   .hx-stage{min-height:clamp(380px,62vh,560px)}
   .hx-meta{left:14px;bottom:14px;font-size:9px}
   .hx-toggle{top:14px;right:14px;font-size:9px;padding:5px 10px}
+  .hx-video{object-fit:contain;background:#050708}
 }
 
 /* ============================================================
