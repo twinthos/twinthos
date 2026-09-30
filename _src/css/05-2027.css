@@ -40,32 +40,7 @@ h1,h2,h3{font-weight:500}
 .no-js .rv{filter:none}
 
 /* ---------- Hero ---------- */
-.hx{padding:clamp(28px,5vh,64px) 0 clamp(56px,8vh,96px);overflow:hidden}
-.hx-grid{position:absolute;inset:0 0 0 0;z-index:-1;pointer-events:none;max-width:var(--wrap);margin:0 auto;left:0;right:0;
-  background-image:linear-gradient(to right,rgba(244,244,240,.05) 1px,transparent 1px);background-size:calc((100% - 2*var(--gut))/12) 100%;background-position:var(--gut) 0;background-repeat:repeat-x;
-  -webkit-mask:linear-gradient(to bottom,#000 0,#000 55%,transparent 100%);mask:linear-gradient(to bottom,#000 0,#000 55%,transparent 100%)}
-.hx-meta{display:flex;justify-content:space-between;gap:24px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);padding-bottom:14px;border-bottom:1px solid var(--line)}
-@media (max-width:640px){.hx-meta-r{display:none}}
-.hx-belief{margin:clamp(16px,2vh,24px) 0 0;font-weight:400;font-size:clamp(20px,2.2vw,28px);line-height:1.35;letter-spacing:-.012em;color:var(--mute);max-width:28em;text-wrap:balance}
-.hx-h1{font-size:clamp(46px,8vw,132px);font-weight:400;letter-spacing:-.058em;line-height:.92;margin:clamp(24px,4.5vh,56px) 0 0;font-optical-sizing:auto}
-.hx-h1 .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
-.hx-h1 .w{display:inline-block}
-@media (min-width:900px){.hx-h1 .ln{white-space:nowrap}}
-@media (min-width:1081px) and (max-height:860px){.hx-h1{font-size:clamp(46px,7vw,112px)}}
-.js-motion .hx-h1 .w{transform:translateY(108%);transition:transform 1.25s var(--e-out)}
-.js-motion .hx-h1 .ln:nth-child(2) .w{transition-delay:.1s}
-.js-motion.hero-in .hx-h1 .w{transform:none}
-
-.hx-foot{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:clamp(28px,4vh,48px);align-items:end}
-.hx-copy{grid-column:1/7}
-.hx-copy .lead{font-size:clamp(17px,1.35vw,20px);max-width:31em}
-.hx-copy .lead+.lead{margin-top:10px}
-.hx-act{grid-column:8/13}
-.hx-act .hero-actions{margin-top:0}
-.hx-price{display:flex;flex-wrap:wrap;gap:6px 0;margin:18px 0 0;font-size:12px;letter-spacing:.02em;text-transform:uppercase;color:var(--mute)}
-.hx-price span+span::before{content:"/";margin:0 10px;color:var(--faint)}
-.hx-price span:first-child{color:var(--ink)}
-@media (max-width:1080px){.hx-copy,.hx-act{grid-column:1/-1}}
+.hx{padding:0;overflow:hidden}
 
 /* ---------- The Authority Line instrument ---------- */
 .al{position:relative;margin:clamp(30px,4.5vh,56px) 0 0;height:clamp(176px,23vh,228px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;
