@@ -78,7 +78,7 @@ def layout(meta, body):
     <div class="foot-grid">
       <div>
         <a class="brand" href="/" aria-label="Twinthos home">{MARK}<span>Twinthos</span></a>
-        <p style="margin-top:16px;max-width:22em">Managed AI for business operations. Designed and operated by Tyson Architect, Bath, United Kingdom.</p>
+        <p style="margin-top:16px;max-width:22em">Managed AI for business operations. Agentic platforms, on-call, end-to-end.</p>
       </div>
       <div><h4>Service</h4><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/demo/">Demo</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/operations-audit/">Operations audit</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="/about/">About</a></li><li><a href="/security/">Security and data</a></li><li><a href="/faq/">Questions</a></li></ul></div>
