@@ -59,7 +59,9 @@
 
 /* Rows — numbered hairline lists (no cards) */
 .rows{border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:3fr 4fr 5fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row{display:grid;grid-template-columns:3fr 4fr 5fr;gap:24px;padding:28px 0 28px 24px;border-bottom:1px solid var(--line);align-items:baseline;position:relative}
+.row::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--ti);opacity:.55;transition:opacity .25s,background .25s}
+.row:hover::before{opacity:1;background:var(--signal)}
 .row .n{font-size:13px;color:var(--faint);font-variant-numeric:tabular-nums}
 .row h3{font-size:clamp(20px,1.7vw,24px);letter-spacing:-.02em;line-height:1.25}
 .row p{margin:0;color:var(--ink-2)}

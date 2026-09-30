@@ -187,4 +187,11 @@
   if('IntersectionObserver' in window){ new IntersectionObserver(function(en){onScreen=en[0].isIntersecting; onScreen?play():stop();}).observe(root); }
   d.addEventListener('visibilitychange',function(){ d.hidden?stop():play(); });
   play();
+  /* Motion-wheel reveal: circular clip-path opens when the Authority Line enters view */
+  if(!d.querySelector('.mw-style')){
+    var st=d.createElement('style'); st.className='mw-style';
+    st.textContent='.js-al .al-stage{clip-path:circle(0% at 50% 50%);transition:clip-path 1.4s cubic-bezier(.2,.7,.1,1)}.js-al.mw-in .al-stage{clip-path:circle(80% at 50% 50%)}.js-al .al-lane,.js-al .al-line{opacity:0;transition:opacity .8s ease}.js-al.mw-in .al-lane,.js-al.mw-in .al-line{opacity:1}.js-al.mw-in .al-line{transition-delay:.5s}.js-al.mw-in .al-lane{transition-delay:.3s}';
+    d.head.appendChild(st);
+  }
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(en){if(en[0].isIntersecting){root.classList.add('mw-in');}},{threshold:.25}).observe(root); }
 })();

@@ -46,6 +46,7 @@ h1,h2,h3{font-weight:500}
   -webkit-mask:linear-gradient(to bottom,#000 0,#000 55%,transparent 100%);mask:linear-gradient(to bottom,#000 0,#000 55%,transparent 100%)}
 .hx-meta{display:flex;justify-content:space-between;gap:24px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);padding-bottom:14px;border-bottom:1px solid var(--line)}
 @media (max-width:640px){.hx-meta-r{display:none}}
+.hx-belief{margin:clamp(16px,2vh,24px) 0 0;font-weight:400;font-size:clamp(20px,2.2vw,28px);line-height:1.35;letter-spacing:-.012em;color:var(--mute);max-width:28em;text-wrap:balance}
 .hx-h1{font-size:clamp(46px,8vw,132px);font-weight:400;letter-spacing:-.058em;line-height:.92;margin:clamp(24px,4.5vh,56px) 0 0;font-optical-sizing:auto}
 .hx-h1 .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
 .hx-h1 .w{display:inline-block}
