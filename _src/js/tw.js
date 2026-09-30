@@ -6,7 +6,7 @@
 var d=document, H=d.documentElement, W=window;
 var GEO=/*GEO*/{};
 var RMQ=W.matchMedia('(prefers-reduced-motion: reduce)');
-var STQ=W.matchMedia('(min-width: 900px) and (min-height: 600px)');
+var STQ=W.matchMedia('(min-width: 900px)');
 
 /* ── nav ── */
 var nav=d.querySelector('.nav'), tog=d.querySelector('.nav-toggle'), links=d.getElementById('navLinks');
@@ -161,54 +161,61 @@ Spec.prototype.set=function(p,b,t){
   S.days.forEach(function(e,i){e.classList.toggle('on',i===day);});
 };
 
-/* ── the stage ── */
-var sec=d.querySelector('section.wheel'), liveSvg=sec&&sec.querySelector('.fig-live svg');
+/* ── the reel: the wheel plays itself, on a clock, in the first screen ── */
+var reel=d.getElementById('reel'), liveSvg=reel&&reel.querySelector('.fig-live svg');
 var tpl=liveSvg?liveSvg.cloneNode(true):null;
-if(sec&&liveSvg){
-  var stage=sec.querySelector('.stage'), wheel=new Wheel(liveSvg), spec=new Spec(sec.querySelector('.spec-live'));
-  var beats=[].slice.call(sec.querySelectorAll('.beat')), outro=sec.querySelector('.outro');
-  var ctrl=sec.querySelector('.stage-ctrl'), dots=[].slice.call(ctrl.querySelectorAll('.sc-dots button'));
-  var prev=ctrl.querySelector('.sc-prev'), next=ctrl.querySelector('.sc-next');
-  var on=false, cur=-1, target=0, shown=-1, raf=0, curBeat=-1;
-  var travel=function(){return sec.offsetHeight-stage.offsetHeight;};
-  var top0=function(){return sec.getBoundingClientRect().top+W.scrollY-nav.offsetHeight;};
-  var readP=function(){var tr=travel();return tr>0?cl((W.scrollY-top0())/tr):0;};
-  var paint=function(p){
-    var bt=wheel.set(p),b=bt[0],t=bt[1];
-    spec.set(p,b,t);
-    if(b!==curBeat){
-      beats.forEach(function(e,i){var a=i===Math.min(b,5)&&b<6;e.classList.toggle('on',a);});
-      outro.classList.toggle('on',b===6);
-      dots.forEach(function(e,i){if(i===Math.min(b,5))e.setAttribute('aria-current','step');else e.removeAttribute('aria-current');});
-      prev.disabled=b===0;next.disabled=b>=5;curBeat=b;
-    }
-    if(b<6){var sts=beats[b].querySelectorAll('.st'),pick=0;
-      sts.forEach(function(e,i){if(t>=parseFloat(e.dataset.t||0))pick=i;});
-      sts.forEach(function(e,i){e.classList.toggle('on',i===pick);});}
+if(reel&&liveSvg){
+  var wheel=new Wheel(liveSvg), spec=new Spec(reel.querySelector('.spec-live'));
+  var figEl=reel.querySelector('.fig-live');
+  var btn=reel.querySelector('.rb-play'), segs=[].slice.call(reel.querySelectorAll('.rb-seg button'));
+  var fills=segs.map(function(s){return s.querySelector('i');});
+  var capN=reel.querySelector('.rc-n'), capH=reel.querySelector('.rc-h'), capS=reel.querySelector('.rc-st');
+  /* copy for the caption comes from the step list, so there is one source of truth */
+  var DATA=[].map.call(d.querySelectorAll('#steps .beat'),function(li){
+    return {h:li.querySelector('.beat-h').textContent,
+      st:[].map.call(li.querySelectorAll('.st'),function(s){return {t:parseFloat(s.dataset.t||0),txt:s.textContent,cls:s.className.replace(/\s*on\b/,'')};})};
+  });
+  var DUR=34000, HOLD=3200, p=0, last=0, playing=false, visible=true, raf=0, curB=-1, curS='';
+  var paint=function(pp){
+    var bt=wheel.set(pp),b=bt[0],t=bt[1];spec.set(pp,b,t);
+    var bi=Math.min(b,5), dd=DATA[bi];
+    if(bi!==curB){curB=bi;capN.textContent=(bi+1)+' / 6';capH.textContent=dd.h;
+      capH.classList.remove('in');void capH.offsetWidth;capH.classList.add('in');
+      segs.forEach(function(s,i){if(i===bi)s.setAttribute('aria-current','step');else s.removeAttribute('aria-current');});}
+    var pick=dd.st[0];dd.st.forEach(function(s){if(t>=s.t)pick=s;});
+    if(b===6)pick={txt:'Routine steps handled',cls:'st st-go'};
+    if(pick.txt!==curS){curS=pick.txt;capS.textContent=pick.txt;capS.className='rc-st '+pick.cls;}
+    fills.forEach(function(f,i){var s=BEATS[i][0],e=i===5?1:BEATS[i][1];f.style.transform='scaleX('+cl((pp-s)/(e-s)).toFixed(3)+')';});
   };
-  var tick=function(){raf=0;if(!on)return;
-    var dd=target-cur;cur=Math.abs(dd)<.0004?target:cur+dd*.2;
-    if(cur!==shown){paint(cur);shown=cur;}
-    if(cur!==target)raf=requestAnimationFrame(tick);
+  var loop=function(now){
+    raf=0;if(!playing||!visible)return;
+    if(last&&now-last<30){raf=requestAnimationFrame(loop);return;}
+    var dt=Math.min(64,now-(last||now));last=now;
+    p+=dt/DUR;
+    if(p>=1+HOLD/DUR){p=0;figEl.classList.remove('rewind');void figEl.offsetWidth;figEl.classList.add('rewind');}
+    paint(Math.min(p,1));
+    raf=requestAnimationFrame(loop);
   };
-  var onScroll=function(){if(!on)return;target=readP();if(!raf)raf=requestAnimationFrame(tick);};
-  var go=function(i){var s=BEATS[i][0]+.62*(BEATS[i][1]-BEATS[i][0]);W.scrollTo({top:top0()+s*travel()+1,behavior:RMQ.matches?'auto':'smooth'});};
-  dots.forEach(function(e,i){e.addEventListener('click',function(){go(i);});});
-  prev.addEventListener('click',function(){go(Math.max(0,Math.min(curBeat,6)-1));});
-  next.addEventListener('click',function(){go(Math.min(5,curBeat+1));});
-  var mode=function(){
-    var want=STQ.matches&&!RMQ.matches;
-    H.classList.toggle('stage-on',want);ctrl.hidden=!want;on=want;
-    beats.forEach(function(e){e.classList.remove('on');});outro.classList.remove('on');curBeat=-1;
-    if(want){spec.measure();cur=target=readP();shown=-1;paint(cur);}
-  };
-  mode();
-  STQ.addEventListener&&STQ.addEventListener('change',mode);
-  RMQ.addEventListener&&RMQ.addEventListener('change',mode);
-  W.addEventListener('scroll',onScroll,{passive:true});
-  W.addEventListener('resize',function(){if(on){spec.measure();target=readP();cur=target;shown=-1;paint(cur);}});
-  d.fonts&&d.fonts.ready.then(function(){if(on){spec.measure();shown=-1;paint(cur);}});
-  W.TW_STAGE={paint:paint,readP:readP,go:go};
+  var kick=function(){last=0;if(!raf&&playing&&visible)raf=requestAnimationFrame(loop);};
+  var setPlay=function(on){playing=on;reel.classList.toggle('paused',!on);
+    btn.setAttribute('aria-label',on?'Pause the demo':'Play the demo');kick();};
+  btn.addEventListener('click',function(){setPlay(!playing);});
+  segs.forEach(function(s,i){s.addEventListener('click',function(){
+    p=BEATS[i][0]+(i===0?.55:.08)*(BEATS[i][1]-BEATS[i][0]);paint(p);
+    if(RMQ.matches){p=BEATS[i][0]+.7*(BEATS[i][1]-BEATS[i][0]);paint(p);}
+  });});
+  if('IntersectionObserver' in W){
+    new IntersectionObserver(function(en){visible=en[0].isIntersecting;kick();},{threshold:.25}).observe(figEl);
+  }
+  d.addEventListener('visibilitychange',function(){visible=!d.hidden;kick();});
+  var start=function(){spec.measure();curB=-1;
+    if(RMQ.matches){p=BEATS[1][0]+.7*(BEATS[1][1]-BEATS[1][0]);paint(p);setPlay(false);}
+    else{paint(p);if(d.readyState==='complete')setTimeout(function(){setPlay(true);},600);else W.addEventListener('load',function(){setTimeout(function(){setPlay(true);},600);},{once:true});}};
+  start();
+  RMQ.addEventListener&&RMQ.addEventListener('change',start);
+  W.addEventListener('resize',function(){spec.measure();paint(Math.min(p,1));});
+  d.fonts&&d.fonts.ready.then(function(){spec.measure();paint(Math.min(p,1));});
+  W.TW_REEL={paint:paint,set:function(v){p=v;paint(Math.min(v,1));},play:setPlay};
 }
 
 /* ── static figures: the same wheel, fixed at one moment ── */

@@ -43,6 +43,13 @@ def ticks():
         out.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}"{" class=\"big\"" if big else ""}/>')
     return '<g class="w-ticks">' + "".join(out) + "</g>"
 
+def chevrons():
+    out = []
+    for a in (316, 37.5, 112, 147, 201, 265):
+        x, y = P(a)
+        out.append(f'<path d="M-9,-11 L4,0 L-9,11" transform="translate({x:.1f} {y:.1f}) rotate({a})"/>')
+    return '<g class="w-chev">' + "".join(out) + "</g>"
+
 def wheel_svg(extra_cls=""):
     A, B, Cc, N, D, E = (PTS[k] for k in "ABCNDE")
     nx1, ny1 = P(ANG["N"] - 3, R - 14); nx2, ny2 = P(ANG["N"] - 3, R + 14)
@@ -52,6 +59,7 @@ def wheel_svg(extra_cls=""):
     return f'''<svg class="wheel {extra_cls}" viewBox="0 0 1000 1000" focusable="false" aria-hidden="true">
 {ticks()}
 <circle class="w-ring" cx="500" cy="500" r="{R}"/>
+{chevrons()}
 <circle class="w-done" cx="500" cy="500" r="{R}" transform="rotate({ANG['A']-90} 500 500)" stroke-dasharray="0 1885"/>
 <line class="w-lead" x1="{EMAIL[0]}" y1="{EMAIL[1]}" x2="{A[0]}" y2="{A[1]}"/>
 <rect class="w-email" x="{EMAIL[0]-9}" y="{EMAIL[1]-9}" width="18" height="18" rx="2"/>
@@ -107,9 +115,10 @@ def map_svg(kind):
         top = P(0)
         mk = (f'<circle class="m-done" cx="500" cy="500" r="{R}" transform="rotate({ANG["A"]-90} 500 500)" pathLength="1"/>'
               f'<g class="m-rot"><g class="m-glyph"><g transform="translate({top[0]},{top[1]})"><path class="w-doc" d="{DOC}"/><path class="w-fold" d="{FOLD}"/></g></g></g>')
+    src = "" if kind == "audit" else f'<line class="m-lead" x1="{EMAIL[0]}" y1="{EMAIL[1]}" x2="{A[0]}" y2="{A[1]}"/><rect class="m-src" x="{EMAIL[0]-16}" y="{EMAIL[1]-16}" width="32" height="32" rx="3"/>'
     return f'''<svg class="map map-{kind}" viewBox="-120 0 1240 1000" focusable="false" aria-hidden="true">
 <circle class="m-ring{' dash' if kind=='audit' else ''}" cx="500" cy="500" r="{R}"/>
-<line class="m-lead" x1="{EMAIL[0]}" y1="{EMAIL[1]}" x2="{A[0]}" y2="{A[1]}"/><rect class="m-src" x="{EMAIL[0]-16}" y="{EMAIL[1]-16}" width="32" height="32" rx="3"/>
+{src}
 <path class="m-chord" d="{CHORD}"/><circle class="m-out" cx="{CUST[0]}" cy="{CUST[1]}" r="22"/>
 <path class="m-branch" d="{BRANCH}"/><circle class="m-out m-team" cx="{TEAM[0]}" cy="{TEAM[1]}" r="22"/>
 {mk}

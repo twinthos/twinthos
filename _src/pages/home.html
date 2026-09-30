@@ -1,5 +1,5 @@
 <!--{"title":"Twinthos · Managed AI workflows","desc":"Twinthos builds and runs the jobs that repeat, across the tools you already use. Your team keeps the decisions. Operations audit £999 one-off. Managed workflow £5,000 per month.","path":"","nav":"home","body":"home"}-->
-<section class="hero" aria-labelledby="hero-h">
+<section class="hero hero-reel" aria-labelledby="hero-h">
   <div class="wrap hero-in">
     <div class="hero-copy">
       <p class="eyebrow">Managed AI workflows</p>
@@ -7,27 +7,45 @@
       <p class="lede">Twinthos builds and runs the jobs that repeat, across the tools you already use. Your team makes the decisions that need a person.</p>
       <div class="hero-act">
         <a class="btn btn-ink" href="/book/?interest=fit">Find my first workflow <span class="ar">→</span></a>
-        <a class="tlink" href="#wheel">See it work</a>
+        <a class="tlink" href="#pricing">See pricing</a>
       </div>
     </div>
-    <figure class="hero-fig">
-      <div class="fig fig-hero">
-        {{hero_wheel}}
-        <div class="spec spec-hero" aria-hidden="true">
-          <div class="card"><p class="card-h"><i class="doc-i"></i>Email</p><p class="card-b">Could you quote for servicing our office air conditioning?</p></div>
+    <div class="reel" id="reel">
+      <p class="ill"><i></i>Illustrative workflow · Sample data · Time compressed</p>
+      <figure class="reel-fig" aria-hidden="true">
+        <div class="fig fig-live">
+          {{wheel}}
+          <div class="spec spec-live">
+          <p class="day"><span class="d1x">Monday</span><span class="d2x">Later · Thursday</span></p>
+          <div class="card lv" data-l="msg"><p class="card-h"><i class="doc-i"></i>Email · <span class="nw">sam@harbour-offices.example</span></p><p class="card-b">Could you quote for servicing our office air conditioning?</p></div>
+          <div class="card lv" data-l="req"><p class="card-h"><i class="doc-i"></i>Details requested</p><p class="card-b">Site postcode. Number of units. Preferred timing.</p><p class="card-f card-fw"><i class="clock-i"></i>Waiting for customer reply</p></div>
+          <div class="card lv lv-rr" data-l="rr">
+            <div class="rr rr-reply"><p class="card-h"><i class="doc-i"></i>Customer reply received</p><p class="card-b">It’s <b class="slot" data-k="s">AB1 2CD</b>. There are <b class="slot" data-k="u">3 wall units</b>. <b class="slot" data-k="t">Weekday mornings</b> suit us best.</p></div>
+            <div class="rr rr-rec"><p class="card-h"><i class="doc-i"></i>Customer record</p>
+              <dl class="rec"><div><dt>Site</dt><dd><b class="slot" data-k="s">AB1 2CD</b></dd></div><div><dt>Units</dt><dd><b class="slot" data-k="u">3 wall units</b></dd></div><div><dt>Preferred timing</dt><dd><b class="slot" data-k="t">Weekday mornings</b></dd></div><div class="rec-team"><dt>Assigned for quotation</dt><dd>Your team</dd></div></dl></div>
+            <b class="tok" data-k="s">AB1 2CD</b><b class="tok" data-k="u">3 wall units</b><b class="tok" data-k="t">Weekday mornings</b>
+          </div>
+          <div class="card lv" data-l="fup"><p class="card-h"><i class="doc-i"></i><span class="fh-a">Follow-up scheduled for Thursday</span><span class="fh-b">Follow-up sent</span></p><p class="card-b">Hi Sam, just checking our quote reached you. Any questions?</p></div>
+          <div class="card lv card-amber" data-l="disc"><p class="card-h"><i class="doc-i"></i>Customer reply</p><p class="card-b">Could you do it for 15% less?</p><p class="card-f">In this example, discounts above 10% require approval.</p></div>
+        </div>
+        </div>
+      </figure>
+      <div class="reel-bar">
+        <button type="button" class="rb-play" aria-label="Pause the demo"><svg viewBox="0 0 16 16" aria-hidden="true"><rect class="ic-pause" x="3.5" y="2.5" width="3" height="11" rx=".8"/><rect class="ic-pause" x="9.5" y="2.5" width="3" height="11" rx=".8"/><path class="ic-play" d="M4.5 2.5v11l9-5.5z"/></svg></button>
+        <div class="rb-main">
+          <p class="rb-cap" aria-hidden="true"><span class="rc-n">1 / 6</span><span class="rc-h">Small tasks keep calling you back.</span><span class="rc-st st st-idle">Waiting for someone to do it</span></p>
+          <div class="rb-seg" role="group" aria-label="Jump to a step"><button type="button" aria-label="Show step 1: Small tasks"><i></i></button><button type="button" aria-label="Show step 2: The enquiry"><i></i></button><button type="button" aria-label="Show step 3: The details"><i></i></button><button type="button" aria-label="Show step 4: The record"><i></i></button><button type="button" aria-label="Show step 5: The follow-up"><i></i></button><button type="button" aria-label="Show step 6: The decision"><i></i></button></div>
         </div>
       </div>
-      <figcaption class="fig-cap">Illustrative workflow · Sample data</figcaption>
-    </figure>
+    </div>
   </div>
 </section>
 
-<section class="wheel" id="wheel" aria-labelledby="wheel-h">
-  <h2 class="sr-only" id="wheel-h">How one enquiry moves through a managed workflow</h2>
-  <div class="stage">
-    <div class="stage-copy">
-      <p class="ill"><i></i>Illustrative workflow · Sample data · Time compressed</p>
-      <ol class="beats">
+<section class="stepby sec" id="steps" aria-labelledby="steps-h">
+  <div class="wrap">
+    <p class="eyebrow">Step by step</p>
+    <h2 class="d2" id="steps-h">One enquiry, handled from start to finish.</h2>
+    <ol class="beats">
         <li class="beat" data-b="1">
           <div class="beat-txt">
             <p class="beat-n">1 of 6</p>
@@ -99,34 +117,7 @@
           </figure>
         </li>
       </ol>
-      <p class="outro"><span>Routine steps handled.</span> <span>Decisions stay with you.</span></p>
-      <div class="stage-ctrl" hidden>
-        <button type="button" class="sc-prev" aria-label="Previous step"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M9 3 5 7l4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
-        <div class="sc-dots" role="group" aria-label="Go to step">
-          <button type="button" aria-label="Step 1: Small tasks"></button><button type="button" aria-label="Step 2: The enquiry"></button><button type="button" aria-label="Step 3: The details"></button><button type="button" aria-label="Step 4: The record"></button><button type="button" aria-label="Step 5: The follow-up"></button><button type="button" aria-label="Step 6: The decision"></button>
-        </div>
-        <button type="button" class="sc-next" aria-label="Next step"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="m5 3 4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
-        <a class="sc-skip" href="#pricing">Skip to pricing</a>
-      </div>
-    </div>
-    <figure class="stage-fig" aria-hidden="true">
-      <div class="fig fig-live">
-        {{wheel}}
-        <div class="spec spec-live">
-          <p class="day"><span class="d1x">Monday</span><span class="d2x">Later · Thursday</span></p>
-          <div class="card lv" data-l="msg"><p class="card-h"><i class="doc-i"></i>Email · <span class="nw">sam@harbour-offices.example</span></p><p class="card-b">Could you quote for servicing our office air conditioning?</p></div>
-          <div class="card lv" data-l="req"><p class="card-h"><i class="doc-i"></i>Details requested</p><p class="card-b">Site postcode. Number of units. Preferred timing.</p><p class="card-f card-fw"><i class="clock-i"></i>Waiting for customer reply</p></div>
-          <div class="card lv lv-rr" data-l="rr">
-            <div class="rr rr-reply"><p class="card-h"><i class="doc-i"></i>Customer reply received</p><p class="card-b">It’s <b class="slot" data-k="s">AB1 2CD</b>. There are <b class="slot" data-k="u">3 wall units</b>. <b class="slot" data-k="t">Weekday mornings</b> suit us best.</p></div>
-            <div class="rr rr-rec"><p class="card-h"><i class="doc-i"></i>Customer record</p>
-              <dl class="rec"><div><dt>Site</dt><dd><b class="slot" data-k="s">AB1 2CD</b></dd></div><div><dt>Units</dt><dd><b class="slot" data-k="u">3 wall units</b></dd></div><div><dt>Preferred timing</dt><dd><b class="slot" data-k="t">Weekday mornings</b></dd></div><div class="rec-team"><dt>Assigned for quotation</dt><dd>Your team</dd></div></dl></div>
-            <b class="tok" data-k="s">AB1 2CD</b><b class="tok" data-k="u">3 wall units</b><b class="tok" data-k="t">Weekday mornings</b>
-          </div>
-          <div class="card lv" data-l="fup"><p class="card-h"><i class="doc-i"></i><span class="fh-a">Follow-up scheduled for Thursday</span><span class="fh-b">Follow-up sent</span></p><p class="card-b">Hi Sam, just checking our quote reached you. Any questions?</p></div>
-          <div class="card lv card-amber" data-l="disc"><p class="card-h"><i class="doc-i"></i>Customer reply</p><p class="card-b">Could you do it for 15% less?</p><p class="card-f">In this example, discounts above 10% require approval.</p></div>
-        </div>
-      </div>
-    </figure>
+    <p class="outro"><span>Routine steps handled.</span> <span>Decisions stay with you.</span></p>
   </div>
 </section>
 
