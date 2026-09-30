@@ -1,9 +1,9 @@
 /* Twinthos — 2027 system. Black, warm white, one functional signal. */
 :root{
-  --bg:#050505; --bg-2:#0B0B0A; --ink:#F4F4F0; --ink-2:rgba(244,244,240,.72);
+  --bg:#090B0A; --bg-2:#111413; --ink:#F5F5F0; --ink-2:rgba(244,244,240,.72);
   --mute:rgba(244,244,240,.56); --faint:rgba(244,244,240,.36);
   --line:rgba(244,244,240,.12); --line-2:rgba(244,244,240,.22);
-  --ti:#C7D0DA; --signal:#20F782;
+  --ti:#C7D0DA; --signal:#39DB9B;
   --f:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   --wrap:1240px; --gut:clamp(20px,4vw,48px);
   --ease:cubic-bezier(.2,.7,.1,1);

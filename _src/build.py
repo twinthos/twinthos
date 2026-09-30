@@ -78,11 +78,11 @@ def layout(meta, body):
     <div class="foot-grid">
       <div>
         <a class="brand" href="/" aria-label="Twinthos home">{MARK}<span>Twinthos</span></a>
-        <p style="margin-top:16px;max-width:22em">Managed AI for business operations. Agentic platforms, on-call, end-to-end.</p>
+        <p style="margin-top:16px;max-width:22em">Managed AI workflows. Built around your business.</p>
       </div>
       <div><h4>Service</h4><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/demo/">Demo</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/operations-audit/">Operations audit</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="/about/">About</a></li><li><a href="/security/">Security and data</a></li><li><a href="/faq/">Questions</a></li></ul></div>
-      <div><h4>Start</h4><ul><li><a href="/book/">Book a 15-minute fit call</a></li><li><a href="mailto:hello@twinthos.com">hello@twinthos.com</a></li></ul></div>
+      <div><h4>Start</h4><ul><li><a href="/book/">Request a 15-minute call</a></li><li><a href="mailto:hello@twinthos.com">hello@twinthos.com</a></li></ul></div>
     </div>
     <div class="foot-base"><span>© 2026 Twinthos. Work handled. Time returned.</span><span><a href="/privacy/">Privacy</a> &nbsp;·&nbsp; <a href="/terms/">Terms</a></span></div>
     <p class="foot-mark" aria-hidden="true">Twinthos</p>
