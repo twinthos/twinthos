@@ -122,21 +122,84 @@
   });
 })();
 
-/* Showreel: muted autoplay only while on screen; honours reduced motion; explicit pause control */
+/* Showreel: muted autoplay only while on screen; honours reduced motion; explicit pause control.
+   Robust on mobile Safari/Chrome (autoplay requires muted + playsinline + user-gesture fallback).
+   iOS WeChat / QQ compatibility via x5-* attributes on the element. */
 (function(){
+  if(typeof window==='undefined')return;
   var d=document, v=d.querySelector('.reel-video'); if(!v) return;
-  var b=d.querySelector('.reel-toggle'), RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var want=!RM, onScreen=false;
-  if(window.innerWidth<900&&v.dataset.srcSm){v.src=v.dataset.srcSm;}
-  function label(){ var on=!v.paused; b.textContent=on?'Pause':'Play'; b.setAttribute('aria-pressed',String(!on)); }
-  function sync(){ if(want&&onScreen){var p=v.play(); if(p&&p.catch)p.catch(function(){want=false;label();});} else v.pause(); label(); }
-  v.addEventListener('play',label); v.addEventListener('pause',label);
-  b.addEventListener('click',function(){want=v.paused; if(want&&v.ended)v.currentTime=0; if(want){var p=v.play(); if(p&&p.catch)p.catch(function(){});} else v.pause(); label();});
-  v.addEventListener('click',function(){b.click();}); v.style.cursor='pointer';
-  if('IntersectionObserver' in window){ new IntersectionObserver(function(en){en.forEach(function(x){onScreen=x.isIntersecting; sync();});},{threshold:.35}).observe(v); }
-  else { onScreen=true; }
-  d.addEventListener('visibilitychange',function(){ if(d.hidden) v.pause(); else sync(); });
-  sync();
+  var b=d.querySelector('.reel-toggle');
+  var root=v.closest('.hx-reel')||v;
+  var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var want=!RM, onScreen=false, autoplayBlocked=false;
+
+  // Pick the right source for the current viewport. Mobile-first: 720p.
+  function pickSrc(){
+    var w=window.innerWidth;
+    var url = w<900 ? (v.dataset.srcSm||v.dataset.srcMd)
+              : w<1600 ? (v.dataset.srcMd||v.dataset.srcLg)
+              : (v.dataset.srcLg||v.dataset.srcMd);
+    if(url && v.currentSrc!==url && v.src!==url) v.src=url;
+  }
+  pickSrc();
+  window.addEventListener('resize', pickSrc, {passive:true});
+
+  function label(){ var on=!v.paused&&!v.ended; if(b){b.textContent=on?'Pause':'Play'; b.setAttribute('aria-pressed',String(!on));} }
+  function tryPlay(){
+    if(RM)return;
+    var p=v.play();
+    if(p&&p.catch){p.catch(function(){autoplayBlocked=true;label();});}
+  }
+  function sync(){
+    if(want&&onScreen&&!RM){
+      if(v.readyState<2){v.addEventListener('loadeddata', tryPlay, {once:true});}
+      else{ tryPlay(); }
+    } else { v.pause(); }
+    label();
+  }
+
+  // Toggle button (always works).
+  if(b){b.addEventListener('click',function(e){
+    e.preventDefault();
+    if(v.paused||v.ended){want=true; if(v.ended)v.currentTime=0; tryPlay();}
+    else{want=false; v.pause();}
+    label();
+  });}
+  v.addEventListener('click',function(){if(b)b.click();});
+  v.style.cursor='pointer';
+
+  // IntersectionObserver — pause when off-screen, resume when on-screen.
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){en.forEach(function(x){onScreen=x.isIntersecting; sync();});},{threshold:0.15}).observe(root);
+  } else { onScreen=true; }
+
+  // Visibilitychange — pause when tab is hidden, resume when visible.
+  d.addEventListener('visibilitychange',function(){ if(d.hidden){v.pause();} else { sync(); } });
+
+  // First-frame ready → try play once (covers autoplay attribute, no observer required).
+  if(v.readyState>=2){ sync(); }
+  v.addEventListener('loadeddata', function(){ sync(); }, {once:true});
+  v.addEventListener('canplay', function(){ sync(); }, {once:true});
+
+  // Fallback for autoplay-blocked environments: show a tap-to-play overlay on first pause.
+  var overlay=d.querySelector('.reel-play-overlay');
+  if(overlay){
+    overlay.addEventListener('click',function(e){e.preventDefault();want=true;tryPlay();overlay.classList.remove('on');});
+  }
+
+  // One-tap-anywhere fallback on mobile when autoplay is blocked.
+  function mobileFallback(e){
+    if(!autoplayBlocked||!onScreen)return;
+    if(e.target.closest('a,button,input,select,textarea'))return;
+    want=true; tryPlay();
+    d.removeEventListener('touchstart', mobileFallback, true);
+    d.removeEventListener('click', mobileFallback, true);
+  }
+  d.addEventListener('touchstart', mobileFallback, true);
+  d.addEventListener('click', mobileFallback, true);
+
+  // Reduced-motion: never play.
+  if(RM){want=false; v.pause();}
 })();
 
 /* Authority Line instrument: routine work flows below the line and completes on its own.
