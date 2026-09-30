@@ -122,13 +122,14 @@
 .hx-copy{grid-column:1/span 9;display:flex;flex-direction:column;gap:clamp(20px,2.2vw,28px);max-width:30em}
 .hx-copy .hx-eyebrow{align-self:flex-start}
 .hx-eyebrow .hx-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--emerald);box-shadow:0 0 0 4px rgba(57,219,155,.15)}
+.hx-h1-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .hx-h1{font-family:var(--display);font-weight:600;letter-spacing:-.032em;line-height:.96;color:var(--light);margin:0}
 .hx-h1 .ln{display:block;overflow:hidden}
 .hx-h1 .w{display:inline-block;transform:translateY(110%);animation:rise .9s var(--ease-out) forwards}
 .hx-h1 .ln:nth-child(2) .w{animation-delay:.08s}
 @keyframes rise{to{transform:translateY(0)}}
 .hx-support{font-family:var(--display);font-weight:400;font-size:clamp(20px,1.8vw,26px);letter-spacing:-.015em;color:var(--mute);margin:0;max-width:24em;line-height:1.32}
-.hx-body{font-family:var(--f);font-size:16px;line-height:1.55;color:var(--mute);margin:0;max-width:32em}
+.hx-body{font-family:var(--f);font-size:clamp(17px,1.5vw,21px);line-height:1.5;color:var(--mute);margin:0;max-width:36em;font-weight:400;letter-spacing:-.005em}
 .hx-price{display:flex;flex-wrap:wrap;gap:10px 14px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);align-items:center;margin:6px 0 0}
 .hx-price span:first-child{color:var(--light);font-weight:500}
 .hx-dotsep{color:var(--mute);opacity:.6}
