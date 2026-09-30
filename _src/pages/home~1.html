@@ -1,32 +1,50 @@
 <!--{"title":"Twinthos · Your people have better work to do","desc":"Managed AI workflows for enquiries, follow-ups, document requests and record updates. Twinthos builds and manages the work so your people get more room for customers, delivery and decisions.","path":"","nav":""}-->
 <section class="hero hx" aria-labelledby="hx-h">
-  <div class="hx-grid" aria-hidden="true"></div>
-  <div class="hx-frame">
-    <div class="hx-copy">
-      <p class="hx-meta rv"><span>Managed AI for business operations</span></p>
-      <h1 class="hx-h1" id="hx-h"><span class="ln"><span class="w">Your people have</span></span> <span class="ln"><span class="w">better work to do.</span></span></h1>
-      <p class="hx-support rv">Routine work, handled on schedule.</p>
-      <p class="hx-body rv">Twinthos builds and manages AI workflows for enquiries, follow-ups, document requests and record updates. The work moves through your existing tools. Your people get more room for customers, delivery and decisions.</p>
-      <div class="hx-act rv">
-        <div class="hero-actions">
-          <a class="btn btn-ink" href="/book/">Find my first workflow <span class="ar">→</span></a>
-          <a class="btn btn-line" href="/reel/">Watch the 45-second story</a>
+  <!-- Full-bleed stage: reel fills the entire hero, text overlays on top -->
+  <div class="hx-stage">
+    <video class="hx-video" id="reel"
+      muted playsinline webkit-playsinline loop preload="auto" autoplay
+      disablepictureinpicture controlslist="nodownload noremoteplayback"
+      x5-video-player-type="h5" x5-playsinline
+      poster="/assets/film-poster.jpg?v=4"
+      data-src-mobile="/assets/film-720.mp4?v=4"
+      data-src-desktop="/assets/film.mp4?v=4"
+      aria-label="Twinthos motion reel — 24 seconds, silent">
+      <source src="/assets/film-720.mp4?v=4" type="video/mp4" media="(max-width:900px)">
+      <source src="/assets/film.mp4?v=4" type="video/mp4">
+    </video>
+    <div class="hx-veil" aria-hidden="true"></div>
+    <button class="hx-play" type="button" aria-label="Play reel">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+      <span>Play the reel</span>
+    </button>
+    <button class="hx-toggle" type="button" aria-label="Pause reel" aria-pressed="false">
+      <span class="hx-toggle-on">Pause</span>
+      <span class="hx-toggle-off">Play</span>
+    </button>
+    <span class="hx-meta">24-second reel · no sound · autoplays</span>
+
+    <div class="hx-frame">
+      <div class="hx-copy">
+        <p class="hx-eyebrow rv"><span class="hx-dot"></span>Managed AI for business operations</p>
+        <h1 class="hx-h1 rv" id="hx-h">
+          <span class="ln"><span class="w">Your people have</span></span>
+          <span class="ln"><span class="w">better work to do.</span></span>
+        </h1>
+        <p class="hx-support rv">Routine work, handled on schedule.</p>
+        <p class="hx-body rv">A named operator runs each managed workflow inside agreed rules — the same inbox, the same systems, the same outcome every week. Decisions stay with your team.</p>
+        <div class="hx-act rv">
+          <div class="hero-actions">
+            <a class="btn btn-paper" href="/book/">Find my first workflow <span class="ar">→</span></a>
+            <a class="btn btn-ghost" href="/operations-audit/">Start with the audit</a>
+          </div>
         </div>
-        <p class="hx-micro">A 15-minute call to identify the work worth handing over.</p>
+        <p class="hx-price rv">
+          <span>£5,000/month</span><span class="hx-dotsep">·</span>
+          <span>Agreed scope</span><span class="hx-dotsep">·</span>
+          <span>Three-month minimum</span>
+        </p>
       </div>
-      <p class="hx-price rv"><span>£5,000/month</span><span class="hx-dot">·</span><span>Agreed scope</span><span class="hx-dot">·</span><span>Three-month minimum</span><span class="hx-dot">·</span><span>Excluding VAT where applicable</span></p>
     </div>
-    <figure class="hx-reel reel-frame rv" data-autoplay="true" aria-label="The motion reel. Twenty-four seconds of how Twinthos carries the work.">
-      <video class="reel-video" id="reel" muted playsinline webkit-playsinline loop preload="metadata" autoplay disablepictureinpicture controlslist="nodownload" x5-video-player-type="h5" x5-playsinline
-        poster="/assets/film-poster.jpg?v=3"
-        data-src-sm="/assets/film-720.mp4?v=3" data-src-md="/assets/film-720.mp4?v=3" data-src-lg="/assets/film.mp4?v=3"
-        aria-label="Film: the questions a team chases every week get marked handled; Twinthos carries follow-ups and record updates below the authority line while decisions wait for your team. Work handled. Time returned.">
-        <source src="/assets/film-720.mp4?v=3" type="video/mp4" media="(max-width:900px)">
-        <source src="/assets/film.mp4?v=3" type="video/mp4">
-      </video>
-      <div class="reel-play-overlay" aria-hidden="true">Tap to play</div>
-      <button class="reel-toggle" type="button" aria-pressed="false" aria-label="Pause reel">Pause</button>
-      <span class="hx-reel-meta">24-second reel · no sound · autoplays</span>
-    </figure>
   </div>
 </section>

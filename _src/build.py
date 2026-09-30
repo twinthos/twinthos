@@ -55,7 +55,7 @@ def layout(meta, body):
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..600&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@300..600&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=Geist+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/assets/tw.css?v={VER}">
 <script src="/assets/tw.js?v={VER}" defer></script>
 {ld}

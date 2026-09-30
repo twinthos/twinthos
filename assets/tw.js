@@ -122,84 +122,139 @@
   });
 })();
 
-/* Showreel: muted autoplay only while on screen; honours reduced motion; explicit pause control.
-   Robust on mobile Safari/Chrome (autoplay requires muted + playsinline + user-gesture fallback).
-   iOS WeChat / QQ compatibility via x5-* attributes on the element. */
+/* Showreel: bulletproof muted autoplay. Works for .hx-video (full-bleed hero) and .reel-video.
+   Robust on iOS Safari / Android Chrome / WeChat / QQ. Falls back to tap-to-play overlay
+   when autoplay is blocked by browser policy. Pauses off-screen and when tab is hidden. */
 (function(){
   if(typeof window==='undefined')return;
-  var d=document, v=d.querySelector('.reel-video'); if(!v) return;
-  var b=d.querySelector('.reel-toggle');
-  var root=v.closest('.hx-reel')||v;
+  var d=document;
+  var reels=d.querySelectorAll('.hx-video, .reel-video');
+  if(!reels.length)return;
   var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var want=!RM, onScreen=false, autoplayBlocked=false;
 
-  // Pick the right source for the current viewport. Mobile-first: 720p.
-  function pickSrc(){
-    var w=window.innerWidth;
-    var url = w<900 ? (v.dataset.srcSm||v.dataset.srcMd)
-              : w<1600 ? (v.dataset.srcMd||v.dataset.srcLg)
-              : (v.dataset.srcLg||v.dataset.srcMd);
-    if(url && v.currentSrc!==url && v.src!==url) v.src=url;
-  }
-  pickSrc();
-  window.addEventListener('resize', pickSrc, {passive:true});
+  reels.forEach(function(v){
+    var root=v.closest('.hx-stage, .hx-reel, .reel-frame, .rv')||v.parentNode;
+    var playBtn=v.parentNode.querySelector('.hx-play, .reel-play-overlay');
+    var toggleBtn=v.parentNode.querySelector('.hx-toggle, .reel-toggle');
+    var onScreen=false, autoplayBlocked=false, want=!RM;
 
-  function label(){ var on=!v.paused&&!v.ended; if(b){b.textContent=on?'Pause':'Play'; b.setAttribute('aria-pressed',String(!on));} }
-  function tryPlay(){
-    if(RM)return;
-    var p=v.play();
-    if(p&&p.catch){p.catch(function(){autoplayBlocked=true;label();});}
-  }
-  function sync(){
-    if(want&&onScreen&&!RM){
-      if(v.readyState<2){v.addEventListener('loadeddata', tryPlay, {once:true});}
-      else{ tryPlay(); }
-    } else { v.pause(); }
-    label();
-  }
+    /* Pick the right source for the viewport. Mobile-first. */
+    function pickSrc(){
+      if(v.currentSrc && v.currentSrc.indexOf('http')===0) return;
+      var w=window.innerWidth;
+      var url;
+      if(v.classList.contains('hx-video')){
+        url = w<900 ? (v.dataset.srcMobile||v.dataset.srcSm||v.dataset.srcMd)
+                   : (v.dataset.srcDesktop||v.dataset.srcLg||v.dataset.srcMd);
+      } else {
+        url = w<900 ? (v.dataset.srcSm||v.dataset.srcMd)
+                   : w<1600 ? (v.dataset.srcMd||v.dataset.srcLg)
+                   : (v.dataset.srcLg||v.dataset.srcMd);
+      }
+      if(url && v.src!==url && v.currentSrc!==url){
+        var p=v.src; v.src=url;
+      }
+    }
+    pickSrc();
+    var rt; window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(pickSrc,150);},{passive:true});
 
-  // Toggle button (always works).
-  if(b){b.addEventListener('click',function(e){
-    e.preventDefault();
-    if(v.paused||v.ended){want=true; if(v.ended)v.currentTime=0; tryPlay();}
-    else{want=false; v.pause();}
-    label();
-  });}
-  v.addEventListener('click',function(){if(b)b.click();});
-  v.style.cursor='pointer';
+    function showPlay(){
+      if(playBtn){playBtn.classList.add('on');}
+    }
+    function hidePlay(){
+      if(playBtn){playBtn.classList.remove('on');}
+    }
+    function label(){
+      var on=!v.paused&&!v.ended;
+      if(toggleBtn){
+        toggleBtn.setAttribute('aria-pressed',on?'true':'false');
+      }
+    }
+    function tryPlay(){
+      if(RM||!onScreen||!want)return;
+      var p=v.play();
+      if(p&&p.catch){
+        p.catch(function(){
+          autoplayBlocked=true;
+          showPlay();
+          label();
+        });
+      }
+    }
+    function sync(){
+      if(want&&onScreen&&!RM){
+        if(v.readyState<2){
+          v.addEventListener('loadeddata', tryPlay, {once:true});
+        } else {
+          tryPlay();
+        }
+      } else {
+        v.pause();
+      }
+      label();
+    }
 
-  // IntersectionObserver — pause when off-screen, resume when on-screen.
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(en){en.forEach(function(x){onScreen=x.isIntersecting; sync();});},{threshold:0.15}).observe(root);
-  } else { onScreen=true; }
+    /* Tap-to-play overlay */
+    if(playBtn){
+      playBtn.addEventListener('click',function(e){
+        e.preventDefault(); e.stopPropagation();
+        want=true; if(v.ended)v.currentTime=0;
+        var p=v.play();
+        if(p&&p.catch){p.catch(function(){});}
+        hidePlay(); label();
+      });
+    }
+    /* Pause/Play toggle */
+    if(toggleBtn){
+      toggleBtn.addEventListener('click',function(e){
+        e.preventDefault(); e.stopPropagation();
+        if(v.paused||v.ended){
+          want=true; if(v.ended)v.currentTime=0;
+          var p=v.play(); if(p&&p.catch)p.catch(function(){});
+        } else {
+          want=false; v.pause();
+        }
+        label();
+      });
+    }
+    /* Click on video itself toggles */
+    v.addEventListener('click',function(){
+      if(toggleBtn){toggleBtn.click();}
+      else if(autoplayBlocked){want=true;tryPlay();}
+    });
+    v.style.cursor='pointer';
 
-  // Visibilitychange — pause when tab is hidden, resume when visible.
-  d.addEventListener('visibilitychange',function(){ if(d.hidden){v.pause();} else { sync(); } });
+    /* IntersectionObserver: pause off-screen, resume on-screen */
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(en){
+        en.forEach(function(x){onScreen=x.isIntersecting;sync();});
+      },{threshold:0.15}).observe(root);
+    } else { onScreen=true; }
 
-  // First-frame ready → try play once (covers autoplay attribute, no observer required).
-  if(v.readyState>=2){ sync(); }
-  v.addEventListener('loadeddata', function(){ sync(); }, {once:true});
-  v.addEventListener('canplay', function(){ sync(); }, {once:true});
+    d.addEventListener('visibilitychange',function(){
+      if(d.hidden){v.pause();}
+      else { sync(); }
+    });
 
-  // Fallback for autoplay-blocked environments: show a tap-to-play overlay on first pause.
-  var overlay=d.querySelector('.reel-play-overlay');
-  if(overlay){
-    overlay.addEventListener('click',function(e){e.preventDefault();want=true;tryPlay();overlay.classList.remove('on');});
-  }
+    /* First-frame ready: try play (covers autoplay attribute, no observer required) */
+    if(v.readyState>=2){sync();}
+    v.addEventListener('loadeddata',function(){sync();},{once:true});
+    v.addEventListener('canplay',function(){sync();},{once:true});
 
-  // One-tap-anywhere fallback on mobile when autoplay is blocked.
+    /* If autoplay blocked, the play overlay stays visible — that is the fallback */
+    if(RM){want=false; v.pause();}
+  });
+
+  /* Mobile one-tap-anywhere fallback when autoplay is blocked */
   function mobileFallback(e){
-    if(!autoplayBlocked||!onScreen)return;
-    if(e.target.closest('a,button,input,select,textarea'))return;
-    want=true; tryPlay();
+    var v=d.querySelector('.hx-video, .reel-video');
+    if(!v||!v.paused)return;
+    if(e.target.closest('a,button,input,select,textarea,.hx-play,.hx-toggle,.reel-play-overlay,.reel-toggle'))return;
+    want=true; var p=v.play();
+    if(p&&p.catch){p.catch(function(){});}
     d.removeEventListener('touchstart', mobileFallback, true);
-    d.removeEventListener('click', mobileFallback, true);
   }
   d.addEventListener('touchstart', mobileFallback, true);
-  d.addEventListener('click', mobileFallback, true);
-
-  // Reduced-motion: never play.
-  if(RM){want=false; v.pause();}
 })();
 
 /* Authority Line instrument: routine work flows below the line and completes on its own.
