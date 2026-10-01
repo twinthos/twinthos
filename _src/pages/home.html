@@ -3,41 +3,28 @@
   <div class="wrap hero-in">
     <div class="hero-copy">
       <p class="eyebrow">Managed AI workflows</p>
-      <h1 class="d1" id="hero-h">Your people have <span class="nb">better work to do.</span></h1>
+      <h1 class="d1" id="hero-h">Your people have <span class="nw">better work to do.</span></h1>
       <p class="lede">Twinthos builds and runs the jobs that repeat, across the tools you already use. Your team makes the decisions that need a person.</p>
       <div class="hero-act">
         <a class="btn btn-ink" href="/book/?interest=fit">Find my first workflow <span class="ar">→</span></a>
         <a class="tlink" href="#pricing">See pricing</a>
       </div>
     </div>
-    <div class="reel" id="reel">
-      <p class="ill"><i></i>Illustrative workflow · Sample data · Time compressed</p>
-      <figure class="reel-fig" aria-hidden="true">
-        <div class="fig fig-live">
-          {{wheel}}
-          <div class="spec spec-live">
-          <p class="day"><span class="d1x">Monday</span><span class="d2x">Later · Thursday</span></p>
-          <div class="card lv" data-l="msg"><p class="card-h"><i class="doc-i"></i>Email · <span class="nw">sam@harbour-offices.example</span></p><p class="card-b">Could you quote for servicing our office air conditioning?</p></div>
-          <div class="card lv" data-l="req"><p class="card-h"><i class="doc-i"></i>Details requested</p><p class="card-b">Site postcode. Number of units. Preferred timing.</p><p class="card-f card-fw"><i class="clock-i"></i>Waiting for customer reply</p></div>
-          <div class="card lv lv-rr" data-l="rr">
-            <div class="rr rr-reply"><p class="card-h"><i class="doc-i"></i>Customer reply received</p><p class="card-b">It’s <b class="slot" data-k="s">AB1 2CD</b>. There are <b class="slot" data-k="u">3 wall units</b>. <b class="slot" data-k="t">Weekday mornings</b> suit us best.</p></div>
-            <div class="rr rr-rec"><p class="card-h"><i class="doc-i"></i>Customer record</p>
-              <dl class="rec"><div><dt>Site</dt><dd><b class="slot" data-k="s">AB1 2CD</b></dd></div><div><dt>Units</dt><dd><b class="slot" data-k="u">3 wall units</b></dd></div><div><dt>Preferred timing</dt><dd><b class="slot" data-k="t">Weekday mornings</b></dd></div><div class="rec-team"><dt>Assigned for quotation</dt><dd>Your team</dd></div></dl></div>
-            <b class="tok" data-k="s">AB1 2CD</b><b class="tok" data-k="u">3 wall units</b><b class="tok" data-k="t">Weekday mornings</b>
-          </div>
-          <div class="card lv" data-l="fup"><p class="card-h"><i class="doc-i"></i><span class="fh-a">Follow-up scheduled for Thursday</span><span class="fh-b">Follow-up sent</span></p><p class="card-b">Hi Sam, just checking our quote reached you. Any questions?</p></div>
-          <div class="card lv card-amber" data-l="disc"><p class="card-h"><i class="doc-i"></i>Customer reply</p><p class="card-b">Could you do it for 15% less?</p><p class="card-f">In this example, discounts above 10% require approval.</p></div>
-        </div>
-        </div>
-      </figure>
-      <div class="reel-bar">
-        <button type="button" class="rb-play" aria-label="Pause the demo"><svg viewBox="0 0 16 16" aria-hidden="true"><rect class="ic-pause" x="3.5" y="2.5" width="3" height="11" rx=".8"/><rect class="ic-pause" x="9.5" y="2.5" width="3" height="11" rx=".8"/><path class="ic-play" d="M4.5 2.5v11l9-5.5z"/></svg></button>
-        <div class="rb-main">
-          <p class="rb-cap" aria-hidden="true"><span class="rc-n">1 / 6</span><span class="rc-h">Small tasks keep calling you back.</span><span class="rc-st st st-idle">Waiting for someone to do it</span></p>
-          <div class="rb-seg" role="group" aria-label="Jump to a step"><button type="button" aria-label="Show step 1: Small tasks"><i></i></button><button type="button" aria-label="Show step 2: The enquiry"><i></i></button><button type="button" aria-label="Show step 3: The details"><i></i></button><button type="button" aria-label="Show step 4: The record"><i></i></button><button type="button" aria-label="Show step 5: The follow-up"><i></i></button><button type="button" aria-label="Show step 6: The decision"><i></i></button></div>
-        </div>
+    <div class="film" id="film">
+      <div class="film-frame">
+        <video class="film-v" muted playsinline webkit-playsinline loop autoplay preload="metadata"
+          disablepictureinpicture controlslist="nodownload" x5-playsinline
+          poster="/assets/reel15-poster.jpg?v=1" data-poster-sm="/assets/reel15-portrait-poster.jpg?v=1"
+          aria-label="15-second film: small jobs keep pulling your people away; Twinthos runs the routine steps around one loop; a 15% discount request goes to your team to decide; the result is routine steps handled, your tools unchanged and decisions kept with you.">
+          <source src="/assets/reel15-portrait.mp4?v=1" type="video/mp4" media="(max-width: 899px)">
+          <source src="/assets/reel15.mp4?v=1" type="video/mp4">
+        </video>
+        <button type="button" class="film-tap" aria-label="Play the film"><span>Play</span></button>
+        <button type="button" class="film-toggle" aria-label="Pause the film">Pause</button>
       </div>
+      <p class="film-meta"><span>15-second film · no sound</span><span>Illustrative workflow · sample data</span></p>
     </div>
+    <div hidden id="wheel-src">{{wheel}}</div>
   </div>
 </section>
 
