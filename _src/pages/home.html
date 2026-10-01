@@ -1,110 +1,65 @@
 <!--{"title":"Twinthos · Managed AI workflows","desc":"Twinthos builds and runs the jobs that repeat, across the tools you already use. Your team keeps the decisions. Operations audit £999 one-off. Managed workflow £5,000 per month.","path":"","nav":"home","body":"home"}-->
-<section class="hero hero-reel" aria-labelledby="hero-h">
+<section class="hero hero-reel hero-film" aria-labelledby="hero-h">
+  <div class="film" id="film">
+    <video class="film-v" muted playsinline webkit-playsinline loop autoplay preload="metadata"
+          disablepictureinpicture controlslist="nodownload" x5-playsinline
+          poster="/assets/reel15-poster.jpg?v=1" data-poster-sm="/assets/reel15-portrait-poster.jpg?v=1"
+          aria-label="Film: small jobs keep pulling your people away; Twinthos runs the routine steps around one loop; a 15% discount request goes to your team to decide; the result is routine steps handled, your tools unchanged and decisions kept with you.">
+          <source src="/assets/reel15-portrait.mp4?v=1" type="video/mp4" media="(max-width: 899px)">
+          <source src="/assets/reel15.mp4?v=1" type="video/mp4">
+        </video>
+    <button type="button" class="film-tap" aria-label="Play the film"><span>Play</span></button>
+    <button type="button" class="film-toggle" aria-label="Pause the film">Pause</button>
+  </div>
   <div class="wrap hero-in">
     <div class="hero-copy">
       <p class="eyebrow">Managed AI workflows</p>
       <h1 class="d1" id="hero-h">Your people have <span class="nw">better work to do.</span></h1>
+    </div>
+    <div class="hero-side">
       <p class="lede">Twinthos builds and runs the jobs that repeat, across the tools you already use. Your team makes the decisions that need a person.</p>
       <div class="hero-act">
         <a class="btn btn-ink" href="/book/?interest=fit">Find my first workflow <span class="ar">→</span></a>
         <a class="tlink" href="#pricing">See pricing</a>
       </div>
     </div>
-    <div class="film" id="film">
-      <div class="film-frame">
-        <video class="film-v" muted playsinline webkit-playsinline loop autoplay preload="metadata"
-          disablepictureinpicture controlslist="nodownload" x5-playsinline
-          poster="/assets/reel15-poster.jpg?v=1" data-poster-sm="/assets/reel15-portrait-poster.jpg?v=1"
-          aria-label="15-second film: small jobs keep pulling your people away; Twinthos runs the routine steps around one loop; a 15% discount request goes to your team to decide; the result is routine steps handled, your tools unchanged and decisions kept with you.">
-          <source src="/assets/reel15-portrait.mp4?v=1" type="video/mp4" media="(max-width: 899px)">
-          <source src="/assets/reel15.mp4?v=1" type="video/mp4">
-        </video>
-        <button type="button" class="film-tap" aria-label="Play the film"><span>Play</span></button>
-        <button type="button" class="film-toggle" aria-label="Pause the film">Pause</button>
-      </div>
-      <p class="film-meta"><span>15-second film · no sound</span><span>Illustrative workflow · sample data</span></p>
-    </div>
-    <div hidden id="wheel-src">{{wheel}}</div>
   </div>
 </section>
 
 <section class="stepby sec" id="steps" aria-labelledby="steps-h">
-  <div class="wrap">
-    <p class="eyebrow">Step by step</p>
-    <h2 class="d2" id="steps-h">One enquiry, handled from start to finish.</h2>
-    <ol class="beats">
-        <li class="beat" data-b="1">
-          <div class="beat-txt">
-            <p class="beat-n">1 of 6</p>
-            <h3 class="beat-h">Small tasks keep calling you back.</h3>
-            <p class="beat-s">Each one is quick. But each one pulls someone away from their real work.</p>
-            <p class="status"><span class="st st-idle">Waiting for someone to do it</span></p>
-          </div>
-          <figure class="beat-fig" data-p="0.03">
-            <ul class="frags"><li>Read the enquiry.</li><li>Ask for the details.</li><li>Update the record.</li></ul>
-          </figure>
-        </li>
-        <li class="beat" data-b="2">
-          <div class="beat-txt">
-            <p class="beat-n">2 of 6</p>
-            <h3 class="beat-h">One enquiry starts the process.</h3>
-            <p class="beat-s">A customer emails to ask for a quote. The workflow picks it up.</p>
-            <p class="status"><span class="st st-go">Received</span></p>
-          </div>
-          <figure class="beat-fig" data-p="0.235">
-            <div class="card"><p class="card-h"><i class="doc-i"></i>Email · <span class="nw">sam@harbour-offices.example</span></p><p class="card-b">Could you quote for servicing our office air conditioning?</p></div>
-          </figure>
-        </li>
-        <li class="beat" data-b="3">
-          <div class="beat-txt">
-            <p class="beat-n">3 of 6</p>
-            <h3 class="beat-h">The details are collected.</h3>
-            <p class="beat-s">It asks for what is missing, then waits. Nothing moves on until the customer replies.</p>
-            <p class="status"><span class="st st-go" data-t="0">Details requested</span><span class="st st-wait" data-t=".36">Waiting for customer reply</span><span class="st st-go" data-t=".74">Customer reply received</span></p>
-          </div>
-          <figure class="beat-fig" data-p="0.37">
-            <div class="card"><p class="card-h"><i class="doc-i"></i>Details requested</p><p class="card-b">Site postcode. Number of units. Preferred timing.</p></div>
-            <p class="wait-line"><i class="clock-i"></i>Waiting for customer reply</p>
-            <div class="card"><p class="card-h"><i class="doc-i"></i>Customer reply received</p><p class="card-b">It’s <b class="tk">AB1 2CD</b>. There are <b class="tk">3 wall units</b>. <b class="tk">Weekday mornings</b> suit us best.</p></div>
-          </figure>
-        </li>
-        <li class="beat" data-b="4">
-          <div class="beat-txt">
-            <p class="beat-n">4 of 6</p>
-            <h3 class="beat-h">The record stays current.</h3>
-            <p class="beat-s">The answers go straight into the customer record. Your team writes the quote.</p>
-            <p class="status"><span class="st st-go">Updated</span></p>
-          </div>
-          <figure class="beat-fig" data-p="0.57">
-            <div class="card"><p class="card-h"><i class="doc-i"></i>Customer record</p>
-              <dl class="rec"><div><dt>Site</dt><dd><b class="tk">AB1 2CD</b></dd></div><div><dt>Units</dt><dd><b class="tk">3 wall units</b></dd></div><div><dt>Preferred timing</dt><dd><b class="tk">Weekday mornings</b></dd></div><div><dt>Assigned for quotation</dt><dd>Your team</dd></div></dl></div>
-          </figure>
-        </li>
-        <li class="beat" data-b="5">
-          <div class="beat-txt">
-            <p class="beat-n">5 of 6</p>
-            <h3 class="beat-h">The next step is remembered.</h3>
-            <p class="beat-s">On the agreed day, the follow-up goes out. Nobody has to remember it.</p>
-            <p class="status"><span class="st st-wait" data-t="0">Waiting for the follow-up day</span><span class="st st-go" data-t=".66">Follow-up sent</span></p>
-          </div>
-          <figure class="beat-fig" data-p="0.715">
-            <p class="day-chip">Later · Thursday</p>
-            <div class="card"><p class="card-h"><i class="doc-i"></i>Follow-up sent</p><p class="card-b">Hi Sam, just checking our quote reached you. Any questions?</p></div>
-          </figure>
-        </li>
-        <li class="beat" data-b="6">
-          <div class="beat-txt">
-            <p class="beat-n">6 of 6</p>
-            <h3 class="beat-h">Your team makes the call.</h3>
-            <p class="beat-s">When a request is outside the rules, the workflow stops and asks a person. Other work keeps moving.</p>
-            <p class="status"><span class="st st-amber">Awaiting approval</span></p>
-          </div>
-          <figure class="beat-fig" data-p="0.86">
-            <div class="card card-amber"><p class="card-h"><i class="doc-i"></i>Customer reply</p><p class="card-b">Could you do it for 15% less?</p><p class="card-f">In this example, discounts above 10% require approval.</p></div>
-          </figure>
-        </li>
-      </ol>
-    <p class="outro"><span>Routine steps handled.</span> <span>Decisions stay with you.</span></p>
+  <div class="wrap sx-wrap">
+    <div class="sx-head">
+      <p class="eyebrow">Step by step</p>
+      <h2 class="d2" id="steps-h">One enquiry, handled from start to finish.</h2>
+      <p class="lede">Small tasks keep calling you back. Each one is quick. But each one pulls someone away from their real work.</p>
+    </div>
+    <ol class="sx-list">
+      <li class="sx">
+        <span class="sx-n" aria-hidden="true">01</span>
+        <div class="sx-t"><h3>An enquiry arrives.</h3><p>A customer emails to ask for a quote. The workflow picks it up.</p></div>
+        <span class="sx-tag">Handled</span>
+      </li>
+      <li class="sx">
+        <span class="sx-n" aria-hidden="true">02</span>
+        <div class="sx-t"><h3>The details are collected.</h3><p>It asks for what is missing, then waits. Nothing moves on until the customer replies.</p></div>
+        <span class="sx-tag">Handled</span>
+      </li>
+      <li class="sx">
+        <span class="sx-n" aria-hidden="true">03</span>
+        <div class="sx-t"><h3>The record stays current.</h3><p>The answers go straight into the customer record. Your team writes the quote.</p></div>
+        <span class="sx-tag">Handled</span>
+      </li>
+      <li class="sx">
+        <span class="sx-n" aria-hidden="true">04</span>
+        <div class="sx-t"><h3>The next step is remembered.</h3><p>On the agreed day, the follow-up goes out. Nobody has to remember it.</p></div>
+        <span class="sx-tag">Handled</span>
+      </li>
+      <li class="sx sx-you">
+        <span class="sx-n" aria-hidden="true">05</span>
+        <div class="sx-t"><h3>Your team makes the call.</h3><p>When a request is outside the rules, the workflow stops and asks a person. Other work keeps moving.</p></div>
+        <span class="sx-tag">Your team</span>
+      </li>
+    </ol>
   </div>
 </section>
 
