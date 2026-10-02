@@ -125,7 +125,7 @@ for name, files in groups.items():
     built.append(meta)
 
 REDIRECTS = {"services/": "/how-it-works/", "audit/": "/operations-audit/", "questions/": "/faq/",
-             "demo/": "/#reel", "demos/": "/#reel", "contact/": "/book/", "thankyou/": "/book/"}
+             "demo/": "/#steps", "demos/": "/#steps", "contact/": "/book/", "thankyou/": "/book/"}
 for src, to in REDIRECTS.items():
     os.makedirs(f"{OUT}/{src}", exist_ok=True)
     open(f"{OUT}/{src}index.html", "w").write(

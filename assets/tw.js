@@ -170,10 +170,10 @@ if(film){
   var userPaused=false, inView=true;
   if(W.matchMedia('(max-width: 899px)').matches&&v.dataset.posterSm){v.poster=v.dataset.posterSm;
     var ps=v.querySelector('source[media]');if(ps&&v.currentSrc&&v.currentSrc.indexOf('portrait')<0){v.src=ps.getAttribute('src');v.load();}}
-  var label=function(){var on=!v.paused;tg.textContent=on?'Pause':'Play';tg.setAttribute('aria-label',on?'Pause the film':'Play the film');film.classList.toggle('is-paused',!on);};
-  var go=function(){if(userPaused||RMQ.matches||!inView)return;var pr=v.play();
+  var label=function(){var on=!v.paused&&!v.ended;var tx=on?'Pause':(v.ended?'Replay':'Play');tg.textContent=tx;tg.setAttribute('aria-label',on?'Pause the film':(v.ended?'Replay the film':'Play the film'));film.classList.toggle('is-paused',!on);};
+  var go=function(){if(userPaused||RMQ.matches||!inView||v.ended)return;var pr=v.play();
     if(pr&&pr.catch)pr.then(function(){tap.classList.remove('on');}).catch(function(){tap.classList.add('on');label();});};
-  ['play','pause'].forEach(function(e){v.addEventListener(e,label);});
+  ['play','pause','ended'].forEach(function(e){v.addEventListener(e,label);});
   ['loadeddata','canplay'].forEach(function(e){v.addEventListener(e,go);});
   tg.addEventListener('click',function(){if(v.paused){userPaused=false;inView=true;var pr=v.play();pr&&pr.catch&&pr.catch(function(){});}else{userPaused=true;v.pause();}});
   tap.addEventListener('click',function(){userPaused=false;var pr=v.play();pr&&pr.then&&pr.then(function(){tap.classList.remove('on');});});
@@ -202,6 +202,52 @@ if(mm&&!RMQ.matches&&'IntersectionObserver' in W){
   var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){requestAnimationFrame(function(){mm.classList.add('run');});io.disconnect();}});},{threshold:.55});
   io.observe(mm);
 }
+
+/* ── v7: scroll-told sections (all progressive; content is visible without JS) ── */
+(function(){
+  var IO='IntersectionObserver' in W;
+  /* the pile-up: bubbles drop in, the counter climbs */
+  var chat=d.querySelector('[data-chat]');
+  if(chat){
+    var bs=chat.querySelectorAll('.bub'),cnt=chat.querySelector('[data-count]');
+    var run=function(){
+      if(RMQ.matches||!IO){bs.forEach(function(b){b.classList.add('in');});return;}
+      if(cnt)cnt.textContent='0';
+      bs.forEach(function(b,i){setTimeout(function(){b.classList.add('in');if(cnt)cnt.textContent=String(i+1);},350+i*520);});
+    };
+    if(IO){var o1=new IntersectionObserver(function(en){if(en[0].isIntersecting){o1.disconnect();run();}},{threshold:.35});o1.observe(chat);}else run();
+  }
+  /* the ledger: each job ticks off in order as it scrolls into view */
+  var lg=d.querySelector('[data-ledger]');
+  if(lg){
+    var rows=[].slice.call(lg.querySelectorAll('.lg-r'));
+    if(RMQ.matches||!IO){rows.forEach(function(r,i){r.classList.add('on');if(i<rows.length-1)r.classList.add('nx');});}
+    else{
+      var lit=function(){
+        var vh=W.innerHeight,n=0;
+        rows.forEach(function(r){var b=r.getBoundingClientRect();if(b.top<vh*.72){if(!r.classList.contains('on'))r.classList.add('on');n++;}});
+        rows.forEach(function(r,i){var nx=rows[i+1];r.classList.toggle('nx',!!nx&&nx.classList.contains('on'));});
+      };
+      var tk=false,onS=function(){if(tk)return;tk=true;requestAnimationFrame(function(){tk=false;lit();});};
+      W.addEventListener('scroll',onS,{passive:true});W.addEventListener('resize',onS);lit();
+    }
+  }
+  /* the Authority Line draws itself, then the two halves settle */
+  var al=d.querySelector('[data-al]');
+  if(al){
+    if(RMQ.matches||!IO)al.classList.add('in');
+    else{var o3=new IntersectionObserver(function(en){if(en[0].isIntersecting){o3.disconnect();al.classList.add('in');}},{threshold:.3});o3.observe(al);}
+  }
+  /* sticky call-to-action on phones: appears once the hero has gone, hides at the end */
+  var st=d.getElementById('stick'),hero=d.querySelector('.h7'),fin=d.querySelector('.final');
+  if(st&&hero&&IO){
+    var seenHero=true,seenFin=false;
+    var upd=function(){var on=!seenHero&&!seenFin;st.classList.toggle('on',on);st.setAttribute('aria-hidden',on?'false':'true');
+      var a=st.querySelector('a');if(a)a.tabIndex=on?0:-1;};
+    new IntersectionObserver(function(en){seenHero=en[0].isIntersecting;upd();},{threshold:.0,rootMargin:'0px 0px -40% 0px'}).observe(hero);
+    if(fin)new IntersectionObserver(function(en){seenFin=en[0].isIntersecting;upd();},{threshold:.15}).observe(fin);
+  }
+})();
 
 /* ── enquiry form ── */
 d.querySelectorAll('form[data-form]').forEach(function(f){
