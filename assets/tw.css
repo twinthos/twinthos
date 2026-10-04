@@ -731,3 +731,28 @@ main{padding-top:var(--nav)}
   .hs-flow span{max-width:none}
   .hs-cta{grid-row:5!important}.hs-link{grid-row:5!important}.hs-desc{grid-row:6!important}
 }
+/* kinetic headline: words rise out of their own line on the spring, then "better work" is underlined */
+.hs-h .w>i{font-style:normal}
+html.js .hs-h .w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .03em .16em;margin:0 -.03em -.16em}
+html.js .hs-h .w>i{display:inline-block;transform:translate3d(0,112%,0);animation:tw-up 1.05s var(--spring) forwards;animation-delay:calc(.06s + var(--i)*.06s)}
+.hs-h .wu>i{background:linear-gradient(var(--green),var(--green)) no-repeat 0 98%/100% .075em}
+html.js .hs-h .wu>i{background-size:0% .075em;animation:tw-up 1.05s var(--spring) forwards,tw-ul .75s cubic-bezier(.65,0,.35,1) forwards;animation-delay:calc(.06s + var(--i)*.06s),calc(1.05s + var(--j)*.2s)}
+@keyframes tw-up{to{transform:none}}
+@keyframes tw-ul{to{background-size:100% .075em}}
+/* your turn: the scene pauses on the approval and hands the click to the visitor */
+.ap-hint{position:absolute;left:12px;bottom:calc(100% + 10px);padding:7px 11px;border-radius:999px;background:var(--green);color:#04120C;font:600 13px/1 var(--mono);letter-spacing:.02em;white-space:nowrap;opacity:0;transform:translate3d(0,6px,0);transition:opacity .3s,transform .5s var(--spring);pointer-events:none}
+.ap-hint::after{content:"";position:absolute;left:22px;top:100%;border:6px solid transparent;border-top-color:var(--green)}
+.hs.is-ask .ap-hint{opacity:1;transform:none}
+.hs.is-ask .hs-stage *{pointer-events:none}
+.hs.is-ask .hs-stage .ap-b{cursor:pointer;pointer-events:auto}
+.hs.is-ask .hs-stage .hs-btn,.hs.is-ask .hs-stage .hs-btn *{pointer-events:auto}
+.hs.is-ask .ap-b1{animation:tw-pulse 1.4s ease-out infinite}
+.hs.is-ask .ap-b:focus-visible{outline:2px solid var(--green);outline-offset:4px;border-radius:999px}
+@keyframes tw-pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.55)}100%{box-shadow:0 0 0 14px rgba(52,211,153,0)}}
+.ap-b.tap::after{content:"";position:absolute;left:50%;top:50%;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:rgba(52,211,153,.45);animation:tw-tap .6s ease-out forwards;pointer-events:none}
+@keyframes tw-tap{to{transform:scale(5);opacity:0}}
+.ml-ap{overflow:visible}
+.hs.is-ask .ptr,.hs.is-you .ptr{visibility:hidden}
+/* magnetic primary CTA on laptops */
+.btn-mag{transition:translate .5s var(--spring),transform .55s var(--spring),background-color .2s,border-color .2s,color .2s}
+@media (prefers-reduced-motion:reduce){html.js .hs-h .w>i,html.js .hs-h .wu>i{animation:none;transform:none;background-size:100% .075em}.hs.is-ask .ap-b1{animation:none}}

@@ -45,6 +45,15 @@ if(fl.length&&W.__hs){
   };
   setInterval(function(){if(!d.hidden)sync();},200);sync();
 }
+/* magnetic primary CTA (fine pointers): the button leans toward the cursor */
+if(W.matchMedia('(hover:hover) and (pointer:fine)').matches){
+  [].slice.call(d.querySelectorAll('.hs-cta .btn,.close-cta .btn-ink')).forEach(function(b){
+    b.classList.add('btn-mag');var zone=b.parentNode;
+    zone.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);
+      if(Math.abs(dx)<r.width/2+60&&Math.abs(dy)<r.height/2+50)b.style.translate=(dx*.18).toFixed(1)+'px '+(dy*.28).toFixed(1)+'px';else b.style.translate='';},{passive:true});
+    zone.addEventListener('pointerleave',function(){b.style.translate='';});
+  });
+}
 /* workspace tour: steps through the six parts until the visitor takes over */
 var ws=d.querySelector('.ws');
 if(ws&&'IntersectionObserver' in W){
