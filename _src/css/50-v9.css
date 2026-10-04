@@ -7,9 +7,6 @@
 .rv-pre{opacity:0;transform:translate3d(0,22px,0)}
 .rv-pre.rv-h{clip-path:inset(0 0 100% 0);transform:translate3d(0,.5em,0)}
 .rv-in{opacity:1;transform:none;clip-path:inset(0 0 0 0);transition:opacity .6s ease calc(var(--i,0)*70ms),transform .95s var(--spring) calc(var(--i,0)*70ms),clip-path .8s cubic-bezier(.16,1,.3,1) calc(var(--i,0)*70ms)}
-/* pointer spotlight in the hero (hover devices only) */
-.hs-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(460px circle at var(--mx,72%) var(--my,34%),rgba(52,211,153,.09),transparent 70%);opacity:0;transition:opacity .5s}
-.hs.spot .hs-bg::after{opacity:1}
 /* springy press on every button */
 .btn{transition:transform .55s var(--spring),background-color .2s,border-color .2s,color .2s,box-shadow .2s}
 .btn:hover{transform:translateY(-1px)}
@@ -18,43 +15,6 @@
 .ws-list li{transition:background .25s,padding-left .5s var(--spring)}
 .ws-list li.hi{background:rgba(52,211,153,.06)}
 @media (prefers-reduced-motion:reduce){.rv-pre,.rv-pre.rv-h{opacity:1;transform:none;clip-path:none}.nav-prog{display:none}.btn,.btn:hover,.btn:active{transform:none;transition:none}}
-/* hero: the whole idea in three steps, synced to the live scene */
-.hs-flow{order:3;list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative;max-width:30em}
-.hs-flow li{position:relative;display:flex;flex-direction:column;gap:8px;font:500 14px/1.3 var(--mono);color:var(--ink-2);transition:color .35s}
-.hs-flow span{max-width:10ch;text-wrap:balance}
-.hs-flow li:not(:last-child)::after{content:"";position:absolute;left:30px;right:-4px;top:11px;height:1px;background:var(--line-2)}
-.hs-flow b{display:grid;place-items:center;width:23px;height:23px;border-radius:50%;border:1px solid var(--line-2);font:600 12px/1 var(--mono);color:var(--ink-2);background:var(--ivory);position:relative;z-index:1;transition:background .35s,border-color .35s,color .35s,transform .5s var(--spring)}
-.hs-flow li.done b{border-color:var(--green);color:var(--green)}
-.hs-flow li.on{color:var(--ink)}
-.hs-flow li.on b{background:var(--green);border-color:var(--green);color:#06120C;transform:scale(1.12)}
 .ic-act{position:absolute;inset:-1px;border-radius:12px;border:1px solid rgba(52,211,153,.6);box-shadow:0 0 0 4px rgba(52,211,153,.07),0 10px 30px -12px rgba(52,211,153,.35);pointer-events:none;opacity:0}
-@media (min-width:1280px){
-  .hs-flow{grid-column:1 / -1;grid-row:4;margin-top:20px}
-  .hs-flow span{max-width:none}
-  .hs-cta{grid-row:5!important}.hs-link{grid-row:5!important}.hs-desc{grid-row:6!important}
-}
-/* kinetic headline: words rise out of their own line on the spring, then "better work" is underlined */
-.hs-h .w>i{font-style:normal}
-html.js .hs-h .w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .03em .16em;margin:0 -.03em -.16em}
-html.js .hs-h .w>i{display:inline-block;transform:translate3d(0,112%,0);animation:tw-up 1.05s var(--spring) forwards;animation-delay:calc(.06s + var(--i)*.06s)}
-.hs-h .wu>i{background:linear-gradient(var(--green),var(--green)) no-repeat 0 98%/100% .075em}
-html.js .hs-h .wu>i{background-size:0% .075em;animation:tw-up 1.05s var(--spring) forwards,tw-ul .75s cubic-bezier(.65,0,.35,1) forwards;animation-delay:calc(.06s + var(--i)*.06s),calc(1.05s + var(--j)*.2s)}
-@keyframes tw-up{to{transform:none}}
-@keyframes tw-ul{to{background-size:100% .075em}}
-/* your turn: the scene pauses on the approval and hands the click to the visitor */
-.ap-hint{position:absolute;left:12px;bottom:calc(100% + 10px);padding:7px 11px;border-radius:999px;background:var(--green);color:#04120C;font:600 13px/1 var(--mono);letter-spacing:.02em;white-space:nowrap;opacity:0;transform:translate3d(0,6px,0);transition:opacity .3s,transform .5s var(--spring);pointer-events:none}
-.ap-hint::after{content:"";position:absolute;left:22px;top:100%;border:6px solid transparent;border-top-color:var(--green)}
-.hs.is-ask .ap-hint{opacity:1;transform:none}
-.hs.is-ask .hs-stage *{pointer-events:none}
-.hs.is-ask .hs-stage .ap-b{cursor:pointer;pointer-events:auto}
-.hs.is-ask .hs-stage .hs-btn,.hs.is-ask .hs-stage .hs-btn *{pointer-events:auto}
-.hs.is-ask .ap-b1{animation:tw-pulse 1.4s ease-out infinite}
-.hs.is-ask .ap-b:focus-visible{outline:2px solid var(--green);outline-offset:4px;border-radius:999px}
-@keyframes tw-pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.55)}100%{box-shadow:0 0 0 14px rgba(52,211,153,0)}}
-.ap-b.tap::after{content:"";position:absolute;left:50%;top:50%;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:rgba(52,211,153,.45);animation:tw-tap .6s ease-out forwards;pointer-events:none}
-@keyframes tw-tap{to{transform:scale(5);opacity:0}}
-.ml-ap{overflow:visible}
-.hs.is-ask .ptr,.hs.is-you .ptr{visibility:hidden}
 /* magnetic primary CTA on laptops */
 .btn-mag{transition:translate .5s var(--spring),transform .55s var(--spring),background-color .2s,border-color .2s,color .2s}
-@media (prefers-reduced-motion:reduce){html.js .hs-h .w>i,html.js .hs-h .wu>i{animation:none;transform:none;background-size:100% .075em}.hs.is-ask .ap-b1{animation:none}}

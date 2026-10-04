@@ -181,3 +181,10 @@
   .ind-sub .ind-tab{flex:1 1 28%}
 }
 @media (prefers-reduced-motion:reduce){.ws.pre .wsx-s,.ws.pre .wsx-task,.ws.pre .wsx-out,.ws.pre .wsx-base li,.ws.pre .wsx-start li{opacity:1;transform:none}.dep.pre .dep-steps::before{transform:none}}
+/* restored from the retired v11 home css: shared by the workflow (.wsx) section */
+.sf-h{display:flex;align-items:center;gap:9px;height:42px;padding:0 14px;border-bottom:1px solid rgba(255,255,255,.08);font:500 14px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);position:relative}
+.sf-h .mk{width:18px;height:18px;color:var(--green);flex:none;display:block}
+.sf-h .mk svg{width:18px;height:18px}
+.tk-l{display:block;font:500 14px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
+.bub{margin:6px 12px 0;padding:9px 11px;border:1px solid rgba(255,255,255,.14);border-radius:14px;font-size:15px;line-height:1.3}
+.bub.in{border-top-left-radius:4px}
