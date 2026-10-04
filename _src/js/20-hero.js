@@ -4,7 +4,7 @@
 var d=document,root=d.querySelector('.hs'),T=W.TWTL;
 if(!root||!T||!root.animate)return;
 var st=root.querySelector('[data-stage]'),btn=root.querySelector('[data-ctl]'),DUR=28;
-var EO=T.EO,EI=T.EI,ES=T.ES,steps=function(n){return 'steps('+n+',end)';};
+var EO=T.EO,EI=T.EI,ES=T.ES,SP=T.SP,steps=function(n){return 'steps('+n+',end)';};
 var NARROW=W.matchMedia('(max-width: 1279.98px)'),RM=W.matchMedia('(prefers-reduced-motion: reduce)');
 var tl=new T.TL(DUR),mode=null,userPaused=false,started=false,viewable=false,finished=false;
 function $(s){return st.querySelector(s);}
@@ -91,22 +91,41 @@ function common(wide){
   tl.bump(q('.sf-out .sf-edge'),[23.2]);
 }
 
+
+/* camera: a slow push-in that follows the work (wide only). Individual translate/scale, so the world's own scale(k) is untouched. */
+function camera(){
+  var k=parseFloat(root.style.getPropertyValue('--k'))||1,cx=parseFloat(root.style.getPropertyValue('--cx'))||0,wt=parseFloat(root.style.getPropertyValue('--wt'))||0,vw=root.clientWidth;
+  var cp=root.querySelector('.hs-copy').getBoundingClientRect(),lim=cp.right+14,rim=vw-12,smax=Math.max(1,(rim-lim)/(746*k));
+  function f(fx,fy,s){
+    s=Math.min(s,smax);
+    var x=(1-s)*k*(fx-380),y=(1-s)*k*fy;if(wt+y<78)y=78-wt;
+    var xr=cx+x+s*k*366;if(xr>rim)x-=xr-rim;
+    var xl=cx+x-s*k*380;if(xl<lim)x+=lim-xl;
+    return{x:x,y:y,s:s};
+  }
+  var CE='cubic-bezier(.45,0,.2,1)';
+  tl.cam(st.querySelector('.hs-cl'),[
+    [0,f(380,300,1)],[5,f(380,300,1.035),'linear'],[9.4,f(380,300,1),CE],[14.2,f(380,300,1)],[15.4,f(330,170,1.09),CE],[16.8,f(330,170,1.09)],
+    [18.0,f(160,220,1.14),CE],[20.9,f(160,220,1.14)],[22.1,f(330,150,1.08),CE],[22.9,f(330,150,1.08)],[24.3,f(380,260,1),CE]]);
+}
+
 function buildWide(){
   var q=function(s){return $(s);};
   var mail=q('.sf-mail'),rec=q('.sf-rec'),task=q('.sf-task'),phone=q('.sf-phone'),ctx=q('.sf-ctx'),out=q('.sf-out');
   tl.prime([mail,rec,task,phone,ctx,out,q('.chip1'),q('.chip2')]);
   /* 0-5 work arrives: three separate surfaces, slightly out of true. 5-9 they recede. 9-14 they align into one workspace. */
-  tl.mk(mail,[[0,{X:0,Y:86,r:-1.4,o:0,s:.985,bl:0}],[.1,{}],[1.0,{Y:60,o:1,s:1},EO],[5,{}],[5.7,{Y:76,r:-2.4,o:.16,bl:4},EI],[9,{}],[10.4,{X:0,Y:40,r:0,o:1,bl:0},EI],[22.2,{}],[23.1,{o:0,Y:52},ES]]);
-  tl.mk(rec,[[0,{X:236,Y:48,r:.8,o:0,s:.985,bl:0}],[.4,{}],[1.3,{Y:24,o:1,s:1},EO],[5,{}],[5.7,{Y:36,r:1.8,o:.16,bl:4},EI],[9,{}],[10.4,{X:244,Y:0,r:0,o:1,bl:0},EI],[22.4,{}],[23.7,{X:0,Y:96},EI]]);
-  tl.mk(task,[[0,{X:548,Y:122,r:1.6,o:0,s:.985,bl:0}],[.7,{}],[1.6,{Y:100,o:1,s:1},EO],[5,{}],[5.7,{Y:114,r:2.6,o:.16,bl:4},EI],[9,{}],[10.4,{X:532,Y:300,r:0,o:1,bl:0},EI],[22.2,{}],[23,{o:0,Y:312},ES]]);
-  tl.mk(phone,[[0,{X:586,Y:26,o:0}],[10.6,{}],[11.5,{Y:0,o:1},EO],[22.2,{}],[23,{o:0,Y:12},ES]]);
-  tl.mk(ctx,[[0,{X:256,Y:272,o:0}],[12.8,{}],[13.6,{Y:254,o:1},EO],[22.2,{}],[23,{o:0,Y:266},ES]]);
-  tl.mk(out,[[0,{X:348,Y:114,o:0}],[22.6,{}],[23.7,{Y:96,o:1},EO]]);
+  tl.mk(mail,[[0,{X:0,Y:86,r:-1.4,o:0,s:.985,bl:0}],[.1,{}],[1.0,{Y:60,o:1,s:1},SP],[5,{}],[5.7,{Y:76,r:-2.4,o:.16,bl:4},EI],[9,{}],[10.4,{X:0,Y:40,r:0,o:1,bl:0},EI],[22.2,{}],[23.1,{o:0,Y:52},ES]]);
+  tl.mk(rec,[[0,{X:236,Y:48,r:.8,o:0,s:.985,bl:0}],[.4,{}],[1.3,{Y:24,o:1,s:1},SP],[5,{}],[5.7,{Y:36,r:1.8,o:.16,bl:4},EI],[9,{}],[10.4,{X:244,Y:0,r:0,o:1,bl:0},EI],[22.4,{}],[23.7,{X:0,Y:96},EI]]);
+  tl.mk(task,[[0,{X:548,Y:122,r:1.6,o:0,s:.985,bl:0}],[.7,{}],[1.6,{Y:100,o:1,s:1},SP],[5,{}],[5.7,{Y:114,r:2.6,o:.16,bl:4},EI],[9,{}],[10.4,{X:532,Y:300,r:0,o:1,bl:0},EI],[22.2,{}],[23,{o:0,Y:312},ES]]);
+  tl.mk(phone,[[0,{X:586,Y:26,o:0}],[10.6,{}],[11.5,{Y:0,o:1},SP],[22.2,{}],[23,{o:0,Y:12},ES]]);
+  tl.mk(ctx,[[0,{X:256,Y:272,o:0}],[12.8,{}],[13.6,{Y:254,o:1},SP],[22.2,{}],[23,{o:0,Y:266},ES]]);
+  tl.mk(out,[[0,{X:348,Y:114,o:0}],[22.6,{}],[23.7,{Y:96,o:1},SP]]);
   tl.win(q('.bub.out'),[[20.8,DUR+1]],{dy:6,in:.4});
   /* the work item rides the path. It reaches a gap and stops; a second task queues behind it. */
   tl.mk(q('.chip1'),[[0,{X:-340,o:0}],[.6,{}],[.75,{o:1}],[2.4,{X:-126},EO],[2.7,{X:-138},ES],[16.0,{}],[17.0,{X:122},EI],[17.2,{}],[18.2,{X:346},EI],[21.1,{}],[22.0,{X:432},EI]]);
   tl.mk(q('.chip2'),[[0,{X:-460,o:0}],[2.0,{}],[3.1,{X:-394,o:.9},EO],[23.0,{}],[24.2,{X:170},EI]]);
   common(true);
+  camera();
 }
 
 function buildNarrow(){

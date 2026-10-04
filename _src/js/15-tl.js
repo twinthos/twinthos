@@ -2,6 +2,13 @@
 (function(W){
 'use strict';
 var EO='cubic-bezier(.16,1,.3,1)',EI='cubic-bezier(.65,0,.35,1)',ES='cubic-bezier(.33,1,.68,1)';
+/* closed-form spring step response (zeta .6, ~9% overshoot) as a CSS linear() easing; falls back to EO where unsupported */
+var SP=(function(){
+  try{if(!(W.CSS&&CSS.supports&&CSS.supports('animation-timing-function','linear(0,1)')))return EO;}catch(e){return EO;}
+  var z=.6,w=12,wd=w*Math.sqrt(1-z*z),n=26,pts=[];
+  for(var i=0;i<=n;i++){var t=i/n,v=1-Math.exp(-z*w*t)*(Math.cos(wd*t)+z/Math.sqrt(1-z*z)*Math.sin(wd*t));pts.push(i===n?'1':(+v.toFixed(4)).toString());}
+  return 'linear('+pts.join(',')+')';
+})();
 function TL(dur){this.dur=dur;this.a=[];this.master=null;this.bm=new Map();}
 TL.prototype.clear=function(){this.a.forEach(function(x){try{x.cancel();}catch(e){}});this.a=[];this.master=null;this.bm.clear();};
 /* read layout once, before any animation is created, to avoid layout thrash */
@@ -43,7 +50,7 @@ TL.prototype.win=function(el,wins,o){
     if(t0<=0){keys.push([0,{o:1,y:0,s:1}]);}
     else{
       if(first)keys.push([0,{o:0,y:dy,s:s0}]);
-      keys.push([t0,{o:0,y:dy,s:s0}],[t0+inn,{o:1,y:0,s:1},EO]);
+      keys.push([t0,{o:0,y:dy,s:s0}],[t0+inn,{o:1,y:0,s:1},o.sp?SP:EO]);
     }
     first=false;
     if(t1<DUR){keys.push([t1,{o:1,y:0,s:1}],[t1+out,{o:0,y:-dy*.5,s:s0===1?1:(1+s0)/2+.01},ES]);}
@@ -62,9 +69,19 @@ TL.prototype.bump=function(el,times,base){
   times.forEach(function(t,i){var nx=times[i+1],end=nx!=null?Math.min(t+1.3,nx-.05):t+1.3;keys.push([t,{o:base}],[t+.22,{o:1},EO],[Math.max(t+.3,end),{o:base},ES]);});
   return this.mk(el,keys);
 };
+/* camera: individual transform properties (translate/scale) so the element's own transform stays intact. keys: [[t,{x,y,s},ease]] */
+TL.prototype.cam=function(el,keys){
+  if(!el||!(W.CSS&&CSS.supports&&CSS.supports('scale','1')))return null;
+  var DUR=this.dur;keys=keys.slice();
+  if(keys[0][0]>0)keys.unshift([0,keys[0][1],null]);
+  if(keys[keys.length-1][0]<DUR)keys.push([DUR,keys[keys.length-1][1],null]);
+  var fr=keys.map(function(k){var v=k[1];return{offset:Math.max(0,Math.min(1,k[0]/DUR)),translate:(v.x||0).toFixed(2)+'px '+(v.y||0).toFixed(2)+'px',scale:String(v.s==null?1:v.s)};});
+  for(var i=0;i<fr.length-1;i++)fr[i].easing=keys[i+1][2]||'linear';
+  var a=el.animate(fr,{duration:DUR*1000,fill:'both',easing:'linear'});a.pause();this.a.push(a);return a;
+};
 TL.prototype.seek=function(t){var ms=Math.max(0,Math.min(this.dur,t))*1000;this.a.forEach(function(x){x.currentTime=ms;});};
 TL.prototype.time=function(){return this.master?(this.master.currentTime||0)/1000:0;};
 TL.prototype.play=function(){this.a.forEach(function(x){x.play();});};
 TL.prototype.pause=function(){this.a.forEach(function(x){x.pause();});};
-W.TWTL={TL:TL,EO:EO,EI:EI,ES:ES};
+W.TWTL={TL:TL,EO:EO,EI:EI,ES:ES,SP:SP};
 })(window);

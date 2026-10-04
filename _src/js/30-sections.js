@@ -40,7 +40,10 @@ if(root&&dataEl&&T&&root.animate){
     tl.mk(root.querySelector('.is-top'),[[0,{o:1}]]);
     caps.forEach(function(c,i){tl.win(c,[capT[i]],{dy:10,in:.4,out:.25});});
     cards.forEach(function(c,i){
-      tl.win(c,[[times[i],DUR+1]],{dy:16,in:.55});
+      /* upcoming steps are already on stage as faint ghosts; the spring activates each one in turn */
+      var SPR=T.SP||EO;
+      if(i===0)tl.mk(c,[[0,{o:0,y:16}],[times[0],{}],[times[0]+.7,{o:1,y:0},SPR]]);
+      else tl.mk(c,[[0,{o:.14,y:0}],[times[i],{}],[times[i]+.7,{o:1,y:0},SPR]]);
       tl.win($a('.n1',c)[0],[[times[i]+.25,DUR+1]],{dy:0,in:.3});
       var s1=$a('.s1',c)[0],s0=$a('.s0',c)[0];
       if(s1){var ts=i===1?R+.3:i===2?R:i===3?times[3]+1.1:R;tl.win(s0,[[0,ts]],{dy:0,in:.01,out:.2});tl.win(s1,[[ts,DUR+1]],{dy:0,in:.25});}

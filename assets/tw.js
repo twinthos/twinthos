@@ -71,6 +71,13 @@ d.querySelectorAll('form[data-form]').forEach(function(f){
 (function(W){
 'use strict';
 var EO='cubic-bezier(.16,1,.3,1)',EI='cubic-bezier(.65,0,.35,1)',ES='cubic-bezier(.33,1,.68,1)';
+/* closed-form spring step response (zeta .6, ~9% overshoot) as a CSS linear() easing; falls back to EO where unsupported */
+var SP=(function(){
+  try{if(!(W.CSS&&CSS.supports&&CSS.supports('animation-timing-function','linear(0,1)')))return EO;}catch(e){return EO;}
+  var z=.6,w=12,wd=w*Math.sqrt(1-z*z),n=26,pts=[];
+  for(var i=0;i<=n;i++){var t=i/n,v=1-Math.exp(-z*w*t)*(Math.cos(wd*t)+z/Math.sqrt(1-z*z)*Math.sin(wd*t));pts.push(i===n?'1':(+v.toFixed(4)).toString());}
+  return 'linear('+pts.join(',')+')';
+})();
 function TL(dur){this.dur=dur;this.a=[];this.master=null;this.bm=new Map();}
 TL.prototype.clear=function(){this.a.forEach(function(x){try{x.cancel();}catch(e){}});this.a=[];this.master=null;this.bm.clear();};
 /* read layout once, before any animation is created, to avoid layout thrash */
@@ -112,7 +119,7 @@ TL.prototype.win=function(el,wins,o){
     if(t0<=0){keys.push([0,{o:1,y:0,s:1}]);}
     else{
       if(first)keys.push([0,{o:0,y:dy,s:s0}]);
-      keys.push([t0,{o:0,y:dy,s:s0}],[t0+inn,{o:1,y:0,s:1},EO]);
+      keys.push([t0,{o:0,y:dy,s:s0}],[t0+inn,{o:1,y:0,s:1},o.sp?SP:EO]);
     }
     first=false;
     if(t1<DUR){keys.push([t1,{o:1,y:0,s:1}],[t1+out,{o:0,y:-dy*.5,s:s0===1?1:(1+s0)/2+.01},ES]);}
@@ -131,11 +138,21 @@ TL.prototype.bump=function(el,times,base){
   times.forEach(function(t,i){var nx=times[i+1],end=nx!=null?Math.min(t+1.3,nx-.05):t+1.3;keys.push([t,{o:base}],[t+.22,{o:1},EO],[Math.max(t+.3,end),{o:base},ES]);});
   return this.mk(el,keys);
 };
+/* camera: individual transform properties (translate/scale) so the element's own transform stays intact. keys: [[t,{x,y,s},ease]] */
+TL.prototype.cam=function(el,keys){
+  if(!el||!(W.CSS&&CSS.supports&&CSS.supports('scale','1')))return null;
+  var DUR=this.dur;keys=keys.slice();
+  if(keys[0][0]>0)keys.unshift([0,keys[0][1],null]);
+  if(keys[keys.length-1][0]<DUR)keys.push([DUR,keys[keys.length-1][1],null]);
+  var fr=keys.map(function(k){var v=k[1];return{offset:Math.max(0,Math.min(1,k[0]/DUR)),translate:(v.x||0).toFixed(2)+'px '+(v.y||0).toFixed(2)+'px',scale:String(v.s==null?1:v.s)};});
+  for(var i=0;i<fr.length-1;i++)fr[i].easing=keys[i+1][2]||'linear';
+  var a=el.animate(fr,{duration:DUR*1000,fill:'both',easing:'linear'});a.pause();this.a.push(a);return a;
+};
 TL.prototype.seek=function(t){var ms=Math.max(0,Math.min(this.dur,t))*1000;this.a.forEach(function(x){x.currentTime=ms;});};
 TL.prototype.time=function(){return this.master?(this.master.currentTime||0)/1000:0;};
 TL.prototype.play=function(){this.a.forEach(function(x){x.play();});};
 TL.prototype.pause=function(){this.a.forEach(function(x){x.pause();});};
-W.TWTL={TL:TL,EO:EO,EI:EI,ES:ES};
+W.TWTL={TL:TL,EO:EO,EI:EI,ES:ES,SP:SP};
 })(window);
 
 /* Hero scene: "The work between the work". 28 s presentation timing, live HTML, recomposed for wide and narrow. */
@@ -144,7 +161,7 @@ W.TWTL={TL:TL,EO:EO,EI:EI,ES:ES};
 var d=document,root=d.querySelector('.hs'),T=W.TWTL;
 if(!root||!T||!root.animate)return;
 var st=root.querySelector('[data-stage]'),btn=root.querySelector('[data-ctl]'),DUR=28;
-var EO=T.EO,EI=T.EI,ES=T.ES,steps=function(n){return 'steps('+n+',end)';};
+var EO=T.EO,EI=T.EI,ES=T.ES,SP=T.SP,steps=function(n){return 'steps('+n+',end)';};
 var NARROW=W.matchMedia('(max-width: 1279.98px)'),RM=W.matchMedia('(prefers-reduced-motion: reduce)');
 var tl=new T.TL(DUR),mode=null,userPaused=false,started=false,viewable=false,finished=false;
 function $(s){return st.querySelector(s);}
@@ -231,22 +248,41 @@ function common(wide){
   tl.bump(q('.sf-out .sf-edge'),[23.2]);
 }
 
+
+/* camera: a slow push-in that follows the work (wide only). Individual translate/scale, so the world's own scale(k) is untouched. */
+function camera(){
+  var k=parseFloat(root.style.getPropertyValue('--k'))||1,cx=parseFloat(root.style.getPropertyValue('--cx'))||0,wt=parseFloat(root.style.getPropertyValue('--wt'))||0,vw=root.clientWidth;
+  var cp=root.querySelector('.hs-copy').getBoundingClientRect(),lim=cp.right+14,rim=vw-12,smax=Math.max(1,(rim-lim)/(746*k));
+  function f(fx,fy,s){
+    s=Math.min(s,smax);
+    var x=(1-s)*k*(fx-380),y=(1-s)*k*fy;if(wt+y<78)y=78-wt;
+    var xr=cx+x+s*k*366;if(xr>rim)x-=xr-rim;
+    var xl=cx+x-s*k*380;if(xl<lim)x+=lim-xl;
+    return{x:x,y:y,s:s};
+  }
+  var CE='cubic-bezier(.45,0,.2,1)';
+  tl.cam(st.querySelector('.hs-cl'),[
+    [0,f(380,300,1)],[5,f(380,300,1.035),'linear'],[9.4,f(380,300,1),CE],[14.2,f(380,300,1)],[15.4,f(330,170,1.09),CE],[16.8,f(330,170,1.09)],
+    [18.0,f(160,220,1.14),CE],[20.9,f(160,220,1.14)],[22.1,f(330,150,1.08),CE],[22.9,f(330,150,1.08)],[24.3,f(380,260,1),CE]]);
+}
+
 function buildWide(){
   var q=function(s){return $(s);};
   var mail=q('.sf-mail'),rec=q('.sf-rec'),task=q('.sf-task'),phone=q('.sf-phone'),ctx=q('.sf-ctx'),out=q('.sf-out');
   tl.prime([mail,rec,task,phone,ctx,out,q('.chip1'),q('.chip2')]);
   /* 0-5 work arrives: three separate surfaces, slightly out of true. 5-9 they recede. 9-14 they align into one workspace. */
-  tl.mk(mail,[[0,{X:0,Y:86,r:-1.4,o:0,s:.985,bl:0}],[.1,{}],[1.0,{Y:60,o:1,s:1},EO],[5,{}],[5.7,{Y:76,r:-2.4,o:.16,bl:4},EI],[9,{}],[10.4,{X:0,Y:40,r:0,o:1,bl:0},EI],[22.2,{}],[23.1,{o:0,Y:52},ES]]);
-  tl.mk(rec,[[0,{X:236,Y:48,r:.8,o:0,s:.985,bl:0}],[.4,{}],[1.3,{Y:24,o:1,s:1},EO],[5,{}],[5.7,{Y:36,r:1.8,o:.16,bl:4},EI],[9,{}],[10.4,{X:244,Y:0,r:0,o:1,bl:0},EI],[22.4,{}],[23.7,{X:0,Y:96},EI]]);
-  tl.mk(task,[[0,{X:548,Y:122,r:1.6,o:0,s:.985,bl:0}],[.7,{}],[1.6,{Y:100,o:1,s:1},EO],[5,{}],[5.7,{Y:114,r:2.6,o:.16,bl:4},EI],[9,{}],[10.4,{X:532,Y:300,r:0,o:1,bl:0},EI],[22.2,{}],[23,{o:0,Y:312},ES]]);
-  tl.mk(phone,[[0,{X:586,Y:26,o:0}],[10.6,{}],[11.5,{Y:0,o:1},EO],[22.2,{}],[23,{o:0,Y:12},ES]]);
-  tl.mk(ctx,[[0,{X:256,Y:272,o:0}],[12.8,{}],[13.6,{Y:254,o:1},EO],[22.2,{}],[23,{o:0,Y:266},ES]]);
-  tl.mk(out,[[0,{X:348,Y:114,o:0}],[22.6,{}],[23.7,{Y:96,o:1},EO]]);
+  tl.mk(mail,[[0,{X:0,Y:86,r:-1.4,o:0,s:.985,bl:0}],[.1,{}],[1.0,{Y:60,o:1,s:1},SP],[5,{}],[5.7,{Y:76,r:-2.4,o:.16,bl:4},EI],[9,{}],[10.4,{X:0,Y:40,r:0,o:1,bl:0},EI],[22.2,{}],[23.1,{o:0,Y:52},ES]]);
+  tl.mk(rec,[[0,{X:236,Y:48,r:.8,o:0,s:.985,bl:0}],[.4,{}],[1.3,{Y:24,o:1,s:1},SP],[5,{}],[5.7,{Y:36,r:1.8,o:.16,bl:4},EI],[9,{}],[10.4,{X:244,Y:0,r:0,o:1,bl:0},EI],[22.4,{}],[23.7,{X:0,Y:96},EI]]);
+  tl.mk(task,[[0,{X:548,Y:122,r:1.6,o:0,s:.985,bl:0}],[.7,{}],[1.6,{Y:100,o:1,s:1},SP],[5,{}],[5.7,{Y:114,r:2.6,o:.16,bl:4},EI],[9,{}],[10.4,{X:532,Y:300,r:0,o:1,bl:0},EI],[22.2,{}],[23,{o:0,Y:312},ES]]);
+  tl.mk(phone,[[0,{X:586,Y:26,o:0}],[10.6,{}],[11.5,{Y:0,o:1},SP],[22.2,{}],[23,{o:0,Y:12},ES]]);
+  tl.mk(ctx,[[0,{X:256,Y:272,o:0}],[12.8,{}],[13.6,{Y:254,o:1},SP],[22.2,{}],[23,{o:0,Y:266},ES]]);
+  tl.mk(out,[[0,{X:348,Y:114,o:0}],[22.6,{}],[23.7,{Y:96,o:1},SP]]);
   tl.win(q('.bub.out'),[[20.8,DUR+1]],{dy:6,in:.4});
   /* the work item rides the path. It reaches a gap and stops; a second task queues behind it. */
   tl.mk(q('.chip1'),[[0,{X:-340,o:0}],[.6,{}],[.75,{o:1}],[2.4,{X:-126},EO],[2.7,{X:-138},ES],[16.0,{}],[17.0,{X:122},EI],[17.2,{}],[18.2,{X:346},EI],[21.1,{}],[22.0,{X:432},EI]]);
   tl.mk(q('.chip2'),[[0,{X:-460,o:0}],[2.0,{}],[3.1,{X:-394,o:.9},EO],[23.0,{}],[24.2,{X:170},EI]]);
   common(true);
+  camera();
 }
 
 function buildNarrow(){
@@ -366,7 +402,10 @@ if(root&&dataEl&&T&&root.animate){
     tl.mk(root.querySelector('.is-top'),[[0,{o:1}]]);
     caps.forEach(function(c,i){tl.win(c,[capT[i]],{dy:10,in:.4,out:.25});});
     cards.forEach(function(c,i){
-      tl.win(c,[[times[i],DUR+1]],{dy:16,in:.55});
+      /* upcoming steps are already on stage as faint ghosts; the spring activates each one in turn */
+      var SPR=T.SP||EO;
+      if(i===0)tl.mk(c,[[0,{o:0,y:16}],[times[0],{}],[times[0]+.7,{o:1,y:0},SPR]]);
+      else tl.mk(c,[[0,{o:.14,y:0}],[times[i],{}],[times[i]+.7,{o:1,y:0},SPR]]);
       tl.win($a('.n1',c)[0],[[times[i]+.25,DUR+1]],{dy:0,in:.3});
       var s1=$a('.s1',c)[0],s0=$a('.s0',c)[0];
       if(s1){var ts=i===1?R+.3:i===2?R:i===3?times[3]+1.1:R;tl.win(s0,[[0,ts]],{dy:0,in:.01,out:.2});tl.win(s1,[[ts,DUR+1]],{dy:0,in:.25});}
@@ -446,5 +485,61 @@ if('IntersectionObserver' in W&&!RM.matches){
     s.classList.add('pre');
     new IntersectionObserver(function(e,o){if(e[0].isIntersecting){s.classList.remove('pre');o.disconnect();}},{threshold:.18}).observe(s);
   });
+}
+})(window);
+
+/* Twinthos v9 motion layer. No dependencies. Scroll progress, section reveals, hero spotlight, workspace tour. */
+(function(W){
+'use strict';
+var d=document,RM=W.matchMedia('(prefers-reduced-motion: reduce)');
+if(RM.matches)return;
+/* scroll progress */
+var nav=d.querySelector('.nav');
+if(nav){
+  var bar=d.createElement('i');bar.className='nav-prog';bar.setAttribute('aria-hidden','true');nav.appendChild(bar);
+  var tick=false,upd=function(){tick=false;var h=d.documentElement.scrollHeight-W.innerHeight;bar.style.transform='scaleX('+(h>0?Math.min(1,W.scrollY/h):0).toFixed(4)+')';};
+  W.addEventListener('scroll',function(){if(!tick){tick=true;W.requestAnimationFrame(upd);}},{passive:true});upd();
+}
+/* section reveals: headings mask up, leads and cards rise on a spring, staggered inside each group */
+if('IntersectionObserver' in W){
+  var groups=[].slice.call(d.querySelectorAll('.sec-head,.offers-head,.faq-wrap,.close-in,.offer-grid'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;io.unobserve(e.target);
+    var els=e.target._rv||[];els.forEach(function(x,i){x.style.setProperty('--i',i);x.classList.add('rv-in');x.classList.remove('rv-pre');});
+  });},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  groups.forEach(function(g){
+    var els=[].slice.call(g.querySelectorAll('.eyebrow,.d1,.d2,.d3,.lead,.offer,.faq-l>*,.close-cta'));
+    if(g.classList.contains('offer-grid'))els=[].slice.call(g.children);
+    if(!els.length)return;
+    els.forEach(function(x){x.classList.add('rv-pre');if(/(^|\s)d[123](\s|$)/.test(x.className))x.classList.add('rv-h');});
+    g._rv=els;io.observe(g);
+  });
+}
+/* hero spotlight follows the pointer on hover devices */
+var hs=d.querySelector('.hs');
+if(hs&&W.matchMedia('(hover:hover) and (pointer:fine)').matches){
+  var px=0,py=0,pend=false;
+  hs.addEventListener('pointermove',function(e){
+    var r=hs.getBoundingClientRect();px=e.clientX-r.left;py=e.clientY-r.top;
+    if(!pend){pend=true;W.requestAnimationFrame(function(){pend=false;hs.style.setProperty('--mx',px+'px');hs.style.setProperty('--my',py+'px');hs.classList.add('spot');});}
+  },{passive:true});
+  hs.addEventListener('pointerleave',function(){hs.classList.remove('spot');});
+}
+/* workspace tour: steps through the six parts until the visitor takes over */
+var ws=d.querySelector('.ws');
+if(ws&&'IntersectionObserver' in W){
+  var items=[].slice.call(ws.querySelectorAll('.ws-list li')),cur=-1,timer=null,took=false,seen=false;
+  var set=function(n,on){[].slice.call(ws.querySelectorAll('[data-n="'+n+'"]')).forEach(function(e){e.classList.toggle('hi',on);});};
+  var clear=function(){items.forEach(function(li){set(li.dataset.n,false);});};
+  var step=function(){if(took||d.hidden)return;if(cur>=0)set(items[cur].dataset.n,false);cur=(cur+1)%items.length;set(items[cur].dataset.n,true);};
+  var stop=function(){took=true;clearInterval(timer);timer=null;};
+  var grab=function(){if(!took){stop();}};
+  items.forEach(function(li){['mouseenter','touchstart','click','focus'].forEach(function(ev){li.addEventListener(ev,grab,{passive:true});});});
+  [].slice.call(ws.querySelectorAll('.wsx')).forEach(function(w){w.addEventListener('pointerdown',grab,{passive:true});});
+  new IntersectionObserver(function(e){
+    if(took)return;
+    if(e[0].isIntersecting){if(!timer){step();timer=setInterval(step,2300);seen=true;}}
+    else{clearInterval(timer);timer=null;if(seen)clear();cur=-1;}
+  },{threshold:.45}).observe(ws.querySelector('.ws-grid')||ws);
 }
 })(window);
