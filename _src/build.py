@@ -12,7 +12,8 @@ js = "\n".join(open(p).read() for p in sorted(glob.glob(f"{SRC}/js/*.js")))
 os.makedirs(f"{OUT}/assets", exist_ok=True)
 open(f"{OUT}/assets/tw.css", "w").write(css)
 open(f"{OUT}/assets/tw.js", "w").write(js)
-VER = hashlib.sha1((css + js).encode()).hexdigest()[:8]
+HERO_JS = open(f"{SRC}/js/15-tl.js").read() + "\n" + "\n".join(open(p).read() for p in sorted(glob.glob(f"{SRC}/hero/*.js")))
+VER = hashlib.sha1((css + js + HERO_JS).encode()).hexdigest()[:8]
 
 fav = open(f"{OUT}/favicon.svg").read()
 MARK_D = re.search(r'<path[^>]*d="([^"]+)"', fav).group(1)
@@ -51,7 +52,7 @@ def ind_data():
     d = {k: {kk: vv for kk, vv in v.items() if kk in ("stage", "caps", "cards", "outs")} for k, v in IND["items"].items()}
     return '<script type="application/json" id="ind-data">' + json.dumps(d, ensure_ascii=False).replace("</", "<\\/") + '</script>'
 
-PARTS = {"mark": lambda: MARK, "ind_tabs": ind_tabs, "ind_panels": ind_panels, "ind_data": ind_data}
+PARTS = {"hero_js": lambda: "<script>" + HERO_JS.replace("</", "<\\/") + "</script>", "mark": lambda: MARK, "ind_tabs": ind_tabs, "ind_panels": ind_panels, "ind_data": ind_data}
 
 def partial(name):
     if name in PARTS:
@@ -79,6 +80,8 @@ def layout(meta, body):
                 {"@type": "Offer", "name": "Managed digital employee", "price": "5000", "priceCurrency": "GBP", "description": "Monthly implementation and management of a digital employee for one agreed workflow. Three-month minimum."}]},
             ensure_ascii=False) + '</script>'
     body = body.replace('<span class="ar">→</span>', ARROW)
+    # home: inline the stylesheet so the hero film can paint and start on the first frame (no render-blocking request)
+    css_tag = f"<style>{css}</style>" if home else f'<link rel="stylesheet" href="/assets/tw.css?v={VER}">'
     return f'''<!DOCTYPE html>
 <html lang="en-GB" class="no-js">
 <head>
@@ -98,7 +101,7 @@ def layout(meta, body):
 <meta property="og:image" content="{SITE}/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/assets/fonts/InterTight-normal-400-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/tw.css?v={VER}">
+{css_tag}
 <script>document.documentElement.classList.replace('no-js','js')</script>
 <script src="/assets/tw.js?v={VER}" defer></script>
 {ld}
