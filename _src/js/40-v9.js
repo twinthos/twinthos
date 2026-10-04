@@ -35,6 +35,16 @@ if(hs&&W.matchMedia('(hover:hover) and (pointer:fine)').matches){
   },{passive:true});
   hs.addEventListener('pointerleave',function(){hs.classList.remove('spot');});
 }
+/* hero flow: 1 Work comes in > 2 Twinthos handles it > 3 You approve, following the scene clock */
+var fl=[].slice.call(d.querySelectorAll('.hs-flow li'));
+if(fl.length&&W.__hs){
+  var last=-1;
+  var sync=function(){
+    var tl=W.__hs.tl,t=tl&&tl.time?tl.time():0,a=t<14?0:t<18.7?1:t<22?2:3;
+    if(a!==last){last=a;fl.forEach(function(li,i){li.classList.toggle('on',i===a);li.classList.toggle('done',i<a);});}
+  };
+  setInterval(function(){if(!d.hidden)sync();},200);sync();
+}
 /* workspace tour: steps through the six parts until the visitor takes over */
 var ws=d.querySelector('.ws');
 if(ws&&'IntersectionObserver' in W){

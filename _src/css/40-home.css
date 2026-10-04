@@ -178,7 +178,7 @@
 .sf-mail{top:6px}.sf-rec{top:30px;left:max(20px,calc(50% - 158px))}
 .sf-phone{top:8px;left:calc(50% - 80px)}.sf-ctx{top:96px;left:max(20px,calc(50% - 125px))}
 .sf-task{top:100px;left:max(20px,calc(50% - 100px))}.sf-out{top:24px;left:max(20px,calc(50% - 150px))}
-.sf-mail{left:max(20px,calc(50% - 120px));width:240px;height:292px}
+.sf-mail{left:max(20px,calc(50% - 120px));width:240px;height:306px}
 @media (min-width:480px){.sf-mail{width:340px;left:calc(50% - 170px)}.ml-body{height:96px}}
 
 /* ---- wide: world is 760x610 at --k, copy left, stage behind and beside it ---- */

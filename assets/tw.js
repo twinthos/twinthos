@@ -386,7 +386,7 @@ if(root&&dataEl&&T&&root.animate){
       h+='<div><dt>'+esc(r[0])+'</dt><dd'+(r[2]?' class="rv"':'')+'>'+(r[2]?'<span class="miss">'+esc(r[1])+'</span><b class="fill">'+esc(r[2])+'</b>':esc(r[1]))+'</dd></div>';});h+='</dl>';}
     if(c.slots){h+='<div class="ic-slots">';c.slots.forEach(function(s,k){h+='<span>'+esc(s)+(k===c.pick?'<u class="ring"></u>':'')+'</span>';});h+='</div>';}
     if(c.reply)h+='<p class="ic-reply">'+esc(c.reply)+'</p>';
-    return h+'</div>';
+    return h+'<i class="ic-act" aria-hidden="true"></i></div>';
   };
 
   function build(id){
@@ -407,6 +407,8 @@ if(root&&dataEl&&T&&root.animate){
       if(i===0)tl.mk(c,[[0,{o:0,y:16}],[times[0],{}],[times[0]+.7,{o:1,y:0},SPR]]);
       else tl.mk(c,[[0,{o:.14,y:0}],[times[i],{}],[times[i]+.7,{o:1,y:0},SPR]]);
       tl.win($a('.n1',c)[0],[[times[i]+.25,DUR+1]],{dy:0,in:.3});
+      /* the step being worked on now carries the emerald edge */
+      tl.win($a('.ic-act',c)[0],[[times[i]+.15,i<times.length-1?times[i+1]+.1:DUR+1]],{dy:0,in:.35,out:.4});
       var s1=$a('.s1',c)[0],s0=$a('.s0',c)[0];
       if(s1){var ts=i===1?R+.3:i===2?R:i===3?times[3]+1.1:R;tl.win(s0,[[0,ts]],{dy:0,in:.01,out:.2});tl.win(s1,[[ts,DUR+1]],{dy:0,in:.25});}
     });
@@ -524,6 +526,16 @@ if(hs&&W.matchMedia('(hover:hover) and (pointer:fine)').matches){
     if(!pend){pend=true;W.requestAnimationFrame(function(){pend=false;hs.style.setProperty('--mx',px+'px');hs.style.setProperty('--my',py+'px');hs.classList.add('spot');});}
   },{passive:true});
   hs.addEventListener('pointerleave',function(){hs.classList.remove('spot');});
+}
+/* hero flow: 1 Work comes in > 2 Twinthos handles it > 3 You approve, following the scene clock */
+var fl=[].slice.call(d.querySelectorAll('.hs-flow li'));
+if(fl.length&&W.__hs){
+  var last=-1;
+  var sync=function(){
+    var tl=W.__hs.tl,t=tl&&tl.time?tl.time():0,a=t<14?0:t<18.7?1:t<22?2:3;
+    if(a!==last){last=a;fl.forEach(function(li,i){li.classList.toggle('on',i===a);li.classList.toggle('done',i<a);});}
+  };
+  setInterval(function(){if(!d.hidden)sync();},200);sync();
 }
 /* workspace tour: steps through the six parts until the visitor takes over */
 var ws=d.querySelector('.ws');
