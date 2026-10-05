@@ -278,7 +278,7 @@ if(ws){
 }
 /* quiet reveal for the workspace and deployment sections (content is readable without it) */
 if('IntersectionObserver' in W&&!RM.matches){
-  [].slice.call(d.querySelectorAll('.ws,.dep,.kit')).forEach(function(s){
+  [].slice.call(d.querySelectorAll('.ws,.dep,.kit,.vs')).forEach(function(s){
     s.classList.add('pre');
     new IntersectionObserver(function(e,o){if(e[0].isIntersecting){s.classList.remove('pre');o.disconnect();}},{threshold:.18}).observe(s);
   });

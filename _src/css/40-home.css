@@ -29,7 +29,7 @@ html.js .kn-h .w{display:inline-block;overflow:hidden;vertical-align:top;padding
 html.js .kn-h .w>i{display:inline-block}
 .kn-sub{margin-top:26px;max-width:35em;font-size:clamp(17px,1.45vw,21px);line-height:1.5;color:var(--ink-2);text-wrap:pretty}
 .kn-cta{margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 26px}
-.kn-desc{margin-top:22px;max-width:34em;text-wrap:balance;font:500 13px/1.5 var(--mono);letter-spacing:.04em;color:var(--ink-2)}
+.kn-desc{margin-top:22px;max-width:40em;text-wrap:balance;font:500 14px/1.5 var(--mono);letter-spacing:.03em;color:var(--ink)}
 
 /* film layer: everything here is hidden in the final frame */
 .kn-fx{position:absolute;inset:0;z-index:3;pointer-events:none}
@@ -58,10 +58,10 @@ html.js .kn-h .w>i{display:inline-block}
 .kn-pr .w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .04em .14em;margin:0 -.04em -.14em}
 .kn-pr .w>i{display:inline-block;font-style:normal}
 .kn-pr .g{color:var(--green)}
-.kn-al{height:1px;background:linear-gradient(90deg,transparent,var(--line-2) 18%,var(--line-2) 82%,transparent)}
+.kn-al{height:1px;background:linear-gradient(90deg,transparent,rgba(52,211,153,.5) 18%,rgba(52,211,153,.5) 82%,transparent);box-shadow:0 0 12px rgba(52,211,153,.35)}
 .kn-al::before,.kn-al::after{position:absolute;left:var(--in,18%);font:500 14px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
 .kn-al::before{content:"Twinthos acts";bottom:14px;color:var(--ink-2)}
-.kn-al::after{content:"You decide";top:16px;color:var(--ink)}
+.kn-al::after{content:"You decide";top:16px;color:var(--green)}
 .kn-card{width:min(380px,calc(100vw - 40px));display:flex;align-items:center;gap:16px;padding:16px 16px 16px 20px;text-align:left;
   padding-right:18px;border-radius:18px;border:1px solid rgba(236,237,232,.3);background:#0E1210;box-shadow:0 24px 60px -24px rgba(0,0,0,.8)}
 .kn-card div{flex:1;min-width:0}
@@ -133,3 +133,53 @@ html.js .kn.is-film .kn-ctl{display:flex}
   .kn-hint::after{right:100%;top:50%;margin-top:-6px;border-top-color:transparent;border-right-color:var(--green)}
 }
 @media (max-width:380px){.kn-st2{display:none}}
+
+/* ===== v14 "Answers vs work" ===== */
+.kn-h{font-size:clamp(40px,5.4vw,88px);max-width:none}
+.kn-h .ln{display:block}
+.kn-h .gl,.kn-hl .gl{position:relative;color:var(--green);text-shadow:none}
+.kn .au{position:absolute;left:-.35em;right:-.35em;top:0;bottom:-.1em;z-index:-1;border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(52,211,153,.30),rgba(52,211,153,.09) 62%,transparent);filter:blur(14px);animation:kn-br 5s ease-in-out infinite}
+@keyframes kn-br{50%{scale:1.1}}
+.kn-hl{width:100%;padding:0 var(--gut);font-weight:500;font-size:clamp(32px,4.2vw,66px);letter-spacing:-.04em;line-height:1.06;color:var(--ink);text-wrap:balance}
+.kn-hl.s{font-size:clamp(26px,3.1vw,48px);letter-spacing:-.035em}
+.kn-hl .w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .04em .14em;margin:0 -.04em -.14em}
+.kn-hl .w>i{display:inline-block;font-style:normal}
+.kn-req{display:flex;align-items:center;padding:15px 22px;border-radius:24px 24px 6px 24px;background:#1B211E;border:1px solid rgba(236,237,232,.12);
+  font:500 18px/1.3 var(--sans);letter-spacing:-.01em;color:var(--ink);white-space:nowrap}
+.kn-req .tx{display:inline-block}
+.kn-req .hl{position:absolute;inset:-1px;border-radius:inherit;border:1.5px solid var(--green);box-shadow:0 0 28px rgba(52,211,153,.28),inset 0 0 18px rgba(52,211,153,.08);opacity:0}
+.kn-bot{width:min(430px,calc(100vw - 40px));padding:16px 22px 18px;border-radius:24px 24px 24px 6px;background:#111613;border:1px solid rgba(236,237,232,.09);text-align:left}
+.kn-bot small{display:flex;align-items:center;gap:8px;font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#8A8F89}
+.kn-bot small i{width:8px;height:8px;border-radius:50%;background:#5C625E}
+.kn-bot .dots{position:absolute;left:22px;top:46px;display:flex;gap:5px}
+.kn-bot .dots i{width:7px;height:7px;border-radius:50%;background:#8A8F89;animation:kn-dot 1s infinite}
+.kn-bot .dots i:nth-child(2){animation-delay:.15s}.kn-bot .dots i:nth-child(3){animation-delay:.3s}
+@keyframes kn-dot{0%,60%,100%{opacity:.25}30%{opacity:1}}
+.kn-bot p{margin:12px 0 0;font-size:17px;line-height:1.35;color:var(--ink-2)}
+.kn-bot .dr{display:block;margin-top:10px;padding:2px 0 2px 14px;border-left:2px solid rgba(236,237,232,.14)}
+.kn-bot .dr i{display:block;height:8px;border-radius:4px;background:rgba(236,237,232,.15);margin:8px 0;transform-origin:0 50%}
+.kn-bot .dr i:nth-child(1){width:94%}.kn-bot .dr i:nth-child(2){width:80%}.kn-bot .dr i:nth-child(3){width:52%}
+.kn-todo{display:inline-flex;align-items:center;gap:10px;height:38px;padding:0 16px;border-radius:999px;border:1px solid rgba(232,162,91,.5);background:rgba(232,162,91,.08);
+  color:#E8A25B;font:500 14px/1 var(--mono);letter-spacing:.02em;white-space:nowrap}
+.kn-todo i{width:7px;height:7px;border-radius:50%;background:#E8A25B;box-shadow:0 0 10px rgba(232,162,91,.8)}
+.kn-tl{display:flex;flex-direction:column;align-items:center;gap:10px;width:112px}
+.kn-tl .k{position:relative;display:block;width:50px;height:50px}
+.kn-tl svg{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:var(--ink-2);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+.kn-tl .k>svg *{stroke-dasharray:1;stroke-dashoffset:1}
+.kn-tl .hot{position:absolute;inset:0;opacity:0}
+.kn-tl .hot svg{stroke:var(--green);stroke-width:2.6;filter:drop-shadow(0 0 7px rgba(52,211,153,.85))}
+.kn-tl b{font:500 13px/1 var(--mono);letter-spacing:.04em;color:var(--ink-2);white-space:nowrap}
+.kn-row .ck.w{background:#E8A25B;color:#1A0F04;font:700 13px/20px var(--sans);text-align:center}
+.kn-row.wr span{color:#E8A25B}
+.kn-glow{width:900px;height:620px;margin:-310px 0 0 -450px;background:radial-gradient(closest-side,rgba(52,211,153,.16),rgba(52,211,153,.04) 60%,transparent)}
+@media (max-width:640px){
+  .kn-h{font-size:clamp(34px,9.4vw,46px)}
+  .kn-hl{font-size:28px;padding:0 22px}.kn-hl.s{font-size:24px}
+  .kn-req{font-size:15.5px;padding:12px 16px}
+  .kn-bot{padding:14px 18px 16px}.kn-bot p{font-size:15.5px}.kn-bot .dots{left:18px;top:42px}
+  .kn-todo{height:34px;font-size:13px;padding:0 14px}
+  .kn-tl{width:68px;gap:8px}.kn-tl .k{width:34px;height:34px}.kn-tl b{font-size:12px;letter-spacing:.01em}
+  .kn-glow{width:520px;height:560px;margin:-280px 0 0 -260px}
+}
+@media (prefers-reduced-motion:reduce){.kn .au{animation:none}}
