@@ -452,6 +452,19 @@ html.js .kn.is-film .kn-ctl{display:flex}
   .kn-glow{width:520px;height:560px;margin:-280px 0 0 -260px}
 }
 @media (prefers-reduced-motion:reduce){.kn .au{animation:none}}
+
+/* ===== v15 opening: meet Twinthos ===== */
+.kn-bm{width:136px;height:136px}
+.kn-bm svg{display:block;width:100%;height:100%;overflow:visible}
+.kn-bm .o{fill:none;stroke:var(--green);stroke-width:.7;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;filter:drop-shadow(0 0 6px rgba(52,211,153,.9))}
+.kn-bm .f{fill:var(--ink);opacity:0}
+.kn-name{width:100%;text-align:center;font-weight:600;font-size:clamp(60px,7.4vw,116px);letter-spacing:-.055em;line-height:1;color:var(--ink)}
+.kn-name .w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .01em .12em;margin:0 -.01em -.12em}
+.kn-name .w>i{display:inline-block;font-style:normal}
+.kn-tag{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;font:500 14px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.kn-tag i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px rgba(52,211,153,.9)}
+.kn-ring{width:180px;height:180px;margin:-90px 0 0 -90px;box-shadow:0 0 30px rgba(52,211,153,.25),inset 0 0 20px rgba(52,211,153,.12)}
+@media (max-width:640px){.kn-bm{width:96px;height:96px}.kn-name{font-size:58px}.kn-tag{font-size:13px;letter-spacing:.12em;color:var(--ink)}.kn-ring{width:130px;height:130px;margin:-65px 0 0 -65px}}
 /* ===== HOME v8: sections ===== */
 .sec-head{margin-bottom:clamp(28px,4vw,52px)}
 .sec-head .d2{margin-top:20px;max-width:16em;text-wrap:balance}
