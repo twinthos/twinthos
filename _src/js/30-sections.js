@@ -127,3 +127,11 @@ if('IntersectionObserver' in W&&!RM.matches){
   });
 }
 })(window);
+/* key words light up once, with a single sweep of light, the first time they scroll into view */
+(function(W){
+var d=document,gs=[].slice.call(d.querySelectorAll('.gl')).filter(function(g){return !g.closest('.kn');});
+if(!gs.length||!('IntersectionObserver' in W)||W.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+gs.forEach(function(g){g.classList.add('lt');});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('lit');io.unobserve(e.target);}});},{threshold:1,rootMargin:'0px 0px -12% 0px'});
+gs.forEach(function(g){io.observe(g);});
+})(window);
