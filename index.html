@@ -523,6 +523,18 @@ html.js .kn.is-film .kn-ctl{display:flex}
 .kn-big .od .c{display:flex;flex-direction:column;will-change:transform}
 .kn-big .od .c i{display:block;height:1em;font-style:normal;line-height:1}
 @media (max-width:640px){.kn-big .od{font-size:104px}}
+/* v16.2: film controls reduced to faint icons in the corner: no bar, no pill, no labels */
+.kn-ctl{left:auto;right:14px;bottom:12px;transform:none;padding:0;gap:0;border:0;border-radius:0;background:none;opacity:.3;transition:opacity .3s}
+.kn-ctl:hover,.kn-ctl:focus-within{opacity:.8}
+.kn-b{width:28px;height:28px;padding:0;gap:0;justify-content:center;background:none!important;color:var(--ink-2)}
+.kn-b .t{display:none!important}
+.kn-b svg{width:11px;height:11px}
+.kn-ch{gap:3px;padding:0 2px}
+.kn-ch button{width:16px;height:28px}
+.kn-ch button::before,.kn-ch button i{top:13.5px;height:1px;border-radius:0}
+.kn-snd,.kn-snd.need{opacity:1}
+.kn-snd[aria-pressed="true"]{color:var(--ink-2)}
+@media (max-width:640px){.kn-ctl{right:8px;bottom:8px}.kn-ch button{width:12px}}
 /* ===== HOME v8: sections ===== */
 .sec-head{margin-bottom:clamp(28px,4vw,52px)}
 .sec-head .d2{margin-top:20px;max-width:16em;text-wrap:balance}
@@ -816,7 +828,7 @@ html.js .kn.is-film .kn-ctl{display:flex}
 .btn-mag{transition:translate .5s var(--spring),transform .55s var(--spring),background-color .2s,border-color .2s,color .2s}
 </style>
 <script>document.documentElement.classList.replace('no-js','js')</script>
-<script src="/assets/tw.js?v=11f46648" defer></script>
+<script src="/assets/tw.js?v=ae9bf94a" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Twinthos", "url": "https://twinthos.com/", "email": "hello@twinthos.com", "areaServed": "GB", "description": "Twinthos sets up and manages a digital employee, with its own computer, phone and email, for the recurring work a UK business gives it. Decisions outside agreed rules go to the client's team.", "makesOffer": [{"@type": "Offer", "name": "Operations audit", "price": "999", "priceCurrency": "GBP", "description": "One-off written assessment and plan."}, {"@type": "Offer", "name": "Managed digital employee", "price": "5000", "priceCurrency": "GBP", "description": "Monthly implementation and management of a digital employee for one agreed workflow. Three-month minimum."}]}</script>
 </head>
 <body class="pg-home">
@@ -1179,8 +1191,11 @@ function label(){
 }
 /* the first tap, click or key anywhere starts the score at the film's current moment */
 function unlock(e){if(unlocked||!on)return;if(e&&snd&&snd.contains(e.target))return;
-  var a=aud();if(want()){aplay(tl.time());}else{a.muted=true;var q=a.play();if(q&&q.then)q.then(function(){a.pause();a.muted=false;unlocked=true;label();},function(){a.muted=false;});}}
-['pointerdown','touchend','keydown'].forEach(function(e){d.addEventListener(e,unlock,{capture:true,passive:true});});
+  var a=aud();
+  /* if the film has already finished, a tap on the hero (not on a link or button) plays it again, with sound */
+  if(finished&&viewable&&!(e&&e.target&&e.target.closest&&e.target.closest('a,button,input,select,textarea,label,summary,[role=button]'))){userPaused=false;jump(0);aplay(0);return;}
+  if(want()){aplay(tl.time());}else{a.muted=true;var q=a.play();if(q&&q.then)q.then(function(){a.pause();a.muted=false;unlocked=true;label();},function(){a.muted=false;});}}
+['pointerdown','pointerup','touchend','click','keydown'].forEach(function(e){d.addEventListener(e,unlock,{capture:true,passive:true});});
 function fire(){}
 /* ---------- playback ---------- */
 var playing=false,userPaused=false,viewable=false,finished=false,prevT=0,lastV=-1;

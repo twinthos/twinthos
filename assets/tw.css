@@ -504,6 +504,18 @@ html.js .kn.is-film .kn-ctl{display:flex}
 .kn-big .od .c{display:flex;flex-direction:column;will-change:transform}
 .kn-big .od .c i{display:block;height:1em;font-style:normal;line-height:1}
 @media (max-width:640px){.kn-big .od{font-size:104px}}
+/* v16.2: film controls reduced to faint icons in the corner: no bar, no pill, no labels */
+.kn-ctl{left:auto;right:14px;bottom:12px;transform:none;padding:0;gap:0;border:0;border-radius:0;background:none;opacity:.3;transition:opacity .3s}
+.kn-ctl:hover,.kn-ctl:focus-within{opacity:.8}
+.kn-b{width:28px;height:28px;padding:0;gap:0;justify-content:center;background:none!important;color:var(--ink-2)}
+.kn-b .t{display:none!important}
+.kn-b svg{width:11px;height:11px}
+.kn-ch{gap:3px;padding:0 2px}
+.kn-ch button{width:16px;height:28px}
+.kn-ch button::before,.kn-ch button i{top:13.5px;height:1px;border-radius:0}
+.kn-snd,.kn-snd.need{opacity:1}
+.kn-snd[aria-pressed="true"]{color:var(--ink-2)}
+@media (max-width:640px){.kn-ctl{right:8px;bottom:8px}.kn-ch button{width:12px}}
 /* ===== HOME v8: sections ===== */
 .sec-head{margin-bottom:clamp(28px,4vw,52px)}
 .sec-head .d2{margin-top:20px;max-width:16em;text-wrap:balance}

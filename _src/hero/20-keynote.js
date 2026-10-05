@@ -240,8 +240,11 @@ function label(){
 }
 /* the first tap, click or key anywhere starts the score at the film's current moment */
 function unlock(e){if(unlocked||!on)return;if(e&&snd&&snd.contains(e.target))return;
-  var a=aud();if(want()){aplay(tl.time());}else{a.muted=true;var q=a.play();if(q&&q.then)q.then(function(){a.pause();a.muted=false;unlocked=true;label();},function(){a.muted=false;});}}
-['pointerdown','touchend','keydown'].forEach(function(e){d.addEventListener(e,unlock,{capture:true,passive:true});});
+  var a=aud();
+  /* if the film has already finished, a tap on the hero (not on a link or button) plays it again, with sound */
+  if(finished&&viewable&&!(e&&e.target&&e.target.closest&&e.target.closest('a,button,input,select,textarea,label,summary,[role=button]'))){userPaused=false;jump(0);aplay(0);return;}
+  if(want()){aplay(tl.time());}else{a.muted=true;var q=a.play();if(q&&q.then)q.then(function(){a.pause();a.muted=false;unlocked=true;label();},function(){a.muted=false;});}}
+['pointerdown','pointerup','touchend','click','keydown'].forEach(function(e){d.addEventListener(e,unlock,{capture:true,passive:true});});
 function fire(){}
 /* ---------- playback ---------- */
 var playing=false,userPaused=false,viewable=false,finished=false,prevT=0,lastV=-1;
