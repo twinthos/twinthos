@@ -23,9 +23,9 @@ var TASKS=[['Reply to Maya about the quote','2d','Replied to Maya with the quote
   ['Update the CRM','3d','Updated the CRM','09:05'],['Book the site visit','1d','Booked the site visit','09:07'],
   ['Send the weekly report','2d','Sent the weekly report','09:09'],['Follow up the new enquiry','3d','Followed up the new enquiry','09:11']];
 var CHECK='<svg viewBox="0 0 10 10"><path d="M1.5 5.2l2.3 2.3 4.7-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-var ICONS=[['Its own inbox.','<svg viewBox="0 0 64 64"><rect x="6" y="13" width="52" height="38" rx="6" pathLength="1"/><path d="M8 17l24 18 24-18" pathLength="1"/></svg>'],
-  ['Its own phone.','<svg viewBox="0 0 64 64"><rect x="19" y="5" width="26" height="54" rx="7" pathLength="1"/><path d="M28.5 51h7" pathLength="1"/></svg>'],
-  ['Its own computer.','<svg viewBox="0 0 64 64"><rect x="6" y="10" width="52" height="34" rx="4" pathLength="1"/><path d="M32 44v10M22 54h20" pathLength="1"/></svg>']];
+var ICONS=[['Inbox','<svg viewBox="0 0 64 64"><rect x="6" y="13" width="52" height="38" rx="6" pathLength="1"/><path d="M8 17l24 18 24-18" pathLength="1"/></svg>'],
+  ['Phone','<svg viewBox="0 0 64 64"><rect x="19" y="5" width="26" height="54" rx="7" pathLength="1"/><path d="M28.5 51h7" pathLength="1"/></svg>'],
+  ['Computer','<svg viewBox="0 0 64 64"><rect x="6" y="10" width="52" height="34" rx="4" pathLength="1"/><path d="M32 44v10M22 54h20" pathLength="1"/></svg>'],['Team chat','<svg viewBox="0 0 64 64"><path d="M12 12h40a5 5 0 015 5v22a5 5 0 01-5 5H30l-11 9v-9h-7a5 5 0 01-5-5V17a5 5 0 015-5z" pathLength="1"/><path d="M21 28h.01M32 28h.01M43 28h.01" pathLength="1"/></svg>'],['Memory','<svg viewBox="0 0 64 64"><path d="M8 12h18a6 6 0 016 6v36a4 4 0 00-4-4H8z" pathLength="1"/><path d="M56 12H38a6 6 0 00-6 6v36a4 4 0 014-4h20z" pathLength="1"/></svg>'],['Card','<svg viewBox="0 0 64 64"><rect x="5" y="15" width="54" height="36" rx="5" pathLength="1"/><path d="M5 25h54M13 41h12" pathLength="1"/></svg>']];
 function el(tag,cls,html){var e=d.createElement(tag);e.className=cls;if(html)e.innerHTML=html;e.setAttribute('aria-hidden','true');fx.appendChild(e);return e;}
 var glow=el('i','kn-glow');
 var chips=TASKS.map(function(t){return el('span','kn-chip','<i></i>'+t[0]+'<em>'+t[1]+'</em>');});
@@ -33,7 +33,7 @@ var rows=TASKS.map(function(t){return el('span','kn-row','<time>'+t[3]+'</time><
 var ics=ICONS.map(function(c){return el('div','kn-ic',c[1]+'<b>'+c[0]+'</b>');});
 var ring=el('i','kn-ring');
 var caps=[el('p','kn-cap','Work waiting for someone to remember.'),el('p','kn-cap l','One digital employee.'),
-  el('p','kn-cap l','Anything that matters waits for you.')];
+  el('p','kn-cap l','Anything that matters waits for you.'),el('p','kn-cap','Everything an employee needs.')];
 var al=el('div','kn-al');
 var card=el('div','kn-card','<div><small>Refund request</small><p>\u00a31,200 to Harbour &amp; Co</p></div><button type="button" class="kn-ap" tabindex="-1"><span class="b1">Approve</span><span class="b2">Approved</span></button><span class="kn-ok"></span><span class="kn-hint">Your turn</span>');
 var ap=card.querySelector('.kn-ap');
@@ -48,7 +48,7 @@ var tl=new T.TL(DUR),M=null,cues=[],absorb=[];
 
 function measure(){
   var w=root.clientWidth,h=root.clientHeight,nar=w<641;
-  root.style.setProperty('--is',nar?'72px':'116px');
+  root.style.setProperty('--is',nar?'54px':(w<1100?'72px':'84px'));
   var m={W:w,H:h,nar:nar,cx:w/2,gut:nar?20:Math.max(28,w*.04)};
   m.nav=(d.querySelector('.nav')||{offsetHeight:68}).offsetHeight||68;
   m.cy=Math.round((m.nav+h-96)/2);m.SC=nar?1.25:1.3;m.NC=(nar||w<1000)?4:6;
@@ -56,7 +56,7 @@ function measure(){
   m.h1=off(h1);m.wh=words[0].offsetHeight;
   m.chip=chips.map(function(c){return [c.offsetWidth,c.offsetHeight];});
   m.row=rows.map(function(r){return r.offsetWidth;});m.rh=nar?34:40;
-  m.ic=[ics[0].offsetWidth,ics[0].offsetHeight];m.is=nar?72:116;
+  m.ic=[ics[0].offsetWidth,ics[0].offsetHeight];m.is=nar?54:(w<1100?72:84);
   m.cap=caps.map(function(c){return c.offsetHeight;});
   m.card=[card.offsetWidth,card.offsetHeight];m.pr=pr.offsetHeight;m.prwh=prw[0].offsetHeight;
   return m;
@@ -98,7 +98,12 @@ function place(m){
   var lw=0;for(var j=0;j<m.NC;j++)lw=Math.max(lw,m.row[j]);m.logX=Math.round(m.cx-lw/2);
   rows.forEach(function(r,j){r.style.display=j<m.NC?'':'none';r.style.left=m.logX+'px';r.style.top=Math.round(m.logY)+'px';r.style.height=m.rh+'px';});
   var gap2=m.nar?Math.min(124,(m.W-24)/3):Math.min(290,m.W*.21);
-  ics.forEach(function(e,i){e._x=m.cx+(i-1)*gap2;e._y=m.cy-m.is/2-14;e.style.left=Math.round(e._x)+'px';e.style.top=Math.round(e._y)+'px';});
+  /* chapter 2: six tools in one calm row (3 x 2 on phones) */
+  var cols=m.nar?3:6,cw2=m.nar?Math.min(118,(m.W-24)/3):Math.min(190,(m.W-2*m.gut)/6),rg2=m.is+(m.nar?62:0),icB=0;
+  ics.forEach(function(e,i){var c=i%cols,r=Math.floor(i/cols),nr=Math.ceil(ics.length/cols);
+    e._x=m.cx+(c-(cols-1)/2)*cw2;e._y=m.cy-m.is/2-14+(r-(nr-1)/2)*rg2;icB=Math.max(icB,e._y+e.offsetHeight);
+    e.style.left=Math.round(e._x)+'px';e.style.top=Math.round(e._y)+'px';});
+  caps[3].style.top=Math.round(icB+(m.nar?30:44))+'px';
   ring.style.left=m.cx+'px';ring.style.top=m.cy+'px';
   glow.style.left=Math.round(m.mc.x)+'px';glow.style.top=Math.round(m.mc.y)+'px';
   var S=m.nar?1.9:2.2;m.S=S;
@@ -136,12 +141,13 @@ function score(m){
   cues.push([2.35,'riser']);
   tl.win(caps[0],[[2.1,3.95]],{dy:10});
   /* one employee */
-  ics.forEach(function(e,i){var t0=4.6+i*.7,dx=m.cx-e._x,dy=m.cy-(e._y+m.is/2);
+  ics.forEach(function(e,i){var t0=4.55+i*.26,dx=m.cx-e._x,dy=m.cy-(e._y+m.is/2);
     tl.mk(e,[[0,{o:0,y:18}],[t0,{o:0,y:18}],[t0+.6,{o:1,y:0},SP],[6.9,{o:1,x:0,y:0,s:1}],[7.5,{o:0,x:dx,y:dy,s:.3},EI]]);
     [].slice.call(e.querySelectorAll('svg *')).forEach(function(s){prop(s,'strokeDashoffset',[[0,1],[t0,1],[t0+.95,0,EO]]);});
     tl.win(e.querySelector('b'),[[t0+.25,6.75]],{dy:10});
-    cues.push([t0,'bell',i]);
+    cues.push([t0,'bell',i%3]);
   });
+  tl.win(caps[3],[[5.5,6.85]],{dy:10});
   cues.push([6.92,'whoosh']);cues.push([7.48,'merge']);
   tl.mk(ring,[[0,{o:0,s:.5}],[7.48,{o:0,s:.5}],[7.52,{o:.9,s:.6}],[8.7,{o:0,s:3.4},EO]]);
   tl.mk(mk,[[0,{o:0,x:dxm,y:dym,s:S*.6}],[7.42,{o:0,x:dxm,y:dym,s:S*.6}],[7.95,{o:1,s:S},SP],[9.3,{o:1,x:dxm,y:dym,s:S}],[10.1,{o:1,x:cxm,y:cym,s:SC},EI],[14.55,{o:1,x:cxm,y:cym,s:SC}],[15.25,{o:1,x:0,y:0,s:1},EI]]);
