@@ -1,0 +1,17 @@
+# Twinthos
+
+> Twinthos is a UK managed AI-employee company. It runs a digital employee for small businesses: it handles routine admin and follow-ups, logs every step, and returns time to the owner.
+
+## Pages
+- [Home](https://twinthos.com/): what Twinthos does
+- [How it works](https://twinthos.com/how-it-works/): the service process
+- [Pricing](https://twinthos.com/pricing/): plans and fees
+- [Security](https://twinthos.com/security/): data handling
+- [FAQ](https://twinthos.com/faq/): common questions
+- [Notes](https://twinthos.com/notes/): short sourced pieces on the work
+
+## Notes
+- [How many hours a week do UK SMB owners spend on admin in 2026?](https://twinthos.com/notes/hours-lost-to-admin/)
+- [Digital employee vs chatbot](https://twinthos.com/notes/digital-employee-vs-chatbot/)
+- [Digital employee cost](https://twinthos.com/notes/digital-employee-cost/)
+- [Questions to ask a managed AI agent](https://twinthos.com/notes/questions-to-ask-managed-ai-agent/)
