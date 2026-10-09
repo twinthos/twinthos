@@ -1,0 +1,83 @@
+/* Guides: reading layout for twinthos.com/notes/ and /notes/<slug>/ (dark brand system) */
+body.guides{--ink:#060807;--ink-2:#0c0f0d;--paper:#ECEDE8;--mute:#A4A9A2;--dim:#6b716a;--line:rgba(236,237,232,.11);--signal:#34D399;--deep:#0F3B2C;--max:68ch;
+  background:var(--ink);color:var(--paper);font-family:"Inter Tight",Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:19px;line-height:1.7;-webkit-font-smoothing:antialiased}
+body.guides *{box-sizing:border-box}
+body.guides a{color:var(--paper)}
+body.guides .g-wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+/* hero */
+body.guides .g-hero{padding:clamp(72px,10vw,128px) 0 clamp(40px,6vw,72px);border-bottom:1px solid var(--line);background:radial-gradient(ellipse 80% 60% at 0% 0%,var(--deep) 0%,transparent 60%),var(--ink)}
+body.guides .g-kicker{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 28px;font:600 12px/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+body.guides .g-kicker a{color:var(--signal);text-decoration:none}
+body.guides .g-kicker span{opacity:.45}
+body.guides .g-hero h1{margin:0 0 26px;font-size:clamp(40px,6vw,76px);line-height:1.02;letter-spacing:-.035em;font-weight:700;max-width:18ch;color:var(--paper)}
+body.guides .g-dek{margin:0;font-size:clamp(19px,2vw,23px);line-height:1.5;color:var(--mute);max-width:52ch}
+
+/* layout: contents rail + reading column */
+body.guides .g-layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:72px;padding:clamp(48px,6vw,88px) 0 clamp(88px,10vw,140px);align-items:start}
+body.guides .g-toc{position:sticky;top:110px;font-size:15px}
+body.guides .g-toc p{margin:0 0 14px;font:600 11px/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+body.guides .g-toc nav a{display:block;padding:9px 0 9px 14px;border-left:2px solid var(--line);color:var(--mute);text-decoration:none;line-height:1.35;transition:color .2s,border-color .2s}
+body.guides .g-toc nav a:hover,body.guides .g-toc nav a.on{color:var(--paper);border-left-color:var(--signal)}
+
+/* reading column */
+body.guides .g-article{max-width:var(--max);min-width:0}
+body.guides .g-sec{margin:0}
+body.guides .g-article h2{font-size:clamp(26px,3vw,34px);line-height:1.15;letter-spacing:-.02em;font-weight:700;margin:64px 0 18px;scroll-margin-top:110px;color:var(--paper)}
+body.guides .g-article h2:first-child{margin-top:0}
+body.guides .g-article h3{font-size:20px;line-height:1.3;font-weight:600;margin:32px 0 8px;color:var(--paper)}
+body.guides .g-article p{margin:0 0 20px;color:#d6d8d1}
+body.guides .g-article strong{color:var(--paper);font-weight:600}
+body.guides .g-article ul,body.guides .g-article ol{margin:0 0 22px;padding-left:22px;color:#d6d8d1}
+body.guides .g-article li{margin:0 0 10px}
+body.guides .g-article a{color:var(--signal);text-decoration:underline;text-underline-offset:3px}
+body.guides .g-article table{width:100%;border-collapse:collapse;margin:24px 0 28px;font-size:16px}
+body.guides .g-article th,body.guides .g-article td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+body.guides .g-article th{font:600 12px/1.2 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+body.guides .g-article blockquote{margin:28px 0;padding:6px 0 6px 22px;border-left:3px solid var(--signal);color:var(--paper);font-size:21px;line-height:1.5}
+
+/* answer-first callout: first paragraph after the hero reads as the answer */
+body.guides .g-article > .g-sec:first-child > .g-wrap > p:first-child,
+body.guides .g-article > .g-sec:first-child > p:first-child{padding:22px 26px;border:1px solid var(--line);border-left:3px solid var(--signal);border-radius:4px;background:var(--ink-2);color:var(--paper);font-size:19px;margin-bottom:36px}
+
+/* call to action */
+body.guides .g-cta{margin:56px 0 0;padding:30px 32px;background:var(--paper);color:var(--ink);border-radius:4px;font-size:19px;font-weight:500}
+body.guides .g-cta a{color:var(--ink);font-weight:700}
+
+/* FAQ: clear question rhythm */
+body.guides .g-article h3+p{margin-top:0}
+
+/* footer */
+body.guides .gfoot{border-top:1px solid var(--line);padding:44px 0 56px;margin-top:0}
+body.guides .gfoot .brand{display:inline-flex;align-items:center;gap:10px;color:var(--paper);text-decoration:none;font-weight:700;font-size:18px}
+body.guides .gfoot .brand svg{width:26px;height:26px}
+body.guides .gfoot p{margin:14px 0 0;color:var(--mute);font-size:15px}
+body.guides .gfoot-links{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:20px!important}
+body.guides .gfoot-links a{color:var(--mute);text-decoration:none;font-size:15px}
+body.guides .gfoot-links a:hover{color:var(--paper)}
+
+/* phone: single column, contents collapses to a bar */
+@media (max-width:920px){
+  body.guides{font-size:18px}
+  body.guides .g-layout{grid-template-columns:1fr;gap:28px}
+  body.guides .g-toc{position:static;padding:16px 18px;border:1px solid var(--line);border-radius:4px;background:var(--ink-2)}
+  body.guides .g-toc nav{display:flex;flex-wrap:wrap;gap:6px 14px}
+  body.guides .g-toc nav a{border-left:0;padding:4px 0;font-size:15px}
+}
+@media (max-width:520px){
+  body.guides .g-wrap{padding:0 20px}
+  body.guides .g-hero h1{font-size:34px}
+  body.guides .g-cta{padding:24px}
+}
+@media (prefers-reduced-motion:no-preference){
+  body.guides .g-toc nav a{transition:color .2s,border-color .2s}
+}
+
+body.guides .g-index{padding:clamp(48px,6vw,88px) 0 clamp(88px,10vw,140px)}
+body.guides .g-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+body.guides .g-card{display:flex;flex-direction:column;gap:14px;padding:30px;background:var(--ink-2);border:1px solid var(--line);border-radius:4px;text-decoration:none;color:var(--paper);transition:border-color .2s,transform .2s var(--spring,ease)}
+body.guides .g-card:hover{border-color:var(--signal)}
+body.guides .g-card .g-tag{font:600 11px/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--signal)}
+body.guides .g-card h2{margin:0;font-size:22px;line-height:1.22;letter-spacing:-.015em;font-weight:700;color:var(--paper)}
+body.guides .g-card p{margin:0;color:var(--mute);font-size:16px;line-height:1.55}
+body.guides .g-card .g-go{margin-top:auto;padding-top:8px;font-weight:600;font-size:15px;color:var(--paper)}

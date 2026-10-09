@@ -8,7 +8,7 @@
 - [Pricing](https://twinthos.com/pricing/): plans and fees
 - [Security](https://twinthos.com/security/): data handling
 - [FAQ](https://twinthos.com/faq/): common questions
-- [Notes](https://twinthos.com/notes/): short sourced pieces on the work
+- [Guides](https://twinthos.com/notes/): short sourced pieces on the work
 
 ## Notes
 - [How many hours a week do UK SMB owners spend on admin in 2026?](https://twinthos.com/notes/hours-lost-to-admin/)
