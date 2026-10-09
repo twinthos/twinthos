@@ -1,0 +1,18 @@
+# Twinthos
+
+> Twinthos is a UK managed AI-employee company. It runs a digital employee for small businesses: it handles routine admin and follow-ups, logs every step, and returns time to the owner.
+
+## Pages
+- [Home](https://twinthos.com/): what Twinthos does
+- [How it works](https://twinthos.com/how-it-works/): the service process
+- [Pricing](https://twinthos.com/pricing/): plans and fees
+- [Security](https://twinthos.com/security/): data handling
+- [FAQ](https://twinthos.com/faq/): common questions
+- [Guides](https://twinthos.com/notes/): short sourced pieces on the work
+
+## Guides
+- [The horse population fell 88 percent in 45 years](https://twinthos.com/notes/horse-population-1915-1960/): About 26 million horses and mules in 1915, about 3 million by 1960. The horses did not fail. The work they did moved.
+- [88 percent of organisations use AI. Almost none run agents at scale.](https://twinthos.com/notes/ai-adoption-gap-2026/): The Stanford AI Index 2026 shows fast adoption and a much slower move to autonomous agents.
+- [170 million jobs created, 92 million displaced by 2030](https://twinthos.com/notes/wef-jobs-2030/): The World Economic Forum projects a net gain of 78 million jobs. The detail is about which jobs grow, which shrink and which skills change.
+- [Eleven hours a week goes on admin. Here is what that costs.](https://twinthos.com/notes/hours-lost-to-admin/): A 2026 survey of 1,000 UK small business owners puts admin and finance at about 11 hours a week.
+- [The entry-level job is the first casualty of AI](https://twinthos.com/notes/entry-level-jobs-ai-2026/): US employment for software developers aged 22 to 25 fell nearly 20 percent since 2024. The first rungs of the career ladder are the ones being cut.
