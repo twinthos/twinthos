@@ -79,8 +79,6 @@ button{font:inherit;color:inherit}
 .btn-line{background:transparent;color:var(--ink)}
 .btn-line:hover{background:var(--ink);color:var(--ivory)}
 .btn-sm{min-height:42px;padding:0 18px;font-size:15px}
-.nav-cta.btn-ink{background:transparent;color:var(--ink);border:1px solid var(--line-2,rgba(15,18,16,.28))}
-.nav-cta.btn-ink:hover{background:var(--ink);color:var(--ivory)}
 .btn .ar,.tlink .ar{width:14px;height:14px;transition:transform .2s var(--ease)}
 .btn:hover .ar,.tlink:hover .ar{transform:translateX(3px)}
 .tlink{display:inline-flex;align-items:center;gap:10px;font-weight:500;text-decoration:underline;text-decoration-color:var(--line-2);min-height:44px}
@@ -518,6 +516,8 @@ html.js .kn.is-film .kn-ctl{display:flex}
 .kn-big .n{text-shadow:none}
 .kn-big::before{content:"";position:absolute;z-index:-1;left:-8%;top:-18%;width:58%;height:136%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,176,32,.3),rgba(255,176,32,0));filter:blur(8px);pointer-events:none}
 .kn-src{padding:0 24px;text-wrap:balance}
+.nav-cta.btn-ink{background:transparent;color:var(--ink);border:1px solid var(--line-2,rgba(15,18,16,.28))}
+.nav-cta.btn-ink:hover{background:var(--ink);color:var(--ivory)}
 .kn-row>span{color:var(--ink)}
 @media (max-width:640px){.kn-src{font-size:11px}}
 @media (max-width:640px){.kn-big .n{font-size:104px}.kn-big .u i{font-size:26px}}
@@ -830,7 +830,7 @@ html.js .kn.is-film .kn-ctl{display:flex}
 .btn-mag{transition:translate .5s var(--spring),transform .55s var(--spring),background-color .2s,border-color .2s,color .2s}
 </style>
 <script>document.documentElement.classList.replace('no-js','js')</script>
-<script src="/assets/tw.js?v=ae9bf94a" defer></script>
+<script src="/assets/tw.js?v=5b395014" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Twinthos", "url": "https://twinthos.com/", "email": "hello@twinthos.com", "areaServed": "GB", "description": "Twinthos sets up and manages a digital employee, with its own computer, phone and email, for the recurring work a UK business gives it. Decisions outside agreed rules go to the client's team.", "makesOffer": [{"@type": "Offer", "name": "Operations audit", "price": "999", "priceCurrency": "GBP", "description": "One-off written assessment and plan."}, {"@type": "Offer", "name": "Managed digital employee", "price": "5000", "priceCurrency": "GBP", "description": "Monthly implementation and management of a digital employee for one agreed workflow. Three-month minimum."}]}</script>
 </head>
 <body class="pg-home">
@@ -839,7 +839,7 @@ html.js .kn.is-film .kn-ctl{display:flex}
   <div class="wrap nav-in">
     <a class="brand" href="/" aria-label="Twinthos home"><svg viewBox="8 8 48 48" aria-hidden="true"><path fill="currentColor" d="M11 12H30.75V52H26V20H11ZM33.25 12H53V20H38V52H33.25Z"/></svg><span>Twinthos</span></a>
     <a class="nav-price" href="#pricing">Pricing</a>
-    <nav class="nav-links" id="navLinks" aria-label="Main"><a href="/how-it-works/">How it works</a><a href="#industries">Industries</a><a href="#pricing">Pricing</a><a href="/notes/">Guides</a><a href="/security/">Security</a><a class="nav-book" href="/book/?interest=fit">Book a call</a></nav>
+    <nav class="nav-links" id="navLinks" aria-label="Main"><a href="/how-it-works/">How it works</a><a href="#industries">Industries</a><a href="#pricing">Pricing</a><a href="/security/">Security</a><a href="/notes/">Guides</a><a class="nav-book" href="/book/?interest=fit">Book a call</a></nav>
     <a class="btn btn-ink btn-sm nav-cta" href="/book/?interest=fit">Book a call</a>
     <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
   </div>
@@ -1195,8 +1195,6 @@ function label(){
 /* the first tap, click or key anywhere starts the score at the film's current moment */
 function unlock(e){if(unlocked||!on)return;if(e&&snd&&snd.contains(e.target))return;
   var a=aud();
-  /* first gesture while the film plays: restart the film at 0 and the score with it, so the sound never joins mid-film */
-  if(!kicked&&want()){kicked=true;userPaused=false;jump(0);aplay(0);return;}
   /* if the film has already finished, a tap on the hero (not on a link or button) plays it again, with sound */
   if(finished&&viewable&&!(e&&e.target&&e.target.closest&&e.target.closest('a,button,input,select,textarea,label,summary,[role=button]'))){userPaused=false;jump(0);aplay(0);return;}
   if(want()){aplay(tl.time());}else{a.muted=true;var q=a.play();if(q&&q.then)q.then(function(){a.pause();a.muted=false;unlocked=true;label();},function(){a.muted=false;});}}
@@ -1221,6 +1219,8 @@ pp.addEventListener('click',function(){
 });
 chs.forEach(function(b,i){b.addEventListener('click',function(){userPaused=false;jump(CH[i]);});});
 if(snd)snd.addEventListener('click',function(){
+  /* first gesture while the film plays: restart the film at 0 and the score with it, so the sound never joins mid-film */
+  if(!kicked&&want()){kicked=true;userPaused=false;jump(0);aplay(0);return;}
   if(on&&!unlocked){kicked=true;userPaused=false;jump(0);aplay(0);return;}
   on=!on;var a=aud();a.muted=!on;
   if(on){if(finished||userPaused){userPaused=false;jump(finished?0:prevT);}if(want())aplay(tl.time());}
