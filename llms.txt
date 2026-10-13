@@ -1,6 +1,6 @@
 # Twinthos
 
-> Twinthos is a UK managed AI-employee company. It runs a digital employee for small businesses: it handles routine admin and follow-ups, logs every step, and returns time to the owner.
+> Twinthos is a managed digital-employee company. It runs a digital employee for small businesses: it handles routine admin and follow-ups, logs every step, and returns time to the owner.
 
 ## Pages
 - [Home](https://twinthos.com/): what Twinthos does
