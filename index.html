@@ -775,7 +775,7 @@ html.js .kn.is-film .kn-ctl{display:flex}
 /* ===== Work feature strip (homepage, under hero, above /why) ===== */
 .work-feat{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .work-feat-in{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center}
-@media (max-width:900px){.work-feat-in{grid-template-columns:1fr;gap:32px}}
+@media (max-width:900px){.work-feat-in{grid-template-columns:1fr;gap:28px}}
 .work-feat-text .d2{margin-top:14px}
 .work-feat-text .lede{max-width:36em}
 .work-feat-thumb{position:relative;display:block;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#000;text-decoration:none;color:inherit;aspect-ratio:16/9;transition:border-color .2s}
@@ -786,6 +786,38 @@ html.js .kn.is-film .kn-ctl{display:flex}
 .work-feat-thumb:hover .work-feat-play{background:var(--green);color:#04120C}
 .work-feat-meta{position:absolute;left:14px;right:14px;bottom:12px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(236,237,232,0.7);pointer-events:none}
 .work-feat-meta span:first-child{color:var(--ink)}
+.v18-cta{display:inline-flex}
+@media (max-width:900px){.v18-cta{display:none}}
+
+/* Mobile-only portrait card (hidden on desktop, shown on phones) */
+.work-feat-portrait{display:none;position:relative;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:6px;background:#060807;padding:16px;gap:14px;align-items:center;transition:border-color .2s}
+.work-feat-portrait:hover,.work-feat-portrait:focus-visible{border-color:var(--green)}
+.work-feat-portrait-tag{position:absolute;top:12px;right:14px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--green);background:rgba(15,59,44,0.6);padding:4px 8px;border-radius:4px;z-index:2}
+.work-feat-portrait-frame{position:relative;flex:none;width:120px;aspect-ratio:9/16;background:#060807;border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:10px 8px;gap:6px}
+.work-feat-portrait-frame > *{position:absolute}
+.wfpf-eyebrow{top:8px;left:8px;font-family:var(--mono);font-size:7px;letter-spacing:.06em;text-transform:uppercase;color:#A4A9A2}
+.wfpf-rail{top:14%;bottom:18%;left:50%;width:1px;background:#656C67;transform:translateX(-50%)}
+.wfpf-stn{left:50%;width:8px;height:8px;border:1px solid #A4A9A2;border-radius:1px;transform:translateX(-50%)}
+.wfpf-stn:nth-child(3){top:22%}
+.wfpf-stn:nth-child(4){top:42%}
+.wfpf-stn:nth-child(5){top:62%}
+.wfpf-tok{top:32%;left:50%;width:34px;height:10px;background:#34D399;border-radius:2px;transform:translateX(-50%)}
+.wfpf-rule{left:8px;right:8px;bottom:24%;height:1px;background:#A4A9A2}
+.wfpf-h{left:8px;bottom:10%;font-size:9px;font-weight:500;letter-spacing:-.02em;color:#ECEDE8;line-height:1}
+.wfpf-mark{right:8px;bottom:8%;font-size:9px;font-weight:600;color:#ECEDE8}
+.work-feat-portrait-cta{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:15px;line-height:1.35;flex:1}
+.work-feat-portrait-cta .ar{width:14px;height:14px;flex:none}
+
+@media (max-width:900px){
+  .work-feat-thumb{display:none}
+  .work-feat-portrait{display:flex}
+  .work-feat-text .d2{font-size:clamp(28px,7.5vw,40px)}
+  .work-feat-text .lede{font-size:16px}
+}
+@media (max-width:380px){
+  .work-feat-portrait-frame{width:96px}
+  .work-feat-portrait{padding:12px;gap:12px}
+}
 
 /* ===== Why not just use ChatGPT? ===== */
 .vs-t{width:100%;max-width:1000px;border-collapse:separate;border-spacing:0;table-layout:fixed}
@@ -953,15 +985,28 @@ html.no-js .tf-fit{display:none}
 <section class="work-feat sec" id="work-feat" aria-labelledby="wf-h">
   <div class="wrap work-feat-in">
     <div class="work-feat-text">
-      <p class="eyebrow">Work · 2026</p>
-      <h2 class="d2" id="wf-h">A 15-second film that <span class="gl">explains the work.</span></h2>
-      <p class="lede" style="margin-top:18px">One take, three tokens through six stations, an authority line where the work waits for a person, then the close. Built to be understood at a glance and remembered after. Watch it, or read the contact sheet.</p>
-      <p style="margin-top:24px;display:flex;gap:16px;flex-wrap:wrap"><a class="btn btn-line" href="/work/reel/">Watch the reel <svg class="ar" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a><a class="tlink" href="/work/reel/v18/">Mobile cut (9:16) <svg class="ar" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></p>
+      <p class="eyebrow">Watch · 15 s</p>
+      <h2 class="d2" id="wf-h">See a digital employee <span class="gl">at work.</span></h2>
+      <p class="lede" style="margin-top:18px">A 15-second film. A customer enquiry is handled. A refund is processed — but only after a person approves. An invoice is chased without asking. The film is one continuous take with an original score, and it ends with the line we use everywhere: <em>work handled, time returned</em>.</p>
+      <p style="margin-top:24px;display:flex;gap:16px;flex-wrap:wrap"><a class="btn btn-line" href="/work/reel/">Watch the reel <svg class="ar" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a><a class="tlink v18-cta" href="/work/reel/v18/">Mobile cut (9:16) <svg class="ar" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></p>
     </div>
     <a class="work-feat-thumb" href="/work/reel/" aria-label="Watch the reel (opens in a new section)">
       <img src="/assets/reel/twinthos-v1-sheet.png" alt="Twelve-frame contact sheet of the 15-second Twinthos motion graphic">
       <span class="work-feat-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path fill="currentColor" d="M3 1.5v11l9-5.5z"/></svg></span>
       <span class="work-feat-meta" aria-hidden="true"><span>15.0 s</span><span>1920 × 1080 · 60 fps</span></span>
+    </a>
+    <a class="work-feat-portrait" href="/work/reel/v18/" aria-label="View the mobile portrait cut (9:16)">
+      <span class="work-feat-portrait-tag">9:16</span>
+      <span class="work-feat-portrait-frame" aria-hidden="true">
+        <span class="wfpf-eyebrow">Watch</span>
+        <span class="wfpf-rail"></span>
+        <span class="wfpf-stn"></span><span class="wfpf-stn"></span><span class="wfpf-stn"></span>
+        <span class="wfpf-tok"></span>
+        <span class="wfpf-rule"></span>
+        <span class="wfpf-h">Work handled.</span>
+        <span class="wfpf-mark">T</span>
+      </span>
+      <span class="work-feat-portrait-cta">View the mobile cut <svg class="ar" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
     </a>
   </div>
 </section>
