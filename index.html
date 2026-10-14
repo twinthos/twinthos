@@ -931,7 +931,7 @@ html.no-js .tf-fit{display:none}
 <div class="tf-cta hs-cta"><a class="btn btn-ink btn-lg" href="/book/?interest=fit">Book a discovery call <svg class="ar" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a><a class="tlink" href="#why">Why not ChatGPT? <svg class="ar" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></div>
 <p class="tf-desc">Operations audit £999 · Managed digital employee £5,000 a month</p>
 </div>
-<p class="sr-only">The header film: small business owners estimate they spend 11 hours a week on admin and finance (American Express SME Business Barometer, UK survey, July 2026). The Twinthos mark draws itself. A digital employee with its own computer, inbox and phone takes that work on, connects to thousands of tools, keeps a digital brain of the company, and works day and night, 24/7. Work handled. Time returned.</p>
+<p class="sr-only">The header film: small business owners estimate they spend 11 hours a week on admin and finance (American Express SME Business Barometer, UK survey, July 2026). The Twinthos mark draws itself. A digital employee with its own computer, inbox and phone takes that work on in the systems you already use, keeps a digital brain of the company, and works day and night, 24/7. Work handled. Time returned.</p>
 </section>
 
 <script>/* Twinthos timeline helper: one Web Animations track per element, one shared clock. No dependencies. */
@@ -1026,7 +1026,7 @@ W.TWTL={TL:TL,EO:EO,EI:EI,ES:ES,SP:SP};
 /* Twinthos header film v17: a 29-second deterministic motion film.
    window.tfSetTime(t) draws any moment exactly, so frame capture and review MP4s are frame-accurate.
    Story: brand, problem (11 hours a week of admin, sourced), solution (a digital employee that never sleeps),
-   connects to thousands of tools, a digital brain of the company, what it does across 24 hours, time returned,
+   works in the systems you already use, a digital brain of the company, what it does across 24 hours, time returned,
    then the resting headline. Every move is a wipe, mask, orbit, clock sweep or camera push. */
 (function(){
 'use strict';
@@ -1111,7 +1111,7 @@ var TOOLS=[
 var connL=TOOLS.map(function(){return svgEl('line',{stroke:GREEN,'stroke-width':2,'stroke-linecap':'round'},conn);});
 var tools=TOOLS.map(function(tl){var w=mk('div','tool');w.innerHTML='<div class="badge"><svg viewBox="0 0 48 48" aria-hidden="true">'+tl[1]+'</svg></div><div class="tl">'+tl[0]+'</div>';return w;});
 var cap4=mk('div','line cap'); cap4.style.top='944px';
-var cap4W=words(cap4,'Connects to thousands of tools.');
+var cap4W=words(cap4,'Works in the systems you already use.');
 
 var netS=svgEl('svg',{'class':'full',viewBox:'0 0 1920 1080',width:1920,height:1080},stage);
 var NODES=['Customers','Invoices','Procedures','Suppliers','Calendar','Policies','Team','Enquiries','Orders','Contracts','Reports','Staff rota','Pricing','Returns'];
@@ -1132,7 +1132,7 @@ for(var hh=0;hh<24;hh++){var ta=-Math.PI/2+hh*Math.PI/12, r1=CR+(hh%6===0?4:0), 
   svgEl('line',{x1:(CX+Math.cos(ta)*r1).toFixed(1),y1:(CY+Math.sin(ta)*r1).toFixed(1),x2:(CX+Math.cos(ta)*r2).toFixed(1),y2:(CY+Math.sin(ta)*r2).toFixed(1),stroke:(hh%6===0?IVORY:MUTE),'stroke-width':(hh%6===0?3:1.5)},clkS);}
 [['00',0],['06',6],['12',12],['18',18]].forEach(function(l){var a=-Math.PI/2+l[1]/24*Math.PI*2;var tx=svgEl('text',{x:(CX+Math.cos(a)*(CR+62)).toFixed(1),y:(CY+Math.sin(a)*(CR+62)+8).toFixed(1),'text-anchor':'middle','class':'nl'},clkS);tx.textContent=l[0]+':00';});
 var clkHand=svgEl('line',{x1:CX,y1:CY,x2:CX,y2:CY-230,stroke:AMBER,'stroke-width':3,'stroke-linecap':'round'},clkS);
-var EVENTS=[['09:02','Chased invoice #2041 in Xero',9.03],['11:30','Answered 14 customer emails',11.5],['16:45','Texted the courier a new slot',16.75],['23:10','Updated 38 records in the CRM',23.17],['02:30','Saved the new returns policy',2.5],['06:55','Briefed the team on Slack',6.92]];
+var EVENTS=[['09:02','Chased an invoice in Xero',9.03],['11:30','Answered customer emails',11.5],['16:45','Texted the courier a new slot',16.75],['23:10','Updated the CRM',23.17],['02:30','Saved the new returns policy',2.5],['06:55','Briefed the team on Slack',6.92]];
 var evDots=EVENTS.map(function(e){var a=-Math.PI/2+e[2]/24*Math.PI*2;return svgEl('circle',{cx:(CX+Math.cos(a)*CR).toFixed(1),cy:(CY+Math.sin(a)*CR).toFixed(1),r:7,fill:MUTE},clkS);});
 
 var logHead=mk('div','logh'); logHead.style.top='318px'; logHead.textContent='Work it handles, round the clock';
@@ -1152,7 +1152,7 @@ var cta=mk('div','line cta'); cta.style.top='862px'; cta.innerHTML='<span>Book a
 var desc=mk('div','line desc'); desc.style.top='972px'; desc.textContent='Operations audit \u00a3999 \u00b7 Managed digital employee \u00a35,000 a month';
 var status=mk('div','status'); status.textContent='Your digital employee \u00b7 working 24/7';
 
-/* ---------- field of dots (thousands of tools, rippling) ---------- */
+/* ---------- field of dots (connected systems, rippling) ---------- */
 var DOTS=(function(){var R=rng(3),o=[];for(var i=0;i<1900;i++)o.push([R()*Math.PI*2,Math.sqrt(R()),R()]);return o;})();
 function drawDots(t){
   var A=out3(P(t,11.8,13.2,0,1))*P(t,22.9,23.4,1,0);
@@ -1370,14 +1370,14 @@ function unlock(e){
   if(tg&&tg.closest&&tg.closest('#tf-sn,#tf-rp'))return;
   dropListeners();go(true);
 }
-GES.forEach(function(ev){d.addEventListener(ev,unlock,{capture:true,passive:true});});
+if(!reduce)GES.forEach(function(ev){d.addEventListener(ev,unlock,{capture:true,passive:true});});
 btnR.addEventListener('click',function(){dropListeners();go(true);});
 btnS.addEventListener('click',function(){
   dropListeners();
   if(au.muted||au.paused){go(true);}else{au.muted=true;sndState(false);}
 });
 frame.addEventListener('click',function(e){
-  if(done&&!(e.target.closest&&e.target.closest('a,button'))){dropListeners();go(true);}
+  if(done&&!reduce&&!(e.target.closest&&e.target.closest('a,button'))){dropListeners();go(true);}
 });
 var wasPlaying=false;
 d.addEventListener('visibilitychange',function(){
