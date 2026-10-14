@@ -947,8 +947,7 @@ html.no-js .tf-fit{display:none}
 </style>
 <script>document.documentElement.classList.replace('no-js','js')</script>
 <script src="/assets/tw.js?v=5b395014" defer></script>
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -999,32 +998,14 @@ html.no-js .tf-fit{display:none}
           "name": "Twinthos Brain — Foundation",
           "priceCurrency": "GBP",
           "description": "Build of the persistent Twinthos Brain for a company: its approved knowledge, sources and structure, kept current.",
-          "priceSpecification": [
-            {
-              "@type": "UnitPriceSpecification",
-              "price": "2500",
-              "priceCurrency": "GBP",
-              "name": "Setup",
-              "referenceQuantity": {
-                "@type": "QuantitativeValue",
-                "value": "1",
-                "unitText": "one-time setup"
-              }
-            },
-            {
-              "@type": "UnitPriceSpecification",
-              "price": "750",
-              "priceCurrency": "GBP",
-              "billingDuration": "1",
-              "billingIncrement": "1",
-              "referenceQuantity": {
-                "@type": "QuantitativeValue",
-                "value": "1",
-                "unitText": "MONTH"
-              },
-              "name": "Monthly maintenance"
-            }
-          ]
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "2500",
+            "priceCurrency": "GBP",
+            "unitText": "MONTH",
+            "description": "Setup fee; then £750 per month"
+          },
+          "price": "2500"
         },
         {
           "@type": "Offer",
@@ -1113,8 +1094,7 @@ html.no-js .tf-fit{display:none}
       ]
     }
   ]
-}
-</script>
+}</script>
 </head>
 <body class="pg-home">
 <a class="skip" href="#main">Skip to content</a>
