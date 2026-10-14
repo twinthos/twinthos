@@ -14,9 +14,34 @@
 <url><loc>https://twinthos.com/privacy/</loc></url>
 <url><loc>https://twinthos.com/security/</loc></url>
 <url><loc>https://twinthos.com/terms/</loc></url>  <url><loc>https://twinthos.com/notes/</loc><lastmod>2026-10-14</lastmod></url>
-  <url><loc>https://twinthos.com/notes/horse-population-1915-1960/</loc><lastmod>2026-10-14</lastmod></url>
-  <url><loc>https://twinthos.com/notes/ai-adoption-gap-2026/</loc><lastmod>2026-10-14</lastmod></url>
-  <url><loc>https://twinthos.com/notes/wef-jobs-2030/</loc><lastmod>2026-10-14</lastmod></url>
-  <url><loc>https://twinthos.com/notes/hours-lost-to-admin/</loc><lastmod>2026-10-14</lastmod></url>
-  <url><loc>https://twinthos.com/notes/entry-level-jobs-ai-2026/</loc><lastmod>2026-10-14</lastmod></url>
-<url><loc>https://twinthos.com/notes/feed.xml</loc><lastmod>2026-10-14</lastmod></url></urlset>
+<url><loc>https://twinthos.com/notes/feed.xml</loc><lastmod>2026-10-14</lastmod></url>  <url>
+    <loc>https://twinthos.com/notes/what-an-ai-agent-actually-does/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://twinthos.com/notes/what-ai-benchmarks-actually-measure/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://twinthos.com/notes/why-ai-automations-fail/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://twinthos.com/notes/cost-of-an-ai-employee/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://twinthos.com/notes/atm-and-bank-tellers/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

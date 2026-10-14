@@ -1,2 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Twinthos Notes</title><link>https://twinthos.com/notes/</link><description>An evidence-led publication about intelligent systems and their consequences. Original investigations, independent model tests, and sourced analysis, organised into six desks.</description><language>en-gb</language><lastBuildDate>Wed, 14 Oct 2026 14:00:00 +0000</lastBuildDate><item><title>Small business owners lose 11 hours a week to admin. Here is what that costs.</title><link>https://twinthos.com/notes/hours-lost-to-admin/</link><guid isPermaLink="true">https://twinthos.com/notes/hours-lost-to-admin/</guid><pubDate>Thu, 08 Oct 2026 09:00:00 +0000</pubDate><category>Admin time</category><description>A July 2026 Amex survey says UK owners spend 11 hours a week on admin. What that costs per year, a calculator for your own week, and how far to trust the number.</description></item><item><title>88 percent of organisations use AI. Almost none run agents at scale.</title><link>https://twinthos.com/notes/ai-adoption-gap-2026/</link><guid isPermaLink="true">https://twinthos.com/notes/ai-adoption-gap-2026/</guid><pubDate>Thu, 08 Oct 2026 09:10:00 +0000</pubDate><category>AI adoption</category><description>Stanford&#x27;s 2026 AI Index: 88% of organisations use AI, yet scaled AI agents sit in single digits. The adoption gap, the data behind it and its limits.</description></item><item><title>AI is hitting the first rung of the career ladder first</title><link>https://twinthos.com/notes/entry-level-jobs-ai-2026/</link><guid isPermaLink="true">https://twinthos.com/notes/entry-level-jobs-ai-2026/</guid><pubDate>Thu, 08 Oct 2026 09:30:00 +0000</pubDate><category>Jobs</category><description>Stanford&#x27;s August 2026 update: workers aged 22 to 25 in AI-exposed jobs are 19% below trend, from fewer hires, not layoffs. What it shows and what it does not.</description></item><item><title>170 million jobs created, 92 million displaced by 2030</title><link>https://twinthos.com/notes/wef-jobs-2030/</link><guid isPermaLink="true">https://twinthos.com/notes/wef-jobs-2030/</guid><pubDate>Thu, 08 Oct 2026 09:20:00 +0000</pubDate><category>Jobs</category><description>The WEF Future of Jobs Report 2025 projects 170 million new roles and 92 million displaced by 2030, a net gain of 78 million, and 11 in 100 workers left behind.</description></item><item><title>The horse did not lose to a better horse. It lost to a different job.</title><link>https://twinthos.com/notes/horse-population-1915-1960/</link><guid isPermaLink="true">https://twinthos.com/notes/horse-population-1915-1960/</guid><pubDate>Thu, 08 Oct 2026 09:40:00 +0000</pubDate><category>History</category><description>US farm horses and mules peaked at 26.7 million in 1918 and fell to about 3 million by 1960. The tractor took four decades, and freed 88 million acres.</description></item></channel></rss>
+<rss version="2.0"><channel><title>Twinthos Notes</title><link>https://twinthos.com/notes/</link><description>An evidence-led publication about intelligent systems and their consequences. Original investigations, independent model tests, and sourced analysis, organised into six desks.</description><language>en-gb</language><lastBuildDate>Tue, 14 Oct 2026 09:00:00 +0000</lastBuildDate>    <item>
+      <title>What an AI agent actually does when you give it a computer</title>
+      <link>https://twinthos.com/notes/what-an-ai-agent-actually-does/</link>
+      <guid isPermaLink="true">https://twinthos.com/notes/what-an-ai-agent-actually-does/</guid>
+      <pubDate>Tue, 14 Oct 2026 09:00:00 +0000</pubDate>
+      <description>Browser tools, file systems, calendars. The vendor demos show agents finishing tasks in minutes. The independent research is more cautious, and more useful.</description>
+      <category>Agents</category>
+    </item>
+    <item>
+      <title>What the public AI benchmarks actually measure, and what they don&#x27;t</title>
+      <link>https://twinthos.com/notes/what-ai-benchmarks-actually-measure/</link>
+      <guid isPermaLink="true">https://twinthos.com/notes/what-ai-benchmarks-actually-measure/</guid>
+      <pubDate>Tue, 14 Oct 2026 09:00:00 +0000</pubDate>
+      <description>MMLU, GPQA, SWE-bench, AIME, LMArena. Every lab cites them. Each one has a narrow test set, a known failure mode, and a year-old headline number. A reading guide.</description>
+      <category>Models</category>
+    </item>
+    <item>
+      <title>Why AI automations fail after the demo</title>
+      <link>https://twinthos.com/notes/why-ai-automations-fail/</link>
+      <guid isPermaLink="true">https://twinthos.com/notes/why-ai-automations-fail/</guid>
+      <pubDate>Tue, 14 Oct 2026 09:00:00 +0000</pubDate>
+      <description>A working demo takes an afternoon. A working production workflow takes a year. The independent research on why the gap is so wide, and what closes it.</description>
+      <category>Business</category>
+    </item>
+    <item>
+      <title>The real cost of running an AI employee vs hiring one, in 2026 numbers</title>
+      <link>https://twinthos.com/notes/cost-of-an-ai-employee/</link>
+      <guid isPermaLink="true">https://twinthos.com/notes/cost-of-an-ai-employee/</guid>
+      <pubDate>Tue, 14 Oct 2026 09:00:00 +0000</pubDate>
+      <description>A worked example with public list prices, published wages, and the four assumptions that change the answer. The cost is rarely the headline number.</description>
+      <category>Futures</category>
+    </item>
+    <item>
+      <title>Bank tellers were supposed to disappear with the ATM. They didn&#x27;t.</title>
+      <link>https://twinthos.com/notes/atm-and-bank-tellers/</link>
+      <guid isPermaLink="true">https://twinthos.com/notes/atm-and-bank-tellers/</guid>
+      <pubDate>Tue, 14 Oct 2026 09:00:00 +0000</pubDate>
+      <description>Half a century of US Bureau of Labor Statistics data, and a research result that complicates the obvious forecast. What it says about new technology and the people who use it.</description>
+      <category>The Lab</category>
+    </item>
+  </channel></rss>
