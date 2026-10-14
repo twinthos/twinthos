@@ -772,6 +772,21 @@ html.js .kn.is-film .kn-ctl{display:flex}
 /* ===== glowing key words (site-wide) ===== */
 .gl{color:var(--green);text-shadow:0 0 .55em rgba(52,211,153,.32)}
 
+/* ===== Work feature strip (homepage, under hero, above /why) ===== */
+.work-feat{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.work-feat-in{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center}
+@media (max-width:900px){.work-feat-in{grid-template-columns:1fr;gap:32px}}
+.work-feat-text .d2{margin-top:14px}
+.work-feat-text .lede{max-width:36em}
+.work-feat-thumb{position:relative;display:block;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#000;text-decoration:none;color:inherit;aspect-ratio:16/9;transition:border-color .2s}
+.work-feat-thumb:hover{border-color:var(--green)}
+.work-feat-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.work-feat-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:rgba(6,8,7,0.78);color:var(--ink);display:grid;place-items:center;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);transition:background .2s,color .2s}
+.work-feat-play svg{width:26px;height:26px;margin-left:3px}
+.work-feat-thumb:hover .work-feat-play{background:var(--green);color:#04120C}
+.work-feat-meta{position:absolute;left:14px;right:14px;bottom:12px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(236,237,232,0.7);pointer-events:none}
+.work-feat-meta span:first-child{color:var(--ink)}
+
 /* ===== Why not just use ChatGPT? ===== */
 .vs-t{width:100%;max-width:1000px;border-collapse:separate;border-spacing:0;table-layout:fixed}
 .vs-t th,.vs-t td{width:50%;text-align:left;vertical-align:middle;padding:clamp(16px,1.7vw,22px) clamp(18px,2.4vw,34px);font-size:clamp(16px,1.35vw,20px);line-height:1.35;font-weight:500;letter-spacing:-.01em}
@@ -933,6 +948,22 @@ html.no-js .tf-fit{display:none}
 <p class="tf-desc">Operations audit £999 · Managed digital employee £5,000 a month</p>
 </div>
 <p class="sr-only">The header film: small business owners estimate they spend 11 hours a week on admin and finance (American Express SME Business Barometer, UK survey, July 2026). The Twinthos mark draws itself. A digital employee with its own computer, inbox and phone takes that work on in the systems you already use, keeps a digital brain of the company, and works day and night, 24/7. Work handled. Time returned.</p>
+</section>
+
+<section class="work-feat sec" id="work-feat" aria-labelledby="wf-h">
+  <div class="wrap work-feat-in">
+    <div class="work-feat-text">
+      <p class="eyebrow">Work · 2026</p>
+      <h2 class="d2" id="wf-h">A 15-second film that <span class="gl">explains the work.</span></h2>
+      <p class="lede" style="margin-top:18px">One take, three tokens through six stations, an authority line where the work waits for a person, then the close. Built to be understood at a glance and remembered after. Watch it, or read the contact sheet.</p>
+      <p style="margin-top:24px;display:flex;gap:16px;flex-wrap:wrap"><a class="btn btn-line" href="/work/reel/">Watch the reel <svg class="ar" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a><a class="tlink" href="/work/reel/v18/">Mobile cut (9:16) <svg class="ar" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></p>
+    </div>
+    <a class="work-feat-thumb" href="/work/reel/" aria-label="Watch the reel (opens in a new section)">
+      <img src="/assets/reel/twinthos-v1-sheet.png" alt="Twelve-frame contact sheet of the 15-second Twinthos motion graphic">
+      <span class="work-feat-play" aria-hidden="true"><svg viewBox="0 0 14 14"><path fill="currentColor" d="M3 1.5v11l9-5.5z"/></svg></span>
+      <span class="work-feat-meta" aria-hidden="true"><span>15.0 s</span><span>1920 × 1080 · 60 fps</span></span>
+    </a>
+  </div>
 </section>
 
 <script>/* Twinthos timeline helper: one Web Animations track per element, one shared clock. No dependencies. */
