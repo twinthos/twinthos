@@ -25,7 +25,7 @@
 @media (max-width:700px){.reel-head h1{font-size:clamp(28px,7.5vw,40px)}.reel-note{margin:16px 0 0;font-size:15px;line-height:1.5;color:var(--ink-2)}}
 .meta-row{margin-top:64px}
 @media (max-width:700px){.meta-row{margin-top:32px}}.reel-head h1{font-size:clamp(36px,4.6vw,72px);letter-spacing:-.035em;line-height:1.02}.reel-head p{margin-top:18px;color:var(--ink-2);font-size:clamp(17px,1.1vw + 12px,20px);max-width:38em}
-.stage-wrap{display:flex;justify-content:center;margin:0;zoom:clamp(0.62,calc((100svh - 330px)/700),1)}.stage-frame{position:relative;width:100%;max-width:420px;background:#000;border:1px solid var(--line);border-radius:24px;overflow:hidden;aspect-ratio:9/16;box-shadow:0 30px 100px rgba(0,0,0,.6)}
+.stage-wrap{display:flex;justify-content:center;margin:0}.stage-frame{position:relative;width:100%;max-width:420px;background:#000;border:1px solid var(--line);border-radius:24px;overflow:hidden;aspect-ratio:9/16;box-shadow:0 30px 100px rgba(0,0,0,.6)}
 .stage-frame .film{position:absolute;inset:0;background:#060807;overflow:hidden}
 .green{color:#34D399}.muted{color:#A4A9A2}.mono{font-family:var(--mono)}
 .eyebrow2{position:absolute;left:6%;top:6%;font-family:"Geist Mono",monospace;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#A4A9A2;display:flex;align-items:center;gap:10px}
@@ -243,6 +243,33 @@
   var btn = document.querySelector('.nav-toggle');
   var links = document.querySelector('.nav-links');
   if (btn && links) { btn.addEventListener('click', function(){ var open = links.classList.toggle('open'); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); }); }
+})();
+</script>
+<script>
+(function(){
+  var wrap=document.querySelector('.stage-wrap');
+  var frame=document.querySelector('.stage-frame');
+  var controls=document.querySelector('.controls');
+  if(!wrap||!frame||!controls) return;
+  function fit(){
+    frame.style.transform='none';
+    wrap.style.height='';
+    var natH=frame.offsetHeight;
+    if(!natH) return;
+    var top=frame.getBoundingClientRect().top;
+    var avail=window.innerHeight-top-controls.offsetHeight-28;
+    var scale=avail/natH;
+    if(!isFinite(scale)||scale<=0) return;
+    if(scale>1) scale=1;
+    frame.style.transformOrigin='top center';
+    frame.style.transform='scale('+scale+')';
+    wrap.style.height=Math.round(natH*scale)+'px';
+  }
+  fit();
+  window.addEventListener('resize',fit);
+  window.addEventListener('orientationchange',fit);
+  window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit);}
 })();
 </script>
 </body>
