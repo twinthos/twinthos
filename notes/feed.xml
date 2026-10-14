@@ -1,42 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Twinthos Notes</title><link>https://twinthos.com/notes/</link><description>An evidence-led publication about intelligent systems and their consequences. Original investigations, independent model tests, and sourced analysis, organised into six desks.</description><language>en-gb</language><lastBuildDate>Tue, 14 Oct 2026 09:00:00 +0000</lastBuildDate>    <item>
-      <title>What an AI agent actually does when you give it a computer</title>
-      <link>https://twinthos.com/notes/what-an-ai-agent-actually-does/</link>
-      <guid isPermaLink="true">https://twinthos.com/notes/what-an-ai-agent-actually-does/</guid>
-      <pubDate>Tue, 14 Oct 2026 09:00:00 +0000</pubDate>
-      <description>Browser tools, file systems, calendars. The vendor demos show agents finishing tasks in minutes. The independent research is more cautious, and more useful.</description>
-      <category>Agents</category>
-    </item>
-    <item>
-      <title>What the public AI benchmarks actually measure, and what they don&#x27;t</title>
-      <link>https://twinthos.com/notes/what-ai-benchmarks-actually-measure/</link>
-      <guid isPermaLink="true">https://twinthos.com/notes/what-ai-benchmarks-actually-measure/</guid>
-      <pubDate>Tue, 14 Oct 2026 09:00:00 +0000</pubDate>
-      <description>MMLU, GPQA, SWE-bench, AIME, LMArena. Every lab cites them. Each one has a narrow test set, a known failure mode, and a year-old headline number. A reading guide.</description>
-      <category>Models</category>
-    </item>
-    <item>
-      <title>Why AI automations fail after the demo</title>
-      <link>https://twinthos.com/notes/why-ai-automations-fail/</link>
-      <guid isPermaLink="true">https://twinthos.com/notes/why-ai-automations-fail/</guid>
-      <pubDate>Tue, 14 Oct 2026 09:00:00 +0000</pubDate>
-      <description>A working demo takes an afternoon. A working production workflow takes a year. The independent research on why the gap is so wide, and what closes it.</description>
-      <category>Business</category>
-    </item>
-    <item>
-      <title>The real cost of running an AI employee vs hiring one, in 2026 numbers</title>
-      <link>https://twinthos.com/notes/cost-of-an-ai-employee/</link>
-      <guid isPermaLink="true">https://twinthos.com/notes/cost-of-an-ai-employee/</guid>
-      <pubDate>Tue, 14 Oct 2026 09:00:00 +0000</pubDate>
-      <description>A worked example with public list prices, published wages, and the four assumptions that change the answer. The cost is rarely the headline number.</description>
-      <category>Futures</category>
-    </item>
-    <item>
-      <title>Bank tellers were supposed to disappear with the ATM. They didn&#x27;t.</title>
-      <link>https://twinthos.com/notes/atm-and-bank-tellers/</link>
-      <guid isPermaLink="true">https://twinthos.com/notes/atm-and-bank-tellers/</guid>
-      <pubDate>Tue, 14 Oct 2026 09:00:00 +0000</pubDate>
-      <description>Half a century of US Bureau of Labor Statistics data, and a research result that complicates the obvious forecast. What it says about new technology and the people who use it.</description>
-      <category>The Lab</category>
-    </item>
-  </channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>Twinthos Notes</title>
+<link>https://twinthos.com/notes/</link>
+<description>Original investigations and sourced analysis about intelligent systems and the work they change. Six desks: Business, Models, Futures, The Lab, Agents, The Brief.</description>
+<language>en-gb</language>
+<atom:link href="https://twinthos.com/notes/feed.xml" rel="self" type="application/rss+xml"/>
+<item>
+<title>Half of small businesses already let AI do a person&rsquo;s job. Their teams are exhausted.</title>
+<link>https://twinthos.com/notes/small-businesses-already-hired-ai/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/small-businesses-already-hired-ai/</guid>
+<pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
+<category>Business</category>
+<description><![CDATA[A survey of 729 owners found 53% say AI now absorbs a full-time role &mdash; and 65% say running a leaner team has hurt their wellbeing. This is not a story about robots taking jobs. It is a story about people being used as middleware.]]></description>
+</item><item>
+<title>The AI that answers your phone now costs $2 a month. Almost nobody has switched.</title>
+<link>https://twinthos.com/notes/the-2-dollar-ai-that-answers-the-phone/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/the-2-dollar-ai-that-answers-the-phone/</guid>
+<pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
+<category>Models</category>
+<description><![CDATA[On 14 October 2026 Google shipped its long-running agent model at $2 per million input tokens. A week earlier OpenAI started rolling out always-on agents. The economics of a digital employee have collapsed &mdash; but the reasons businesses have not moved have nothing to do with price.]]></description>
+</item><item>
+<title>95% of AI pilots fail. The number has been stable for two years.</title>
+<link>https://twinthos.com/notes/why-ai-automations-fail/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/why-ai-automations-fail/</guid>
+<pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
+<category>Business</category>
+<description><![CDATA[MIT&rsquo;s August 2025 State of AI in Business report found roughly 95% of generative AI pilots produced no measurable P&amp;L impact. McKinsey and BCG independently report the same wall. The pattern behind it is not technical &mdash; and it is fixable.]]></description>
+</item><item>
+<title>A digital employee costs &pound;1.60 an hour. The junior it replaces costs &pound;13.</title>
+<link>https://twinthos.com/notes/cost-of-an-ai-employee/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/cost-of-an-ai-employee/</guid>
+<pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
+<category>Futures</category>
+<description><![CDATA[The maths of replacing a human role with software, done honestly with October 2026 list pricing: the model costs almost nothing, the true cost of running it properly is the interesting part, and the number that changes minds is the staff-hour, not the invoice.]]></description>
+</item><item>
+<title>The last time a machine was supposed to erase a job. It hired more people instead.</title>
+<link>https://twinthos.com/notes/atm-and-bank-tellers/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/atm-and-bank-tellers/</guid>
+<pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
+<category>The Lab</category>
+<description><![CDATA[Everyone knows ATMs replaced bank tellers. The data says the opposite: teller employment rose for two decades after the ATMs arrived, because the machine cut the cost of a branch and banks opened more of them. There is a live lesson for anyone reading this week&rsquo;s AI headlines.]]></description>
+</item><item>
+<title>Everyone is shipping an &ldquo;AI agent&rdquo; this month. Almost none of them are agents.</title>
+<link>https://twinthos.com/notes/what-an-ai-agent-actually-does/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/what-an-ai-agent-actually-does/</guid>
+<pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
+<category>Agents</category>
+<description><![CDATA[Google, OpenAI, Meta and Anthropic all released something called an agent in October 2026. The word now covers everything from a chatbot to a worker with its own computer. Here is what actually separates the two &mdash; and why it decides whether your business gets a colleague or a demo.]]></description>
+</item>
+</channel>
+</rss>
