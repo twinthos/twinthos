@@ -896,19 +896,21 @@ html.no-js .tf-fit{display:none}
 @font-face{font-family:'TwTight';src:url('/assets/fonts/InterTight-normal-400-700.woff2') format('woff2');font-weight:400 700;font-display:block}
 @font-face{font-family:'TwDisplay';src:url('/assets/fonts/inter-latin-800-normal.woff2') format('woff2');font-weight:800;font-display:block}
 @font-face{font-family:'TwMono';src:url('/assets/fonts/GeistMono-normal-500.woff2') format('woff2');font-weight:500;font-display:block}
-#tf-frame #tf-cam{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:960px 540px;overflow:hidden;background:#070908}
-#tf-frame #tf-grid{position:absolute;left:-96px;top:-96px;width:2112px;height:1272px;background-image:linear-gradient(rgba(236,237,232,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(236,237,232,.06) 1px,transparent 1px);background-size:96px 96px}
-#tf-frame #tf-dots{position:absolute;left:0;top:0;width:1920px;height:1080px}
-#tf-frame #tf-stage{position:absolute;left:0;top:0;width:1920px;height:1080px}
-#tf-frame #tf-stage>div{position:absolute;left:0;top:0}
-#tf-frame #tf-stage svg.full{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:visible}
+
+@font-face{font-family:'TwTight';src:url('fonts/InterTight-normal-400-700.woff2') format('woff2');font-weight:400 700;font-display:block}
+@font-face{font-family:'TwDisplay';src:url('fonts/inter-latin-800-normal.woff2') format('woff2');font-weight:800;font-display:block}
+@font-face{font-family:'TwMono';src:url('fonts/GeistMono-normal-500.woff2') format('woff2');font-weight:500;font-display:block}
+html,body{margin:0;padding:0;width:1920px;height:1080px;background:#070908;overflow:hidden}
+#tf-cam{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:960px 540px;overflow:hidden;background:#070908}
+#tf-floor{position:absolute;left:0;top:0;width:1920px;height:1080px}
+#tf-dots{position:absolute;left:0;top:0;width:1920px;height:1080px}
+#tf-stage{position:absolute;left:0;top:0;width:1920px;height:1080px}
+/* every beat lives on its own plane; the plane wrapper carries the depth projection */
+#tf-frame .plane{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:960px 540px;opacity:0}
+#tf-frame .plane>div{position:absolute;left:0;top:0}
+#tf-frame .plane svg.full{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:visible}
 #tf-frame .dot{left:952px!important;top:532px!important;width:16px;height:16px;border-radius:50%;background:#34D399;box-shadow:0 0 70px 22px rgba(52,211,153,.5)}
 #tf-frame .ring{left:940px!important;top:520px!important;width:40px;height:40px;border-radius:50%;border:2px solid #34D399;box-sizing:border-box}
-#tf-frame .mark{left:830px!important;top:410px!important;width:260px;height:260px}
-#tf-frame .mark svg{width:260px;height:260px;overflow:visible;display:block}
-#tf-frame .mark .f{fill:#34D399}
-#tf-frame .mark .o{fill:none;stroke:#34D399;stroke-width:.9;stroke-linejoin:round;stroke-dasharray:1 1}
-#tf-frame .band{left:-200px!important;top:-80px!important;width:1400px;height:1240px}
 #tf-frame .line{left:0!important;width:1920px;text-align:center;white-space:nowrap;font-family:'TwTight',Inter,sans-serif;font-weight:600;color:#ECEDE8;line-height:1.12}
 #tf-frame .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em;margin-bottom:-.06em}
 #tf-frame .w>i{display:inline-block;font-style:normal;transform:translate3d(0,112%,0);will-change:transform}
@@ -933,17 +935,22 @@ html.no-js .tf-fit{display:none}
 #tf-frame .rt{font-family:'TwMono',monospace;font-weight:500;font-size:30px;color:#E6A54D;width:110px;flex:none}
 #tf-frame .rx{font-family:'TwTight',Inter,sans-serif;font-weight:500;font-size:36px;color:#ECEDE8}
 #tf-frame .cap6{font-family:'TwDisplay',Inter,sans-serif;font-weight:800;font-size:110px;letter-spacing:-.04em;color:#ECEDE8;white-space:nowrap;line-height:1.05}
-#tf-frame .line,#tf-frame .odo,#tf-frame .src{z-index:5}
+#tf-frame .line,.odo,.src{z-index:5}
 #tf-frame .field{left:0!important;top:0!important;width:1920px;height:1080px;background:#34D399}
-#tf-frame .g1,#tf-frame .g2{font-family:'TwDisplay',Inter,sans-serif;font-weight:800;font-size:170px;letter-spacing:-.045em;color:#070908}
+#tf-frame .g1,.g2{font-family:'TwDisplay',Inter,sans-serif;font-weight:800;font-size:170px;letter-spacing:-.045em;color:#070908}
 #tf-frame .g3{font-family:'TwMono',monospace;font-size:30px;color:#070908}
-#tf-frame .h2a,#tf-frame .h2b{font-family:'TwDisplay',Inter,sans-serif;font-weight:800;font-size:150px;letter-spacing:-.045em}
+#tf-frame .h2a,.h2b{font-family:'TwDisplay',Inter,sans-serif;font-weight:800;font-size:150px;letter-spacing:-.045em}
 #tf-frame .h2a{color:#ECEDE8}
 #tf-frame .h2b{color:#34D399}
 #tf-frame .sub{left:360px!important;width:1200px!important;white-space:normal;font-size:34px;line-height:1.45;color:#A4A9A2}
 #tf-frame .cta span{display:inline-block;padding:0 42px;height:76px;line-height:76px;border-radius:999px;background:#ECEDE8;color:#070908;font-size:30px;font-weight:600}
 #tf-frame .desc{font-family:'TwMono',monospace;font-size:22px;color:#A4A9A2}
-#tf-frame .status{left:250px!important;top:118px!important;font-family:'TwMono',monospace;font-size:24px;color:#A4A9A2;white-space:nowrap}
+#tf-frame .status{left:1210px!important;top:118px!important;font-family:'TwMono',monospace;font-size:24px;color:#A4A9A2;white-space:nowrap}
+/* the mark is the one element that flies through the whole film */
+#tf-frame .mark{position:absolute;left:830px!important;top:410px!important;width:260px;height:260px}
+#tf-frame .mark svg{width:260px;height:260px;overflow:visible;display:block}
+#tf-frame .mark .f{fill:#34D399}
+#tf-frame .mark .o{fill:none;stroke:#34D399;stroke-width:.9;stroke-linejoin:round;stroke-dasharray:1 1}
 </style>
 <script>document.documentElement.classList.replace('no-js','js')</script>
 <script src="/assets/tw.js?v=5b395014" defer></script>
@@ -1112,13 +1119,13 @@ html.no-js .tf-fit{display:none}
 <section class="tf" id="top" aria-labelledby="tf-h">
 <h1 id="tf-h" class="sr-only">Your next hire never sleeps.</h1>
 <div class="tf-frame" id="tf-frame">
-<img class="tf-noimg" src="/assets/film17-final.jpg" width="1920" height="1080" loading="lazy" alt="Twinthos header film, final frame: Your next hire never sleeps.">
-<div class="tf-fit" id="tf-fit"><div id="tf-cam"><div id="tf-grid"></div><canvas id="tf-dots" width="1920" height="1080" aria-hidden="true"></canvas><div id="tf-stage"></div></div></div>
+<img class="tf-noimg" src="/assets/film18-final.jpg" width="1920" height="1080" loading="lazy" alt="Twinthos header film, final frame: Your next hire never sleeps.">
+<div class="tf-fit" id="tf-fit"><div id="tf-cam"><svg id="tf-floor" viewBox="0 0 1920 1080" aria-hidden="true"></svg><canvas id="tf-dots" width="1920" height="1080" aria-hidden="true"></canvas><div id="tf-stage"></div></div></div>
 <div class="tf-ctl" role="group" aria-label="Film controls">
 <button type="button" id="tf-rp" aria-label="Replay the film with sound"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.3 7a4.7 4.7 0 1 0 1.5-3.4"/><path d="M2.2 1.8v2.5h2.5"/></svg></button>
 <button type="button" id="tf-sn" aria-pressed="false" aria-label="Sound off. Turn sound on"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1.5 5h2.6L7.5 2v10L4.1 9H1.5z"/><path d="M9.6 4.8a3.2 3.2 0 0 1 0 4.4M11.4 3a5.6 5.6 0 0 1 0 8"/></svg></button>
 </div>
-<audio id="tf-audio" src="/assets/film17.mp3" preload="metadata" playsinline></audio>
+<audio id="tf-audio" src="/assets/film18.mp3" preload="metadata" playsinline></audio>
 </div>
 <div class="tf-copy">
 <p class="tf-st">Your digital employee · working 24/7</p>
@@ -1130,108 +1137,25 @@ html.no-js .tf-fit{display:none}
 
 
 
-<script>/* Twinthos timeline helper: one Web Animations track per element, one shared clock. No dependencies. */
-(function(W){
-'use strict';
-var EO='cubic-bezier(.16,1,.3,1)',EI='cubic-bezier(.65,0,.35,1)',ES='cubic-bezier(.33,1,.68,1)';
-/* closed-form spring step response (zeta .6, ~9% overshoot) as a CSS linear() easing; falls back to EO where unsupported */
-var SP=(function(){
-  try{if(!(W.CSS&&CSS.supports&&CSS.supports('animation-timing-function','linear(0,1)')))return EO;}catch(e){return EO;}
-  var z=.6,w=12,wd=w*Math.sqrt(1-z*z),n=26,pts=[];
-  for(var i=0;i<=n;i++){var t=i/n,v=1-Math.exp(-z*w*t)*(Math.cos(wd*t)+z/Math.sqrt(1-z*z)*Math.sin(wd*t));pts.push(i===n?'1':(+v.toFixed(4)).toString());}
-  return 'linear('+pts.join(',')+')';
-})();
-function TL(dur){this.dur=dur;this.a=[];this.master=null;this.bm=new Map();}
-TL.prototype.clear=function(){this.a.forEach(function(x){try{x.cancel();}catch(e){}});this.a=[];this.master=null;this.bm.clear();};
-/* read layout once, before any animation is created, to avoid layout thrash */
-TL.prototype.prime=function(els){var m=this.bm;els.forEach(function(el){if(el)m.set(el,[el.offsetLeft,el.offsetTop]);});};
-/* keys: [[t,{X,Y (absolute, via element base), x,y (raw px), r, s, sx, o, cp},ease]]; ease belongs to the segment ARRIVING at the key */
-TL.prototype.mk=function(el,keys){
-  if(!el)return null;
-  var DUR=this.dur,bl=0,bt=0,need=keys.some(function(k){return k[1]&&(k[1].X!=null||k[1].Y!=null);});
-  if(need){var b=this.bm.get(el);if(!b){b=[el.offsetLeft,el.offsetTop];this.bm.set(el,b);}bl=b[0];bt=b[1];}
-  keys=keys.slice();
-  if(keys[0][0]>0)keys.unshift([0,{},null]);
-  if(keys[keys.length-1][0]<DUR)keys.push([DUR,{},null]);
-  var cur={x:0,y:0,r:0,s:1,sx:1,sy:1,o:null,cp:null,bl:undefined},fr=[],lastT=0;
-  keys.forEach(function(k){
-    k=[Math.max(lastT,k[0]),k[1],k[2]];lastT=k[0];
-    var s=k[1]||{};
-    if(s.X!=null)cur.x=s.X-bl; if(s.Y!=null)cur.y=s.Y-bt;
-    if(s.x!=null)cur.x=s.x; if(s.y!=null)cur.y=s.y;
-    ['r','s','sx','sy','o','cp','bl'].forEach(function(f){if(s[f]!==undefined)cur[f]=s[f];});
-    var f={offset:Math.max(0,Math.min(1,k[0]/DUR))};
-    f.transform='translate3d('+cur.x+'px,'+cur.y+'px,0) rotate('+cur.r+'deg) scale('+(cur.sx*cur.s)+','+(cur.sy*cur.s)+')';
-    if(cur.o!==null)f.opacity=cur.o;
-    if(cur.cp!==null)f.clipPath=cur.cp;
-    if(cur.bl!==undefined)f.filter='blur('+cur.bl+'px)';
-    fr.push(f);
-  });
-  for(var i=0;i<fr.length-1;i++)fr[i].easing=keys[i+1][2]||'linear';
-  var a=el.animate(fr,{duration:DUR*1000,fill:'both',easing:'linear'});
-  a.pause();this.a.push(a);
-  if(!this.master)this.master=a;
-  return a;
-};
-/* opacity windows with a small rise/settle. wins: [[t0,t1],...]; t1>=dur holds to the end. */
-TL.prototype.win=function(el,wins,o){
-  o=o||{};var inn=o.in==null?.35:o.in,out=o.out==null?.3:o.out,dy=o.dy==null?10:o.dy,s0=o.s==null?1:o.s,DUR=this.dur;
-  var keys=[],first=true;
-  wins.forEach(function(w){
-    var t0=w[0],t1=w[1];
-    if(t0<=0){keys.push([0,{o:1,y:0,s:1}]);}
-    else{
-      if(first)keys.push([0,{o:0,y:dy,s:s0}]);
-      keys.push([t0,{o:0,y:dy,s:s0}],[t0+inn,{o:1,y:0,s:1},o.sp?SP:EO]);
-    }
-    first=false;
-    if(t1<DUR){keys.push([t1,{o:1,y:0,s:1}],[t1+out,{o:0,y:-dy*.5,s:s0===1?1:(1+s0)/2+.01},ES]);}
-  });
-  if(keys[0][0]>0)keys.unshift([0,{o:0,y:dy,s:s0}]);
-  return this.mk(el,keys);
-};
-/* clip-path reveal */
-TL.prototype.reveal=function(el,t0,t1,from,ease){
-  from=from||'inset(0 100% 0 0)';
-  return this.mk(el,[[0,{cp:from}],[t0,{cp:from}],[t1,{cp:'inset(0 0 0 0)'},ease||EO]]);
-};
-/* edge-light bumps on a glass surface when an action becomes available */
-TL.prototype.bump=function(el,times,base){
-  base=base==null?.28:base;var keys=[[0,{o:base}]];
-  times.forEach(function(t,i){var nx=times[i+1],end=nx!=null?Math.min(t+1.3,nx-.05):t+1.3;keys.push([t,{o:base}],[t+.22,{o:1},EO],[Math.max(t+.3,end),{o:base},ES]);});
-  return this.mk(el,keys);
-};
-/* camera: individual transform properties (translate/scale) so the element's own transform stays intact. keys: [[t,{x,y,s},ease]] */
-TL.prototype.cam=function(el,keys){
-  if(!el||!(W.CSS&&CSS.supports&&CSS.supports('scale','1')))return null;
-  var DUR=this.dur;keys=keys.slice();
-  if(keys[0][0]>0)keys.unshift([0,keys[0][1],null]);
-  if(keys[keys.length-1][0]<DUR)keys.push([DUR,keys[keys.length-1][1],null]);
-  var fr=keys.map(function(k){var v=k[1];return{offset:Math.max(0,Math.min(1,k[0]/DUR)),translate:(v.x||0).toFixed(2)+'px '+(v.y||0).toFixed(2)+'px',scale:String(v.s==null?1:v.s)};});
-  for(var i=0;i<fr.length-1;i++)fr[i].easing=keys[i+1][2]||'linear';
-  var a=el.animate(fr,{duration:DUR*1000,fill:'both',easing:'linear'});a.pause();this.a.push(a);return a;
-};
-TL.prototype.seek=function(t){var ms=Math.max(0,Math.min(this.dur,t))*1000;this.a.forEach(function(x){x.currentTime=ms;});};
-TL.prototype.time=function(){return this.master?(this.master.currentTime||0)/1000:0;};
-TL.prototype.play=function(){this.a.forEach(function(x){x.play();});};
-TL.prototype.pause=function(){this.a.forEach(function(x){x.pause();});};
-W.TWTL={TL:TL,EO:EO,EI:EI,ES:ES,SP:SP};
-})(window);
+<script>/* Twinthos header film v18: one continuous camera flight through depth, eight beats, 29 seconds. One clock drives the film; the score (assets/film18.mp3) sets the clock while it plays. */
 
-/* Header film v17 engine (window.tfSetTime draws any moment exactly) */
-/* Twinthos header film v17: a 29-second deterministic motion film.
-   window.tfSetTime(t) draws any moment exactly, so frame capture and review MP4s are frame-accurate.
-   Story: brand, problem (11 hours a week of admin, sourced), solution (a digital employee that never sleeps),
-   works in the systems you already use, a digital brain of the company, what it does across 24 hours, time returned,
-   then the resting headline. Every move is a wipe, mask, orbit, clock sweep or camera push. */
+/* Twinthos header film v18: a 29-second continuous flight, one camera, one space.
+   The camera never cuts. It dollies forward through depth the whole film; every beat
+   lives on its own plane at its own z, so parallax between beats is real, not faked.
+   Each beat's plane stays between z -2300 and -1400 (scale 0.70 to 1.14), so content
+   laid out inside the 1920x1080 plane never exits the frame.
+   The mark is the through-line: it draws at the brand, reappears at every beat's hub,
+   and lands in the resting hero. window.setTime(t) draws any moment exactly. */
 (function(){
 'use strict';
 var DUR=29.0;
+var FOCAL=1600, CX=960, CY=540;
 var MARK_D='M11 12H30.75V52H26V20H11ZM33.25 12H53V20H38V52H33.25Z';
 var GREEN='#34D399', AMBER='#E6A54D', IVORY='#ECEDE8', MUTE='#A4A9A2', INK='#070908';
 var NS='http://www.w3.org/2000/svg';
-var stage=document.getElementById('tf-stage'), cam=document.getElementById('tf-cam'), grid=document.getElementById('tf-grid');
+var stage=document.getElementById('tf-stage');
 var g2d=document.getElementById('tf-dots').getContext('2d');
+var floorSvg=document.getElementById('tf-floor');
 
 function clamp(v,a,b){return v<a?a:(v>b?b:v);}
 function out3(k){k=clamp(k,0,1);return 1-Math.pow(1-k,3);}
@@ -1247,53 +1171,144 @@ function words(parent,text,cls){var ws=text.split(' '),out=[];ws.forEach(functio
 function letters(parent,text){var out=[];text.split('').forEach(function(c){var s=mk('span','w',parent);var n=mk('i','',s);n.textContent=c;out.push(n);});return out;}
 function rise(arr,t,start,step,dur){arr.forEach(function(n,i){var t0=start+i*step;n.style.transform='translate3d(0,'+P(t,t0,t0+dur,112,0,out3).toFixed(2)+'%,0)';});}
 
-/* ---------- elements (creation order = z-order) ---------- */
-var dot=mk('div','dot');
-var ring1=mk('div','ring'), ring2=mk('div','ring');
+/* ---------- camera: one continuous dolly through depth ---------- */
+var TRV=[[0,0],[3.6,700],[7.6,1400],[11.0,2100],[15.0,2800],[18.8,3500],[22.8,4200],[26.4,4900],[29.0,5300]];
+function travel(t){
+  for(var i=0;i<TRV.length-1;i++){
+    var a=TRV[i], b=TRV[i+1];
+    if(t<=b[0]||i===TRV.length-2){
+      var k=clamp((t-a[0])/(b[0]-a[0]),0,1);
+      if(i===TRV.length-2)k=io3(k);
+      return a[1]+(b[1]-a[1])*k;
+    }
+  }
+  return 5300;
+}
+function proj(x,y,z){var d=-z;if(d<60)return null;var s=FOCAL/d;return [CX+(x-CX)*s,CY+(y-CY)*s,s];}
+function vis(z){return clamp((z+2600)/500,0,1)*clamp((-1000-z)/500,0,1);}
+function beatFade(t,t0,t1){return clamp((t-t0+0.35)/0.7,0,1)*clamp((t1+0.35-t)/0.7,0,1);}
+var camX=0, camY=0, TR=0;
+function plane(p,z0,t,t0,t1){
+  var z=z0+TR, s=FOCAL/Math.max(60,-z);
+  p.style.transform='translate3d('+(camX*s).toFixed(2)+'px,'+(camY*s).toFixed(2)+'px,0) scale('+s.toFixed(4)+')';
+  p.style.opacity=(vis(z)*beatFade(t,t0,t1)).toFixed(4);
+}
+
+/* ---------- the floor: a receding grid that flows past the camera ---------- */
+var flAcross=[], flDepth=[];
+var i0;
+for(i0=0;i0<18;i0++)flAcross.push(svgEl('line',{stroke:IVORY,'stroke-width':1.5,'stroke-opacity':0.3},floorSvg));
+for(i0=0;i0<16;i0++)flDepth.push(svgEl('line',{stroke:IVORY,'stroke-width':1.5,'stroke-opacity':0.3},floorSvg));
+function drawFloor(t){
+  var fo=clamp((t-0.5)/1.0,0,1)*clamp((24.8-t)/1.2,0,1);
+  floorSvg.style.opacity=fo.toFixed(3);
+  if(fo<=0.01)return;
+  var k0=Math.floor(TR/400)+1;
+  for(var i=0;i<18;i++){
+    var ln=flAcross[i], zw=-400*(k0+i), sz=zw+TR;
+    var p1=proj(-3000,880,sz), p2=proj(3000,880,sz);
+    if(!p1||!p2){ln.setAttribute('opacity','0');continue;}
+    ln.setAttribute('x1',p1[0].toFixed(1));ln.setAttribute('y1',p1[1].toFixed(1));
+    ln.setAttribute('x2',p2[0].toFixed(1));ln.setAttribute('y2',p2[1].toFixed(1));
+    ln.setAttribute('opacity',(0.08+0.30*clamp(1400/(-sz),0,1)).toFixed(3));
+  }
+  var znear=Math.min(-100,TR-400*k0), zfar=TR-400*(k0+17);
+  for(var j=0;j<16;j++){
+    var ln2=flDepth[j], x=-2800+j*400;
+    var a=proj(x,880,znear), b=proj(x,880,zfar);
+    if(!a||!b){ln2.setAttribute('opacity','0');continue;}
+    ln2.setAttribute('x1',a[0].toFixed(1));ln2.setAttribute('y1',a[1].toFixed(1));
+    ln2.setAttribute('x2',b[0].toFixed(1));ln2.setAttribute('y2',b[1].toFixed(1));
+    ln2.setAttribute('opacity','0.14');
+  }
+}
+
+/* ---------- volumetric dust: recycled so the field never empties ---------- */
+var DUST=(function(){var R=rng(11),o=[];for(var i=0;i<1200;i++)o.push([-1500+R()*4900,-700+R()*2600,(i*104729)%6400,0.35+R()*0.65]);return o;})();
+function drawDust(t){
+  g2d.clearRect(0,0,1920,1080);
+  for(var i=0;i<DUST.length;i++){
+    var d=DUST[i];
+    var dist=((d[2]-TR)%6400+6400)%6400+60;
+    if(dist>6460)continue;
+    var p=proj(d[0],d[1],-dist);
+    if(!p)continue;
+    var a=(0.05+0.30*clamp(900/dist,0,1))*d[3];
+    g2d.fillStyle='rgba(52,211,153,'+a.toFixed(3)+')';
+    var sz=Math.max(1,2.2*p[2]);
+    g2d.fillRect(p[0],p[1],sz,sz);
+  }
+}
+
+/* ---------- the mark: one element, flying the whole film ---------- */
 var markEl=mk('div','mark');
 markEl.innerHTML='<svg viewBox="8 8 48 48" aria-hidden="true"><path class="f" d="'+MARK_D+'"/><path class="o" pathLength="1" d="'+MARK_D+'"/></svg>';
 var fillP=markEl.querySelector('.f'), outP=markEl.querySelector('.o');
+function markZ(t){
+  if(t<3.6)return -2100;
+  if(t<10.6)return 0;
+  if(t<15.6)return -4200;
+  if(t<19.4)return P(t,15.6,16.4,-4200,-4900,io3);
+  if(t<23.4)return P(t,19.4,20.2,-4900,-5600,io3);
+  if(t<27.0)return P(t,23.4,24.2,-5600,-6300,io3);
+  return P(t,27.0,27.6,-6300,-7000,io3);
+}
+function markXY(t){
+  var x=960,y=470;
+  if(t>=10.6){y=P(t,10.6,11.4,470,300,io3);}
+  if(t>=19.4){x=P(t,19.4,20.2,960,1420,io3);y=P(t,19.4,20.2,300,540,io3);}
+  if(t>=23.4){x=P(t,23.4,24.2,1420,960,io3);}
+  if(t>=27.0){x=P(t,27.0,27.6,960,250,io3);y=P(t,27.0,27.6,540,150,io3);}
+  return [x,y];
+}
+function markVis(t){
+  return clamp((t-0.9)/0.5,0,1)*clamp((3.5-t)/0.5,0,1)
+       + clamp((t-10.5)/0.6,0,1);
+}
 
-var nameEl=mk('div','line name'); nameEl.style.top='548px';
+/* ---------- plane 1: the brand ---------- */
+var p1=mk('div','plane');
+var dot=mk('div','dot',p1), ring1=mk('div','ring',p1), ring2=mk('div','ring',p1);
+var nameEl=mk('div','line name',p1); nameEl.style.top='548px';
 var nameL=letters(nameEl,'Twinthos');
-var tagEl=mk('div','line tag'); tagEl.style.top='752px'; tagEl.textContent='Your digital employee';
+var tagEl=mk('div','line tag',p1); tagEl.style.top='752px'; tagEl.textContent='Your digital employee';
 
-var bands=[GREEN,AMBER,IVORY].map(function(c){var b=mk('div','band');b.style.background=c;return b;});
-
-var h1a=mk('div','line h1a'); h1a.style.top='168px';
+/* ---------- plane 2: the problem ---------- */
+var p2=mk('div','plane');
+var h1a=mk('div','line h1a',p2); h1a.style.top='168px';
 var h1aW=words(h1a,'Small business owners estimate they spend');
-var odo=mk('div','odo');
+var odo=mk('div','odo',p2);
 var colA=mk('div','col',odo), stA=mk('div','stack',colA);
 var colB=mk('div','col',odo), stB=mk('div','stack',colB);
 ['0','1'].forEach(function(d){mk('div','',stA).textContent=d;});
 ['0','1','2','3','4','5','6','7','8','9','0','1'].forEach(function(d){mk('div','',stB).textContent=d;});
-var h1b=mk('div','line h1b'); h1b.style.top='602px';
+var h1b=mk('div','line h1b',p2); h1b.style.top='602px';
 var h1bW=words(h1b,'hours a week on admin and finance.');
-var src=mk('div','src'); src.textContent='Source: American Express SME Business Barometer, July 2026 (UK survey)';
+var src=mk('div','src',p2); src.textContent='Source: American Express SME Business Barometer, July 2026 (UK survey)';
 
+/* ---------- plane 3: the flood of admin ---------- */
+var p3=mk('div','plane');
 var TASKS=['Chase invoice #2041','Update the CRM','Reply to Sam','Book the courier','Send the quote','Copy data into Xero','Follow up the lead','Rebook Tuesday','Answer the same question','Reconcile payments','Chase the signature','Update the rota','Send the reminder','Log the call','File the receipts','Confirm the booking','Fix the spreadsheet','Email the supplier','Check the order','Renew the policy','Find that attachment','Book the engineer'];
 var CHIPS=(function(){
   var R=rng(7), placed=[], out=[];
   TASKS.forEach(function(txt){
     var w=Math.round(txt.length*13.4+64), h=56, found=null;
-    for(var tries=0;tries<600&&!found;tries++){
-      var x=60+R()*(1860-w-60), y=120+R()*(960-h-120);
-      if(x<1520&&x+w>400&&y<720&&y+h>140)continue;
+    for(var tries=0;tries<800&&!found;tries++){
+      var x=200+R()*(1500-w), y=200+R()*(640-h);
       var ok=true;
-      for(var k=0;k<placed.length;k++){var q=placed[k];if(x<q[0]+q[2]+18&&x+w+18>q[0]&&y<q[1]+q[3]+14&&y+h+14>q[1]){ok=false;break;}}
+      for(var q=0;q<placed.length;q++){var b=placed[q];if(x<b[0]+b[2]+18&&x+w+18>b[0]&&y<b[1]+b[3]+14&&y+h+14>b[1]){ok=false;break;}}
       if(ok)found=[x,y,w,h];
     }
     if(found){placed.push(found);out.push({txt:txt,i:out.length,x:found[0],y:found[1],w:found[2],h:found[3],tx:found[0]+found[2]/2,ty:found[1]+found[3]/2});}
   });
   return out;
 })();
-CHIPS.forEach(function(c){var e=mk('div','chip');e.innerHTML='<span class="cd"></span><span class="ct"></span>';e.querySelector('.ct').textContent=c.txt;e.style.left=c.x+'px';e.style.top=c.y+'px';c.el=e;});
+CHIPS.forEach(function(c){var e=mk('div','chip',p3);e.innerHTML='<span class="cd"></span><span class="ct"></span>';e.querySelector('.ct').textContent=c.txt;e.style.left=c.x+'px';e.style.top=c.y+'px';c.el=e;});
+var flash=mk('div','ring',p3);
 
-var flash=mk('div','ring');
-var cap3=mk('div','line cap'); cap3.style.top='820px';
-var cap3W=words(cap3,'Twinthos takes it all.');
-
-var conn=svgEl('svg',{'class':'full',viewBox:'0 0 1920 1080',width:1920,height:1080},stage);
+/* ---------- plane 4: the tools ---------- */
+var p4=mk('div','plane');
+var conn=svgEl('svg',{'class':'full',viewBox:'0 0 1920 1080',width:1920,height:1080},p4);
 var TOOLS=[
  ['Inbox','<rect x="6" y="12" width="36" height="26" rx="4"/><path d="M6 18l18 12 18-12"/>'],
  ['Calendar','<rect x="8" y="10" width="32" height="30" rx="4"/><path d="M8 19h32M16 6v8M32 6v8"/>'],
@@ -1305,11 +1320,15 @@ var TOOLS=[
  ['Drive','<path d="M6 14h14l4 5h18v20H6z"/>']
 ];
 var connL=TOOLS.map(function(){return svgEl('line',{stroke:GREEN,'stroke-width':2,'stroke-linecap':'round'},conn);});
-var tools=TOOLS.map(function(tl){var w=mk('div','tool');w.innerHTML='<div class="badge"><svg viewBox="0 0 48 48" aria-hidden="true">'+tl[1]+'</svg></div><div class="tl">'+tl[0]+'</div>';return w;});
-var cap4=mk('div','line cap'); cap4.style.top='944px';
-var cap4W=words(cap4,'Works in the systems you already use.');
+var tools=TOOLS.map(function(tl){var w=mk('div','tool',p4);w.innerHTML='<div class="badge"><svg viewBox="0 0 48 48" aria-hidden="true">'+tl[1]+'</svg></div><div class="tl">'+tl[0]+'</div>';return w;});
+var cap3=mk('div','line cap',p4); cap3.style.top='820px';
+var cap3W=words(cap3,'Twinthos takes it all.');
+var cap4=mk('div','line cap',p4); cap4.style.top='920px';
+var cap4W=words(cap4,'Connects to thousands of tools.');
 
-var netS=svgEl('svg',{'class':'full',viewBox:'0 0 1920 1080',width:1920,height:1080},stage);
+/* ---------- plane 5: the digital brain ---------- */
+var p5=mk('div','plane');
+var netS=svgEl('svg',{'class':'full',viewBox:'0 0 1920 1080',width:1920,height:1080},p5);
 var NODES=['Customers','Invoices','Procedures','Suppliers','Calendar','Policies','Team','Enquiries','Orders','Contracts','Reports','Staff rota','Pricing','Returns'];
 var NP=NODES.map(function(n,j){var a=-Math.PI/2+Math.PI/14+j*2*Math.PI/14;return {x:960+640*Math.cos(a),y:640+230*Math.sin(a),n:n};});
 var netRing=NP.map(function(){return svgEl('line',{stroke:GREEN,'stroke-width':1.5,'stroke-opacity':0.3},netS);});
@@ -1317,10 +1336,12 @@ var netSpk=NP.map(function(){return svgEl('line',{stroke:GREEN,'stroke-width':2}
 var netDot=NP.map(function(p){return svgEl('circle',{cx:p.x.toFixed(1),cy:p.y.toFixed(1),r:9,fill:INK,stroke:GREEN,'stroke-width':2},netS);});
 NP.forEach(function(p){var right=p.x>=960;var tx=svgEl('text',{x:(p.x+(right?20:-20)).toFixed(1),y:(p.y+8).toFixed(1),'text-anchor':right?'start':'end','class':'nl'},netS);tx.textContent=p.n;});
 var pulses=[0,1,2].map(function(){return svgEl('circle',{r:5,fill:GREEN},netS);});
-var cap5=mk('div','line cap'); cap5.style.top='944px';
+var cap5=mk('div','line cap',p5); cap5.style.top='900px';
 var cap5W=words(cap5,'A digital brain of your company.');
 
-var clkS=svgEl('svg',{'class':'full',viewBox:'0 0 1920 1080',width:1920,height:1080},stage);
+/* ---------- plane 6: 24/7 ---------- */
+var p6=mk('div','plane');
+var clkS=svgEl('svg',{'class':'full',viewBox:'0 0 1920 1080',width:1920,height:1080},p6);
 var CX=1420, CY=540, CR=250;
 svgEl('circle',{cx:CX,cy:CY,r:CR,fill:'none',stroke:'rgba(236,237,232,0.14)','stroke-width':2},clkS);
 var clkArc=svgEl('circle',{cx:CX,cy:CY,r:CR,fill:'none',stroke:GREEN,'stroke-width':6,pathLength:1,'stroke-dasharray':'1 1','stroke-linecap':'round'},clkS);
@@ -1328,143 +1349,117 @@ for(var hh=0;hh<24;hh++){var ta=-Math.PI/2+hh*Math.PI/12, r1=CR+(hh%6===0?4:0), 
   svgEl('line',{x1:(CX+Math.cos(ta)*r1).toFixed(1),y1:(CY+Math.sin(ta)*r1).toFixed(1),x2:(CX+Math.cos(ta)*r2).toFixed(1),y2:(CY+Math.sin(ta)*r2).toFixed(1),stroke:(hh%6===0?IVORY:MUTE),'stroke-width':(hh%6===0?3:1.5)},clkS);}
 [['00',0],['06',6],['12',12],['18',18]].forEach(function(l){var a=-Math.PI/2+l[1]/24*Math.PI*2;var tx=svgEl('text',{x:(CX+Math.cos(a)*(CR+62)).toFixed(1),y:(CY+Math.sin(a)*(CR+62)+8).toFixed(1),'text-anchor':'middle','class':'nl'},clkS);tx.textContent=l[0]+':00';});
 var clkHand=svgEl('line',{x1:CX,y1:CY,x2:CX,y2:CY-230,stroke:AMBER,'stroke-width':3,'stroke-linecap':'round'},clkS);
-var EVENTS=[['09:02','Chased an invoice in Xero',9.03],['11:30','Answered customer emails',11.5],['16:45','Texted the courier a new slot',16.75],['23:10','Updated the CRM',23.17],['02:30','Saved the new returns policy',2.5],['06:55','Briefed the team on Slack',6.92]];
+var EVENTS=[['09:02','Chased invoice #2041 in Xero',9.03],['11:30','Answered 14 customer emails',11.5],['16:45','Texted the courier a new slot',16.75],['23:10','Updated 38 records in the CRM',23.17],['02:30','Saved the new returns policy',2.5],['06:55','Briefed the team on Slack',6.92]];
 var evDots=EVENTS.map(function(e){var a=-Math.PI/2+e[2]/24*Math.PI*2;return svgEl('circle',{cx:(CX+Math.cos(a)*CR).toFixed(1),cy:(CY+Math.sin(a)*CR).toFixed(1),r:7,fill:MUTE},clkS);});
-
-var logHead=mk('div','logh'); logHead.style.top='318px'; logHead.textContent='Work it handles, round the clock';
-var rows=EVENTS.map(function(e,i){var r=mk('div','row');r.style.left='160px';r.style.top=(372+i*98)+'px';r.innerHTML='<span class="rt">'+e[0]+'</span><span class="rx">'+e[1]+'</span>';return r;});
-var cap6=mk('div','cap6'); cap6.style.left='160px'; cap6.style.top='150px';
+var logHead=mk('div','logh',p6); logHead.style.top='318px'; logHead.textContent='Work it handles, round the clock';
+var rows=EVENTS.map(function(e,i){var r=mk('div','row',p6);r.style.left='160px';r.style.top=(372+i*98)+'px';r.innerHTML='<span class="rt">'+e[0]+'</span><span class="rx">'+e[1]+'</span>';return r;});
+var cap6=mk('div','cap6',p6); cap6.style.left='160px'; cap6.style.top='150px';
 var cap6W=words(cap6,'Day and night. 24/7.');
 
-var field=mk('div','field');
-var g1=mk('div','line g1'); g1.style.top='352px'; var g1W=words(g1,'Work handled.');
-var g2=mk('div','line g2'); g2.style.top='530px'; var g2W=words(g2,'Time returned.');
-var g3=mk('div','line g3'); g3.style.top='800px'; g3.textContent='Routine admin goes to the digital employee.';
+/* ---------- plane 7: the promise ---------- */
+var p7=mk('div','plane');
+var field=mk('div','field',p7);
+var g1=mk('div','line g1',p7); g1.style.top='352px'; var g1W=words(g1,'Work handled.');
+var g2=mk('div','line g2',p7); g2.style.top='530px'; var g2W=words(g2,'Time returned.');
+var g3=mk('div','line g3',p7); g3.style.top='800px'; g3.textContent='Routine admin goes to the digital employee.';
 
-var h2a=mk('div','line h2a'); h2a.style.top='352px'; var h2aW=words(h2a,'Your next hire');
-var h2b=mk('div','line h2b'); h2b.style.top='536px'; var h2bW=words(h2b,'never sleeps.');
-var sub=mk('div','line sub'); sub.style.top='724px'; sub.textContent='A digital employee with its own computer, inbox and phone. It takes the admin off your team, 24/7, inside the tools you already use.';
-var cta=mk('div','line cta'); cta.style.top='862px'; cta.innerHTML='<span>Book a discovery call \u2192</span>';
-var desc=mk('div','line desc'); desc.style.top='972px'; desc.textContent='Operations audit \u00a3999 \u00b7 Managed digital employee \u00a35,000 a month';
-var status=mk('div','status'); status.textContent='Your digital employee \u00b7 working 24/7';
-
-/* ---------- field of dots (connected systems, rippling) ---------- */
-var DOTS=(function(){var R=rng(3),o=[];for(var i=0;i<1900;i++)o.push([R()*Math.PI*2,Math.sqrt(R()),R()]);return o;})();
-function drawDots(t){
-  var A=out3(P(t,11.8,13.2,0,1))*P(t,22.9,23.4,1,0);
-  g2d.clearRect(0,0,1920,1080);
-  if(A<=0.002)return;
-  for(var i=0;i<DOTS.length;i++){
-    var d=DOTS[i], x=960+Math.cos(d[0])*(330+d[1]*900), y=560+Math.sin(d[0])*(290+d[1]*470);
-    var v=Math.pow(Math.max(0,Math.sin(t*1.8-d[1]*4.2+d[2]*0.6)),6);
-    var al=A*(0.10+0.50*v);
-    if(al<0.01)continue;
-    g2d.fillStyle='rgba(52,211,153,'+al.toFixed(3)+')';
-    g2d.fillRect(x,y,2.4,2.4);
-  }
-}
-
-/* ---------- the mark: where it is and how big, through the film ---------- */
-function markScale(t){
-  if(t<3.4)return (t<1.25?P(t,0.9,1.25,0,1,back):1)*P(t,3.0,3.4,1,0,io3);
-  if(t<8.55)return 0;
-  if(t<10.2)return t<9.05?P(t,8.55,9.05,0,1,back):1;
-  if(t<10.9)return P(t,10.2,10.9,1,0.692,io3);
-  if(t<19.2)return 0.692;
-  if(t<19.8)return P(t,19.2,19.8,0.692,0.577,io3);
-  if(t<23.0)return 0.577;
-  if(t<23.6)return P(t,23.0,23.6,0.577,0,io3);
-  if(t<26.6)return 0;
-  return P(t,26.6,27.1,0,0.369,back);
-}
-function markPos(t){
-  var x=960, y=470;
-  if(t>=10.2){y=P(t,10.2,10.9,470,300,io3);}
-  if(t>=10.9){y=300;}
-  if(t>=19.2){x=P(t,19.2,19.8,960,1420,io3);y=P(t,19.2,19.8,300,540,io3);}
-  if(t>=19.8){x=1420;y=540;}
-  if(t>=26.6){x=P(t,26.6,27.0,1420,176,io3);y=P(t,26.6,27.0,540,132,io3);}
-  return [x,y];
-}
+/* ---------- plane 8: the resting hero ---------- */
+var p8=mk('div','plane');
+var h2a=mk('div','line h2a',p8); h2a.style.top='352px'; var h2aW=words(h2a,'Your next hire');
+var h2b=mk('div','line h2b',p8); h2b.style.top='536px'; var h2bW=words(h2b,'never sleeps.');
+var sub=mk('div','line sub',p8); sub.style.top='724px'; sub.textContent='A digital employee with its own computer, inbox and phone. It takes the admin off your team, 24/7, inside the tools you already use.';
+var cta=mk('div','line cta',p8); cta.style.top='862px'; cta.innerHTML='<span>Book a discovery call \u2192</span>';
+var desc=mk('div','line desc',p8); desc.style.top='972px'; desc.textContent='Operations audit \u00a3999 \u00b7 Managed digital employee \u00a35,000 a month';
+var status=mk('div','status',p8); status.textContent='Your digital employee \u00b7 working 24/7';
 
 /* ---------- one frame ---------- */
 function frame(t){
   t=clamp(t,0,DUR);
-  cam.style.transform='scale('+(1+0.06*t/DUR).toFixed(5)+')';
-  var gx=-((t*9)%96); grid.style.transform='translate3d('+gx.toFixed(2)+'px,'+gx.toFixed(2)+'px,0)';
-  var breathe=1+0.006*Math.sin(t*2.2);
-  drawDots(t);
+  TR=travel(t);
+  camX=16*Math.sin(t*0.55); camY=10*Math.sin(t*0.77+1.3);
+  drawDust(t);
+  drawFloor(t);
 
-  /* 1 brand: a point of light, two rings, the mark draws, the name rises */
+  /* the mark, flying through depth, locked to its beat's plane */
+  var mz=markZ(t)+TR, mp=markXY(t), pr=proj(mp[0],mp[1],mz);
+  var mvis=markVis(t);
+  if(pr&&mvis>0.001){
+    var breathe=1+0.006*Math.sin(t*2.2);
+    var sw=pr[2];
+    markEl.style.transform='translate3d('+(pr[0]-960+camX*sw).toFixed(2)+'px,'+(pr[1]-540+camY*sw).toFixed(2)+'px,0) scale('+Math.max(0,sw*breathe).toFixed(4)+')';
+    op(markEl,mvis);
+  } else op(markEl,0);
+  outP.setAttribute('stroke-dashoffset',P(t,0.9,1.9,1,0,io3).toFixed(4));
+  op(fillP,P(t,1.5,2.0,0,1)); op(outP,P(t,2.0,2.4,1,0));
+  if(t>10.4&&t<11.5){outP.setAttribute('stroke-dashoffset',P(t,10.6,11.5,1,0,io3).toFixed(4));op(fillP,P(t,11.0,11.5,0,1));}
+
+  /* plane 1: brand */
+  plane(p1,-2100,t,0,3.6);
   tf(dot,0,0,P(t,0.05,0.45,0,1,back)*P(t,1.55,1.9,1,0,io3),0);
   tf(ring1,0,0,P(t,0.4,1.7,0.03,1,out3)*15,0); op(ring1,P(t,0.5,1.8,0.9,0,out3));
   tf(ring2,0,0,P(t,0.7,2.0,0.03,1,out3)*15,0); op(ring2,P(t,0.8,2.1,0.7,0,out3));
-  var mp=markPos(t), ms=markScale(t)*breathe;
-  markEl.style.transform='translate3d('+(mp[0]-960).toFixed(2)+'px,'+(mp[1]-540).toFixed(2)+'px,0) scale('+Math.max(0,ms).toFixed(4)+')';
-  op(fillP,P(t,1.5,2.0,0,1));
-  outP.setAttribute('stroke-dashoffset',P(t,0.9,1.9,1,0,io3).toFixed(4));
-  op(outP,P(t,2.0,2.4,1,0));
   rise(nameL,t,1.7,0.05,0.6); op(nameEl,P(t,2.95,3.3,1,0,io3));
   tagEl.style.clipPath='inset(0 '+P(t,2.2,2.8,100,0,out3).toFixed(2)+'% 0 0)'; op(tagEl,P(t,2.95,3.3,1,0,io3));
 
-  /* transition: three coloured bands sweep across */
-  bands.forEach(function(b,i){var t0=2.95+i*0.07;var x=P(t,t0,t0+0.6,-2600,2600,io3);b.style.transform='translate3d('+x.toFixed(1)+'px,0,0) skewX(-14deg)';});
-
-  /* 2 the problem: a sourced statistic, an odometer, one block of admin per hour, a flood of real tasks */
-  rise(h1aW,t,3.85,0.07,0.55); op(h1a,P(t,7.6,8.0,1,0));
+  /* plane 2: the problem */
+  plane(p2,-2800,t,3.6,7.6);
+  rise(h1aW,t,3.85,0.07,0.55); op(h1a,P(t,7.4,7.8,1,0));
   var v=P(t,4.2,6.0,0,11,out3);
   stB.style.transform='translate3d(0,'+(-v).toFixed(4)+'em,0)';
   stA.style.transform='translate3d(0,'+(-clamp(v-9,0,1)).toFixed(4)+'em,0)';
   colA.style.opacity=clamp((v-8.6)*2.2,0,1).toFixed(3);
-  op(odo,P(t,3.9,4.2,0,1)*P(t,7.6,8.0,1,0));
-  rise(h1bW,t,5.9,0.06,0.5); op(h1b,P(t,7.6,8.0,1,0));
-  op(src,P(t,6.4,6.9,0,1)*P(t,7.6,8.0,1,0));
+  op(odo,P(t,3.9,4.2,0,1)*P(t,7.4,7.8,1,0));
+  rise(h1bW,t,5.9,0.06,0.5); op(h1b,P(t,7.4,7.8,1,0));
+  op(src,P(t,6.4,6.9,0,1)*P(t,7.4,7.8,1,0));
+
+  /* plane 3: the flood */
+  plane(p3,-3500,t,7.6,11.0);
   CHIPS.forEach(function(c){
-    var t0=3.9+c.i*0.1;
+    var t0=7.9+c.i*0.055;
     var a=Math.atan2(c.ty-540,c.tx-960);
     var sx=960+Math.cos(a)*1250, sy=540+Math.sin(a)*900;
     var mx=(sx+c.tx)/2, my=(sy+c.ty)/2, nx=-(c.ty-sy), ny=c.tx-sx, nl=Math.hypot(nx,ny)||1, bend=(c.i%2?260:-260);
     var qx=mx+nx/nl*bend, qy=my+ny/nl*bend;
     var e=io3((t-t0)/0.8);
     var bx=(1-e)*(1-e)*sx+2*(1-e)*e*qx+e*e*c.tx, by=(1-e)*(1-e)*sy+2*(1-e)*e*qy+e*e*c.ty;
-    var q=io3((t-(7.7+c.i*0.012))/0.6);
+    var q=io3((t-(10.5+c.i*0.012))/0.6);
     var px=bx+(960-bx)*q, py=by+(540-by)*q;
-    var vis=(t>=t0&&t<8.9)?1:0;
+    var vis=(t>=t0&&t<10.9)?1:0;
     tf(c.el,px-c.tx,py-c.ty,(1-0.92*q)*vis,(c.i%2?1:-1)*q*200);
     c.el.style.opacity=(vis*(1-0.5*q)).toFixed(3);
   });
+  tf(flash,0,0,P(t,10.7,11.4,0.03,30,out3),0); op(flash,P(t,10.7,11.2,0.95,0,out3));
 
-  /* the solution: the flash, the mark pops back, "Twinthos takes it all." */
-  tf(flash,0,0,P(t,8.3,9.1,0.03,30,out3),0); op(flash,P(t,8.3,8.9,0.95,0,out3));
-  rise(cap3W,t,8.9,0.07,0.55); op(cap3,P(t,8.9,9.2,0,1)*P(t,10.0,10.4,1,0));
-
-  /* 3 the product: 8 tools orbit the mark on a turning ring, connected, then the network of the company */
+  /* plane 4: the tools (the mark sits at their hub) */
+  plane(p4,-4200,t,11.0,15.0);
   var om=0.22;
   TOOLS.forEach(function(_,i){
-    var a=i*Math.PI*2/8+om*t, x=960+700*Math.cos(a), y=630+170*Math.sin(a), depth=(Math.sin(a)+1)/2;
-    var gone=P(t,14.8+i*0.03,15.2+i*0.03,1,0,io3);
-    var ap=P(t,10.5+i*0.1,10.95+i*0.1,0,1,back)*gone;
-    var el=tools[i];
-    tf(el,x-960,y-540,ap*(0.8+0.25*depth),0);
-    op(el,ap*(0.45+0.55*depth));
+    var ang=i*Math.PI*2/8+om*t, x=960+700*Math.cos(ang), y=630+170*Math.sin(ang), depth=(Math.sin(ang)+1)/2;
+    var gone=P(t,14.6+i*0.03,15.0+i*0.03,1,0,io3);
+    var ap=P(t,11.3+i*0.1,11.75+i*0.1,0,1,back)*gone;
+    tf(tools[i],x-960,y-540,ap*(0.8+0.25*depth),0);
+    op(tools[i],ap*(0.45+0.55*depth));
     var ln=connL[i], L=Math.hypot(x-960,y-300);
     ln.setAttribute('x1','960'); ln.setAttribute('y1','300');
     ln.setAttribute('x2',x.toFixed(1)); ln.setAttribute('y2',y.toFixed(1));
     ln.setAttribute('stroke-dasharray',L.toFixed(1)+' '+L.toFixed(1));
-    ln.setAttribute('stroke-dashoffset',(L*(1-P(t,10.7+i*0.1,11.2+i*0.1,0,1,out3))).toFixed(1));
+    ln.setAttribute('stroke-dashoffset',(L*(1-P(t,11.5+i*0.1,12.0+i*0.1,0,1,out3))).toFixed(1));
     ln.setAttribute('stroke-opacity',(0.5*ap).toFixed(3));
   });
-  rise(cap4W,t,12.3,0.06,0.5); op(cap4,P(t,12.3,12.5,0,1)*P(t,14.9,15.3,1,0));
+  rise(cap3W,t,11.3,0.07,0.55); op(cap3,P(t,11.3,11.6,0,1)*P(t,13.5,13.9,1,0));
+  rise(cap4W,t,13.1,0.06,0.5); op(cap4,P(t,13.1,13.3,0,1)*P(t,14.6,15.0,1,0));
 
-  var eg=P(t,15.1,15.5,0,1,out3)*P(t,18.9,19.3,1,0,io3);
+  /* plane 5: the digital brain (the mark recedes as the web forms) */
+  plane(p5,-4900,t,15.0,18.8);
+  var eg=P(t,15.1,15.5,0,1,out3)*P(t,18.6,19.0,1,0,io3);
   netS.style.opacity=eg.toFixed(4);
   NP.forEach(function(p,j){
-    var L=Math.hypot(p.x-960,p.y-300), pr=P(t,15.2+j*0.03,15.6+j*0.03,0,1,out3);
+    var L=Math.hypot(p.x-960,p.y-300), prr=P(t,15.2+j*0.03,15.6+j*0.03,0,1,out3);
     var sp=netSpk[j];
     sp.setAttribute('x1','960'); sp.setAttribute('y1','300');
     sp.setAttribute('x2',p.x.toFixed(1)); sp.setAttribute('y2',p.y.toFixed(1));
     sp.setAttribute('stroke-dasharray',L.toFixed(1)+' '+L.toFixed(1));
-    sp.setAttribute('stroke-dashoffset',(L*(1-pr)).toFixed(1));
+    sp.setAttribute('stroke-dashoffset',(L*(1-prr)).toFixed(1));
     sp.setAttribute('stroke-opacity','0.55');
     var q=NP[(j+1)%NP.length], RL=Math.hypot(q.x-p.x,q.y-p.y), rp=P(t,15.5+j*0.02,15.9+j*0.02,0,1,out3);
     var rl=netRing[j];
@@ -1479,12 +1474,13 @@ function frame(t){
     pc.setAttribute('cx',(960+(a.x-960)*p).toFixed(1)); pc.setAttribute('cy',(300+(a.y-300)*p).toFixed(1));
     pc.setAttribute('opacity',(eg*Math.sin(Math.PI*p)).toFixed(3));
   });
-  rise(cap5W,t,15.8,0.07,0.55); op(cap5,P(t,15.8,16.0,0,1)*P(t,18.9,19.2,1,0));
+  rise(cap5W,t,15.8,0.07,0.55); op(cap5,P(t,15.8,16.0,0,1)*P(t,18.6,19.0,1,0));
 
-  /* 4 what it does, across the clock: the 24-hour sweep lights each job the digital employee does */
-  var cl=P(t,18.9,19.4,0,1,out3)*P(t,23.0,23.4,1,0,io3);
+  /* plane 6: 24/7 (the mark flies to the clock centre) */
+  plane(p6,-5600,t,18.8,22.8);
+  var cl=P(t,18.9,19.4,0,1,out3)*P(t,22.8,23.2,1,0,io3);
   clkS.style.opacity=cl.toFixed(4);
-  var h=24*P(t,19.2,23.4,0,1);
+  var h=24*P(t,19.2,22.4,0,1);
   clkArc.setAttribute('stroke-dashoffset',(1-h/24).toFixed(4));
   var ha=-Math.PI/2+h/24*Math.PI*2;
   clkHand.setAttribute('x2',(CX+Math.cos(ha)*230).toFixed(1)); clkHand.setAttribute('y2',(CY+Math.sin(ha)*230).toFixed(1));
@@ -1494,21 +1490,23 @@ function frame(t){
     evDots[j].setAttribute('r',(lit>0?9+2*Math.sin(t*6):7).toFixed(2));
     evDots[j].setAttribute('opacity',(0.35+0.65*lit).toFixed(3));
   });
-  rows.forEach(function(r,i){var t0=19.4+i*0.5;op(r,P(t,t0,t0+0.4,0,1)*P(t,23.0,23.4,1,0));r.style.transform='translate3d(0,'+P(t,t0,t0+0.45,22,0,out3).toFixed(2)+'px,0)';});
-  op(logHead,P(t,19.2,19.6,0,1)*P(t,23.0,23.4,1,0));
-  rise(cap6W,t,19.0,0.07,0.6); op(cap6,P(t,18.95,19.1,0,1)*P(t,23.0,23.4,1,0));
+  rows.forEach(function(r,i){var t0=19.4+i*0.5;op(r,P(t,t0,t0+0.4,0,1)*P(t,22.8,23.2,1,0));r.style.transform='translate3d(0,'+P(t,t0,t0+0.45,22,0,out3).toFixed(2)+'px,0)';});
+  op(logHead,P(t,19.2,19.6,0,1)*P(t,22.8,23.2,1,0));
+  rise(cap6W,t,19.0,0.07,0.6); op(cap6,P(t,18.95,19.1,0,1)*P(t,22.8,23.2,1,0));
 
-  /* 5 time returned: an emerald field floods the frame, the promise lands, the field folds into the header */
-  var fr=0, fx=960, fy=540;
-  if(t<26.2){fr=P(t,23.5,24.5,0,1500,out3);}
-  else{fr=P(t,26.2,26.9,1500,0,io3);fx=P(t,26.2,26.9,960,176,io3);fy=P(t,26.2,26.9,540,132,io3);}
-  field.style.clipPath='circle('+fr.toFixed(1)+'px at '+fx.toFixed(1)+'px '+fy.toFixed(1)+'px)';
+  /* plane 7: the promise (the mark centres inside the emerald field) */
+  plane(p7,-6300,t,22.8,26.4);
+  var fr=0;
+  if(t<26.2){fr=P(t,23.5,24.5,0,2400,out3);}
+  else{fr=P(t,26.2,26.9,2400,0,io3);}
+  field.style.clipPath='circle('+fr.toFixed(1)+'px at 960px 540px)';
   rise(g1W,t,24.5,0.1,0.6); op(g1,P(t,25.9,26.2,1,0));
   rise(g2W,t,24.9,0.1,0.6); op(g2,P(t,25.9,26.2,1,0));
   op(g3,P(t,25.7,26.0,0,1)*P(t,26.1,26.4,1,0));
 
-  /* 6 resting hero: the headline lands as the film's conclusion */
-  rise(h2aW,t,27.0,0.09,0.6); rise(h2bW,t,27.25,0.1,0.6);
+  /* plane 8: the resting hero (the mark lands top-left, the camera settles) */
+  plane(p8,-7000,t,26.4,29.8);
+  rise(h2aW,t,26.8,0.09,0.6); rise(h2bW,t,27.05,0.1,0.6);
   var gl=P(t,27.8,28.5,0,1);
   h2b.style.textShadow='0 0 '+(60*gl).toFixed(1)+'px rgba(52,211,153,'+(0.55*gl).toFixed(3)+')';
   op(sub,P(t,27.7,28.2,0,1)); tf(sub,0,P(t,27.7,28.2,16,0,out3),1,0);
@@ -1524,72 +1522,6 @@ frame(0);
 window.__tfReady=true;
 })();
 
-/* Homepage hero: header film v17. One clock drives the film. The score (assets/film17.mp3) plays muted on load and, after the first tap, click or key, restarts with sound; while it plays it sets the clock, so picture and sound stay in step. */
-(function(W){
-'use strict';
-var d=W.document,frame=d.getElementById('tf-frame'),fit=d.getElementById('tf-fit'),au=d.getElementById('tf-audio'),btnR=d.getElementById('tf-rp'),btnS=d.getElementById('tf-sn');
-if(!frame||!fit||!au||!btnR||!btnS||!W.tfSetTime)return;
-var DUR=W.tfDUR||29,reduce=!!(W.matchMedia&&W.matchMedia('(prefers-reduced-motion: reduce)').matches);
-var raf=0,t0=0,tNow=0,done=false,unlocked=false,GES=['click','keydown'];
-function clock(){return (W.performance.now()-t0)/1000;}
-function draw(t){if(t<0)t=0;if(t>DUR)t=DUR;tNow=t;W.__tfT=t;W.tfSetTime(t);}
-function stop(){if(raf){W.cancelAnimationFrame(raf);raf=0;}}
-function sndState(on){btnS.setAttribute('aria-pressed',on?'true':'false');btnS.setAttribute('aria-label',on?'Sound on. Turn sound off':'Sound off. Turn sound on');}
-function tick(){
-  raf=0;
-  var live=!au.paused&&au.readyState>=3;
-  var t=live?au.currentTime:clock();
-  if(t>=DUR){draw(DUR);done=true;return;}
-  draw(t);
-  raf=W.requestAnimationFrame(tick);
-}
-function playAudio(withSound){
-  var p=au.play();
-  if(p&&p.catch)p.catch(function(){au.pause();au.muted=true;sndState(false);});
-}
-function startAudio(withSound){
-  au.muted=!withSound;
-  if(au.readyState>=3){try{au.currentTime=0;}catch(e){}playAudio(withSound);return;}
-  var f=function(){au.removeEventListener('canplay',f);try{au.currentTime=0;}catch(e){}playAudio(withSound);};
-  au.addEventListener('canplay',f);
-}
-function go(withSound){
-  stop();done=false;draw(0);t0=W.performance.now();
-  startAudio(withSound);
-  sndState(!au.muted);
-  raf=W.requestAnimationFrame(tick);
-}
-function dropListeners(){GES.forEach(function(ev){d.removeEventListener(ev,unlock,true);});unlocked=true;}
-function unlock(e){
-  if(unlocked)return;
-  var tg=e&&e.target;
-  if(tg&&tg.closest&&tg.closest('#tf-sn,#tf-rp'))return;
-  dropListeners();go(true);
-}
-if(!reduce)GES.forEach(function(ev){d.addEventListener(ev,unlock,{capture:true,passive:true});});
-btnR.addEventListener('click',function(){dropListeners();go(true);});
-btnS.addEventListener('click',function(){
-  dropListeners();
-  if(au.muted||au.paused){go(true);}else{au.muted=true;sndState(false);}
-});
-frame.addEventListener('click',function(e){
-  if(done&&!reduce&&!(e.target.closest&&e.target.closest('a,button'))){dropListeners();go(true);}
-});
-var wasPlaying=false;
-d.addEventListener('visibilitychange',function(){
-  if(d.hidden){wasPlaying=!!raf||!au.paused;stop();au.pause();return;}
-  if(wasPlaying&&!done){
-    wasPlaying=false;t0=W.performance.now()-tNow*1000;
-    au.currentTime=tNow;var r=au.play();if(r&&r.catch)r.catch(function(){});
-    raf=W.requestAnimationFrame(tick);
-  }
-});
-function fitStage(){var w=frame.clientWidth;if(w>0)fit.style.transform='scale('+(w/1920)+')';}
-fitStage();
-if(W.ResizeObserver)new W.ResizeObserver(fitStage).observe(frame);else W.addEventListener('resize',fitStage);
-if(reduce){draw(DUR);done=true;sndState(false);}
-else{go(true);}
-})(window);
 </script>
 
 <section class="vs sec" id="why" aria-labelledby="vs-h">
