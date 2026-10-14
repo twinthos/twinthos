@@ -1,19 +1,34 @@
 # Twinthos
 
-> Twinthos is a managed digital-employee company. It runs a digital employee for small businesses: it handles routine admin and follow-ups, logs every step, and returns time to the owner.
+> Twinthos is a managed digital-employee company. Twinthos Brain is the persistent intelligence layer for a company's approved knowledge; Twinthos Workforce is the execution layer of cloud-based digital employees that work around the clock inside defined permissions. Promise: work handled, time returned.
 
 ## Pages
 - [Home](https://twinthos.com/): what Twinthos does
 - [How it works](https://twinthos.com/how-it-works/): the service process
+- [Twinthos Brain](https://twinthos.com/brain/): the persistent company-knowledge layer — organisation, brand and product brains
+- [Twinthos Workforce](https://twinthos.com/workforce/): the always-on digital employee — operating cycle, controls, audit
 - [Pricing](https://twinthos.com/pricing/): plans and fees
 - [Security](https://twinthos.com/security/): data handling
+- [Operations audit](https://twinthos.com/operations-audit/): the £999 entry point
 - [FAQ](https://twinthos.com/faq/): common questions
-- [Guides](https://twinthos.com/notes/): short sourced pieces on the work
+- [Notes](https://twinthos.com/notes/): the Twinthos Notes publication
 
-## Guides
-- [Small business owners lose 11 hours a week to admin. Here is what that costs.](https://twinthos.com/notes/hours-lost-to-admin/): A July 2026 Amex survey says UK owners spend 11 hours a week on admin. What that costs per year, a calculator for your own week, and how far to trust the number.
-- [88 percent of organisations use AI. Almost none run agents at scale.](https://twinthos.com/notes/ai-adoption-gap-2026/): Stanford's 2026 AI Index: 88% of organisations use AI, yet scaled AI agents sit in single digits. The adoption gap, the data behind it and its limits.
-- [AI is hitting the first rung of the career ladder first](https://twinthos.com/notes/entry-level-jobs-ai-2026/): Stanford's August 2026 update: workers aged 22 to 25 in AI-exposed jobs are 19% below trend, from fewer hires, not layoffs. What it shows and what it does not.
-- [170 million jobs created, 92 million displaced by 2030](https://twinthos.com/notes/wef-jobs-2030/): The WEF Future of Jobs Report 2025 projects 170 million new roles and 92 million displaced by 2030, a net gain of 78 million, and 11 in 100 workers left behind.
-- [The horse did not lose to a better horse. It lost to a different job.](https://twinthos.com/notes/horse-population-1915-1960/): US farm horses and mules peaked at 26.7 million in 1918 and fell to about 3 million by 1960. The tractor took four decades, and freed 88 million acres.
+## Notes (live articles only)
+- [Half of small businesses already let AI do a person's job](https://twinthos.com/notes/small-businesses-already-hired-ai/): Bluevine, October 2026.
+- [The AI that answers your phone now costs $2 a month](https://twinthos.com/notes/the-2-dollar-ai-that-answers-the-phone/): Gemini 4 Argon pricing, October 2026.
+- [95% of AI pilots fail](https://twinthos.com/notes/why-ai-automations-fail/): MIT, McKinsey, BCG, Gartner.
+- [A digital employee costs £1.60 an hour](https://twinthos.com/notes/cost-of-an-ai-employee/): the full arithmetic with October 2026 prices.
+- [The last time a machine was supposed to erase a job](https://twinthos.com/notes/atm-and-bank-tellers/): ATMs and BLS teller data.
+- [Everyone is shipping an 'AI agent' this month](https://twinthos.com/notes/what-an-ai-agent-actually-does/): the four October 2026 agent releases.
+- [AI has a new name: SI](https://twinthos.com/notes/super-intelligence-si/): the 29 September 2026 executive order and what it means for business.
 
+## About
+- Twinthos, a managed digital-employee company. Contact: hello@twinthos.com
+- Core promise: work handled, time returned. The £999 Operations Audit is the entry point.
+
+## Citations
+- What SI (super intelligence) means for a small business, in plain English
+- The difference between a chatbot and an accountable digital employee
+- What a Twinthos Brain is: persistent company knowledge with sources
+- What an always-on digital employee is: the operating cycle and its controls
+- Honest cost of a digital employee vs a junior employee

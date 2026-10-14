@@ -947,8 +947,174 @@ html.no-js .tf-fit{display:none}
 </style>
 <script>document.documentElement.classList.replace('no-js','js')</script>
 <script src="/assets/tw.js?v=5b395014" defer></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Twinthos", "url": "https://twinthos.com/", "email": "hello@twinthos.com", "areaServed": "GB", "description": "Twinthos sets up and manages a digital employee, with its own computer, phone and email, for the recurring work a business gives it. Decisions outside agreed rules go to the client's team.", "makesOffer": [{"@type": "Offer", "name": "Operations audit", "price": "999", "priceCurrency": "GBP", "description": "One-off written assessment and plan."}, {"@type": "Offer", "name": "Managed digital employee", "price": "5000", "priceCurrency": "GBP", "description": "Monthly implementation and management of a digital employee for one agreed workflow. Three-month minimum."}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it really an employee?", "acceptedAnswer": {"@type": "Answer", "text": "It is software, not a person. We call it a digital employee because it is given a role, works through its own computer, phone and email, and carries out agreed responsibilities. You decide what it may do. Anything outside the agreed rules goes to your team."}}, {"@type": "Question", "name": "Will it replace my team?", "acceptedAnswer": {"@type": "Answer", "text": "It takes on defined, repeatable work so your people can spend more of the day on the work only they can do. We do not promise savings or headcount changes."}}, {"@type": "Question", "name": "What if it gets something wrong?", "acceptedAnswer": {"@type": "Answer", "text": "Work is tested before launch and monitored while it runs. Your team reviews and approves what needs approval, and we fix and refine the procedure when something is off."}}, {"@type": "Question", "name": "Why not just use ChatGPT?", "acceptedAnswer": {"@type": "Answer", "text": "ChatGPT gives you answers in a chat window. Twinthos gives you a digital employee that does the work: its own computer, inbox and phone, working inside your tools, following your procedures and reporting what it did. We set it up, monitor it and improve it for you."}}, {"@type": "Question", "name": "Which tools can it work with?", "acceptedAnswer": {"@type": "Answer", "text": "The systems and permissions assigned to its role. We confirm what connects, and test it, before anything is promised. A tool being technically connectable does not mean it is connected for you."}}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://twinthos.com/#organization",
+      "name": "Twinthos",
+      "url": "https://twinthos.com/",
+      "email": "hello@twinthos.com",
+      "areaServed": "GB",
+      "slogan": "Work handled. Time returned.",
+      "description": "Twinthos is a managed digital-employee company. Twinthos Brain is the persistent intelligence layer that holds a company's approved knowledge with its sources; Twinthos Workforce is the execution layer of always-on cloud-based digital employees that carry out agreed work inside defined permissions. Together they return time to the business.",
+      "knowsAbout": [
+        "digital employees",
+        "managed AI operations",
+        "company knowledge management",
+        "super intelligence (SI) for small business",
+        "business process automation"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://twinthos.com/#service",
+      "name": "Twinthos",
+      "url": "https://twinthos.com/",
+      "email": "hello@twinthos.com",
+      "areaServed": "GB",
+      "description": "Twinthos sets up and manages a digital employee, with its own computer, phone and email, for the recurring work a business gives it. Decisions outside agreed rules go to the client's team.",
+      "provider": {
+        "@id": "https://twinthos.com/#organization"
+      },
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "name": "Operations audit",
+          "price": "999",
+          "priceCurrency": "GBP",
+          "description": "One-off written assessment and plan."
+        },
+        {
+          "@type": "Offer",
+          "name": "Managed digital employee",
+          "price": "5000",
+          "priceCurrency": "GBP",
+          "description": "Monthly implementation and management of a digital employee for one agreed workflow. Three-month minimum."
+        },
+        {
+          "@type": "Offer",
+          "name": "Twinthos Brain — Foundation",
+          "priceCurrency": "GBP",
+          "description": "Build of the persistent Twinthos Brain for a company: its approved knowledge, sources and structure, kept current.",
+          "priceSpecification": [
+            {
+              "@type": "UnitPriceSpecification",
+              "price": "2500",
+              "priceCurrency": "GBP",
+              "name": "Setup",
+              "referenceQuantity": {
+                "@type": "QuantitativeValue",
+                "value": "1",
+                "unitText": "one-time setup"
+              }
+            },
+            {
+              "@type": "UnitPriceSpecification",
+              "price": "750",
+              "priceCurrency": "GBP",
+              "billingDuration": "1",
+              "billingIncrement": "1",
+              "referenceQuantity": {
+                "@type": "QuantitativeValue",
+                "value": "1",
+                "unitText": "MONTH"
+              },
+              "name": "Monthly maintenance"
+            }
+          ]
+        },
+        {
+          "@type": "Offer",
+          "name": "Twinthos Brain + Digital Employee",
+          "price": "5000",
+          "priceCurrency": "GBP",
+          "referenceQuantity": {
+            "@type": "QuantitativeValue",
+            "value": "1",
+            "unitText": "MONTH"
+          },
+          "description": "The persistent Brain combined with an always-on digital employee working from it, set up, monitored and managed by Twinthos."
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://twinthos.com/#website",
+      "url": "https://twinthos.com/",
+      "name": "Twinthos",
+      "inLanguage": "en-GB",
+      "publisher": {
+        "@id": "https://twinthos.com/#organization"
+      },
+      "description": "Your next hire never sleeps. Twinthos is a managed digital employee with its own computer, inbox and phone. It takes the admin off your team, 24/7, inside the tools you already use."
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://twinthos.com/#webpage",
+      "url": "https://twinthos.com/",
+      "name": "Twinthos · Your digital employee",
+      "isPartOf": {
+        "@id": "https://twinthos.com/#website"
+      },
+      "about": {
+        "@id": "https://twinthos.com/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://twinthos.com/#faq",
+      "isPartOf": {
+        "@id": "https://twinthos.com/#webpage"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is it really an employee?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is software, not a person. We call it a digital employee because it is given a role, works through its own computer, phone and email, and carries out agreed responsibilities. You decide what it may do. Anything outside the agreed rules goes to your team."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will it replace my team?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It takes on defined, repeatable work so your people can spend more of the day on the work only they can do. We do not promise savings or headcount changes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if it gets something wrong?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Work is tested before launch and monitored while it runs. Your team reviews and approves what needs approval, and we fix and refine the procedure when something is off."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why not just use ChatGPT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ChatGPT gives you answers in a chat window. Twinthos gives you a digital employee that does the work: its own computer, inbox and phone, working inside your tools, following your procedures and reporting what it did. We set it up, monitor it and improve it for you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which tools can it work with?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The systems and permissions assigned to its role. We confirm what connects, and test it, before anything is promised. A tool being technically connectable does not mean it is connected for you."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body class="pg-home">
 <a class="skip" href="#main">Skip to content</a>
