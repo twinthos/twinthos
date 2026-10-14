@@ -897,10 +897,10 @@ html.no-js .tf-fit{display:none}
 @font-face{font-family:'TwDisplay';src:url('/assets/fonts/inter-latin-800-normal.woff2') format('woff2');font-weight:800;font-display:block}
 @font-face{font-family:'TwMono';src:url('/assets/fonts/GeistMono-normal-500.woff2') format('woff2');font-weight:500;font-display:block}
 
-@font-face{font-family:'TwTight';src:url('fonts/InterTight-normal-400-700.woff2') format('woff2');font-weight:400 700;font-display:block}
-@font-face{font-family:'TwDisplay';src:url('fonts/inter-latin-800-normal.woff2') format('woff2');font-weight:800;font-display:block}
-@font-face{font-family:'TwMono';src:url('fonts/GeistMono-normal-500.woff2') format('woff2');font-weight:500;font-display:block}
-html,body{margin:0;padding:0;width:1920px;height:1080px;background:#070908;overflow:hidden}
+@font-face{font-family:'TwTight';src:url('/assets/fonts/InterTight-normal-400-700.woff2') format('woff2');font-weight:400 700;font-display:block}
+@font-face{font-family:'TwDisplay';src:url('/assets/fonts/inter-latin-800-normal.woff2') format('woff2');font-weight:800;font-display:block}
+@font-face{font-family:'TwMono';src:url('/assets/fonts/GeistMono-normal-500.woff2') format('woff2');font-weight:500;font-display:block}
+html.no-js .tf-fit{display:none}
 #tf-cam{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:960px 540px;overflow:hidden;background:#070908}
 #tf-floor{position:absolute;left:0;top:0;width:1920px;height:1080px}
 #tf-dots{position:absolute;left:0;top:0;width:1920px;height:1080px}
@@ -1522,7 +1522,77 @@ frame(0);
 window.__tfReady=true;
 })();
 
+
+/* Homepage hero: header film v18. One clock drives the film. The score (assets/film18.mp3) plays muted on load and, after the first tap, click or key, restarts with sound; while it plays it sets the clock, so picture and sound stay in step. */
+(function(W){
+'use strict';
+var d=W.document,frame=d.getElementById('tf-frame'),fit=d.getElementById('tf-fit'),au=d.getElementById('tf-audio'),btnR=d.getElementById('tf-rp'),btnS=d.getElementById('tf-sn');
+if(!frame||!fit||!au||!btnR||!btnS||!W.tfSetTime)return;
+var DUR=W.tfDUR||29,reduce=!!(W.matchMedia&&W.matchMedia('(prefers-reduced-motion: reduce)').matches);
+var raf=0,t0=0,tNow=0,done=false,unlocked=false,GES=['click','keydown'];
+function clock(){return (W.performance.now()-t0)/1000;}
+function draw(t){if(t<0)t=0;if(t>DUR)t=DUR;tNow=t;W.__tfT=t;W.tfSetTime(t);}
+function stop(){if(raf){W.cancelAnimationFrame(raf);raf=0;}}
+function sndState(on){btnS.setAttribute('aria-pressed',on?'true':'false');btnS.setAttribute('aria-label',on?'Sound on. Turn sound off':'Sound off. Turn sound on');}
+function tick(){
+  raf=0;
+  var live=!au.paused&&au.readyState>=3;
+  var t=live?au.currentTime:clock();
+  if(t>=DUR){draw(DUR);done=true;return;}
+  draw(t);
+  raf=W.requestAnimationFrame(tick);
+}
+function playAudio(withSound){
+  var p=au.play();
+  if(p&&p.catch)p.catch(function(){au.pause();au.muted=true;sndState(false);});
+}
+function startAudio(withSound){
+  au.muted=!withSound;
+  if(au.readyState>=3){try{au.currentTime=0;}catch(e){}playAudio(withSound);return;}
+  var f=function(){au.removeEventListener('canplay',f);try{au.currentTime=0;}catch(e){}playAudio(withSound);};
+  au.addEventListener('canplay',f);
+}
+function go(withSound){
+  stop();done=false;draw(0);t0=W.performance.now();
+  startAudio(withSound);
+  sndState(!au.muted);
+  raf=W.requestAnimationFrame(tick);
+}
+function dropListeners(){GES.forEach(function(ev){d.removeEventListener(ev,unlock,true);});unlocked=true;}
+function unlock(e){
+  if(unlocked)return;
+  var tg=e&&e.target;
+  if(tg&&tg.closest&&tg.closest('#tf-sn,#tf-rp'))return;
+  dropListeners();go(true);
+}
+if(!reduce)GES.forEach(function(ev){d.addEventListener(ev,unlock,{capture:true,passive:true});});
+btnR.addEventListener('click',function(){dropListeners();go(true);});
+btnS.addEventListener('click',function(){
+  dropListeners();
+  if(au.muted||au.paused){go(true);}else{au.muted=true;sndState(false);}
+});
+frame.addEventListener('click',function(e){
+  if(done&&!reduce&&!(e.target.closest&&e.target.closest('a,button'))){dropListeners();go(true);}
+});
+var wasPlaying=false;
+d.addEventListener('visibilitychange',function(){
+  if(d.hidden){wasPlaying=!!raf||!au.paused;stop();au.pause();return;}
+  if(wasPlaying&&!done){
+    wasPlaying=false;t0=W.performance.now()-tNow*1000;
+    au.currentTime=tNow;var r=au.play();if(r&&r.catch)r.catch(function(){});
+    raf=W.requestAnimationFrame(tick);
+  }
+});
+function fitStage(){var w=frame.clientWidth;if(w>0)fit.style.transform='scale('+(w/1920)+')';}
+fitStage();
+if(W.ResizeObserver)new W.ResizeObserver(fitStage).observe(frame);else W.addEventListener('resize',fitStage);
+if(reduce){draw(DUR);done=true;sndState(false);}
+else{go(true);}
+})(window);
 </script>
+
+
+
 
 <section class="vs sec" id="why" aria-labelledby="vs-h">
   <div class="wrap">
