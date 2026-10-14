@@ -243,3 +243,29 @@ body.notes .skip:focus{left:12px;top:12px;z-index:99;background:var(--ink);color
 body.notes .nx-end .nx-btn,body.notes .nx-end .nx-btn:visited{color:#04110B}
 body.notes .nx-end .nx-btn.ghost,body.notes .nx-end .nx-btn.ghost:visited{color:var(--ink)}
 
+
+/* === Notes desks (v2) === */
+.nx-desk{margin:0 0 56px;padding:0 0 8px;border-top:1px solid var(--line,#1a1d1c)}
+.nx-desk .wrap{padding-top:36px}
+.nx-desk-h{margin:0 0 22px;display:grid;gap:6px}
+.nx-desk-h .nx-tag{margin:0;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--green,#3ec28f)}
+.nx-desk-h h2{margin:0;font-size:clamp(28px,4.2vw,46px);line-height:1.05;letter-spacing:-.01em}
+.nx-desk-h .nx-dek{margin:6px 0 0;color:var(--muted,#a4aba8);font-size:16px;line-height:1.5;max-width:62ch}
+.nx-empty{padding:18px 20px;border:1px dashed var(--line,#222);border-radius:6px;background:rgba(255,255,255,.015)}
+.nx-empty p{margin:0;color:var(--muted,#a4aba8);font-size:15px;line-height:1.5}
+.nx-empty b{color:var(--ink,#e9ecea)}
+.nx-desk-brief{background:linear-gradient(180deg,rgba(62,194,143,.04),transparent 60%)}
+.nx-brief{display:grid;gap:14px;padding:22px 22px 24px;border:1px solid var(--line,#1a1d1c);border-radius:8px;background:var(--paper,#0a0c0b)}
+.nx-brief label{display:grid;gap:4px}
+.nx-brief label b{font-size:18px;color:var(--ink,#e9ecea)}
+.nx-brief label span{font-size:13px;color:var(--muted,#a4aba8)}
+.nx-brief-row{display:flex;gap:8px;flex-wrap:wrap}
+.nx-brief-row input[type=email]{flex:1 1 220px;min-width:0;background:#0a0c0b;border:1px solid var(--line,#1a1d1c);border-radius:6px;padding:11px 12px;color:var(--ink,#e9ecea);font:inherit}
+.nx-brief-row input[type=email]:focus{outline:2px solid var(--green,#3ec28f);outline-offset:1px}
+.nx-brief-row button{background:var(--green,#3ec28f);color:#0a0c0b;border:0;border-radius:6px;padding:11px 18px;font:inherit;font-weight:600;cursor:pointer}
+.nx-brief-note{margin:0;font-size:12px;color:var(--muted,#7d8582);line-height:1.45}
+@media (max-width:700px){
+  .nx-desk{margin-bottom:42px}
+  .nx-desk .wrap{padding-top:24px}
+  .nx-brief{padding:18px}
+}
