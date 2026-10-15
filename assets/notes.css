@@ -45,7 +45,7 @@ body.notes .nx-twinthos-note{max-width:62ch}
 /* ==========================================================================
    2. INDEX — masthead
    ========================================================================== */
-body.notes-index .nx-masthead{padding:clamp(52px,8.5vw,116px) 0 clamp(36px,4.5vw,60px)}
+body.notes-index .nx-masthead{padding:clamp(34px,4.6vw,64px) 0 clamp(24px,2.6vw,36px)}
 
 /* eyebrow with a green leading rule */
 body.notes .nx-kicker{
@@ -697,4 +697,72 @@ body.notes .nx-related .nx-card-m{margin-top:4px}
   body.notes .nx-article{color:#000}
   body.notes .nx-article h2,body.notes .nx-hero h1{color:#000;border-color:#bbb}
   body.notes .nx-table tbody td,body.notes .nx-src li{color:#222}
+}
+
+/* ==========================================================================
+   12. INDEX — Latest article feature block
+   ========================================================================== */
+body.notes .nx-latest{
+  padding:clamp(24px,2.6vw,40px) 0 clamp(26px,3vw,44px);
+  border-top:1px solid var(--nx-rule-strong);
+}
+body.notes .nx-latest>.wrap>.nx-kicker{margin:0 0 clamp(12px,1.3vw,18px)}
+body.notes .nx-latest .nx-kicker time{color:var(--ink-2);font-variant-numeric:tabular-nums}
+body.notes .nx-latest-grid{
+  display:grid;grid-template-columns:minmax(0,0.78fr) minmax(0,1.22fr);
+  gap:clamp(20px,2.4vw,38px);align-items:center;
+}
+body.notes .nx-latest-img{display:block;overflow:hidden;border:1px solid var(--line);border-radius:2px}
+body.notes .nx-latest-img img{
+  display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;
+  filter:grayscale(.34) contrast(1.06);transition:filter .5s var(--nx-ease),transform .9s var(--nx-ease);
+}
+body.notes .nx-latest-img:hover img{filter:grayscale(.12) contrast(1.08);transform:scale(1.02)}
+body.notes .nx-latest-body h2{
+  margin:0 0 clamp(10px,1.1vw,15px);font-family:var(--sans);font-weight:600;
+  font-size:clamp(21px,2.05vw,30px);line-height:1.14;letter-spacing:-.024em;
+}
+body.notes .nx-latest-body h2 a{color:var(--ink);text-decoration:none}
+body.notes .nx-latest-body h2 a:hover{color:var(--nx-accent)}
+body.notes .nx-latest-body>p:not(.nx-latest-meta){
+  margin:0 0 clamp(14px,1.5vw,20px);max-width:60ch;
+  color:var(--ink-2);font-size:clamp(15px,1.15vw,17px);line-height:1.62;
+}
+body.notes .nx-latest-meta{
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:0;
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);
+}
+body.notes .nx-latest-go{color:var(--ink);border-bottom:1px solid var(--nx-rule-strong);padding-bottom:2px}
+@media (max-width:860px){
+  body.notes .nx-latest-grid{grid-template-columns:minmax(0,1fr);gap:20px}
+  body.notes .nx-latest-img{order:-1}
+}
+@media (prefers-reduced-motion:reduce){
+  body.notes .nx-latest-img img{transition:none}
+  body.notes .nx-latest-img:hover img{transform:none}
+}
+body.notes .nx-brief-wrap{
+  padding:clamp(26px,2.6vw,40px) 0 clamp(8px,1vw,14px);
+  border-top:1px solid var(--line);
+}
+body.notes .nx-brief-wrap .nx-brief{margin:0}
+
+/* Masthead lede + promise trimmed so the Latest article lands in the first screen */
+@media (min-width:861px){
+  body.notes-index .nx-masthead h1{font-size:clamp(40px,4.4vw,62px)}
+  body.notes-index .nx-masthead .nx-lede{margin-top:clamp(16px,1.8vw,24px);font-size:clamp(17px,1.3vw,19px)}
+  body.notes .nx-promise{margin-top:clamp(16px,1.8vw,22px);padding-top:clamp(12px,1.3vw,16px)}
+  body.notes .nx-kicker{margin-bottom:clamp(14px,1.5vw,20px)}
+}
+
+/* Final fold fit: the Latest article must be fully visible without scrolling */
+@media (min-width:861px){
+  body.notes-index .nx-masthead{padding:clamp(26px,3.4vw,44px) 0 clamp(18px,2vw,26px)}
+  body.notes .nx-latest{padding:clamp(18px,2vw,28px) 0 clamp(20px,2.2vw,30px)}
+  body.notes .nx-latest-img img{aspect-ratio:16/9}
+  body.notes .nx-latest-body h2{font-size:clamp(20px,1.85vw,28px);margin-bottom:clamp(8px,0.9vw,12px)}
+  body.notes .nx-latest-body>p:not(.nx-latest-meta){
+    margin-bottom:clamp(10px,1.1vw,14px);
+    font-size:clamp(14.5px,1.05vw,16px);line-height:1.58;
+  }
 }

@@ -168,6 +168,35 @@ for src, to in REDIRECTS.items():
         f'<body style="background:#060807;color:#ECEDE8;font-family:sans-serif"><a href="{to}">Continue</a></body></html>')
 
 urls = [m["path"] for m in built if not m.get("noindex") and m["path"] != "404"]
+
+# Notes live outside this build (they are hand-maintained article pages under notes/).
+# Merge their URLs in rather than letting this write drop them, and read their
+# lastmod dates from git so the sitemap stays honest without a rebuild of them.
+NOTES_LASTMOD = {}
+try:
+    import subprocess as _sp
+    _out = _sp.run(["git", "log", "-1", "--format=%cI", "--", "notes"],
+                   capture_output=True, text=True, cwd=OUT).stdout.strip()
+    if _out:
+        NOTES_LASTMOD = {"notes": _out}
+        for _d in sorted(os.listdir(f"{OUT}/notes")):
+            _p = f"{OUT}/notes/{_d}"
+            if not os.path.isdir(_p):
+                continue
+            _t = _sp.run(["git", "log", "-1", "--format=%cI", "--", f"notes/{_d}"],
+                         capture_output=True, text=True, cwd=OUT).stdout.strip()
+            if _t:
+                NOTES_LASTMOD[f"notes/{_d}/"] = _t
+except Exception:
+    pass
+
+def _notes_block():
+    if not os.path.isdir(f"{OUT}/notes"):
+        return ""
+    return "".join(f"<url><loc>{SITE}/{u}</loc><lastmod>{d}</lastmod></url>\n"
+                   for u, d in sorted(NOTES_LASTMOD.items()))
+
 open(f"{OUT}/sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-    "".join(f"<url><loc>{SITE}/{u}</loc></url>\n" for u in sorted(urls, key=lambda u: (u != "", u))) + "</urlset>\n")
-print(f"built {len(built)} pages, {len(REDIRECTS)} redirects, css {len(css)}B js {len(js)}B v={VER} preview={PREVIEW}")
+    "".join(f"<url><loc>{SITE}/{u}</loc></url>\n" for u in sorted(urls, key=lambda u: (u != "", u))) +
+    _notes_block() + "</urlset>\n")
+print(f"built {len(built)} pages, {len(REDIRECTS)} redirects, {len(NOTES_LASTMOD)} notes urls, css {len(css)}B js {len(js)}B v={VER} preview={PREVIEW}")
