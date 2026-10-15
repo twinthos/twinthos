@@ -23,11 +23,23 @@
     },{rootMargin:'-20% 0px -70% 0px'});
     Object.keys(map).forEach(function(id){var el=d.getElementById(id);if(el)io.observe(el)});
   }
-  // desk-nav highlighting on the notes index. Driven by IntersectionObserver
-  // rather than scroll events, matching the article .nx-toc pattern: the root
-  // is collapsed by rootMargin to a thin band just below the sticky bar, and
-  // because the three groups are tall and stacked, exactly one crosses it at a
-  // time. Falls back to a scroll listener where IO is unavailable.
+  // desk-nav highlighting on the notes index.
+  //
+  // ONE decision function, dpick(), is the only thing that chooses a group.
+  // IntersectionObserver is used purely as a "something moved, recompute"
+  // trigger, never as the decision itself: the 1px band can only ever be
+  // crossed by exactly one group (the three sections are flush, gap 0), so an
+  // IO that calls dpick() on every change can never disagree with the scroll
+  // path. A previous version made the IO callback choose directly, which let
+  // the two paths disagree.
+  //
+  // Do NOT remove the initial dpick() call. Without it a restored scroll
+  // position or a /notes/#desk-now load shows no active group until the user
+  // scrolls, and the scroll listener alone would never have fired.
+  //
+  // Do NOT wrap the scroll handler in a requestAnimationFrame guard: if rAF is
+  // throttled (hidden tab) the guard latches and the nav freezes for good.
+  // Three getBoundingClientRect reads per scroll event is cheap enough.
   var dtoc=[].slice.call(d.querySelectorAll('.nx-desk-toc a'));
   var dgroups=[].slice.call(d.querySelectorAll('.nx-desk'));
   if(dtoc.length&&dgroups.length){
@@ -40,41 +52,37 @@
         }
       }
     };
+    // A group is current once its heading has risen to the sticky bar.
+    // scroll-margin-top is nav+56 = 124px and browsers add the desk header's
+    // own leading on top of that, so a group you have just jumped to always
+    // lands at exactly 208px -- measured identical at 1920/1440/1024/768/390.
+    // Cut above that line with headroom, then take the LAST group under it, so
+    // the group you just arrived at wins and keeps it until the next passes.
+    // The comparison is on a fractional float, so never test equality.
+    var dcut=240;
+    var dpick=function(){
+      var hit=null;
+      for(var i=0;i<dgroups.length;i++){
+        if(dgroups[i].getBoundingClientRect().top<=dcut){hit=dgroups[i]}else{break}
+      }
+      dset(hit?hit.id:null);
+    };
     if('IntersectionObserver' in window){
-      // The bar sticks at top:var(--nav). Do NOT read its offsetTop here: for a
-      // position:sticky element offsetTop returns the stuck position, which
-      // collapses the band to nothing. Use the nav height plus 172px of
-      // headroom so an arrived-at group's heading (which lands just past 208)
-      // is inside the band, and collapse the root to a thin strip from there.
-      // Percentages are unreliable here, so use pixels.
+      // The bar sticks at top:var(--nav) and is ~50px tall. Do NOT read its
+      // offsetTop: for a position:sticky element that returns the stuck
+      // position, which collapses the band to nothing. Derive the strip from
+      // the nav height plus 172px of headroom so it sits just below the bar.
       var dnav=d.querySelector('.nx-desk-toc');
       var dbar=68+Math.round(dnav.getBoundingClientRect().height)+172;
-      var dio=new IntersectionObserver(function(es){
-        for(var i=0;i<es.length;i++){
-          if(es[i].isIntersecting){dset(es[i].target.id)}
-        }
-      },{rootMargin:'-'+dbar+'px 0px -'+(window.innerHeight-dbar-1)+'px 0px',threshold:0});
+      var dio=new IntersectionObserver(dpick,{
+        rootMargin:'-'+dbar+'px 0px -'+(window.innerHeight-dbar-1)+'px 0px',
+        threshold:0
+      });
       dgroups.forEach(function(g){dio.observe(g)});
     }
-    var dq=0;
-    window.addEventListener('scroll',function(){
-      if(dq)return;
-      dq=requestAnimationFrame(function(){
-        dq=0;
-        // A group is current once its heading has risen to the sticky bar.
-        // scroll-margin-top is nav+56 = 124px, and browsers add the desk
-        // header's own leading on top of that, so an arrived-at group's section
-        // top measures just over 208px. Cut above that line with headroom, so
-        // a freshly jumped-to group is the one selected and keeps it until the
-        // next group passes. The float is fractional, so never test equality.
-        var cut=240;
-        var hit=null;
-        for(var i=0;i<dgroups.length;i++){
-          if(dgroups[i].getBoundingClientRect().top<=cut){hit=dgroups[i]}else{break}
-        }
-        dset(hit?hit.id:null);
-      });
-    },{passive:true});
+    window.addEventListener('scroll',dpick,{passive:true});
+    window.addEventListener('resize',dpick,{passive:true});
+    dpick();
   }
   // chart reveal
   var charts=[].slice.call(d.querySelectorAll('.nx-chart'));
