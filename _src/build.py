@@ -178,7 +178,7 @@ try:
     _out = _sp.run(["git", "log", "-1", "--format=%cI", "--", "notes"],
                    capture_output=True, text=True, cwd=OUT).stdout.strip()
     if _out:
-        NOTES_LASTMOD = {"notes": _out}
+        NOTES_LASTMOD = {"notes/": _out}
         for _d in sorted(os.listdir(f"{OUT}/notes")):
             _p = f"{OUT}/notes/{_d}"
             if not os.path.isdir(_p):
