@@ -723,14 +723,14 @@ body.notes .nx-latest-body h2{
   font-size:clamp(21px,2.05vw,30px);line-height:1.14;letter-spacing:-.024em;
 }
 body.notes .nx-latest-body h2 a{color:var(--ink);text-decoration:none}
-body.notes .nx-latest-body h2 a:hover{color:var(--nx-accent)}
+body.notes .nx-latest-body h2 a:hover{color:var(--green)}
 body.notes .nx-latest-body>p:not(.nx-latest-meta){
   margin:0 0 clamp(14px,1.5vw,20px);max-width:60ch;
   color:var(--ink-2);font-size:clamp(15px,1.15vw,17px);line-height:1.62;
 }
 body.notes .nx-latest-meta{
   display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:0;
-  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);
 }
 body.notes .nx-latest-go{color:var(--ink);border-bottom:1px solid var(--nx-rule-strong);padding-bottom:2px}
 @media (max-width:860px){
@@ -765,4 +765,110 @@ body.notes .nx-brief-wrap .nx-brief{margin:0}
     margin-bottom:clamp(10px,1.1vw,14px);
     font-size:clamp(14.5px,1.05vw,16px);line-height:1.58;
   }
+}
+
+/* ==========================================================================
+   17. IA revision — three groups, glossary, motion and defect fixes
+   ========================================================================== */
+
+/* 17.1 Sticky desk-nav offset.
+   .nx-desk-toc sits at top:var(--nav) and is ~46px tall, but
+   html{scroll-padding-top} only clears the 68px nav. Every #desk-* jump
+   therefore landed the desk heading under the sticky bar. Clear both. */
+body.notes .nx-desk{scroll-margin-top:calc(var(--nav) + 56px)}
+body.notes .nx-glossary{scroll-margin-top:calc(var(--nav) + 56px)}
+
+/* Smooth scrolling, gated so reduced-motion never gets it. The existing
+   kill switch targets body.notes * and cannot match <html>. */
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+}
+
+/* 17.2 Pointer-gated hover.
+   Bare :hover latches on touch: the first tap leaves the card un-greyscaled
+   with its rule drawn after you come back. Gate on a real pointer, but keep
+   :focus-visible unconditional so keyboard users always see the affordance. */
+@media (hover:hover) and (pointer:fine){
+  body.notes a.nx-card:hover::after,
+  body.notes a.nx-card:focus-visible::after{transform:scaleX(1)}
+  body.notes a.nx-card:hover .nx-card-b::after,
+  body.notes a.nx-card:focus-visible .nx-card-b::after{opacity:1;transform:rotate(45deg) translate(0,0)}
+  body.notes a.nx-card:hover .nx-card-img img{filter:grayscale(0);opacity:1;transform:scale(1.035)}
+  body.notes .nx-latest-img:hover img{filter:grayscale(.12) contrast(1.08);transform:scale(1.02)}
+  body.notes .nx-latest-grid:hover .nx-latest-go{transform:translateX(4px)}
+}
+body.notes a.nx-card:focus-visible::after{transform:scaleX(1)}
+body.notes a.nx-card:focus-visible .nx-card-b::after{opacity:1;transform:rotate(45deg) translate(0,0)}
+body.notes .nx-latest-go{display:inline-block;transition:transform .38s var(--nx-ease)}
+
+/* 17.3 Masthead entrance, capped at 360ms total.
+   The h1 is the LCP candidate and must paint static and final, so only the
+   kicker, lede and promise move. */
+@keyframes nx-mast-in{from{opacity:0;transform:translate3d(0,10px,0)}to{opacity:1;transform:none}}
+@keyframes nx-rule-draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:no-preference){
+  body.notes-index .nx-masthead .nx-kicker,
+  body.notes-index .nx-masthead .nx-lede,
+  body.notes-index .nx-masthead .nx-promise{animation:nx-mast-in .24s var(--nx-ease) both}
+  body.notes-index .nx-masthead .nx-kicker{animation-delay:0ms}
+  body.notes-index .nx-masthead .nx-lede{animation-delay:70ms}
+  body.notes-index .nx-masthead .nx-promise{animation-delay:130ms}
+  body.notes-index .nx-masthead .nx-kicker::before{
+    animation:nx-rule-draw .42s var(--nx-ease) 60ms both;transform-origin:0 50%;
+  }
+}
+
+/* 17.4 Scroll-reveal stagger.
+   animation-delay is a silent no-op on a scroll timeline (progress is bound
+   to scroll position, there is no duration to delay), so stagger must be
+   expressed as animation-range offsets. Scoped to notes-index because the
+   article page's .nx-related grid puts nth-child(2) BESIDE nth-child(1),
+   where a stagger would read as a rendering bug.
+   The 'cover' end guarantees full opacity while on screen, so a deep link
+   can never leave a card stuck invisible. */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    body.notes .nx-card,
+    body.notes .nx-take,
+    body.notes .nx-table,
+    body.notes .nx-pull,
+    body.notes .nx-twinthos,
+    body.notes .nx-fig,
+    body.notes .nx-desk>.wrap>header{
+      animation:nx-rise linear both;
+      animation-timeline:view();
+      animation-range:entry 6% cover 18%;
+    }
+    body.notes-index .nx-cards>.nx-card:nth-child(2){animation-range:entry 8% cover 20%}
+    body.notes-index .nx-cards>.nx-card:nth-child(3){animation-range:entry 10% cover 22%}
+    body.notes-index .nx-cards>.nx-card:nth-child(4){animation-range:entry 12% cover 24%}
+    body.notes-index .nx-desk>.wrap>header{animation-range:entry 10% cover 26%}
+  }
+}
+
+/* 17.5 Glossary — the plain-English definitions block */
+body.notes .nx-glossary{border-top:1px solid var(--line);padding:clamp(30px,3.6vw,48px) 0 clamp(40px,5vw,64px)}
+body.notes .nx-glossary h2{
+  font-size:clamp(19px,1.7vw,24px);line-height:1.2;letter-spacing:-.02em;margin:0 0 clamp(16px,1.8vw,24px);
+}
+body.notes .nx-glossary dl{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));
+  gap:clamp(16px,1.8vw,28px) clamp(24px,3vw,48px);margin:0;
+}
+body.notes .nx-glossary dt{
+  font-weight:600;font-size:15px;line-height:1.35;color:var(--ink);margin-bottom:5px;
+}
+body.notes .nx-glossary dd{
+  margin:0;font-size:15px;line-height:1.6;color:var(--ink-2);max-width:44ch;
+}
+
+/* 17.6 Long desk heading on narrow screens.
+   'What it costs, and what goes wrong' is ~430px at clamp max, which wraps to
+   three lines beside the 01 counter at 390px. Stack the counter above it. */
+@media (max-width:560px){
+  body.notes .nx-desk>.wrap>header{grid-template-columns:minmax(0,1fr)}
+  body.notes .nx-desk-num{grid-row:auto;padding-top:0;margin-bottom:8px}
 }
