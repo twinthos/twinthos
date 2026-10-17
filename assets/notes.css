@@ -872,3 +872,11 @@ body.notes .nx-glossary dd{
   body.notes .nx-desk>.wrap>header{grid-template-columns:minmax(0,1fr)}
   body.notes .nx-desk-num{grid-row:auto;padding-top:0;margin-bottom:8px}
 }
+
+/* Super intelligence: every visible mention glows in the brand emerald, set in the headline face. */
+body.notes .si-term{
+  font-family:var(--sans);font-weight:600;letter-spacing:-.01em;
+  color:var(--green);
+  text-shadow:0 0 14px rgba(52,211,153,.55),0 0 2px rgba(52,211,153,.35);
+  white-space:nowrap;
+}
