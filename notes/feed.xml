@@ -3,98 +3,104 @@
 <channel>
 <title>Twinthos Notes</title>
 <link>https://twinthos.com/notes/</link>
-<description>Original investigations and sourced analysis about intelligent systems and the work they change. Six desks: Business, Models, Futures, The Lab, Agents, The Brief.</description>
+<description>Plain-English, sourced writing about what AI actually does to a small business: the job, the money, the record, and who answers for it.</description>
 <language>en-gb</language>
 <atom:link href="https://twinthos.com/notes/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
-<title>Nineteen questions to ask a managed AI agent supplier, and the answers that should end the meeting</title>
-<link>https://twinthos.com/notes/questions-to-ask-managed-ai-agent/</link>
-<guid isPermaLink="true">https://twinthos.com/notes/questions-to-ask-managed-ai-agent/</guid>
-<pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
-<category>Business</category>
-<description><![CDATA[The job, the memory, the access, the safety, the money and the exit. Every question has an acceptable answer and a tell. Two tells and you stop.]]></description>
-</item>
-<item>
-<title>The three-year cost of a digital employee, including the three lines suppliers leave out</title>
+<title>What a digital employee really costs over three years</title>
 <link>https://twinthos.com/notes/digital-employee-cost/</link>
 <guid isPermaLink="true">https://twinthos.com/notes/digital-employee-cost/</guid>
 <pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
 <category>Business</category>
-<description><![CDATA[Definition, run, oversight, failure and exit. Most quotes show you one of the five. The arithmetic on a four-person back-office team, and the line nobody budgets for.]]></description>
+<description><![CDATA[The monthly fee is the smallest number in the deal. Setup, the approver, the first failure and the exit sit outside it. Here is the whole three-year sum.]]></description>
 </item>
 <item>
-<title>A chatbot answers the question. A digital employee closes the file.</title>
-<link>https://twinthos.com/notes/digital-employee-vs-chatbot/</link>
-<guid isPermaLink="true">https://twinthos.com/notes/digital-employee-vs-chatbot/</guid>
-<pubDate>Wed, 21 Oct 2026 09:00:00 +0000</pubDate>
-<category>Business</category>
-<description><![CDATA[A chatbot and a digital employee are not the same product at different prices. One has no job, no memory and no audit trail. The other is priced against the salary it absorbs. The comparison, the arithmetic, and seven questions to ask before buying either.]]></description>
-</item>
-<item>
-<title>Five of the world's largest software companies shipped company memory in eight days. Most businesses still do not have one.</title>
-<link>https://twinthos.com/notes/the-company-brain/</link>
-<guid isPermaLink="true">https://twinthos.com/notes/the-company-brain/</guid>
-<pubDate>Thu, 15 Oct 2026 09:00:00 +0000</pubDate>
-<category>Business</category>
-<description><![CDATA[Dell, SAP, Google, Meta and Workday all shipped something that remembers what a business knows. Meanwhile staff spend 2.3 hours a week re-typing context an AI should already have, about GBP 29,900 a year for a ten-person firm, on something that produces no output at all.]]></description>
-</item><item>
-<title>Half of small businesses already let AI do a person’s job. Their teams are exhausted.</title>
-<link>https://twinthos.com/notes/small-businesses-already-hired-ai/</link>
-<guid isPermaLink="true">https://twinthos.com/notes/small-businesses-already-hired-ai/</guid>
-<pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
-<category>Business</category>
-<description><![CDATA[A survey of 729 owners found 53% say AI now absorbs a full-time role, and 65% say running a leaner team has hurt their wellbeing. This is not a story about robots taking jobs. It is a story about people being used as middleware.]]></description>
-</item><item>
-<title>The AI that answers your phone now costs $2 a month. Almost nobody has switched.</title>
-<link>https://twinthos.com/notes/the-2-dollar-ai-that-answers-the-phone/</link>
-<guid isPermaLink="true">https://twinthos.com/notes/the-2-dollar-ai-that-answers-the-phone/</guid>
-<pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
-<category>Models</category>
-<description><![CDATA[On 14 October 2026 Google shipped its long-running agent model at $2 per million input tokens. A week earlier OpenAI started rolling out always-on agents. The economics of a digital employee have collapsed, but the reasons businesses have not moved have nothing to do with price.]]></description>
-</item><item>
-<title>95% of AI pilots fail. The number has been stable for two years.</title>
+<title>Why most AI projects fail before they start</title>
 <link>https://twinthos.com/notes/why-ai-automations-fail/</link>
 <guid isPermaLink="true">https://twinthos.com/notes/why-ai-automations-fail/</guid>
-<pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
+<pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
 <category>Business</category>
-<description><![CDATA[MIT’s August 2025 State of AI in Business report found roughly 95% of generative AI pilots produced no measurable P&L impact. McKinsey and BCG independently report the same wall. The pattern behind it is not technical, and it is fixable.]]></description>
-</item><item>
-<title>A digital employee costs £1.60 an hour. The junior it replaces costs £13.</title>
-<link>https://twinthos.com/notes/cost-of-an-ai-employee/</link>
-<guid isPermaLink="true">https://twinthos.com/notes/cost-of-an-ai-employee/</guid>
-<pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
-<category>Futures</category>
-<description><![CDATA[The maths of replacing a human role with software, done honestly with October 2026 list pricing: the model costs almost nothing, the true cost of running it properly is the interesting part, and the number that changes minds is the staff-hour, not the invoice.]]></description>
-</item><item>
-<title>The last time a machine was supposed to erase a job. It hired more people instead.</title>
-<link>https://twinthos.com/notes/atm-and-bank-tellers/</link>
-<guid isPermaLink="true">https://twinthos.com/notes/atm-and-bank-tellers/</guid>
-<pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
-<category>The Lab</category>
-<description><![CDATA[Everyone knows ATMs replaced bank tellers. The data says the opposite: teller employment rose for two decades after the ATMs arrived, because the machine cut the cost of a branch and banks opened more of them. There is a live lesson for anyone reading this week’s AI headlines.]]></description>
-</item><item>
-<title>Everyone is shipping an “AI agent” this month. Almost none of them are agents.</title>
-<link>https://twinthos.com/notes/what-an-ai-agent-actually-does/</link>
-<guid isPermaLink="true">https://twinthos.com/notes/what-an-ai-agent-actually-does/</guid>
-<pubDate>Wed, 14 Oct 2026 09:00:00 +0000</pubDate>
-<category>Agents</category>
-<description><![CDATA[Google, OpenAI, Meta and Anthropic all released something called an agent in October 2026. The word now covers everything from a chatbot to a worker with its own computer. Here is what actually separates the two, and why it decides whether your business gets a colleague or a demo.]]></description>
+<description><![CDATA[MIT found about 95% of generative AI pilots made no measurable difference to profit. The 5% that worked fixed the paperwork before they bought anything.]]></description>
 </item>
 <item>
-<title>AI, explained simply. What it is, and what it can do for your life.</title>
+<title>What is AI, and what can it actually do for you?</title>
 <link>https://twinthos.com/notes/intro-to-ai/</link>
 <guid isPermaLink="true">https://twinthos.com/notes/intro-to-ai/</guid>
-<pubDate>Mon, 13 Oct 2026 09:00:00 +0000</pubDate>
-<category>Business</category>
-<description><![CDATA[AI is software that has read an enormous amount of what people have written and learned the patterns in it. Here is what it is, what it is good at, and the one question to ask before you trust it.]]></description>
+<pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
+<category>Start here</category>
+<description><![CDATA[A plain-English guide for anyone who has never used AI. What it is, the three ways it changes an ordinary week, and what to hand over first.]]></description>
 </item>
 <item>
-<title>The world just renamed AI. Whatever you call it, it is already working for you.</title>
+<title>53% of small firms already let AI cover a full job</title>
+<link>https://twinthos.com/notes/small-businesses-already-hired-ai/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/small-businesses-already-hired-ai/</guid>
+<pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
+<category>Business</category>
+<description><![CDATA[A survey of 729 owners found 53% let AI absorb a full-time role's workload, and nobody in the data was let go. The 65% who are tired kept the checking.]]></description>
+</item>
+<item>
+<title>The US renamed AI to SI. Your work is exactly the same</title>
 <link>https://twinthos.com/notes/super-intelligence-si/</link>
 <guid isPermaLink="true">https://twinthos.com/notes/super-intelligence-si/</guid>
-<pubDate>Tue, 14 Oct 2026 09:00:00 +0000</pubDate>
+<pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
 <category>Futures</category>
-<description><![CDATA[On 29 September 2026 the US government ordered federal agencies to say super intelligence instead of artificial intelligence. Big companies followed within days. The models got smaller at the same time.]]></description>
+<description><![CDATA[On 29 September 2026 US agencies were told to say super intelligence, not AI. What changed for a small business: the name, not the work or the questions.]]></description>
+</item>
+<item>
+<title>14 questions to ask before you buy a managed AI agent</title>
+<link>https://twinthos.com/notes/questions-to-ask-managed-ai-agent/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/questions-to-ask-managed-ai-agent/</guid>
+<pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
+<category>Start here</category>
+<description><![CDATA[A short list to take into the meeting. Every question has an answer you want and a reply that should worry you. Hear two worrying replies and you walk.]]></description>
+</item>
+<item>
+<title>What answering your phone with software really costs</title>
+<link>https://twinthos.com/notes/the-2-dollar-ai-that-answers-the-phone/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/the-2-dollar-ai-that-answers-the-phone/</guid>
+<pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
+<category>Models</category>
+<description><![CDATA[Google's Gemini 4 Argon is $2 per million input tokens. Here is what 600 answered enquiries cost in a month, and what still breaks when you switch it on.]]></description>
+</item>
+<item>
+<title>What an AI agent actually does, and how to spot a fake</title>
+<link>https://twinthos.com/notes/what-an-ai-agent-actually-does/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/what-an-ai-agent-actually-does/</guid>
+<pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
+<category>Agents</category>
+<description><![CDATA[Four big firms shipped agents this autumn. Here is what makes one a real digital employee, and how to tell in ten minutes what you are being sold.]]></description>
+</item>
+<item>
+<title>What an AI employee really costs per hour</title>
+<link>https://twinthos.com/notes/cost-of-an-ai-employee/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/cost-of-an-ai-employee/</guid>
+<pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
+<category>Models</category>
+<description><![CDATA[The tokens cost tens of dollars a month. The monthly fee is the visible part. The number that decides it is the time your team spends checking the work.]]></description>
+</item>
+<item>
+<title>Why the same customer gets two different answers</title>
+<link>https://twinthos.com/notes/the-company-brain/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/the-company-brain/</guid>
+<pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
+<category>Business</category>
+<description><![CDATA[Dell, SAP, Google, Meta and Workday all announced company memory in eight days. Your staff still spend 2.3 hours a week retyping what the business knows.]]></description>
+</item>
+<item>
+<title>Chatbot or digital employee? What you are actually buying</title>
+<link>https://twinthos.com/notes/digital-employee-vs-chatbot/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/digital-employee-vs-chatbot/</guid>
+<pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
+<category>Business</category>
+<description><![CDATA[A chatbot answers what you ask and forgets you. A digital employee does one job, remembers your rules and keeps a record. Here is the gap, and the money.]]></description>
+</item>
+<item>
+<title>Did the cash machine really kill the bank teller?</title>
+<link>https://twinthos.com/notes/atm-and-bank-tellers/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/atm-and-bank-tellers/</guid>
+<pubDate>Wed, 21 Oct 2026 10:00:00 +0000</pubDate>
+<category>Futures</category>
+<description><![CDATA[Everyone says cash machines killed bank teller jobs. US figures show teller numbers rising for 25 years after the ATM arrived, and what that means now.]]></description>
 </item>
 </channel>
 </rss>

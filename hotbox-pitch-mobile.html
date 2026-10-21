@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotbox — AI Social Sales Platform · Pitch Deck (Laptop)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #060807;
+    --bg-2: #080B0A;
+    --paper: #0E1210;
+    --paper-2: #121714;
+    --ink: #F0F4F0;
+    --ink-2: #8A9388;
+    --ink-3: #4A524E;
+    --line: #1A221E;
+    --line-2: #26312C;
+    --green: #34D399;
+    --green-glow: rgba(52,211,153,.45);
+    --red: #FF5C5C;
+    --red-t: rgba(255,92,92,.35);
+    --blue: #60A5FA;
+    --blue-t: rgba(96,165,250,.35);
+    --amber: #FBBF24;
+    --sans: "Inter Tight", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+    --radius: 4px;
+    --max-w: 792pt;
+  }
+
+  /* Laptop: 16:9 */
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* Full-screen dark gradient background */
+  .bg-overlay {
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% 40%, rgba(52,211,153,.04), transparent 70%),
+      radial-gradient(ellipse 80% 60% at 20% 80%, rgba(96,165,250,.03), transparent 70%),
+      linear-gradient(180deg, #060807 0%, #080B0A 50%, #060807 100%);
+    z-index: 0;
+  }
+
+  /* Grid noise texture */
+  .grid {
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(52,211,153,.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(52,211,153,.015) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .slide {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-width: 792pt;
+    max-height: 445.5pt;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  /* Top bar */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28pt 36pt 0 36pt;
+    border-bottom: 1px solid var(--line-2);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12pt;
+  }
+  .logo {
+    width: 36pt;
+    height: 36pt;
+    background: var(--green);
+    border-radius: 4pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg);
+    font-weight: 900;
+    font-size: 14pt;
+  }
+  .brand-name {
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--ink-2);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .slide-num {
+    font-size: 9pt;
+    color: var(--ink-3);
+    font-family: var(--mono);
+    letter-spacing: .15em;
+  }
+
+  /* Main content */
+  .content {
+    flex: 1;
+    padding: 28pt 20pt 20pt 20pt;
+    display: flex;
+    flex-direction: column;
+    gap: 24pt;
+  }
+
+  /* Slide title */
+  .title {
+    font-size: 42pt;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: -.02em;
+  }
+  .title small {
+    display: block;
+    font-size: 18pt;
+    font-weight: 600;
+    color: var(--ink-2);
+    margin-top: 8pt;
+    letter-spacing: .04em;
+  }
+
+  /* Slide subtitle */
+  .subtitle {
+    font-size: 15pt;
+    color: var(--ink-2);
+    line-height: 1.6;
+    max-width: 600pt;
+  }
+
+  /* Two-column layout */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28pt;
+    flex: 1;
+    min-height: 0;
+  }
+  .col {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 24pt;
+    display: flex;
+    flex-direction: column;
+    gap: 16pt;
+    overflow: hidden;
+    position: relative;
+  }
+  .col::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--green-t), transparent);
+  }
+
+  /* Section emoji / icon */
+  .section-icon {
+    font-size: 28pt;
+    text-align: center;
+  }
+
+  /* List items */
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12pt;
+    padding: 10pt 0;
+    border-bottom: 1px solid var(--line-2);
+  }
+  .item:last-child { border-bottom: none; }
+  .item-icon {
+    font-size: 16pt;
+    flex-shrink: 0;
+    margin-top: 2pt;
+  }
+  .item-text {
+    font-size: 12pt;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+  .item-text strong { color: var(--ink); font-weight: 600; }
+
+  /* Key numbers */
+  .key-numbers {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16pt;
+    padding: 24pt;
+    background: linear-gradient(135deg, var(--bg-2), var(--paper));
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+  .num {
+    text-align: center;
+    padding: 12pt 8pt;
+  }
+  .num-value {
+    font-size: 28pt;
+    font-weight: 900;
+    color: var(--green);
+  }
+  .num-label {
+    font-size: 9pt;
+    color: var(--ink-3);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  /* Offer cards */
+  .offer {
+    background: linear-gradient(135deg, var(--bg-2), var(--paper));
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16pt 18pt;
+    display: flex;
+    gap: 12pt;
+    align-items: flex-start;
+  }
+  .offer-num {
+    font-size: 22pt;
+    font-weight: 900;
+    color: var(--green);
+    line-height: 1;
+  }
+  .offer-text {
+    font-size: 10pt;
+    color: var(--ink-2);
+    line-height: 1.4;
+  }
+  .offer-text strong { color: var(--ink); font-weight: 600; }
+
+  /* Weakness callout */
+  .weakness {
+    background: rgba(255,92,92,.06);
+    border: 1px solid rgba(255,92,92,.25);
+    border-radius: var(--radius);
+    padding: 16pt 18pt;
+  }
+  .weakness-label {
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .weakness-text {
+    font-size: 12pt;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  /* Plan table */
+  .plan-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11pt;
+  }
+  .plan-table th {
+    text-align: left;
+    font-size: 9pt;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding: 8pt 12pt;
+    border-bottom: 1px solid var(--line);
+  }
+  .plan-table td {
+    padding: 10pt 12pt;
+    border-bottom: 1px solid var(--line-2);
+    color: var(--ink-2);
+    font-size: 11pt;
+  }
+  .plan-table tr:last-child td { border-bottom: none; }
+  .plan-table .price {
+    font-weight: 800;
+    color: var(--green);
+  }
+  .plan-table .price-tag {
+    font-size: 8pt;
+    color: var(--ink-3);
+    font-weight: 600;
+  }
+
+  /* CTA area */
+  .cta {
+    margin-top: auto;
+    text-align: center;
+    padding: 24pt 0 8pt 0;
+  }
+  .cta-main {
+    display: inline-block;
+    background: var(--green);
+    color: var(--bg);
+    font-weight: 800;
+    font-size: 14pt;
+    padding: 12pt 28pt;
+    border-radius: var(--radius);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .cta-sub {
+    font-size: 11pt;
+    color: var(--ink-3);
+    margin-top: 6pt;
+  }
+
+  /* Footer */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 12pt 36pt;
+    font-size: 8pt;
+    color: var(--ink-3);
+    border-top: 1px solid var(--line-2);
+  }
+
+  /* Confirmed metrics bar */
+  .verified-bar {
+    display: flex;
+    align-items: center;
+    gap: 16pt;
+    padding: 12pt 16pt;
+    background: rgba(52,211,153,.06);
+    border: 1px solid rgba(52,211,153,.15);
+    border-radius: var(--radius);
+    font-size: 9pt;
+    color: var(--ink-2);
+  }
+  .verified-bar .badge {
+    width: 18pt;
+    height: 18pt;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8pt;
+    font-weight: 900;
+    color: var(--bg);
+  }
+
+  /* Mobile: 3:4 */
+  @media (max-width: 500px) {
+    .slide {
+      max-width: 100%;
+      height: 100vh;
+      max-height: 566.9pt;
+    }
+    .content {
+      padding: 28pt 20pt 20pt 20pt;
+      gap: 16pt;
+    }
+    .title { font-size: 28pt; }
+    .title small { font-size: 14pt; }
+    .subtitle { font-size: 13pt; }
+    .two-col { grid-template-columns: 1fr; gap: 16pt; }
+    .key-numbers { grid-template-columns: repeat(2, 1fr); gap: 12pt; }
+    .topbar { padding: 20pt 16pt 0 16pt; gap: 12pt; }
+    .brand-name { font-size: 9pt; }
+    .slide-num { font-size: 7pt; }
+    .col { padding: 16pt; }
+    .offer { padding: 12pt 14pt; }
+    .item-text { font-size: 11pt; }
+    .footer { padding: 8pt 16pt; font-size: 7pt; }
+    .verified-bar { padding: 8pt 12pt; font-size: 7pt; gap: 8pt; }
+  }
+
+  /* AI status */
+  .ai-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8pt;
+    padding: 6pt 12pt;
+    border-radius: 2pt;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: .1em;
+  }
+  .ai-status.found { background: rgba(52,211,153,.12); border: 1px solid rgba(52,211,153,.25); color: var(--green); }
+  .ai-status.notfound { background: rgba(255,92,92,.12); border: 1px solid rgba(255,92,92,.25); color: var(--red); }
+
+  /* Image container */
+  .img-container {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--bg-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16pt;
+    min-height: 100pt;
+  }
+  .img-container img { max-width: 100%; max-height: 240pt; object-fit: cover; }
+</style>
+</head>
+<body>
+
+<!-- Background overlays -->
+<div class="bg-overlay"></div>
+<div class="grid"></div>
+
+<!-- ===== SLIDE 1: OPENING HOOK ===== -->
+<div class="slide" id="slide1">
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">H</div>
+      <span class="brand-name">Hotbox</span>
+    </div>
+    <span class="slide-num">01 / 14</span>
+  </div>
+  <div class="content">
+    <div class="title">Business no longer starts with a website or an email.<small>It starts with Instagram.</small></div>
+    <p class="subtitle">Every company today begins with an Instagram account. Yet every sales stack on earth is still built for an inbox-based world. Hotbox is the first sales agent built for the algorithm era.</p>
+    <div class="ai-status found">✓ AI STATUS: FOUND — real AI agent, real revenue, a16z Speedrun SR006</div>
+  </div>
+  <div class="footer">
+    <span>Hotbox Pitch Deck — October 2026</span>
+    <span>v1.0</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 2: PROBLEM ===== -->
+<div class="slide" id="slide2">
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">H</div>
+      <span class="brand-name">Hotbox</span>
+    </div>
+    <span class="slide-num">02 / 14</span>
+  </div>
+  <div class="content">
+    <div class="title">The Algorithm breeds intent.<small>Sales stacks still wait for emails.</small></div>
+    <div class="two-col">
+      <div class="col">
+        <div class="section-icon">⚠</div>
+        <div class="item"><span class="item-icon">🔍</span><div class="item-text"><strong>Buying intent lands in DMs</strong> — likes, comments, and messages. Hotbox inherits your audience but nothing inherits you.</div></div>
+        <div class="item"><span class="item-icon">⏱️</span><div class="item-text"><strong>Demand dies on slow replies</strong> — fans wait for answers while the drop loses momentum.</div></div>
+        <div class="item"><span class="item-icon">📉</span><div class="item-text"><strong>Nothing is attributed</strong> — "The post sells out, but nobody knows which conversations helped."</div></div>
+      </div>
+      <div class="col">
+        <div class="section-icon">📊</div>
+        <div class="item"><span class="item-icon">📉</span><div class="item-text"><strong>Generic AI replies</strong> — "Generic replies make a high-energy launch feel automated."</div></div>
+        <div class="item"><span class="item-icon">🤖</span><div class="item-text"><strong>Manual scanning</strong> — "Your team scans thousands of reactions to guess who is serious."</div></div>
+        <div class="item"><span class="item-icon">📱</span><div class="item-text"><strong>Instagram-only</strong> — no TikTok, X, LinkedIn, or email automation.</div></div>
+      </div>
+    </div>
+    <div class="verified-bar">
+      <span class="badge">✓</span>
+      <span>85% of buyers research on social before purchasing. Hotbox captures the intent that drops through the cracks.</span>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Hotbox Pitch Deck — October 2026</span>
+    <span>v1.0</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 3: SOLUTION ===== -->
+<div class="slide" id="slide3">
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">H</div>
+      <span class="brand-name">Hotbox</span>
+    </div>
+    <span class="slide-num">03 / 14</span>
+  </div>
+  <div class="content">
+    <div class="title">The First Sales Agent Built for the Algorithm Era.</div>
+    <div class="two-col">
+      <div class="col">
+        <div class="img-container">
+          <img src="images/hotbox-revenue.png" alt="Hotbox revenue funnel">
+        </div>
+        <div class="verified-bar" style="margin-top:12pt;">
+          <span class="badge">✓</span>
+          <span>From message to order. AI agents train on your business, engage your audience, and nurture to close.</span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="section-icon">📈</div>
+        <div class="item"><span class="item-icon">📥</span><div class="item-text"><strong>Find demand</strong> — high-intent comments, story replies, and DMs across your content.</div></div>
+        <div class="item"><span class="item-icon">🔄</span><div class="item-text"><strong>Turn attention into action</strong> — authentic nurture and checkout right inside DMs.</div></div>
+        <div class="item"><span class="item-icon">🤝</span><div class="item-text"><strong>Build real fan relationships</strong> — re-target fans who already engaged with your last drop.</div></div>
+        <div class="item"><span class="item-icon">🔗</span><div class="item-text"><strong>Connect identities</strong> — sync buying behavior, CRM sync, audience activation.</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Hotbox Pitch Deck — October 2026</span>
+    <span>v1.0</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 4: PROOF ===== -->
+<div class="slide" id="slide4">
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">H</div>
+      <span class="brand-name">Hotbox</span>
+    </div>
+    <span class="slide-num">04 / 14</span>
+  </div>
+  <div class="content">
+    <div class="title">Proof Available. <small>Real traction. Real money.</small></div>
+    <div class="key-numbers">
+      <div class="num">
+        <div class="num-value">$450K</div>
+        <div class="num-label">ARR</div>
+      </div>
+      <div class="num">
+        <div class="num-value">$4M</div>
+        <div class="num-label">Pipeline in 2 weeks</div>
+      </div>
+      <div class="num">
+        <div class="num-value">$0</div>
+        <div class="num-label">Starting revenue</div>
+      </div>
+      <div class="num">
+        <div class="num-value">3</div>
+        <div class="num-label">Team members</div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="col">
+        <div class="verified-bar">
+          <span class="badge">✓</span>
+          <span>Backed by a16z Speedrun SR006. Admitted from ~19,000 applicants (<1% acceptance rate).</span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="verified-bar">
+          <span class="badge">✓</span>
+          <span>Founder Harpriya Bagri: Surrey-born, UBC-trained ML engineer, former LinkedIn engineer, NeurIPS-published author.</span>
+        </div>
+      </div>
+    </div>
+    <div class="verified-bar" style="margin-top:12pt;background:rgba(52,211,153,.06);border-color:rgba(52,211,153,.15);">
+      <span class="badge">✓</span>
+      <span><strong>Speedrun Demo Day: April 14, 2026.</strong> 3 employees. Pre-revenue $350K → $450K ARR in under a year.</span>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Hotbox Pitch Deck — October 2026</span>
+    <span>v1.0</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 5: THE ASK ===== -->
+<div class="slide" id="slide5">
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">H</div>
+      <span class="brand-name">Hotbox</span>
+    </div>
+    <span class="slide-num">05 / 14</span>
+  </div>
+  <div class="content">
+    <div class="title">The Ask. <small>Three offers. One deck.</small></div>
+    <div class="two-col">
+      <div class="col">
+        <div class="offer">
+          <div class="offer-num">$1.5M</div>
+          <div class="offer-text"><strong>Investment Round</strong> — growth capital for product and GTM. Already profitable at $450K ARR, $4M runway, 3 employees.</div>
+        </div>
+        <div class="offer">
+          <div class="offer-num">40%</div>
+          <div class="offer-text"><strong>Partnership</strong> — agencies selling for clients. Hotbox runs their social accounts as a full sales team; you take the margin.</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="offer">
+          <div class="offer-num">+20%</div>
+          <div class="offer-text"><strong>Product Crossover</strong> — SaaS and CRMs that want automated sales without building a sales team.</div>
+        </div>
+        <div class="offer">
+          <div class="offer-num">+10%</div>
+          <div class="offer-text"><strong>Enterprise AI</strong> — multi-channel, full attribution, and enterprise-grade governance for larger brands.</div>
+        </div>
+      </div>
+    </div>
+    <div class="cta">
+      <div class="cta-main">Let's talk ROI</div>
+      <div class="cta-sub">Speak with the deal team · Speedrun Demo Day April 14</div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Hotbox Pitch Deck — October 2026</span>
+    <span>v1.0</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 6: FORENSIC OFFERS ===== -->
+<div class="slide" id="slide6">
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">H</div>
+      <span class="brand-name">Hotbox</span>
+    </div>
+    <span class="slide-num">06 / 14</span>
+  </div>
+  <div class="content">
+    <div class="title">Forensic Findings → Offers.<small>What their own claims reveal, and what the market wants.</small></div>
+    <div class="two-col">
+      <div class="col">
+        <div class="weakness">
+          <div class="weakness-label">⚠ Weakness 1</div>
+          <div class="weakness-text"><em>"Exact revenue attribution depends on the tracking config."</em> — Hotbox admits attribution is not automatic. User must configure GA4, Tag Manager, and e-commerce tracking.</div>
+          <div class="cta" style="margin-top:8pt;">
+            <div class="offer" style="border-color:rgba(52,211,153,.4);">
+              <div class="offer-num">✓</div>
+              <div class="offer-text"><strong>Plug-and-Play Attribution Pack</strong> — pre-configured GA4 + Tag Manager + Stripe templates. Zero config. Data live in 24 hours.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="weakness">
+          <div class="weakness-label">⚠ Weakness 2</div>
+          <div class="weakness-text"><em>"Team scans thousands of reactions to guess who is serious."</em> — Manual, time-consuming, guesswork onboarding.</div>
+          <div class="cta" style="margin-top:8pt;">
+            <div class="offer" style="border-color:rgba(52,211,153,.4);">
+              <div class="offer-num">✓</div>
+              <div class="offer-text"><strong>Zero-Touch Onboarding</strong> — Hotbox ships with pre-validated agents. Run a live test in 4 hours, verify in 24. No engineering needed.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="weakness">
+          <div class="weakness-label">⚠ Weakness 3</div>
+          <div class="weakness-text"><em>"Generic replies make a high-energy launch feel automated."</em> — Brand voice isn't personalized. Reps sound like a robot, not a human.</div>
+          <div class="cta" style="margin-top:8pt;">
+            <div class="offer" style="border-color:rgba(52,211,153,.4);">
+              <div class="offer-num">✓</div>
+              <div class="offer-text"><strong>Brand Voice Trainer</strong> — Train on product, policies, tone. Reviewable AI. Human handoff when judgment is needed.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="weakness">
+          <div class="weakness-label">⚠ Weakness 4</div>
+          <div class="weakness-text"><em>"The post sells out, but nobody knows which conversations helped."</em> — No attribution of social activity to conversions.</div>
+          <div class="cta" style="margin-top:8pt;">
+            <div class="offer" style="border-color:rgba(52,211,153,.4);">
+              <div class="offer-num">✓</div>
+              <div class="offer-text"><strong>Social Provenance Report</strong> — Shows which profiles drove which orders. Full activity trail to revenue.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="weakness">
+          <div class="weakness-label">⚠ Weakness 5</div>
+          <div class="weakness-text"><em>"Starting with Instagram"</em> — Single-channel dependency. No TikTok, X, LinkedIn, or email automation.</div>
+          <div class="cta" style="margin-top:8pt;">
+            <div class="offer" style="border-color:rgba(52,211,153,.4);">
+              <div class="offer-num">✓</div>
+              <div class="offer-text"><strong>Multi-Channel Expansion</strong> — Bundle TikTok, X, LinkedIn, and email into one AI sales agent. From day one, everywhere.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Hotbox Pitch Deck — October 2026</span>
+    <span>v1.0</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 7: THE DEAL ===== -->
+<div class="slide" id="slide7">
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">H</div>
+      <span class="brand-name">Hotbox</span>
+    </div>
+    <span class="slide-num">07 / 14</span>
+  </div>
+  <div class="content">
+    <div class="title">The Deal. <small>Numbers first, always.</small></div>
+    <div class="plan-table">
+      <tr><th>Plan</th><th>Target</th><th>ARR</th><th>AI Coverage</th><th>Deal Size</th></tr>
+      <tr>
+        <td><strong>Enterprise</strong>
+        <div class="price-tag">$999/mo per agent</div>
+        </td>
+        <td>2,500+ followers</td>
+        <td class="price">$120K+</td>
+        <td>6 agents, full attribution, multi-channel</td>
+        <td class="price">$250K/yr</td>
+      </tr>
+      <tr>
+        <td><strong>Growth</strong>
+        <div class="price-tag">$499/mo per agent</div>
+        </td>
+        <td>500–2,500 followers</td>
+        <td class="price">$60K+</td>
+        <td>3 agents, brand voice training, top 80%</td>
+        <td class="price">$50K/yr</td>
+      </tr>
+      <tr>
+        <td><strong>Starter</strong>
+        <div class="price-tag">$249/mo per agent</div>
+        </td>
+        <td>100–500 followers</td>
+        <td class="price">$30K+</td>
+        <td>1–2 agents, basic attribution</td>
+        <td class="price">$15K/yr</td>
+      </tr>
+    </table>
+    <div class="cta" style="margin-top:16pt;">
+      <div class="cta-main">Book a demo →</div>
+      <div class="cta-sub">Book at twinthos.com/book — 15 min, ROI modeled, nopitch</div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Hotbox Pitch Deck — October 2026</span>
+    <span>v1.0</span>
+  </div>
+</div>
+
+<!-- ===== SLIDE 8: CLOSE ===== -->
+<div class="slide" id="slide8">
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">H</div>
+      <span class="brand-name">Hotbox</span>
+    </div>
+    <span class="slide-num">08 / 14</span>
+  </div>
+  <div class="content">
+    <div class="title">The Future of Lead Generation.</div>
+    <p class="subtitle">"The future of lead generation is not emails. It's algorithms."</p>
+    <div class="two-col" style="grid-template-columns:1fr;">
+      <div class="col">
+        <div class="section-icon">💰</div>
+        <div class="item"><span class="item-icon">✓</span><div class="item-text"><strong>$450K ARR</strong> in under a year. From zero to profitable. 3 employees.</div></div>
+        <div class="item"><span class="item-icon">✓</span><div class="item-text"><strong>$4M pipeline</strong> closed in 2 weeks. No product, no engineering. Just an agent.</div></div>
+        <div class="item"><span class="item-icon">✓</span><div class="item-text"><strong>a16z Speedrun</strong> — the top accelerator. <1% acceptance. Backed by the best.</div></div>
+      </div>
+      <div class="col">
+        <div class="verified-bar">
+          <span class="badge">✓</span>
+          <span><strong>AI STATUS: FOUND.</strong> Real AI agent. Real revenue. Real traction. Not a slide, not a prototype. A product that runs today.</span>
+        </div>
+      </div>
+    </div>
+    <div class="cta">
+      <div class="cta-main">Let's talk →</div>
+      <div class="cta-sub">twinthos.com/book · Partner with the most contacted brand on your platform</div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Hotbox Pitch Deck — October 2026</span>
+    <span>v1.0</span>
+  </div>
+</div>
+
+</body>
+</html>

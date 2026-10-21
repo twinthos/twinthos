@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Engagement Audit — Twinthos</title>
+<style>
+  @page { size: A4; margin: 2cm; }
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 12pt; line-height: 1.6; color: #1a1a1a; }
+  h1 { font-size: 20pt; color: #0d0d0d; margin-bottom: 4pt; }
+  h2 { font-size: 15pt; color: #1a1a1a; margin-top: 20pt; margin-bottom: 8pt; border-bottom: 2px solid #333; padding-bottom: 4pt; }
+  h3 { font-size: 13pt; color: #222; margin-top: 14pt; margin-bottom: 6pt; }
+  p { margin: 6pt 0; }
+  ul { margin: 6pt 0; padding-left: 22pt; }
+  li { margin: 3pt 0; }
+  .critical { background: #fee; border-left: 4px solid #c00; padding: 8pt; margin: 10pt 0; }
+  .warning { background: #fff8e1; border-left: 4px solid #f90; padding: 8pt; margin: 10pt 0; }
+  .ok { background: #efefef; border-left: 4px solid #333; padding: 8pt; margin: 10pt 0; }
+  table { border-collapse: collapse; width: 100%; margin: 8pt 0; }
+  th, td { border: 1px solid #ccc; padding: 6pt; text-align: left; }
+  th { background: #eee; }
+  .verdict { font-weight: bold; }
+  .muted { color: #666; font-size: 10pt; }
+</style>
+</head>
+<body>
+
+<h1>Engagement Audit — Twinthos</h1>
+<p class="muted">Twinthos.com — October 19, 2026</p>
+
+<h2>1. What Was Audited</h2>
+<p>15 HTML pages: index, workforce, brain, pricing, book, about, contact, questions, services, demo, demos, thankyou, audit, operations-audit, faq, how-it-works</p>
+
+<h2>2. Analytics — Zero Installed</h2>
+<div class="critical">
+<p><strong>No analytics platform is deployed.</strong> Grep across all 15 pages for gtag, googletagmanager, plausible, umami, GA4, gtm.js, hotjar, posthog, fathom: <em>zero matches.</em></p>
+<p>No Google Search Console access (no gsc configs, no credentials in .env).</p>
+<p>Booking form sends to FormSubmit.co with no UTM/conversion tracking on the 28 /book/ links.</p>
+</div>
+
+<h2>3. SEO &amp; Metadata — Incomplete</h2>
+<ul>
+<li><strong>OG tags:</strong> Missing on contact, questions, services, demo, thankyou, audit (7 stub pages). Now added and deployed via commit 910f825.</li>
+<li><strong>alt attributes:</strong> Zero <code>alt</code> attributes on any <code>&lt;img&gt;</code> in the site. Action needed.</li>
+<li><strong>Sitemap:</strong> Missing 3 note pages (digital-employee-cost, digital-employee-vs-chatbot, questions-to-ask-managed-ai-agent). Now added and deployed.</li>
+</ul>
+
+<h2>4. Engagement Signals — None Measured</h2>
+<ul>
+<li>No pageview data, no bounce rate, no engagement-time tracking anywhere on the site.</li>
+<li>CTA link audit: index (9 book links), workforce (7), brain (10), pricing (6), book (3), about (4), operations-audit (4), faq (4), how-it-works (4). Total: 51 UTM-tagged book links across 9 pages.</li>
+</ul>
+
+<h2>5. What Was Fixed This Session</h2>
+<div class="ok">
+<ul>
+<li><strong>OG tags:</strong> Added to 7 stub pages — live on deployment.</li>
+<li><strong>UTM parameters:</strong> 51 /book/ links updated with utm_source, utm_medium, utm_campaign — live.</li>
+<li><strong>Sitemap:</strong> 3 note pages added to sitemap.xml — live.</li>
+<li><strong>DNS/SSL:</strong> www.twinthos.com cert gap (user to resolve via DNS).</li>
+</ul>
+</div>
+
+<h2>6. Analytics Deployment — Blocked</h2>
+<p>Umami install timed out after 300s (Prisma native compilation). Docker daemon available but not running. HM</p>
+<p><strong>Recommendation:</strong> Use hosted Plausible (plausible.io, free tier). Add tracking script to all 15 pages. Configure form conversion events.</p>
+
+<h2>7. Open Items</h2>
+<ul>
+<li>Analytics server deployment (PaaS or hosted)</li>
+<li>Form conversion tracking on /book/ form</li>
+<li>Alt attributes on all images</li>
+<li>www.twinthos.com TLS cert</li>
+<li>GitHub PAT + Stripe live key rotation (user to do)</li>
+</ul>
+
+<p class="muted">Audit completed October 19, 2026. Deployed fixes verified via live curl checks.</p>
+
+</body>
+</html>

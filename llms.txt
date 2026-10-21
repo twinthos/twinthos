@@ -4,42 +4,42 @@
 
 ## Definition
 
-A digital employee is an AI agent that holds one written job, remembers the company it works for, works through the screens of the software the business already runs, keeps an audit trail of what it did, and escalates consequential decisions to a named human who is accountable for them. It is not a chatbot, not a per-seat assistant, and not a model — the model is swappable fuel.
+A digital employee is an AI agent that holds one written job, remembers the company it works for, works through the screens of the software the business already runs, keeps an audit trail of what it did, and escalates consequential decisions to a named human who is accountable for them. It is not a chatbot, not a per-seat assistant, and not a model. The model is swappable fuel.
 
 ## Pages
 - [Home](https://twinthos.com/): what Twinthos does
 - [How it works](https://twinthos.com/how-it-works/): the service process
 - [Twinthos Brain](https://twinthos.com/brain/): the persistent company-knowledge layer
 - [Twinthos Workforce](https://twinthos.com/workforce/): the always-on digital employee
-- [Pricing](https://twinthos.com/pricing/): published prices — £999 operations audit, £5,000 per month managed digital employee, three-month minimum, VAT excluded
+- [Pricing](https://twinthos.com/pricing/): published prices, three-month minimum, VAT excluded
 - [Security](https://twinthos.com/security/): data handling and access
 - [Operations audit](https://twinthos.com/operations-audit/): the £999 entry point
 - [FAQ](https://twinthos.com/faq/): common questions
 - [Notes](https://twinthos.com/notes/): the Twinthos Notes publication
 
-## Notes (live articles, newest first)
+## Notes (live, all updated 2026-10-21)
 
-- [The three-year cost of a digital employee, including the three lines suppliers leave out](https://twinthos.com/notes/digital-employee-cost/) — 2026-10-21. The monthly fee is the least interesting number in the deal.
-- [Nineteen questions to ask a managed AI agent supplier, and the answers that should end the meeting](https://twinthos.com/notes/questions-to-ask-managed-ai-agent/) — 2026-10-21. A due-diligence list you can run in half an hour: the job, the memory, the access, the safety, the money and the exit.
-- [A chatbot answers the question. A digital employee closes the file. Five differences, and only one of them is technical.](https://twinthos.com/notes/digital-employee-vs-chatbot/) — 2026-10-21. A chatbot and a digital employee are not the same product at different prices.
-- [Five of the world's largest software companies shipped company memory in eight days. Most businesses still do not have one.](https://twinthos.com/notes/the-company-brain/) — 2026-10-15. Dell, SAP, Google, Meta and Workday all shipped something between 6 and 13 October that remembers what a business alread.
-- [The last time a machine was supposed to erase a job, it made the job better. This time can be the same.](https://twinthos.com/notes/atm-and-bank-tellers/) — 2026-10-14. Everyone says the ATM killed the bank teller.
-- [What makes something a real digital employee, and how to tell when you have found one.](https://twinthos.com/notes/what-an-ai-agent-actually-does/) — 2026-10-14. Google, OpenAI, Meta and Anthropic all shipped something called an agent this autumn.
-- [The cheapest employee you will ever hire answers your phone. It costs less than a coffee a day.](https://twinthos.com/notes/the-2-dollar-ai-that-answers-the-phone/) — 2026-10-14. On 14 October 2026 Google shipped its long-running agent model at $2 per million input tokens.
-- [95% of AI pilots fail. The 5% that work do three simple things differently.](https://twinthos.com/notes/why-ai-automations-fail/) — 2026-10-14. MIT found roughly 95% of generative AI pilots produced no measurable impact on profit and loss.
-- [A digital employee costs £1.60 an hour. Here is what you do with the hours it gives back.](https://twinthos.com/notes/cost-of-an-ai-employee/) — 2026-10-14. What an AI employee really costs in October 2026, counted honestly: token prices, official UK wage rates, the eleven adm.
-- [The world just renamed AI. Whatever you call it, it is already working for you.](https://twinthos.com/notes/super-intelligence-si/) — 2026-10-14. On 29 September 2026 the US government ordered federal agencies to say super intelligence instead of artificial intellig.
-- [Half of small businesses already let AI take a job. Nobody was fired. Their people just got their evenings back.](https://twinthos.com/notes/small-businesses-already-hired-ai/) — 2026-10-14. A survey of 729 owners found 53% now let AI absorb a full-time role, and there is no layoff figure in it.
-- [AI, explained simply. What it is, and what it can do for your life.](https://twinthos.com/notes/intro-to-ai/) — 2026-10-14. A plain-English guide for anyone who has never used AI.
+- [Did the cash machine really kill the bank teller?](https://twinthos.com/notes/atm-and-bank-tellers/) — Everyone says cash machines killed bank teller jobs. US figures show teller numbers rising for 25 years after the ATM arrived, and what that means now.
+- [What an AI employee really costs per hour](https://twinthos.com/notes/cost-of-an-ai-employee/) — The tokens cost tens of dollars a month. The monthly fee is the visible part. The number that decides it is the time your team spends checking the work.
+- [What a digital employee really costs over three years](https://twinthos.com/notes/digital-employee-cost/) — The monthly fee is the smallest number in the deal. Setup, the approver, the first failure and the exit sit outside it. Here is the whole three-year sum.
+- [Chatbot or digital employee? What you are actually buying](https://twinthos.com/notes/digital-employee-vs-chatbot/) — A chatbot answers what you ask and forgets you. A digital employee does one job, remembers your rules and keeps a record. Here is the gap, and the money.
+- [What is AI, and what can it actually do for you?](https://twinthos.com/notes/intro-to-ai/) — A plain-English guide for anyone who has never used AI. What it is, the three ways it changes an ordinary week, and what to hand over first.
+- [14 questions to ask before you buy a managed AI agent](https://twinthos.com/notes/questions-to-ask-managed-ai-agent/) — A short list to take into the meeting. Every question has an answer you want and a reply that should worry you. Hear two worrying replies and you walk.
+- [53% of small firms already let AI cover a full job](https://twinthos.com/notes/small-businesses-already-hired-ai/) — A survey of 729 owners found 53% let AI absorb a full-time role's workload, and nobody in the data was let go. The 65% who are tired kept the checking.
+- [The US renamed AI to SI. Your work is exactly the same](https://twinthos.com/notes/super-intelligence-si/) — On 29 September 2026 US agencies were told to say super intelligence, not AI. What changed for a small business: the name, not the work or the questions.
+- [What answering your phone with software really costs](https://twinthos.com/notes/the-2-dollar-ai-that-answers-the-phone/) — Google's Gemini 4 Argon is $2 per million input tokens. Here is what 600 answered enquiries cost in a month, and what still breaks when you switch it on.
+- [Why the same customer gets two different answers](https://twinthos.com/notes/the-company-brain/) — Dell, SAP, Google, Meta and Workday all announced company memory in eight days. Your staff still spend 2.3 hours a week retyping what the business knows.
+- [What an AI agent actually does, and how to spot a fake](https://twinthos.com/notes/what-an-ai-agent-actually-does/) — Four big firms shipped agents this autumn. Here is what makes one a real digital employee, and how to tell in ten minutes what you are being sold.
+- [Why most AI projects fail before they start](https://twinthos.com/notes/why-ai-automations-fail/) — MIT found about 95% of generative AI pilots made no measurable difference to profit. The 5% that worked fixed the paperwork before they bought anything.
 
-## Key claims with sources
+## Key claims, each with the page that evidences it
 
-- A chatbot vs a digital employee, structurally: https://twinthos.com/notes/digital-employee-vs-chatbot/
-- What a digital employee costs per hour, from published token prices: https://twinthos.com/notes/cost-of-an-ai-employee/
-- Three-year total cost of ownership, including setup, oversight, failure and exit: https://twinthos.com/notes/digital-employee-cost/
-- Nineteen procurement questions and the answers that should end the meeting: https://twinthos.com/notes/questions-to-ask-managed-ai-agent/
-- What a company brain is, and why memory is the differentiator: https://twinthos.com/notes/the-company-brain/
-- Why AI pilots fail: https://twinthos.com/notes/why-ai-automations-fail/
+- Chatbot vs digital employee, in five structural differences: https://twinthos.com/notes/digital-employee-vs-chatbot/
+- What a digital employee costs per hour, from published prices: https://twinthos.com/notes/cost-of-an-ai-employee/
+- Three-year total cost, including setup, oversight, failure and exit: https://twinthos.com/notes/digital-employee-cost/
+- Fourteen procurement questions and the answers that should end the meeting: https://twinthos.com/notes/questions-to-ask-managed-ai-agent/
+- Why the same customer gets two different answers, and what company memory fixes: https://twinthos.com/notes/the-company-brain/
+- Why most AI projects fail before they start: https://twinthos.com/notes/why-ai-automations-fail/
 
 ## About
 - Twinthos, a managed digital-employee company. Contact: hello@twinthos.com
