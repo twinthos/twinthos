@@ -101,7 +101,8 @@ def build_main(d, herobase):
         f'<details><summary>{html.escape(q["q"])}</summary><div class="nx-faq-body"><p>{html.escape(q["a"])}</p></div></details>'
         for q in d["faq"])
 
-    return f"""<main><article>
+    return f"""<body class="notes">
+<main><article>
 <header class="nx-hero"><div class="wrap">
 <p class="nx-meta"><a href="/notes/">Notes</a> <span>/</span> <span>Business</span> <span>/</span> <span>Plain English</span></p>
 <h1>{html.escape(d["title"])}</h1>
