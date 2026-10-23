@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en-GB" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Editorial preview · Twinthos</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Private review build: one continuous visual composition that carries company memory, agreed work and human decisions.">
+<meta name="theme-color" content="#060807">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/InterTight-normal-400-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/editorial/ed.css">
+<style>
+@font-face{font-family:"Inter Tight";src:url(/assets/fonts/InterTight-normal-400-700.woff2) format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url(/assets/fonts/GeistMono-normal-400.woff2) format("woff2");font-weight:400 500;font-style:normal;font-display:swap}
+@font-face{font-family:"IBM Plex Serif";src:url(/assets/fonts/IBMPlexSerif-italic-400.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+</style>
+<script>document.documentElement.classList.replace('no-js','js')</script>
+</head>
+<body>
+
+<div id="stage" aria-hidden="true">
+  <canvas id="gl"></canvas>
+  <div class="fallback">
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="fg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#34D399" stop-opacity=".55"/>
+          <stop offset="1" stop-color="#34D399" stop-opacity=".05"/>
+        </linearGradient>
+      </defs>
+      <g fill="none" stroke="url(#fg)" stroke-width="1">
+        <path d="M-40 620 C 240 520, 380 720, 620 600 S 980 420, 1240 520 1560 640 1660 560"/>
+        <path d="M-40 700 C 260 610, 400 800, 660 690 S 1000 520, 1260 610 1580 720 1680 650" opacity=".55"/>
+      </g>
+      <g fill="#34D399" opacity=".5">
+        <circle cx="620" cy="600" r="2.4"/><circle cx="1240" cy="520" r="2.4"/><circle cx="380" cy="668" r="2"/>
+        <circle cx="980" cy="470" r="2"/><circle cx="260" cy="588" r="1.8"/>
+      </g>
+    </svg>
+  </div>
+</div>
+<div class="vig" aria-hidden="true"></div>
+<div class="rail" aria-hidden="true"><i id="railfill"></i></div>
+
+<header class="nav">
+  <a class="brand" href="/" aria-label="Twinthos home">
+    <svg viewBox="8 8 48 48" aria-hidden="true"><path fill="currentColor" d="M11 12H30.75V52H26V20H11ZM33.25 12H53V20H38V52H33.25Z"/></svg>
+    <span>Twinthos</span>
+  </a>
+  <nav class="links" aria-label="Primary">
+    <a href="/brain/">Brain</a>
+    <a href="/workforce/">Workforce</a>
+    <a href="/how-it-works/">How it works</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="/security/">Security</a>
+  </nav>
+  <a class="btn" href="/book/?interest=fit&amp;utm_source=editorial&amp;utm_medium=nav&amp;utm_campaign=preview">Request a discovery call</a>
+</header>
+
+<main class="wrap">
+
+  <!-- 01 HERO -->
+  <section class="hero" id="s0" aria-labelledby="h0" data-shape="2">
+    <div class="pad">
+      <p class="status scrim"><span class="dot" aria-hidden="true"></span>Company memory and a managed digital employee</p>
+      <h1 id="h0" class="scrim">Your business <em>remembers.</em><br>Your work keeps moving.</h1>
+      <p class="lede scrim">Twinthos combines company knowledge with a managed digital employee that carries out agreed work inside the tools you already use.</p>
+      <div class="ctas scrim">
+        <a class="btn" href="/book/?interest=fit&amp;utm_source=editorial&amp;utm_medium=cta&amp;utm_campaign=hero">Request a discovery call
+          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4"/></svg></a>
+        <a class="btn ghost" href="#s1">See how it works</a>
+      </div>
+      <p class="price-line scrim"><span>Operations audit <b>£999</b>, one-off</span><span>Managed digital employee <b>£5,000</b> a month</span></p>
+    </div>
+  </section>
+
+  <!-- 02 PROBLEM -->
+  <section class="act" id="s1" aria-labelledby="h1" data-shape="3">
+    <div class="pad split">
+      <div class="scrim">
+        <p class="kicker">01 · The gap</p>
+        <h2 id="h1">The tools are there. Someone still has to <em>carry the work through.</em></h2>
+        <p class="lede">A business runs on a dozen systems that each hold one piece of the truth. The work moves when a person joins those pieces by hand: reading the enquiry, opening the record, checking the diary, sending the reply.</p>
+        <ul class="notes">
+          <li><span>01</span><div>An enquiry arrives in one tool and the record that answers it lives in another.</div></li>
+          <li><span>02</span><div>Missing information stops the job halfway, and nothing restarts it on its own.</div></li>
+          <li><span>03</span><div>The follow-up that closes the loop is the first thing dropped when the week gets busy.</div></li>
+        </ul>
+      </div>
+      <aside class="panel scrim right">
+        <h3>Where work waits</h3>
+        <div class="rowlist">
+          <div><i>Enquiry</i><b>Received, not yet read</b></div>
+          <div><i>Missing detail</i><b>A question no one has asked</b></div>
+          <div><i>Follow-up</i><b>Due today, not scheduled</b></div>
+          <div><i>Record</i><b>Updated by memory, not by system</b></div>
+        </div>
+        <p style="margin-top:22px;font-size:13px;color:var(--faint)">Each gap is small. Together they are the coordination cost nobody puts on a job description.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 03 BRAIN -->
+  <section class="act" id="s2" aria-labelledby="h2" data-shape="4">
+    <div class="pad split">
+      <div class="scrim">
+        <p class="kicker">02 · What the company knows</p>
+        <h2 id="h2">Context that <em>carries forward.</em></h2>
+        <p class="lede">Twinthos Brain holds the approved material a business runs on: procedures, price lists, customer preferences, open decisions. People and digital employees read from the same source, so the answer does not change depending on who is asked.</p>
+        <div class="k-items">
+          <div class="k-item"><div>Returns procedure, approved 14 Oct<small>Owner: operations · version 4</small></div><em>In use</em></div>
+          <div class="k-item"><div>Price list 2027<small>Owner: finance · effective 1 Jan</small></div><em>Current</em></div>
+          <div class="k-item"><div>Fairview Dental, prefers email<small>Customer record · updated 9 Oct</small></div><em>Approved</em></div>
+          <div class="k-item"><div>Order 4471, next step: packaging date<small>Open task · waiting on supplier</small></div><em>Open</em></div>
+        </div>
+      </div>
+      <aside class="panel scrim right">
+        <h3>How knowledge stays trustworthy</h3>
+        <ul class="rowlist" style="margin-top:16px">
+          <li style="display:block"><b>Only approved sources are read.</b><br><span style="color:var(--faint);font-size:13.5px">Documents, records and decisions your team has signed off.</span></li>
+          <li style="display:block;margin-top:14px"><b>Every entry keeps its owner.</b><br><span style="color:var(--faint);font-size:13.5px">Someone in the business is answerable for each one.</span></li>
+          <li style="display:block;margin-top:14px"><b>Corrections are visible.</b><br><span style="color:var(--faint);font-size:13.5px">You can read what it knows and change it.</span></li>
+        </ul>
+        <p style="margin-top:22px;font-size:13px;color:var(--faint)">A conversation does not become company policy by itself. Approval is still a human act.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 04 WORKFORCE -->
+  <section class="act" id="s3" aria-labelledby="h3" data-shape="5">
+    <div class="pad">
+      <div class="scrim" style="max-width:64ch">
+        <p class="kicker">03 · What it does</p>
+        <h2 id="h3">Knowledge becomes <em>agreed work.</em></h2>
+        <p class="lede">The digital employee takes one defined responsibility, works inside your existing systems with the access you grant, and leaves a record as it goes. Below is a single request, followed from arrival to completion.</p>
+      </div>
+      <div class="split" style="margin-top:40px">
+        <div class="request scrim">
+          <div class="id"><span>REQ-2291</span><span>Property enquiry</span></div>
+          <p class="what">“Is the 2-bed on Mill Lane still available? Can I view it this week?”</p>
+          <ul class="steps">
+            <li class="done"><i class="b"></i><span>Read in the shared inbox</span><span class="s">Done</span></li>
+            <li class="done"><i class="b"></i><span>Property record checked, availabile from 1 Nov</span><span class="s">Done</span></li>
+            <li class="done"><i class="b"></i><span>Diary checked, Thursday 16:30 open</span><span class="s">Done</span></li>
+            <li class="done"><i class="b"></i><span>Reply sent with the slot</span><span class="s">Done</span></li>
+            <li class="wait"><i class="b"></i><span>Enquiry record updated, viewing marked</span><span class="s">Writing</span></li>
+          </ul>
+        </div>
+        <div class="scrim right">
+          <p class="kicker">Scope, in plain terms</p>
+          <ul class="notes" style="margin-top:22px">
+            <li><span>01</span><div>One role, agreed in writing before it starts.</div></li>
+            <li><span>02</span><div>Access limited to the systems that role needs.</div></li>
+            <li><span>03</span><div>Every action leaves a record you can read.</div></li>
+            <li><span>04</span><div>Exceptions come to your team, not to a queue nobody owns.</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 PERSISTENCE -->
+  <section class="act" id="s4" aria-labelledby="h4" data-shape="6">
+    <div class="pad">
+      <div class="scrim" style="max-width:60ch">
+        <p class="kicker">04 · Across time</p>
+        <h2 id="h4">It remembers <em>where the work stopped.</em></h2>
+        <p class="lede">Most work is not finished in one sitting. It waits for a reply, a document, a signature, a decision. The request keeps its identity, its history and its next step while it waits.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-card scrim">
+          <p class="when">Thursday, 17:02</p>
+          <p>REQ-2291 is waiting on one detail: the tenant’s preferred viewing time. Nothing else in the task moves.</p>
+        </div>
+        <div class="tl-card now scrim right">
+          <p class="when">Next morning, 08:14</p>
+          <p>The reply arrives. The same request resumes at the diary step, not at the beginning, and the record carries the new time.</p>
+        </div>
+      </div>
+      <p class="lede scrim" style="margin-top:30px;font-size:15px;color:var(--faint)">A task that restarts from the top every morning is not a colleague. Continuity is the difference between automation and responsibility.</p>
+    </div>
+  </section>
+
+  <!-- 06 CONTROL -->
+  <section class="act" id="s5" aria-labelledby="h5" data-shape="7">
+    <div class="pad">
+      <div class="scrim" style="max-width:62ch">
+        <p class="kicker">05 · Where you decide</p>
+        <h2 id="h5">Your rules. Your decisions. <em>Work moving around them.</em></h2>
+        <p class="lede">Routine work carries on inside the permissions you set. Anything outside them stops at a named person, with the reason attached, while everything else keeps running.</p>
+      </div>
+      <div class="boundary">
+        <div class="scrim">
+          <h3>Continues within your rules</h3>
+          <ul>
+            <li>Replying to a standard enquiry</li>
+            <li>Booking a viewing in open diary slots</li>
+            <li>Updating a record it already owns</li>
+            <li>Chasing a missing document once</li>
+          </ul>
+        </div>
+        <div class="scrim right">
+          <h3>Comes to a person</h3>
+          <ul>
+            <li>A discount, refund or goodwill payment</li>
+            <li>A contract term or price change</li>
+            <li>Anything outside the agreed scope</li>
+            <li>Two instructions that contradict each other</li>
+          </ul>
+        </div>
+      </div>
+      <p class="lede scrim" style="margin-top:26px;font-size:15px;color:var(--faint)">The system does not stop while it waits for you. Only the exception waits.</p>
+    </div>
+  </section>
+
+  <!-- 07 EVIDENCE -->
+  <section class="act" id="s6" aria-labelledby="h6" data-shape="8">
+    <div class="pad">
+      <div class="scrim" style="max-width:60ch">
+        <p class="kicker">06 · What is left behind</p>
+        <h2 id="h6">Movement becomes <em>a record.</em></h2>
+        <p class="lede">Each piece of work ends in a plain account of what happened: what was completed, which records changed, what still needs a decision, and what comes next.</p>
+      </div>
+      <div class="receipt">
+        <header>
+          <h3>Activity receipt · REQ-2291</h3>
+          <span>Illustrative workflow · 22 Oct 2026</span>
+        </header>
+        <dl>
+          <div><dt>Completed</dt><dd>Enquiry read, property checked, viewing offered, reply sent</dd></div>
+          <div><dt>Records updated</dt><dd>Enquiry record (viewing set), diary (Thu 16:30 held), customer note (prefers email)</dd></div>
+          <div><dt>Needs a decision</dt><dd>None. Inside agreed permissions.</dd></div>
+          <div><dt>Next</dt><dd>Confirmation to the tenant at 09:00 tomorrow, then the record closes</dd></div>
+          <div><dt>Run by</dt><dd>Twinthos Workforce · role: lettings coordinator · supervised by the Twinthos team</dd></div>
+        </dl>
+        <p class="sig">This example is illustrative, not a customer result. A real receipt is produced from your own systems after a scoped deployment.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 PRICING -->
+  <section class="act" id="s7" aria-labelledby="h7" data-shape="9">
+    <div class="pad">
+      <div class="scrim" style="max-width:56ch">
+        <p class="kicker">07 · Cost</p>
+        <h2 id="h7">Two ways to start. <em>Both prices, in full.</em></h2>
+        <p class="lede">The audit is a one-off plan. The managed digital employee is a monthly service. They are different things, not two sizes of the same thing.</p>
+      </div>
+      <div class="price-grid">
+        <article class="plan">
+          <p class="kind">Operations audit</p>
+          <p class="cost">£999<small>one-off</small></p>
+          <p>Find the work worth handing over, before you commit to a service.</p>
+          <ul>
+            <li>Workflow and dependency map</li>
+            <li>Ranked opportunities with business-case assumptions</li>
+            <li>Proposed scope and an implementation plan</li>
+            <li>The plan is yours whether or not you continue</li>
+          </ul>
+          <p class="foot">Scope and timing confirmed before payment. Excluding VAT where applicable. Credited in full against your first managed month if you proceed within 30 days.</p>
+          <a class="btn ghost" href="/book/?interest=audit&amp;utm_source=editorial&amp;utm_medium=cta&amp;utm_campaign=pricing">Discuss the audit</a>
+        </article>
+        <article class="plan live">
+          <p class="kind">Managed digital employee</p>
+          <p class="cost">£5,000<small>per month</small></p>
+          <p>One agreed responsibility, carried out inside your tools and managed by us.</p>
+          <ul>
+            <li>Scoping, connections and testing</li>
+            <li>A named role with defined permissions</li>
+            <li>Monitored, maintained and improved by the Twinthos team</li>
+            <li>Human review for anything outside the rules</li>
+          </ul>
+          <p class="foot">Three-month minimum. Scope, access and limits confirmed in your proposal before work starts.</p>
+          <a class="btn" href="/book/?interest=managed&amp;utm_source=editorial&amp;utm_medium=cta&amp;utm_campaign=pricing">Discuss a digital employee</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 CLOSE -->
+  <section class="close" id="s8" aria-labelledby="h8" data-shape="10">
+    <div class="pad">
+      <h2 id="h8" class="scrim">Work handled.<br><em>Time returned.</em></h2>
+      <div class="ctas scrim">
+        <a class="btn" href="/book/?interest=fit&amp;utm_source=editorial&amp;utm_medium=cta&amp;utm_campaign=close">Request a discovery call
+          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4"/></svg></a>
+        <a class="btn ghost" href="/pricing/">See pricing</a>
+      </div>
+      <p class="meta scrim"><span>twinthos.com</span><span>Bristol, United Kingdom</span><span>twinthos@agentmail.to</span></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="pad">
+    <span>© 2026 Twinthos</span>
+    <span>Private review build · not indexed</span>
+    <span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/security/">Security</a></span>
+  </div>
+</footer>
+
+<div class="ctl" role="group" aria-label="Motion controls">
+  <button type="button" id="btn-pause" aria-pressed="false" aria-label="Pause background motion">
+    <svg class="on" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 2.5v9M10 2.5v9"/></svg>
+    <svg class="off" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 2.5l8 4.5-8 4.5z"/></svg>
+  </button>
+  <button type="button" id="btn-replay" aria-label="Replay the opening">
+    <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.3 7a4.7 4.7 0 1 0 1.5-3.4"/><path d="M2.2 1.8v2.5h2.5"/></svg>
+  </button>
+  <button type="button" id="btn-sound" aria-pressed="false" aria-label="Sound off. Turn sound on">
+    <svg class="on" viewBox="0 0 14 14" aria-hidden="true"><path d="M1.5 5h2.6L7.5 2v10L4.1 9H1.5z"/><path d="M9.6 4.8a3.2 3.2 0 0 1 0 4.4M11.4 3a5.6 5.6 0 0 1 0 8"/></svg>
+    <svg class="off" viewBox="0 0 14 14" aria-hidden="true"><path d="M1.5 5h2.6L7.5 2v10L4.1 9H1.5z"/><path d="M9.5 5l3.4 4M12.9 5l-3.4 4"/></svg>
+  </button>
+</div>
+
+<script src="/editorial/ed.js" defer></script>
+</body>
+</html>
