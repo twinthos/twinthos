@@ -13,8 +13,8 @@
 .btn:active{transform:scale(.97);transition-duration:.12s}
 /* workspace tour: the number badge and its annotation light together */
 .ws-list li{transition:background .25s,padding-left .5s var(--spring)}
-.ws-list li.hi{background:rgba(52,211,153,.06)}
+.ws-list li.hi{background:rgba(28,255,142,.06)}
 @media (prefers-reduced-motion:reduce){.rv-pre,.rv-pre.rv-h{opacity:1;transform:none;clip-path:none}.nav-prog{display:none}.btn,.btn:hover,.btn:active{transform:none;transition:none}}
-.ic-act{position:absolute;inset:-1px;border-radius:12px;border:1px solid rgba(52,211,153,.6);box-shadow:0 0 0 4px rgba(52,211,153,.07),0 10px 30px -12px rgba(52,211,153,.35);pointer-events:none;opacity:0}
+.ic-act{position:absolute;inset:-1px;border-radius:12px;border:1px solid rgba(28,255,142,.6);box-shadow:0 0 0 4px rgba(28,255,142,.07),0 10px 30px -12px rgba(28,255,142,.35);pointer-events:none;opacity:0}
 /* magnetic primary CTA on laptops */
 .btn-mag{transition:translate .5s var(--spring),transform .55s var(--spring),background-color .2s,border-color .2s,color .2s}

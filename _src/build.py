@@ -85,7 +85,7 @@ def layout(meta, body):
             ensure_ascii=False) + '</script>'
     body = body.replace('<span class="ar">→</span>', ARROW)
     # home: inline the stylesheet so the hero film can paint and start on the first frame (no render-blocking request)
-    css_tag = f"<style>{css}</style>" if home else f'<link rel="stylesheet" href="/assets/tw.css?v={VER}">'
+    css_tag = f"<style>{css}</style>" if home else f'<link rel="stylesheet" href="/assets/tw.css?v={VER}e">'
     T2S = "" if home else T2S_TAG
     return f'''<!DOCTYPE html>
 <html lang="en-GB" class="no-js">

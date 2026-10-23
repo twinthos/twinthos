@@ -42,7 +42,7 @@ var OLD=[0,108,386,1421,1456,1491],OLDT=['Tue 09:14','Tue 11:02','Tue 15:40','We
 var NEW=[0,1,3,6,9,12],NEWT=['09:14:00','09:14:01','09:14:03','09:14:06','09:14:09','09:14:12'];
 var STEPS_OLD=['Enquiry lands in a shared inbox','Someone is free to open it','Diary checked, a slot pencilled in','Customer added to the CRM','Quote written and sent','Visit booked'];
 var STEPS_NEW=['Enquiry received','Read and understood','Diary checked: Thursday 10:00 free','Customer added to the CRM','Quote sent from your price list','Visit booked, invite sent'];
-var CAP1=['Same enquiry. Same tools. Scroll, and watch the clock.','The usual way: it waits until someone has a minute.','With Twinthos: it is handled the moment it lands.','24 hours 51 minutes, or 12 seconds. Same work, done properly.'];
+var CAP1=['Same enquiry. Same tools. Scroll, and watch the clock.','The usual way: it waits until someone has a minute.','With Twinthos: it is handled the moment it lands.','A day in a queue, or done before anyone looks. Same standard every time.'];
 function lane(sel){var l=s1&&s1.querySelector(sel);if(!l)return null;return {el:l,cnt:l.querySelector('.cnt'),fill:l.querySelector('.fill'),dots:l.querySelectorAll('.track i'),step:l.querySelector('.step')};}
 var LA=lane('.old'),LB=lane('.tw'),cap1=s1&&s1.querySelector('.st-cap'),last1='';
 function fmtM(m){m=Math.round(m);return Math.floor(m/60)+'h '+('0'+(m%60)).slice(-2)+'m';}
@@ -84,4 +84,44 @@ if(!reduce&&(s1||s2)){
 /* industries carousel buttons */
 var ind=d.querySelector('.ind');
 d.querySelectorAll('.ind-nav button').forEach(function(b){b.addEventListener('click',function(){var c=ind.querySelector('.ic-card');ind.scrollBy({left:(c?c.offsetWidth+14:320)*(b.dataset.d==='1'?1:-1),behavior:reduce?'auto':'smooth'});});});
+})();
+/* Hero motion graphic controller: plays six scenes in a loop, morphing one surface. */
+(function(){
+'use strict';
+var mg=document.querySelector('.mg');if(!mg)return;
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var mx=mg.querySelector('.mx'),scs=[].slice.call(mg.querySelectorAll('.sc')),segs=[].slice.call(document.querySelectorAll('.mg-seg button')),cap=document.querySelector('.mg-cap'),ch=document.querySelector('.mg-ch');
+/* duration of each scene (s) and the times its inner beats fire */
+var S=[{d:4.2,k:[]},{d:4.0,k:[1.1,2.4]},{d:3.8,k:[1.0,2.0]},{d:4.0,k:[1.2,2.3]},{d:4.2,k:[1.3,1.9]},{d:4.4,k:[]}];
+var CAP=['Meet your digital employee. One role, on shift day and night.','A new enquiry arrives. It replies in seconds.','It checks the diary and books the visit.','It chases the unpaid invoice.','Anything that needs judgement comes to you first.','Every step is written down for you to check.'];
+var cur=-1,timers=[],visible=true,playing=!reduce;
+function clear(){timers.forEach(clearTimeout);timers=[];}
+var SHAPE=[[1.586,1],[1.3,1],[1.5,1],[1.05,.94],[2.5,1],[1.3,1]];
+function size(){if(cur<0)return;var W=mg.clientWidth,H=mg.clientHeight,A=SHAPE[cur][0],w=Math.min(W,H*A)*SHAPE[cur][1],cap=Math.min(W,H*1.586)/1.586*1.3;if(w/A>cap)w=cap*A;mx.style.width=w.toFixed(1)+'px';mx.style.height=(w/A).toFixed(1)+'px';}
+if('ResizeObserver' in window)new ResizeObserver(size).observe(mg);else addEventListener('resize',size);
+function show(i){
+  clear();cur=i;mg.setAttribute('data-s',i);size();
+  mx.classList.remove('morph');void mx.offsetWidth;mx.classList.add('morph');
+  scs.forEach(function(s,j){s.classList.remove('k1','k2');s.classList.toggle('on',j===i);s.setAttribute('aria-hidden',j===i?'false':'true');});
+  segs.forEach(function(b,j){b.classList.toggle('done',j<i);b.classList.remove('on');b.style.setProperty('--d',S[j].d+'s');b.setAttribute('aria-current',j===i?'step':'false');});
+  if(segs[i]){void segs[i].offsetWidth;segs[i].classList.add('on');}
+  if(cap){cap.classList.add('out');timers.push(setTimeout(function(){cap.innerHTML='<span class="mono">0'+(i+1)+'</span>'+CAP[i];cap.classList.remove('out');},280));}
+  if(!playing){scs[i].classList.add('k1','k2');return;}
+  S[i].k.forEach(function(t,n){timers.push(setTimeout(function(){scs[i].classList.add('k'+(n+1));},t*1000));});
+  timers.push(setTimeout(function(){show((i+1)%S.length);},S[i].d*1000));
+}
+segs.forEach(function(b,j){b.addEventListener('click',function(){show(j);});});
+/* pause when the hero is off screen or the tab is hidden: saves battery, restarts the scene on return */
+function vis(){var r=mg.getBoundingClientRect(),v=r.bottom>0&&r.top<innerHeight&&!document.hidden;if(v===visible)return;visible=v;
+  if(!reduce){playing=v;if(v)show(cur<0?0:cur);else{clear();if(ch)ch.classList.add('paused');}if(v&&ch)ch.classList.remove('paused');}}
+addEventListener('scroll',vis,{passive:true});document.addEventListener('visibilitychange',vis);
+/* tilt with the pointer on laptops */
+var tilt=mg.querySelector('.mg-tilt'),hero=document.querySelector('.hero'),tt;
+if(!reduce&&tilt&&hero&&matchMedia('(hover:hover)').matches){
+  hero.addEventListener('pointermove',function(e){var r=mg.getBoundingClientRect(),x=Math.max(-.6,Math.min(.6,(e.clientX-r.left)/r.width-.5)),y=Math.max(-.6,Math.min(.6,(e.clientY-r.top)/r.height-.5));
+    tilt.style.setProperty('--ry',(x*12).toFixed(2)+'deg');tilt.style.setProperty('--rx',(-y*9).toFixed(2)+'deg');clearTimeout(tt);tt=setTimeout(function(){tilt.style.setProperty('--rx','0deg');tilt.style.setProperty('--ry','0deg');},2400);},{passive:true});
+}
+/* testing hook: window.mgShow(i) jumps to a scene with all beats shown */
+window.mgShow=function(i){playing=false;show(i);};
+show(0);
 })();
