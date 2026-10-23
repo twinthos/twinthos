@@ -4,7 +4,7 @@
 - **Dewey clone** — a platform of **managed digital employees** that complete end-to-end work
 - Two products:
   1. **Operations Audit** — £999, one-off: maps recurring work, ranks opportunities, writes a starting scope
-  2. **Managed Digital Employee** — £5,000/month (3-month min): builds, connects, runs, monitors one workflow across existing tools
+  2. **Managed Digital Employee** — £3,500/month (3-month min): builds, connects, runs, monitors one workflow across existing tools
 - Core promise: **"Work handled, time returned."**
 - Positioning: *"Twinthos is a platform of managed digital employees that complete end-to-end work; ChatGPT, Grok, and Claude are AI models that answer text. Twinthos executes jobs; the others converse with you."*
 

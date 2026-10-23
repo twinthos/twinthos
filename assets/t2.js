@@ -92,11 +92,11 @@ var mg=document.querySelector('.mg');if(!mg)return;
 var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 var mx=mg.querySelector('.mx'),scs=[].slice.call(mg.querySelectorAll('.sc')),segs=[].slice.call(document.querySelectorAll('.mg-seg button')),cap=document.querySelector('.mg-cap'),ch=document.querySelector('.mg-ch');
 /* duration of each scene (s) and the times its inner beats fire */
-var S=[{d:4.2,k:[]},{d:4.0,k:[1.1,2.4]},{d:3.8,k:[1.0,2.0]},{d:4.0,k:[1.2,2.3]},{d:4.2,k:[1.3,1.9]},{d:4.4,k:[]}];
-var CAP=['Meet your digital employee. One role, on shift day and night.','A new enquiry arrives. It replies in seconds.','It checks the diary and books the visit.','It chases the unpaid invoice.','Anything that needs judgement comes to you first.','Every step is written down for you to check.'];
+var S=[{d:4.0,k:[]},{d:5.2,k:[]},{d:3.6,k:[1.0,2.1]},{d:3.4,k:[.9,1.8]},{d:3.6,k:[1.0,2.0]},{d:3.8,k:[1.2,1.8]},{d:4.0,k:[]}];
+var CAP=['Meet your digital employee. One role, on shift day and night.','About a quarter of the hourly cost of an admin hire, for 4.5 times the hours.','A new enquiry arrives. It replies in seconds.','It checks the diary and books the visit.','It chases the unpaid invoice.','Anything that needs judgement comes to you first.','Every step is written down for you to check.'];
 var cur=-1,timers=[],visible=true,playing=!reduce;
 function clear(){timers.forEach(clearTimeout);timers=[];}
-var SHAPE=[[1.586,1],[1.3,1],[1.5,1],[1.05,.94],[2.5,1],[1.3,1]];
+var SHAPE=[[1.586,1],[1.45,1],[1.3,1],[1.5,1],[1.05,.94],[2.5,1],[1.3,1]];
 function size(){if(cur<0)return;var W=mg.clientWidth,H=mg.clientHeight,A=SHAPE[cur][0],w=Math.min(W,H*A)*SHAPE[cur][1],cap=Math.min(W,H*1.586)/1.586*1.3;if(w/A>cap)w=cap*A;mx.style.width=w.toFixed(1)+'px';mx.style.height=(w/A).toFixed(1)+'px';}
 if('ResizeObserver' in window)new ResizeObserver(size).observe(mg);else addEventListener('resize',size);
 function show(i){
@@ -122,6 +122,10 @@ if(!reduce&&tilt&&hero&&matchMedia('(hover:hover)').matches){
     tilt.style.setProperty('--ry',(x*12).toFixed(2)+'deg');tilt.style.setProperty('--rx',(-y*9).toFixed(2)+'deg');clearTimeout(tt);tt=setTimeout(function(){tilt.style.setProperty('--rx','0deg');tilt.style.setProperty('--ry','0deg');},2400);},{passive:true});
 }
 /* testing hook: window.mgShow(i) jumps to a scene with all beats shown */
+/* live hours on shift this week, London time: it never stops counting */
+var wk=mg.querySelector('[data-week]');
+if(wk&&window.Intl){var fmt=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',weekday:'short',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}),D={Mon:0,Tue:1,Wed:2,Thu:3,Fri:4,Sat:5,Sun:6};
+  var wtick=function(){var p={};fmt.formatToParts(new Date()).forEach(function(x){p[x.type]=x.value;});var h=D[p.weekday]*24+(+p.hour);wk.textContent=h+'h '+p.minute+'m '+p.second+'s';};wtick();setInterval(wtick,1000);}
 window.mgShow=function(i){playing=false;show(i);};
 show(0);
 })();
