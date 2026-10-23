@@ -257,6 +257,7 @@ body.reduced #stage{background:
   radial-gradient(50% 40% at 82% 62%, rgba(52,211,153,.10), transparent 65%),
   radial-gradient(120% 90% at 50% 0%, #0B1512 0%, #070B09 55%, var(--ink) 100%);}
 body.reduced .scrim::before{display:none}
+body.reduced .ctl{display:none}
 
 /* print / no-js */
 .no-js #gl{display:none}

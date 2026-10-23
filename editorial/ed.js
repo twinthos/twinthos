@@ -234,7 +234,7 @@
 
   var gl = null, prog = null, U = {}, NP = 0, bufS = null, dpr = 1;
   var raf = 0, t0 = 0, uT = 0, morph = 0, phase = 2, introT = 0, introOn = true;
-  var introStart = 0, pausedAt = 0, forced = -1;
+  var introStart = 0, pausedAt = 0, forced = -1, frames = 0, ft0 = 0, degraded = false;
   var paused = false, soundOn = false, audio = null, lastShape = -1;
   var W_ = 0, H_ = 0, FW = 0, FH = 0, portrait = false;
 
@@ -267,9 +267,9 @@
     return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
   }
 
-  function seed() {
+  function seed(cap) {
     if (!gl) return;
-    var n = portrait ? 7000 : (W_ < 900 ? 9000 : 14000);
+    var n = cap || (portrait ? 7000 : (W_ < 900 ? 9000 : 14000));
     NP = n;
     var R = rng(19), a = new Float32Array(n * 4);
     for (var i = 0; i < n * 4; i++) a[i] = R();
@@ -333,6 +333,7 @@
 
   function loop(now) {
     raf = 0;
+    if (!ft0) ft0 = now;
     if (!now) now = performance.now();
     if (!t0) t0 = now;
     var dt = Math.min(0.12, (now - t0) / 1000); t0 = now;
@@ -346,6 +347,11 @@
         phase = Math.max(introTarget(introT), scrollPhase());
       } else {
         phase += (scrollPhase() - phase) * Math.min(1, dt * 7);
+      }
+      frames++; if (now - ft0 > 1500) {
+        var fps = frames * 1000 / (now - ft0);
+        if (fps < 42 && NP > 5000 && !degraded) { degraded = true; seed(Math.round(NP * 0.55)); }
+        frames = 0; ft0 = now;
       }
     }
     draw();
