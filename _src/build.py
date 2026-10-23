@@ -85,7 +85,7 @@ def layout(meta, body):
             ensure_ascii=False) + '</script>'
     body = body.replace('<span class="ar">→</span>', ARROW)
     # home: inline the stylesheet so the hero film can paint and start on the first frame (no render-blocking request)
-    css_tag = f"<style>{css}</style>" if home else f'<link rel="stylesheet" href="/assets/tw.css?v={VER}e">'
+    css_tag = f"<style>{css}</style>" if home else f'<link rel="stylesheet" href="/assets/tw.css?v={VER}b">'
     T2S = "" if home else T2S_TAG
     return f'''<!DOCTYPE html>
 <html lang="en-GB" class="no-js">
@@ -95,7 +95,7 @@ def layout(meta, body):
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
 {robots}<link rel="canonical" href="{SITE}/{path}">
-<meta name="theme-color" content="#060807">
+<meta name="theme-color" content="#05060A">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
@@ -173,7 +173,7 @@ for src, to in REDIRECTS.items():
         f'<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8"><title>Twinthos</title>'
         f'<meta name="robots" content="noindex"><link rel="canonical" href="{SITE}{to}">'
         f'<meta http-equiv="refresh" content="0; url={to}"></head>'
-        f'<body style="background:#060807;color:#ECEDE8;font-family:sans-serif"><a href="{to}">Continue</a></body></html>')
+        f'<body style="background:#05060A;color:#ECEDE8;font-family:sans-serif"><a href="{to}">Continue</a></body></html>')
 
 urls = [m["path"] for m in built if not m.get("noindex") and m["path"] != "404"]
 

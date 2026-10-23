@@ -8,7 +8,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #060807;
+    --bg: #05060A;
     --bg-2: #080B0A;
     --paper: #0E1210;
     --paper-2: #121714;
@@ -17,8 +17,8 @@
     --ink-3: #4A524E;
     --line: #1A221E;
     --line-2: #26312C;
-    --green: #34D399;
-    --green-glow: rgba(52,211,153,.45);
+    --green: #4D86FF;
+    --green-glow: rgba(77,134,255,.45);
     --red: #FF5C5C;
     --red-t: rgba(255,92,92,.35);
     --blue: #60A5FA;
@@ -45,9 +45,9 @@
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(ellipse 120% 80% at 50% 40%, rgba(52,211,153,.04), transparent 70%),
+      radial-gradient(ellipse 120% 80% at 50% 40%, rgba(77,134,255,.04), transparent 70%),
       radial-gradient(ellipse 80% 60% at 20% 80%, rgba(96,165,250,.03), transparent 70%),
-      linear-gradient(180deg, #060807 0%, #080B0A 50%, #060807 100%);
+      linear-gradient(180deg, #05060A 0%, #080B0A 50%, #05060A 100%);
     z-index: 0;
   }
 
@@ -56,8 +56,8 @@
     position: fixed;
     inset: 0;
     background-image:
-      linear-gradient(rgba(52,211,153,.015) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(52,211,153,.015) 1px, transparent 1px);
+      linear-gradient(rgba(77,134,255,.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(77,134,255,.015) 1px, transparent 1px);
     background-size: 60px 60px;
     z-index: 0;
     pointer-events: none;
@@ -344,8 +344,8 @@
     align-items: center;
     gap: 16pt;
     padding: 12pt 16pt;
-    background: rgba(52,211,153,.06);
-    border: 1px solid rgba(52,211,153,.15);
+    background: rgba(77,134,255,.06);
+    border: 1px solid rgba(77,134,255,.15);
     border-radius: var(--radius);
     font-size: 9pt;
     color: var(--ink-2);
@@ -400,7 +400,7 @@
     font-weight: 700;
     letter-spacing: .1em;
   }
-  .ai-status.found { background: rgba(52,211,153,.12); border: 1px solid rgba(52,211,153,.25); color: var(--green); }
+  .ai-status.found { background: rgba(77,134,255,.12); border: 1px solid rgba(77,134,255,.25); color: var(--green); }
   .ai-status.notfound { background: rgba(255,92,92,.12); border: 1px solid rgba(255,92,92,.25); color: var(--red); }
 
   /* Image container */
@@ -559,7 +559,7 @@
         </div>
       </div>
     </div>
-    <div class="verified-bar" style="margin-top:12pt;background:rgba(52,211,153,.06);border-color:rgba(52,211,153,.15);">
+    <div class="verified-bar" style="margin-top:12pt;background:rgba(77,134,255,.06);border-color:rgba(77,134,255,.15);">
       <span class="badge">✓</span>
       <span><strong>Speedrun Demo Day: April 14, 2026.</strong> 3 employees. Pre-revenue $350K → $450K ARR in under a year.</span>
     </div>
@@ -631,7 +631,7 @@
           <div class="weakness-label">⚠ Weakness 1</div>
           <div class="weakness-text"><em>"Exact revenue attribution depends on the tracking config."</em> — Hotbox admits attribution is not automatic. User must configure GA4, Tag Manager, and e-commerce tracking.</div>
           <div class="cta" style="margin-top:8pt;">
-            <div class="offer" style="border-color:rgba(52,211,153,.4);">
+            <div class="offer" style="border-color:rgba(77,134,255,.4);">
               <div class="offer-num">✓</div>
               <div class="offer-text"><strong>Plug-and-Play Attribution Pack</strong> — pre-configured GA4 + Tag Manager + Stripe templates. Zero config. Data live in 24 hours.</div>
             </div>
@@ -643,7 +643,7 @@
           <div class="weakness-label">⚠ Weakness 2</div>
           <div class="weakness-text"><em>"Team scans thousands of reactions to guess who is serious."</em> — Manual, time-consuming, guesswork onboarding.</div>
           <div class="cta" style="margin-top:8pt;">
-            <div class="offer" style="border-color:rgba(52,211,153,.4);">
+            <div class="offer" style="border-color:rgba(77,134,255,.4);">
               <div class="offer-num">✓</div>
               <div class="offer-text"><strong>Zero-Touch Onboarding</strong> — Hotbox ships with pre-validated agents. Run a live test in 4 hours, verify in 24. No engineering needed.</div>
             </div>
@@ -655,7 +655,7 @@
           <div class="weakness-label">⚠ Weakness 3</div>
           <div class="weakness-text"><em>"Generic replies make a high-energy launch feel automated."</em> — Brand voice isn't personalized. Reps sound like a robot, not a human.</div>
           <div class="cta" style="margin-top:8pt;">
-            <div class="offer" style="border-color:rgba(52,211,153,.4);">
+            <div class="offer" style="border-color:rgba(77,134,255,.4);">
               <div class="offer-num">✓</div>
               <div class="offer-text"><strong>Brand Voice Trainer</strong> — Train on product, policies, tone. Reviewable AI. Human handoff when judgment is needed.</div>
             </div>
@@ -667,7 +667,7 @@
           <div class="weakness-label">⚠ Weakness 4</div>
           <div class="weakness-text"><em>"The post sells out, but nobody knows which conversations helped."</em> — No attribution of social activity to conversions.</div>
           <div class="cta" style="margin-top:8pt;">
-            <div class="offer" style="border-color:rgba(52,211,153,.4);">
+            <div class="offer" style="border-color:rgba(77,134,255,.4);">
               <div class="offer-num">✓</div>
               <div class="offer-text"><strong>Social Provenance Report</strong> — Shows which profiles drove which orders. Full activity trail to revenue.</div>
             </div>
@@ -679,7 +679,7 @@
           <div class="weakness-label">⚠ Weakness 5</div>
           <div class="weakness-text"><em>"Starting with Instagram"</em> — Single-channel dependency. No TikTok, X, LinkedIn, or email automation.</div>
           <div class="cta" style="margin-top:8pt;">
-            <div class="offer" style="border-color:rgba(52,211,153,.4);">
+            <div class="offer" style="border-color:rgba(77,134,255,.4);">
               <div class="offer-num">✓</div>
               <div class="offer-text"><strong>Multi-Channel Expansion</strong> — Bundle TikTok, X, LinkedIn, and email into one AI sales agent. From day one, everywhere.</div>
             </div>

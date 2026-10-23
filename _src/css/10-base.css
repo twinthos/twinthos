@@ -4,17 +4,17 @@
 @font-face{font-family:"IBM Plex Serif";src:url(/assets/fonts/IBMPlexSerif-italic-400.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
 
 :root{
-  --ivory:#060807;      /* canvas: near-black */
+  --ivory:#05060A;      /* canvas: near-black */
   --ivory-2:#0B0E0C;    /* quiet band */
   --paper:#0E1210;      /* surface */
-  --ink:#ECEDE8;        /* soft white */
+  --ink:#EEF0F5;        /* soft white */
   --ink-2:#A4A9A2;      /* secondary type (8:1 on canvas) */
   --line:#212623;       /* thin separators */
   --line-2:#656C67;     /* the path */
-  --green:#1CFF8E;      /* the one emerald */
+  --green:#4D86FF;      /* the one emerald */
   --green-t:#0F3B2C;
-  --amber:#ECEDE8;      /* retired: approval is soft-white, not a colour */
-  --amber-ink:#ECEDE8;
+  --amber:#EEF0F5;      /* retired: approval is soft-white, not a colour */
+  --amber-ink:#EEF0F5;
   --amber-t:#161A17;
   --sans:"Inter Tight",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -56,7 +56,7 @@ button{font:inherit;color:inherit}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:0 26px;border-radius:999px;border:1.5px solid var(--ink);
   font-size:17px;font-weight:500;letter-spacing:-.01em;text-decoration:none;cursor:pointer;transition:background .2s,color .2s,transform .2s var(--ease)}
 .btn-ink{background:var(--ink);color:var(--ivory)}
-.btn-ink:hover{background:var(--green);border-color:var(--green);color:#04120C}
+.btn-ink:hover{background:var(--green);border-color:var(--green);color:#FFFFFF}
 .btn-line{background:transparent;color:var(--ink)}
 .btn-line:hover{background:var(--ink);color:var(--ivory)}
 .btn-sm{min-height:42px;padding:0 18px;font-size:15px}
