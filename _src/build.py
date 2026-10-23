@@ -60,6 +60,10 @@ def partial(name):
     body = open(f"{SRC}/partials/{name}.html").read()
     return re.sub(r"\{\{(\w+)\}\}", lambda x: partial(x.group(1)), body)
 
+_t2 = open(f"{OUT}/assets/t2s.css").read() + open(f"{OUT}/assets/t2s.js").read()
+_T2V = hashlib.sha1(_t2.encode()).hexdigest()[:8]
+T2S_TAG = f'<link rel="stylesheet" href="/assets/t2s.css?v={_T2V}">\n<script src="/assets/t2s.js?v={_T2V}" defer></script>'
+
 def layout(meta, body):
     title = meta["title"]; desc = meta["desc"]; path = meta["path"]; key = meta.get("nav", "")
     home = path == ""
@@ -82,6 +86,7 @@ def layout(meta, body):
     body = body.replace('<span class="ar">→</span>', ARROW)
     # home: inline the stylesheet so the hero film can paint and start on the first frame (no render-blocking request)
     css_tag = f"<style>{css}</style>" if home else f'<link rel="stylesheet" href="/assets/tw.css?v={VER}">'
+    T2S = "" if home else T2S_TAG
     return f'''<!DOCTYPE html>
 <html lang="en-GB" class="no-js">
 <head>
@@ -102,6 +107,7 @@ def layout(meta, body):
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/assets/fonts/InterTight-normal-400-700.woff2" as="font" type="font/woff2" crossorigin>
 {css_tag}
+{T2S}
 <script>document.documentElement.classList.replace('no-js','js')</script>
 <script src="/assets/tw.js?v={VER}" defer></script>
 {ld}
@@ -154,7 +160,9 @@ for name, files in groups.items():
     meta, body = read_page(files)
     dest = f"{OUT}/{meta['path']}index.html" if meta["path"] != "404" else f"{OUT}/404.html"
     os.makedirs(os.path.dirname(dest), exist_ok=True)
-    open(dest, "w").write(layout(meta, body))
+    # the homepage is owned by /root/twinthos-home-v2/build_home.py (site v2); never overwrite it here
+    if meta["path"] != "":
+        open(dest, "w").write(layout(meta, body))
     built.append(meta)
 
 REDIRECTS = {"services/": "/how-it-works/", "audit/": "/operations-audit/", "questions/": "/faq/",
