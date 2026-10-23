@@ -22,9 +22,9 @@
   'uniform float uA,uB;' +
   'varying vec4 vC;' +
   'const float TAU=6.28318530718;' +
-  'const vec3 GR=vec3(0.204,0.827,0.600);' +
-  'const vec3 IV=vec3(0.945,0.949,0.930);' +
-  'const vec3 DIM=vec3(0.115,0.360,0.280);' +
+  'const vec3 GR=vec3(0.180,0.420,1.000);' +
+  'const vec3 IV=vec3(0.878,0.945,1.000);' +
+  'const vec3 DIM=vec3(0.050,0.110,0.300);' +
   '' +
   'vec2 markP(vec4 a,float K){' +
   '  float pick=a.x*620.0; vec2 lo;' +
