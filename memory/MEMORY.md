@@ -12,12 +12,6 @@ Read these before deriving a sector, target or price — they already answer mos
 - `company/services.md`, `company/strategy-2027.md`, `memory/core-memory.md`.
 A bottom-up "gap" calculation does not override the stated floor — reconcile and say which one wins.
 §
-## UK target register (21 Oct 2026)
-/root/twinthos-brain/audit/target-register.md + .json — 114 verified UK firms, 100 with a named decision-maker, 8 sectors. shortlist-24.json = the 24 to call first; decks sent 4882/4883. Target book v2 = 52pp, msg 4887.
-probability-ranking.json: accountancy 8.1, recruitment 8.0, freight 7.7 primary; **field service and NHS-facing healthcare = DROP first markets**. archaic-prospects.json: 25 firms with cited legacy systems (mostly universities/councils = slow procurement).
-
-Market pricing (unresolved): UK band £750–£2,000/mo per role, so £5,000/mo for one role fails. Suggested: Foundation £2,950 + £950/mo, Core £4,500 + £2,400/mo. Big Four £450–£2,750/day; Tenhaw £44,000 audit. Not adopted — Tyson decides.
-§
 ## Standing mode: loop engineering
 Skill `loop-engineering`. Write a numeric pass test → attempt → verify with an independent tool → one named fix → max three iterations → report with the evidence path. Live beats local.
 Telegram: bot token (no channels); public scrape `~/twinthos-brain/scripts/telegram_scrape.py`; prospecting plays `sops/dewey-prospecting-playbook.md`. Send PDFs: `hermes send -t telegram:813848257 --json "MEDIA:/abs/path\nCaption"`. Verify payload before sending.
@@ -26,5 +20,5 @@ Git facts (30 Oct 2026): 174 commits under the user's personal git address (6 pu
 §
 Public risk (30 Oct 2026): 3 Trustpilot reviews (2.8 average) under a personal domain allege non-delivery and AI-written books, naming a book on the About page. Unresolved; keep off CV.
 §
-## CV canon (approved 30 Oct 2026)
+AI security market 2026: $1.8B growing to $17.8B by 2033 (CAGR 38.9%). Agentic AI workflow audit: $0.6B→$22.4B by 2035 (CAGR 42.9%). Gartner securing-AI: $4.8B in 2027. Key targets: Langflow/IBM (CVSS 9.9 RCE, 1,423+ exploits), Schneider Electric (60+ LangChain agents in critical infrastructure), Vodafone, monday.com, ServiceNow, CrewAI, Microsoft Agent Framework, Google ADK, Claude Code. Monetisation systems: Langflow MCP audit, LangChain/LangGraph production audit, MCP continuous monitor subscription, AI agent red-team lite, compliance-as-code for agents. Audit written to /root/twinthos-brain/audit/ai-sec-audit-2026-10-31.md.
 Approved look: monochrome applied-AI layout, two editions, both approved by the user. Black ground with white type, no accent colour: audit/tyson-mandela-cv-mono-black-a4.pdf. White ground with black type: audit/tyson-mandela-cv-mono-white-a4.pdf. A4, 2 pages, full bleed, 17pt body, name stacked at 118pt. Builder: scratch/build_cv_mono.py. Name Tyson Mandela; no deliverable names the other surname or brand handle. Books only as published under a pen name. Instagram: built to 500,000 followers and sold to Jason van Blerk, The Human Garage, late 2024 (user-stated 30 Oct 2026; restored on his instruction; no public record found; live handle @humanarchitect_ showed about 55K on 29 Oct). Working in AI since 2019 (user-stated). Skills on CV: prompt engineer (loop prompting, geometric learning, reasoning built into models), operational drag, AI automation for flow, communication in teaching. No Orgo or Nous Portal on CV; Skool allowed on CV (user, 30 Oct 2026), not in client decks. Experience dates run 2013 to 2024. No education, no phone.
