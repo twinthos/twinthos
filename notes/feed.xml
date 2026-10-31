@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
+<item>
+<title>Why AI agents need security audits before you switch them on</title>
+<link>https://twinthos.com/notes/ai-agent-security-audit/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/ai-agent-security-audit/</guid>
+<pubDate>Wed, 31 Oct 2026 10:00:00 +0000</pubDate>
+<category>Security</category>
+<description><![CDATA[A real AI agent has permissions, memory and a log. That means it also has an attack surface. Here is what to check before it goes live.]]></description>
+</item>
+<item>
+<title>The MCP security gap most vendors won't mention</title>
+<link>https://twinthos.com/notes/mcp-security-gap/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/mcp-security-gap/</guid>
+<pubDate>Wed, 31 Oct 2026 10:00:00 +0000</pubDate>
+<category>Security</category>
+<description><![CDATA[MCP servers connect AI agents to your data. Most vendors treat them as plumbing. They are not. Here is the risk and what to do about it.]]></description>
+</item>
+<item>
+<title>How to tell if your AI agent is being used against you</title>
+<link>https://twinthos.com/notes/ai-agent-being-used-against-you/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/ai-agent-being-used-against-you/</guid>
+<pubDate>Wed, 31 Oct 2026 10:00:00 +0000</pubDate>
+<category>Security</category>
+<description><![CDATA[Prompt injection, data exfiltration and agent collusion are not science fiction. Here is what they look like in practice, and how to spot them.]]></description>
+</item>
+<item>
+<title>AI security audit checklist: 10 things to verify before your agent goes live</title>
+<link>https://twinthos.com/notes/ai-security-audit-checklist/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/ai-security-audit-checklist/</guid>
+<pubDate>Wed, 31 Oct 2026 10:00:00 +0000</pubDate>
+<category>Security</category>
+<description><![CDATA[A practical checklist for securing AI agents before deployment. Covers permissions, logging, MCP config, prompt injection, CISA KEV, EPSS and more.]]></description>
+</item>
+<item>
+<title>What the Langflow CVSS 9.9 exploit teaches us about AI agent security</title>
+<link>https://twinthos.com/notes/langflow-cvss-exploit/</link>
+<guid isPermaLink="true">https://twinthos.com/notes/langflow-cvss-exploit/</guid>
+<pubDate>Wed, 31 Oct 2026 10:00:00 +0000</pubDate>
+<category>Security</category>
+<description><![CDATA[Langflow's MCP stdio transport had a CVSS 9.9 RCE flaw. Here is what happened, what it means for AI agents, and how to prevent it in your stack.]]></description>
+</item>
 <title>Twinthos Notes</title>
 <link>https://twinthos.com/notes/</link>
 <description>Plain-English, sourced writing about what AI actually does to a small business: the job, the money, the record, and who answers for it.</description>

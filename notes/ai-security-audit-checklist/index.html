@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI security audit checklist: 10 things to verify before your agent goes live | Twinthos</title>
+<meta name="description" content="A practical checklist for securing AI agents before deployment. Covers permissions, logging, MCP config, prompt injection, CISA KEV, EPSS and more.">
+<link rel="canonical" href="https://twinthos.com/notes/ai-security-audit-checklist/">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#05060A">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="Twinthos Notes" href="/notes/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Twinthos">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://twinthos.com/notes/ai-security-audit-checklist/">
+<meta property="og:title" content="AI security audit checklist: 10 things to verify before your agent goes live | Twinthos">
+<meta property="og:description" content="A practical checklist for securing AI agents before deployment. Covers permissions, logging, MCP config, prompt injection, CISA KEV, EPSS and more.">
+<meta property="og:image" content="https://twinthos.com/assets/notes-img/og-ai-security-audit-checklist-h.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A printed checklist on a desk with a laptop, a coffee cup and a pen.">
+<meta property="article:published_time" content="2026-10-31T09:00:00+00:00">
+<meta property="article:modified_time" content="2026-10-31T09:00:00+00:00">
+<meta property="article:section" content="Security">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI security audit checklist: 10 things to verify before your agent goes live | Twinthos">
+<meta name="twitter:description" content="A practical checklist for securing AI agents before deployment. Covers permissions, logging, MCP config, prompt injection, CISA KEV, EPSS and more.">
+<meta name="twitter:image" content="https://twinthos.com/assets/notes-img/og-ai-security-audit-checklist-h.jpg">
+<link rel="preload" href="/assets/fonts/InterTight-normal-400-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/tw.css?v=5b395014b">
+<link rel="stylesheet" href="/assets/notes.css?v=n4">
+<link rel="stylesheet" href="/assets/t2s.css?v=9d7f7137">
+<script src="/assets/t2s.js?v=9d7f7137" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://twinthos.com/notes/ai-security-audit-checklist/#article","headline":"AI security audit checklist: 10 things to verify before your agent goes live","description":"A practical checklist for securing AI agents before deployment. Covers permissions, logging, MCP config, prompt injection, CISA KEV, EPSS and more.","datePublished":"2026-10-31","dateModified":"2026-10-31","inLanguage":"en-GB","author":{"@type":"Organization","name":"Twinthos Research","url":"https://twinthos.com/about/"},"publisher":{"@id":"https://twinthos.com/#org"},"mainEntityOfPage":{"@id":"https://twinthos.com/notes/ai-security-audit-checklist/#webpage"},"image":{"@type":"ImageObject","url":"https://twinthos.com/assets/notes-img/og-ai-security-audit-checklist-h.jpg","width":1200,"height":630}},{"@type":"Organization","@id":"https://twinthos.com/#org","name":"Twinthos","url":"https://twinthos.com/","description":"Twinthos is a managed digital-employee company. A digital employee does one named job inside the software a business already runs, with memory, permissions, an audit trail and a named human who signs off consequential actions."},{"@type":"BreadcrumbList","@id":"https://twinthos.com/notes/ai-security-audit-checklist/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Twinthos","item":"https://twinthos.com/"},{"@type":"ListItem","position":2,"name":"Notes","item":"https://twinthos.com/notes/"},{"@type":"ListItem","position":3,"name":"AI security audit checklist: 10 things to verify before your agent goes live","item":"https://twinthos.com/notes/ai-security-audit-checklist/"}]}]}</script>
+</head>
+<body class="notes">
+<main><article>
+<header class="nx-hero"><div class="wrap">
+<p class="nx-meta"><a href="/notes/">Notes</a> <span>/</span> <span>Security</span> <span>/</span> <span>Plain English</span></p>
+<h1>AI security audit checklist: 10 things to verify before your agent goes live</h1>
+<p class="nx-dek">A practical checklist for securing AI agents before deployment. Covers permissions, logging, MCP config, prompt injection, CISA KEV, EPSS and more.</p>
+<div class="nx-byline">
+<span><b>Twinthos Research</b></span>
+<span class="nx-byline-role">Security</span>
+<span class="nx-byline-stat"><span class="nx-byline-read">6 min read</span> <span class="nx-byline-words">1,024 words</span></span>
+<span><b><time datetime="2026-10-31">2026-10-31</time></b></span>
+<span>Updated 31 October 2026</span>
+</div>
+<figure class="nx-fig"><picture>
+<source type="image/webp" srcset="/assets/notes-img/ai-security-audit-checklist-h-800.webp 800w, /assets/notes-img/ai-security-audit-checklist-h-1600.webp 1600w" sizes="(max-width:900px) 100vw, 900px">
+<img src="/assets/notes-img/ai-security-audit-checklist-h-1600.jpg" srcset="/assets/notes-img/ai-security-audit-checklist-h-800.jpg 800w, /assets/notes-img/ai-security-audit-checklist-h-1600.jpg 1600w" sizes="(max-width:900px) 100vw, 900px" width="1600" height="900" alt="A printed checklist on a desk with a laptop, a coffee cup and a pen." fetchpriority="high">
+</picture><figcaption>The ten checks that separate a working agent from a compromised one.</figcaption></figure>
+</div></header>
+<div class="wrap nx-layout">
+<aside class="nx-toc"><p>On this page</p><ol>
+<li><a href="#the-short-answer">The short answer</a></li>
+<li><a href="#the-checklist">The checklist</a></li>
+<li><a href="#how-to-use-this">How to use this</a></li>
+<li><a href="#the-tool-that-makes-it-easier">The tool that makes it easier</a></li>
+<li><a href="#what-this-means-for-you">What this means for you</a></li>
+</ol></aside>
+<div class="nx-article">
+<section class="nx-take"><h2>The short answer</h2>
+<p><b>Before you switch on an AI agent, verify these ten things: permissions, logging, failure mode, data residency, MCP config, prompt injection tests, CISA KEV status, EPSS score, lockfile health, and incident response. Each check takes minutes. Together they take an afternoon. That afternoon is cheaper than the breach you prevent.</b></p>
+</section>
+<h2 id="the-short-answer">The short answer</h2>
+<p>Before you switch on an AI agent, verify these ten things: permissions, logging, failure mode, data residency, MCP config, prompt injection tests, CISA KEV status, EPSS score, lockfile health, and incident response. Each check takes minutes. Together they take an afternoon. That afternoon is cheaper than the breach you prevent.</p>
+<h2 id="the-checklist">The checklist</h2>
+<div class="nx-table"><table><thead><tr><th>#</th><th>Check</th><th>What good looks like</th></tr></thead><tbody>
+<tr><td>1</td><td>Permissions</td><td>Least privilege. The agent can only touch the systems it needs, and nothing else.</td></tr>
+<tr><td>2</td><td>Logging</td><td>Every action is recorded, timestamped and readable by a human.</td></tr>
+<tr><td>3</td><td>Failure mode</td><td>You can show what happens when the agent hits an error, and you can stop it.</td></tr>
+<tr><td>4</td><td>Data residency</td><td>You know where the agent's memory lives, and it is in a jurisdiction you trust.</td></tr>
+<tr><td>5</td><td>MCP config</td><td>Every MCP server is reviewed, versioned and monitored for drift.</td></tr>
+<tr><td>6</td><td>Prompt injection tests</td><td>The agent has been tested against known injection patterns and has a recovery plan.</td></tr>
+<tr><td>7</td><td>CISA KEV status</td><td>No actively exploited CVEs in the agent's stack or dependencies.</td></tr>
+<tr><td>8</td><td>EPSS score</td><td>High-probability CVEs (EPSS >= 0.7) are patched or mitigated before go-live.</td></tr>
+<tr><td>9</td><td>Lockfile health</td><td>requirements.txt or equivalent is scanned for known vulnerable versions.</td></tr>
+<tr><td>10</td><td>Incident response</td><td>You have a named person, a runbook, and a tested way to stop the agent.</td></tr>
+</tbody></table></div>
+<h2 id="how-to-use-this">How to use this</h2>
+<p>Print the checklist. Walk through it with the vendor or the engineering team. Mark each item as pass, fail or not applicable. The fails are your risk register. The not applicables are your assumptions.</p>
+<p>Do this before go-live, not after the first incident. The first incident is when you find out your logs are empty, your permissions are broad, and your incident response plan is a group chat.</p>
+<p>The checklist is also useful for vendor evaluation. Send it to every agent vendor you are considering. Their answers tell you more than their demo. A vendor who cannot answer item one, permissions, is telling you they have not thought about security. A vendor who cannot answer item ten, incident response, is telling you they hope nothing goes wrong.</p>
+<p>Hope is not a security strategy. A checklist is.</p>
+<h2 id="the-tool-that-makes-it-easier">The tool that makes it easier</h2>
+<p>Twinthos built the AI Security Sentinel to automate checks seven, eight and nine. It is a single Python script that monitors the NVD feed for AI-related CVEs, enriches them with CISA KEV and EPSS scores, and scans your lockfile for known vulnerable versions.</p>
+<p>The Sentinel is open source. The repository is at github.com/twinthos/ai-sec-sentinel. It runs on any machine with Python 3.9 or later. It needs no API keys. It sends Telegram alerts. It is the kind of tool a security team can run in an afternoon.</p>
+<p>For checks one through six and ten, Twinthos runs the Operations Audit. It is a GBP 999 one-off review that covers permissions, logging, failure modes, MCP config, prompt injection tests and incident response. The output is a plain-English report with findings ranked by severity.</p>
+<h2 id="what-this-means-for-you">What this means for you</h2>
+<p>If you are buying an AI agent, ask the vendor to walk through this checklist with you. If they cannot, ask what they check instead. If they cannot answer that, you are buying a demo.</p>
+<p>If you are building an agent, run the checklist yourself before it touches production. The ten checks take an afternoon. The breach they prevent takes three months to contain.</p>
+<p>The email to talk to Twinthos about either the Sentinel or the Operations Audit is twinthos@agentmail.to.</p>
+<p class="small">Sources: CISA Known Exploited Vulnerabilities catalog, FIRST EPSS, NVD feed, IBM Cost of a Data Breach Report 2024, Twinthos AI Security Sentinel v1.1.0, Twinthos Operations Audit methodology.</p>
+<section><h2 id="faq">Questions people actually ask</h2>
+<div class="nx-faq">
+<details><summary>How long does the audit take?</summary>
+<div class="nx-faq-body">
+<p>The checklist itself takes an afternoon. The Twinthos Operations Audit takes three to five business days, depending on the complexity of the agent stack. The report is delivered as a PDF with findings ranked by severity and a remediation plan.</p>
+</div></details>
+<details><summary>Do I need technical skills to run the Sentinel?</summary>
+<div class="nx-faq-body">
+<p>Basic Python comfort is enough. The Sentinel is a single script with a JSON config file. If you can run python3 ai_sec_sentinel.py --stats, you can run the Sentinel. The output is plain text, and the alerts are sent to Telegram.</p>
+</div></details>
+<details><summary>What if my agent stack changes?</summary>
+<div class="nx-faq-body">
+<p>Re-run the checklist. The ten items are designed to be fast. If you add a new MCP server, check items four and five. If you upgrade the model, check items six and seven. If you change permissions, check item one. The checklist is meant to be iterative, not a one-time event.</p>
+</div></details>
+</div></section>
+</div></div>
+</article></main>
+<footer class="foot"><div class="wrap"><div class="foot-grid">
+<div class="foot-brand"><a class="brand" href="/" aria-label="Twinthos home"><svg viewBox="8 8 48 48" aria-hidden="true"><path fill="currentColor" d="M11 12H30.75V52H26V20H11ZM33.25 12H53V20H38V52H33.25Z"/></svg><span>Twinthos</span></a><p class="foot-line">Work handled. Time returned.</p></div>
+<div><h2 class="foot-h">Service</h2><ul>
+<li><a href="/how-it-works/">How it works</a></li>
+<li><a href="/workforce/">Workforce</a></li>
+<li><a href="/pricing/">Pricing</a></li>
+<li><a href="/operations-audit/">Operations audit</a></li>
+</ul></div>
+<div><h2 class="foot-h">Notes</h2><ul>
+<li><a href="/notes/">All articles</a></li>
+<li><a href="/notes/#desk-start">Start here</a></li>
+<li><a href="/notes/#desk-costs">What it costs</a></li>
+<li><a href="/notes/#desk-now">What is happening</a></li>
+<li><a href="/notes/feed.xml">RSS feed</a></li>
+</ul></div>
+</div></div></footer>
+</body>
+</html>
