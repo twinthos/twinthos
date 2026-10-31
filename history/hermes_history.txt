@@ -20386,3 +20386,18 @@
 
 # 2026-10-31 19:12:54.102125
 +-  MOBILE AND LAPTOP VIEW LAYOUT ERRROS FIX TEX
+
+# 2026-10-31 19:44:40.891351
++STILL LONG TEXT IN HERP SECTION -- 
++We get 10 hours of admin back a week."
++
++? Sarah Chen, Operations Director, Meridian Property Group
++"Invoice chase went from 3 days to 4 hours. The team actually enjoys Friday now."
++
++? James O'Brien, MD, O'Brien Recruitment
++"It books visits, answers first enquiries and chases late payments. We just review the exceptions."
++
++? Amanda Foster, Partner, Foster & Co Accountants LAYOUT  WRONG
+
+# 2026-10-31 19:55:26.782331
++STILLL NOT RIGHT LAYOUT OF THE TEXT FOR LAPTOP OR MOBILE FIX . U DIDNT FIX IT
