@@ -20262,3 +20262,118 @@
 
 # 2026-10-31 17:26:36.158870
 +OK DEEP AUDIT MY WEBISTE NOT SWARM AGENTS FULL POWER .
+
+# 2026-10-31 17:39:37.730090
++INSTALLING QWNRN IS TO MUCH DLETE IT LOCAL MODEL THAT I STARTED DOWNLAODING AS ITS TAKING UP SPACE . 
+
+# 2026-10-31 18:04:38.444656
++## HOMEPAGE CHANGES
++
++1. Add 3 named client quotes below the hero section:
++   - Name, role, company, 1-line result
++   - Example: "We get 10 hours of admin back a week." ? Name, Role, Company
++
++2. Add a 90-second product video above the industries section:
++   - Show the inbox, calendar booking, invoice chase in real time
++   - Add a play button overlay to the phone mockup
++
++3. Fix the clock comparison:
++   - Make it a working scroll animation, not static "Tue 09:14 Waiting to start" text
++   - If it can't be fixed, replace with a single sentence: "An admin waits until 9am. Twinthos answers at 09:14:00."
++
++4. Move the audit offer to the primary CTA:
++   - Change "Book a discovery call" to "£999 operations audit ? credited if you proceed"
++   - Keep the secondary CTA as "See it work"
++
++5. Add an ROI sentence under the £3,500 price:
++   - "UK owners spend 11 hours a week on admin. At your hourly rate, that's £X/month. Twinthos: £3,500."
++
++---
++
++## NOTES / BLOG CHANGES
++
++6. Add an email signup form at the bottom of every Notes article:
++   - Headline: "One article a week. No spam."
++   - Input: email address
++   - Button: "Subscribe"
++   - Link to /notes/feed.xml as alternative
++
++7. Add author/editor credit to each article:
++   - "Twinthos Research" is vague. Add: "By [Name], [Credential] ? reviewed by [Name], [Credential]"
++   - Or at minimum: "Edited by [Name], [Role]"
++
++8. Add a "Most shared" or "Start here" box at the top of /notes/:
++   - Pin these 3 articles: "53% of small firms already let AI cover a full job", "Why most AI projects fail before they start", "What an AI employee really costs per hour"
++
++9. Remove the duplicate "What this means for you" section at the bottom of articles:
++   - Currently appears twice on some pages (e.g., digital-employee-cost/)
++
++10. Add tweet/quote buttons to article one-liners:
++    - The "short answer" paragraphs are already tweetable
++    - Add a "Share" icon next to each "The short answer" block
++
++---
++
++## PRICING PAGE CHANGES
++
++11. Move the audit credit to the top of the pricing section:
++    - "£999 one-off ? credited in full against your first month if you proceed within 30 days"
++    - Currently buried under the bullet list
++
++12. Add a 3-month cost comparison table:
++    - 1 admin (£35,000 loaded) vs Twinthos (£10,500 minimum term)
++    - Show what you get back: hours, coverage, tools included
++
++13. Add a "What happens next" timeline after pricing:
++    - Week 1: audit
++    - Week 2: scope and setup
++    - Week 3: live
++    - Week 4+: monitoring and improvement
++
++---
++
++## NEW PAGES TO ADD
++
++14. /case-studies/ ? 3 case studies, 150 words each:
++    - Name, role, company, bottleneck, result, hours recovered
++    - Format: problem ? what Twinthos took on ? what the team got back
++
++15. /calculator/ ? ROI calculator:
++    - Input: team size, admin hours per week, hourly rate
++    - Output: annual admin cost, Twinthos cost, hours recovered
++    - Add a "Book an audit" CTA below the result
++
++---
++
++## CONTENT CHANGES
++
++16. Rewrite the FAQ section:
++    - Replace questions with actual owner quotes: "What owners say"
++    - Keep the honest answers but frame them as testimonials
++
++17. Add a "How it works" video page at /demos/:
++    - Currently just a link. Add a 90-second video and a 30-second clip for social
++
++18. Add LinkedIn/X share images for Notes articles:
++    - 1200x630 images with the article headline and twinthos.com/notes/[slug]
++    - One per article, stored in /assets/
++
++---
++
++## TECHNICAL FIXES
++
++19. Fix the homepage clock animation or replace with a static alternative
++20. Add structured data (Schema.org) to Notes articles for better SEO
++21. Add Open Graph tags to all pages for social sharing
++22. Add a favicon that shows on Notes article tabs (currently may be missing)
++
++---
++
++## PRIORITY ORDER
++
++Week 1: 1, 4, 6, 11, 14
++Week 2: 2, 3, 7, 12, 15
++Week 3: 5, 8, 9, 13, 16
++Week 4: 10, 17, 18, 19, 20, 21, 22
++
++Want me to write the case studies, draft the new articles, or build the calculator first?
