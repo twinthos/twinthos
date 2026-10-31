@@ -166,3 +166,18 @@ Unlike cve.now (generic noise), Lakera Guard (SaaS-only), or Snyk (no AI-specifi
 ---
 
 *Report generated 2026-10-31. Sources: The Hacker News, SecurityWeek, Cequence, Cloudflare, OpenAI disclosures, Anthropic disclosures, Chainalysis, CERT-In, CrowdStrike, NetFoundry, Google Cloud Threat Intelligence.*
+
+---
+
+## 10. Additional Learning: Smart Appliances / IoT Attack Surface
+*Date: 31 Oct 2026. Source: Noah Ryan (@NoahRyanCo) tweet: "When I was in cybersecurity the number one rule was NO SMART APPLIANCES."*
+
+| Principle | Application to Sentinel |
+|-----------|------------------------|
+| Smart appliances = untrusted network endpoints | AI agents running on or controlling smart devices inherit their vulnerabilities |
+| IoT = massive, poorly secured attack surface | Sentinel should flag CVEs against smart appliance / IoT firmware that could compromise AI-enabled systems |
+| "No smart appliances" = air-gap principle | For high-security AI deployments, recommend network segmentation for AI agent hosts vs IoT devices |
+
+**Action:** Added "smart appliance", "IoT security", "internet of things", "smart device", "connected device", "IoT vulnerability", "smart home", "industrial IoT", "IIoT" to sentinel keyword lists.
+
+**Positioning update:** Sentinel is not just "AI security" — it is **"continuous threat intelligence for the stack you actually run"**, including the smart devices and IoT that attackers will use to reach your AI agents.

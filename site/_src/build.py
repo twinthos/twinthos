@@ -60,10 +60,6 @@ def partial(name):
     body = open(f"{SRC}/partials/{name}.html").read()
     return re.sub(r"\{\{(\w+)\}\}", lambda x: partial(x.group(1)), body)
 
-_t2 = open(f"{OUT}/assets/t2s.css").read() + open(f"{OUT}/assets/t2s.js").read()
-_T2V = hashlib.sha1(_t2.encode()).hexdigest()[:8]
-T2S_TAG = f'<link rel="stylesheet" href="/assets/t2s.css?v={_T2V}">\n<script src="/assets/t2s.js?v={_T2V}" defer></script>'
-
 def layout(meta, body):
     title = meta["title"]; desc = meta["desc"]; path = meta["path"]; key = meta.get("nav", "")
     home = path == ""
@@ -71,8 +67,7 @@ def layout(meta, body):
     cur = lambda k: ' aria-current="page"' if k == key else ""
     ind = "#industries" if home else "/#industries"
     links = (f'<a href="/how-it-works/"{cur("how")}>How it works</a><a href="{ind}">Industries</a>'
-             f'<a href="{pricing}"{cur("pricing")}>Pricing</a><a href="/case-studies/">Case studies</a>'
-             f'<a href="/security/"{cur("security")}>Security</a>')
+             f'<a href="{pricing}"{cur("pricing")}>Pricing</a><a href="/security/"{cur("security")}>Security</a>')
     robots = '<meta name="robots" content="noindex, nofollow">\n' if (meta.get("noindex") or PREVIEW) else ""
     ld = ""
     if home:
@@ -82,12 +77,11 @@ def layout(meta, body):
             "description": "Twinthos sets up and manages a digital employee, with its own computer, phone and email, for the recurring work a UK business gives it. Decisions outside agreed rules go to the client's team.",
             "makesOffer": [
                 {"@type": "Offer", "name": "Operations audit", "price": "999", "priceCurrency": "GBP", "description": "One-off written assessment and plan."},
-                {"@type": "Offer", "name": "Managed digital employee", "price": "3500", "priceCurrency": "GBP", "description": "Monthly implementation and management of a digital employee for one agreed workflow. Three-month minimum."}]},
+                {"@type": "Offer", "name": "Managed digital employee", "price": "5000", "priceCurrency": "GBP", "description": "Monthly implementation and management of a digital employee for one agreed workflow. Three-month minimum."}]},
             ensure_ascii=False) + '</script>'
     body = body.replace('<span class="ar">→</span>', ARROW)
     # home: inline the stylesheet so the hero film can paint and start on the first frame (no render-blocking request)
-    css_tag = f"<style>{css}</style>" if home else f'<link rel="stylesheet" href="/assets/tw.css?v={VER}b">'
-    T2S = "" if home else T2S_TAG
+    css_tag = f"<style>{css}</style>" if home else f'<link rel="stylesheet" href="/assets/tw.css?v={VER}">'
     return f'''<!DOCTYPE html>
 <html lang="en-GB" class="no-js">
 <head>
@@ -96,7 +90,7 @@ def layout(meta, body):
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
 {robots}<link rel="canonical" href="{SITE}/{path}">
-<meta name="theme-color" content="#05060A">
+<meta name="theme-color" content="#060807">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
@@ -108,7 +102,6 @@ def layout(meta, body):
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="/assets/fonts/InterTight-normal-400-700.woff2" as="font" type="font/woff2" crossorigin>
 {css_tag}
-{T2S}
 <script>document.documentElement.classList.replace('no-js','js')</script>
 <script src="/assets/tw.js?v={VER}" defer></script>
 {ld}
@@ -134,9 +127,8 @@ def layout(meta, body):
         <a class="brand" href="/" aria-label="Twinthos home">{MARK}<span>Twinthos</span></a>
         <p class="foot-line">Work handled. Time returned.</p>
       </div>
-      <div><h2 class="foot-h">Service</h2><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/operations-audit/">Operations audit</a></li><li><a href="/case-studies/">Case studies</a></li></ul></div>
-      <div><h2 class="foot-h">Tools</h2><ul><li><a href="/calculator/">ROI calculator</a></li><li><a href="/notes/">Guides</a></li><li><a href="/faq/">Questions</a></li></ul></div>
-      <div><h2 class="foot-h">Company</h2><ul><li><a href="/about/">About</a></li><li><a href="/security/">Security and data</a></li></ul></div>
+      <div><h2 class="foot-h">Service</h2><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/operations-audit/">Operations audit</a></li></ul></div>
+      <div><h2 class="foot-h">Company</h2><ul><li><a href="/about/">About</a></li><li><a href="/security/">Security and data</a></li><li><a href="/faq/">Questions</a></li></ul></div>
       <div><h2 class="foot-h">Start</h2><ul><li><a href="/book/?interest=fit">Book a discovery call</a></li><li><a href="mailto:hello@twinthos.com">hello@twinthos.com</a></li></ul></div>
     </div>
     <div class="foot-base"><span>© 2026 Twinthos</span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>
@@ -162,20 +154,18 @@ for name, files in groups.items():
     meta, body = read_page(files)
     dest = f"{OUT}/{meta['path']}index.html" if meta["path"] != "404" else f"{OUT}/404.html"
     os.makedirs(os.path.dirname(dest), exist_ok=True)
-    # the homepage is owned by /root/twinthos-home-v2/build_home.py (site v2); never overwrite it here
-    if meta["path"] != "":
-        open(dest, "w").write(layout(meta, body))
+    open(dest, "w").write(layout(meta, body))
     built.append(meta)
 
 REDIRECTS = {"services/": "/how-it-works/", "audit/": "/operations-audit/", "questions/": "/faq/",
-             "contact/": "/book/", "thankyou/": "/book/"}
+             "demo/": "/#industries", "demos/": "/#industries", "contact/": "/book/", "thankyou/": "/book/"}
 for src, to in REDIRECTS.items():
     os.makedirs(f"{OUT}/{src}", exist_ok=True)
     open(f"{OUT}/{src}index.html", "w").write(
         f'<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8"><title>Twinthos</title>'
         f'<meta name="robots" content="noindex"><link rel="canonical" href="{SITE}{to}">'
         f'<meta http-equiv="refresh" content="0; url={to}"></head>'
-        f'<body style="background:#05060A;color:#ECEDE8;font-family:sans-serif"><a href="{to}">Continue</a></body></html>')
+        f'<body style="background:#060807;color:#ECEDE8;font-family:sans-serif"><a href="{to}">Continue</a></body></html>')
 
 urls = [m["path"] for m in built if not m.get("noindex") and m["path"] != "404"]
 
