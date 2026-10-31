@@ -23,3 +23,5 @@ AI security market 2026: $1.8B→$17.8B by 2033 (CAGR 38.9%); agentic AI workflo
 cvedotnow tweet learning (2026-10-31): High-engagement CVE format = severity emoji + product + CVE ID + mechanism + patch versions. Generic infra CVEs matter when they hit AI workloads. Sentinel updated with two-tier keyword filter: AI infrastructure keywords only flag when combined with AI keywords in same entry.
 §
 Audit quality signal (@CloakdDev, Oct 2026): "154 audit findings is crazy high" = rushed, low-quality work. Market trusts 3-5 focused exploitable paths over sprawling lists. Twinthos positioning: surface only AI/agent/MCP-relevant findings, prioritize by CISA KEV+EPSS, smallest effective fix, avoid old-code padding.
+§
+Twinthos Sentinel v1.2.0: repositioned from "AI Security Sentinel" to "Twinthos Sentinel" — continuous threat intelligence for organizations. AI-first, not AI-only. New files: news_scanner.py. New features: supplier watch, Telegram inline buttons (👍 Useful / 👎 Ignore), offline lockfile fallback, webhook server (--webhook-port). Config additions: suppliers[], news{}. Commit 210c34c pushed to github.com/twinthos/ai-sec-sentinel master.
