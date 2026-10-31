@@ -30,6 +30,32 @@ Twinthos proposes a [3-day / 5-day / 2-day] engagement to audit your AI agent st
 
 ---
 
+## Cost of Inaction: The Decision Hypothesis
+
+**The question is not whether your AI agent stack is vulnerable. The question is what it costs you when — not if — that vulnerability is exploited.**
+
+### The math for [Client]
+
+| Scenario | Estimated cost |
+|----------|----------------|
+| **Data breach via agent RCE** — attacker uses unpatched CVE to access production systems, customer data, or cloud credentials | £500,000–£5,000,000 |
+| **Regulatory fine** — NIS2, GDPR, DORA, or ISO 42001 non-compliance discovered post-incident | £200,000–£10,000,000 |
+| **Operational disruption** — agent workflows halted for forensic investigation and remediation | £50,000–£500,000 |
+| **Intellectual property loss** — proprietary agent configs, prompts, or workflows exfiltrated | Unquantifiable |
+| **Reputational damage** — customer trust destroyed, churn, brand impact | Long-term revenue loss |
+
+**The audit costs £8,000–£25,000. A single breach starts at £500,000.**
+
+**Hypothesis:** [Client] runs AI agents with production permissions, reads internal documents, and holds API keys. Given that 99.9% of fixable AI vulnerabilities remain unpatched (Orca Security, July 2026) and you have [N] agents in [production / development], the expected value of inaction is massively negative. This audit is the cheapest insurance policy you will ever buy.
+
+**What changes with this audit:**
+- You know exactly which CVEs affect YOUR stack, not a generic list
+- You have a verified remediation path sized to your risk appetite
+- You can show your board/CISO a dated technical report with CISA KEV + EPSS + exploit evidence
+- You stop hoping and start knowing
+
+---
+
 ## 2. Scope of Work
 
 ### In Scope

@@ -12,6 +12,8 @@ CrewAI has **nine CVEs in 2026**, including an **unpatched zero-day** (CVE-2026-
 
 If your organisation runs CrewAI in production — especially with Code Interpreter, RAG tools, or agent configs loaded from repositories — you are running unpatched critical vulnerabilities.
 
+**Twinthos audit approach:** We surface only exploitable, AI-relevant findings. This report contains 6 focused findings, not 154 noise items. Every finding includes CISA KEV status, EPSS score, and the smallest effective fix.
+
 ---
 
 ## Finding 1: Unpatched Zero-Day — Unsafe Reflection RCE
@@ -146,6 +148,32 @@ Standard `pip install crewai` pulls all of these. A standard deployment inherits
 1. **Deploy continuous dependency monitoring.** CrewAI's GHSA is empty — use external feeds (CISA KEV, NVD, sentinel).
 2. **Conduct prompt injection testing** against all CrewAI workflows.
 3. **Review multi-tenant isolation** if you run CrewAI as a platform.
+
+---
+
+## Cost of Inaction: What This Vulnerability Actually Costs You
+
+**The vulnerability is confirmed. No patch exists. The question is not if — it's when and how much it costs you.**
+
+### If you do nothing
+
+| Scenario | Likely cost |
+|----------|-------------|
+| **RCE via agent loading** — attacker achieves code execution by loading a malicious agent config | £500K–£5M (breach + incident response) |
+| **Sandbox escape** — Docker fallback gives attacker full host access | £100K–£2M (downtime + recovery) |
+| **SSRF via RAG tools** — attacker scans internal network, accesses cloud metadata endpoints | £200K–£10M (regulatory + data exfiltration) |
+| **Path traversal** — attacker writes files anywhere on the system via prompt injection | £50K–£500K (data loss + operational disruption) |
+| **Compliance failure** — NIS2, SOC 2, ISO 27001 audit discovers unpatched critical CVEs | £100K–£1M (remediation + certification loss) |
+
+**The audit costs £8,000. A single breach starts at £500,000.**
+
+**Hypothesis:** If your team loads agent configurations from repositories, runs CrewAI Code Interpreter, or uses RAG tools with external URLs, you are one malicious config away from full system compromise. The 11-month vendor silence means you cannot rely on a patch — you need controls now.
+
+**What changes with this audit:**
+- You know which agent configs are trusted and which are unverified
+- You have a sandbox policy that cannot be bypassed by ctypes or Docker fallback
+- You can show your board/CISO a dated technical report with ZDI advisory cross-reference
+- You stop hoping and start knowing
 
 ---
 

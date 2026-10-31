@@ -185,6 +185,32 @@ Every finding above is sourced to:
 
 ---
 
+## Cost of Inaction: What These Vulnerabilities Actually Cost You
+
+**These are not theoretical. Each unpatched vulnerability below has a confirmed exploitation path or public exploit code.**
+
+### If you do nothing
+
+| Scenario | Likely cost |
+|----------|-------------|
+| **Full system compromise via unpatched RCE** — DB-GPT, CrewAI, Context7 MCP all have unpatched critical CVEs | £500K–£5M (breach + incident response) |
+| **State-actor access** — Storm-0940 reaches privileged cloud in <3 hours | £2M–£50M (IP theft + regulatory + reputational) |
+| **Supply chain compromise** — malicious PyPI packages, poisoned MCP skills, backdoored dependencies | £1M–£10M (downstream customer impact + brand damage) |
+| **Regulatory action** — NIS2, GDPR, DORA, ISO 42001 non-compliance discovered post-incident | £200K–£10M (fines + mandatory audits + certification loss) |
+| **Operational disruption** — agent workflows halted for forensic investigation | £50K–£500K (lost productivity + incident response) |
+
+**The audit starts at £8,000. A single breach starts at £500,000.**
+
+**Hypothesis:** If your organisation runs ANY AI agent framework (LangChain, CrewAI, Langflow, AutoGen, MCP servers), the expected value of doing nothing is massively negative. The 99.9% unpatched rate means you are the norm, not the exception. Attackers know this.
+
+**What changes with an audit:**
+- You know exactly which CVEs affect YOUR stack, not a generic list
+- You have a verified remediation path sized to your risk appetite
+- You can show your board/CISO a dated technical report with CISA KEV + EPSS + exploit evidence
+- You stop hoping and start knowing
+
+---
+
 ## What This Means for Twinthos Monetisation
 
 ### Immediate Audit Targets (This Week)
@@ -216,3 +242,15 @@ cvedotnow tweet (Oct 30, 2026) on CVE-2026-116366 (ClickHouse RCE):
 - Tier 2: AI infrastructure keyword (clickhouse, qdrant, pinecone, redis, elasticsearch, etc.) → only flag if AI keyword ALSO present in same entry
 
 This catches "ClickHouse RCE in AI pipeline" without flagging every generic database CVE.
+
+**Audit quality signal from @CloakdDev (Oct 2026):**
+- "One word - Rushed. 154 audit findings is crazy high & even after fixes does not guarantee no side effects from the changes made."
+- "Most findings in old code sadly"
+- **Learning:** High-volume audit reports signal low-quality, rushed work. The market trusts focused findings over sprawling lists. Twinthos positioning: "3-5 exploitable paths, not 154 noise items." This differentiates from commodity auditors who maximize billable hours by surface-area.
+
+**Twinthos audit philosophy (from this signal):**
+- Surface only AI/agent/MCP-relevant findings
+- Prioritize by CISA KEV + EPSS + exploitability
+- Provide smallest effective fix, not rewrites
+- Test fixes for side effects before declaring remediation
+- Avoid padding with old-code findings that aren't in scope

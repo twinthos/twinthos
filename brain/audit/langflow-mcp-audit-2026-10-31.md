@@ -12,6 +12,8 @@ Langflow, owned by IBM, has a **CVSS 9.9 remote code execution vulnerability** (
 
 If your organisation runs Langflow with MCP servers enabled — even internally — you are exposed.
 
+**Twinthos audit approach:** We surface only exploitable, AI-relevant findings. This report contains 4 focused findings, not 154 noise items. Every finding includes CISA KEV status, EPSS score, and the smallest effective fix.
+
 ---
 
 ## Finding 1: Unauthenticated RCE via MCP Stdio Transport
@@ -91,6 +93,32 @@ If your deployment uses default dependencies, you inherit all of these. The sent
    - Anomalous tool call patterns (exfiltration paths)
 2. **Conduct prompt injection testing** against all Langflow flows with MCP tools enabled.
 3. **Review Langflow upgrade path** to patched versions. Check IBM security advisories weekly.
+
+---
+
+## Cost of Inaction: What This Vulnerability Actually Costs You
+
+**The vulnerability is confirmed. Exploitation is ongoing. The question is not if — it's when and how much it costs you.**
+
+### If you do nothing
+
+| Scenario | Likely cost |
+|----------|-------------|
+| **Data breach** — attacker extracts environment variables, DB credentials, customer data | £500K–£5M (UK ICO fine + breach costs) |
+| **Ransomware** — attacker deploys encryptor after initial access | £100K–£2M (downtime + recovery + ransom) |
+| **Regulatory action** — NIS2, GDPR, ISO 27001 non-compliance discovered post-incident | £200K–£10M (fines + mandatory audits) |
+| **Intellectual property loss** — agent configs, prompts, proprietary workflows exfiltrated | Unquantifiable (competitive advantage destroyed) |
+| **Operational disruption** — agent workflows halted for forensic investigation | £50K–£500K (lost productivity + incident response) |
+
+**The audit costs £10,000. A single breach starts at £500,000.**
+
+**Hypothesis:** If you are running Langflow in any environment with access to production data, customer records, or internal systems, the expected value of doing nothing is negative. The 1,423+ confirmed exploitation attempts since September 2026 mean you are already in the attacker's window.
+
+**What changes with this audit:**
+- You know exactly which MCP servers are exposed and which are safe
+- You have a verified remediation path, not a vendor advisory written for developers
+- You can show your board/CISO a dated technical report with CISA KEV cross-reference
+- You stop hoping and start knowing
 
 ---
 
