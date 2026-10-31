@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>The first deal — one trade, ten calls</title><style>
+@page { size: A4; margin: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box;
+    print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+:root{
+  --ink:#14120F; --paper:#FBFAF7; --muted:#5F584F; --faint:#6E675E;
+  --green:#0A5C4E; --red:#A63D22; --rule:#DDD6CA; --box:#F2EEE6; --ok:#E7F0EB;
+  --sans: Arial, "Liberation Sans", "Helvetica Neue", Helvetica, sans-serif;
+  --serif: Georgia, "Liberation Serif", "DejaVu Serif", serif;
+}
+html,body{ background:#fff; }
+body{ font-family:var(--serif); color:var(--ink); -webkit-font-smoothing:antialiased; }
+
+.page{
+  width:210mm; height:297mm; padding:16mm 20mm 20mm; background:var(--paper);
+  position:relative; overflow:hidden; page-break-after:always;
+  display:flex; flex-direction:column;
+}
+.page:last-child{ page-break-after:auto; }
+.head{ display:flex; justify-content:space-between; align-items:baseline;
+       padding-bottom:4mm; margin-bottom:7mm; border-bottom:1px solid var(--rule); }
+.kick{ font-family:var(--sans); font-size:11.5pt; font-weight:700; letter-spacing:.085em;
+       text-transform:uppercase; color:var(--green); }
+.body{ flex:1; min-height:0; }
+
+/* --- type scale: 10.5 / 12.5 / 15.5 / 19 / 26 / 38 / 60 --- */
+h1{ font-family:var(--sans); font-size:60pt; font-weight:800; line-height:.98;
+    letter-spacing:-.035em; }
+h2{ font-family:var(--sans); font-size:28pt; font-weight:800; line-height:1.06;
+    letter-spacing:-.02em; margin-bottom:5mm; }
+h3{ font-family:var(--sans); font-size:21pt; font-weight:700; line-height:1.15;
+    letter-spacing:-.01em; margin-bottom:3mm; }
+p{ font-size:16.5pt; line-height:1.44; margin-bottom:4mm; }
+p:last-child{ margin-bottom:0; }
+.lead{ font-size:19pt; line-height:1.34; color:var(--ink); }
+.small, .footnote{ font-size:13.5pt; line-height:1.38; color:var(--faint); }
+.footnote{ margin-top:4mm; }
+.dim{ color:var(--muted); }
+.accent{ color:var(--green); }
+.alert{ color:var(--red); }
+strong{ font-weight:700; }
+em{ font-style:italic; }
+
+/* --- boxes --- */
+.box{ background:var(--box); padding:5mm 6.5mm; margin-bottom:4.5mm; }
+.box:last-child{ margin-bottom:0; }
+.box .label{ font-family:var(--sans); font-size:10.5pt; font-weight:700; letter-spacing:.085em;
+             text-transform:uppercase; color:var(--red); margin-bottom:2.5mm; }
+.box p{ font-size:16.5pt; line-height:1.38; }
+.box.ok{ background:var(--ok); } .box.ok .label{ color:var(--green); }
+
+/* --- tables --- */
+table{ width:100%; border-collapse:collapse; margin-bottom:5mm; }
+th{ font-family:var(--sans); font-size:11pt; font-weight:700; letter-spacing:.075em;
+    text-transform:uppercase; text-align:left; color:var(--faint);
+    padding:0 2mm 2mm; border-bottom:2px solid var(--ink); }
+td{ font-size:15pt; line-height:1.3; padding:3mm 2mm; border-bottom:1px solid var(--rule);
+    vertical-align:top; }
+td.n{ font-family:var(--sans); font-weight:700; white-space:nowrap; }
+tr.hl td{ background:var(--box); }
+tr.hl td:first-child{ border-left:4px solid var(--red); padding-left:3.5mm; }
+tr.ok td{ background:var(--ok); }
+tr.ok td:first-child{ border-left:4px solid var(--green); padding-left:3.5mm; }
+
+/* --- pull quote --- */
+blockquote{ border-left:5px solid var(--green); padding-left:6mm; margin-bottom:5mm; }
+blockquote p{ font-size:19pt; line-height:1.32; font-style:italic; margin-bottom:2mm; }
+blockquote p.att{ font-family:var(--sans); font-size:11.5pt; font-style:normal;
+                  letter-spacing:.06em; text-transform:uppercase; color:var(--faint); }
+
+/* --- stat --- */
+.stat{ font-family:var(--sans); font-size:80pt; font-weight:800; line-height:.86;
+       letter-spacing:-.045em; color:var(--red); margin-bottom:4mm; }
+.statlabel{ font-size:16.5pt; line-height:1.36; color:var(--ink); }
+
+/* --- numbered steps --- */
+ol.steps{ list-style:none; }
+ol.steps > li{ counter-increment:s; position:relative; padding-left:11mm; margin-bottom:4mm;
+               font-size:15.5pt; line-height:1.38; }
+ol.steps{ counter-reset:s; }
+ol.steps > li::before{ content:counter(s); position:absolute; left:0; top:-1mm;
+  font-family:var(--sans); font-weight:800; font-size:19pt; color:var(--green); }
+
+/* --- sources --- */
+ul.sources{ list-style:none; }
+ul.sources li{ font-size:13.5pt; line-height:1.42; color:var(--muted); margin-bottom:2.5mm;
+               padding-left:5mm; text-indent:-5mm; }
+a{ color:var(--green); text-decoration:none; border-bottom:.5pt solid var(--rule); }
+
+/* --- footer --- */
+.foot, .num{ position:absolute; bottom:9mm; font-family:var(--sans); font-size:11.5pt;
+             color:var(--faint); letter-spacing:.07em; text-transform:uppercase; }
+.foot{ left:20mm; } .num{ right:20mm; }
+
+/* --- cover --- */
+.page.cover{ background:var(--ink); color:var(--paper); justify-content:center; }
+.page.cover .bar{ width:40mm; height:4px; background:#7FBAB0; margin:8mm 0; }
+.page.cover .kick{ color:#7FBAB0; margin-bottom:10mm; }
+.page.cover h1 em{ font-style:normal; color:#7FBAB0; }
+.page.cover .lead{ color:#D7DEDA; max-width:150mm; }
+.page.cover .foot, .page.cover .num{ color:#7FBAB0; }
+.page.cover .accent, .page.cover h1 .accent{ color:#7FBAB0; }
+</style></head><body><div class="page cover"><div class="body" style="width: 642.52px;"><div class="cover-block">
+<div class="kick">
+<p>Twinthos · The first deal · 21 October 2026</p>
+</div>
+<h1 id="the-first-deal.-one-trade.-ten-calls.">The first deal.<br>One trade.<br><span class="accent">Ten calls.</span></h1>
+<div class="bar">
+
+</div>
+<div class="lead">
+<p>Everything you need for the first paying client, in one short pack. No deck. No platform. One job, one price, one script.</p>
+</div>
+</div></div><div class="foot">Twinthos</div><div class="num">01</div></div>
+<div class="page"><div class="head"><span class="kick">The first deal</span><span class="kick" style="color: rgb(110, 103, 94);">21 October 2026</span></div><div class="body" style="width: 642.52px;"><h2 id="what" data-slug="what-you-are-selling">What you are selling</h2><p>One job, done by a machine, inside software they already own. Not a platform. Not a transformation. One person’s afternoon back.</p><div class="box">
+<div class="label">
+<p>Say it like this</p>
+</div>
+<p>“We put a small AI worker on one job in your office — the one nobody wants. It works inside the system you already use. Two weeks to set up, £3,500, and if it doesn’t save the hours we agreed, you don’t pay the second half.”</p>
+</div><p>Three things that make it easy to say yes:</p><ul>
+<li>It is one job, so there is nothing to rip out.</li>
+<li>It is £3,500, so one person can sign it.</li>
+<li>It is two weeks, so nobody has to write a business case.</li>
+</ul><h2 id="who" data-slug="who-to-call">Who to call</h2><p><strong>Commercial cleaning contractors.</strong> The job is the same at every firm: timesheets become site audits become monthly invoices, all by hand.</p><p>Ten names, verified this week. Each has a named person, a source, and the reason to call now.</p><p><strong><a href="https://monthindclean.co.uk/">Monthind Clean Limited</a></strong><br>Own website says over 800 staff and 250 cleaning clients across the East of England.<br>Call: <strong><a href="https://monthindclean.co.uk/east-of-englands-leading-independent-cleaning-company-celebrates-45th-anniversary/">Simon Biggs</a></strong>, Director / Partner<br>Job: Each month: collect site timesheets, check cleaning audits, then raise and send client invoices.<br>Why now: National Living Wage rose to £12.71 an hour on 1 April 2026, up 4.1%, on a payroll of several hundred cleaners.</p></div><div class="foot">Twinthos</div><div class="num">02</div></div>
+<div class="page"><div class="head"><span class="kick">The first deal</span><span class="kick" style="color: rgb(110, 103, 94);">21 October 2026</span></div><div class="body" style="width: 642.52px;"><p><strong><a href="https://chtmag.com/inter-county-named-northampton-saints-official-cleaning-service-partner/">Inter County Service Group Ltd</a></strong><br>Trade press says the family firm employs more than 400 people.<br>Call: <strong><a href="https://find-and-update.company-information.service.gov.uk/company/03687428/officers">Keith Nicholson</a></strong>, Founder and director<br>Job: Every month: gather cleaner hours per site, confirm audits are done, then invoice each client.<br>Why now: Named Northampton Saints’ official cleaning partner for the 2026/27 season on 15 September 2026, adding a stadium to its site list.</p><p><strong><a href="https://www.dedmancleaning.co.uk/about-us/">Dedman Contract Services Ltd</a></strong><br>Own website says over 90 employees.<br>Call: <strong><a href="https://www.dedmancleaning.co.uk/about-us/">Derrick Dedman</a></strong>, Managing Director<br>Job: Each month: collect cleaner hours from sites, run the audit check, then send client invoices.<br>Why now: National Living Wage rose to £12.71 an hour on 1 April 2026, up 4.1%, on a payroll of 90+ cleaners.</p><p><strong><a href="https://find-and-update.company-information.service.gov.uk/company/05732395/filing-history/MzQ3NzQwMDg0NmFkaXF6a2N4/document?format=pdf&amp;download=0">Goldservice Contract Cleaning Ltd</a></strong><br>Accounts to 31 March 2025 show 230 average employees, up from 220.<br>Call: <strong><a href="https://goldservicecleaning.co.uk/about-us/">Simon Hamilton</a></strong>, Founder<br>Job: Every month: pull timesheets per site, check each cleaning audit, then raise client invoices.<br>Why now: National Living Wage rose to £12.71 an hour on 1 April 2026, up 4.1%, on a payroll of 230 cleaners.</p></div><div class="foot">Twinthos</div><div class="num">03</div></div>
+<div class="page"><div class="head"><span class="kick">The first deal</span><span class="kick" style="color: rgb(110, 103, 94);">21 October 2026</span></div><div class="body" style="width: 642.52px;"><p><strong><a href="https://www.sosservices.co.uk/about">Schools Offices Services Ltd (SOS)</a></strong><br>Own website says around 200+ staff.<br>Call: <strong><a href="https://www.sosservices.co.uk/about">Richard O’Neill</a></strong>, Founder<br>Job: Each month: collect school site hours, check cleaning audits, then invoice each school or academy.<br>Why now: National Living Wage rose to £12.71 an hour on 1 April 2026, up 4.1%, on a payroll of about 210 cleaners.</p><p><strong><a href="https://find-and-update.company-information.service.gov.uk/company/03848546/filing-history/MzUyOTQ4ODg4M2FkaXF6a2N4/document?format=pdf&amp;download=0">Rapid Commercial Cleaning Services Ltd (Rapid Clean)</a></strong><br>Accounts to 31 March 2026 show 449 average employees, including 43 administrative staff, and turnover of £15.8m.<br>Call: <strong><a href="https://www.rapidclean.co.uk/meet-the-team">Paul Claxton</a></strong>, Managing Director and co-founder<br>Job: Every month: check 450 site timesheets, confirm audits, then issue and chase client invoices.<br>Why now: Accounts for the year to 31 March 2026, filed in 2026, report turnover up 15.5% to £15.8m.</p><p><strong><a href="https://find-and-update.company-information.service.gov.uk/company/05827677/filing-history/MzUzMDA0NDA0NGFkaXF6a2N4/document?format=pdf&amp;download=0">Mrs Buckét Cleaning Services Ltd</a></strong><br>Accounts to 31 December 2025 show 423 average employees, up from 350.<br>Call: <strong><a href="https://chtmag.com/mrs-bucket-secures-renewal-of-five-year-cleaning-contract-with-olchfa-school/">Rachael Flanagan</a></strong>, CEO and founder<br>Job: Each month: collect cleaner hours per school or site, check audits, then invoice each client.<br>Why now: Renewed a five-year cleaning contract with Olchfa School, Swansea, announced 31 March 2026, taking school partnerships past 30.</p></div><div class="foot">Twinthos</div><div class="num">04</div></div>
+<div class="page"><div class="head"><span class="kick">The first deal</span><span class="kick" style="color: rgb(110, 103, 94);">21 October 2026</span></div><div class="body" style="width: 642.52px;"><p><strong><a href="https://officecare.uk.com/">Office Care Limited (OfficeCare)</a></strong><br>Own homepage states 350 people employed, cleaning offices, schools, stadiums and healthcare sites.<br>Call: <strong><a href="https://officecare.uk.com/why-thorough-office-cleaning-matters-even-more-during-hot-weather/">Martin Booth</a></strong>, Managing Director<br>Job: Every month: gather cleaner hours per site, check audits, then invoice each client.<br>Why now: National Living Wage rose to £12.71 an hour on 1 April 2026, up 4.1%, on a payroll of 350 people.</p><h2 id="call" data-slug="the-call">The call</h2><p>Five sentences. Say them in order, then stop talking and let them answer.</p><div class="box">
+<div class="label">
+<p>The script</p>
+</div>
+<p>“Hi, is that the owner? I’ll be quick — I’m not selling software.</p>
+<p>You invoice each site monthly and your office manager builds those invoices from timesheets. Is that roughly right?</p>
+<p>I build a small AI worker that does that one job — the timesheets, the site sheets, the invoices — inside the system you already use.</p>
+<p>It takes two weeks and costs £3,500. If it doesn’t save the hours we agree, you don’t pay the second half.</p>
+<p>Can I show you on your own last month’s sheets, Thursday or Friday?”</p>
+</div><p><strong>Write down three things:</strong> how many sites, who does the invoicing, and what that person’s week looks like. That is your prep for the second call.</p></div><div class="foot">Twinthos</div><div class="num">05</div></div>
+<div class="page"><div class="head"><span class="kick">The first deal</span><span class="kick" style="color: rgb(110, 103, 94);">21 October 2026</span></div><div class="body" style="width: 642.52px;"><p><strong>Listen for a number, not for interest.</strong> “We do about 140 sites.” “That takes her two days a month.” A number starts a deal. “Interesting” does not.</p><p><strong>If they push back.</strong> Three answers cover most of it.</p><table>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>They say</th>
+<th>You say</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“We already have software for that.”</td>
+<td>“Then this sits on top of it. It does the typing between the systems, not the thinking.”</td>
+</tr>
+<tr class="even">
+<td>“My office manager would worry.”</td>
+<td>“Good. She is the one who tells it what to do. It takes the boring half of her day, not her job.”</td>
+</tr>
+<tr class="odd">
+<td>“How do I know it works?”</td>
+<td>“You don’t yet. That is what the two weeks are for — it runs on last month’s real sheets.”</td>
+</tr>
+</tbody>
+</table><p><strong>If they say no:</strong> “What would have to be true for this to be worth twenty minutes?” Write the answer word for word. Ten real objections are worth more than one polite maybe.</p><h2 id="send" data-slug="what-you-send-after">What you send after</h2><p>One page. The same page every time, with their job in it.</p></div><div class="foot">Twinthos</div><div class="num">06</div></div>
+<div class="page"><div class="head"><span class="kick">The first deal</span><span class="kick" style="color: rgb(110, 103, 94);">21 October 2026</span></div><div class="body" style="width: 642.52px;"><div class="box">
+<div class="label">
+<p>The one page</p>
+</div>
+<p><strong>What it is.</strong> One worker that does your site paperwork: collects the timesheets, checks them against the site sheet, builds the monthly invoice, and lists what is missing.</p>
+<p><strong>What goes in.</strong> The timesheets and site sheets you already have. Nothing moves. Nothing gets replaced.</p>
+<p><strong>What comes out.</strong> A clean invoice pack per site, a list of gaps before they become disputes, and a short weekly note of what was done.</p>
+<p><strong>What it must never do.</strong> It does not approve hours, sign anything, or change a price. Anything that looks like a dispute goes to a named person and waits.</p>
+<p><strong>The two-week test.</strong> We run it on last month’s sheets. If it doesn’t match what your team produced, you keep your money.</p>
+<p><strong>The price.</strong> £3,500 for the install and the test. £1,250 a month after that, cancel with a month’s notice.</p>
+</div><h2 id="money" data-slug="the-money-said-plainly">The money, said plainly</h2><table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>What they pay now</th>
+<th>What it costs</th>
+<th>What they get</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>One admin on £28,000 costs about £35,000 once you add employer costs</td>
+<td>£3,500 to install, then £15,000 a year</td>
+<td>The hours that person spends on invoicing, every month, without hiring</td>
+</tr>
+</tbody>
+</table><p>Say the second line out loud on the call. It is the whole argument, and it is checkable in front of them.</p></div><div class="foot">Twinthos</div><div class="num">07</div></div>
+<div class="page"><div class="head"><span class="kick">The first deal</span><span class="kick" style="color: rgb(110, 103, 94);">21 October 2026</span></div><div class="body" style="width: 642.52px;"><h2 id="week" data-slug="the-week">The week</h2><table>
+<thead>
+<tr class="header">
+<th>Day</th>
+<th>Do this</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Monday</td>
+<td>Send ten emails at 7am. Call the same ten at 10am.</td>
+</tr>
+<tr class="even">
+<td>Tuesday</td>
+<td>Same ten again, different time of day.</td>
+</tr>
+<tr class="odd">
+<td>Wednesday</td>
+<td>Send the one page to anyone who gave you a number.</td>
+</tr>
+<tr class="even">
+<td>Thursday</td>
+<td>Two demos on their own files.</td>
+</tr>
+<tr class="odd">
+<td>Friday</td>
+<td>One follow-up per person, then stop.</td>
+</tr>
+</tbody>
+</table><p>Ten a day, five days. Fifty conversations is enough to find the first yes. If it is not, the job is wrong, not the market — change the job and keep the list.</p><div class="box ok">
+<div class="label">
+<p>What done looks like</p>
+</div>
+<p>One paid install at £3,500, a start date in the diary, and the job written down in one paragraph that both of you have signed.</p>
+</div></div><div class="foot">Twinthos</div><div class="num">08</div></div></body></html>

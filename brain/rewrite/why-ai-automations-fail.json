@@ -1,0 +1,77 @@
+{
+ "slug": "why-ai-automations-fail",
+ "title": "Why most AI projects fail before they start",
+ "description": "MIT found about 95% of generative AI pilots made no measurable difference to profit. The 5% that worked fixed the paperwork before they bought anything.",
+ "answer": "Most AI projects fail because the work around them was never fixed. A tool only does what your systems record, and your systems record less than your team knows. The 5% that work write the process down, hand over real knowledge, and keep a person at the approval point.",
+ "sections": [
+  {
+   "h": "The 95% number is real",
+   "p": [
+    "In August 2025 the MIT Media Lab's NANDA initiative published its report, The GenAI Divide: State of AI in Business 2025. It looked at 300 public deployments, 52 interviews and 153 executives.",
+    "The finding was blunt. Roughly 95% of the generative AI tools companies built, and the pilots they bought, produced no measurable impact on profit and loss. Only 5% of integrated tools reached production with any return.",
+    "It is not one study either. BCG surveyed 1,000 executives across 59 countries in October 2024 and found 74% struggling to get value from AI at any scale. Gartner forecast in July 2024 that 30% of generative AI projects would be abandoned after proof of concept. Every one of those reports also describes a way out."
+   ]
+  },
+  {
+   "h": "It is a setup problem, not a model problem",
+   "p": [
+    "AI demos well and deploys badly. Show a model a task and it looks impressive. Put it inside your business, wired to your inbox, your diary, your accounts and your customer records, and something breaks.",
+    "MIT names the cause: the learning gap. The tools do not learn from feedback and do not fit how work actually flows.",
+    "You have seen the shape of it. The drafts get written and then sit in a queue. The person who used to write them now checks them, which is slower and harder. Or the software does something it should not, like promising a refund outside policy, and someone pulls its permissions.",
+    "In all three cases the model did its job. What was missing was everything around it."
+   ]
+  },
+  {
+   "h": "One: write the messy job down",
+   "p": [
+    "Every business runs on work that appears in no process document. The invoice was paid, so someone has to notice the money landed and chase the next step. A booking comes in and someone copies it from one system into another. Nothing moves until a person remembers to push it.",
+    "Pick one recurring job, ideally the one that stops when someone is on holiday. Write it down end to end. Where it starts, what it touches, who decides, what finished looks like.",
+    "That is an afternoon, once. It is the cheapest hour you will spend on the whole project. It is also the step nearly everyone skips, because it does not look like technology."
+   ]
+  },
+  {
+   "h": "Two: hand over your knowledge, not hope",
+   "p": [
+    "Teams give the system a job and hope it works the rest out. Hope is expensive.",
+    "Give it the actual material instead. Your current prices. Your refund policy, including the exceptions. Your standard replies, and the ones you rewrote by hand because they came out wrong. Your tone, written down in plain words.",
+    "MIT is specific on this. The tools that work are built into systems you already use, not bolted on as a new place to visit. They also learn from your corrections.",
+    "A system with your knowledge behaves like an experienced colleague. The same system without it behaves like a confident stranger who needs checking every time. One gets used. The other gets quietly switched off."
+   ]
+  },
+  {
+   "h": "Three: keep one person at the approval point",
+   "p": [
+    "Draw a line before you switch anything on. Below it, the software acts on its own. Above it, a person decides.",
+    "Sort each action once, with someone who knows the business, not in the moment. The line sits where judgment lives. A refund outside policy. A price that moved. A message to a difficult customer. Everything else runs without anyone watching.",
+    "This is not reviewing everything forever. It is also the repair when something goes wrong. You do not cancel the project. You move that one action above the line, which takes five minutes.",
+    "Then count staff hours removed, and count the checking too, so you are not simply moving the cost."
+   ]
+  },
+  {
+   "h": "What this means for you",
+   "p": [
+    "None of this needs a better model. You can do all three this month with the tools you already pay for.",
+    "Start with the job that stops when one person is away. Write it down, hand over the knowledge, draw the line, and count the hours that come back. If the hours are small, stop there and keep your money. If they are large, you now know exactly what to buy."
+   ]
+  }
+ ],
+ "table": "| What the research found | Figure |\n| --- | --- |\n| MIT NANDA, August 2025: pilots with no measurable impact on profit and loss | about 95% |\n| MIT NANDA, August 2025: integrated tools that reached production with any return | 5% |\n| BCG, October 2024: companies struggling to get value from AI at any scale | 74% |\n| Gartner, July 2024: gen AI projects abandoned after proof of concept, forecast by end 2025 | 30% |",
+ "takeaway": "The 95% failure rate is a setup problem, not a technology problem. Write the workflow down, give the tool your real prices and policies, and keep a person at the approval point for anything that costs money or a relationship. Do that before you buy, and the odds stop being the point.",
+ "faq": [
+  {
+   "q": "Where does the 95% figure come from?",
+   "a": "MIT Media Lab NANDA, The GenAI Divide: State of AI in Business 2025, published August 2025. It surveyed 300 public deployments, 52 interviews and 153 executives, and found roughly 95% of custom or piloted generative AI tools had no measurable profit and loss impact."
+  },
+  {
+   "q": "So does that mean AI does not work?",
+   "a": "No. The same research points at setup, not intelligence, and names the barrier as the learning gap. The models pass the demos. The deployments miss the recipe."
+  },
+  {
+   "q": "What does fixing the paperwork actually mean?",
+   "a": "Choose one recurring workflow and write it down end to end: where it starts, what it touches, who decides, what done means. Most small firms have never written it down, because one conscientious person has been holding it in their head."
+  }
+ ],
+ "sources": "Fortune on the MIT NANDA report, 18 August 2025: https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/ | BCG, AI adoption in 2024, 24 October 2024: https://www.bcg.com/press/24october2024-ai-adoption-in-2024-74-of-companies-struggle-to-achieve-value-at-scale | Gartner press release, 29 July 2024: https://www.gartner.com/en/newsroom/press-releases/2024-07-29-gartner-predicts-30-percent-of-generative-ai-projects-will-be-abandoned-after-proof-of-concept-by-end-of-2025",
+ "image_prompt": "Editorial photograph of a real office desk in a small business: an open laptop abandoned mid-task with the screen dimmed, a printed process document marked up in pen beside it, and a half-finished checklist on a clipboard. Late afternoon daylight from a side window, muted colours, natural clutter, shallow depth of field, one clear subject. No people, no hands, no readable text, no logos, no robots.",
+ "image_alt": "An office desk with an abandoned open laptop, a printed process document marked up in pen and a half-finished checklist."
+}

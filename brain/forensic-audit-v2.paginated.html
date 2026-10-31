@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>The Audit — Three Errors, One Reversal</title><style>
+@page { size: A4; margin: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box;
+    print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+:root{
+  --ink:#14120F; --paper:#FBFAF7; --muted:#5F584F; --faint:#6E675E;
+  --green:#0A5C4E; --red:#A63D22; --rule:#DDD6CA; --box:#F2EEE6; --ok:#E7F0EB;
+  --sans: Arial, "Liberation Sans", "Helvetica Neue", Helvetica, sans-serif;
+  --serif: Georgia, "Liberation Serif", "DejaVu Serif", serif;
+}
+html,body{ background:#fff; }
+body{ font-family:var(--serif); color:var(--ink); -webkit-font-smoothing:antialiased; }
+
+.page{
+  width:210mm; height:297mm; padding:16mm 20mm 20mm; background:var(--paper);
+  position:relative; overflow:hidden; page-break-after:always;
+  display:flex; flex-direction:column;
+}
+.page:last-child{ page-break-after:auto; }
+.head{ display:flex; justify-content:space-between; align-items:baseline;
+       padding-bottom:4mm; margin-bottom:7mm; border-bottom:1px solid var(--rule); }
+.kick{ font-family:var(--sans); font-size:10.5pt; font-weight:700; letter-spacing:.085em;
+       text-transform:uppercase; color:var(--green); }
+.body{ flex:1; min-height:0; }
+
+/* --- type scale: 10.5 / 12.5 / 15.5 / 19 / 26 / 38 / 60 --- */
+h1{ font-family:var(--sans); font-size:60pt; font-weight:800; line-height:.98;
+    letter-spacing:-.035em; }
+h2{ font-family:var(--sans); font-size:26pt; font-weight:800; line-height:1.06;
+    letter-spacing:-.02em; margin-bottom:5mm; }
+h3{ font-family:var(--sans); font-size:19pt; font-weight:700; line-height:1.15;
+    letter-spacing:-.01em; margin-bottom:3mm; }
+p{ font-size:15.5pt; line-height:1.42; margin-bottom:4mm; }
+p:last-child{ margin-bottom:0; }
+.lead{ font-size:19pt; line-height:1.34; color:var(--ink); }
+.small, .footnote{ font-size:12.5pt; line-height:1.38; color:var(--faint); }
+.footnote{ margin-top:4mm; }
+.dim{ color:var(--muted); }
+.accent{ color:var(--green); }
+.alert{ color:var(--red); }
+strong{ font-weight:700; }
+em{ font-style:italic; }
+
+/* --- boxes --- */
+.box{ background:var(--box); padding:5mm 6.5mm; margin-bottom:4.5mm; }
+.box:last-child{ margin-bottom:0; }
+.box .label{ font-family:var(--sans); font-size:10.5pt; font-weight:700; letter-spacing:.085em;
+             text-transform:uppercase; color:var(--red); margin-bottom:2.5mm; }
+.box p{ font-size:15.5pt; line-height:1.36; }
+.box.ok{ background:var(--ok); } .box.ok .label{ color:var(--green); }
+
+/* --- tables --- */
+table{ width:100%; border-collapse:collapse; margin-bottom:5mm; }
+th{ font-family:var(--sans); font-size:10.5pt; font-weight:700; letter-spacing:.075em;
+    text-transform:uppercase; text-align:left; color:var(--faint);
+    padding:0 2mm 2mm; border-bottom:2px solid var(--ink); }
+td{ font-size:15.5pt; line-height:1.3; padding:3mm 2mm; border-bottom:1px solid var(--rule);
+    vertical-align:top; }
+td.n{ font-family:var(--sans); font-weight:700; white-space:nowrap; }
+tr.hl td{ background:var(--box); }
+tr.hl td:first-child{ border-left:4px solid var(--red); padding-left:3.5mm; }
+tr.ok td{ background:var(--ok); }
+tr.ok td:first-child{ border-left:4px solid var(--green); padding-left:3.5mm; }
+
+/* --- pull quote --- */
+blockquote{ border-left:5px solid var(--green); padding-left:6mm; margin-bottom:5mm; }
+blockquote p{ font-size:19pt; line-height:1.32; font-style:italic; margin-bottom:2mm; }
+blockquote p.att{ font-family:var(--sans); font-size:11.5pt; font-style:normal;
+                  letter-spacing:.06em; text-transform:uppercase; color:var(--faint); }
+
+/* --- stat --- */
+.stat{ font-family:var(--sans); font-size:80pt; font-weight:800; line-height:.86;
+       letter-spacing:-.045em; color:var(--red); margin-bottom:4mm; }
+.statlabel{ font-size:15.5pt; line-height:1.36; color:var(--ink); }
+
+/* --- numbered steps --- */
+ol.steps{ list-style:none; }
+ol.steps > li{ counter-increment:s; position:relative; padding-left:11mm; margin-bottom:4mm;
+               font-size:15.5pt; line-height:1.38; }
+ol.steps{ counter-reset:s; }
+ol.steps > li::before{ content:counter(s); position:absolute; left:0; top:-1mm;
+  font-family:var(--sans); font-weight:800; font-size:19pt; color:var(--green); }
+
+/* --- sources --- */
+ul.sources{ list-style:none; }
+ul.sources li{ font-size:12.5pt; line-height:1.42; color:var(--muted); margin-bottom:2.5mm;
+               padding-left:5mm; text-indent:-5mm; }
+a{ color:var(--green); text-decoration:none; border-bottom:.5pt solid var(--rule); }
+
+/* --- footer --- */
+.foot, .num{ position:absolute; bottom:9mm; font-family:var(--sans); font-size:10.5pt;
+             color:var(--faint); letter-spacing:.07em; text-transform:uppercase; }
+.foot{ left:20mm; } .num{ right:20mm; }
+
+/* --- cover --- */
+.page.cover{ background:var(--ink); color:var(--paper); justify-content:center; }
+.page.cover .bar{ width:40mm; height:4px; background:#7FBAB0; margin:8mm 0; }
+.page.cover .kick{ color:#7FBAB0; margin-bottom:10mm; }
+.page.cover h1 em{ font-style:normal; color:#7FBAB0; }
+.page.cover .lead{ color:#D7DEDA; max-width:150mm; }
+.page.cover .foot, .page.cover .num{ color:#7FBAB0; }
+.page.cover .accent, .page.cover h1 .accent{ color:#7FBAB0; }
+</style></head><body><div class="page cover"><div class="body" style="width: 642.52px;"><div class="cover-block">
+<div class="kick">
+<p>Twinthos · Forensic audit · 21 October 2026</p>
+</div>
+<h1 id="the-audit.-three-errors.-one-reversal.">The audit.<br>Three errors.<br><span class="accent">One reversal.</span></h1>
+<div class="bar">
+
+</div>
+<div class="lead">
+<p>Five independent reviewers took the block management recommendation apart. Three findings do not survive. This is what was wrong, and what to do instead.</p>
+</div>
+</div></div><div class="foot">Twinthos</div><div class="num">01</div></div>
+<div class="page"><div class="head"><span class="kick">Twinthos · Forensic audit</span><span class="kick" style="color: rgb(110, 103, 94);">21 October 2026</span></div><div class="body" style="width: 642.52px;"><h2 id="verdict" data-slug="the-verdict">The verdict</h2><div class="box">
+<div class="label">
+<p>Killed</p>
+</div>
+<p><strong>Block management at £5,000 a month.</strong> The fee exceeds the buyer’s entire pre-tax profit, the incumbent shipped the product two weeks ago, and the law does not say what I said it says.</p>
+</div><div class="box ok">
+<div class="label">
+<p>Survives — for a different reason</p>
+</div>
+<p><strong>Recruitment.</strong> Not because of admin volume. Because of <strong>profit per employee</strong>: £160,200 of fee income per consultant against roughly £6,000 of profit per block manager. The comparison is on page 5.</p>
+</div><p>The deeper error: I chose the sector by how much admin it had, not by whether the client could afford the fee.</p><h2 id="error-one" data-slug="error-one-i-priced-above-their-profit">Error one — I priced above their profit</h2><table>
+<thead>
+<tr class="header">
+<th>Line</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1,000 units × £300 fee</td>
+<td>£300,000</td>
+</tr>
+<tr class="even">
+<td>Pre-tax profit at 10%</td>
+<td>£30,000</td>
+</tr>
+<tr class="odd">
+<td>Foundation tier, £2,500/mo</td>
+<td><strong>£30,000/yr — 100% of profit</strong></td>
+</tr>
+<tr class="even">
+<td>Brain + employee, £5,000/mo</td>
+<td><strong>£60,000/yr — 200% of profit</strong></td>
+</tr>
+</tbody>
+</table><p>Both test tiers land above the whole profit line. At the smallest tier the fee equals 100% of pre-tax profit; at the tier the recommendation actually named, it is double. No managing director signs either.</p></div><div class="foot">Twinthos</div><div class="num">02</div></div>
+<div class="page"><div class="head"><span class="kick">Twinthos · Forensic audit</span><span class="kick" style="color: rgb(110, 103, 94);">21 October 2026</span></div><div class="body" style="width: 642.52px;"><div class="footnote">
+<p>Fees £150–£800/unit/yr (<a href="https://www.levyboard.co.uk">LevyBoard</a>; Wilson Hawkins 2024–25). PBT margin 10–18%, median ~10% across 599 UK property-management companies (<a href="https://theaccounts.uk">theaccounts.uk</a>).</p>
+</div><h2 id="error-two" data-slug="error-two-i-inverted-a-number">Error two — I inverted a number</h2><p>I wrote that 1.23m units sat under ARMA members. The source says the opposite.</p><blockquote>
+<p>“…just 300 are members of ARMA. That means around 1.23 million residential units are managed by <strong>non-ARMA</strong> firms.”</p>
+<p>— <a href="https://www.legislation.gov.uk/uksi/2023/315/pdfs/uksi_20230315_en.pdf">blockmanagementuk.ltd, ArticleID=139 (2020)</a></p>
+</blockquote><p>1.23m is the <strong>non-ARMA</strong> book. The figure is also six years old, and the 4,100 firm count is a modelled estimate, not a register.</p><h2 id="error-three" data-slug="error-three-the-law-does-not-say-that">Error three — the law does not say that</h2><p>I wrote that a managing agent can be the principal accountable person. It normally cannot. The accountable person is the freeholder, the RMC, the RTM company or the local authority; an agent acts <strong>on behalf of</strong> them.</p><blockquote>
+<p>“You can delegate the work; you cannot delegate the duty.”</p>
+</blockquote><p>The agent produces the evidence. The client signs it off. The “legal defensibility” pitch fails in most leasehold structures, and a competent client would correct it in the first meeting.</p></div><div class="foot">Twinthos</div><div class="num">03</div></div>
+<div class="page"><div class="head"><span class="kick">Twinthos · Forensic audit</span><span class="kick" style="color: rgb(110, 103, 94);">21 October 2026</span></div><div class="body" style="width: 642.52px;"><h2 id="errors-four-five" data-slug="errors-four-and-five-the-incumbent-and-t">Errors four and five — the incumbent, and the 8%</h2><div class="box">
+<div class="label">
+<p>Error four — the incumbent shipped it</p>
+</div>
+<p>MRI, the system of record for block management, launched <strong>Agora Orchestrator</strong> on <strong>6 October 2026</strong>. First client: James Andrew Residential, 6,500 homes, automating accounting, document processing and maintenance triage. I was selling agentic automation into a market where the software vendor already gives it away, bundled, inside the platform the client already pays for.</p>
+</div><div class="box">
+<div class="label">
+<p>Error five — “same software” was 8%</p>
+</div>
+<p><strong>8%</strong> of residential managing agents sit on the stack I called universal: 70 ARMA members out of roughly 870 firms. The whole argument rested on “one build works everywhere”. Their own number says one build works at one firm in twelve.</p>
+</div><h2 id="the-correction" data-slug="the-correction-ask-what-the-role-earns">The correction — ask what the role earns</h2><table>
+<thead>
+<tr class="header">
+<th>Test</th>
+<th>Right?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“How much admin do they have?”</td>
+<td>Wrong</td>
+</tr>
+<tr class="even">
+<td>“What does that role cost?”</td>
+<td>Wrong</td>
+</tr>
+<tr class="odd">
+<td><strong>“How much profit per head?”</strong></td>
+<td><strong>Right</strong></td>
+</tr>
+</tbody>
+</table><p>Admin volume is a pain measure. Profit per head is a payment measure. Only one of them pays your invoice.</p></div><div class="foot">Twinthos</div><div class="num">04</div></div>
+<div class="page"><div class="head"><span class="kick">Twinthos · Forensic audit</span><span class="kick" style="color: rgb(110, 103, 94);">21 October 2026</span></div><div class="body" style="width: 642.52px;"><h2 id="the-number-that-settles-it" data-slug="the-number-that-settles-it">The number that settles it</h2><div class="stat">
+<p>37%</p>
+</div><div class="statlabel">
+<p>Of one recruiter’s annual output pays a £60,000 fee. The same fee is 1,000% of one block manager’s profit. That is the entire audit in one comparison.</p>
+</div><p>Hays, year to 30 June 2025: <strong>£972.4m of net fees from 6,070 consultants</strong> — £160,200 of fee income generated per consultant, per year.</p><table>
+<thead>
+<tr class="header">
+<th>Sector</th>
+<th>Per head</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Recruitment</strong> — fees generated</td>
+<td>£160,200</td>
+</tr>
+<tr class="even">
+<td><strong>Block management</strong> — profit generated</td>
+<td>≈ £6,000</td>
+</tr>
+</tbody>
+</table><div class="footnote">
+<p><a href="https://www.haysplc.com/investors/results-centre">Hays plc preliminary results FY2025</a>, via <a href="https://www.carsonandgray.com/insights">Carson &amp; Gray</a>. The £6,000 is my estimate: £300k revenue × 10% PBT ÷ 5 staff.</p>
+</div><h2 id="corrected-pricing" data-slug="corrected-pricing-price-the-desk-not-the">Corrected pricing — price the desk, not the person</h2><p>The digital employee does not serve one recruiter. It serves a desk: 20–30 consultants all doing the same repeating tasks.</p><table>
+<thead>
+<tr class="header">
+<th>What it covers</th>
+<th>Fee</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>One workflow, one branch</td>
+<td>£1,500 pilot</td>
+</tr>
+<tr class="even">
+<td><strong>A full desk, 20–30 consultants</strong></td>
+<td><strong>£5,000/mo</strong></td>
+</tr>
+<tr class="odd">
+<td>Multi-branch group</td>
+<td>£1,200/branch</td>
+</tr>
+</tbody>
+</table><p>£5,000/mo against 25 consultants is £2,400 a year each — about 1.5% of the fee income that consultant generates. That is a defensible invoice.</p></div><div class="foot">Twinthos</div><div class="num">05</div></div>
+<div class="page"><div class="head"><span class="kick">Twinthos · Forensic audit</span><span class="kick" style="color: rgb(110, 103, 94);">21 October 2026</span></div><div class="body" style="width: 642.52px;"><div class="footnote">
+<p>Test prices, not market rates: Foundation £2,500 setup + £750/mo; Brain + digital employee from £5,000/mo; Operations Audit £999. Unvalidated — confirm before quoting a client.</p>
+</div><h2 id="direction" data-slug="direction">Direction</h2><div class="steps">
+<ol type="1">
+<li><strong>Drop block management</strong> — not forever, until you have a reference client.</li>
+<li><strong>Run the profit-per-head test</strong> on any sector before writing another word about it.</li>
+<li><strong>Call Hurley and Hipkiss.</strong> Both named, both reachable, both in a sector that can afford £5,000.</li>
+<li><strong>Sell one desk, not one task.</strong> The pilot proves it; the desk pays for it.</li>
+<li><strong>Never cite your own pricing file as evidence again.</strong> It is a test price, not a fact.</li>
+</ol>
+</div><h2 id="sources" data-slug="sources">Sources</h2><div class="sources">
+<ul>
+<li>“1.23 million … managed by non-ARMA firms” — blockmanagementuk.ltd, ArticleID=139 (2020)</li>
+<li>MRI Agora Orchestrator launch, JAR, 6,500 homes — <a href="https://www.mrisoftware.com/news">mrisoftware.com/news</a>, 6 October 2026</li>
+<li>Managing agents act for freeholders, RMCs and local authorities who hold the duty — <a href="https://www.legislation.gov.uk/uksi/2023/315/pdfs/uksi_20230315_en.pdf">Building Safety Act 2022, SI 2023/315</a>; macfarlanes.com</li>
+<li>Fees £150–£800/unit/yr — LevyBoard; Wilson Hawkins, 2024–25</li>
+<li>PBT margin ~10%, 599 companies — <a href="https://theaccounts.uk">theaccounts.uk</a></li>
+<li>Hays: £972.4m net fees / 6,070 consultants — <a href="https://www.haysplc.com/investors/results-centre">Hays plc preliminary results FY2025</a>, via <a href="https://www.carsonandgray.com/insights">Carson &amp; Gray</a></li>
+<li>70 ARMA members on Qube PM — <a href="https://flat-living.co.uk/qube-pm">flat-living.co.uk/qube-pm</a></li>
+<li>Qube 230+ block clients, 60%+ of TPI units — mrisoftware.com</li>
+<li>1.5 × £41,067 = £61,601; loaded £71,283 → £3,960/mo per manager, so £5,000 buys 1.26 loaded managers, not 1.5</li>
+<li>Twinthos pricing status: TEST PRICES, NOT MARKET RATES — company/pricing.md</li>
+</ul>
+</div></div><div class="foot">Twinthos</div><div class="num">06</div></div></body></html>

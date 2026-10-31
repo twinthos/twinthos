@@ -1,0 +1,66 @@
+{
+ "slug": "atm-and-bank-tellers",
+ "title": "Did the cash machine really kill the bank teller?",
+ "description": "Everyone says cash machines killed bank teller jobs. US figures show teller numbers rising for 25 years after the ATM arrived, and what that means now.",
+ "answer": "The cash machine did not kill the teller job. US figures show teller numbers rising through the 1980s, the 1990s and the 2000s, peaking near 600,000 around 2010. The fall came later, from banking on a phone. Cheaper branches meant more branches, and each one still needed people.",
+ "sections": [
+  {
+   "h": "The forecast was wrong",
+   "p": [
+    "In the late 1970s a machine appeared in the wall outside the bank. It counted cash, took the deposit, and handed money over at eleven at night, in the rain. Every forecast drew the same line: one machine, fewer people needed per branch, a job quietly filed away.",
+    "The forecasts were wrong. US Bureau of Labor Statistics figures show teller numbers climbing through the 1980s, the decade the machines stopped being a novelty. They kept climbing in the 1990s and were still climbing in the 2000s. They peaked near 600,000 around 2010. When the count finally fell, the cause was banking on a phone, not the machine in the wall.",
+    "No one was being stupid in 1985. The mechanism they described was real. They just read it to the end of the line too early."
+   ]
+  },
+  {
+   "h": "A cheaper branch is a branch worth opening",
+   "p": [
+    "James Bessen, an economist at Boston University, worked out what the forecast missed. His research, published by the Federal Reserve Bank of Boston, found the cash machine cut the cost of running a branch by roughly a quarter.",
+    "A cheaper branch is a branch worth keeping open, so banks opened more of them. More high streets, more corners, longer hours. Each new branch still needed people behind the counter.",
+    "That is the whole trick, and it is arithmetic rather than magic. The machine made each branch cheaper to run, so there were more branches to run. Total work went up. It was spread across more places, which is why the count went up with it."
+   ]
+  },
+  {
+   "h": "The machine took the counting, not the conversation",
+   "p": [
+    "A job is a bundle of tasks, not one task. Take the counting out of the bundle and it does not shrink by that amount. It changes shape.",
+    "The queue at the door was what squeezed the talking out of the day. The machine cleared the queue. The freed hours went into the part customers remember: the letter someone did not understand, the problem solved in one visit instead of three. Another was a small business owner checking whether payroll clears on Friday.",
+    "The counting tier of the job went into a wall. The human tier got its hours back, and the branch became what it always claimed to be, somewhere you could go and talk to someone."
+   ]
+  },
+  {
+   "h": "This October, the fear sounds the same",
+   "p": [
+    "On 12 October 2026 the IMF's Kristalina Georgieva called AI a slow-moving tsunami, with about 40% of jobs worldwide exposed and about 60% in advanced economies.",
+    "That is being read the way the 1985 columns read the cash machine: exposure equals extinction. The teller data says otherwise. Exposure is not the ending. The second-order effect is where the outcome gets decided, and it takes years to show up in a count.",
+    "One difference is honest and worth saying. The cash machine took decades to reshape banking. This is arriving in months. A teller had a generation to grow into the newer version of the job. Your administrator does not."
+   ]
+  },
+  {
+   "h": "What this means for you",
+   "p": [
+    "More than half the small firms Bluevine surveyed say AI has already absorbed at least one role's workload. The useful question is not whether it happens to you. It is which hours go first, and what your people do instead.",
+    "Pick the repeatable work. Name the person who signs off anything unusual. Then move someone up a tier while the machine takes the volume. Do it now, not two years after it already has."
+   ]
+  }
+ ],
+ "table": "| Period | Teller employment, US | What else was happening |\n|---|---|---|\n| 1980s | Rising | Cash machines go from novelty to standard fittings |\n| 1990s | Rising | ATM networks mature, branches get cheaper to run |\n| 2000s | Still rising | Banks open more branches because each one costs less |\n| Around 2010 | About 600,000 | The high point of the series |\n| 2010s onward | Falling | Online and mobile banking change where people bank |",
+ "takeaway": "The machine did not take the job. It took the part nobody wanted and left the part only a person can do. That pattern is available again now. It is not a guarantee, and it is not automatic. It happens only if you decide early which hours go to software, and what your people do instead, while the volume is moving rather than after.",
+ "faq": [
+  {
+   "q": "Did the cash machine really fail to cut teller jobs?",
+   "a": "It cut the number of tellers per branch, yes. But total US teller employment rose through the 1980s, 1990s and 2000s, peaking near 600,000 around 2010. The sustained fall came with online and mobile banking."
+  },
+  {
+   "q": "Who is James Bessen and what did he find?",
+   "a": "An economist at Boston University. His research for the Federal Reserve Bank of Boston found the cash machine cut branch running costs by roughly a quarter. Banks opened more branches, and teller numbers rose with them."
+  },
+  {
+   "q": "Does this mean AI will not cost jobs?",
+   "a": "No. Bessen's own work includes technology that did cut employment, and the teller count did eventually fall. The lesson is that exposure is not the same as extinction, and the redeployment is a decision you make, not something that happens to you."
+  }
+ ],
+ "sources": "US Bureau of Labor Statistics, bank tellers occupational employment series: https://www.bls.gov/oes/current/oes433071.htm | Bessen et al., Automation and jobs: when technology boosts employment, Federal Reserve Bank of Boston: https://www.bostonfed.org/publications/research-department-working-paper/2020/automation-and-jobs-when-technology-boosts-employment.aspx | IMF managing director on AI and jobs, CNBC, 12 October 2026: https://www.cnbc.com/2026/10/12/imf-world-bank-ai-jobs-inflation-.html | Bluevine Lean Team Economy Report, 7 October 2026: https://www.prnewswire.com/news-releases/bluevine-study-finds-more-than-half-of-smbs-use-ai-to-handle-workload-of-at-least-one-employee-302900406.html",
+ "image_prompt": "Editorial photograph of a single cash machine set into a brick wall on a British high street, late afternoon overcast light, worn brass and grey metal casing, a small queue barrier to one side, pavement and shop window reflections at the edge of frame. One subject, no people, no hands, no text, no logos, no screens showing numbers, shot on 50mm, shallow depth of field, muted natural colour.",
+ "image_alt": "A cash machine built into a brick wall on an empty high street in overcast afternoon light"
+}

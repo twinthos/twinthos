@@ -1,0 +1,2532 @@
+{
+ "title": "Probability-weighted ranking of 114 UK firms as buyers of a £60,000/year managed AI digital-employee service",
+ "as_of": "2026-10-21",
+ "offer": {
+  "fee_per_desk_gbp_year": 60000,
+  "fee_per_desk_gbp_month": 5000,
+  "pilot_gbp": 1500,
+  "pilot_weeks": 2,
+  "audit_gbp": 999
+ },
+ "weights": {
+  "afford": 0.3,
+  "repeatable": 0.25,
+  "speed": 0.2,
+  "trigger": 0.15,
+  "regulatory_risk": 0.1,
+  "note": "regulatory_risk is scored so 10 = LOW friction (a good thing). Weighted score is on a 1-10 scale."
+ },
+ "method_notes": [
+  "Affordability tests are anchored to ONS ASHE 2025 (April 2025, provisional) occupation medians: https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2025",
+  "Employer on-cost loading of 1.25x (15% employer NIC above a £5,000 secondary threshold, 3% auto-enrolment pension, apprenticeship levy) is an ASSUMPTION. NIC change source: https://www.gov.uk/government/publications/changes-to-the-class-1-national-insurance-contributions-secondary-threshold-the-secondary-class-1-national-insurance-contributions-rate-and-the-empl/changes-to-the-class-1-national-insurance-contributions-secondary-threshold-the-secondary-class-1-national-insurance-contributions-rate-and-the-empl",
+  "The 'signable without board approval' test used here is: the fee is at or below ~1% of firm revenue AND displaces at least ~1.5 admin FTE. The 1% delegation threshold is an ASSUMPTION (private-company delegation limits are not published); it is stated so the reader can replace it.",
+  "pilot_probability_12m is an ESTIMATE, not a measurement: p = 0.02 + (firm_score - 3) x 0.02, capped at 0.30. It describes the chance of one paid pilot within 12 months given a targeted approach to that named firm, and assumes warm introduction where available.",
+  "Firm scores = sector weighted score + scale adjustment (large +0.4, mid +0.1, small -1.0) + a named firm-specific adjustment where evidence exists. Scale for 30 property/field-service firms is classed from published footprint, not headcount - flagged in firm evidence."
+ ],
+ "sector_scores": [
+  {
+   "sector": "Accountancy practices and outsourced payroll bureaux",
+   "sector_key": "accountancy_payroll",
+   "affordability_evidence": [
+    {
+     "claim": "Median UK accountancy firm employs 1 person and 95% file accounts too abbreviated to disclose turnover - the addressable universe is the minority with a real payroll bureau, not the 39,975 registered firms",
+     "source_url": "https://verifiedaccountants.co.uk/uk-accountancy-firm-finances"
+    },
+    {
+     "claim": "Book-keepers, payroll managers and wages clerks: median full-time pay £31,560 (ASHE 2025, SOC 4122); loaded at 1.25x employer on-cost = £39,450, so a £60k desk must displace ~1.5 FTE",
+     "source_url": "https://payprecision.co.uk/salaries/by-occupation/data/uk-salary-by-occupation-2025.json"
+    },
+    {
+     "claim": "Duncan & Toplis: 428 employees and £29.9m turnover in filed accounts = ~£69,900 revenue per head, so £60k is 0.2% of firm revenue at that size",
+     "source_url": "https://duncantoplis.co.uk/"
+    },
+    {
+     "claim": "MTD for Income Tax starts 6 April 2026 for qualifying income over £50,000 and extends to over £30,000 from 6 April 2027 - a dated, non-optional workload increase inside 9 months",
+     "source_url": "https://www.gov.uk/government/news/sole-traders-and-landlords-earning-more-than-30000-urged-to-act-now"
+    }
+   ],
+   "min_viable_firm_size": "50-75 staff (roughly 8+ payroll/accounts administrators); below 20 staff the £60k line exceeds the whole support payroll",
+   "scores": {
+    "afford": 8,
+    "repeatable": 9,
+    "speed": 7,
+    "trigger": 9,
+    "regulatory_risk": 7,
+    "weighted_score": 8.1
+   },
+   "weights": {
+    "afford": 0.3,
+    "repeatable": 0.25,
+    "speed": 0.2,
+    "trigger": 0.15,
+    "regulatory_risk": 0.1
+   },
+   "factor_evidence": [
+    {
+     "factor": "afford",
+     "weight": 0.3,
+     "score": 8,
+     "evidence": "£69,900 revenue per head at Duncan & Toplis; £60k = 0.2% of revenue, ~1.5 payroll FTE displaced"
+    },
+    {
+     "factor": "repeatable",
+     "weight": 0.25,
+     "score": 9,
+     "evidence": "Payroll is a fixed monthly cycle with identical inputs (starters, leavers, hours, statutory changes), evidenced by the bureaux themselves selling it as a recurring service"
+    },
+    {
+     "factor": "speed",
+     "weight": 0.2,
+     "score": 7,
+     "evidence": "Managing partner or practice COO signs; no procurement function, no framework"
+    },
+    {
+     "factor": "trigger",
+     "weight": 0.15,
+     "score": 9,
+     "evidence": "MTD ITSA live from 6 April 2026; £30k threshold from 6 April 2027; Employment Rights Act payroll changes phasing through 2026-27"
+    },
+    {
+     "factor": "regulatory_risk",
+     "weight": 0.1,
+     "score": 7,
+     "evidence": "Client money/AML supervision but no patient or special-category data; GDPR duties are ordinary"
+    }
+   ],
+   "weighted_score": 8.1,
+   "verdict": "PRIMARY - sell here first",
+   "verdict_reason": "Best combination of a dated statutory trigger (MTD ITSA), a measurable monthly cycle and no data-protection gate. The constraint is firm size: 95% of UK accountancy firms are too small to buy.",
+   "admin_headcount_note": "No published admin ratio. ASSUMPTION: 1 support FTE per 4 fee earners in a 50-400 staff practice. Firm evidence: Duncan & Toplis 428 staff, Larking Gowen 395, Albert Goodman 300+."
+  },
+  {
+   "sector": "Recruitment agencies and staffing groups",
+   "sector_key": "recruitment",
+   "affordability_evidence": [
+    {
+     "claim": "Hays FY25 net fees £972.4m; at ~6,070 consultants that is ~£160,200 of net fees per consultant, so a £60k desk is ~37% of one consultant's output and ~1% of a 37-consultant desk",
+     "source_url": "https://www.haysplc.com/~/media/Files/H/Hays/annual-reports/ar-2025/CEO%20%20FD%20Review%20%20FY25.pdf"
+    },
+    {
+     "claim": "Sellick Partnership runs 65 consultants against 29 office staff - a 2.2:1 fee-earner-to-support ratio that makes one admin job a visible cost line",
+     "source_url": "https://www.sellickpartnership.co.uk/"
+    },
+    {
+     "claim": "Employment Rights Act 2025: fire-and-rehire ban, union access and tribunal time limits from October 2026; zero-hours and unfair dismissal changes in 2027 - every placement pack and contract changes",
+     "source_url": "https://www.gov.uk/government/publications/implementing-the-plan-to-make-work-pay-and-employment-rights-act/implementing-the-employment-rights-bill-roadmap-web-version"
+    }
+   ],
+   "min_viable_firm_size": "30-40 fee earners (35-50 staff); below ~20 consultants the desk fee is a large share of one office's net fee income",
+   "scores": {
+    "afford": 8,
+    "repeatable": 9,
+    "speed": 8,
+    "trigger": 7,
+    "regulatory_risk": 7,
+    "weighted_score": 8.0
+   },
+   "weights": {
+    "afford": 0.3,
+    "repeatable": 0.25,
+    "speed": 0.2,
+    "trigger": 0.15,
+    "regulatory_risk": 0.1
+   },
+   "factor_evidence": [
+    {
+     "factor": "afford",
+     "weight": 0.3,
+     "score": 8,
+     "evidence": "~£160,200 net fees per consultant (Hays FY25); 1% of a mid-size desk's annual net fees"
+    },
+    {
+     "factor": "repeatable",
+     "weight": 0.25,
+     "score": 9,
+     "evidence": "Timesheets, compliance documents, CV formatting, interview scheduling and submission packs repeat per candidate and per week"
+    },
+    {
+     "factor": "speed",
+     "weight": 0.2,
+     "score": 8,
+     "evidence": "MD or operations director decides in one meeting; no procurement board"
+    },
+    {
+     "factor": "trigger",
+     "weight": 0.15,
+     "score": 7,
+     "evidence": "Employment Rights Act changes land Oct 2026 and 2027, forcing contract and compliance-document reissues"
+    },
+    {
+     "factor": "regulatory_risk",
+     "weight": 0.1,
+     "score": 7,
+     "evidence": "Candidate data is ordinary personal data plus right-to-work evidence; no special-category health data at scale"
+    }
+   ],
+   "weighted_score": 8.0,
+   "verdict": "PRIMARY - sell here second",
+   "verdict_reason": "Fastest yes of the eight and the clearest displaced-labour arithmetic. Watch the cycle: Hays cut consultant headcount 14% in FY25, so budget appetite varies by firm.",
+   "admin_headcount_note": "Documented: Sellick Partnership runs 65 consultants against 29 office staff - 31% of headcount sits in support."
+  },
+  {
+   "sector": "Freight forwarding and customs brokerage",
+   "sector_key": "logistics_customs",
+   "affordability_evidence": [
+    {
+     "claim": "Among 259 UK forwarders filing full P&Ls, global giants keep ~2p in the pound while specialist mid-market firms keep 13-15%, so affordability depends on being a specialist, not on turnover",
+     "source_url": "https://theaccounts.uk/reports/uk-freight-forwarders-market/"
+    },
+    {
+     "claim": "HMRC/Ipsos: 19-28 minutes of staff time and £5-£7 internal cost per customs process, with ~70% of declarants saying automated data entry would help",
+     "source_url": "https://www.gov.uk/government/publications/customs-administrative-burden-wave-2/customs-administrative-burden-wave-2-executive-summary"
+    },
+    {
+     "claim": "5,650 declarants filed 84.6 million declarations in 2024 - volume per firm is thousands of lines a year, which is what makes one desk measurable",
+     "source_url": "https://www.gov.uk/government/statistics/customs-declarants-and-declaration-volumes-for-international-trade-in-2024/customs-declarants-and-declaration-volumes-for-international-trade-in-2024-commentary"
+    },
+    {
+     "claim": "UK CBAM starts 1 January 2027: importers of £50,000+ of aluminium, cement, fertiliser, hydrogen, iron and steel over 12 months must register - a dated, mandatory data-collection job for their broker",
+     "source_url": "https://www.gov.uk/government/publications/introduction-of-carbon-border-adjustment-mechanism/carbon-border-adjustment-mechanism"
+    }
+   ],
+   "min_viable_firm_size": "50-100 staff with an in-house customs/ops desk; commodity forwarders below ~30 staff run too thin a margin to carry it",
+   "scores": {
+    "afford": 7,
+    "repeatable": 9,
+    "speed": 7,
+    "trigger": 9,
+    "regulatory_risk": 6,
+    "weighted_score": 7.7
+   },
+   "weights": {
+    "afford": 0.3,
+    "repeatable": 0.25,
+    "speed": 0.2,
+    "trigger": 0.15,
+    "regulatory_risk": 0.1
+   },
+   "factor_evidence": [
+    {
+     "factor": "afford",
+     "weight": 0.3,
+     "score": 7,
+     "evidence": "Specialist forwarders run 13-15% margins; a 113-staff specialist (Baxter Freight, £37m+ turnover) carries £60k inside one department"
+    },
+    {
+     "factor": "repeatable",
+     "weight": 0.25,
+     "score": 9,
+     "evidence": "Every declaration repeats the same extraction from invoice and packing list into CDS or a port community system"
+    },
+    {
+     "factor": "speed",
+     "weight": 0.2,
+     "score": 7,
+     "evidence": "Owner/MD or ops director signs; private company, no framework"
+    },
+    {
+     "factor": "trigger",
+     "weight": 0.15,
+     "score": 9,
+     "evidence": "CBAM registration from 1 January 2027; CDS release cycles through 2026"
+    },
+    {
+     "factor": "regulatory_risk",
+     "weight": 0.1,
+     "score": 6,
+     "evidence": "HMRC customs liability and audit exposure, but no patient or special-category data"
+    }
+   ],
+   "weighted_score": 7.7,
+   "verdict": "PRIMARY - best single trigger",
+   "verdict_reason": "CBAM registration on 1 January 2027 gives every customs desk a dated reason to act inside 9 months. Affordability depends on being a specialist forwarder, not a commodity one.",
+   "admin_headcount_note": "Documented: Baxter Freight 113 staff with an in-house customs desk. Volume per firm is thousands of declarations a year (5,650 declarants filed 84.6m declarations in 2024)."
+  },
+  {
+   "sector": "Insurance broking, MGAs and claims handlers",
+   "sector_key": "insurance_broking",
+   "affordability_evidence": [
+    {
+     "claim": "Average broker turnover per employee is £157,000 and staff costs are 46.8% of turnover - a 40-person broker turns over ~£6.3m, so £60k is under 1% of revenue",
+     "source_url": "https://www.insurancetimes.co.uk/analysis/broker-profitability-rises-as-growth-slows/1455115.article"
+    },
+    {
+     "claim": "Pensions and insurance clerks: median £30,269; insurance underwriters: median £41,610 (ASHE 2025) - a £60k desk is ~1.5-2 clerk salaries",
+     "source_url": "https://payprecision.co.uk/salaries/by-occupation/data/uk-salary-by-occupation-2025.json"
+    },
+    {
+     "claim": "FCA PS21/11 pricing rules mean a renewal cannot be priced above the equivalent new-business price, so renewals carry near new-business admin load",
+     "source_url": "https://www.fca.org.uk/publication/policy/ps21-11.pdf"
+    }
+   ],
+   "min_viable_firm_size": "~40 staff (about £6m of commission and fee income); below 25 staff the fee is a partner-level decision against a thin EBITDA",
+   "scores": {
+    "afford": 8,
+    "repeatable": 8,
+    "speed": 7,
+    "trigger": 6,
+    "regulatory_risk": 6,
+    "weighted_score": 7.3
+   },
+   "weights": {
+    "afford": 0.3,
+    "repeatable": 0.25,
+    "speed": 0.2,
+    "trigger": 0.15,
+    "regulatory_risk": 0.1
+   },
+   "factor_evidence": [
+    {
+     "factor": "afford",
+     "weight": 0.3,
+     "score": 8,
+     "evidence": "£157,000 turnover per employee (Insurance DataLab 2025); £60k = under 1% of a 40-person broker's revenue"
+    },
+    {
+     "factor": "repeatable",
+     "weight": 0.25,
+     "score": 8,
+     "evidence": "Renewal re-marketing, MTAs, demands-and-needs statements and portal re-keying repeat per policy"
+    },
+    {
+     "factor": "speed",
+     "weight": 0.2,
+     "score": 7,
+     "evidence": "Owner/MD or COO decides; FCA-regulated but no procurement board"
+    },
+    {
+     "factor": "trigger",
+     "weight": 0.15,
+     "score": 6,
+     "evidence": "No single dated deadline inside 9 months; the 1 January commercial renewal peak is the commercial window, not a regulatory one"
+    },
+    {
+     "factor": "regulatory_risk",
+     "weight": 0.1,
+     "score": 6,
+     "evidence": "FCA SYSC outsourcing and Consumer Duty evidence, but client data is commercial rather than health data"
+    }
+   ],
+   "weighted_score": 7.3,
+   "verdict": "SECONDARY - strong economics, weak clock",
+   "verdict_reason": "Richest revenue per head of the eight and the cleanest admin repetition, but no dated deadline inside 9 months; sell on renewal-season capacity.",
+   "admin_headcount_note": "No published ratio. ASSUMPTION: 1 processing/support FTE per 3 client-facing staff, consistent with staff costs at 46.8% of turnover."
+  },
+  {
+   "sector": "Legal services (volume conveyancing, PI, family, insurance litigation)",
+   "sector_key": "legal",
+   "affordability_evidence": [
+    {
+     "claim": "Median fee income per fee earner £146,313, median net profit per equity partner £248,985 and gross margin 36.5% (145 firms, 2024)",
+     "source_url": "https://d17yqm1j5pr274.cloudfront.net/Uploads/q/v/l/financialbenchmarkingsurveymarch2025_9253.pdf"
+    },
+    {
+     "claim": "Median support staff cost per fee earner is £22,472 - so £60k equals the entire support cost of ~2.7 fee earners",
+     "source_url": "https://d17yqm1j5pr274.cloudfront.net/Uploads/q/v/l/financialbenchmarkingsurveymarch2025_9253.pdf"
+    },
+    {
+     "claim": "Legal secretaries median £26,968; legal associate professionals £34,662 (ASHE 2025)",
+     "source_url": "https://payprecision.co.uk/salaries/by-occupation/data/uk-salary-by-occupation-2025.json"
+    }
+   ],
+   "min_viable_firm_size": "~20 fee earners / 35-40 staff; partnerships below 10 fee earners treat £60k as a partner profit share decision",
+   "scores": {
+    "afford": 7,
+    "repeatable": 8,
+    "speed": 6,
+    "trigger": 5,
+    "regulatory_risk": 6,
+    "weighted_score": 6.65
+   },
+   "weights": {
+    "afford": 0.3,
+    "repeatable": 0.25,
+    "speed": 0.2,
+    "trigger": 0.15,
+    "regulatory_risk": 0.1
+   },
+   "factor_evidence": [
+    {
+     "factor": "afford",
+     "weight": 0.3,
+     "score": 7,
+     "evidence": "£146,313 fee income per fee earner at 36.5% gross margin; a 20-fee-earner firm carries ~£449k of support cost"
+    },
+    {
+     "factor": "repeatable",
+     "weight": 0.25,
+     "score": 8,
+     "evidence": "Post-completion (SDLT, AP1, requisitions), onboarding, AML/KYC and source-of-funds checks repeat per file"
+    },
+    {
+     "factor": "speed",
+     "weight": 0.2,
+     "score": 6,
+     "evidence": "Managing partner or board; partnership consensus slows the decision"
+    },
+    {
+     "factor": "trigger",
+     "weight": 0.15,
+     "score": 5,
+     "evidence": "No dated regulatory deadline inside 9 months; HMLR requisition volumes are chronic, not dated"
+    },
+    {
+     "factor": "regulatory_risk",
+     "weight": 0.1,
+     "score": 6,
+     "evidence": "SRA outsourcing rules and privileged client data; no patient data"
+    }
+   ],
+   "weighted_score": 6.65,
+   "verdict": "SECONDARY - good pain, slow yes",
+   "verdict_reason": "Documented support cost per fee earner and heavy post-completion repetition, but partnership consensus and the absence of a dated deadline push the cycle out.",
+   "admin_headcount_note": "Documented: median support staff cost per fee earner £22,472 - at a ~£30k loaded cost that is ~0.75 support FTE per fee earner."
+  },
+  {
+   "sector": "Property management, block management and lettings",
+   "sector_key": "property_lettings",
+   "affordability_evidence": [
+    {
+     "claim": "Block management fees are £150-300 per unit per year for basic service and £300-500 for standard, so revenue per unit is small and the agent's margin is a fraction of it",
+     "source_url": "https://levyboard.co.uk/blog/block-management-costs-comparison/"
+    },
+    {
+     "claim": "ARMA members manage around 1.25 million homes across 300+ firms - average portfolio is a few thousand units, i.e. below the size at which £60k is comfortable",
+     "source_url": "https://committees.parliament.uk/writtenevidence/5188/pdf/"
+    },
+    {
+     "claim": "Property, housing and estate managers median £43,365; estate agents £30,648 (ASHE 2025)",
+     "source_url": "https://payprecision.co.uk/salaries/by-occupation/data/uk-salary-by-occupation-2025.json"
+    },
+    {
+     "claim": "Leasehold and Freehold Reform Act 2024 service-charge transparency reforms are being commenced through 2026 - a real but phased trigger",
+     "source_url": "https://www.gov.uk/government/news/stronger-leasehold-protections-in-crackdown-on-hidden-fees"
+    }
+   ],
+   "min_viable_firm_size": "~8,000-10,000 units under management (60-90 staff); at 2,000 units a £60k fee is 70-100% of pre-tax profit",
+   "scores": {
+    "afford": 4,
+    "repeatable": 7,
+    "speed": 5,
+    "trigger": 7,
+    "regulatory_risk": 5,
+    "weighted_score": 5.5
+   },
+   "weights": {
+    "afford": 0.3,
+    "repeatable": 0.25,
+    "speed": 0.2,
+    "trigger": 0.15,
+    "regulatory_risk": 0.1
+   },
+   "factor_evidence": [
+    {
+     "factor": "afford",
+     "weight": 0.3,
+     "score": 4,
+     "evidence": "£300-500 revenue per unit per year; a 2,000-unit agent cannot absorb £60k without wiping out most of its profit"
+    },
+    {
+     "factor": "repeatable",
+     "weight": 0.25,
+     "score": 7,
+     "evidence": "Service-charge cycles, S20 consultations, maintenance triage and statements repeat annually and monthly"
+    },
+    {
+     "factor": "speed",
+     "weight": 0.2,
+     "score": 5,
+     "evidence": "MD decides, but RTM directors and leaseholder funds constrain how the cost is passed on"
+    },
+    {
+     "factor": "trigger",
+     "weight": 0.15,
+     "score": 7,
+     "evidence": "LFRA service-charge transparency and Renters' Rights Act phases through 2026-27; MEES compliance by 1 October 2030"
+    },
+    {
+     "factor": "regulatory_risk",
+     "weight": 0.1,
+     "score": 5,
+     "evidence": "Client money and leaseholder funds; no patient data"
+    }
+   ],
+   "weighted_score": 5.5,
+   "verdict": "CONDITIONAL - only at 8,000+ units",
+   "verdict_reason": "The unit economics fail below ~8,000 units: at £300-500 revenue per unit a £60k fee consumes most of a 2,000-unit agent's profit.",
+   "admin_headcount_note": "ASSUMPTION: ~1 property manager per 250-400 units, so a 2,000-unit agent runs 5-8 front-line staff - below the size that can fund £60k."
+  },
+  {
+   "sector": "Field service and trade contractors (heating, electrical, repairs)",
+   "sector_key": "field_service",
+   "affordability_evidence": [
+    {
+     "claim": "The largest UK contractors average about a 3% pre-tax margin and a quarter make less than 2% - a 100-engineer firm on £5m revenue earns ~£150k pre-tax, so £60k is ~40% of profit",
+     "source_url": "https://planyard.com/blog/how-to-increase-profit-margin-in-construction"
+    },
+    {
+     "claim": "Electricians median £39,647; plumbers and heating installers £37,881; electrical maintenance mechanics £41,662 (ASHE 2025) - the field workforce costs more than the admin being replaced",
+     "source_url": "https://payprecision.co.uk/salaries/by-occupation/data/uk-salary-by-occupation-2025.json"
+    },
+    {
+     "claim": "Awaab's Law has imposed fixed investigation and repair deadlines on social landlords since 27 October 2025, which flows down to their repairs contractors",
+     "source_url": "https://www.gov.uk/government/news/awaabs-law-to-force-landlords-to-fix-dangerous-homes"
+    }
+   ],
+   "min_viable_firm_size": "£20m+ revenue (roughly 150+ engineers); below that a £60k fee is 25-50% of pre-tax profit",
+   "scores": {
+    "afford": 3,
+    "repeatable": 7,
+    "speed": 6,
+    "trigger": 6,
+    "regulatory_risk": 7,
+    "weighted_score": 5.45
+   },
+   "weights": {
+    "afford": 0.3,
+    "repeatable": 0.25,
+    "speed": 0.2,
+    "trigger": 0.15,
+    "regulatory_risk": 0.1
+   },
+   "factor_evidence": [
+    {
+     "factor": "afford",
+     "weight": 0.3,
+     "score": 3,
+     "evidence": "3% pre-tax margins; £60k is a large share of profit even at 100+ engineers"
+    },
+    {
+     "factor": "repeatable",
+     "weight": 0.25,
+     "score": 7,
+     "evidence": "Job scheduling, quotes, compliance certificates and parts ordering repeat per job"
+    },
+    {
+     "factor": "speed",
+     "weight": 0.2,
+     "score": 6,
+     "evidence": "Owner decides quickly, but price sensitivity is extreme"
+    },
+    {
+     "factor": "trigger",
+     "weight": 0.15,
+     "score": 6,
+     "evidence": "Awaab's Law repair deadlines and local-authority/HA capital programmes"
+    },
+    {
+     "factor": "regulatory_risk",
+     "weight": 0.1,
+     "score": 7,
+     "evidence": "Gas Safe/F-Gas and CDM duties, but no patient data"
+    }
+   ],
+   "weighted_score": 5.45,
+   "verdict": "DROP",
+   "verdict_reason": "2-3% pre-tax margins mean £60k is 25-50% of profit even at 100+ engineers. There is pain but no budget line.",
+   "admin_headcount_note": "ASSUMPTION: 1 office/scheduling FTE per 8-12 engineers."
+  },
+  {
+   "sector": "Healthcare administration (private clinics, dental groups, care homes, private hospitals)",
+   "sector_key": "healthcare_admin",
+   "affordability_evidence": [
+    {
+     "claim": "Spire Healthcare FY25: revenue £1.58bn with 17.6k employees and a 17.0% EBITDA margin - large enough, but the buying unit is a group function, not a clinic",
+     "source_url": "https://investors.spirehealthcare.com/media/n1mbarzj/fy25-results-presentation.pdf"
+    },
+    {
+     "claim": "Associate-led dental practice EBITDA margin 23.7% in 2025; 12,223 UK practices, 18% inside groups of 30+ sites - only the group tier can sign £60k",
+     "source_url": "https://www.axialsystems.co.uk/sectors/dental"
+    },
+    {
+     "claim": "Medical secretaries median £26,958; receptionists £24,678 (ASHE 2025) - the lowest-paid admin pool of the eight sectors",
+     "source_url": "https://payprecision.co.uk/salaries/by-occupation/data/uk-salary-by-occupation-2025.json"
+    },
+    {
+     "claim": "Care home market worth £27bn with fee pressure from local authority rates - margin, not willingness, is the constraint",
+     "source_url": "https://www.laingbuisson.com/press-releases/care-home-market-reaches-27bn-as-inflation-drives-growth-and-fee-gap-narrows/"
+    }
+   ],
+   "min_viable_firm_size": "30+ site dental group or 500+ bed care group; single clinics cannot fund £60k and cannot carry the compliance file",
+   "scores": {
+    "afford": 6,
+    "repeatable": 7,
+    "speed": 3,
+    "trigger": 5,
+    "regulatory_risk": 2,
+    "weighted_score": 5.1
+   },
+   "weights": {
+    "afford": 0.3,
+    "repeatable": 0.25,
+    "speed": 0.2,
+    "trigger": 0.15,
+    "regulatory_risk": 0.1
+   },
+   "factor_evidence": [
+    {
+     "factor": "afford",
+     "weight": 0.3,
+     "score": 6,
+     "evidence": "Group-level EBITDA can fund it (Spire 17.0%, dental 23.7%), but only at 30+ sites or 500+ beds"
+    },
+    {
+     "factor": "repeatable",
+     "weight": 0.25,
+     "score": 7,
+     "evidence": "Referral triage, PMI authorisation, recalls, rota and CQC evidence repeat daily"
+    },
+    {
+     "factor": "speed",
+     "weight": 0.2,
+     "score": 3,
+     "evidence": "Clinical governance, DPO, IG committee and board: 3-9 months even for a pilot"
+    },
+    {
+     "factor": "trigger",
+     "weight": 0.15,
+     "score": 5,
+     "evidence": "CQC single assessment and elective recovery create pressure but no dated deadline inside 9 months"
+    },
+    {
+     "factor": "regulatory_risk",
+     "weight": 0.1,
+     "score": 2,
+     "evidence": "Special-category patient data, DSPT, DTAC for NHS-facing tools, DPIA and CQC scrutiny - the highest deal-kill risk of the eight"
+    }
+   ],
+   "weighted_score": 5.1,
+   "verdict": "DROP as a first market",
+   "verdict_reason": "Group-level EBITDA can fund it, but the NHS procurement and assurance stack (framework, DTAC, DCB0129, DSPT, DPIA, CQC) costs more than a £60k deal can amortise.",
+   "admin_headcount_note": "Documented: Spire runs 17,600 employees across 38 hospitals and 60+ clinics; group functions, not individual clinics, hold the admin budget."
+  }
+ ],
+ "health_analysis": {
+  "claim_under_review": {
+   "claim": "Nick Vallescue (Dewey) is reported to have said UK and US healthcare are harder industries to sell AI/automation into.",
+   "status": "UNVERIFIED - NOT ATTRIBUTABLE",
+   "what_the_search_found": "Searches for 'Vallescue', 'Nick Vallescue' and 'Dewey + AI + healthcare' return no relevant person, firm, interview, podcast transcript or article. The Dewey-like entities that do surface are unrelated: deweygroup.co.uk (Nottingham recruitment and training) and askdewey.com (a US consumer health AI site). No published source connects the name to a statement about healthcare sales difficulty.",
+   "what_to_do": "Do not repeat the quote as fact in any client-facing document. Treat it as an unverified recollection and argue the point from primary evidence, which is set out below.",
+   "note": "The absence of evidence is not evidence the person never said it - it means it cannot be cited. The substantive question is answered independently."
+  },
+  "documented_barriers": [
+   {
+    "barrier": "NHS procurement framework gate",
+    "what_it_requires": "NHS organisations buy digital and IT through framework agreements. NHS England's own innovation guidance states: 'New suppliers cannot be added to an agreed procurement framework, except the Dynamic Purchasing System (DPS)'. Frameworks typically run up to four years and must be re-tendered.",
+    "source_url": "https://innovation.nhs.uk/innovation-guides/commissioning-and-adoption/procurement-frameworks/",
+    "deal_impact": "A small vendor cannot be bought by an NHS trust simply by persuading a department. It must already be on a framework, be added to a DPS, or wait for a further competition. This is a structural gate, not a sales objection."
+   },
+   {
+    "barrier": "An incumbent framework already covers this exact service",
+    "what_it_requires": "NHS Shared Business Services runs the Intelligent Automation Framework Agreement (SBS10137), active 20 November 2023 to 19 November 2027, with Lot 1 intelligent automation services, Lot 2 software and licensing, and Lot 3 'intelligent automation as a service (IAaaS)'.",
+    "source_url": "https://www.sbs.nhs.uk/services/framework-agreements/intelligent-automation/",
+    "deal_impact": "The category is already procured, with suppliers already on the rail. A new entrant competes with IAaaS incumbents and cannot join the framework before it is re-let (November 2027)."
+   },
+   {
+    "barrier": "DTAC (Digital Technology Assessment Criteria)",
+    "what_it_requires": "DTAC is the NHS-recommended baseline assessment of safety, security, interoperability and usability for digital health technologies, and pulls in the NHS clinical risk management standards (DCB0129 for manufacturers, DCB0160 for deploying organisations).",
+    "source_url": "https://www.england.nhs.uk/long-read/medical-devices-and-digital-tools/",
+    "secondary_source": "https://www.digitalregulations.innovation.nhs.uk/regulations-and-guidance-for-developers/all-developers-guidance/complying-with-nhs-digital-clinical-risk-management-standards/",
+    "deal_impact": "A compliance evidence pack must exist before the sale, not after. For a back-office agent this is proportionate only if the tool never touches clinical decision-making - and even then the buyer's IG team will ask for it."
+   },
+   {
+    "barrier": "DSPT (Data Security and Protection Toolkit)",
+    "what_it_requires": "An annual self-assessment against the National Data Guardian's standards for any organisation that accesses NHS patient data or systems. NHS buyers are required to check a supplier's DSPT status before awarding a contract, and to record it.",
+    "source_url": "https://digital.nhs.uk/cyber-and-data-security/guidance-and-assurance/data-security-and-protection-toolkit-assessment-guides/guide-10---accountable-suppliers/your-suppliers-and-contracts/",
+    "secondary_source": "https://www.dsptoolkit.nhs.uk/Help/5",
+    "deal_impact": "The buyer's procurement file needs the supplier's DSPT position. Note the toolkit's own organisation types include 'Dentist' covering 'NHS clinical and educational dental services or private dental services', and 'Social Care' covering care homes - so DSPT exposure follows the organisation type, not only the contract."
+   },
+   {
+    "barrier": "DPIA (Data Protection Impact Assessment)",
+    "what_it_requires": "Article 35 requires a DPIA where processing is likely to result in a high risk to individuals, including large-scale processing of special category data such as health data.",
+    "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/accountability-and-governance/data-protection-impact-assessments-dpias/when-do-we-need-to-do-a-dpia/",
+    "deal_impact": "Adds a 2-8 week step to every deployment and puts the DPO, not the operations director, in the approval path."
+   },
+   {
+    "barrier": "CQC oversight",
+    "what_it_requires": "CQC does not assess or approve specific technologies, but holds registered providers accountable for safe, equitable, person-centred care. Its published AI position (updated 21 May 2026) lists hallucination, unclear accountability, de-skilling and human oversight as risks providers must manage.",
+    "source_url": "https://www.cqc.org.uk/about-us/transparency/artificial-intelligence-health-social-care-cqcs-role-expectations-plans",
+    "deal_impact": "The provider's quality lead must be able to defend the tool to an inspector. That converts a line-of-business purchase into a governance project."
+   }
+  ],
+  "why_it_is_hard_in_one_paragraph": "The demand is real - the NHS runs a dedicated intelligent automation framework precisely because back-office automation is wanted. The problem is that the fixed cost of becoming buyable (framework or DPS entry, DTAC evidence, a DCB0129 clinical safety case, DSPT, DPIA, CQC governance narrative) is largely independent of contract value. At £60,000 a year the vendor must amortise that cost over a single deal, while an incumbent on SBS10137 amortises it over an existing framework position. That is a unit-economics problem, not a demand problem.",
+  "is_uk_healthcare_a_poor_first_market": {
+   "answer": "Yes for NHS-facing healthcare; no for private-pay healthcare.",
+   "for_nhs_facing": "Poor first market. The gate is procurement (framework/DPS), the assurance stack is DTAC + DCB0129/0160 + DSPT + DPIA + CQC, and the framework that already covers the service is not re-let until 19 November 2027. A £60k ACV cannot carry that fixed cost, and a 9-18 month cycle is longer than a small vendor's runway. ASSUMPTION: the DTAC/clinical-safety evidence pack is 4-12 weeks of specialist work; it is not priced here.",
+   "for_private_pay": "Reasonable market, but only at group scale (30+ dental sites, 20+ care homes, multi-clinic aesthetics or occupational health). The NHS gate disappears; UK GDPR, DPIA and CQC do not.",
+   "conditions_where_nhs_is_worth_it": [
+    "You are already on SBS10137 or another NHS framework",
+    "The buyer is an ICB or trust with a named budget line and an internal IG team that will sponsor the DTAC pack",
+    "You sell a clinical-adjacent tool with a medical-device classification and a regulatory pathway already mapped",
+    "You can treat the first NHS deal as a 12-month reference investment, not as revenue"
+   ]
+  },
+  "health_adjacent_buyers": [
+   {
+    "buyer": "Private dentistry (sites with no NHS contract)",
+    "nhs_procurement_gate": "No",
+    "dtac": "No",
+    "dspt": "No unless an NHS contract or voluntary submission",
+    "cqc": "Yes",
+    "dpia": "Yes - patient data is special category",
+    "verdict": "Viable. Best at 30+ site groups where a central ops team owns the front desk. NHS-contract practices fall back under DSPT.",
+    "named_examples": [
+     "mydentist (500+ practices, https://www.mydentist.co.uk/about-us)",
+     "PortmanDentex (370+ practices, https://www.portmandentex.com/about)",
+     "Rodericks Dental Partners (200+ practices, https://rodericksdentalpartners.co.uk/careers/who-we-are)"
+    ]
+   },
+   {
+    "buyer": "Veterinary practices and groups",
+    "nhs_procurement_gate": "No",
+    "dtac": "No",
+    "dspt": "No",
+    "cqc": "No (RCVS regulates individuals and premises, not CQC)",
+    "dpia": "Yes for client personal data, but animal clinical records are not special category data",
+    "verdict": "Best health-adjacent buyer. No NHS gate, no CQC gate, and a dated compliance trigger (CMA Order 2026).",
+    "named_examples": [
+     "CVS Group (https://www.cvsukltd.co.uk/)",
+     "IVC Evidensia (https://ivcevidensia.com/)",
+     "Medivet (https://www.medivet.co.uk/)"
+    ]
+   },
+   {
+    "buyer": "Private physiotherapy",
+    "nhs_procurement_gate": "No",
+    "dtac": "No",
+    "dspt": "No",
+    "cqc": "Only where regulated activities are provided",
+    "dpia": "Yes",
+    "verdict": "Weak on cheque size. Single clinics cannot fund £60k; only multi-site musculoskeletal or occupational-health-linked groups can.",
+    "named_examples": [
+     "Sano Physiotherapy (https://www.sanophysiotherapy.com/sano-clinics/)"
+    ]
+   },
+   {
+    "buyer": "Aesthetics and cosmetic clinics",
+    "nhs_procurement_gate": "No",
+    "dtac": "No",
+    "dspt": "No",
+    "cqc": "Depends on regulated activities",
+    "dpia": "Yes - health data",
+    "verdict": "Viable at multi-site groups; brand-risk sensitive, so pilot scope must exclude clinical messaging.",
+    "named_examples": [
+     "The Private Clinic (https://www.theprivateclinic.co.uk/our-clinics/)"
+    ]
+   },
+   {
+    "buyer": "Private GP and concierge medicine",
+    "nhs_procurement_gate": "No",
+    "dtac": "No",
+    "dspt": "No",
+    "cqc": "Yes",
+    "dpia": "Yes - special category data",
+    "verdict": "Small cheques and high governance for the revenue. Not a first market.",
+    "named_examples": [
+     "Hurley Group is NHS-facing and fails this test (https://www.hurleygroup.co.uk/general-practice)"
+    ]
+   },
+   {
+    "buyer": "Occupational health",
+    "nhs_procurement_gate": "No (employer-funded)",
+    "dtac": "No",
+    "dspt": "No unless NHS-commissioned",
+    "cqc": "Sometimes",
+    "dpia": "Yes - employee health data",
+    "verdict": "Viable mid-market; the buyer is a corporate HR or OH director, so the cycle is commercial, not clinical. Largest cheque sizes come from OH providers serving multiple employer contracts.",
+    "named_examples": [
+     "Optima Health (https://www.optimahealth.co.uk/)",
+     "PAM Group (https://www.pamgroup.co.uk/)",
+     "Health Partners (https://www.healthpartners.co.uk/)"
+    ]
+   },
+   {
+    "buyer": "Care homes",
+    "nhs_procurement_gate": "No",
+    "dtac": "No",
+    "dspt": "Yes as a 'Social Care' organisation type (self-assessment, not a procurement gate)",
+    "cqc": "Yes",
+    "dpia": "Yes",
+    "verdict": "Viable only at 20+ home groups; fee pressure from local authority rates caps what can be paid.",
+    "named_examples": [
+     "HC-One (c.280 homes, https://www.hc-one.co.uk/corporate-information)",
+     "Barchester (200+ homes, https://www.barchester.com/)",
+     "Care UK (260 homes, https://www.careuk.com/about-us)"
+    ]
+   }
+  ],
+  "conclusion": "The caution is directionally right about NHS-facing healthcare and wrong as a blanket statement about healthcare. The barrier is the NHS procurement and assurance stack, not the sector's willingness to buy. Private-pay, non-NHS providers - above all veterinary and private dental groups - carry the same commercial logic as any other back-office buyer with far less gate."
+ },
+ "substitute_sectors": [
+  {
+   "sector": "Veterinary groups and practice groups",
+   "why": "Passes all four tests. (a) Affordability: six groups own >60% of UK practices and group EBITDA supports a £60k desk; (b) systems: the PMS estate is archaic (RoboVet partner-only integrations, on-prem Voyager, EXACT) and front-of-house staff handle up to 66% of client interaction; (c) dated trigger: the CMA's Veterinary Services Market Investigation Order 2026 imposed a statutory deadline for remedial action of 23 September 2026, with price lists, written estimates over £500 and itemised bills now mandatory, and out-of-hours providers reporting compliance from 15 October 2026; (d) no NHS gate and no special-category patient data - animal records are not health data under UK GDPR.",
+   "evidence_urls": [
+    "https://www.gov.uk/cma-cases/veterinary-services-market-for-pets-review",
+    "https://www.gov.uk/guidance/what-veterinary-businesses-and-vets-need-to-do-following-the-cmas-final-vets-report"
+   ],
+   "named_companies": [
+    {
+     "name": "CVS Group plc",
+     "url": "https://www.cvsukltd.co.uk/",
+     "why": "Listed UK vet group, ~400 practices; central procurement and a published growth strategy"
+    },
+    {
+     "name": "IVC Evidensia",
+     "url": "https://ivcevidensia.com/",
+     "why": "Largest European vet group with a large UK estate; central operations function"
+    },
+    {
+     "name": "Medivet",
+     "url": "https://www.medivet.co.uk/",
+     "why": "350+ UK practices; branch-heavy model with a central support centre"
+    },
+    {
+     "name": "Pets at Home Group",
+     "url": "https://www.petsathome.com/",
+     "why": "Retail-plus-vet model (Vets4Pets/Companion Care) with central buying"
+    }
+   ],
+   "trigger_within_9_months": "CMA Order 2026 compliance (statutory deadline 23 September 2026; out-of-hours reporting from 15 October 2026) plus the next CMA compliance reporting cycle"
+  },
+  {
+   "sector": "Private dental groups (non-NHS sites)",
+   "why": "Passes all four tests at group level. (a) Affordability: associate-led practice EBITDA margin 23.7% (2025) and 18% of the 12,223 UK practices sit inside groups of 30+ sites; (b) systems: SOE EXACT and Carestream R4+ dominate and neither publishes an open developer API; (c) dated trigger: NHS dental contract uplift from 1 April 2026 (Band 3 course of treatment £332.10) plus private-pay recall and membership administration; (d) no DTAC or NHS framework for wholly private sites, though DSPT applies to practices with NHS contracts.",
+   "evidence_urls": [
+    "https://www.axialsystems.co.uk/sectors/dental",
+    "https://www.dsptoolkit.nhs.uk/Help/5"
+   ],
+   "named_companies": [
+    {
+     "name": "mydentist",
+     "url": "https://www.mydentist.co.uk/about-us",
+     "why": "500+ practices, the largest UK chain; central ops and a mixed NHS/private estate"
+    },
+    {
+     "name": "PortmanDentex",
+     "url": "https://www.portmandentex.com/about",
+     "why": "370+ practices, 4,500 practice colleagues; group-level buying"
+    },
+    {
+     "name": "Rodericks Dental Partners",
+     "url": "https://rodericksdentalpartners.co.uk/careers/who-we-are",
+     "why": "200+ practices; acquisitive group standardising front-desk process"
+    },
+    {
+     "name": "Bupa Dental Care",
+     "url": "https://www.bupa.co.uk/dental/dental-care/about-us",
+     "why": "~350 practices; corporate parent with existing procurement"
+    }
+   ],
+   "trigger_within_9_months": "NHS dental uplift from 1 April 2026 and the 2026/27 contract year; private membership renewals are continuous"
+  },
+  {
+   "sector": "Insurance broking and MGAs",
+   "why": "Passes all four tests except a hard regulatory deadline. (a) Affordability: £157,000 turnover per employee and staff costs 46.8% of turnover; (b) systems: broking platforms plus insurer portals with heavy re-keying and no common data standard; (c) trigger: the 1 January 2027 commercial renewal peak - the single largest renewal date in the UK market - plus FCA PS21/11 renewal-pricing rules that load renewals with new-business admin; (d) no patient data; FCA outsourcing evidence is ordinary governance.",
+   "evidence_urls": [
+    "https://www.insurancetimes.co.uk/analysis/broker-profitability-rises-as-growth-slows/1455115.article",
+    "https://www.fca.org.uk/publication/policy/ps21-11.pdf"
+   ],
+   "named_companies": [
+    {
+     "name": "Clear Group (Clear Insurance Management)",
+     "url": "https://clearinsurancemanagement.com/",
+     "why": "400 people across 10 offices; acquisitive consolidator standardising process"
+    },
+    {
+     "name": "T L Dallas & Co",
+     "url": "https://www.tldallas.com/",
+     "why": "230+ people across 14 offices; commercial broking with a large renewal book"
+    },
+    {
+     "name": "Woodgate & Clark",
+     "url": "https://www.woodgate-clark.co.uk/",
+     "why": "350+ loss adjusters; claims file handling at volume"
+    },
+    {
+     "name": "Coplus",
+     "url": "https://www.coplus.co.uk/",
+     "why": "100+ people, Norwich; MGA/claims handling with repetitive document work"
+    }
+   ],
+   "trigger_within_9_months": "1 January 2027 renewal peak (commercial lines), preceded by Q4 re-marketing"
+  },
+  {
+   "sector": "Freight forwarding and customs brokerage",
+   "why": "Passes all four tests. (a) Affordability: specialist forwarders earn 13-15% margins versus ~2% for commodity giants; (b) systems: CDS plus Descartes/CSP portals with manual extraction from invoices and packing lists; (c) dated trigger: UK CBAM registration from 1 January 2027 for importers of £50,000+ of aluminium, cement, fertiliser, hydrogen, iron and steel; (d) no patient data - the risk is customs liability, which is managed by review, not by prohibition.",
+   "evidence_urls": [
+    "https://www.gov.uk/government/publications/introduction-of-carbon-border-adjustment-mechanism/carbon-border-adjustment-mechanism",
+    "https://theaccounts.uk/reports/uk-freight-forwarders-market/"
+   ],
+   "named_companies": [
+    {
+     "name": "Baxter Freight",
+     "url": "https://baxterfreight.com",
+     "why": "113 staff, £37m+ turnover, publishes its own customs guidance and runs an in-house customs desk"
+    },
+    {
+     "name": "B&H Worldwide",
+     "url": "https://www.bhworldwide.com/",
+     "why": "Aerospace logistics specialist with a ~13% margin, per filed accounts analysis"
+    },
+    {
+     "name": "Constantine",
+     "url": "https://theaccounts.uk/company/00948446/",
+     "why": "Fine-art forwarder with a ~15% margin - the specialist profile that can fund £60k"
+    },
+    {
+     "name": "Wineflow Freight",
+     "url": "https://theaccounts.uk/company/04386827/",
+     "why": "£30.5m revenue with £3.5m profit (2025 accounts); specialist bulk wine logistics"
+    }
+   ],
+   "trigger_within_9_months": "UK CBAM registration and data collection from 1 January 2027"
+  }
+ ],
+ "substitute_sector_note": "Two of these four (insurance broking, freight/customs) are already inside the eight-sector set and are re-confirmed rather than new. The genuine substitutions are veterinary groups and private dental groups, which replace healthcare administration and field service in the first-90-days plan.",
+ "drop_list": [
+  {
+   "sector": "Healthcare administration (NHS-facing: private hospitals with NHS contracts, NHS GP groups, NHS dental)",
+   "drop": true,
+   "reason": "The NHS procurement and assurance stack is a fixed cost larger than a £60k contract can amortise: framework/DPS gate, DTAC with DCB0129/0160 clinical safety, DSPT, DPIA, CQC governance, and an IA framework already covering the service until 19 November 2027.",
+   "what_would_change_it": "A route onto SBS10137 or a DPS, a buyer with a named budget and an internal IG sponsor, or a product that is explicitly non-clinical and hosted entirely outside NHS systems.",
+   "keep_instead": "The health-adjacent buyers in health_analysis (veterinary, private dental, aesthetics, occupational health) and the four substitute sectors."
+  },
+  {
+   "sector": "Field service and trade contractors",
+   "drop": true,
+   "reason": "Sector pre-tax margins of ~3% (a quarter below 2%) mean a £60k fee equals 25-50% of pre-tax profit at 100+ engineers. The admin pain is real but there is no budget line and price sensitivity is extreme.",
+   "what_would_change_it": "Only firms above ~£20m revenue with a multi-year social housing repairs contract, where Awaab's Law deadlines create contractual penalties for missed appointments.",
+   "keep_instead": "Logistics/customs and recruitment, which carry the same scheduling and document pain at 5-10x the margin."
+  },
+  {
+   "sector": "Property management and lettings (below 8,000 units)",
+   "drop": "conditional",
+   "reason": "At £150-500 revenue per unit per year, a 2,000-unit agent turns over £300k-£1m and a £60k fee consumes most of its profit. The sector only works at 8,000+ units.",
+   "what_would_change_it": "A per-unit pricing model (£0.50-£1.00 per unit per month) rather than a flat £5,000 desk fee, which converts the same economics into a signable line.",
+   "keep_instead": "The 15 named property firms in firm_ranking, screened for scale; prioritise FirstPort, RMG, Rendall & Rittner and Dexters."
+  }
+ ],
+ "firm_ranking": [
+  {
+   "rank": 1,
+   "name": "Dataplan Payroll Limited",
+   "sector": "accountancy_payroll",
+   "url": "https://www.dataplanpayroll.co.uk/",
+   "size": "£10.97m turnover in filed accounts (Endole, 06475128); part of a 57-company group",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 8.8,
+   "tier": "A",
+   "pilot_probability_12m": 0.136,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "A pure-play outsourced payroll bureau at roughly £11m revenue: every client payroll depends on a data file of starters, leavers and hours arriving correctly and"
+  },
+  {
+   "rank": 2,
+   "name": "Albert Goodman LLP",
+   "sector": "accountancy_payroll",
+   "url": "https://albertgoodman.co.uk/",
+   "size": "'300+ People, 5 Offices' published on the firm's careers page",
+   "staff_verified": 300,
+   "scale_class": "large",
+   "firm_score": 8.7,
+   "tier": "A",
+   "pilot_probability_12m": 0.134,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Payroll is sold as a bespoke service across five South West offices, sitting next to accounts and tax for the same client base. With 300+ people and five office"
+  },
+  {
+   "rank": 3,
+   "name": "Duncan & Toplis Limited",
+   "sector": "accountancy_payroll",
+   "url": "https://duncantoplis.co.uk/",
+   "size": "428 employees and £29.9m turnover in filed accounts (Endole, company 09127501); part of a nine-company group",
+   "staff_verified": 428,
+   "scale_class": "large",
+   "firm_score": 8.7,
+   "tier": "A",
+   "pilot_probability_12m": 0.134,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Payroll is run as a director-led department (Payroll Director and Head of Payroll) across a multi-office East Midlands practice covering accounts, tax and outso"
+  },
+  {
+   "rank": 4,
+   "name": "Larking Gowen LLP",
+   "sector": "accountancy_payroll",
+   "url": "https://www.larking-gowen.co.uk/",
+   "size": "395 employees in filed accounts (Endole, OC419486); firm describes 'over 400 people across six offices' in East Anglia",
+   "staff_verified": 395,
+   "scale_class": "large",
+   "firm_score": 8.7,
+   "tier": "A",
+   "pilot_probability_12m": 0.134,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Payroll is a standalone bureau plus a payroll advisory service run out of Norwich alongside accounts and tax. One Senior Manager oversees the bureau team, and h"
+  },
+  {
+   "rank": 5,
+   "name": "Lovewell Blake LLP",
+   "sector": "accountancy_payroll",
+   "url": "https://www.lovewell-blake.co.uk/",
+   "size": "£27.2m turnover in filed accounts (Endole, OC354112); multi-office Norfolk and Suffolk firm",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 8.5,
+   "tier": "A",
+   "pilot_probability_12m": 0.13,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Payroll outsourcing is a named service line and the firm serves small businesses whose payroll obligations vary by structure - sole trader, partnership, limited"
+  },
+  {
+   "rank": 6,
+   "name": "Westcotts (SW) LLP",
+   "sector": "accountancy_payroll",
+   "url": "https://westcotts.uk/",
+   "size": "£18.7m turnover in filed accounts (Endole, OC432402); payroll run from Plymouth with a dedicated payroll-managers@ inbox",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 8.5,
+   "tier": "A",
+   "pilot_probability_12m": 0.13,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "The firm's own payroll page calls payroll operation 'a technical and time-consuming task' and says outsourcing it 'could free up valuable administrative resourc"
+  },
+  {
+   "rank": 7,
+   "name": "Sanderson",
+   "sector": "recruitment",
+   "url": "https://www.sandersonplc.com/",
+   "size": "Six UK offices (Bristol HQ, London, Manchester, Edinburgh, Glasgow) plus international offices",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 8.4,
+   "tier": "A",
+   "pilot_probability_12m": 0.128,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Six UK offices plus international sites re-post overlapping roles and run contractor payroll and timesheets; the multi-site structure also duplicates candidate"
+  },
+  {
+   "rank": 8,
+   "name": "Barnes Roffe LLP",
+   "sector": "accountancy_payroll",
+   "url": "https://barnesroffe.com/",
+   "size": "'29 Partners, over 200 staff' per the firm's about page; £34.9m turnover in filed accounts (Endole, OC304793); joined the Dains Group in 2025",
+   "staff_verified": 200,
+   "scale_class": "mid",
+   "firm_score": 8.2,
+   "tier": "A",
+   "pilot_probability_12m": 0.124,
+   "evidence_tier": "A - page read and size verified",
+   "why": "The firm describes its payroll bureau in its own words as 'a critical and real time service... where both weekly and monthly deadlines exist', covering 'the fil"
+  },
+  {
+   "rank": 9,
+   "name": "DJH Business Advisers Limited",
+   "sector": "accountancy_payroll",
+   "url": "https://www.djh.co.uk/",
+   "size": "178 employees and £13.3m turnover at DJH Business Advisers Ltd (Endole, 03451690); the group markets itself as a 'multidisciplinary team of 600+'",
+   "staff_verified": 178,
+   "scale_class": "mid",
+   "firm_score": 8.2,
+   "tier": "A",
+   "pilot_probability_12m": 0.124,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Payroll is one service line inside a 600-person, multi-office group that also sells employment, accounts and corporate finance. With a COO above operations and"
+  },
+  {
+   "rank": 10,
+   "name": "Milsted Langdon LLP",
+   "sector": "accountancy_payroll",
+   "url": "https://www.milstedlangdon.co.uk/",
+   "size": "'200+ staff, 21 partners, 5 offices' published on the firm's own join-us page; 189 employees in filed accounts (Endole, OC329479)",
+   "staff_verified": 200,
+   "scale_class": "mid",
+   "firm_score": 8.2,
+   "tier": "A",
+   "pilot_probability_12m": 0.124,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Payroll and workplace pensions sit as one team inside a five-office firm, with an Assistant Payroll Manager layer handling client data. Payroll bureau work at t"
+  },
+  {
+   "rank": 11,
+   "name": "Scrutton Bland Limited",
+   "sector": "accountancy_payroll",
+   "url": "https://www.scruttonbland.co.uk/",
+   "size": "156 employees and GBP 13.97m turnover in filed accounts (Endole, company 15055121, incorporated 2023)",
+   "staff_verified": 156,
+   "scale_class": "mid",
+   "firm_score": 8.2,
+   "tier": "A",
+   "pilot_probability_12m": 0.124,
+   "evidence_tier": "A - page read and size verified",
+   "why": "'In-house team of payroll specialists' serving organisations of all sizes, running weekly, fortnightly, four-weekly and monthly payrolls and organising BACS and"
+  },
+  {
+   "rank": 12,
+   "name": "Baxter Freight Limited",
+   "sector": "logistics_customs",
+   "url": "https://baxterfreight.com",
+   "size": "Average staff numbers rose from 84 to 113; turnover £37m+ in 2022 (company growth update)",
+   "staff_verified": 113,
+   "scale_class": "mid",
+   "firm_score": 8.1,
+   "tier": "A",
+   "pilot_probability_12m": 0.122,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Multi-modal forwarder that publishes its own UKIMS/TSS guidance and offers to file full import declarations or TSS entries for customers - i.e. customs work is"
+  },
+  {
+   "rank": 13,
+   "name": "Burns Sheehan Limited",
+   "sector": "recruitment",
+   "url": "https://www.burnssheehan.co.uk/",
+   "size": "SME with London and Manchester offices; leadership bench of 10+ directors",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 8.1,
+   "tier": "A",
+   "pilot_probability_12m": 0.122,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "They sell embedded and subscription recruitment, which means continuous submission flow and interview scheduling across UK and US client time zones — coordinati"
+  },
+  {
+   "rank": 14,
+   "name": "First Recruitment Group",
+   "sector": "recruitment",
+   "url": "https://www.firstrecruitmentgroup.com/",
+   "size": "Warrington HQ (Birchwood), 25+ years, international recruitment capability",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 8.1,
+   "tier": "A",
+   "pilot_probability_12m": 0.122,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Nuclear and rail placements require security clearance, RTW and competency evidence per contractor, plus contractor timesheets across multiple sites and shift p"
+  },
+  {
+   "rank": 15,
+   "name": "IDEX Consulting Ltd",
+   "sector": "recruitment",
+   "url": "https://www.idexconsulting.com/",
+   "size": "SME consultancy, Birmingham HQ with London presence, multiple specialist divisions",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 8.1,
+   "tier": "A",
+   "pilot_probability_12m": 0.122,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Retained and executive search work means long candidate submission documents and market maps per brief, plus repeated re-engagement of senior candidates who wen"
+  },
+  {
+   "rank": 16,
+   "name": "Jane Lewis Limited",
+   "sector": "recruitment",
+   "url": "https://janelewis.co.uk/",
+   "size": "UK-wide branch network in healthcare staffing, HQ St Asaph; separate onboarding, compliance, managed services and back-office teams listed on site",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 8.1,
+   "tier": "A",
+   "pilot_probability_12m": 0.122,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "They already staff four separate admin functions (onboarding, compliance, managed services, back office) because 24/7 care cover generates shift confirmations,"
+  },
+  {
+   "rank": 17,
+   "name": "John Good Limited (John Good Group)",
+   "sector": "logistics_customs",
+   "url": "https://johngoodgroup.co.uk",
+   "size": "Five operating divisions including shipping, forwarding and port agency (company site)",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 8.1,
+   "tier": "A",
+   "pilot_probability_12m": 0.122,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Group structure spans port agency, shipping and forwarding - each division keeps its own systems and customer references, so a single shipment can be re-keyed t"
+  },
+  {
+   "rank": 18,
+   "name": "Jonathan Lee Recruitment Limited",
+   "sector": "recruitment",
+   "url": "https://www.jonlee.co.uk/",
+   "size": "Stourbridge HQ, 45+ years trading, engineering and manufacturing focus",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 8.1,
+   "tier": "A",
+   "pilot_probability_12m": 0.122,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Technical CVs need reformatting into client templates and rewriting for keyword screens; long-standing client relationships mean high submission volume per vaca"
+  },
+  {
+   "rank": 19,
+   "name": "Searchability Limited",
+   "sector": "recruitment",
+   "url": "https://searchability.com/",
+   "size": "100+ people (site claim); HQ Chester with Amsterdam, Austin, Sydney and Dubai offices",
+   "staff_verified": 100,
+   "scale_class": "mid",
+   "firm_score": 8.1,
+   "tier": "A",
+   "pilot_probability_12m": 0.122,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Five time zones and an employer-brand arm that produces client-facing content: interview scheduling across zones and CV/ad formatting are both constant."
+  },
+  {
+   "rank": 20,
+   "name": "Service Care Solutions Ltd",
+   "sector": "recruitment",
+   "url": "https://www.servicecare.org.uk/",
+   "size": "Preston HQ, 20+ years trading, 696 live vacancies at time of research",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 8.1,
+   "tier": "A",
+   "pilot_probability_12m": 0.122,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Ten sectors and hundreds of concurrent temps: the volume of timesheets, RTW documents and per-client compliance variants is the business constraint, not candida"
+  },
+  {
+   "rank": 21,
+   "name": "Smile Education Limited",
+   "sector": "recruitment",
+   "url": "https://www.smile-education.co.uk/",
+   "size": "Education supply agency founded 2009, three regional teams (West Midlands, East Midlands, North West)",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 8.1,
+   "tier": "A",
+   "pilot_probability_12m": 0.122,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Safer recruitment in schools means DBS, references, RTW and qualification checks per candidate, refreshed constantly for daily supply; the founder personally de"
+  },
+  {
+   "rank": 22,
+   "name": "The ONE Group Ltd",
+   "sector": "recruitment",
+   "url": "https://theonegroup.co.uk/",
+   "size": "Four offices (Peterborough, Cambridge, Northampton, Hertfordshire & Essex), founded 2004",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 8.1,
+   "tier": "A",
+   "pilot_probability_12m": 0.122,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Four offices posting overlapping vacancies into the same regional market, plus CV reformatting to client templates across three disciplines — classic multi-site"
+  },
+  {
+   "rank": 23,
+   "name": "The Recruitment Group",
+   "sector": "recruitment",
+   "url": "https://www.therecruitment-group.co.uk/",
+   "size": "Group built from six merged recruitment firms; senior leadership of MD, HR director, business improvement director and operations director",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 8.1,
+   "tier": "A",
+   "pilot_probability_12m": 0.122,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Post-merger integration: six inherited businesses, systems and databases, actively acquiring further rivals in 2026 — duplicate records, inconsistent compliance"
+  },
+  {
+   "rank": 24,
+   "name": "Woodland Group Limited",
+   "sector": "logistics_customs",
+   "url": "https://www.woodlandgroup.com",
+   "size": "25 locations across UK, USA, Asia, mainland Europe and Ireland (company site)",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 8.1,
+   "tier": "A",
+   "pilot_probability_12m": 0.122,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "States it has in-house air, ocean, road, rail and customs specialists across the globe - so declarations are produced internally, and 25 sites mean shipment sta"
+  },
+  {
+   "rank": 25,
+   "name": "Charles Kendall Freight Limited",
+   "sector": "logistics_customs",
+   "url": "https://www.charleskendall.com",
+   "size": "Forwarder with UK, US, Middle East and Far East operations and dedicated customs compliance lines in each (company site)",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 7.8,
+   "tier": "A",
+   "pilot_probability_12m": 0.116,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Runs customs compliance as a named service across four regions, so entries are filed in several jurisdictions on different systems while the underlying commerci"
+  },
+  {
+   "rank": 26,
+   "name": "Fulfilmentcrowd Ltd",
+   "sector": "logistics_customs",
+   "url": "https://www.fulfilmentcrowd.com",
+   "size": "105+ specialist employees, 17 warehouse locations, 250+ brands (company site)",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 7.8,
+   "tier": "A",
+   "pilot_probability_12m": 0.116,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "17 warehouses serving 250+ brands means carrier labels, tracking and PODs are produced per site and reconciled back to one client record; multi-carrier invoice"
+  },
+  {
+   "rank": 27,
+   "name": "Palletline Limited",
+   "sector": "logistics_customs",
+   "url": "https://www.palletline.co.uk",
+   "size": "76 member companies operating 97 depots, 100% postcode coverage (company announcement)",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 7.8,
+   "tier": "A",
+   "pilot_probability_12m": 0.116,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "A member-owned network: consignment status, exceptions, damage claims and PODs arrive from 76 independent member companies each running their own TMS, so the hu"
+  },
+  {
+   "rank": 28,
+   "name": "Walker Logistics Ltd",
+   "sector": "logistics_customs",
+   "url": "https://www.walkerlogistics.com",
+   "size": "103 employees, £48.9m turnover (2025 accounts); 50+ clients, delivers to 80+ countries, 20,000+ orders per day (company site)",
+   "staff_verified": 103,
+   "scale_class": "mid",
+   "firm_score": 7.8,
+   "tier": "A",
+   "pilot_probability_12m": 0.116,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Contract 3PL processing 20,000+ orders a day for 50+ clients into 80+ countries: export documentation and customs data differ per client and destination, and PO"
+  },
+  {
+   "rank": 29,
+   "name": "Clear Insurance Management Ltd (Clear Group)",
+   "sector": "insurance_broking",
+   "url": "https://clearinsurancemanagement.com/",
+   "size": "400 people across 10 offices (company about page)",
+   "staff_verified": 400,
+   "scale_class": "large",
+   "firm_score": 7.7,
+   "tier": "A",
+   "pilot_probability_12m": 0.114,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Retail and commercial renewal packs plus demands-and-needs statements across 10 offices, with group-level regulatory reporting on top; scale means the same manu"
+  },
+  {
+   "rank": 30,
+   "name": "UNA Alliance Ltd",
+   "sector": "insurance_broking",
+   "url": "https://www.una-alliance.com/",
+   "size": "5 member brokers, ~1,200 staff across 20+ locations (company about page)",
+   "staff_verified": 1200,
+   "scale_class": "large",
+   "firm_score": 7.7,
+   "tier": "A",
+   "pilot_probability_12m": 0.114,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Member-level reporting and placement administration: consolidating data from five brokers' systems for insurer and group reporting, run by a three-person centra"
+  },
+  {
+   "rank": 31,
+   "name": "Claims Consortium Group",
+   "sector": "insurance_broking",
+   "url": "https://www.claimsconsortiumgroup.co.uk/",
+   "size": "180 employees (LinkedIn company profile)",
+   "staff_verified": 180,
+   "scale_class": "mid",
+   "firm_score": 7.4,
+   "tier": "B",
+   "pilot_probability_12m": 0.108,
+   "evidence_tier": "A - page read and size verified",
+   "why": "TPA and adjusting intake across multiple client schemes, each with its own portal and validation rules; validation, policy lookup and case creation are repeated"
+  },
+  {
+   "rank": 32,
+   "name": "Coplus Ltd",
+   "sector": "insurance_broking",
+   "url": "https://www.coplus.co.uk/",
+   "size": "100+ people, Norwich (company about page)",
+   "staff_verified": 100,
+   "scale_class": "mid",
+   "firm_score": 7.4,
+   "tier": "B",
+   "pilot_probability_12m": 0.108,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Claims and add-on product administration: 24/7 first-notification intake, document extraction from broker-submitted packs, and scheme administration for MGA cap"
+  },
+  {
+   "rank": 33,
+   "name": "One Broker (Jensten Insurance Brokers (East) Ltd)",
+   "sector": "insurance_broking",
+   "url": "https://onebroker.co.uk/",
+   "size": "100+ employees, Norfolk and Cambridgeshire (company about page)",
+   "staff_verified": 100,
+   "scale_class": "mid",
+   "firm_score": 7.4,
+   "tier": "B",
+   "pilot_probability_12m": 0.108,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Personal lines and agricultural renewals plus MTAs handled by account handlers across branch offices, with group reporting layered on after the Jensten acquisit"
+  },
+  {
+   "rank": 34,
+   "name": "T L Dallas & Co Ltd",
+   "sector": "insurance_broking",
+   "url": "https://www.tldallas.com/",
+   "size": "230+ people across 14 offices (company about page)",
+   "staff_verified": 230,
+   "scale_class": "mid",
+   "firm_score": 7.4,
+   "tier": "B",
+   "pilot_probability_12m": 0.108,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Commercial and agricultural renewals across 14 offices: each renewal is re-quoted across markets, the comparison rebuilt by hand and the result re-keyed into th"
+  },
+  {
+   "rank": 35,
+   "name": "The Movo Partnership Ltd",
+   "sector": "insurance_broking",
+   "url": "https://movopartnership.co.uk/",
+   "size": "~90 appointed-representative brokers plus a central team (company 'for clients' page)",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 7.4,
+   "tier": "B",
+   "pilot_probability_12m": 0.108,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Central compliance and reporting for ~90 ARs: aggregating member data, overseeing renewals and MTAs, and assembling regulatory reporting packs from firms on dif"
+  },
+  {
+   "rank": 36,
+   "name": "Woodgate & Clark Ltd",
+   "sector": "insurance_broking",
+   "url": "https://www.woodgate-clark.co.uk/",
+   "size": "350+ (company 'our story' page states a team of over 350)",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 7.4,
+   "tier": "B",
+   "pilot_probability_12m": 0.108,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Loss-adjusting case set-up: claim intimation triage, extracting policy and cover detail from instructions, and entering the same case data into client and inter"
+  },
+  {
+   "rank": 37,
+   "name": "Davisons Law (merged with DP Law)",
+   "sector": "legal",
+   "url": "https://davisons.law/",
+   "size": "Over 500 staff across 20 locations after the DP Law merger; describes itself as a top 5 conveyancing firm and the largest by transaction volume in the West Midlands and Warwickshire",
+   "staff_verified": 500,
+   "scale_class": "large",
+   "firm_score": 7.1,
+   "tier": "B",
+   "pilot_probability_12m": 0.102,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Residential Property Legal Assistant is a standing vacancy across the network, which is where matter inception, searches, SDLT submission, AP1 registration and"
+  },
+  {
+   "rank": 38,
+   "name": "Express Solicitors",
+   "sector": "legal",
+   "url": "https://www.expresssolicitors.co.uk/",
+   "size": "Circa 1,000 professionals, Manchester head office",
+   "staff_verified": 1000,
+   "scale_class": "large",
+   "firm_score": 7.1,
+   "tier": "B",
+   "pilot_probability_12m": 0.102,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Claim progression is staffed by a large junior tier: 'our potential trainees start as Litigation Assistants within our Graduate Scheme', and trainees are only t"
+  },
+  {
+   "rank": 39,
+   "name": "Fletchers Solicitors (Fletchers Group)",
+   "sector": "legal",
+   "url": "https://www.fletcherssolicitors.co.uk/",
+   "size": "More than 1,400 colleagues across 13 offices",
+   "staff_verified": 1400,
+   "scale_class": "large",
+   "firm_score": 7.1,
+   "tier": "B",
+   "pilot_probability_12m": 0.102,
+   "evidence_tier": "A - page read and size verified",
+   "why": "A dedicated Medical Records Team requests records from trusts and GP surgeries, checks the records are complete, uploads them to the case management system to a"
+  },
+  {
+   "rank": 40,
+   "name": "HF (Horwich Farrelly Limited)",
+   "sector": "legal",
+   "url": "https://www.h-f.co.uk/",
+   "size": "501-1,000 employees (LinkedIn band), Manchester head office; GBP 12m NatWest funding for growth",
+   "staff_verified": 501,
+   "scale_class": "large",
+   "firm_score": 7.1,
+   "tier": "B",
+   "pilot_probability_12m": 0.102,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Outsourced claims handling is sold as a service line and staffed by claims handlers: current vacancies include Credit Hire Claims Handler (Birmingham) and Team"
+  },
+  {
+   "rank": 41,
+   "name": "Henton & Co LLP (Hentons)",
+   "sector": "accountancy_payroll",
+   "url": "https://www.hentons.com/",
+   "size": "45 employees in filed accounts (Endole, OC300006); seven offices (Doncaster, Hertford, Leeds, London, Sheffield, Thirsk, York) with a named payroll department",
+   "staff_verified": 45,
+   "scale_class": "small",
+   "firm_score": 7.1,
+   "tier": "B",
+   "pilot_probability_12m": 0.102,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Payroll is a distinct department (listed alongside SME, Tax, Digital and Operations on the firm's team page) with partner-level oversight across seven offices."
+  },
+  {
+   "rank": 42,
+   "name": "Keoghs LLP",
+   "sector": "legal",
+   "url": "https://keoghs.co.uk/",
+   "size": "1,800+ workforce (firm's own figure)",
+   "staff_verified": 1800,
+   "scale_class": "large",
+   "firm_score": 7.1,
+   "tier": "B",
+   "pilot_probability_12m": 0.102,
+   "evidence_tier": "A - page read and size verified",
+   "why": "The firm states it deals with 'tens of thousands of claims each year' on a 'market-leading, process-driven model'. Medical records, instructions to experts, han"
+  },
+  {
+   "rank": 43,
+   "name": "Minster Law",
+   "sector": "legal",
+   "url": "https://www.minsterlaw.co.uk/",
+   "size": "600+ colleagues; Wakefield head office with Bristol and London offices",
+   "staff_verified": 600,
+   "scale_class": "large",
+   "firm_score": 7.1,
+   "tier": "B",
+   "pilot_probability_12m": 0.102,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Live vacancies include MOJ Fee Earner, Portal Fee Earner (Bristol), Fast Track Fee Earner (Non Portal) and three Fixed Costs Team Leader roles across Wakefield,"
+  },
+  {
+   "rank": 44,
+   "name": "O'Neill Patient Solicitors LLP (trading as ONP Solicitors)",
+   "sector": "legal",
+   "url": "https://onpsolicitors.co.uk/",
+   "size": "Part of the Movera group; second-largest HMLR filer with 17,501 applications in the 12 months to June 2026; offices in Stockport, Cardiff and Leeds",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 7.1,
+   "tier": "B",
+   "pilot_probability_12m": 0.102,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "KYC, AML and source-of-funds checks per instruction. ONP is advertising a KYC Analyst in Stockport described as 'a high-volume, fast-paced role, where you'll be"
+  },
+  {
+   "rank": 45,
+   "name": "Page Kirk LLP",
+   "sector": "accountancy_payroll",
+   "url": "https://www.pagekirk.co.uk/",
+   "size": "47 employees in filed accounts (Endole, OC332369)",
+   "staff_verified": 47,
+   "scale_class": "small",
+   "firm_score": 7.1,
+   "tier": "B",
+   "pilot_probability_12m": 0.102,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Outsourced payroll for 'start-ups and SMEs to established companies with thousands of employees', covering payslips, pension auto-enrolment, HMRC submissions an"
+  },
+  {
+   "rank": 46,
+   "name": "Rouse Partners LLP",
+   "sector": "accountancy_payroll",
+   "url": "https://www.rousepartners.co.uk/",
+   "size": "76 employees in filed accounts (Endole, OC355817); 10 partners and two Payroll Managers named on the team page",
+   "staff_verified": 76,
+   "scale_class": "small",
+   "firm_score": 7.1,
+   "tier": "B",
+   "pilot_probability_12m": 0.102,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Payroll is delivered as 'a payroll service, not a bureau', including RTI reporting as standard, BACS payments, auto-enrolment assessment and joiner/leaver recor"
+  },
+  {
+   "rank": 47,
+   "name": "Simplify (Simplify Group; includes Premier Property Lawyers and My Home Move Conveyancing)",
+   "sector": "legal",
+   "url": "https://www.simplify.co.uk/about/",
+   "size": "1,500+ people and 11 UK locations; nine businesses including six conveyancing law firms",
+   "staff_verified": 1500,
+   "scale_class": "large",
+   "firm_score": 7.1,
+   "tier": "B",
+   "pilot_probability_12m": 0.102,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Six conveyancing firms running in parallel at national volume, with client onboarding handled through a published 'Customer Onboarding Portal' before a file ope"
+  },
+  {
+   "rank": 48,
+   "name": "Taylor Rose (Taylor Rose MW)",
+   "sector": "legal",
+   "url": "https://www.taylor-rose.co.uk/",
+   "size": "Over 1,500 experts and more than 20 offices / 50 locations; the largest HMLR filer with 33,395 applications in the 12 months to June 2026",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 7.1,
+   "tier": "B",
+   "pilot_probability_12m": 0.102,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Conveyancing assistants provide 'administrative and case-progression support' on residential files from instruction through exchange and completion. At 33,395 a"
+  },
+  {
+   "rank": 49,
+   "name": "Charles Hunter Associates Limited",
+   "sector": "recruitment",
+   "url": "https://www.charecruitment.com/",
+   "size": "Single-office specialist SME (Reading); small enough that the MD and operations director are the buyers",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 7.0,
+   "tier": "B",
+   "pilot_probability_12m": 0.1,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Social-work placements are document-heavy before anyone can start: DBS, right to work, references, Social Work England registration and mandatory training. They"
+  },
+  {
+   "rank": 50,
+   "name": "Heat Recruitment (now part of Resource Group Holdings, rebranding as RGH)",
+   "sector": "recruitment",
+   "url": "https://www.heatuk.com/",
+   "size": "Bristol office and financial services team acquired 8 October 2026 by Resource Group Holdings plc from Eden Rose",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 7.0,
+   "tier": "B",
+   "pilot_probability_12m": 0.1,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Mid-migration: acquired in October 2026 and rebranding to RGH, so systems, candidate records and client submission templates all have to be reconciled across tw"
+  },
+  {
+   "rank": 51,
+   "name": "Niyaa People Limited",
+   "sector": "recruitment",
+   "url": "https://www.niyaapeople.co.uk/",
+   "size": "Birmingham-based specialist; leadership is a CEO plus an operations director",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 7.0,
+   "tier": "B",
+   "pilot_probability_12m": 0.1,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Housing clients run contractor-heavy temp desks where every worker needs compliance documents on file and every week needs timesheets; small leadership team mea"
+  },
+  {
+   "rank": 52,
+   "name": "Pin Point Recruitment Limited",
+   "sector": "recruitment",
+   "url": "https://www.pin-point.co.uk/",
+   "size": "Gateshead-based; 15 permanent consultants plus onsite industrial teams across the UK",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 7.0,
+   "tier": "B",
+   "pilot_probability_12m": 0.1,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Onsite industrial contracts mean RTW checks and weekly timesheets for large worker pools, plus ad reposting across sectors; a 15-strong perm team competing for"
+  },
+  {
+   "rank": 53,
+   "name": "Prime Appointments Limited",
+   "sector": "recruitment",
+   "url": "https://prime-appointments.co.uk/",
+   "size": "Family-owned independent, two offices (Witham, Bury St Edmunds), six divisions, trading since 1992",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 7.0,
+   "tier": "B",
+   "pilot_probability_12m": 0.1,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Six divisions across two offices re-posting the same industrial vacancies onto multiple boards, and temp-heavy warehouse/food work means weekly timesheet chasin"
+  },
+  {
+   "rank": 54,
+   "name": "Sellick Partnership Limited",
+   "sector": "recruitment",
+   "url": "https://www.sellickpartnership.co.uk/",
+   "size": "~94 employees (FY2025 accounts: 65 consultants + 29 office staff), offices nationwide",
+   "staff_verified": 94,
+   "scale_class": "small",
+   "firm_score": 7.0,
+   "tier": "B",
+   "pilot_probability_12m": 0.1,
+   "evidence_tier": "A - page read and size verified",
+   "why": "65 fee-earners against 29 back-office staff: interim and public-sector placements mean every candidate needs a formatted submission pack plus compliance docs, a"
+  },
+  {
+   "rank": 55,
+   "name": "Sirona Medical Ltd",
+   "sector": "recruitment",
+   "url": "https://www.sirona-medical.co.uk/",
+   "size": "Specialist healthcare locum agency, London-based; MD and owner both publicly named",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 7.0,
+   "tier": "B",
+   "pilot_probability_12m": 0.1,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Locum healthcare compliance is per-candidate and per-trust: registration, DBS, RTW, mandatory training and immunisation records, all with expiry dates, plus shi"
+  },
+  {
+   "rank": 56,
+   "name": "Understanding Recruitment Ltd",
+   "sector": "recruitment",
+   "url": "https://www.understandingrecruitment.com/",
+   "size": "90+ specialists (site claim); passed 50 employees in 2018; 60% employee-owned since 2023",
+   "staff_verified": 90,
+   "scale_class": "small",
+   "firm_score": 7.0,
+   "tier": "B",
+   "pilot_probability_12m": 0.1,
+   "evidence_tier": "A - page read and size verified",
+   "why": "High-volume tech contingent work means constant CV submission formatting and re-engagement of candidates from a large database; multi-brand structure (tech plus"
+  },
+  {
+   "rank": 57,
+   "name": "Hodge Jones & Allen LLP",
+   "sector": "legal",
+   "url": "https://www.hja.net/",
+   "size": "Around 230-250 employees including 90 lawyers, London (230 employee-beneficiaries under the EOT)",
+   "staff_verified": 230,
+   "scale_class": "mid",
+   "firm_score": 6.8,
+   "tier": "B",
+   "pilot_probability_12m": 0.096,
+   "evidence_tier": "A - page read and size verified",
+   "why": "New client intake and matter admin is done by legal assistants: current adverts include 'Personal Injury Legal Assistant/New Client Advisor' and 'Medical Neglig"
+  },
+  {
+   "rank": 58,
+   "name": "Stowe Family Law LLP",
+   "sector": "legal",
+   "url": "https://www.stowefamilylaw.co.uk/",
+   "size": "77 locations across England and Wales, with a 150-strong team of family solicitors",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 6.8,
+   "tier": "B",
+   "pilot_probability_12m": 0.096,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Current vacancies include Legal Assistant, Legal Secretary and Paralegal. With 77 offices, disclosure admin (Form E, supporting documents, court bundles) is rep"
+  },
+  {
+   "rank": 59,
+   "name": "Allseas Global Logistics Limited",
+   "sector": "logistics_customs",
+   "url": "https://www.allseasglobal.com",
+   "size": "Oldham-headquartered forwarder; breakbulk, out-of-gauge, Ro/Ro and vessel charter specialisms (company site)",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 6.7,
+   "tier": "B",
+   "pilot_probability_12m": 0.094,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Project and breakbulk cargo is quoted manually per shipment (no tariff table) and tracked across carrier, port and agent portals that rarely expose an API, so e"
+  },
+  {
+   "rank": 60,
+   "name": "Cargo Overseas Limited",
+   "sector": "logistics_customs",
+   "url": "https://www.cargo-overseas.co.uk",
+   "size": "88 employees; Wythenshawe, Manchester (firmbase UK company list, 2026)",
+   "staff_verified": 88,
+   "scale_class": "small",
+   "firm_score": 6.7,
+   "tier": "B",
+   "pilot_probability_12m": 0.094,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Already markets an online quoting system, automated UK customs entry and a tracking portal - so the remaining manual load is the exception path: held entries, c"
+  },
+  {
+   "rank": 61,
+   "name": "Diamond Logistics Limited",
+   "sector": "logistics_customs",
+   "url": "https://diamondlogistics.co.uk",
+   "size": "Franchised fulfilment and delivery network with 40+ sites nationwide (company video/news)",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 6.7,
+   "tier": "B",
+   "pilot_probability_12m": 0.094,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Franchise model means each site runs its own local courier accounts and paperwork; the centre reconciles PODs, surcharges and franchise invoices across sites th"
+  },
+  {
+   "rank": 62,
+   "name": "Gophr Limited",
+   "sector": "logistics_customs",
+   "url": "https://uk.gophr.com",
+   "size": "Same-day courier network operating in cities nationwide (company site)",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 6.7,
+   "tier": "B",
+   "pilot_probability_12m": 0.094,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Crowd-sourced courier model: photo PODs, failed deliveries and rebooks are handled per job, and corporate clients want consolidated proof and exception reportin"
+  },
+  {
+   "rank": 63,
+   "name": "WM International Limited",
+   "sector": "logistics_customs",
+   "url": "https://wminternational.com",
+   "size": "Birmingham-headquartered forwarder, established 1989 (company site)",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 6.7,
+   "tier": "B",
+   "pilot_probability_12m": 0.094,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Small in-house team handling import/export forwarding from one Birmingham office: customs entries, carrier bookings and customer updates all run through the sam"
+  },
+  {
+   "rank": 64,
+   "name": "Grove & Dean Ltd",
+   "sector": "insurance_broking",
+   "url": "https://www.grove-dean-insurance-brokers.co.uk/",
+   "size": "88 employees (LinkedIn, 51-200 band)",
+   "staff_verified": 88,
+   "scale_class": "small",
+   "firm_score": 6.3,
+   "tier": "C",
+   "pilot_probability_12m": 0.086,
+   "evidence_tier": "A - page read and size verified",
+   "why": "High-volume motor and personal-lines renewals across several trading brands: renewal comparisons, documents and insurer portal entry rebuilt client by client."
+  },
+  {
+   "rank": 65,
+   "name": "KGM Underwriting Services Ltd",
+   "sector": "insurance_broking",
+   "url": "https://www.kgmus.co.uk/",
+   "size": "85 employees (LinkedIn company profile)",
+   "staff_verified": 85,
+   "scale_class": "small",
+   "firm_score": 6.3,
+   "tier": "C",
+   "pilot_probability_12m": 0.086,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Motor MGA administration for 1,000+ brokers: quote referrals, MTA endorsements within delegated authority, and bordereaux reporting to capacity providers."
+  },
+  {
+   "rank": 66,
+   "name": "Ripe Thinking Ltd (Ripe Insurance)",
+   "sector": "insurance_broking",
+   "url": "https://www.ripeinsurance.co.uk/",
+   "size": "93 employees (LinkedIn company profile)",
+   "staff_verified": 93,
+   "scale_class": "small",
+   "firm_score": 6.3,
+   "tier": "C",
+   "pilot_probability_12m": 0.086,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Specialist personal-lines schemes across many niche brands: renewals, mid-term adjustments and document packs, each brand sitting on its own insurer portal and"
+  },
+  {
+   "rank": 67,
+   "name": "Amey",
+   "sector": "field_service",
+   "url": "https://www.amey.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.9,
+   "tier": "C",
+   "pilot_probability_12m": 0.078,
+   "evidence_tier": "C - URL verified only",
+   "why": "Repairs scheduling, quotes, compliance certificates and parts ordering repeat per job across a dispersed engineer base. Scale class: large."
+  },
+  {
+   "rank": 68,
+   "name": "Chestertons",
+   "sector": "property_lettings",
+   "url": "https://www.chestertons.com/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.9,
+   "tier": "C",
+   "pilot_probability_12m": 0.078,
+   "evidence_tier": "C - URL verified only",
+   "why": "Service-charge cycles, Section 20 consultations, maintenance triage and statements repeat across the managed portfolio. Scale class: large."
+  },
+  {
+   "rank": 69,
+   "name": "Dexters",
+   "sector": "property_lettings",
+   "url": "https://www.dexters.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.9,
+   "tier": "C",
+   "pilot_probability_12m": 0.078,
+   "evidence_tier": "C - URL verified only",
+   "why": "Service-charge cycles, Section 20 consultations, maintenance triage and statements repeat across the managed portfolio. Scale class: large."
+  },
+  {
+   "rank": 70,
+   "name": "FirstPort",
+   "sector": "property_lettings",
+   "url": "https://www.firstport.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.9,
+   "tier": "C",
+   "pilot_probability_12m": 0.078,
+   "evidence_tier": "C - URL verified only",
+   "why": "Service-charge cycles, Section 20 consultations, maintenance triage and statements repeat across the managed portfolio. Scale class: large."
+  },
+  {
+   "rank": 71,
+   "name": "Foxtons",
+   "sector": "property_lettings",
+   "url": "https://www.foxtons.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.9,
+   "tier": "C",
+   "pilot_probability_12m": 0.078,
+   "evidence_tier": "C - URL verified only",
+   "why": "Service-charge cycles, Section 20 consultations, maintenance triage and statements repeat across the managed portfolio. Scale class: large."
+  },
+  {
+   "rank": 72,
+   "name": "Kinleigh Folkard & Hayward",
+   "sector": "property_lettings",
+   "url": "https://www.kfh.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.9,
+   "tier": "C",
+   "pilot_probability_12m": 0.078,
+   "evidence_tier": "C - URL verified only",
+   "why": "Service-charge cycles, Section 20 consultations, maintenance triage and statements repeat across the managed portfolio. Scale class: large."
+  },
+  {
+   "rank": 73,
+   "name": "Mears Group",
+   "sector": "field_service",
+   "url": "https://www.mearsgroup.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.9,
+   "tier": "C",
+   "pilot_probability_12m": 0.078,
+   "evidence_tier": "C - URL verified only",
+   "why": "Repairs scheduling, quotes, compliance certificates and parts ordering repeat per job across a dispersed engineer base. Scale class: large."
+  },
+  {
+   "rank": 74,
+   "name": "Morgan Sindall Property Services",
+   "sector": "field_service",
+   "url": "https://www.morgansindall.com/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.9,
+   "tier": "C",
+   "pilot_probability_12m": 0.078,
+   "evidence_tier": "C - URL verified only",
+   "why": "Repairs scheduling, quotes, compliance certificates and parts ordering repeat per job across a dispersed engineer base. Scale class: large."
+  },
+  {
+   "rank": 75,
+   "name": "RMG",
+   "sector": "property_lettings",
+   "url": "https://www.rmg.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.9,
+   "tier": "C",
+   "pilot_probability_12m": 0.078,
+   "evidence_tier": "C - URL verified only",
+   "why": "Service-charge cycles, Section 20 consultations, maintenance triage and statements repeat across the managed portfolio. Scale class: large."
+  },
+  {
+   "rank": 76,
+   "name": "Rendall & Rittner",
+   "sector": "property_lettings",
+   "url": "https://www.rendallandrittner.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.9,
+   "tier": "C",
+   "pilot_probability_12m": 0.078,
+   "evidence_tier": "C - URL verified only",
+   "why": "Service-charge cycles, Section 20 consultations, maintenance triage and statements repeat across the managed portfolio. Scale class: large."
+  },
+  {
+   "rank": 77,
+   "name": "Jackson Lee Underwriting",
+   "sector": "insurance_broking",
+   "url": "https://jacksonleeunderwriting.co.uk/",
+   "size": "17 employees (LinkedIn, 11-50 band)",
+   "staff_verified": 17,
+   "scale_class": "micro",
+   "firm_score": 5.8,
+   "tier": "C",
+   "pilot_probability_12m": 0.076,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Scheme and fleet GAP administration with a 17-person team: bordereaux, MTA processing, insurer reporting and account reconciliation all sit on the same few peop"
+  },
+  {
+   "rank": 78,
+   "name": "Convey Law",
+   "sector": "legal",
+   "url": "https://conveylaw.com/",
+   "size": "51-200 employees (LinkedIn band), Newport head office with a Swansea office; one of the largest specialist conveyancers in Wales",
+   "staff_verified": 51,
+   "scale_class": "small",
+   "firm_score": 5.7,
+   "tier": "C",
+   "pilot_probability_12m": 0.074,
+   "evidence_tier": "A - page read and size verified",
+   "why": "Title checking is staffed as its own function inside a 'Conveyancer Support Team' reporting to a Title Checking Manager, alongside trainee and residential conve"
+  },
+  {
+   "rank": 79,
+   "name": "Hall Brown Family Law",
+   "sector": "legal",
+   "url": "https://hallbrown.co.uk/",
+   "size": "Five offices (Manchester, London, Sheffield, Leeds, Birmingham); 15 partners/consultants and 32 assistant solicitors",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 5.7,
+   "tier": "C",
+   "pilot_probability_12m": 0.074,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Client onboarding and AML: the firm put onboarding, AML compliance and payments onto Legl in 2021, having first bought it just for payments. That sequence, plus"
+  },
+  {
+   "rank": 80,
+   "name": "PortmanDentex",
+   "sector": "healthcare_admin",
+   "url": "https://www.portmandentex.com/about",
+   "size": "370+ practices across the UK and Ireland; 2,400+ clinicians and 4,500 practice colleagues",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.7,
+   "tier": "C",
+   "pilot_probability_12m": 0.074,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "370+ private-focused practices with 4,500 practice colleagues: recall, plan/insurer billing and CQC evidence are replicated across practices that joined through"
+  },
+  {
+   "rank": 81,
+   "name": "mydentist (mydentist Group Limited)",
+   "sector": "healthcare_admin",
+   "url": "https://www.mydentist.co.uk/about-us",
+   "size": "Over 500 UK dental practices; largest fully integrated dental services business in Europe (company's own description)",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.7,
+   "tier": "C",
+   "pilot_probability_12m": 0.074,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Recall at 500+ practice scale, NHS charge/UDA reconciliation, and practice-level evidence for CQC — all repeated per practice with a lean central team and a COO"
+  },
+  {
+   "rank": 82,
+   "name": "Belvoir Group",
+   "sector": "property_lettings",
+   "url": "https://www.belvoirgroup.com/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.6,
+   "tier": "C",
+   "pilot_probability_12m": 0.072,
+   "evidence_tier": "C - URL verified only",
+   "why": "Service-charge cycles, Section 20 consultations, maintenance triage and statements repeat across the managed portfolio. Scale class: mid."
+  },
+  {
+   "rank": 83,
+   "name": "Centrick",
+   "sector": "property_lettings",
+   "url": "https://www.centrick.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.6,
+   "tier": "C",
+   "pilot_probability_12m": 0.072,
+   "evidence_tier": "C - URL verified only",
+   "why": "Service-charge cycles, Section 20 consultations, maintenance triage and statements repeat across the managed portfolio. Scale class: mid."
+  },
+  {
+   "rank": 84,
+   "name": "Crabtree Property Management",
+   "sector": "property_lettings",
+   "url": "https://www.crabtreepm.com/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.6,
+   "tier": "C",
+   "pilot_probability_12m": 0.072,
+   "evidence_tier": "C - URL verified only",
+   "why": "Service-charge cycles, Section 20 consultations, maintenance triage and statements repeat across the managed portfolio. Scale class: mid."
+  },
+  {
+   "rank": 85,
+   "name": "Hunters",
+   "sector": "property_lettings",
+   "url": "https://www.hunters.com/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.6,
+   "tier": "C",
+   "pilot_probability_12m": 0.072,
+   "evidence_tier": "C - URL verified only",
+   "why": "Service-charge cycles, Section 20 consultations, maintenance triage and statements repeat across the managed portfolio. Scale class: mid."
+  },
+  {
+   "rank": 86,
+   "name": "Premier Estates",
+   "sector": "property_lettings",
+   "url": "https://www.premierestates.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.6,
+   "tier": "C",
+   "pilot_probability_12m": 0.072,
+   "evidence_tier": "C - URL verified only",
+   "why": "Service-charge cycles, Section 20 consultations, maintenance triage and statements repeat across the managed portfolio. Scale class: mid."
+  },
+  {
+   "rank": 87,
+   "name": "Ringley Group",
+   "sector": "property_lettings",
+   "url": "https://www.ringley.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.6,
+   "tier": "C",
+   "pilot_probability_12m": 0.072,
+   "evidence_tier": "C - URL verified only",
+   "why": "Service-charge cycles, Section 20 consultations, maintenance triage and statements repeat across the managed portfolio. Scale class: mid."
+  },
+  {
+   "rank": 88,
+   "name": "Warwick Estates",
+   "sector": "property_lettings",
+   "url": "https://www.warwickestates.net/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.6,
+   "tier": "C",
+   "pilot_probability_12m": 0.072,
+   "evidence_tier": "C - URL verified only",
+   "why": "Service-charge cycles, Section 20 consultations, maintenance triage and statements repeat across the managed portfolio. Scale class: mid."
+  },
+  {
+   "rank": 89,
+   "name": "Barchester Healthcare",
+   "sector": "healthcare_admin",
+   "url": "https://www.barchester.com/",
+   "size": "200+ care homes; more than 17,000 staff caring for 10,000+ residents",
+   "staff_verified": 17000,
+   "scale_class": "large",
+   "firm_score": 5.5,
+   "tier": "C",
+   "pilot_probability_12m": 0.07,
+   "evidence_tier": "A - page read and size verified",
+   "why": "200+ homes and 17,000 staff means constant rota gap-filling plus home-level evidence collection for CQC quality statements; central teams chase homes for docume"
+  },
+  {
+   "rank": 90,
+   "name": "Care UK",
+   "sector": "healthcare_admin",
+   "url": "https://www.careuk.com/about-us",
+   "size": "260 care homes, caring for over 16,000 families",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.5,
+   "tier": "C",
+   "pilot_probability_12m": 0.07,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "260 homes and 16,000 residents: occupancy enquiries, rota cover, local-authority/NHS invoice reconciliation and per-home CQC evidence all land on home managers"
+  },
+  {
+   "rank": 91,
+   "name": "Cenergist",
+   "sector": "field_service",
+   "url": "https://www.cenergist.com/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.5,
+   "tier": "C",
+   "pilot_probability_12m": 0.07,
+   "evidence_tier": "C - URL verified only",
+   "why": "Repairs scheduling, quotes, compliance certificates and parts ordering repeat per job across a dispersed engineer base. Scale class: mid."
+  },
+  {
+   "rank": 92,
+   "name": "Circle Health Group",
+   "sector": "healthcare_admin",
+   "url": "https://www.circlehealthgroup.co.uk/about",
+   "size": "54 hospitals, over 2,000 beds, 6,000+ consultants",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.5,
+   "tier": "C",
+   "pilot_probability_12m": 0.07,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Authorisation and reconciliation across 54 hospitals and thousands of independent consultants: every case needs cover checked, an auth code attached and the inv"
+  },
+  {
+   "rank": 93,
+   "name": "Fortem",
+   "sector": "field_service",
+   "url": "https://www.fortem.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.5,
+   "tier": "C",
+   "pilot_probability_12m": 0.07,
+   "evidence_tier": "C - URL verified only",
+   "why": "Repairs scheduling, quotes, compliance certificates and parts ordering repeat per job across a dispersed engineer base. Scale class: mid."
+  },
+  {
+   "rank": 94,
+   "name": "HC-One",
+   "sector": "healthcare_admin",
+   "url": "https://www.hc-one.co.uk/corporate-information",
+   "size": "c.280 care homes across Britain",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.5,
+   "tier": "C",
+   "pilot_probability_12m": 0.07,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Rota cover at scale across c.280 homes: unfilled shifts become agency calls and escalation chains, while each home must also hold CQC evidence ready for inspect"
+  },
+  {
+   "rank": 95,
+   "name": "Ian Williams",
+   "sector": "field_service",
+   "url": "https://www.ianwilliams.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.5,
+   "tier": "C",
+   "pilot_probability_12m": 0.07,
+   "evidence_tier": "C - URL verified only",
+   "why": "Repairs scheduling, quotes, compliance certificates and parts ordering repeat per job across a dispersed engineer base. Scale class: mid."
+  },
+  {
+   "rank": 96,
+   "name": "Kinovo plc",
+   "sector": "field_service",
+   "url": "https://www.kinovoplc.com/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.5,
+   "tier": "C",
+   "pilot_probability_12m": 0.07,
+   "evidence_tier": "C - URL verified only",
+   "why": "Repairs scheduling, quotes, compliance certificates and parts ordering repeat per job across a dispersed engineer base. Scale class: mid."
+  },
+  {
+   "rank": 97,
+   "name": "Mulalley",
+   "sector": "field_service",
+   "url": "https://www.mulalley.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.5,
+   "tier": "C",
+   "pilot_probability_12m": 0.07,
+   "evidence_tier": "C - URL verified only",
+   "why": "Repairs scheduling, quotes, compliance certificates and parts ordering repeat per job across a dispersed engineer base. Scale class: mid."
+  },
+  {
+   "rank": 98,
+   "name": "Novus Property Solutions",
+   "sector": "field_service",
+   "url": "https://www.novussolutions.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.5,
+   "tier": "C",
+   "pilot_probability_12m": 0.07,
+   "evidence_tier": "C - URL verified only",
+   "why": "Repairs scheduling, quotes, compliance certificates and parts ordering repeat per job across a dispersed engineer base. Scale class: mid."
+  },
+  {
+   "rank": 99,
+   "name": "PH Jones",
+   "sector": "field_service",
+   "url": "https://www.phjones.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.5,
+   "tier": "C",
+   "pilot_probability_12m": 0.07,
+   "evidence_tier": "C - URL verified only",
+   "why": "Repairs scheduling, quotes, compliance certificates and parts ordering repeat per job across a dispersed engineer base. Scale class: mid."
+  },
+  {
+   "rank": 100,
+   "name": "Pimlico Plumbers",
+   "sector": "field_service",
+   "url": "https://www.pimplicoplumbers.com/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.5,
+   "tier": "C",
+   "pilot_probability_12m": 0.07,
+   "evidence_tier": "C - URL verified only",
+   "why": "Repairs scheduling, quotes, compliance certificates and parts ordering repeat per job across a dispersed engineer base. Scale class: mid."
+  },
+  {
+   "rank": 101,
+   "name": "Rodericks Dental Partners",
+   "sector": "healthcare_admin",
+   "url": "https://rodericksdentalpartners.co.uk/careers/who-we-are",
+   "size": "Over 200 dental practices (company statement)",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.5,
+   "tier": "C",
+   "pilot_probability_12m": 0.07,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "200+ practices formed from a 2022 merger: two legacy operating models, recall lists, CQC/HIW evidence and practice-level billing reconciliation still being stan"
+  },
+  {
+   "rank": 102,
+   "name": "Vital Energi",
+   "sector": "field_service",
+   "url": "https://www.vitalenergi.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.5,
+   "tier": "C",
+   "pilot_probability_12m": 0.07,
+   "evidence_tier": "C - URL verified only",
+   "why": "Repairs scheduling, quotes, compliance certificates and parts ordering repeat per job across a dispersed engineer base. Scale class: mid."
+  },
+  {
+   "rank": 103,
+   "name": "Bupa Dental Care (Bupa Dental Care UK)",
+   "sector": "healthcare_admin",
+   "url": "https://www.bupa.co.uk/dental/dental-care/about-us",
+   "size": "Nearly 350 NHS and private practices across the UK and Ireland",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.3,
+   "tier": "D",
+   "pilot_probability_12m": 0.066,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Recall and rebooking across ~350 practices with a mixed NHS/private model: NHS recall intervals, private plan memberships and failed appointments all need separ"
+  },
+  {
+   "rank": 104,
+   "name": "Nuffield Health",
+   "sector": "healthcare_admin",
+   "url": "https://www.nuffieldhealth.com/about-us",
+   "size": "35 hospitals plus 110 fitness and wellbeing clubs; registered charity",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.3,
+   "tier": "D",
+   "pilot_probability_12m": 0.066,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Two booking estates under one charity: hospital outpatient admin plus physio, health-assessment and fitness rebooking, all of which generate insurer authorisati"
+  },
+  {
+   "rank": 105,
+   "name": "Ramsay Health Care UK Operations Limited",
+   "sector": "healthcare_admin",
+   "url": "https://www.ramsayhealth.co.uk/about",
+   "size": "34 hospitals and day-surgery sites listed on its own hospital finder",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.3,
+   "tier": "D",
+   "pilot_probability_12m": 0.066,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Site-level booking and authorisation across 34 hospitals and day-surgery units, with NHS-funded and self-pay/insured pathways running through the same admin tea"
+  },
+  {
+   "rank": 106,
+   "name": "Spire Healthcare Group plc",
+   "sector": "healthcare_admin",
+   "url": "https://www.spirehealthcare.com/about-us/",
+   "size": "38 hospitals and 55+ clinics across the UK",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.2,
+   "tier": "D",
+   "pilot_probability_12m": 0.064,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Outpatient booking and PMI authorisation across 38 hospitals and 55+ clinics: each site runs its own phone lines and consultant diaries, with referral letters a"
+  },
+  {
+   "rank": 107,
+   "name": "The Private Clinic Ltd",
+   "sector": "healthcare_admin",
+   "url": "https://www.theprivateclinic.co.uk/our-clinics/",
+   "size": "Cosmetic surgery and aesthetics clinics including Harley Street, Birmingham, Bournemouth, Northampton and Stoke Poges",
+   "staff_verified": null,
+   "scale_class": "mid",
+   "firm_score": 5.2,
+   "tier": "D",
+   "pilot_probability_12m": 0.064,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Cosmetic surgery group admin: consultation booking, deposit and finance chasing, surgeon diary coordination, aftercare follow-ups and CQC evidence for each clin"
+  },
+  {
+   "rank": 108,
+   "name": "Operose Health",
+   "sector": "healthcare_admin",
+   "url": "https://www.operosehealth.co.uk/about-us/about",
+   "size": "Over 700,000 registered patients, 82 locations, 16 ICB areas",
+   "staff_verified": null,
+   "scale_class": "large",
+   "firm_score": 5.0,
+   "tier": "D",
+   "pilot_probability_12m": 0.06,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Primary care at scale: e-Referral queues, recall lists, registration and results chasing across 82 locations, with each practice's workflow shaped by its own PM"
+  },
+  {
+   "rank": 109,
+   "name": "Aaron Services",
+   "sector": "field_service",
+   "url": "https://www.aaronservices.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 4.5,
+   "tier": "D",
+   "pilot_probability_12m": 0.05,
+   "evidence_tier": "C - URL verified only",
+   "why": "Repairs scheduling, quotes, compliance certificates and parts ordering repeat per job across a dispersed engineer base. Scale class: small."
+  },
+  {
+   "rank": 110,
+   "name": "Chaneys",
+   "sector": "property_lettings",
+   "url": "https://www.chaneys.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 4.5,
+   "tier": "D",
+   "pilot_probability_12m": 0.05,
+   "evidence_tier": "C - URL verified only",
+   "why": "Service-charge cycles, Section 20 consultations, maintenance triage and statements repeat across the managed portfolio. Scale class: small."
+  },
+  {
+   "rank": 111,
+   "name": "RGE Services",
+   "sector": "field_service",
+   "url": "https://www.rgeservices.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 4.5,
+   "tier": "D",
+   "pilot_probability_12m": 0.05,
+   "evidence_tier": "C - URL verified only",
+   "why": "Repairs scheduling, quotes, compliance certificates and parts ordering repeat per job across a dispersed engineer base. Scale class: small."
+  },
+  {
+   "rank": 112,
+   "name": "Sure Maintenance",
+   "sector": "field_service",
+   "url": "https://www.suremaintenance.co.uk/",
+   "size": "headcount not published on homepage; scale classed from published footprint",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 4.5,
+   "tier": "D",
+   "pilot_probability_12m": 0.05,
+   "evidence_tier": "C - URL verified only",
+   "why": "Repairs scheduling, quotes, compliance certificates and parts ordering repeat per job across a dispersed engineer base. Scale class: small."
+  },
+  {
+   "rank": 113,
+   "name": "Sano Physiotherapy Ltd",
+   "sector": "healthcare_admin",
+   "url": "https://www.sanophysiotherapy.com/sano-clinics/",
+   "size": "Clinics across the Midlands, Yorkshire, the North East and Teesside (company description)",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 4.1,
+   "tier": "D",
+   "pilot_probability_12m": 0.042,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Multi-site physio with NHS, occupational-health and private streams: referral triage, insurer/employer invoicing and DNA rebooking all compete with clinicians'"
+  },
+  {
+   "rank": 114,
+   "name": "Hurley Group",
+   "sector": "healthcare_admin",
+   "url": "https://www.hurleygroup.co.uk/general-practice",
+   "size": "10 NHS GP practices across London and Essex, with a central services team",
+   "staff_verified": null,
+   "scale_class": "small",
+   "firm_score": 3.6,
+   "tier": "D",
+   "pilot_probability_12m": 0.032,
+   "evidence_tier": "B - page read, size not headcount",
+   "why": "Ten practices sharing central services but running separate reception and referral workflows: e-RS triage, recall, registrations and document chasing sit with a"
+  }
+ ],
+ "firm_ranking_summary": {
+  "total": 114,
+  "by_tier": {
+   "A": 30,
+   "B": 33,
+   "C": 39,
+   "D": 12
+  },
+  "by_sector": {
+   "accountancy_payroll": 13,
+   "field_service": 15,
+   "healthcare_admin": 15,
+   "insurance_broking": 12,
+   "legal": 13,
+   "logistics_customs": 12,
+   "property_lettings": 15,
+   "recruitment": 19
+  },
+  "evidence_tiers": {
+   "A": 36,
+   "B": 48,
+   "C": 30
+  }
+ }
+}

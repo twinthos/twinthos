@@ -1,0 +1,73 @@
+{
+ "slug": "the-2-dollar-ai-that-answers-the-phone",
+ "title": "What answering your phone with software really costs",
+ "description": "Google's Gemini 4 Argon is $2 per million input tokens. Here is what 600 answered enquiries cost in a month, and what still breaks when you switch it on.",
+ "answer": "The tokens are cheap. Answering 600 enquiries costs about $25 a month, at Google's 14 October 2026 list price of $2 per million input tokens. The setup is not. Someone wires it to your diary and inbox, teaches it your rules, and decides what it may never do alone.",
+ "sections": [
+  {
+   "h": "The model costs less than a coffee a day",
+   "p": [
+    "On 14 October 2026 Google's Gemini 4 Argon went on general sale at $2 per million input tokens and $10 per million output. A token is about three quarters of a word, so $2 buys roughly 750,000 words of input. A week earlier, OpenAI began rolling out always-on agents called Dots. Each one keeps its own memory between conversations.",
+    "Translate that into your month. A short enquiry, answered end to end with the lookup and the follow-up note, costs about $0.02. A long one, with order history attached, about $0.07. Six hundred mixed enquiries comes to $25.40 at the introductory price. Read the word introductory. Google has said the price doubles on 1 December 2026, so plan for about $51 a month from then. Even at double, the model is the smallest line in the budget.",
+    "That is the part that got cheap. Nothing else did."
+   ]
+  },
+  {
+   "h": "The bill that never arrives",
+   "p": [
+    "The expensive part of a phone is the call nobody answered. Someone wanted a price, a booking, an answer your website could not give. When it rang out, most did not ring back. They rang the next name on the list.",
+    "Then the version that stings, because this one was yours. You did answer, on a ladder or in a van, and said you would call them back. The day happened and the promise quietly rotted.",
+    "Whoever sits nearest the phone carries that. Their own work moves to seven in the evening, and no invoice ever shows what it cost."
+   ]
+  },
+  {
+   "h": "What actually breaks, and what fixing it costs",
+   "p": [
+    "Cheap answers are worthless if they are confidently wrong. Four jobs sit around the model, and none of them got cheaper with it.",
+    "Wiring. The model does not know your diary, your inbox, or who is on a payment plan. Someone connects it. Rules. What counts as a valid refund, which quotes need approval. That lives in your colleagues' heads, not your documents. Review. Right 95% of the time is still a liability if the 5% is expensive.",
+    "Then the line. Below it the software acts alone, above it a person decides, with logging and one switch that turns the whole thing off."
+   ]
+  },
+  {
+   "h": "Why most of these projects stall",
+   "p": [
+    "MIT's NANDA report, published in August 2025, found roughly 95% of generative AI pilots never reached measurable profit-and-loss impact. It blamed integration, data readiness and the workflow itself. Not model quality, and never price.",
+    "So the pattern to plan around is not the model. It is whether the thing knows your rules and stops where it should. That work is weeks, not minutes, and it is the same work whether the tokens cost $2 or $20.",
+    "Being early is still worth something. Not because the model is scarce, since every competitor can buy it at the same price. Early buys you the exceptions list, found while nobody is watching."
+   ]
+  },
+  {
+   "h": "The limits worth knowing before you buy",
+   "p": [
+    "The Remote Labour Index is a 2026 benchmark of 240 real freelance projects, run by the Center for AI Safety and Scale AI. It found the best agent finishing 2.5% of projects end to end. Major models scored between 0.8% and 2.1%.",
+    "Given real briefs and deadlines, they failed on the long tail. That means talking to the client, working through feedback, and delivering something a person would accept and pay for.",
+    "Read that the useful way round. It is a good reason to let software answer, log and chase. It is a good reason to keep pricing decisions, complaints and anything with a deadline you cannot miss behind a person."
+   ]
+  },
+  {
+   "h": "What this means for you",
+   "p": [
+    "Start with one line: the number your customers actually ring. Point software at it for a month with someone reviewing every call. Count what it got right, what it escalated and what it missed. If it holds, widen it. If it does not, you have spent a month and a few dollars rather than a customer list."
+   ]
+  }
+ ],
+ "table": "| Item | Input tokens | Output tokens | Cost at list price |\n|---|---|---|---|\n| Short enquiry (FAQ type) | 4,000 | 800 | $0.016 |\n| Long enquiry with order history | 20,000 | 3,000 | $0.070 |\n| A full month, 600 mixed enquiries | 7.2m | 1.1m | $25.40 |",
+ "takeaway": "The model is now the cheapest part of the job. Answering, logging and chasing 600 enquiries a month costs about $25 today and about $51 once Google doubles the price on 1 December 2026. What costs real money is the wiring, the rules and the review that make it safe to leave alone. Decide what it may never do without a person, and write that down before you switch it on.",
+ "faq": [
+  {
+   "q": "So what does answering my phone cost in a month?",
+   "a": "At the introductory price, about $25.40 for 600 mixed enquiries, which works out under a dollar a day. Google doubles the price on 1 December 2026, which takes it to about $51. Both figures cover the model only, not the setup or the review."
+  },
+  {
+   "q": "What breaks first?",
+   "a": "The wiring and the rules, not the model. It does not know your diary, your refund policy or which quotes need approval until someone connects it and teaches it."
+  },
+  {
+   "q": "What happens when it gets something wrong?",
+   "a": "Every workflow gets a line drawn before it is switched on. Below the line it acts alone, above it a person decides, and everything is logged with the reason."
+  }
+ ],
+ "sources": "AI agent news round-up, AI Agent Store, week of 14 October 2026: https://aiagentstore.ai/ai-agent-news/this-week | Remote Labour Index coverage, BusinessDay, 2026: https://businessday.ng/technology/article/ai-agents-automate-2-5-of-real-world-remote-jobs-study/ ActuIA on the 1 December price change: https://www.actuia.com/en/news/googles-gemini-4-argon-api-to-double-prices-on-1-december/",
+ "image_prompt": "Editorial photograph of a single black desk phone on a wooden reception desk in a small office, handset resting in its cradle, a notebook and pen pushed to one side, soft window light from the left, blurred empty corridor behind. One subject, no people, no hands, no text, no logos, no screens, shot on 35mm, muted natural colour.",
+ "image_alt": "A black desk phone sitting alone on a wooden reception desk in a small office"
+}

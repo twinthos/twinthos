@@ -1,0 +1,76 @@
+{
+ "slug": "small-businesses-already-hired-ai",
+ "title": "53% of small firms already let AI cover a full job",
+ "description": "A survey of 729 owners found 53% let AI absorb a full-time role's workload, and nobody in the data was let go. The 65% who are tired kept the checking.",
+ "answer": "Just over half of small firms have handed a full-time role's workload to software. Bluevine asked 729 owners and 53% said yes, while 40% paused hiring or kept their team small. Nobody in the data was let go. The tired ones kept the checking.",
+ "sections": [
+  {
+   "h": "More than half of 729 owners had already done it",
+   "p": [
+    "On 7 October 2026, Bluevine published its Lean Team Economy Report. It asked 729 owners of US firms with 2 to 249 staff how AI had changed their business. The survey ran from 25 to 30 June 2026.",
+    "The headline is simple. 53% said AI or automation had absorbed the workload of at least one full-time role. Not a task here and there. A job's worth of work, done by software.",
+    "Three quarters of the owners surveyed plan to absorb more roles rather than hire over the next twelve months. Read that as a queue. Half have done it once. Most want to do it again."
+   ]
+  },
+  {
+   "h": "Nobody in this data was let go",
+   "p": [
+    "The survey did not ask about redundancies, so it cannot tell you how many people were made redundant anywhere. It asked about workload, and on workload nothing in it describes a person being let go.",
+    "What the 53% describes is a job's worth of work moving into software while the people stayed put. In most small firms, the person doing that work at half nine at night was the owner.",
+    "There is a real cost, and it is the 40%. Four in ten owners said they paused hiring or deliberately kept their team small over the past year. Someone who wanted that job did not get it. Better to say that plainly than to dress it up."
+   ]
+  },
+  {
+   "h": "The work that went first was the boring work",
+   "p": [
+    "Owners named where they would rather automate than hire, and the table below has the shares. Look at the shape of that work.",
+    "It arrives when it likes. It lands in an inbox. It only moves when someone remembers to push it. A lead comes in and sits there. An invoice needs chasing. A customer who liked you goes quiet because nobody had ten minutes that week.",
+    "Nobody has ever enjoyed this. It is what you do at half nine because the day ran out. That is why it went into software first, and it is the right place to start. Admin, chasing and follow up are where the hours actually leak."
+   ]
+  },
+  {
+   "h": "65% of owners are still tired",
+   "p": [
+    "Same report, harder finding. 65% said running a leaner team had hurt their wellbeing.",
+    "There are two versions of what happens next. In the first, the tool takes the volume and the owner stops chasing. In the second, the tool produces the drafts and the owner becomes the checker.",
+    "Checking someone else's work is harder than doing it. You hold what is true in your head while you read. The saved hours get counted. The reviewing, the chasing and the apologising do not.",
+    "Six months later the week is long again and nobody can name the day it happened. The firms that handed over the draft are still tired. The ones that handed over the follow through are not."
+   ]
+  },
+  {
+   "h": "Finish the handover, do not automate less",
+   "p": [
+    "The fix is not less automation. It is finishing the job. Draw one line per workflow.",
+    "Below it, the software acts. It answers the routine enquiry, books the meeting, updates the record, sends the reminder, chases the invoice. Above it, a person decides. Agree a discount. Issue a refund. Change a contract. Commit money. Handle anything delicate.",
+    "Two things follow. The software never becomes the source of truth about anything it cannot prove, so a request for money back stops with a human. And your people keep the judgment work, which is the part they would miss.",
+    "No one opens a bakery because they love chasing invoices. Every hour of chasing handed to software is an hour back in the shop."
+   ]
+  },
+  {
+   "h": "What this means for you",
+   "p": [
+    "Count the hours your team spends moving work between systems, and count the checking you do at night. That number is the decision.",
+    "If it is small, buy nothing. If it is large, hand over the whole job, including the follow through. Put one drawn line around anything that touches money or a customer relationship. Half of the firms in this survey have started. Finish it and the tiredness goes with it."
+   ]
+  }
+ ],
+ "table": "| Work owners plan to automate rather than hire for | Share of owners |\n| --- | --- |\n| Marketing and sales | 39% |\n| Customer service | 37% |\n| Finance and bookkeeping | 34% |\n| Administration | 28% |",
+ "takeaway": "53% of 729 owners say software now carries a full-time role's workload, and nobody in the survey was let go. The 40% who never opened a role is the real cost. The 65% who are tired automated the draft but kept the checking. Hand over the follow through too, draw one line for decisions, and the evenings come back.",
+ "faq": [
+  {
+   "q": "Did the survey say 53% of small businesses replaced a person with AI?",
+   "a": "It asked whether AI or automation absorbed the workload of at least one full-time employee, not whether it replaced a named individual. 53% of the 729 owners said yes, in a survey run from 25 to 30 June 2026 and published on 7 October 2026."
+  },
+  {
+   "q": "If nobody was fired, where did the work go?",
+   "a": "Into software, mostly the chasing and admin that used to sit at the end of the owner's day. 40% said they never hired someone they otherwise would have."
+  },
+  {
+   "q": "Why are 65% of owners still tired?",
+   "a": "Because most handed over the draft, not the job. The software produces the work and a person still checks it, chases it and apologises for it, usually the owner, usually at night."
+  }
+ ],
+ "sources": "Bluevine Lean Team Economy Report, PR Newswire, 7 October 2026: https://www.prnewswire.com/news-releases/bluevine-study-finds-more-than-half-of-smbs-use-ai-to-handle-workload-of-at-least-one-employee-302900406.html\nBluevine press release, PR Newswire, 7 October 2026: https://www.prnewswire.com/news-releases/bluevine-study-finds-more-than-half-of-smbs-use-ai-to-handle-workload-of-at-least-one-employee-302900406.html",
+ "image_prompt": "Editorial photograph inside a small business that is clearly in use: a service counter with a till, a paper staff rota pinned to the wall behind it, a mug and a stack of order pads. Natural daylight, worn surfaces, muted colours, wide shot with one clear subject. No people posing, no hands, no readable text, no logos.",
+ "image_alt": "A small shop counter with a till, a paper rota on the wall behind it and everyday clutter, nobody posing."
+}

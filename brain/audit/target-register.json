@@ -1,0 +1,914 @@
+[
+ {
+  "sector": "Legal",
+  "name": "Simplify Group (Premier Property Lawyers, My Home Move)",
+  "size": "1,500+ people, 11 UK locations, six conveyancing firms",
+  "job": "Post-completion: SDLT return \u2192 AP1 \u2192 requisition replies, per file",
+  "person": "David Grossman \u2014 CEO; Kevin Smith \u2014 COO, Conveyancing Delivery",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Legal",
+  "name": "O'Neill Patient Solicitors (ONP / Movera)",
+  "size": "2nd-largest HMLR filer: 17,501 applications to Jun 2026",
+  "job": "KYC, AML and source-of-funds checks per new instruction",
+  "person": "Nick Hale \u2014 CEO, Movera (parent)",
+  "warmth": "hot"
+ },
+ {
+  "sector": "Legal",
+  "name": "Taylor Rose MW",
+  "size": "1,500+ experts, 20+ offices; largest HMLR filer, 33,395 applications",
+  "job": "Instruction-to-completion admin run by conveyancing assistants",
+  "person": "Antony Jaggard \u2014 CEO (ex-head of property)",
+  "warmth": "hot"
+ },
+ {
+  "sector": "Legal",
+  "name": "Convey Law",
+  "size": "51\u2013200 employees, Newport + Swansea",
+  "job": "Title checking staffed as its own team before a conveyancer sees the file",
+  "person": "Janine Wellington \u2014 Managing Director",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Legal",
+  "name": "Davisons Law (merged with DP Law)",
+  "size": "500+ staff, 20 locations",
+  "job": "Same post-completion sequence replicated across 20 offices",
+  "person": "Gary Davison \u2014 MD and founder",
+  "warmth": "hot"
+ },
+ {
+  "sector": "Legal",
+  "name": "Fletchers Solicitors",
+  "size": "1,400+ colleagues, 13 offices",
+  "job": "Medical records chase, completeness check, pagination, per claim",
+  "person": "Peter Haden \u2014 Group CEO",
+  "warmth": "hot"
+ },
+ {
+  "sector": "Legal",
+  "name": "Express Solicitors",
+  "size": "c.1,000 professionals, Manchester",
+  "job": "Document chase and MOJ portal steps done by litigation assistants",
+  "person": "James Maxey \u2014 CEO and founder",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Legal",
+  "name": "Minster Law",
+  "size": "600+ colleagues, Wakefield / Bristol / London",
+  "job": "MOJ portal steps and fixed-cost schedules built line by line",
+  "person": "Shirley Woolham \u2014 CEO",
+  "warmth": "hot"
+ },
+ {
+  "sector": "Legal",
+  "name": "Hodge Jones & Allen",
+  "size": "230\u2013250 employees, 90 lawyers, employee-owned",
+  "job": "New-client intake, matter opening, ID and evidence collection",
+  "person": "Vidisha Joshi \u2014 Managing Partner",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Legal",
+  "name": "Keoghs",
+  "size": "1,800+ workforce, tens of thousands of claims a year",
+  "job": "Cross-system steps ClaimPilot does not cover",
+  "person": "Allison Carr \u2014 CEO",
+  "warmth": "cooler"
+ },
+ {
+  "sector": "Legal",
+  "name": "HF (Horwich Farrelly)",
+  "size": "501\u20131,000 staff, Manchester; \u00a312m NatWest funding",
+  "job": "Evidence-request and portal-update queue per insurer claim",
+  "person": "Ronan McCann \u2014 CEO and Managing Partner",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Legal",
+  "name": "Stowe Family Law",
+  "size": "77 locations, 150 family solicitors",
+  "job": "Form E pack and court bundle, replicated per office",
+  "person": "Ken Fowlie \u2014 Executive Chairman",
+  "warmth": "hot"
+ },
+ {
+  "sector": "Legal",
+  "name": "Hall Brown Family Law",
+  "size": "5 offices, 15 partners, 32 assistant solicitors",
+  "job": "Onboarding, AML and source-of-funds through to disclosure schedule",
+  "person": "James Brown \u2014 Managing Partner",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Insurance",
+  "name": "T L Dallas & Co",
+  "size": "230+ people, 14 offices, family/employee owned",
+  "job": "Renewal re-marketing and MTA endorsement chasing per office book",
+  "person": "Tim Mortimer \u2014 Group MD; Polly Staveley \u2014 Executive Chair",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Insurance",
+  "name": "Clear Insurance Management (Clear Group)",
+  "size": "400 people, 10 offices",
+  "job": "Renewal packs plus demands-and-needs statements at group scale",
+  "person": "Mike Edgeley \u2014 Group CEO; Phil Williams \u2014 Group CCO / MD Retail",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Insurance",
+  "name": "Coplus",
+  "size": "100+ people, Norwich; 24/7 operation",
+  "job": "FNOL intake triage, document extraction, scheme administration",
+  "person": "James Blyth \u2014 Managing Director",
+  "warmth": "hot"
+ },
+ {
+  "sector": "Insurance",
+  "name": "Woodgate & Clark",
+  "size": "350+ team, UK-wide adjusters",
+  "job": "Claim intimation triage and case set-up into two systems",
+  "person": "Mike Higgins \u2014 Managing Director (appointed Dec 2025)",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Insurance",
+  "name": "Claims Consortium Group",
+  "size": "180 employees",
+  "job": "Notification validation and case creation per client scheme",
+  "person": "Jeremy Hyams \u2014 CEO (founder, returned Mar 2026)",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Insurance",
+  "name": "Ripe Thinking (Ripe Insurance)",
+  "size": "93 employees",
+  "job": "Renewal comparison and MTA documentation across niche brands",
+  "person": "Alan Thomas \u2014 CEO",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Insurance",
+  "name": "Jackson Lee Underwriting",
+  "size": "17 employees (11\u201350 band)",
+  "job": "MTA processing, bordereaux, insurer reporting on one small team",
+  "person": "Mark McLaren \u2014 Joint MD, systems and operations",
+  "warmth": "hot"
+ },
+ {
+  "sector": "Insurance",
+  "name": "KGM Underwriting Services",
+  "size": "85 employees",
+  "job": "Motor MGA MTA endorsements and bordereaux to capacity providers",
+  "person": "Ciaran Astin \u2014 Managing Director",
+  "warmth": "cold"
+ },
+ {
+  "sector": "Insurance",
+  "name": "One Broker (Jensten East)",
+  "size": "100+ employees, Norfolk and Cambs",
+  "job": "Personal lines and agricultural renewals plus MTAs per branch",
+  "person": "Daniel Bligh \u2014 Branch Director",
+  "warmth": "cold"
+ },
+ {
+  "sector": "Insurance",
+  "name": "Grove & Dean",
+  "size": "88 employees, family-run since 1974",
+  "job": "Motor renewal packs and insurer portal entry, client by client",
+  "person": "Michael Lawrence \u2014 Distribution and Underwriting Director",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Insurance",
+  "name": "The Movo Partnership",
+  "size": "~90 appointed-representative brokers + central team",
+  "job": "Aggregating member data into one regulatory reporting pack",
+  "person": "Lea Cheesbrough \u2014 Managing Director",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Insurance",
+  "name": "UNA Alliance",
+  "size": "5 member brokers, ~1,200 staff, three-person central office",
+  "job": "Consolidating five brokers' systems for insurer and group reporting",
+  "person": "Tim Ryan \u2014 Executive Chairman",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Logistics",
+  "name": "Baxter Freight",
+  "size": "84\u2192113 staff, \u00a337m+ turnover",
+  "job": "Customs entry re-keying: invoice \u2192 CDS/TSS \u2192 carrier portal \u2192 tracker",
+  "person": "Peter Isler \u2014 Managing Director",
+  "warmth": "high"
+ },
+ {
+  "sector": "Logistics",
+  "name": "Woodland Group",
+  "size": "25 locations, UK/USA/Asia/Europe",
+  "job": "Booking, status and POD pulled from each carrier portal into the TMS",
+  "person": "Kevin George Stevens \u2014 Director",
+  "warmth": "high"
+ },
+ {
+  "sector": "Logistics",
+  "name": "Fulfilmentcrowd",
+  "size": "105+ staff, 17 warehouses, 250+ brands",
+  "job": "Carrier exception and POD closure across 17 sites",
+  "person": "Neil Midgley \u2014 Director of Operations (2026); Lee Thompson \u2014 CEO",
+  "warmth": "high"
+ },
+ {
+  "sector": "Logistics",
+  "name": "Palletline",
+  "size": "76 member companies, 97 depots",
+  "job": "Hub reconciles status, exceptions and PODs from 76 different TMSs",
+  "person": "Glenn Baker \u2014 Group COO",
+  "warmth": "medium"
+ },
+ {
+  "sector": "Logistics",
+  "name": "Walker Logistics",
+  "size": "103 employees, \u00a348.9m turnover, 20,000+ orders/day",
+  "job": "Per-client export paperwork and customs data into 80+ countries",
+  "person": "William Joseph Robert Walker \u2014 Director",
+  "warmth": "high"
+ },
+ {
+  "sector": "Logistics",
+  "name": "Charles Kendall Freight",
+  "size": "UK, US, Middle East, Far East; customs as a named line",
+  "job": "Entry data across four jurisdictions from the same customer files",
+  "person": "Mark Melville Kendall \u2014 Director",
+  "warmth": "medium"
+ },
+ {
+  "sector": "Logistics",
+  "name": "John Good Group",
+  "size": "Five operating divisions incl. shipping and port agency",
+  "job": "One shipment re-keyed two or three times across divisions",
+  "person": "\u2014 (family directors; not published as a functional name)",
+  "warmth": "medium"
+ },
+ {
+  "sector": "Logistics",
+  "name": "Cargo Overseas",
+  "size": "88 employees, Wythenshawe",
+  "job": "Exception path only: held entries, lost statuses, PODs by email",
+  "person": "\u2014 (sell exception handling, not automation)",
+  "warmth": "low-medium"
+ },
+ {
+  "sector": "Logistics",
+  "name": "Allseas Global Logistics",
+  "size": "Oldham; breakbulk and out-of-gauge",
+  "job": "Quote rebuilt per shipment from past jobs and surcharges",
+  "person": "\u2014",
+  "warmth": "medium"
+ },
+ {
+  "sector": "Logistics",
+  "name": "WM International",
+  "size": "Birmingham, est. 1989",
+  "job": "Entry re-keying plus daily status run by the same small team",
+  "person": "Michal Krzysztof Gierat \u2014 Director",
+  "warmth": "medium"
+ },
+ {
+  "sector": "Logistics",
+  "name": "Gophr",
+  "size": "Same-day courier network, nationwide",
+  "job": "Photo PODs, failed deliveries and rebooks handled per job",
+  "person": "Jean-Sebastien Robert \u2014 Director (founder)",
+  "warmth": "medium"
+ },
+ {
+  "sector": "Logistics",
+  "name": "Diamond Logistics",
+  "size": "Franchised network, 40+ sites",
+  "job": "Centre reconciles PODs, surcharges and franchise invoices per site",
+  "person": "Daniel Allin \u2014 Director",
+  "warmth": "medium"
+ },
+ {
+  "sector": "Healthcare",
+  "name": "Spire Healthcare",
+  "size": "38 hospitals, 55+ clinics, listed",
+  "job": "PMI authorisation queue: read referral, check cover, get auth, book",
+  "person": "Prof. Lisa Grant \u2014 Group CNO and COO; Sir David Sloman \u2014 Interim CEO",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Healthcare",
+  "name": "Nuffield Health",
+  "size": "35 hospitals, 110 wellbeing clubs, charity",
+  "job": "Physio and health-assessment rebooking plus insurer auth for follow-ups",
+  "person": "Karen Prins \u2014 COO, Hospitals; Alex Perry \u2014 CEO",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Healthcare",
+  "name": "Ramsay Health Care UK",
+  "size": "34 hospitals and day-surgery sites",
+  "job": "Referral-letter triage and authorisation per hospital",
+  "person": "Nick Costa \u2014 CEO, UK",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Healthcare",
+  "name": "Circle Health Group",
+  "size": "54 hospitals, 2,000+ beds, 6,000+ consultants",
+  "job": "Auth codes matched to invoices; shortfalls chased",
+  "person": "\u2014 (no named ops lead verifiable)",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Healthcare",
+  "name": "HC-One",
+  "size": "c.280 care homes",
+  "job": "Out-of-hours shift cover: bank list, refusals, agency escalation",
+  "person": "James Tugendhat \u2014 CEO",
+  "warmth": "lukewarm"
+ },
+ {
+  "sector": "Healthcare",
+  "name": "Barchester Healthcare",
+  "size": "200+ homes, 17,000 staff",
+  "job": "CQC evidence pack per home against each quality statement",
+  "person": "Dr Pete Calveley \u2014 CEO",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Healthcare",
+  "name": "Care UK",
+  "size": "260 homes, 16,000 families",
+  "job": "Home-manager back office: enquiries, shift cover, council invoices",
+  "person": "Andrew Knight \u2014 CEO; Martin Friend \u2014 COO",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Healthcare",
+  "name": "Operose Health",
+  "size": "700,000 patients, 82 locations, 16 ICBs",
+  "job": "e-Referral queue and recall lists per practice and ICB",
+  "person": "Samantha Kane \u2014 CEO",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Healthcare",
+  "name": "Hurley Group",
+  "size": "10 NHS GP practices, London and Essex",
+  "job": "Central referral triage across all 10 practices",
+  "person": "Paula Saunders \u2014 Director of Operations",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Healthcare",
+  "name": "Bupa Dental Care",
+  "size": "~350 NHS and private practices",
+  "job": "Recall segmented by NICE interval; DNA rebooking",
+  "person": "Jes\u00fas Bonilla \u2014 General Manager (from Oct 2026)",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Healthcare",
+  "name": "mydentist",
+  "size": "500+ UK practices",
+  "job": "Regional recall and rebooking, one desk per ~25 practices",
+  "person": "Nilesh Pandya \u2014 CEO; Rob McCoy \u2014 COO",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Healthcare",
+  "name": "Rodericks Dental Partners",
+  "size": "200+ practices, 2022 merger",
+  "job": "Recall and CQC evidence standardised across two legacy models",
+  "person": "\u2014",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Healthcare",
+  "name": "PortmanDentex",
+  "size": "370+ practices, 2,400+ clinicians",
+  "job": "Bring newly acquired practices onto one recall routine",
+  "person": "\u2014",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Healthcare",
+  "name": "Sano Physiotherapy",
+  "size": "Clinics across Midlands, Yorkshire, North East",
+  "job": "Referral triage by payer: NHS, employer, insurer",
+  "person": "\u2014 (named ops leadership, not public)",
+  "warmth": "lukewarm"
+ },
+ {
+  "sector": "Healthcare",
+  "name": "The Private Clinic",
+  "size": "Harley Street plus five regional clinics",
+  "job": "Deposits, finance approvals, surgeon diaries, aftercare",
+  "person": "Valentina Petrone \u2014 MD / CEO",
+  "warmth": "lukewarm"
+ },
+ {
+  "sector": "Field service",
+  "name": "NG Bailey Group",
+  "size": "~3,700 employees, national M&E",
+  "job": "Supplier and parts order chasing on the maintenance desk",
+  "person": "Jonathan Stockton \u2014 CEO",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Field service",
+  "name": "Mears Group",
+  "size": "5,500+ colleagues, thousands of repairs a day",
+  "job": "Inbound repair booking and no-access rebooking",
+  "person": "Lucas Critchley \u2014 CEO",
+  "warmth": "hot"
+ },
+ {
+  "sector": "Field service",
+  "name": "Briggs & Forrester",
+  "size": "~700 employees, \u00a3250m+, employee-owned",
+  "job": "Aftercare: subcontractor close-outs and O&M evidence per project",
+  "person": "Paul Burton \u2014 CEO and Chairman",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Field service",
+  "name": "Novus Property Solutions",
+  "size": "700+ employees, 20+ offices",
+  "job": "Feeding per-job, per-asset data into the client portal they sell",
+  "person": "Lee Hartley \u2014 CEO",
+  "warmth": "hot"
+ },
+ {
+  "sector": "Field service",
+  "name": "Robert Heath Heating",
+  "size": "National heating contractor to social landlords",
+  "job": "Annual service round: book, rebook, certificate per property",
+  "person": "Kristian Ellmore \u2014 MD; Neil James \u2014 Field Operations Director",
+  "warmth": "hot"
+ },
+ {
+  "sector": "Field service",
+  "name": "Churches Fire Security",
+  "size": "National fire and security, Chandler's Ford",
+  "job": "Certificate chasing and remedial quoting from engineer surveys",
+  "person": "Chris Peirce \u2014 CEO",
+  "warmth": "hot"
+ },
+ {
+  "sector": "Field service",
+  "name": "Marlowe Fire & Security (Mitie)",
+  "size": "2,500 colleagues, 800+ engineers",
+  "job": "PPM booking and certificate closure per site and contract",
+  "person": "Christian Watts \u2014 Director, Fire and Security Systems",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Field service",
+  "name": "Ground Control",
+  "size": "National grounds maintenance, Billericay",
+  "job": "Extra-works quoting and portal evidence from field teams",
+  "person": "Simon Morrish \u2014 Non-Executive Chairman",
+  "warmth": "hot"
+ },
+ {
+  "sector": "Field service",
+  "name": "Tivoli Group (Nurture Group)",
+  "size": "4,040+ employees across the group",
+  "job": "Client KPI and visit evidence for public-sector grounds contracts",
+  "person": "\u2014",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Field service",
+  "name": "Glendale Managed Services",
+  "size": "National green services and soft FM, Chorley",
+  "job": "KPI-pack assembly and callout dispatch per contract region",
+  "person": "\u2014",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Field service",
+  "name": "Kimpton",
+  "size": "106 staff, Liverpool City Region",
+  "job": "Service-desk booking plus supplier order chasing on a senior team",
+  "person": "Tim Davis \u2014 MD; Andy Morgan \u2014 Service and FM Director",
+  "warmth": "hot"
+ },
+ {
+  "sector": "Field service",
+  "name": "Pimlico Plumbers",
+  "size": "400+ associates, 100,000+ jobs a year",
+  "job": "24/7 booking and dispatch, then job-to-invoice conversion",
+  "person": "\u2014",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Field service",
+  "name": "Pod Point",
+  "size": "~340 employees FY2025",
+  "job": "DNO and grant chasing plus installer scheduling per install",
+  "person": "Melanie Lane \u2014 CEO",
+  "warmth": "warm"
+ },
+ {
+  "sector": "Field service",
+  "name": "We Power Your Car",
+  "size": "40,000+ charge points since 2021",
+  "job": "Install booking from web orders, pre-install paperwork, evidence",
+  "person": "Kai Arter \u2014 Chairman and Founder; Thomas Coates \u2014 MD Commercial",
+  "warmth": "hot"
+ },
+ {
+  "sector": "Field service",
+  "name": "PFS Group",
+  "size": "Fire and security, Southend, 24-hour callout",
+  "job": "Callout dispatch and certificate closure",
+  "person": "\u2014",
+  "warmth": "cool"
+ },
+ {
+  "sector": "Accountancy",
+  "name": "Larking Gowen LLP",
+  "size": "395 employees in filed accounts (Endole, OC419486); firm describes 'over 400 people across six offices' in East Anglia",
+  "job": "Payroll is a standalone bureau plus a payroll advisory service run out of Norwich alongside accounts and tax. One Senior Manager oversees the bureau team, and her own biography frames the job around c",
+  "person": "Dannielle Chapman \u2014 Senior Manager (payroll bureau and payroll advisory)",
+  "warmth": "warm - named payroll owner (Dannielle Ch"
+ },
+ {
+  "sector": "Accountancy",
+  "name": "Duncan & Toplis Limited",
+  "size": "428 employees and \u00a329.9m turnover in filed accounts (Endole, company 09127501); part of a nine-company group",
+  "job": "Payroll is run as a director-led department (Payroll Director and Head of Payroll) across a multi-office East Midlands practice covering accounts, tax and outsourcing. Client payroll inputs and year-e",
+  "person": "Damon Tunnicliffe \u2014 Payroll Director and Head of Payroll",
+  "warmth": "warm - a Payroll Director who owns the f"
+ },
+ {
+  "sector": "Accountancy",
+  "name": "Milsted Langdon LLP",
+  "size": "'200+ staff, 21 partners, 5 offices' published on the firm's own join-us page; 189 employees in filed accounts (Endole, OC329479)",
+  "job": "Payroll and workplace pensions sit as one team inside a five-office firm, with an Assistant Payroll Manager layer handling client data. Payroll bureau work at this size is dominated by inbound client ",
+  "person": "\u2014",
+  "warmth": "warm - clear payroll hierarchy (payroll "
+ },
+ {
+  "sector": "Accountancy",
+  "name": "DJH Business Advisers Limited",
+  "size": "178 employees and \u00a313.3m turnover at DJH Business Advisers Ltd (Endole, 03451690); the group markets itself as a 'multidisciplinary team of 600+'",
+  "job": "Payroll is one service line inside a 600-person, multi-office group that also sells employment, accounts and corporate finance. With a COO above operations and payroll sold alongside accounts to busin",
+  "person": "James Beardmore \u2014 Chief Operating Officer",
+  "warmth": "hot - a named Chief Operating Officer is"
+ },
+ {
+  "sector": "Accountancy",
+  "name": "Scrutton Bland Limited",
+  "size": "156 employees and GBP 13.97m turnover in filed accounts (Endole, company 15055121, incorporated 2023)",
+  "job": "'In-house team of payroll specialists' serving organisations of all sizes, running weekly, fortnightly, four-weekly and monthly payrolls and organising BACS and HMRC payments. Four payroll frequencies",
+  "person": "\u2014",
+  "warmth": "cool - trade listings describe the pract"
+ },
+ {
+  "sector": "Accountancy",
+  "name": "Barnes Roffe LLP",
+  "size": "'29 Partners, over 200 staff' per the firm's about page; \u00a334.9m turnover in filed accounts (Endole, OC304793); joined the Dains Group in 2025",
+  "job": "The firm describes its payroll bureau in its own words as 'a critical and real time service... where both weekly and monthly deadlines exist', covering 'the filing of real-time monthly and annual repo",
+  "person": "\u2014",
+  "warmth": "hot - they have publicly described the e"
+ },
+ {
+  "sector": "Accountancy",
+  "name": "Albert Goodman LLP",
+  "size": "'300+ People, 5 Offices' published on the firm's careers page",
+  "job": "Payroll is sold as a bespoke service across five South West offices, sitting next to accounts and tax for the same client base. With 300+ people and five offices, the same client record request is rai",
+  "person": "\u2014",
+  "warmth": "warm - scale and office spread create du"
+ },
+ {
+  "sector": "Accountancy",
+  "name": "Rouse Partners LLP",
+  "size": "76 employees in filed accounts (Endole, OC355817); 10 partners and two Payroll Managers named on the team page",
+  "job": "Payroll is delivered as 'a payroll service, not a bureau', including RTI reporting as standard, BACS payments, auto-enrolment assessment and joiner/leaver records, weekly, fortnightly or monthly. They",
+  "person": "Leighton Bower \u2014 Managing Partner; Liz Penn \u2014 Payroll Manager",
+  "warmth": "hot - small enough that a partner decide"
+ },
+ {
+  "sector": "Accountancy",
+  "name": "Page Kirk LLP",
+  "size": "47 employees in filed accounts (Endole, OC332369)",
+  "job": "Outsourced payroll for 'start-ups and SMEs to established companies with thousands of employees', covering payslips, pension auto-enrolment, HMRC submissions and BACS payments. A firm of 47 carrying c",
+  "person": "James Haywood \u2014 Partner",
+  "warmth": "warm - small firm, short decision chain,"
+ },
+ {
+  "sector": "Accountancy",
+  "name": "Henton & Co LLP (Hentons)",
+  "size": "45 employees in filed accounts (Endole, OC300006); seven offices (Doncaster, Hertford, Leeds, London, Sheffield, Thirsk, York) with a named payroll department",
+  "job": "Payroll is a distinct department (listed alongside SME, Tax, Digital and Operations on the firm's team page) with partner-level oversight across seven offices. Client payroll seats in a firm of 45 peo",
+  "person": "Nadeem Ahmed \u2014 Managing Partner",
+  "warmth": "warm - seven offices and a payroll depar"
+ },
+ {
+  "sector": "Accountancy",
+  "name": "Westcotts (SW) LLP",
+  "size": "\u00a318.7m turnover in filed accounts (Endole, OC432402); payroll run from Plymouth with a dedicated payroll-managers@ inbox",
+  "job": "The firm's own payroll page calls payroll operation 'a technical and time-consuming task' and says outsourcing it 'could free up valuable administrative resources' - the same administrative-resource p",
+  "person": "Liz Marker \u2014 Payroll Manager",
+  "warmth": "warm - payroll is marketed as admin reli"
+ },
+ {
+  "sector": "Accountancy",
+  "name": "Lovewell Blake LLP",
+  "size": "\u00a327.2m turnover in filed accounts (Endole, OC354112); multi-office Norfolk and Suffolk firm",
+  "job": "Payroll outsourcing is a named service line and the firm serves small businesses whose payroll obligations vary by structure - sole trader, partnership, limited company with director/shareholder pay -",
+  "person": "Kevin Bunting \u2014 Managing Partner",
+  "warmth": "warm - Managing Partner publicly named a"
+ },
+ {
+  "sector": "Accountancy",
+  "name": "Dataplan Payroll Limited",
+  "size": "\u00a310.97m turnover in filed accounts (Endole, 06475128); part of a 57-company group",
+  "job": "A pure-play outsourced payroll bureau at roughly \u00a311m revenue: every client payroll depends on a data file of starters, leavers and hours arriving correctly and on time, so production capacity is set ",
+  "person": "\u2014",
+  "warmth": "cool - ownership sits inside a large sof"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "Sellick Partnership Limited",
+  "size": "~94 employees (FY2025 accounts: 65 consultants + 29 office staff), offices nationwide",
+  "job": "65 fee-earners against 29 back-office staff: interim and public-sector placements mean every candidate needs a formatted submission pack plus compliance docs, and every interim timesheet has to be cha",
+  "person": "Hannah Cottam \u2014 Chief Executive Officer",
+  "warmth": "warm \u2014 large enough to pay, no acquisiti"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "IDEX Consulting Ltd",
+  "size": "SME consultancy, Birmingham HQ with London presence, multiple specialist divisions",
+  "job": "Retained and executive search work means long candidate submission documents and market maps per brief, plus repeated re-engagement of senior candidates who went quiet; consultants also run M&A adviso",
+  "person": "Matt Green \u2014 Chief Executive Officer (founder)",
+  "warmth": "warm \u2014 founder-led, profitable niche, no"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "Charles Hunter Associates Limited",
+  "size": "Single-office specialist SME (Reading); small enough that the MD and operations director are the buyers",
+  "job": "Social-work placements are document-heavy before anyone can start: DBS, right to work, references, Social Work England registration and mandatory training. They employ a dedicated operations director ",
+  "person": "Jonathan Wadsworth \u2014 Managing Director; Abby Bryant \u2014 Operations Director",
+  "warmth": "hot \u2014 compliance load is structural, dec"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "Jane Lewis Limited",
+  "size": "UK-wide branch network in healthcare staffing, HQ St Asaph; separate onboarding, compliance, managed services and back-office teams listed on site",
+  "job": "They already staff four separate admin functions (onboarding, compliance, managed services, back office) because 24/7 care cover generates shift confirmations, timesheets and per-candidate compliance ",
+  "person": "Claire Kee \u2014 Managing Director (from September 2026)",
+  "warmth": "hot \u2014 a new managing director arrived in"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "Prime Appointments Limited",
+  "size": "Family-owned independent, two offices (Witham, Bury St Edmunds), six divisions, trading since 1992",
+  "job": "Six divisions across two offices re-posting the same industrial vacancies onto multiple boards, and temp-heavy warehouse/food work means weekly timesheet chasing plus RTW checks for a churning pool.",
+  "person": "Robyn Holmes \u2014 Founder & Managing Director; Jack O'Brien \u2014 Managing Director",
+  "warmth": "warm \u2014 family-run, founder and MD both p"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "The ONE Group Ltd",
+  "size": "Four offices (Peterborough, Cambridge, Northampton, Hertfordshire & Essex), founded 2004",
+  "job": "Four offices posting overlapping vacancies into the same regional market, plus CV reformatting to client templates across three disciplines \u2014 classic multi-site duplication.",
+  "person": "Tristan Drane \u2014 CEO & Founder; Paul Hipkiss \u2014 Managing Director",
+  "warmth": "warm \u2014 founder still CEO, four-site cost"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "Niyaa People Limited",
+  "size": "Birmingham-based specialist; leadership is a CEO plus an operations director",
+  "job": "Housing clients run contractor-heavy temp desks where every worker needs compliance documents on file and every week needs timesheets; small leadership team means the ops director personally owns the ",
+  "person": "Dal Shoker \u2014 CEO; Niki Kaur \u2014 Operations Director",
+  "warmth": "warm \u2014 ops director is the exact buyer, "
+ },
+ {
+  "sector": "Recruitment",
+  "name": "Service Care Solutions Ltd",
+  "size": "Preston HQ, 20+ years trading, 696 live vacancies at time of research",
+  "job": "Ten sectors and hundreds of concurrent temps: the volume of timesheets, RTW documents and per-client compliance variants is the business constraint, not candidate supply.",
+  "person": "Chris Musgrove \u2014 Managing Director",
+  "warmth": "hot \u2014 maximum admin volume per \u00a3 of fee,"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "Sirona Medical Ltd",
+  "size": "Specialist healthcare locum agency, London-based; MD and owner both publicly named",
+  "job": "Locum healthcare compliance is per-candidate and per-trust: registration, DBS, RTW, mandatory training and immunisation records, all with expiry dates, plus shift confirmations. They run a dedicated c",
+  "person": "Mark Burrell \u2014 Managing Director; Raymond Sullivan \u2014 Owner",
+  "warmth": "warm \u2014 owner-operated, so a \u00a31,500 pilot"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "Smile Education Limited",
+  "size": "Education supply agency founded 2009, three regional teams (West Midlands, East Midlands, North West)",
+  "job": "Safer recruitment in schools means DBS, references, RTW and qualification checks per candidate, refreshed constantly for daily supply; the founder personally delivers safer-recruitment training, so th",
+  "person": "Katy Rees \u2014 Founder & Managing Director",
+  "warmth": "hot \u2014 founder-led, compliance-first cult"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "Pin Point Recruitment Limited",
+  "size": "Gateshead-based; 15 permanent consultants plus onsite industrial teams across the UK",
+  "job": "Onsite industrial contracts mean RTW checks and weekly timesheets for large worker pools, plus ad reposting across sectors; a 15-strong perm team competing for the same North East candidates.",
+  "person": "John Dorling \u2014 Head of Permanent Recruitment (leads 15 consultants)",
+  "warmth": "medium-warm \u2014 clear pain, but decision-m"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "Jonathan Lee Recruitment Limited",
+  "size": "Stourbridge HQ, 45+ years trading, engineering and manufacturing focus",
+  "job": "Technical CVs need reformatting into client templates and rewriting for keyword screens; long-standing client relationships mean high submission volume per vacancy.",
+  "person": "David Hale \u2014 Managing Director",
+  "warmth": "warm \u2014 long-established, MD named, no ac"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "First Recruitment Group",
+  "size": "Warrington HQ (Birchwood), 25+ years, international recruitment capability",
+  "job": "Nuclear and rail placements require security clearance, RTW and competency evidence per contractor, plus contractor timesheets across multiple sites and shift patterns \u2014 regulated-sector compliance at",
+  "person": "John Urpi \u2014 Chairman",
+  "warmth": "warm \u2014 regulated clients make compliance"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "Understanding Recruitment Ltd",
+  "size": "90+ specialists (site claim); passed 50 employees in 2018; 60% employee-owned since 2023",
+  "job": "High-volume tech contingent work means constant CV submission formatting and re-engagement of candidates from a large database; multi-brand structure (tech plus NFP) duplicates candidate records.",
+  "person": "James Hunt \u2014 CEO; Chris Jackson \u2014 Co-Founder",
+  "warmth": "medium \u2014 employee-owned trust means deci"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "Burns Sheehan Limited",
+  "size": "SME with London and Manchester offices; leadership bench of 10+ directors",
+  "job": "They sell embedded and subscription recruitment, which means continuous submission flow and interview scheduling across UK and US client time zones \u2014 coordination load scales with the subscription mod",
+  "person": "Sean Burns \u2014 Co-Founder & CEO; Chris Spranklen \u2014 Managing Director",
+  "warmth": "warm \u2014 subscription model is priced on d"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "Searchability Limited",
+  "size": "100+ people (site claim); HQ Chester with Amsterdam, Austin, Sydney and Dubai offices",
+  "job": "Five time zones and an employer-brand arm that produces client-facing content: interview scheduling across zones and CV/ad formatting are both constant.",
+  "person": "Martin Blythe \u2014 CEO",
+  "warmth": "warm \u2014 multi-office scale, CEO named, gr"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "Sanderson",
+  "size": "Six UK offices (Bristol HQ, London, Manchester, Edinburgh, Glasgow) plus international offices",
+  "job": "Six UK offices plus international sites re-post overlapping roles and run contractor payroll and timesheets; the multi-site structure also duplicates candidate records across the same client base. The",
+  "person": "Jon Ball \u2014 CEO",
+  "warmth": "warm \u2014 CEO named publicly, multi-site co"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "The Recruitment Group",
+  "size": "Group built from six merged recruitment firms; senior leadership of MD, HR director, business improvement director and operations director",
+  "job": "Post-merger integration: six inherited businesses, systems and databases, actively acquiring further rivals in 2026 \u2014 duplicate records, inconsistent compliance files and multiple ATS/CRM workflows.",
+  "person": "Tristan Drane \u2014 CEO & Founder; Paul Hipkiss \u2014 Managing Director",
+  "warmth": "medium \u2014 M&A distraction is real, but da"
+ },
+ {
+  "sector": "Recruitment",
+  "name": "Heat Recruitment (now part of Resource Group Holdings, rebranding as RGH)",
+  "size": "Bristol office and financial services team acquired 8 October 2026 by Resource Group Holdings plc from Eden Rose",
+  "job": "Mid-migration: acquired in October 2026 and rebranding to RGH, so systems, candidate records and client submission templates all have to be reconciled across two businesses.",
+  "person": "Alex Russon \u2014 Divisional Director (Bristol financial services); Justin Madgwick \u2014 Co-Founder & Global CEO",
+  "warmth": "cool as a new-logo approach \u2014 the Heat b"
+ },
+ {
+  "sector": "Property",
+  "name": "Connells Group",
+  "size": "1,200+ branches and 165,000+ tenancies managed (Connells Group 'About Us').",
+  "job": "Largest tenancy book in the UK agency sector spread over 80+ local brands: referencing and move-in paperwork, deposit registration and renewals are duplicated per brand and per branch, and the group h",
+  "person": "Helen Charlesworth \u2014 CEO; Chris Rosindale \u2014 Chief Operating Officer",
+  "warmth": "warm - new CEO (Sept 2024) and a CIO app"
+ },
+ {
+  "sector": "Property",
+  "name": "The Property Franchise Group PLC (TPFG)",
+  "size": "c.149,000 managed properties, 1,039 licensees, 600+ franchise business owners (H1 2026 interim results).",
+  "job": "Franchise model means head office cannot dictate branch admin: 149,000 tenancies are administered by hundreds of independent owners each running their own referencing, deposit, arrears and compliance ",
+  "person": "Gareth Samples \u2014 Chief Executive Officer; Richard Williams \u2014 Group CEO",
+  "warmth": "hot but contested - TPFG has already lau"
+ },
+ {
+  "sector": "Property",
+  "name": "Leaders Romans Group (LRG)",
+  "size": "300+ branches and c.3,500 employees (Property Industry Eye, Sept 2025); 73,000 managed properties (LRG site).",
+  "job": "Roll-up of 200+ acquired agencies (Chancellors added May 2025) each with its own back-office habits; 73,000 managed properties means referencing, deposit registration, arrears and landlord statements ",
+  "person": "Michael Cook \u2014 Chief Executive Officer; Allison Thompson \u2014 Chief Lettings Officer",
+  "warmth": "hot - a Chief Lettings Officer and Natio"
+ },
+ {
+  "sector": "Property",
+  "name": "Foxtons Group plc",
+  "size": "32,000 tenancies in the lettings portfolio (H1 2026 results presentation); states it is the largest lettings brand in the UK and number 1 agent in London.",
+  "job": "32,000 tenancies and a deliberate re-letting strategy: H1 2026 results quantify the extra tenancy terminations per week across a 32k portfolio, so referencing, deposit re-registration and certificate ",
+  "person": "Guy Gittins \u2014 Chief Executive Officer",
+  "warmth": "warm - publicly 'implementing value-add "
+ },
+ {
+  "sector": "Property",
+  "name": "Lomond Group",
+  "size": "2,600+ employees, 72,000 properties under management, 150+ branches, 70+ acquisitions (Lomond site).",
+  "job": "70+ acquisitions consolidated onto one operating model: 72,000 tenancies were inherited with different referencing providers, deposit schemes and contractor lists, so standardising the admin per tenan",
+  "person": "Paul Geddes \u2014 Group Chief Executive Officer (from Sept 2026)",
+  "warmth": "hot - incoming group CEO Paul Geddes pub"
+ },
+ {
+  "sector": "Property",
+  "name": "Spicerhaart (SH Group Limited)",
+  "size": "2,000+ employees (group site); haart brand operates 200+ branches across England (group estate agency page); registered entity SH Group Limited, no. 04081664.",
+  "job": "Multi-brand independent (haart, Felicity J Lord, Haybrook, Howards, bjb, Darlows) with 200+ branches and 50+ lettings branches: each brand runs its own referencing, arrears and compliance admin, and t",
+  "person": "Antony Lark \u2014 Chief Executive Officer; Paul Smith \u2014 Founder & Executive Chairman",
+  "warmth": "warm - independent, founder-chaired, cos"
+ },
+ {
+  "sector": "Property",
+  "name": "Dexters London Limited",
+  "size": "50 offices in Central London and over 90 across London (Dexters site); company no. 04160511.",
+  "job": "Dense London branch network where each office runs its own lettings admin: referencing, deposit registration, maintenance triage and landlord statements are repeated 90+ times, and London compliance (",
+  "person": "\u2014",
+  "warmth": "warm - founder-led, expansion-driven; ch"
+ },
+ {
+  "sector": "Property",
+  "name": "M Winkworth PLC",
+  "size": "100+ franchised offices (Winkworth PLC directors' page); AIM-listed franchisor.",
+  "job": "Franchise network of 100+ offices: central can set brand and compliance standards but each franchisee administers referencing, deposits, arrears and certificates locally, so group-level compliance evi",
+  "person": "Michael Cook \u2014 Chief Executive Officer; Allison Thompson \u2014 Chief Lettings Officer",
+  "warmth": "warm - small central team (CEO, CFO, COO"
+ },
+ {
+  "sector": "Property",
+  "name": "Chestertons (Campions Group)",
+  "size": "39 branches (Chestertons branch directory); part of Campions Group alongside Chase Buchanan, Aston Chase, Retirement Homesearch and Campions Lettings & Management.",
+  "job": "Active 2026 acquisition programme (Madison Brook's residential agency division added 27 April 2026) means new branches, new tenancy books and new paperwork arriving faster than central admin can stand",
+  "person": "Richard Davies \u2014 Director of UK Operations (and MD, Chestertons)",
+  "warmth": "hot - active 2026 acquisition programme "
+ },
+ {
+  "sector": "Property",
+  "name": "Grainger plc",
+  "size": "11,291 rental homes in the operational portfolio, \u00a33.5bn (Grainger at a Glance, May 2026); UK's largest listed residential landlord.",
+  "job": "Institutionally owned BTR at scale: every home needs compliance certificates, maintenance triage against contractor SLAs, arrears management and investor-grade reporting, with resident-facing service ",
+  "person": "Dame Helen Gordon \u2014 Chief Executive",
+  "warmth": "warm - large in-house operating platform"
+ },
+ {
+  "sector": "Property",
+  "name": "Sigma Capital Group (Simple Life Homes)",
+  "size": "12,500+ homes completed or underway, c.175 transactions; 19,000-unit pipeline (Sigma, Feb 2025).",
+  "job": "Single-family rental at dispersed scale: thousands of houses spread across regions, each with its own certificates, repairs and arrears, managed by an in-house manager created only in 2024 - the admin",
+  "person": "Graham Barnet \u2014 CEO and Founder; Jack Barnet \u2014 Managing Director - Operations",
+  "warmth": "hot - internalised lettings and property"
+ },
+ {
+  "sector": "Property",
+  "name": "Cortland (Cortland Europe)",
+  "size": "Acquired Qdime Group with more than 30,000 units under management, confirming it in the top ten UK block managers (Cortland, Sept 2021); UK offices London, Leeds, Dublin.",
+  "job": "Block and BTR management across seven inherited Qdime brands: service-charge queries, maintenance tickets, compliance certificates and leaseholder correspondence multiply per block, and the group is c",
+  "person": "\u2014",
+  "warmth": "warm - US-owned operator with a strong c"
+ },
+ {
+  "sector": "Property",
+  "name": "The Ringley Group",
+  "size": "17,800 homes under management, \u00a312bn assets under management, 200+ people (Ringley site).",
+  "job": "Block, BTR and asset management across London, Wales and the South West: service-charge and leaseholder correspondence, maintenance triage, and compliance evidence per block, with a small central team",
+  "person": "Gareth Samples \u2014 Chief Executive Officer; Richard Williams \u2014 Group CEO",
+  "warmth": "hot but conflicted - Ringley owns Planet"
+ },
+ {
+  "sector": "Property",
+  "name": "Places for People Group Limited",
+  "size": "Owns or manages 279,000 properties; turnover \u00a31.23bn (FY2025-26 key statistics).",
+  "job": "279,000 homes across social rent, affordable and market rent: repairs triage, compliance certificates and arrears work are subject to social-housing timescales (Awaab's Law Phase 2 from 30 Nov 2026), ",
+  "person": "Greg Reed \u2014 Group Chief Executive",
+  "warmth": "warm - regulated social landlord with pr"
+ },
+ {
+  "sector": "Property",
+  "name": "Get Living PLC",
+  "size": "6,200+ homes for rent across seven neighbourhoods (Get Living, April 2026); new CEO Kate Freer effective autumn 2026.",
+  "job": "Large single-site BTR neighbourhoods (East Village, Elephant Central, New Maker Yards) where leasing, referencing, deposit and maintenance requests run at building level and a new CEO inherits a growt",
+  "person": "Kate Freer \u2014 Chief Executive Officer (from autumn 2026)",
+  "warmth": "warm - leadership transition in progress"
+ }
+]

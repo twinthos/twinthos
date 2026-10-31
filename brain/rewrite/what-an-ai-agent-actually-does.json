@@ -1,0 +1,75 @@
+{
+  "slug": "what-an-ai-agent-actually-does",
+  "title": "What an AI agent actually does, and how to spot a fake",
+  "description": "Four big firms shipped agents this autumn. Here is what makes one a real digital employee, and how to tell in ten minutes what you are being sold.",
+  "answer": "A real AI agent takes work without being asked. It keeps going after you close your laptop, waits on other people, recovers when something fails, and reports what it did. A chatbot answers questions in a window. The difference is behaviour, plus permissions, memory and a log you can read.",
+  "sections": [
+    {
+      "h": "If you have to remember to start it, you have not hired anyone",
+      "p": [
+        "Forget the word agent for a minute. A real digital employee is defined by five behaviours. It receives work. It keeps going after you close the laptop. It waits for other people. It recovers when something fails. It reports what it did. All five together make a colleague. Three out of five makes a faster way to do the same admin.",
+        "Receiving work means something arrives without you typing anything. An email lands. An invoice comes in. A booking is requested.",
+        "If you have to remember to switch it on, you have bought a capable typewriter. You are still the one who has to show up."
+      ]
+    },
+    {
+      "h": "It carries on after you shut the laptop, and it waits",
+      "p": [
+        "This is the line that decides everything. Google shipped Gemini 4 Argon globally on 14 October with a task mode that keeps working after you close the app. Hand over the errand, come back to the result.",
+        "OpenAI's Dots, rolling out from 12 October, come at it from the other side. Each agent gets its own cloud computer and its own memory, so the context survives between sessions.",
+        "Most working life is waiting. For the client to reply, for the payment to clear, for the file someone promised on Tuesday. A digital employee holds fifty open threads for three days and nudges the one that has stalled."
+      ]
+    },
+    {
+      "h": "Ask to see a failed run, then ask to read the log",
+      "p": [
+        "Things break constantly. A site is down, the file is the wrong shape, the client says no. Recovering means trying another route, and telling you when there isn't one.",
+        "At the end of the day you want three things. What it did, what it is waiting on, and what it could not do and why.",
+        "Any vendor can show you a clean demo. Ask what a failed run looks like, then ask to read the record of it. Three blank answers and you are buying a demo."
+      ]
+    },
+    {
+      "h": "The four big releases were real, and none of them is a brain",
+      "p": [
+        "Meta launched Muse for small business on 29 September 2026. It connects to QuickBooks, Shopify, Stripe and Slack, and it is free for firms under 250 people.",
+        "OpenAI began rolling out Dots on 12 October. Google made Gemini 4 Argon available worldwide on 14 October. Anthropic has shipped computer-use agents, which is software that looks at a screen and clicks it.",
+        "What changed is not intelligence. It is the tools, memory and permissions wrapped around the model. That is engineering, and it is why the cleverest model is not automatically the best employee."
+      ]
+    },
+    {
+      "h": "Honestly, they still fail at the human parts",
+      "p": [
+        "The most honest measurement we have is the 2026 Remote Labour Index. It comes from researchers at the Center for AI Safety and Scale AI. They handed agents 240 real freelance projects, with real briefs, deadlines and payment.",
+        "The failures repeated. Truncated outputs, corrupted files, plans that did not match their briefs. Above all they failed on the client-facing work. The back and forth. The taste. Being answerable to a person who expects a result.",
+        "That low score measures how far these things are from people-shaped work. It says nothing about the volume-shaped chasing, scheduling and follow-through, which they already do all day."
+      ]
+    },
+    {
+      "h": "Draw the line before you switch it on",
+      "p": [
+        "The design decision that makes an agent trustworthy is where it stops. Below the line it acts alone. Above the line a person decides. Sending a routine confirmation sits below. Issuing a refund outside policy sits above.",
+        "That is arithmetic, not caution. Software that is right 95% of the time, and occasionally promises something outside your policy, has not saved you 95% of the work.",
+        "It has created a new job, checking it, and a risk for the week nobody checks. Build the log and the off-switch in before it goes live. An agent without an undo is a demo."
+      ]
+    }
+  ],
+  "table": "| What the benchmark measured | Figure |\n| --- | --- |\n| Real freelance projects handed to agents | 240, across 23 categories |\n| Human hours they represent | Roughly 6,000 |\n| Client value at stake | About $140,000 |\n| Average project | About $633 for 29 hours |\n| Best agent, Manus, finished end to end | 2.5% |\n| GPT-5, Claude Sonnet 4.5, Grok 4, ChatGPT agent, Gemini 2.5 Pro | 0.8% to 2.1% |",
+  "takeaway": "Take six questions to your next demo. What makes it start? Where does it go when my laptop is shut? Show me a failed run and its log. What will it not do alone? How do I stop it? Who do I call when it is wrong? One blank answer and you are buying a demo. Want the hours counted first? The £999 Operations Audit is the door.",
+  "faq": [
+    {
+      "q": "Can it really work while my computer is switched off?",
+      "a": "Yes, and that is the whole point. Google's task mode finishes an errand after you leave the app, and OpenAI's Dots give each agent its own cloud computer and memory."
+    },
+    {
+      "q": "How good are these agents, honestly?",
+      "a": "The 2026 Remote Labour Index put the best agent, Manus, at 2.5% of 240 real projects completed end to end, with the others between 0.8% and 2.1%. That number measures judgement work, not the chasing and scheduling they already do well."
+    },
+    {
+      "q": "What should it never do on its own?",
+      "a": "Anything that needs judgement. Agreeing a price cut, refunding outside policy or committing to a deadline sits above the line, while chasing an invoice sits below it."
+    }
+  ],
+  "sources": "BusinessDay's coverage of the 2026 Remote Labour Index (businessday.ng), Meta's own announcement of Muse on 29 September 2026 (about.fb.com), the AI Agent Store weekly round-up for the week of 14 October 2026 (aiagentstore.ai), and Anthropic's computer-use announcement (anthropic.com). Full links are in the original article.",
+  "image_prompt": "Photorealistic editorial photograph, 35mm lens at f2.8, of a closed grey laptop on a dark wooden office desk at the end of a Friday afternoon, a black desk phone beside it with the handset in its cradle, a half full mug, and a paper desk diary open to a page of handwriting turned too far away to read. Late low sunlight comes through a window blind on the left, throwing a hard band of light across the desk. Fine grain, high contrast, warm highlights, cool shadow. No people, no hands, no logos, no screens on, no legible text.",
+  "image_alt": "A closed laptop, a desk phone, a mug and an open paper diary on an office desk in low afternoon light."
+}

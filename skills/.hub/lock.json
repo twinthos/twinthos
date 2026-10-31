@@ -1,0 +1,267 @@
+{
+  "version": 1,
+  "installed": {
+    "text-to-image-free": {
+      "source": "clawhub",
+      "identifier": "@bustes01/text-to-image-free",
+      "trust_level": "community",
+      "scan_verdict": "safe",
+      "content_hash": "sha256:0510d262bbaf663b",
+      "install_path": "text-to-image-free",
+      "files": [
+        "skill-card.md",
+        "SKILL.md",
+        "_meta.json"
+      ],
+      "metadata": {},
+      "scan_provenance": {
+        "bundle_hash": "sha256:0510d262bbaf663b9f98537790fb7285ee165074b3fb93d1488a9db73f2cb009",
+        "scanner_version": "skills-guard-v10",
+        "source": "@bustes01/text-to-image-free",
+        "source_url": "@bustes01/text-to-image-free",
+        "verdict": "safe",
+        "trust_level": "community",
+        "findings": [],
+        "rules": [],
+        "scanned_at": "2026-10-21T22:18:12.777259+00:00",
+        "summary": "text-to-image-free: clean scan, no threats detected",
+        "fresh": true
+      },
+      "installed_at": "2026-10-21T22:18:12.793443+00:00",
+      "updated_at": "2026-10-21T22:18:12.793443+00:00"
+    },
+    "memory-never-forget": {
+      "source": "clawhub",
+      "identifier": "@jujitao/memory-never-forget",
+      "trust_level": "community",
+      "scan_verdict": "safe",
+      "content_hash": "sha256:2e32f2ea97672b88",
+      "install_path": "memory-never-forget",
+      "files": [
+        "_meta.json",
+        ".clawhub/origin.json",
+        "references/memory-v2.md",
+        "references/templates.md",
+        "skill-card.md",
+        "SKILL.md"
+      ],
+      "metadata": {},
+      "scan_provenance": {
+        "bundle_hash": "sha256:2e32f2ea97672b880b2898ef2a8ca03a7e52a311e4b409a9b7eee1210a829389",
+        "scanner_version": "skills-guard-v10",
+        "source": "@jujitao/memory-never-forget",
+        "source_url": "@jujitao/memory-never-forget",
+        "verdict": "safe",
+        "trust_level": "community",
+        "findings": [],
+        "rules": [],
+        "scanned_at": "2026-10-21T22:20:35.974794+00:00",
+        "summary": "memory-never-forget: clean scan, no threats detected",
+        "fresh": true
+      },
+      "installed_at": "2026-10-21T22:20:36.094847+00:00",
+      "updated_at": "2026-10-21T22:20:36.094847+00:00"
+    },
+    "apple-design": {
+      "source": "clawhub",
+      "identifier": "@cindypapa/apple-design",
+      "trust_level": "community",
+      "scan_verdict": "safe",
+      "content_hash": "sha256:484a53ec223d0e2f",
+      "install_path": "apple-design",
+      "files": [
+        "skill-card.md",
+        "SKILL.md",
+        "_meta.json"
+      ],
+      "metadata": {},
+      "scan_provenance": {
+        "bundle_hash": "sha256:484a53ec223d0e2fd209799dc4873e2831b3c77089bfa869412cfcd25a9b32fd",
+        "scanner_version": "skills-guard-v10",
+        "source": "@cindypapa/apple-design",
+        "source_url": "@cindypapa/apple-design",
+        "verdict": "safe",
+        "trust_level": "community",
+        "findings": [],
+        "rules": [],
+        "scanned_at": "2026-10-21T22:27:46.864361+00:00",
+        "summary": "apple-design: clean scan, no threats detected",
+        "fresh": true
+      },
+      "installed_at": "2026-10-21T22:27:46.975480+00:00",
+      "updated_at": "2026-10-21T22:27:46.975480+00:00"
+    },
+    "opencode": {
+      "source": "official",
+      "identifier": "official/autonomous-ai-agents/opencode",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:c0273d8266b0cdb9",
+      "install_path": "autonomous-ai-agents/opencode",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-10-29T13:59:40.818365+00:00",
+      "updated_at": "2026-10-29T13:59:40.818365+00:00"
+    },
+    "design-md": {
+      "source": "official",
+      "identifier": "official/creative/design-md",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:4a0a7a757630dc24",
+      "install_path": "creative/design-md",
+      "files": [
+        "SKILL.md",
+        "templates/starter.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-10-29T13:59:40.845560+00:00",
+      "updated_at": "2026-10-29T13:59:40.845560+00:00"
+    },
+    "gif-search": {
+      "source": "official",
+      "identifier": "official/media/gif-search",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:c52e93aa81099829",
+      "install_path": "media/gif-search",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-10-29T13:59:40.850112+00:00",
+      "updated_at": "2026-10-29T13:59:40.850112+00:00"
+    },
+    "songsee": {
+      "source": "official",
+      "identifier": "official/media/songsee",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:2cb6f1b3d64e8141",
+      "install_path": "media/songsee",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-10-29T13:59:40.850636+00:00",
+      "updated_at": "2026-10-29T13:59:40.850636+00:00"
+    },
+    "box": {
+      "source": "official",
+      "identifier": "official/productivity/box",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:de13336d7d0c5056",
+      "install_path": "productivity/box",
+      "files": [
+        "SKILL.md",
+        "references/bulk-operations.md",
+        "references/cli-guide.md",
+        "references/content-workflows.md",
+        "references/hubs.md",
+        "references/oauth-setup.md",
+        "references/rest-api.md",
+        "references/sdk-development.md",
+        "references/search-and-ai.md",
+        "references/troubleshooting.md",
+        "references/webhooks-and-events.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-10-29T13:59:40.855485+00:00",
+      "updated_at": "2026-10-29T13:59:40.855485+00:00"
+    },
+    "notion": {
+      "source": "official",
+      "identifier": "official/productivity/notion",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:eaf6feabcfd89a67",
+      "install_path": "productivity/notion",
+      "files": [
+        "SKILL.md",
+        "references/block-types.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-10-29T13:59:40.857524+00:00",
+      "updated_at": "2026-10-29T13:59:40.857524+00:00"
+    },
+    "llm-wiki": {
+      "source": "official",
+      "identifier": "official/research/llm-wiki",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:39cea7fa9481cfea",
+      "install_path": "research/llm-wiki",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-10-29T13:59:40.858733+00:00",
+      "updated_at": "2026-10-29T13:59:40.858733+00:00"
+    },
+    "inspecting-hermes-desktop-dom": {
+      "source": "official",
+      "identifier": "official/software-development/inspecting-hermes-desktop-dom",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:274cba59fe8a04af",
+      "install_path": "software-development/inspecting-hermes-desktop-dom",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-10-29T13:59:40.860270+00:00",
+      "updated_at": "2026-10-29T13:59:40.860270+00:00"
+    },
+    "node-inspect-debugger": {
+      "source": "official",
+      "identifier": "official/software-development/node-inspect-debugger",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:defcfe2c6b86a4c0",
+      "install_path": "software-development/node-inspect-debugger",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-10-29T13:59:40.860599+00:00",
+      "updated_at": "2026-10-29T13:59:40.860599+00:00"
+    },
+    "python-debugpy": {
+      "source": "official",
+      "identifier": "official/software-development/python-debugpy",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:1e283d7ac51a1d8a",
+      "install_path": "software-development/python-debugpy",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-10-29T13:59:40.860993+00:00",
+      "updated_at": "2026-10-29T13:59:40.860993+00:00"
+    }
+  }
+}

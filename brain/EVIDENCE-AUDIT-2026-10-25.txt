@@ -1,0 +1,284 @@
+TWINTHOS BRAIN — HARD EVIDENCE AUDIT FOR CV USE
+Audited: 2026-10-25. Source root: /root/twinthos-brain (208 files). All numbers below
+were read from a file or produced by a command run during this audit. INFERRED marks a
+number I derived rather than one stated in a file.
+
+SECTION 1 — SYSTEMS AND AUTOMATION BUILT
+
+1. Built a reusable markdown-to-PDF pipeline with real pagination and a 9-check
+   pre-send gate. Artifact: build_doc.py (526 lines) + pdf_gate.py (353 lines);
+   checks geometry, margins, clipping, page fill, type sizes, text-layer damage,
+   links, metadata, contrast. Numbers: 9 machine checks; I re-ran the gate on the
+   6-page audit today — 0 failures, 6 type sizes, weakest contrast 5.39:1, 7 URI
+   entries, Author/Subject/Keywords set. Date 21 Oct 2026.
+   /root/twinthos-brain/scripts/docpipe/build_doc.py
+   /root/twinthos-brain/scripts/docpipe/pdf_gate.py
+   /root/twinthos-brain/2026-10-21_twinthos_audit_v2_6pp.pdf
+
+2. Wrote data-driven document builders rather than hand-built decks: prospect-book
+   assembler with verification verdicts, first-deal pack builder, 52-page book
+   builder. Numbers: 321 + 31 + 266 lines; book built from 82 verified firm records.
+   Date 21 Oct 2026. /root/twinthos-brain/audit/build_next_door.py,
+   /root/twinthos-brain/audit/build_first_deal.py,
+   /root/twinthos-brain/audit/build_prospect_book.py
+
+3. Ran a gate-checked static-site deploy discipline: clone gh-pages fresh, overlay
+   only changed files, refuse any diff containing a deletion, push, verify across
+   all four GitHub Pages IPs after CDN propagation. Numbers: 289 commits between
+   2026-10-05 and 2026-10-23 in /root/twinthos_live (git log run today, HEAD
+   96b6e91, 2026-10-23 21:51); twinthos.com returns HTTP 200, sitemap 24 URLs
+   (curl today). /root/twinthos-brain/workflows/README.md,
+   /root/twinthos-brain/memory/lessons.md, repo /root/twinthos_live
+
+4. Built disaster recovery that was proven, not asserted: hourly mirror to a private
+   repo plus a session-start restore hook that only gap-fills missing files.
+   Numbers: file deleted, restored byte-identical (sha256 77f749d7bdfe003b, 862
+   bytes); backup repo 203 MB; commit c3052d7 at 2026-10-14T13:05:09Z, 29 files.
+   Date 14 Oct 2026. /root/twinthos-brain/architecture/infrastructure.md,
+   /root/twinthos-brain/memory/decisions.md
+
+5. Ran production automation with uptime evidence: 4 Hermes cron jobs all
+   last_status ok; vault sync every 30 min with 1,294 completed runs; full backup
+   with 339 completed runs, last push 2026-10-21T17:53:08Z. Date 21 Oct 2026.
+   /root/twinthos-brain/audit/system-audit-2026-10-21.md
+
+6. Wrote a repeatable website auditor and a matching fix script, then used the two
+   runs as the proof. Numbers: 32 pages × 24 checks; local findings down to 0;
+   live findings down to 8, all DNS/Pages limits; deployed as commit dfb47d0
+   (2026-10-21 22:17). /root/twinthos-brain/audit/site-audit-2026-10-21-v3.md,
+   /root/twinthos_live/audit/site_audit.py, /root/twinthos_live/audit/fix_pass1.py
+
+7. Wrote a no-key, no-session scraper for public Telegram and reported what it
+   cannot do. Numbers: 449 messages, 20 channels, 315,556 characters of raw JSONL,
+   ~6 posts worth keeping; documented that a bot token cannot read channel history.
+   Date 21 Oct 2026. /root/twinthos-brain/scripts/telegram_scrape.py,
+   /root/twinthos-brain/research/tg_raw.jsonl (449 lines),
+   /root/twinthos-brain/research/telegram-scrape-2026-10-21.md
+
+8. Collected a competitor's entire public output and turned it into an operating
+   procedure. Numbers: 44 X posts with engagement figures → a five-loop SOP with a
+   pass test on each loop. Date 21 Oct 2026.
+   /root/twinthos-brain/research/nick-vasilescu-posts.md,
+   /root/twinthos-brain/sops/dewey-prospecting-playbook.md
+
+9. Built a retrieval-first knowledge layer on purpose, to escape a hard memory cap.
+   Numbers: native memory capped at 4,000 characters and 99% full (3,996 bytes);
+   new tree of 208 files with an INDEX-first, cite-the-path rule. Date 14 Oct 2026.
+   /root/twinthos-brain/README.md, /root/twinthos-brain/INDEX.md,
+   /root/twinthos-brain/architecture/infrastructure.md
+
+10. Audited his own machine and fixed a real security defect he found there. Numbers:
+    found an HTTP server bound to 0.0.0.0 serving the site's .git, and 25 secret
+    matches in backup history (2 GitHub tokens, 2 Stripe live keys); fixed the
+    backup script's redaction gap so the history file is redacted or withheld.
+    Date 21 Oct 2026. /root/twinthos-brain/audit/system-audit-2026-10-21.md
+    (Related gap: the two keys were never rotated — see section 5.)
+
+SECTION 2 — RESEARCH AND ANALYSIS PRODUCED
+
+11. Compiled a 114-firm UK prospect register with a named human per firm. Numbers:
+    114 firms, 100 with a named decision-maker, 8 sectors, each with size, the
+    repeated job and a published contact. Date 21 Oct 2026.
+    /root/twinthos-brain/audit/target-register.md,
+    /root/twinthos-brain/audit/target-register.json (114 records)
+
+12. Built and applied a weighted scoring model across that whole register. Numbers:
+    weights 30/25/20/15/10; tiers A 30, B 33, C 39, D 12; evidence tiers A 36,
+    B 48, C 30; 3 sectors explicitly dropped with a stated reason and a stated
+    condition that would reverse the drop. Date 21 Oct 2026.
+    /root/twinthos-brain/audit/probability-ranking.json
+
+13. Researched a second, deliberately different market and wrote it up as a book.
+    Numbers: 82 firms (64 UK across 8 trades + 18 overseas) plus 12 acquirers and
+    12 backers; built out to 128 UK firms in the delivered book. Date 21 Oct 2026.
+    /root/twinthos-brain/audit/nextdoor-sections.json (82 entries),
+    /root/twinthos-brain/audit/next-door-2026-10-21.md (14,909 words)
+
+14. Ran a source-verification pass on his own research rather than trusting it.
+    Numbers: 80 named people, 77 re-confirmed by re-opening the cited page, 2
+    printed as unverified, 1 with no public page; every fact carries the page it
+    came from. Date 21 Oct 2026. /root/twinthos-brain/audit/next-door-2026-10-21.md
+    (section "Sources")
+
+15. Produced a 24-firm prospect list with scripted checking. Numbers: 24 firms
+    (15 accountancy, 4 recruitment, 5 freight), 23 of 24 confirmed by automated
+    re-fetch, £699m of accountancy fee income and £903m of recruitment/freight
+    turnover covered, 9 firms with a dated trigger. Date 23 Oct 2026.
+    /root/twinthos-brain/audit/prospect-list-2026-10-23.md
+
+16. Researched what software target firms actually run, not just their size.
+    Numbers: 24 firms profiled, 5 graded "strong" for screen-only entry with the
+    system named (Linetime, Visualfiles, Eclipse ProClaim, Sage 50, Forward
+    Solutions), 1 window identified as closing (Taylor Rose migrating to
+    Salesforce). Date 21 Oct 2026. /root/twinthos-brain/audit/firm-status.md,
+    /root/twinthos-brain/audit/firm-status.json (24 firms)
+
+17. Wrote a competitor teardown from filed accounts, not from marketing. Numbers:
+    Tenhaw Ltd company no. 12735685, incorporated 10 Jul 2020, average monthly
+    employees including the director = 1 per accounts to 31 Jul 2025; seven client
+    logos shown to be career history. 9 pages, 21 Oct 2026.
+    /root/twinthos-brain/tenhaw-play.pdf
+
+18. Reviewed the technical evidence for computer-use agents and corrected three of
+    his own earlier claims in writing. Numbers: OSWorld 12.24% agent score (Apr
+    2024) rising to mid-80s on the 2026 leaderboard against a 72.36% human
+    baseline; Gartner 40% of enterprise apps to embed task agents by end-2026.
+    Date 21 Oct 2026. /root/twinthos-brain/legacy-hr-deep-research.md
+
+19. Ran a local job-market sweep and counted the noise out. Numbers: 245 unique
+    adverts; 55 were training-course adverts mis-sold as jobs; zero AI-titled
+    vacancies in Bath; one matching AEO/GEO role at £80,000–£95,000 in London.
+    Date 23 Oct 2026. /root/twinthos-brain/audit/jobs-bath-ai-brand-2026-10-23.md
+    (3-page PDF alongside it)
+
+20. Kept per-video performance data and used it. Numbers (computed by me from the
+    file): 71 videos, 359,926 total views, 2025-07-27 to 2026-10-18; top two
+    videos 323,000 views = 89.7% of all views INFERRED from the file's own figures.
+    /root/twinthos-brain/audit/tiktok_humanarchitect8.json
+
+21. Scraped a real prospect's booking system and produced a quantified audit.
+    Numbers in the scrape I could re-derive: 146 sessions, 4,031 bookable places,
+    57 sold, 12–31 Oct 2026 window = 1.41% fill INFERRED from the file. Date Oct
+    2026. /root/hotbox-audit-v19/sessions.json,
+    /root/twinthos-brain/projects/hotbox-social-demo/PROJECT.md
+
+SECTION 3 — COMMERCIAL ASSETS PRODUCED
+
+22. Wrote, built and delivered a 52-page target book. Numbers: 52 pages (pdfinfo,
+    today), 8,473 words measured, 0 clickable links, 4 conflicting prices — the
+    last three are his own audit's findings against his own document. Date 21 Oct
+    2026. /root/twinthos-brain/2026-10-21_twinthos_targetbook_v2_52pp.pdf,
+    /root/twinthos-brain/twinthos-targets-full.pdf
+
+23. Rebuilt it as an 83-page book with every claim linked. Numbers: 83 pages
+    (pdfinfo today), 314 clickable source links, 14,909 words, one price ladder,
+    a verdict per trade plus a "what would make me wrong" section. Date 21 Oct 2026.
+    /root/twinthos-brain/2026-10-21_twinthos_nextdoor.pdf
+
+24. Cut a first-contact pack down to what a phone call can use. Numbers: 8 pages,
+    8 verified cleaning contractors with named decision-makers, a 5-sentence script,
+    3 pushback answers, one page to send, £3,500 install / £1,250 per month. Date
+    21 Oct 2026. /root/twinthos-brain/2026-10-21_twinthos_firstdeal.pdf,
+    /root/twinthos-brain/audit/first-deal-2026-10-21.md
+
+25. Produced the same deck at both page ratios instead of one. Numbers: 4 PDFs —
+    target deck 10 pages laptop 16:9 and 10 pages mobile 3:4; "what it is" deck 8
+    pages each. Date 21 Oct 2026. /root/twinthos-brain/twinthos-targets-laptop.pdf,
+    /root/twinthos-brain/twinthos-targets-mobile.pdf,
+    /root/twinthos-brain/twinthos-what-it-is-laptop.pdf,
+    /root/twinthos-brain/twinthos-what-it-is-mobile.pdf
+
+26. Ran a forensic review that killed his own recommendation, then published the
+    reversal. Numbers: 5 independent reviewers, 4 errors admitted (fee = 100% of
+    the buyer's pre-tax profit; the 1.23m ARMA figure inverted; the legal claim
+    wrong; the incumbent shipped 2 weeks earlier); output cut from 12 to 6 pages.
+    Date 21 Oct 2026. /root/twinthos-brain/forensic-audit-v2.pdf,
+    /root/twinthos-brain/audit-report.md
+
+27. Audited his own 52-page book and condemned it in numbers. Findings: 42-minute
+    read at 200 wpm, 0 clickable links, Flesch 38 / grade 13.5, 22.1 words per
+    sentence, 44 sentences over 30 words, 9 duplicated table headers, 4 separate
+    prices. Date 21 Oct 2026. /root/twinthos-brain/audit/deck-audit-2026-10-21.md
+
+28. Audited five shipped PDFs, found the fabricated client result, and quarantined
+    the files. Numbers: 5 documents, 8 named defects, 0 links and 0/URI annotations
+    across all five, footers at 2.45:1 contrast; v2 went 12→6 pages, 0→13 links,
+    17→6 type sizes, contrast 2.45:1→5.39:1, fill 53–77%→82–96%; 3 files moved to
+    archive, none deleted. Date 21 Oct 2026.
+    /root/twinthos-brain/audit/pdf-audit-2026-10-21.md,
+    /root/twinthos-brain/archive/WITHDRAWN.md
+
+29. Did the pricing analysis with external comparables and a stated ladder.
+    Numbers: 4 external data points (Nick Vasilescu $3,500 first sale; Belgian
+    operator €2,750 + €267/mo; $15k up front then $2–3k/mo; UK band £750–£2,000
+    per role per month); ladder £3,500 install / £1,250 per job / £2,950 for three
+    / £999 audit; decision recorded 23 Oct 2026 at £3,500/month replacing £5,000.
+    /root/twinthos-brain/audit/next-door-2026-10-21.md (section "The price"),
+    /root/twinthos-brain/company/pricing.md, /root/twinthos-brain/memory/decisions.md
+
+30. Wrote and shipped 12 articles to a written house style, all live. Numbers: 12
+    notes pages, 700–1,100 words each, a 10-rule voice spec (title ≤62 chars, 700–
+    950 words, average sentence under 18, banned jargon list). Date 21 Oct 2026.
+    /root/twinthos_live/notes/ (12 article directories),
+    /root/twinthos-brain/notes-voice-spec.md,
+    /root/twinthos-brain/audit/site-audit-2026-10-21-v3.md
+
+SECTION 4 — METHODS INVENTED AND NAMED
+
+31. "Loop engineering": write the pass tests first, fix, re-run the identical script,
+    and treat the diff between the two JSON runs as the proof. Named and applied to
+    a 32-page site audit. /root/twinthos-brain/audit/site-audit-2026-10-21-v3.md
+
+32. A fixed five-factor sector-scoring model with published weights and documented
+    drops: affordability .30, repeatability .25, speed .20, dated trigger .15,
+    regulatory friction .10, capped 10 / floored 3, with the drop reasons written
+    down. /root/twinthos-brain/audit/probability-ranking.json,
+    /root/twinthos-brain/memory/decisions.md
+
+33. "The one page" doctrine and the six-rule pre-send gate: one job in the first
+    paragraph, average sentence under 15 words, reading ease above 50, a clickable
+    link for every doubtable claim, one price ladder, under 8 pages unless asked.
+    /root/twinthos-brain/audit/deck-audit-2026-10-21.md
+
+34. "The five-minute test" (five questions that must be answerable before dialling)
+    plus the five prospecting loops with a pass test on each, both in writing.
+    /root/twinthos-brain/audit/next-door-2026-10-21.md,
+    /root/twinthos-brain/sops/dewey-prospecting-playbook.md
+
+SECTION 5 — WHAT HE CANNOT YET EVIDENCE
+
+35. No paying client, no signed contract, no revenue, no delivered digital employee.
+    Stated flatly by his own files: "No client has been delivered these yet as a
+    paid service" and "No paying client brain exists yet".
+    /root/twinthos-brain/company/services.md,
+    /root/twinthos-brain/projects/company-brain-product/PROJECT.md,
+    /root/twinthos-brain/architecture/security.md
+
+36. HotBox Social is a prospect, but one file already describes it as live proof.
+    The project record says PROSPECT, not a client; the newsjack profile calls it "a
+    working demonstration ... running in a real client's systems"/"in production".
+    The audit's headline numbers (344 slots, 9,632 places, 63 booked, 0.65%) do not
+    reproduce from the data on disk either — my recomputation of the same file gives
+    146 sessions, 4,031 places, 57 sold, 1.41%.
+    /root/twinthos-brain/projects/hotbox-social-demo/PROJECT.md,
+    /root/twinthos-brain/newsjack-profiles/twinthos.json, /root/hotbox-audit-v19/sessions.json
+
+37. The dashboard and the client product do not exist as software. "No evidence
+    found" for the Command Centre dashboard; the Company Brain is a local folder
+    with isolation still a design requirement; the content-automation script points
+    at a content-queue directory that is absent and emits stub text.
+    /root/twinthos-brain/projects/INDEX.md,
+    /root/twinthos-brain/projects/twinthos-dashboard/PROJECT.md,
+    /root/twinthos-brain/scripts/generate_visibility_content.py
+
+38. Zero outbound selling is evidenced, and no audience measurement exists. The send
+    log holds 10 entries, every one a PDF uploaded to his own Telegram chat
+    (chat_id 813848257) — no prospect contact, no reply, no booked call. The site
+    carries no analytics of any kind (0 matches for GA4/GTM/Plausible/etc.), so no
+    traffic claim can be made. /root/twinthos-brain/logs/sends.jsonl,
+    /root/twinthos-brain/audit/site-audit-2026-10-21-v3.md
+
+39. The AEO/GEO "engineered visibility" strategy was written, never executed. It
+    contains targets (15 posts, 5 directories, 500+ GitHub stars in 6 months, 5,000
+    pageviews) and no evidence of a single submission, star or Reddit post. The
+    follower count it cites (2,142) has no source file; the view count is roughly
+    corroborated at 359,926 computed. /root/twinthos-brain/engineered-visibility-strategy.md
+
+40. The previous ventures in the brief — Humanitai CIC, OWL, Human Architect, the
+    clipping agency — have no record in this knowledge base. Searches for those
+    names return nothing but a TikTok view-count file for an account handle; and
+    pricing was never validated: four contradictory prices (£750, £1,500, £5,000,
+    £60,000) shipped inside one document, the www host still fails its certificate,
+    and the two exposed keys were never rotated.
+    /root/twinthos-brain/audit/tiktok_humanarchitect8.json,
+    /root/twinthos-brain/audit/deck-audit-2026-10-21.md,
+    /root/twinthos-brain/audit/system-audit-2026-10-21.md
+
+CONFLICTS FOUND (do not quietly pick one)
+- Next-door book length: INDEX says 60pp; pdfinfo says 83pp. INDEX.md / the PDF.
+- Next-door firm count: book cover says 128 firms; INDEX says 146; the JSON behind
+  it holds 82. audit/next-door-2026-10-21.md / INDEX.md / audit/nextdoor-sections.json
+- 52-page book: deck audit says 53 pages via pdfinfo; pdfinfo today says 52.
+- Link annotations on the 6-page audit: send log says 13; my gate run reports 7 URIs.
+- Archived-source claim: knowledge tree is back-upped hourly, but the tree itself is
+  not a git repo, so there is no per-file history inside it (system audit).

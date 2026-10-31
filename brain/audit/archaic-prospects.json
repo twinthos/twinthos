@@ -1,0 +1,468 @@
+{
+  "companies": [
+    {
+      "name": "Bury Council",
+      "sector": "Local authority - housing management",
+      "size": "2,305 FTE (excluding schools and casuals)",
+      "size_source_url": "https://www.bury.gov.uk/asset-library/bury-unaudited-draft-2025-26-statement-of-accounts.pdf",
+      "legacy_system": "Aareon QL housing management (on-premise modules, no self-service)",
+      "evidence_url": "https://councildecisions.bury.gov.uk/documents/s48537/Housing%20IT%20and%20Systems%20QL%20improvements%20and%20upgrade.pdf",
+      "evidence_date": "11 March 2026",
+      "evidence_quote": "This significant management change has, since 2023, highlighted clear and present housing IT issues.",
+      "forced_admin_job": "Housing officers re-key tenancy, repairs and arrears data across QL screens and spreadsheets; the council is funding a dedicated Aareon employee plus a year-one subscription simply to keep the screens working.",
+      "decision_maker": {
+        "name": "Sian Grant",
+        "role": "Director of Housing",
+        "source_url": "https://councildecisions.bury.gov.uk/documents/s48537/Housing%20IT%20and%20Systems%20QL%20improvements%20and%20upgrade.pdf"
+      },
+      "why_archaic_helps": "Cabinet has just approved £660k of revenue and £1.2m of HRA capital to patch QL rather than replace it, so there is budget in-year and no appetite for a two-year system programme; a screen-driving desk can start on the existing QL build in weeks."
+    },
+    {
+      "name": "West Northamptonshire Council",
+      "sector": "Local authority - housing management (with ALMO Northamptonshire Partnership Homes)",
+      "size": "c.2,584 employees",
+      "size_source_url": "https://www.bbc.co.uk/news/articles/clyv5n5kn14o",
+      "legacy_system": "Capita Open Housing (OpenHousing)",
+      "evidence_url": "https://westnorthants.moderngov.co.uk/documents/s20349/Housing%20IT%20System%20Project%20Market%20Exploration%20and%20procurement%20of%20new%20Housing%20IT%20System.pdf",
+      "evidence_date": "19 November 2024",
+      "evidence_quote": "Capita Open Housing is the primary IT solution used for managing housing stock in West Northamptonshire by the Council and its arm's length management organisation (ALMO) Northamptonshire Partnership Homes.",
+      "forced_admin_job": "Repairs ordering, voids, allocations and rent statements are all driven through Open Housing screens by hand, with the same household data entered by council and ALMO staff in separate workflows.",
+      "decision_maker": {
+        "name": "Jodie Archer",
+        "role": "Assistant Director - Housing",
+        "source_url": "https://westnorthants.moderngov.co.uk/documents/s20349/Housing%20IT%20System%20Project%20Market%20Exploration%20and%20procurement%20of%20new%20Housing%20IT%20System.pdf"
+      },
+      "why_archaic_helps": "The Capita contract expires on 31 March 2026 and procurement of a replacement is only at market-exploration stage, so there is a two-to-three year gap where the only way to remove manual load is to automate the current screens."
+    },
+    {
+      "name": "Royal Borough of Windsor and Maidenhead",
+      "sector": "Local authority - finance and resources",
+      "size": "689 headcount / 630.78 FTE (establishment at 31 March 2025)",
+      "size_source_url": "https://www.rbwm.gov.uk/sites/default/files/2025-11/hr_workforce_profile_2024-2025.pdf",
+      "legacy_system": "Unit4 Agresso Business World (finance ERP)",
+      "evidence_url": "https://rbwm.moderngov.co.uk/documents/s59987/Agresso%20upgrade%20report.pdf",
+      "evidence_date": "16 April 2024",
+      "evidence_quote": "This report recommends the continued use of an updated Unit 4 Agresso Finance system and its transition to a Cloud based version.",
+      "forced_admin_job": "Purchase orders, goods receipting, journal postings and budget-monitor reconciliations are keyed into Agresso by finance staff and budget holders, with monthly monitoring packs assembled by hand from Agresso extracts.",
+      "decision_maker": {
+        "name": "Elizabeth Griffiths",
+        "role": "Executive Director of Resources (section 151 officer)",
+        "source_url": "https://rbwm.moderngov.co.uk/documents/s59987/Agresso%20upgrade%20report.pdf"
+      },
+      "why_archaic_helps": "The council has explicitly chosen to stay on Agresso and upgrade rather than replace, which locks in the screen estate for years; automation of the posting and reconciliation work sits on top of the existing build with no migration."
+    },
+    {
+      "name": "Hinckley & Bosworth Borough Council",
+      "sector": "Local authority - housing assets and repairs",
+      "size": "468 employees",
+      "size_source_url": "https://www.hinckley-bosworth.gov.uk/download/downloads/id/8762/statement_of_accounts_2024_-_2025.pdf",
+      "legacy_system": "Orchard housing management plus Integrator asset management (no interface)",
+      "evidence_url": "https://moderngov.hinckley-bosworth.gov.uk/documents/s5382/Asset%20Management%20Software.pdf",
+      "evidence_date": "18 June 2015 (HRA Investment Board)",
+      "evidence_quote": "This means that all data has to be input manually into both systems as repairs and/or improvements are completed.",
+      "forced_admin_job": "Every completed repair or improvement is keyed twice - once into Orchard and again into Integrator - by different officers depending on job role, with reconciliation done by hand.",
+      "decision_maker": {
+        "name": "Bill Cullen",
+        "role": "Chief Executive",
+        "source_url": "https://www.linkedin.com/in/bill-cullen-33007012"
+      },
+      "why_archaic_helps": "The council's own paper puts the cost of fixing the double-keying at a capital purchase plus £5,000 a year, which it declined; a screen-driving desk removes the duplicate entry at a fraction of a system replacement and needs no interface project."
+    },
+    {
+      "name": "believe housing",
+      "sector": "Housing association (County Durham)",
+      "size": "c.477 employees",
+      "size_source_url": "https://www.reveliolabs.com/companies/believe-housing/employees",
+      "legacy_system": "OpenAccounts (financial management) with Ebis workflow",
+      "evidence_url": "https://www.believehousing.co.uk/wp-content/uploads/2023/03/Financial-Mangement-Assistant-JD-March-2023.pdf",
+      "evidence_date": "March 2023",
+      "evidence_quote": "You will assist with the effective operation and development of the financial management system OpenAccounts and the ongoing development of the Ebis module (Online workflow management system).",
+      "forced_admin_job": "Finance assistants key invoices, accruals and journals into OpenAccounts and then push the same items through Ebis workflow for authorisation, re-entering data to produce statutory accounts working papers.",
+      "decision_maker": {
+        "name": "Alan Smith",
+        "role": "Chief Executive",
+        "source_url": "https://www.believehousing.co.uk/team-member/alan-smith/"
+      },
+      "why_archaic_helps": "OpenAccounts is a green-screen-era ledger with no meaningful API; a desk that reads and writes the same screens can take the invoice-to-journal and accruals work without touching the ledger or waiting for a finance transformation programme."
+    },
+    {
+      "name": "Birmingham City University",
+      "sector": "Higher education",
+      "size": "More than 3,000 academic and professional staff",
+      "size_source_url": "https://www.bcu.ac.uk/news-events/news/bcu-named-in-top-250-uk-employers",
+      "legacy_system": "SITS:Vision student record system",
+      "evidence_url": "https://jobs.bcu.ac.uk/Upload/vacancies/files/8071/Student%20Systems%20Analyst%20-%20JD%5BGrade%20E%5D%20-%20July%202026.pdf",
+      "evidence_date": "July 2026",
+      "evidence_quote": "the postholder will contribute to the configuration and development of the University's student record system (SITS:Vision).",
+      "forced_admin_job": "Registry staff manually key module changes, assessment marks, award outcomes and curriculum amendments into SITS screens, then re-check them against spreadsheets before board reports.",
+      "decision_maker": {
+        "name": "Andy Winter",
+        "role": "Director of Student and Academic Services",
+        "source_url": "https://www.linkedin.com/in/andywinter26"
+      },
+      "why_archaic_helps": "SITS is retained and being extended, not replaced, so the manual data entry into its screens persists; an agent that works the SITS client removes the keying load without an integration project or a student-record migration."
+    },
+    {
+      "name": "University of York",
+      "sector": "Higher education",
+      "size": "c.5,000 staff",
+      "size_source_url": "https://www.york.ac.uk/about/",
+      "legacy_system": "SITS student record system",
+      "evidence_url": "https://jobs.york.ac.uk/vacancy/student-systems-business-analyst-620902.html",
+      "evidence_date": "Posted 15 October 2026",
+      "evidence_quote": "The team is responsible for the configuration, development, management and maintenance of our student record system (SITS) and its integrations with other business systems.",
+      "forced_admin_job": "Professional services staff key module registrations, marks and progression decisions into SITS and then re-enter the same data into departmental spreadsheets and returns.",
+      "decision_maker": {
+        "name": "Tom Banham",
+        "role": "Academic Registrar and Director of Student Education and Experience",
+        "source_url": "https://www.linkedin.com/in/tom-banham-a5ab1bb"
+      },
+      "why_archaic_helps": "York is investing in SITS staff rather than replacing the platform, which means screen-bound processes for at least another contract cycle; a desk that drives SITS absorbs termly peaks (enrolment, assessment boards) without headcount."
+    },
+    {
+      "name": "University of Bath",
+      "sector": "Higher education",
+      "size": "c.5,722 employees",
+      "size_source_url": "https://www.reveliolabs.com/companies/university-of-bath/employees",
+      "legacy_system": "SITS student record system",
+      "evidence_url": "https://www.bath.ac.uk/jobs/Vacancy.aspx?ref=KD13988",
+      "evidence_date": "Placed 08 October 2026",
+      "evidence_quote": "Senior Developer (SITS) - Department Digital, Data & Technology Group - Starting from £39,560, rising to £46,970",
+      "forced_admin_job": "Registry and faculty staff key unit registrations, assessment marks and progression outcomes into SITS by hand, with exception reports worked from Excel downloads.",
+      "decision_maker": {
+        "name": "Gavin Edwards",
+        "role": "Chief Digital Officer",
+        "source_url": "https://www.bath.ac.uk/announcements/gavin-edwards-appointed-as-new-chief-digital-officer-cdo-at-the-university-of-bath/"
+      },
+      "why_archaic_helps": "Bath is recruiting permanent SITS developers, signalling a multi-year commitment to the platform; the cheaper win is automating the keying work around SITS rather than replacing it, and the CDO owns both budgets."
+    },
+    {
+      "name": "University of Cumbria",
+      "sector": "Higher education",
+      "size": "c.2,979 employees",
+      "size_source_url": "https://growjo.com/company/University_of_Cumbria",
+      "legacy_system": "SITS student record system",
+      "evidence_url": "https://jobs.cumbria.ac.uk/Upload/vacancies/files/1704/XX132424%20Job%20Description.pdf",
+      "evidence_date": "2024 (job description ref XX132424)",
+      "evidence_quote": "SITS is the University's student record system and is central to the effective administration of the student lifecycle.",
+      "forced_admin_job": "A small Student Systems and Data team hand-keys and checks student records across four campuses, including placement and progression data, with reconciliation against spreadsheets.",
+      "decision_maker": {
+        "name": "Bronia Sledz",
+        "role": "Head of Student Systems and Data",
+        "source_url": "https://my.cumbria.ac.uk/media/MyCumbria/Documents/Placement-Allocation-Policy.pdf"
+      },
+      "why_archaic_helps": "A distributed multi-campus university with a thin central team cannot afford a student-record replacement; a screen-driving desk scales the manual keying and checking that SITS forces, at a fraction of a programme."
+    },
+    {
+      "name": "University of Plymouth",
+      "sector": "Higher education",
+      "size": "Over 2,500 staff",
+      "size_source_url": "https://www.plymouth.ac.uk/about-us",
+      "legacy_system": "SITS student record system",
+      "evidence_url": "https://hrservices.plymouth.ac.uk/tlive_webrecruitment/wrd/run/ETREC107GF.open?VACANCY_ID=190910XZEf&WVID=1602750fTZ&LANG=USA",
+      "evidence_date": "08 April 2026",
+      "evidence_quote": "SITS Developer - Plymouth - 08/04/2026",
+      "forced_admin_job": "Faculty and registry administrators key enrolments, module selections, marks and mitigating-circumstances outcomes into SITS screens, then duplicate the data into local trackers.",
+      "decision_maker": {
+        "name": "Anna Sendall",
+        "role": "Academic Registrar",
+        "source_url": "https://www.plymouth.ac.uk/staff/anna-sendall"
+      },
+      "why_archaic_helps": "Plymouth keeps hiring SITS developers rather than moving platform, so the screen work is stable for years; automation of the keying and checking removes seasonal backlog without a vendor migration."
+    },
+    {
+      "name": "Guildhall School of Music & Drama",
+      "sector": "Higher education - conservatoire",
+      "size": "Over 700 staff",
+      "size_source_url": "https://www.gsmd.ac.uk/about-guildhall",
+      "legacy_system": "SITS student record system",
+      "evidence_url": "https://www.jobs.ac.uk/job/DTG291/senior-student-records-officer",
+      "evidence_date": "Live vacancy, accessed 21 October 2026",
+      "evidence_quote": "The role holder will play a key role in managing the student lifecycle in SITS from the point of enrolment through to graduation, taking the lead on enrolment events.",
+      "forced_admin_job": "Registry staff key enrolment, one-to-one lesson allocations, assessment marks and progression decisions into SITS by hand, then reconcile against departmental spreadsheets before boards.",
+      "decision_maker": {
+        "name": "Jo Hutchinson",
+        "role": "Director of Student & Academic Services and Registrar",
+        "source_url": "https://www.gsmd.ac.uk/staff/jo-hutchinson"
+      },
+      "why_archaic_helps": "A small conservatoire registry with a bespoke, performance-heavy timetable cannot buy a new student system; a screen-driving desk absorbs the manual SITS entry and reconciliation instead."
+    },
+    {
+      "name": "West Herts College",
+      "sector": "Further education",
+      "size": "501-1,000 employees",
+      "size_source_url": "https://leadiq.com/c/west-herts-college/5a1d96d523000054008577cf/employee-directory",
+      "legacy_system": "ProSolution (learner record and MIS)",
+      "evidence_url": "https://www.westherts.ac.uk/documents/vacancies/job-descriptions/451-mis-information-officer-july-2025/file",
+      "evidence_date": "July 2025",
+      "evidence_quote": "Maintain good working knowledge of college learner record system (ProSolution).",
+      "forced_admin_job": "MIS officers key enrolment, attendance and achievement data into ProSolution, then re-work it in Excel for funding returns, audits and data-integrity checks.",
+      "decision_maker": {
+        "name": "Gill Worgan CBE",
+        "role": "Principal and Chief Executive",
+        "source_url": "https://www.linkedin.com/in/gill-worgan-cbe-346539b9"
+      },
+      "why_archaic_helps": "College funding depends on error-free ILR data keyed into ProSolution; an agent that works the ProSolution screens for attendance and achievement reconciliation protects funding without an MIS replacement."
+    },
+    {
+      "name": "Craven College",
+      "sector": "Further education",
+      "size": "259 FTE staff (2024/25)",
+      "size_source_url": "https://www.craven-college.ac.uk/wp-content/uploads/2026/01/Craven-College-Annual-Report-and-Financial-Statements-2024-25-1.pdf",
+      "legacy_system": "ProSolution (MIS platform)",
+      "evidence_url": "https://jobs.craven-college.ac.uk/assets/job_spec/1840.pdf",
+      "evidence_date": "October 2023",
+      "evidence_quote": "Develop and maintain the college's MIS platform (currently ProSolution) and other management information systems and records.",
+      "forced_admin_job": "MIS staff key learner and attendance data into ProSolution and then rebuild reports in Excel and other systems for funding, timetabling and quality reviews.",
+      "decision_maker": {
+        "name": "Anita Lall",
+        "role": "Principal & CEO",
+        "source_url": "https://www.craven-college.ac.uk/the-college/leadership-and-governance/"
+      },
+      "why_archaic_helps": "A 259-FTE college cannot fund an MIS replacement, and the word 'currently' in its own job spec concedes the platform is provisional; screen automation delivers the data-quality gain now on the existing system."
+    },
+    {
+      "name": "Richmond upon Thames College",
+      "sector": "Further education",
+      "size": "c.341 employees",
+      "size_source_url": "https://rocketreach.co/richmond-upon-thames-college-profile_b5c3f7c3f42e0b7a",
+      "legacy_system": "ProSolution (timetabling and attendance)",
+      "evidence_url": "https://jobs.rutc.ac.uk/Upload/vacancies/files/673/Timetabling%20Officer_Dec19.pdf",
+      "evidence_date": "December 2019",
+      "evidence_quote": "Review reports and attendance data from ProSolution to analyse room occupancy and utilisation.",
+      "forced_admin_job": "The timetabling officer exports ProSolution attendance and register data, then manually rebuilds occupancy and utilisation analysis for room planning and funding audits.",
+      "decision_maker": {
+        "name": "Gavin Hughes",
+        "role": "Principal",
+        "source_url": "https://www.rutc.ac.uk/about-us/principal-s-welcome"
+      },
+      "why_archaic_helps": "A single-campus college with a fixed MIS budget will not replace ProSolution; an agent that pulls registers, chases missing attendance and rebuilds the utilisation reports removes the manual grind."
+    },
+    {
+      "name": "Ravensbourne University London",
+      "sector": "Higher education",
+      "size": "1,001-5,000 employees (LeadIQ band; university does not publish a headcount)",
+      "size_source_url": "https://leadiq.com/c/ravensbourne-university-london/5a1d967323000059008511c1/employee-directory",
+      "legacy_system": "SITS student record system",
+      "evidence_url": "https://jobs.ravensbourne.ac.uk/Upload/vacancies/files/464/Job%20Description%20Student%20Systems%20Developer.pdf",
+      "evidence_date": "Undated job description, live on university site; accessed 21 October 2026",
+      "evidence_quote": "Role Title: Student Systems (SITS) Developer - Service: IT Services - Reports to: Matthew Smith - Student Systems Lead",
+      "forced_admin_job": "Registry and course teams key enrolments, module registrations, assessment marks and progression outcomes into SITS, then rebuild reports in spreadsheets for academic boards.",
+      "decision_maker": {
+        "name": "Holly Duglan",
+        "role": "University Secretary and Registrar",
+        "source_url": "https://www.ravensbourne.ac.uk/people-and-stories/meet-team/holly-duglan"
+      },
+      "why_archaic_helps": "A specialist arts university with one Student Systems Lead cannot run a student-record replacement; automating the SITS keying around him adds capacity without touching the platform."
+    },
+    {
+      "name": "Sheffield Hallam University",
+      "sector": "Higher education",
+      "size": "c.4,500 staff",
+      "size_source_url": "https://theconversation.com/institutions/sheffield-hallam-university-846",
+      "legacy_system": "SITS student record system",
+      "evidence_url": "https://www.find-tender.service.gov.uk/Notice/035657-2025",
+      "evidence_date": "27 June 2025",
+      "evidence_quote": "Sheffield Hallam University needs to purchase a student Records Management System (SITS). This is a critical system for the University supporting its core operations.",
+      "forced_admin_job": "Registry and faculty staff manually key module and assessment data into SITS and re-enter it into local trackers, with £2.5m being spent simply to keep the same platform in support.",
+      "decision_maker": {
+        "name": "Liz Mossop",
+        "role": "Vice-Chancellor",
+        "source_url": "https://profiles.shu.ac.uk/9998-liz-mossop"
+      },
+      "why_archaic_helps": "Hallam has just committed £2.5m to re-buy the same SITS platform, proving no replacement is coming; that is exactly the window where automating the screens pays back fastest."
+    },
+    {
+      "name": "Forbes Solicitors",
+      "sector": "Legal services",
+      "size": "c.324 employees",
+      "size_source_url": "https://www.reveliolabs.com/companies/forbes-solicitors/employees",
+      "legacy_system": "OneAdvanced Partner for Windows (P4W)",
+      "evidence_url": "https://talents.studysmarter.co.uk/companies/forbes-solicitors/case-management-developer-partner-for-windows-31083921/",
+      "evidence_date": "Live vacancy, accessed 21 October 2026",
+      "evidence_quote": "Tasks: Design and enhance workflows, automate processes, and deliver smart tools for legal teams.",
+      "forced_admin_job": "Case handlers open matters, key client and opponent data, diarise dates and produce standard letters inside P4W screens; document chasing and file-opening are manual per matter.",
+      "decision_maker": {
+        "name": "Pauline Wild",
+        "role": "Managing Partner",
+        "source_url": "https://www.forbessolicitors.co.uk/people/pauline-wild"
+      },
+      "why_archaic_helps": "P4W is a desktop case system with no practical API, and Forbes is hiring developers to bend it rather than replace it; a screen-driving desk delivers the workflow automation they are recruiting for without a case-management migration."
+    },
+    {
+      "name": "Flint Bishop",
+      "sector": "Legal services",
+      "size": "c.411 employees",
+      "size_source_url": "https://www.reveliolabs.com/companies/flint-bishop/employees",
+      "legacy_system": "OneAdvanced Partner for Windows (P4W)",
+      "evidence_url": "https://talents.studysmarter.co.uk/companies/flint-bishop-solicitors/senior-case-management-systems-developer-16487593/",
+      "evidence_date": "Live vacancy, accessed 21 October 2026",
+      "evidence_quote": "primarily within OneAdvanced's Partner for Windows (P4W) environment.",
+      "forced_admin_job": "Matter inception, conflict checks, client onboarding and standard correspondence are keyed into P4W by secretaries and paralegals, with document bundles assembled by hand.",
+      "decision_maker": {
+        "name": "Malcolm Simpson",
+        "role": "Growth Strategy Partner",
+        "source_url": "https://flintbishop.co.uk/people/malcolm-simpson/"
+      },
+      "why_archaic_helps": "Flint Bishop is recruiting a senior developer to optimise P4W, confirming it is the platform of record; a screen desk does the repetitive matter-opening and chasing work without waiting for that development queue."
+    },
+    {
+      "name": "Brodies LLP",
+      "sector": "Legal services (Scotland)",
+      "size": "Over 950 colleagues",
+      "size_source_url": "https://brodies.com/about/",
+      "legacy_system": "Visualfiles case management",
+      "evidence_url": "https://careers.brodies.com/Job/GetJobAdvertDocument?Id=81&JobId=368",
+      "evidence_date": "Live vacancy, accessed 21 October 2026",
+      "evidence_quote": "Ideally candidates will have knowledge of the Visualfiles case management system.",
+      "forced_admin_job": "Debt-recovery and volume case handlers key claim data into Visualfiles, diarise enforcement steps and generate standard court documents one case at a time.",
+      "decision_maker": {
+        "name": "Nick Scott",
+        "role": "Managing Partner",
+        "source_url": "https://brodies.com/about/news/nick-scott-to-succeed-bill-drummond-as-brodies-managing-partner/"
+      },
+      "why_archaic_helps": "Visualfiles is a legacy LexisNexis desktop system with limited integration; high-volume Scottish debt recovery is pure repetition, ideal for a screen desk that needs no API."
+    },
+    {
+      "name": "Carpenters Group",
+      "sector": "Legal services and insurance claims",
+      "size": "c.1,500 employees",
+      "size_source_url": "https://talents.studysmarter.co.uk/companies/carpenters-group/visualfiles-developer-9532543/",
+      "legacy_system": "LexisNexis Visualfiles",
+      "evidence_url": "https://talents.studysmarter.co.uk/companies/carpenters-group/visualfiles-developer-9532543/",
+      "evidence_date": "Live vacancy, accessed 21 October 2026",
+      "evidence_quote": "Tasks: Design and develop case management solutions using LexisNexis Visualfiles.",
+      "forced_admin_job": "Claims handlers key incident, medical and third-party data into Visualfiles, chase documents by email and assemble settlement packs manually.",
+      "decision_maker": {
+        "name": "Donna Richards",
+        "role": "Chief Executive Officer",
+        "source_url": "https://www.carpentersgroup.co.uk/about-us/meet-our-executive-board/donna-richards/"
+      },
+      "why_archaic_helps": "Volume personal-injury and insurance claims run on Visualfiles screens with no clean API; a desk that works those screens absorbs document chasing and data entry at 1,500-seat scale without re-platforming."
+    },
+    {
+      "name": "Bond Turner",
+      "sector": "Legal services",
+      "size": "c.914 employees",
+      "size_source_url": "https://www.reveliolabs.com/companies/bond-turner/employees",
+      "legacy_system": "Proclaim case management",
+      "evidence_url": "https://talents.studysmarter.co.uk/companies/bond-turner/liverpool/proclaim-developer-automation-workflow-specialist-27494261/",
+      "evidence_date": "Live vacancy, accessed 21 October 2026",
+      "evidence_quote": "A forward-thinking legal services firm in Liverpool is seeking a skilled Proclaim Developer to enhance and automate their case management system.",
+      "forced_admin_job": "Case handlers open matters in Proclaim, key medical and financial loss data, and generate standard letters and court packs by hand for each claim.",
+      "decision_maker": {
+        "name": "Sam Moss",
+        "role": "Director",
+        "source_url": "https://www.bondturner.com/our-people/sam-moss/"
+      },
+      "why_archaic_helps": "Proclaim is a screen-only Eclipse system; Bond Turner is already buying automation inside it, so the buying logic is proven - a screen desk delivers the same outcome for work the developers never reach."
+    },
+    {
+      "name": "Kennedys",
+      "sector": "Legal services (insurance litigation)",
+      "size": "2,900+ people (global)",
+      "size_source_url": "https://www.kennedyslaw.com/en/who-we-are/about-us/",
+      "legacy_system": "Elite 3E (finance and billing)",
+      "evidence_url": "https://talents.studysmarter.co.uk/companies/kennedys/birmingham/senior-finance-systems-analyst-elite-3e-power-bi-pro-20931857/",
+      "evidence_date": "Live vacancy, accessed 21 October 2026",
+      "evidence_quote": "Senior Finance Systems Analyst: Elite 3E & Power BI Pro in Birmingham",
+      "forced_admin_job": "Billing and e-billing staff key time entries, disbursements and write-offs into Elite 3E, reconcile them against client e-billing portals, and rebuild reports in Power BI.",
+      "decision_maker": {
+        "name": "Laura Koller",
+        "role": "Chief Financial Officer",
+        "source_url": "https://www.kennedyslaw.com/en/news/2025/kennedys-announces-new-chief-financial-officer/"
+      },
+      "why_archaic_helps": "Elite 3E's billing workflows are screen-bound and portal reconciliation is manual copy-and-key; an agent removes the reconciliation load without a finance-system replacement, and the CFO owns the revenue-leakage case."
+    },
+    {
+      "name": "Express Solicitors",
+      "sector": "Legal services (personal injury)",
+      "size": "c.756 employees",
+      "size_source_url": "https://www.reveliolabs.com/companies/express-solicitors/employees",
+      "legacy_system": "Proclaim case management",
+      "evidence_url": "https://www.expresssolicitors.co.uk/about/our-people/departments/it",
+      "evidence_date": "Live staff page, accessed 21 October 2026",
+      "evidence_quote": "Neil Rea - Proclaim Developer - IT",
+      "forced_admin_job": "Case handlers key claim and medical data into Proclaim, chase third-party medical records and insurers by email, and assemble settlement packs by hand.",
+      "decision_maker": {
+        "name": "James Maxey",
+        "role": "Chief Executive Officer",
+        "source_url": "https://www.expresssolicitors.co.uk/about/our-people/james-maxey"
+      },
+      "why_archaic_helps": "Express keeps in-house Proclaim developers because the platform is central and closed; document chasing across thousands of PI files is the archetypal screen job, and no API is needed."
+    },
+    {
+      "name": "Fletchers Group",
+      "sector": "Legal services (personal injury)",
+      "size": "Over 1,400 people",
+      "size_source_url": "https://www.legal500.com/firms/3923-fletchers-solicitors/global/about",
+      "legacy_system": "Proclaim case management",
+      "evidence_url": "https://talents.studysmarter.co.uk/companies/fletchers-group/liverpool/hybrid-proclaim-developer-for-legal-tech-workflows-29989261/",
+      "evidence_date": "Live vacancy, accessed 21 October 2026",
+      "evidence_quote": "Hybrid Proclaim Developer for Legal Tech & Workflows in Liverpool",
+      "forced_admin_job": "Case handlers re-key medical records and rehabilitation data into Proclaim, chase treatment providers and insurers, and generate standard letters per case.",
+      "decision_maker": {
+        "name": "Peter Haden",
+        "role": "Chief Executive Officer",
+        "source_url": "https://www.fletchersolicitors.co.uk/our-people/peter-haden/"
+      },
+      "why_archaic_helps": "Fletchers is hiring Proclaim developer capacity to automate workflows it cannot buy off the shelf; a screen desk delivers that automation on the live Proclaim build without waiting for internal development."
+    },
+    {
+      "name": "Saffery",
+      "sector": "Accountancy",
+      "size": "1,346 employees",
+      "size_source_url": "https://www.linkedin.com/company/saffery/life/bbf4d030-2cb9-4656-a536-8fbc33d4ad67",
+      "legacy_system": "Elite 3E (billing and revenue control)",
+      "evidence_url": "https://talents.studysmarter.co.uk/companies/saffery/eye/revenue-controller-with-elite-3e-finance-dublin-22992889/",
+      "evidence_date": "Live vacancy, accessed 21 October 2026",
+      "evidence_quote": "Revenue Controller (with Elite 3E) - Finance - Dublin",
+      "forced_admin_job": "Revenue controllers key time and disbursements into Elite 3E, run WIP and unallocated cash reports, and chase fee-earners for time corrections by email.",
+      "decision_maker": {
+        "name": "Darren Drake",
+        "role": "Managing Partner",
+        "source_url": "https://www.saffery.com/insights/news/saffery-elects-darren-drake-as-new-managing-partner/"
+      },
+      "why_archaic_helps": "A top-20 practice on Elite 3E will not replace its billing platform for a £60k problem; screen automation of WIP chasing and time correction is live in weeks."
+    }
+  ],
+  "method_notes": "Evidence was gathered between 19 and 21 October 2026 from primary sources only: council cabinet and committee reports (Bury, West Northamptonshire, Windsor & Maidenhead, Hinckley & Bosworth), university and college job descriptions PDFs (BCU, Cumbria, Ravensbourne, Craven, West Herts, RUTC), live vacancy pages (York, Bath, Plymouth, Guildhall, Forbes, Flint Bishop, Brodies, Carpenters, Bond Turner, Kennedys, Fletchers, Saffery, Express), one Find a Tender notice (Sheffield Hallam) and one council workforce/accounts document per authority for headcount. Every legacy-system claim is tied to a quotation naming the product; no system was inferred from sector or vendor list. Quotations are verbatim from the cited page as retrieved; where a vacancy carries no publication date the evidence_date records the access date. Headcounts are the employer's own FTE or headcount figure where published (Bury, RBWM, Hinckley, Craven), the employer's own claim where stated (York, Bath's DDaT page equivalents, Plymouth, Guildford, BCU, Sheffield Hallam via The Conversation profile), or a third-party estimate (Revelio Labs, Growjo, LeadIQ, LinkedIn) clearly labelled as such. Four entries rest on evidence older than 2024 (Hinckley 2015, RUTC 2019, Craven 2023, believe housing 2023); they were kept because the citation explicitly names the product and the forced manual task, but the current system estate should be confirmed on first contact. Sizes outside the 50-3,000 target band (York, Bath, Sheffield Hallam, Kennedys) were retained only where the legacy evidence is unusually strong and the buyer sits at group or director level. All organisations are UK-registered or UK public bodies; Saffery's cited vacancy is in its Dublin office but the firm is UK-headquartered and runs one Elite 3E instance.",
+  "excluded": [
+    {
+      "name": "Guildford Borough Council",
+      "reason": "2022 report evidences Orchard and a 20-year-old build, but no 2024-26 confirmation that Orchard is still live and no named Head of Housing in public papers."
+    },
+    {
+      "name": "Bolton at Home / Be One Homes",
+      "reason": "Was on Orchard but has since selected Civica Cx and rebranded, so it is mid-migration rather than stuck."
+    },
+    {
+      "name": "Hodge Jones & Allen",
+      "reason": "Live Proclaim developer vacancy confirms the system, but no named managing partner or equivalent could be sourced from an official page."
+    },
+    {
+      "name": "Aston University",
+      "reason": "Job description confirms SITS, but the Academic Registrar post was vacant and no named current holder could be verified."
+    },
+    {
+      "name": "DWF",
+      "reason": "3E Business Analyst evidence found only via an aggregator listing that subsequently 404'd; no stable citation."
+    },
+    {
+      "name": "Six Town Housing",
+      "reason": "Aareon QL selection evidence dates from 2014; current estate unconfirmed."
+    },
+    {
+      "name": "Fareham Borough Council",
+      "reason": "Housing software report is 2019 and the procurement has since concluded."
+    },
+    {
+      "name": "Alliance Homes",
+      "reason": "Unit4 Business World cloud implementation article is 2017 and the programme has completed."
+    },
+    {
+      "name": "Arden University",
+      "reason": "SITS Systems Manager vacancy is closed and carries no publication date, so the evidence could not be dated."
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>What Twinthos Actually Is</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Georgia, "DejaVu Serif", serif; color:#11100E; background:#FCFAF6;
+         font-size:23pt; line-height:1.4; }
+  .page { width:210mm; height:297mm; padding:17mm 20mm 15mm; page-break-after:always;
+          position:relative; overflow:hidden; display:flex; flex-direction:column; }
+  .page:last-child { page-break-after:auto; }
+  .top { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8mm; }
+  .kick { font-family:"Helvetica Neue",Arial,sans-serif; font-size:11pt; letter-spacing:.24em;
+          text-transform:uppercase; color:#0A5C4E; font-weight:700; }
+  .kdot { width:9mm; height:9mm; border:2px solid #11100E; border-radius:50%;
+          display:flex; align-items:center; justify-content:center;
+          font-family:"Helvetica Neue",Arial,sans-serif; font-size:10pt; font-weight:700; }
+  h2 { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-size:36pt; font-weight:800;
+       letter-spacing:-.028em; line-height:1.04; margin-bottom:7mm; }
+  p { margin-bottom:5mm; } p:last-child { margin-bottom:0; }
+  .accent { color:#0A5C4E; } .alert { color:#A63D22; } .dim { color:#5E574E; }
+  .body { flex:1; }
+  .stat { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif; font-weight:800;
+          font-size:96pt; line-height:.86; letter-spacing:-.05em; color:#0A5C4E; }
+  .statlbl { font-size:19pt; line-height:1.35; color:#3E3830; margin-top:5mm; }
+  table { width:100%; border-collapse:collapse; margin:3mm 0 4mm; }
+  th { font-family:"Helvetica Neue",Arial,sans-serif; font-size:10.5pt; text-transform:uppercase;
+       letter-spacing:.12em; text-align:left; padding:2.5mm 2mm 2mm; color:#6E675E;
+       font-weight:700; border-bottom:2.5px solid #11100E; }
+  td { padding:3.5mm 2mm; border-bottom:1px solid #DCD5C9; font-size:17.5pt; line-height:1.26; vertical-align:top; }
+  td.n { font-family:"Helvetica Neue",Arial,sans-serif; font-weight:700; font-size:18pt; white-space:nowrap; }
+  tr.hl td { background:#F1EDE4; }
+  tr.hl td:first-child { border-left:4px solid #0A5C4E; padding-left:3.5mm; }
+  .fnote { font-size:14.5pt; color:#6E675E; line-height:1.4; }
+  .box { background:#F1EDE4; padding:6mm 7mm; margin:5mm 0; }
+  .box .lbl { font-family:"Helvetica Neue",Arial,sans-serif; font-size:10.5pt; letter-spacing:.2em;
+              text-transform:uppercase; color:#0A5C4E; font-weight:700; margin-bottom:2.5mm; }
+  .box p { font-size:19pt; line-height:1.34; }
+  .quote { border-left:6px solid #A63D22; padding-left:7mm; margin:5mm 0; }
+  .quote p { font-size:25pt; line-height:1.22; font-style:italic; }
+  .quote .att { font-family:"Helvetica Neue",Arial,sans-serif; font-style:normal; font-size:11.5pt;
+                letter-spacing:.13em; text-transform:uppercase; color:#6E675E; margin-top:4mm; display:block; }
+  ol.steps { list-style:none; counter-reset:s; }
+  ol.steps > li { counter-increment:s; position:relative; padding-left:13mm; margin-bottom:5mm;
+                  font-size:19.5pt; line-height:1.3; }
+  ol.steps > li::before { content:counter(s); position:absolute; left:0; top:-.5mm;
+    font-family:"Helvetica Neue",Arial,sans-serif; font-weight:800; font-size:20pt; color:#0A5C4E; }
+  .num { position:absolute; bottom:8mm; right:20mm; font-family:"Helvetica Neue",Arial,sans-serif;
+         font-size:11pt; color:#A9A196; }
+  .foot { position:absolute; bottom:8mm; left:20mm; font-family:"Helvetica Neue",Arial,sans-serif;
+          font-size:10pt; color:#A9A196; letter-spacing:.14em; text-transform:uppercase; }
+  .dark { background:#0D1A18; color:#F4F1E9; }
+  .dark .kick { color:#7FBAB0; }
+  .dark h1 { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:58pt; font-weight:800; letter-spacing:-.04em; line-height:1; margin-bottom:8mm; }
+  .dark h1 em { font-style:normal; color:#7FBAB0; }
+  .dark .rule { width:44mm; height:4px; background:#7FBAB0; margin-bottom:8mm; }
+  .dark p { font-size:21pt; color:#CFD8D4; max-width:150mm; }
+  .dark .foot, .dark .num { color:#4E635F; }
+  .cover-wrap { display:flex; flex-direction:column; justify-content:center; height:100%; }
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<div class="page dark">
+  <div class="cover-wrap">
+    <div class="kick" style="margin-bottom:14mm">Twinthos · Deep read · October 2026</div>
+    <h1>You have been<br>selling the<br><em>wrong thing.</em></h1>
+    <div class="rule"></div>
+    <p>What Dewey actually is, what that makes Twinthos, and the one industry that fits the model better than any you have looked at.</p>
+  </div>
+  <div class="foot">Sources on last page</div>
+  <div class="num">01</div>
+</div>
+
+<!-- 2 DEWEY -->
+<div class="page">
+  <div class="top"><span class="kick">What Dewey is</span><span class="kdot">01</span></div>
+  <h2 class="sm">Not an agent. A factory.</h2>
+  <div class="body">
+    <p>Dewey is Nick Vasilescu's agent. It does not just do the work — it builds the client's agent, puts it in their Slack, and then runs their support.</p>
+    <div class="quote">
+      <p>“His agent Dewey builds the client's agent, onboards it into their Slack, and handles the customer support after.”</p>
+      <span class="att">Corey Ganim, 27 July 2026</span>
+    </div>
+    <p>The product is not the agent. <strong>The product is a repeatable machine that ships agents.</strong></p>
+  </div>
+  <div class="foot">What Twinthos is</div>
+  <div class="num">02</div>
+</div>
+
+<!-- 3 THE RULES -->
+<div class="page">
+  <div class="top"><span class="kick">Four rules it proves</span><span class="kdot">02</span></div>
+  <h2 class="sm">The bits that matter.</h2>
+  <div class="body">
+    <ol class="steps">
+      <li><strong>Templatise once, deploy forever.</strong> One template, cloned per client.</li>
+      <li><strong>B2B2B never churns.</strong> Help the client resell it to <em>their</em> customers.</li>
+      <li><strong>Sell to real businesses.</strong> £1m–£2m revenue minimum. They pay more and ask less.</li>
+      <li><strong>Speed to value.</strong> Money wired, agent live by day two.</li>
+    </ol>
+    <div class="box">
+      <div class="lbl">The line that reframes everything</div>
+      <p>“Nobody pays $5K/month for an agent that doesn't make them money.”</p>
+    </div>
+  </div>
+  <div class="foot">What Twinthos is</div>
+  <div class="num">03</div>
+</div>
+
+<!-- 4 WHAT THAT MAKES TWINTHOS -->
+<div class="page">
+  <div class="top"><span class="kick">The consequence</span><span class="kdot">03</span></div>
+  <h2 class="sm">A £1,500 project is not Twinthos.</h2>
+  <div class="body">
+    <p class="lead">The brain says Twinthos sells a Brain and a digital employee, from £5,000 a month.</p>
+    <p>A £1,500 build is a consultancy. It cannot scale, cannot be templated, and dies when you stop working.</p>
+    <table>
+      <tr><th>Model</th><th>Ceiling</th></tr>
+      <tr><td>£1,500 projects</td><td class="n">Your calendar</td></tr>
+      <tr class="hl"><td><strong>Templated £5k/month</strong></td><td class="n accent">Your template</td></tr>
+    </table>
+    <p class="dim">Every recruitment conversation in this chat was priced wrong.</p>
+  </div>
+  <div class="foot">What Twinthos is</div>
+  <div class="num">04</div>
+</div>
+
+<!-- 5 THE TEST -->
+<div class="page">
+  <div class="top"><span class="kick">Choosing an industry</span><span class="kdot">04</span></div>
+  <h2 class="sm">Stop asking who has most admin.</h2>
+  <div class="body">
+    <p>Ask four questions. Most admin is the wrong first question.</p>
+    <ol class="steps">
+      <li>Is the software the <strong>same</strong> at every firm?</li>
+      <li>Can the client <strong>resell</strong> the output to their own customers?</li>
+      <li>Does a law <strong>force</strong> them to keep the record?</li>
+      <li>Can the owner sign £5k a month alone?</li>
+    </ol>
+  </div>
+  <div class="foot">What Twinthos is</div>
+  <div class="num">05</div>
+</div>
+
+<!-- 6 THE WINNER -->
+<div class="page">
+  <div class="top"><span class="kick">The answer</span><span class="kdot">05</span></div>
+  <h2>Block management.</h2>
+  <div class="body">
+    <p class="lead">Managing agents for blocks of flats. Boring, unglamorous, and the best fit you have.</p>
+    <table style="margin-top:4mm">
+      <tr><td>Managing agent firms</td><td class="n">≈4,100</td></tr>
+      <tr><td>Units under ARMA members</td><td class="n">1.23m</td></tr>
+      <tr><td>Block manager salary</td><td class="n">£41,067</td></tr>
+      <tr class="hl"><td><strong>Software</strong></td><td class="n accent">MRI Qube</td></tr>
+    </table>
+    <p class="fnote">Sectorial (est. from SIC 68320); ARMA via Block Management UK; Indeed, 1,218 salaries, Sep 2026; MRI.</p>
+  </div>
+  <div class="foot">What Twinthos is</div>
+  <div class="num">06</div>
+</div>
+
+<!-- 7 WHY IT WINS -->
+<div class="page">
+  <div class="top"><span class="kick">Why it wins</span><span class="kdot">06</span></div>
+  <h2 class="sm">Four for four.</h2>
+  <div class="body">
+    <p><strong>Same software.</strong> Qube PM is the incumbent at scale — 70+ ARMA members, Knight Frank, FirstPort, Touchstone. One build works everywhere.</p>
+    <p><strong>They resell it.</strong> The agent's work goes straight to leaseholders. The agent absorbs more units, so the fee grows.</p>
+    <p><strong>A law forces the record.</strong> More on the next page.</p>
+    <p><strong>Owner decides.</strong> Managing agents are private firms, not councils.</p>
+  </div>
+  <div class="foot">What Twinthos is</div>
+  <div class="num">07</div>
+</div>
+
+<!-- 8 THE FORCING FUNCTION -->
+<div class="page">
+  <div class="top"><span class="kick">The unlock</span><span class="kdot">07</span></div>
+  <h2 class="sm">The Building Safety Act.</h2>
+  <div class="body">
+    <p>A managing agent can be the <strong>Principal Accountable Person</strong> — legally responsible for a higher-risk building and its “Golden Thread” of information.</p>
+    <div class="quote" style="border-color:#0A5C4E">
+      <p>“Compliance now has to be demonstrable, not just understood.”</p>
+      <span class="att">Tetra Consulting, 2026</span>
+    </div>
+    <p>That is a Brain problem, not a chatbot problem: persistent, versioned, auditable knowledge per building. You are not selling efficiency. You are selling legal defensibility.</p>
+  </div>
+  <div class="foot">What Twinthos is</div>
+  <div class="num">08</div>
+</div>
+
+<!-- 9 THE RANKING -->
+<div class="page">
+  <div class="top"><span class="kick">The shortlist</span><span class="kdot">08</span></div>
+  <h2 class="sm">Five sectors, scored.</h2>
+  <div class="body">
+    <table>
+      <tr><th>Sector</th><th>Fit</th></tr>
+      <tr class="hl"><td><strong>Block management</strong></td><td class="n accent">Best</td></tr>
+      <tr><td>Conveyancing</td><td class="n">Strong</td></tr>
+      <tr><td>Recruitment</td><td class="n">Fair</td></tr>
+      <tr><td>Insurance broking</td><td class="n">Fair</td></tr>
+      <tr><td>Payroll bureaus</td><td class="n alert">Weak</td></tr>
+    </table>
+    <p class="fnote">Conveyancing: 25,039 SRA firms, but only 10,724 solicitors doing residential — a capacity problem, not a recruitment one. Strong fit, heavy liability.</p>
+  </div>
+  <div class="foot">What Twinthos is</div>
+  <div class="num">09</div>
+</div>
+
+<!-- 10 PRICE -->
+<div class="page">
+  <div class="top"><span class="kick">What to charge</span><span class="kdot">09</span></div>
+  <h2 class="sm">Price the portfolio, not the seat.</h2>
+  <div class="body">
+    <table>
+      <tr><th>Portfolio</th><th>Test price</th></tr>
+      <tr><td>Under 1,000 units</td><td class="n">£2,500/mo</td></tr>
+      <tr class="hl"><td><strong>1,000–5,000 units</strong></td><td class="n accent">£5,000/mo</td></tr>
+      <tr><td>5,000+ units</td><td class="n">£10,000/mo</td></tr>
+    </table>
+    <div class="box">
+      <div class="lbl">Be honest with yourself</div>
+      <p>£5,000 a month has to cover the work of one and a half block managers. On a single small firm, price at £2,500.</p>
+    </div>
+    <p class="fnote">Test prices to validate in the market — same status as company/pricing.md.</p>
+  </div>
+  <div class="foot">What Twinthos is</div>
+  <div class="num">10</div>
+</div>
+
+<!-- 11 CLOSE -->
+<div class="page dark">
+  <div class="cover-wrap">
+    <div class="kick" style="margin-bottom:12mm">The one thing</div>
+    <h1 style="font-size:44pt;line-height:1.12">Sell the<br>capacity to take<br><em>more buildings.</em></h1>
+    <div class="rule" style="margin-top:9mm"></div>
+    <p>Not the hours saved. A managing agent that can absorb 30% more units without hiring grows its fee line. That is a revenue pitch, and it never gets argued down to £1,500.</p>
+  </div>
+  <div class="foot">What Twinthos is</div>
+  <div class="num">11</div>
+</div>
+
+<!-- 12 SOURCES -->
+<div class="page">
+  <div class="top"><span class="kick">Sources</span><span class="kdot">10</span></div>
+  <h2 class="sm" style="font-size:30pt">Every claim, traceable.</h2>
+  <div class="body">
+    <ul style="list-style:none;font-size:15pt;line-height:1.5">
+      <li style="margin-bottom:3mm">— Corey Ganim on Dewey/@nickvasilescu — x.com/coreyganim/status/2081721665822568810 (27 Jul 2026)</li>
+      <li style="margin-bottom:3mm">— Twinthos mission, services, pricing, strategy-2027 — /root/twinthos-brain/company/ and memory/core-memory.md</li>
+      <li style="margin-bottom:3mm">— ≈4,100 managing agents — sectorial.io, SIC 68320 (estimated)</li>
+      <li style="margin-bottom:3mm">— 870 residential managing agents, 300 ARMA, 1.23m units — blockmanagementuk.ltd</li>
+      <li style="margin-bottom:3mm">— Qube PM, 70+ ARMA members, Knight Frank/FirstPort/Touchstone — flat-living.co.uk, mrisoftware.com</li>
+      <li style="margin-bottom:3mm">— Block manager £41,067 (1,218 salaries, 28 Sep 2026) — uk.indeed.com</li>
+      <li style="margin-bottom:3mm">— BSA 2022, PAP, Golden Thread — fletcherrisk.co.uk; brocade.app</li>
+      <li style="margin-bottom:3mm">— “demonstrable, not just understood” — Tetra Consulting, LinkedIn, 2026</li>
+      <li style="margin-bottom:3mm">— 25,039 SRA conveyancing firms; 10,724 residential solicitors — legal-pulse.com; IRN 2026 via propertyindustryeye.com</li>
+    </ul>
+  </div>
+  <div class="foot">What Twinthos is</div>
+  <div class="num">12</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Who To Target — Twinthos Field Plan</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    color:#14110E; background:#FAF8F4;
+    font-size:15.5pt; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page {
+    width:210mm; height:297mm; padding:20mm 18mm;
+    page-break-after:always; position:relative; overflow:hidden;
+    background:#FAF8F4;
+  }
+  .page:last-child { page-break-after:auto; }
+  .sans { font-family:-apple-system,'Helvetica Neue',Arial,sans-serif; }
+
+  /* cover */
+  .cover { display:flex; flex-direction:column; justify-content:center; background:#0E1A1C; color:#F6F3EC; }
+  .cover .kicker { font-family:-apple-system,Arial,sans-serif; font-size:11pt; letter-spacing:.28em; text-transform:uppercase; color:#7FB8BF; margin-bottom:14mm; }
+  .cover h1 { font-family:-apple-system,Arial,sans-serif; font-size:64pt; line-height:.95; font-weight:800; letter-spacing:-.03em; }
+  .cover h1 em { font-style:normal; color:#7FB8BF; }
+  .cover .rule { width:38mm; height:3px; background:#7FB8BF; margin:12mm 0 10mm; }
+  .cover p { font-size:17pt; color:#C9CFCB; max-width:135mm; line-height:1.45; }
+  .cover .foot { position:absolute; bottom:18mm; left:18mm; right:18mm; font-family:-apple-system,Arial,sans-serif; font-size:10.5pt; color:#6C7B79; letter-spacing:.06em; display:flex; justify-content:space-between; }
+
+  h2 { font-family:-apple-system,Arial,sans-serif; font-size:30pt; font-weight:800; letter-spacing:-.02em; line-height:1.1; margin-bottom:7mm; }
+  h2 .num { display:block; font-size:11pt; letter-spacing:.22em; color:#0B5C63; font-weight:700; margin-bottom:3mm; }
+  h3 { font-family:-apple-system,Arial,sans-serif; font-size:16pt; font-weight:700; margin:8mm 0 3mm; letter-spacing:-.01em; }
+  p { margin-bottom:4.5mm; }
+  .lead { font-size:17pt; line-height:1.5; color:#2A2622; }
+
+  .big { font-family:-apple-system,Arial,sans-serif; font-weight:800; letter-spacing:-.04em; line-height:1; }
+  .accent { color:#0B5C63; }
+  .warm { color:#B4462A; }
+
+  table { width:100%; border-collapse:collapse; margin:5mm 0 6mm; font-size:14pt; }
+  th { font-family:-apple-system,Arial,sans-serif; font-size:10.5pt; text-transform:uppercase; letter-spacing:.12em; text-align:left; padding:3mm 2mm; border-bottom:2px solid #14110E; color:#5C5650; font-weight:700; }
+  td { padding:3.5mm 2mm; border-bottom:1px solid #D8D2C8; vertical-align:top; }
+  td.n { font-family:-apple-system,Arial,sans-serif; font-weight:700; white-space:nowrap; }
+
+  .box { border-left:4px solid #0B5C63; background:#F0EEEA; padding:6mm 7mm; margin:6mm 0; }
+  .box p:last-child { margin-bottom:0; }
+  .box .lbl { font-family:-apple-system,Arial,sans-serif; font-size:10pt; letter-spacing:.16em; text-transform:uppercase; color:#0B5C63; font-weight:700; margin-bottom:2.5mm; }
+
+  .quote { font-size:19pt; line-height:1.4; font-style:italic; color:#0E1A1C; border-left:4px solid #B4462A; padding-left:7mm; margin:7mm 0; }
+
+  ul, ol { margin:0 0 4.5mm 6mm; }
+  li { margin-bottom:2.6mm; }
+
+  .mono { font-family:'SF Mono',Menlo,Consolas,monospace; font-size:12.5pt; background:#EFECE6; padding:5mm 6mm; display:block; line-height:1.5; border-left:3px solid #14110E; white-space:pre-wrap; margin:4mm 0; }
+
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:8mm; }
+  .stat { font-family:-apple-system,Arial,sans-serif; font-size:44pt; font-weight:800; letter-spacing:-.04em; line-height:1; color:#0B5C63; }
+  .stat.red { color:#B4462A; }
+  .statlbl { font-family:-apple-system,Arial,sans-serif; font-size:11.5pt; color:#5C5650; margin-top:2mm; line-height:1.35; }
+
+  .src { font-size:10.5pt; line-height:1.5; color:#4A4540; }
+  .src li { margin-bottom:1.6mm; }
+  .pagenum { position:absolute; bottom:11mm; right:18mm; font-family:-apple-system,Arial,sans-serif; font-size:10pt; color:#A39C92; }
+  .tag { display:inline-block; font-family:-apple-system,Arial,sans-serif; font-size:9.5pt; letter-spacing:.1em; text-transform:uppercase; background:#0B5C63; color:#fff; padding:1.4mm 3mm; margin-bottom:5mm; font-weight:700; }
+  .tag.grey { background:#8A8378; }
+</style>
+</head>
+<body>
+
+<!-- 1 COVER -->
+<div class="page cover">
+  <div class="kicker">Twinthos · Field Plan · October 2026</div>
+  <h1>Who to<br><em>target.</em></h1>
+  <div class="rule"></div>
+  <p>A 90-day plan for selling screen agents into UK back offices — with honest odds, real scripts, and the target that actually answers the phone.</p>
+  <div class="foot"><span>EVERY FIGURE SOURCED</span><span>ESTIMATES LABELLED AS ESTIMATES</span></div>
+</div>
+
+<!-- 2 THE CALCULATION -->
+<div class="page">
+  <span class="tag">The whole business</span>
+  <h2><span class="num">01</span>One calculation explains everything</h2>
+  <p class="lead">You are not selling software. You are standing in the gap between what a person costs and what a robot costs.</p>
+
+  <table>
+    <tr><th>Item</th><th>Per year</th><th>Per month</th></tr>
+    <tr><td>A payroll administrator costs</td><td class="n">£22,000</td><td class="n">£1,833</td></tr>
+    <tr><td>A hosted unattended bot lists at</td><td class="n">&asymp; £2,000</td><td class="n">&asymp; £167</td></tr>
+    <tr><td><strong>The gap you sell into</strong></td><td class="n accent">£20,000</td><td class="n accent">&asymp; £1,667</td></tr>
+  </table>
+
+  <div class="box">
+    <div class="lbl">Therefore</div>
+    <p><strong>Charge £800 a month and you are still an 85% saving.</strong> You do not need to be clever, innovative, or differentiated. You need to stand in the gap and charge a slice of it.</p>
+  </div>
+
+  <h3>So never say these words</h3>
+  <p>"AI digital employee." "Agentic transformation." "Intelligent automation."</p>
+  <p>Say this instead:</p>
+  <div class="quote">"That task costs you £1,833 a month. I do it for £800. Same output."</div>
+
+  <div class="pagenum">2</div>
+</div>
+
+<!-- 3 DIRTY SECRET -->
+<div class="page">
+  <span class="tag">Why this is legitimate</span>
+  <h2><span class="num">02</span>The industry's dirty secret</h2>
+  <p class="lead">Screen automation sounds like a workaround. It isn't. It's what the API industry already does — with the human still attached.</p>
+
+  <div class="two">
+    <div>
+      <div class="stat">291</div>
+      <div class="statlbl">HR &amp; payroll providers listed by Finch, the market-leading "unified API"</div>
+    </div>
+    <div>
+      <div class="stat red">222</div>
+      <div class="statlbl">of those are <strong>human-assisted</strong> connections — not real API integrations</div>
+    </div>
+  </div>
+
+  <div class="box" style="margin-top:9mm">
+    <div class="lbl">Read that again</div>
+    <p>The leading clean-API company for payroll employs <strong>humans to be the API</strong> for 222 of its 291 providers. Only 38 are genuine integrations.</p>
+  </div>
+
+  <p>Paycom scores <strong>C</strong> on the API Report Card: no public API, undocumented partner REST, credentials handed over per integration, bulk data still moved by CSV or SFTP.</p>
+
+  <div class="quote">Screen agents are not a hack around the industry. They are the industry, with the human removed.</div>
+
+  <p>So the question is never <em>"is this needed?"</em> It is only: who has the most of it, and can I reach them?</p>
+
+  <div class="pagenum">3</div>
+</div>
+
+<!-- 4 SECTORS -->
+<div class="page">
+  <span class="tag grey">The options</span>
+  <h2><span class="num">03</span>Four sectors, scored honestly</h2>
+
+  <table>
+    <tr><th>Sector</th><th>Size</th><th>One-owner decision</th><th>Odds*</th></tr>
+    <tr><td><strong>Payroll bureaus &amp; accountancy practices</strong></td><td>30–40k firms</td><td>Yes</td><td class="n accent">Highest</td></tr>
+    <tr><td>Care homes</td><td>14,137 sites</td><td>No — group or trust</td><td class="n">Medium</td></tr>
+    <tr><td>Dental / veterinary</td><td>45,580 dentists</td><td>Sometimes</td><td class="n">Medium-low</td></tr>
+    <tr><td>Freight forwarders</td><td>Few hundred</td><td>Yes, but closed network</td><td class="n">Low for a stranger</td></tr>
+    <tr><td>Local councils</td><td>~370</td><td>No — frameworks only</td><td class="n warm">Near zero</td></tr>
+  </table>
+
+  <p class="src">*Odds of a <em>paid pilot within 60 days</em> from one approach. Derivation on page 6.</p>
+
+  <h3>The three to ignore, and why</h3>
+  <p><strong>Councils.</strong> Procurement frameworks and minimum contract sizes make a one-person company unsellable. Not a market problem — a structural one.</p>
+  <p><strong>Freight.</strong> Genuine pain, gated by relationships you don't have. Wrong sector for a cold start.</p>
+  <p><strong>Care homes.</strong> The pain is real and severe, but the budget sits two levels above the person who feels it. Long cycle, small deal.</p>
+
+  <div class="pagenum">4</div>
+</div>
+
+<!-- 5 THE PICK -->
+<div class="page">
+  <span class="tag">The decision</span>
+  <h2><span class="num">04</span>Target: UK payroll bureaus</h2>
+  <p class="lead">One person decides. They bill by the hour. The work is identical every month. The software cannot be API'd. And they already sell the thing you sell.</p>
+
+  <h3>Five reasons, in order of weight</h3>
+  <ol>
+    <li><strong>One person decides.</strong> The owner is the buyer. No committee, no procurement, no security review board.</li>
+    <li><strong>They bill by the hour.</strong> Saved hours are money, not a vague benefit. Their entire business model is "I charge for time".</li>
+    <li><strong>Monthly, identical, forever.</strong> Same date, same steps, same screens. Perfect for an agent — and provable in a single cycle.</li>
+    <li><strong>The software genuinely can't be API'd.</strong> Sage 50 Payroll, BrightPay, Moneysoft, IRIS. Desktop-first, no usable public interface.</li>
+    <li><strong>They already outsource.</strong> A bureau does other people's work for a fee. You are speaking their language, not teaching a new concept.</li>
+  </ol>
+
+  <div class="box">
+    <div class="lbl">The sentence that opens the door</div>
+    <p>"You already sell hours to your clients. I sell hours back to you."</p>
+  </div>
+
+  <h3>Who exactly, inside the sector</h3>
+  <p>Not the big networks. Target <strong>2–15 person practices</strong> — big enough to have a real payroll run, small enough that the owner answers their own email.</p>
+
+  <div class="pagenum">5</div>
+</div>
+
+<!-- 6 PROBABILITY -->
+<div class="page">
+  <span class="tag">The honest odds</span>
+  <h2><span class="num">05</span>What actually converts</h2>
+  <p>Cold B2B email averages a <strong>3.43% reply rate</strong> in 2025–26 — down from 5.1% in 2024 and 8.5% in 2019.</p>
+
+  <h3>Cold route, built from that measured number</h3>
+  <table>
+    <tr><th>Stage</th><th>Rate</th><th>Basis</th></tr>
+    <tr><td>Cold email → reply</td><td class="n">3.4%</td><td>Measured benchmark</td></tr>
+    <tr><td>Reply → booked call</td><td class="n">30%</td><td>ESTIMATE</td></tr>
+    <tr><td>Call → paid pilot</td><td class="n">25%</td><td>ESTIMATE</td></tr>
+    <tr><td><strong>Email → pilot</strong></td><td class="n warm">~0.25%</td><td>1 in 400 sends</td></tr>
+  </table>
+
+  <h3>Every route, side by side</h3>
+  <table>
+    <tr><th>Route</th><th>Pilot in 60 days</th></tr>
+    <tr><td><strong>Warm introduction from someone they trust</strong></td><td class="n accent">15–25%</td></tr>
+    <tr><td>Cold, naming their exact software and task</td><td class="n">2–4%</td></tr>
+    <tr><td>Inbound, after one published case study</td><td class="n">8–12%</td></tr>
+    <tr><td>Cold, generic "AI automation" pitch</td><td class="n warm">&lt;1%</td></tr>
+  </table>
+
+  <div class="box">
+    <div class="lbl">The uncomfortable conclusion</div>
+    <p>Your first client will not come from cold email. At 0.25% you need 400 sends for one pilot. Your first client comes from a <strong>warm introduction</strong> — and your second comes from the case study the first one produces.</p>
+  </div>
+
+  <p>So the 90-day plan is not "send 1,000 emails". It is: <strong>find 10 warm routes, and build one undeniable case study.</strong></p>
+
+  <div class="pagenum">6</div>
+</div>
+
+<!-- 7 WARM ROUTES -->
+<div class="page">
+  <span class="tag">Where the doors are</span>
+  <h2><span class="num">06</span>Your ten warm routes</h2>
+  <p class="lead">Accountants are the most networked small profession in Britain. Every one of them knows twenty others. You need four conversations, not four hundred emails.</p>
+
+  <h3>Start here, this week</h3>
+  <ol>
+    <li><strong>Your own accountant.</strong> They either run payroll or know who does. Highest-probability conversation available to you — and it costs one phone call.</li>
+    <li><strong>Whoever does your own books.</strong> Same logic, different door.</li>
+    <li><strong>Bristol business networks.</strong> Chambers, FSB, BNI chapters, accountant breakfasts. They exist specifically so small firms can refer each other.</li>
+    <li><strong>Bookkeeping bodies.</strong> ICB and IAB have regional branches and member forums. One member who trusts you is worth 400 cold emails.</li>
+  </ol>
+
+  <h3>The referral trick that actually works</h3>
+  <p>Never ask <em>"do you know anyone who might need this?"</em> — that question gets a polite nothing.</p>
+  <div class="quote">"Who's the busiest payroll bureau you know?"</div>
+  <p>A specific question about a specific person produces a specific name. Then ask that person to introduce you — the introduction is the product, not the pitch.</p>
+
+  <div class="box">
+    <div class="lbl">Target for weeks 1–2</div>
+    <p>Three warm conversations. Not thirty emails. Three conversations.</p>
+  </div>
+
+  <div class="pagenum">7</div>
+</div>
+
+<!-- 8 SURPRISE -->
+<div class="page">
+  <span class="tag">The surprise</span>
+  <h2><span class="num">07</span>Your best lead list is already public</h2>
+  <p class="lead">Don't buy a list. Read job adverts.</p>
+
+  <p>A firm advertising this has just published, for free, in public:</p>
+  <span class="mono">Payroll Administrator · Sage 50 · 3 days/week · £24,000
+Bristol · accountancy practice · start ASAP</span>
+
+  <p>That single advert tells you:</p>
+  <ul>
+    <li>they have the exact task you automate</li>
+    <li>which software it runs on</li>
+    <li>what it costs them per year</li>
+    <li>that they are short of capacity right now</li>
+    <li>and that they are <em>already spending money</em> to fix it</li>
+  </ul>
+
+  <div class="box">
+    <div class="lbl">This is not a lead. It's a buying signal.</div>
+    <p>Someone hiring a human to do a repetitive task is one conversation away from automating it. Every payroll vacancy in Bristol is a named prospect with a stated budget and a stated date they want the pain gone.</p>
+  </div>
+
+  <h3>Do this, it takes an hour</h3>
+  <p>Search Indeed and Reed for "payroll administrator", 30 miles around Bristol, filtered to accountancy practices. Write down the <strong>software named in each advert</strong>. That list is your entire first quarter.</p>
+
+  <div class="pagenum">8</div>
+</div>
+
+<!-- 9 EMAIL -->
+<div class="page">
+  <span class="tag">What to say</span>
+  <h2><span class="num">08</span>The cold email — 84 words</h2>
+
+  <span class="mono">Subject: the Sage 50 payroll run
+
+Hi [Name],
+
+You're advertising for a payroll administrator on
+Sage 50 — so the run is probably taking longer than
+it should.
+
+I build software that does the repetitive part of a
+payroll run automatically, on your existing system,
+no new software to buy. One Bristol bureau cut a
+two-day run to about four hours.
+
+Worth 15 minutes to see whether it fits yours?
+
+[Name] · [phone]</span>
+
+  <h3>Why each part is there</h3>
+  <ul>
+    <li><strong>"Sage 50"</strong> — proves you looked. This is the only part that earns a reply.</li>
+    <li><strong>"advertising for"</strong> — names their live problem, not your product.</li>
+    <li><strong>One claim.</strong> One. Not three.</li>
+    <li><strong>One ask.</strong> Fifteen minutes, not a demo, not a call, not a proposal.</li>
+  </ul>
+
+  <div class="box">
+    <div class="lbl">Banned words</div>
+    <p>Revolutionary. AI-powered. Cutting-edge. Seamless. Transform. Solution. Leverage. Any sentence beginning with "We are a…"</p>
+  </div>
+
+  <p><strong>Note:</strong> if you haven't done the case study yet, remove the Bristol bureau line and replace it with a plain statement of what you'll do. A fake reference is the fastest way to lose the deal — and the reputation.</p>
+
+  <div class="pagenum">9</div>
+</div>
+
+<!-- 10 OPENER + OFFER -->
+<div class="page">
+  <span class="tag">The conversation</span>
+  <h2><span class="num">09</span>Twenty-second opener, then silence</h2>
+
+  <div class="quote">"I'll be quick — I work with payroll bureaus on the part of the job that's pure repetition. What's the task in your week you'd hand over tomorrow if you could?"</div>
+
+  <p>Then <strong>stop talking.</strong> The answer tells you whether there's a deal, and asking costs you nothing.</p>
+
+  <p>If they name a task, you have a prospect. If they say "nothing, we're fine", you have saved yourself two weeks.</p>
+
+  <h3>The offer — fixed fee, no subscription</h3>
+  <div class="box">
+    <p><strong>"Two weeks. One task, scoped and named. £1,500 fixed. If it doesn't work, you don't pay. If it does, we talk about a monthly figure for more."</strong></p>
+  </div>
+
+  <p>This beats every alternative for a first-time seller:</p>
+  <ul>
+    <li>£1,500 sits inside the published UK range for a first automation build — <strong>£1.5k–£3.5k</strong></li>
+    <li>it is under the <strong>£1,000–£5,000</strong> single-automation band</li>
+    <li>small enough that an owner can say yes without a meeting</li>
+    <li>and it buys the case study that makes client two easy</li>
+  </ul>
+
+  <p><strong>Take the smaller fee to move faster.</strong> The reference is worth more than the difference.</p>
+
+  <div class="pagenum">10</div>
+</div>
+
+<!-- 11 OBJECTIONS -->
+<div class="page">
+  <span class="tag">The four questions</span>
+  <h2><span class="num">10</span>Objections, answered in one breath</h2>
+
+  <h3>"Is this legal?"</h3>
+  <p>"It uses your own licence, your own login, and you authorise it in writing. I don't access anything you don't already access. If your software contract forbids it, we stop — I check that before we start."</p>
+
+  <h3>"Will it break when Sage updates?"</h3>
+  <p>"Sometimes, yes. That's why I run a daily test that fails loudly, so you hear it from me and not from a client. Maintenance is in the monthly fee, not extra."</p>
+
+  <h3>"Is my data safe?"</h3>
+  <p>"Scoped login, no database copy, full action log, deleted on request. Happy to sign your DPA. And I'm one person in Bristol, not a US platform — you can phone me."</p>
+
+  <h3>"We already have an API."</h3>
+  <p>"Then use it — I'll tell you honestly if the API covers this. The cases I win are the ones where the API doesn't exist or covers half the job."</p>
+
+  <div class="box">
+    <div class="lbl">The pattern</div>
+    <p>Every answer concedes something real, then offers a concrete control. That is what makes it credible — not confidence, concession.</p>
+  </div>
+
+  <div class="pagenum">11</div>
+</div>
+
+<!-- 12 OFFER HONESTY -->
+<div class="page">
+  <span class="tag grey">What you actually have</span>
+  <h2><span class="num">11</span>The two lists</h2>
+  <p class="lead">Read the second list out loud to every prospect. It is what makes the first list believable.</p>
+
+  <h3 class="accent">You can deliver, today</h3>
+  <ul>
+    <li>One named recurring task, automated end to end, in two weeks</li>
+    <li>Running on the client's existing systems — no new software for them to buy</li>
+    <li>A daily test that alerts on failure</li>
+    <li>A human checkpoint before anything that moves money</li>
+    <li>A written record of every action taken</li>
+    <li>A fixed price and a named date</li>
+  </ul>
+
+  <h3 class="warm">You cannot deliver yet — say so</h3>
+  <ul>
+    <li>24/7 support or a service-level agreement</li>
+    <li>ISO 27001 or a SOC 2 report</li>
+    <li>A multi-year track record or client references</li>
+    <li>Any promise about payroll accuracy liability — that stays with them</li>
+  </ul>
+
+  <div class="box">
+    <div class="lbl">Why this wins</div>
+    <p>Every competitor in this space overclaims. Naming your own limits is the cheapest trust you will ever buy, and almost nobody does it.</p>
+  </div>
+
+  <div class="pagenum">12</div>
+</div>
+
+<!-- 13 PLAN -->
+<div class="page">
+  <span class="tag">The 90 days</span>
+  <h2><span class="num">12</span>What to do, in order</h2>
+
+  <h3>Weeks 1–2 · One conversation, not a campaign</h3>
+  <p>Your accountant. Then two people they name. Target: three warm conversations.</p>
+
+  <h3>Weeks 3–4 · One pilot, sold cheap</h3>
+  <p>£1,500, one task, fourteen days. Take the small fee. The case study outranks the invoice.</p>
+
+  <h3>Weeks 5–8 · Build the proof</h3>
+  <p>Measure it: hours before, hours after, errors before, errors after. Get one sentence in writing you can quote.</p>
+
+  <h3>Weeks 9–12 · Convert, then repeat</h3>
+  <p>Turn it into £800/month for the same task. Sell the next task to the same client. Only then start cold outreach — with a case study, where the numbers say 8–12% instead of 0.25%.</p>
+
+  <h3>The realistic outcome</h3>
+  <table>
+    <tr><th>Outcome by day 90</th><th>Probability</th></tr>
+    <tr><td>One paid pilot completed</td><td class="n">60–70%</td></tr>
+    <tr><td>One pilot converted to retainer</td><td class="n">35–45%</td></tr>
+    <tr><td>£2,000+/month recurring</td><td class="n">25–35%</td></tr>
+    <tr><td>£5,000+/month recurring</td><td class="n warm">under 10%</td></tr>
+  </table>
+
+  <p class="src">All four are ESTIMATES, derived from the funnel on page 6.</p>
+
+  <div class="box">
+    <div class="lbl">The honest headline</div>
+    <p>£1,500–£3,000 in cash and one reference by day 90 is the realistic target. £85,000 a month was a fantasy built on numbers I invented. This plan is built on numbers that exist.</p>
+  </div>
+
+  <div class="pagenum">13</div>
+</div>
+
+<!-- 14 ONE THING -->
+<div class="page cover" style="background:#0E1A1C">
+  <div class="kicker">One thing to remember</div>
+  <h1 style="font-size:40pt;line-height:1.12">You are not<br>selling a<br><em>robot.</em></h1>
+  <div class="rule"></div>
+  <p style="font-size:19pt">You are selling the hour a week when a qualified human becomes a copying machine — and charging less than that hour costs.</p>
+  <p style="font-size:15pt;color:#8FA09D;margin-top:8mm">Everything else is detail.</p>
+  <div class="foot"><span>TWINTHOS · WHO TO TARGET</span><span>21 OCTOBER 2026</span></div>
+</div>
+
+<!-- 15 SOURCES -->
+<div class="page">
+  <span class="tag grey">Sources</span>
+  <h2 style="font-size:24pt">Where every number came from</h2>
+  <ul class="src">
+    <li>Payroll administrator salary £22,000 starter — nationalcareers.service.gov.uk/job-profiles/payroll-administrator</li>
+    <li>Hosted unattended bot $215/bot/month; unattended $150/mo; 10 bots $18,000/yr — thebotdesk.com/a/rpa-platforms-what-they-cost.html (checked Sept 2026)</li>
+    <li>Automation Anywhere $126,000 / 12-month contract — same source</li>
+    <li>Finch: 291 providers, 38 API-based, 222 human-assisted — kombo.dev/blog/best-unified-api-hris-integrations; unified.to (Oct 2026)</li>
+    <li>Paycom API Grade C, no public API — supergood.ai/api-report-card/paycom (verified Oct 2026)</li>
+    <li>OSWorld 12.24% agent vs 72.36% human (2024) → mid-80s (2026) — arxiv.org/abs/2404.07972v2; leaderboard.steel.dev; stepto.net</li>
+    <li>Gartner: 40% of enterprise apps embed task-specific agents by end 2026 — gartner.com</li>
+    <li>Cold email reply rate 3.43% — Instantly benchmark via repmath.com/en/cold-email-calculator</li>
+    <li>UK first automation build £1.5k–£3.5k — streamlinedanalytics.co.uk/articles/ai-automation-agency (Oct 2026)</li>
+    <li>Single automation £1,000–£5,000; agents £6,000–£25,000; retainers £300–£997/mo — axivon-ai.com/blog/ai-automation-agency-cost-uk</li>
+    <li>UK AI day rate median £1,225 — augustova.co.uk/uk-ai-price-index</li>
+    <li>UK accountancy firms 39,975 (2025) — rapportdigital.com/uk-accountancy-firms-decline; 30,032 — poundswise.com/industry-snapshots/accountancy</li>
+    <li>14,137 registered community social care locations (Aug 2025) — homecareassociation.org.uk</li>
+    <li>45,580 dentists registered (2025) — gdc-uk.org registration statistical report 2025</li>
+  </ul>
+  <p class="src" style="margin-top:8mm">All probabilities are labelled ESTIMATE and derived from the funnel on page 6. No client results are claimed that have not happened.</p>
+  <div class="pagenum">15</div>
+</div>
+
+</body>
+</html>

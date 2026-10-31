@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Twinthos",
+  "description": "Twinthos — your digital employee. Managed AI with its own computer, inbox and phone.",
+  "version": "1.0.0",
+  "url": "https://twinthos.com",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "book_audit",
+        "description": "Book a £999 Operations Audit for your business",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "business_name": { "type": "string" },
+            "contact_email": { "type": "string", "format": "email" },
+            "preferred_date": { "type": "string", "format": "date" }
+          },
+          "required": ["business_name", "contact_email"]
+        }
+      },
+      {
+        "name": "get_pricing",
+        "description": "Get current Twinthos pricing and package details",
+        "parameters": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "check_availability",
+        "description": "Check availability for a consultation or audit",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "service": { "type": "string", "enum": ["audit", "consultation", "build"] },
+            "date_range": { "type": "string" }
+          },
+          "required": ["service"]
+        }
+      }
+    ]
+  },
+  "authentication": {
+    "type": "none",
+    "description": "Public catalog. Individual tools may require authentication."
+  },
+  "contact": {
+    "email": "hello@twinthos.com",
+    "website": "https://twinthos.com"
+  }
+}
