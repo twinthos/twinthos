@@ -20383,3 +20383,6 @@
 
 # 2026-10-31 18:44:44.918792
 +dont worry abotu godseye here . forget thst
+
+# 2026-10-31 19:12:54.102125
++-  MOBILE AND LAPTOP VIEW LAYOUT ERRROS FIX TEX
