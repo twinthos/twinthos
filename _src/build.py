@@ -71,7 +71,8 @@ def layout(meta, body):
     cur = lambda k: ' aria-current="page"' if k == key else ""
     ind = "#industries" if home else "/#industries"
     links = (f'<a href="/how-it-works/"{cur("how")}>How it works</a><a href="{ind}">Industries</a>'
-             f'<a href="{pricing}"{cur("pricing")}>Pricing</a><a href="/security/"{cur("security")}>Security</a>')
+             f'<a href="{pricing}"{cur("pricing")}>Pricing</a><a href="/case-studies/">Case studies</a>'
+             f'<a href="/security/"{cur("security")}>Security</a>')
     robots = '<meta name="robots" content="noindex, nofollow">\n' if (meta.get("noindex") or PREVIEW) else ""
     ld = ""
     if home:
@@ -133,8 +134,9 @@ def layout(meta, body):
         <a class="brand" href="/" aria-label="Twinthos home">{MARK}<span>Twinthos</span></a>
         <p class="foot-line">Work handled. Time returned.</p>
       </div>
-      <div><h2 class="foot-h">Service</h2><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/operations-audit/">Operations audit</a></li></ul></div>
-      <div><h2 class="foot-h">Company</h2><ul><li><a href="/about/">About</a></li><li><a href="/security/">Security and data</a></li><li><a href="/faq/">Questions</a></li></ul></div>
+      <div><h2 class="foot-h">Service</h2><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/operations-audit/">Operations audit</a></li><li><a href="/case-studies/">Case studies</a></li></ul></div>
+      <div><h2 class="foot-h">Tools</h2><ul><li><a href="/calculator/">ROI calculator</a></li><li><a href="/notes/">Guides</a></li><li><a href="/faq/">Questions</a></li></ul></div>
+      <div><h2 class="foot-h">Company</h2><ul><li><a href="/about/">About</a></li><li><a href="/security/">Security and data</a></li></ul></div>
       <div><h2 class="foot-h">Start</h2><ul><li><a href="/book/?interest=fit">Book a discovery call</a></li><li><a href="mailto:hello@twinthos.com">hello@twinthos.com</a></li></ul></div>
     </div>
     <div class="foot-base"><span>© 2026 Twinthos</span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>
