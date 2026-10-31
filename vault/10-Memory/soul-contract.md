@@ -1,6 +1,6 @@
 ---
 type: contract
-synced: 2026-10-31 15:16 UTC
+synced: 2026-10-31 15:47 UTC
 ---
 
 # SOUL.md (behavioural contract)
