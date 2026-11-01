@@ -26,8 +26,10 @@ jobs:
           built = Path('engineering/index.html').read_text()
           assert 'Trust the' in built and 'reference_adapter.py' in built
           assert '46 automated tests' not in Path('security/index.html').read_text()
-          assert 'Give the routine to software' in Path('index.html').read_text()
+          assert 'A digital employee for the work that' in Path('index.html').read_text()
           PY
+          python3 _src/homepage_check.py
+          node --check assets/tw.js
       - name: Prepare public site
         run: |
           mkdir -p "$RUNNER_TEMP/site"

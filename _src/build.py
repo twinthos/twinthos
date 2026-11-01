@@ -74,14 +74,17 @@ def layout(meta, body):
         ld = '<script type="application/ld+json">' + json.dumps({
             "@context": "https://schema.org", "@type": "ProfessionalService", "name": "Twinthos",
             "url": SITE + "/", "email": "hello@twinthos.com", "areaServed": "GB",
-            "description": "Twinthos sets up and manages a digital employee, with its own computer, phone and email, for the recurring work a UK business gives it. Decisions outside agreed rules go to the client's team.",
+            "description": "Twinthos sets up and manages a digital employee, with a dedicated workspace and defined permissions, to run recurring work agreed with a UK business. Communication tools are configured by role and decisions outside written rules go to the client's team.",
             "makesOffer": [
                 {"@type": "Offer", "name": "Operations audit", "price": "999", "priceCurrency": "GBP", "description": "One-off written assessment and plan."},
                 {"@type": "Offer", "name": "Managed digital employee", "price": "5000", "priceCurrency": "GBP", "description": "Monthly implementation and management of a digital employee for one agreed workflow. Three-month minimum."}]},
             ensure_ascii=False) + '</script>'
     body = body.replace('<span class="ar">→</span>', ARROW)
-    # home: inline the stylesheet so the hero film can paint and start on the first frame (no render-blocking request)
-    css_tag = f"<style>{css}</style>" if home else f'<link rel="stylesheet" href="/assets/tw.css?v={VER}">'
+    # Shared, cacheable stylesheet for every page. The old homepage inlined the
+    # entire legacy site CSS (>100 KB) into HTML on each request.
+    # A tiny dark-canvas fallback avoids white flashes while the CSS downloads.
+    critical = '<style>html{background:#080A09;color:#F3F2EC}body{margin:0;background:#080A09}</style>' if home else ''
+    css_tag = critical + f'<link rel="stylesheet" href="/assets/tw.css?v={VER}">'
     return f'''<!DOCTYPE html>
 <html lang="en-GB" class="no-js">
 <head>
