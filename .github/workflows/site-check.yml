@@ -28,6 +28,20 @@ jobs:
           test ! -e "$RUNNER_TEMP/stage-test/hotbox-pitch-context.md"
           test ! -e "$RUNNER_TEMP/stage-test/engagement-report.pdf"
           test ! -e "$RUNNER_TEMP/stage-test/_src"
+      - name: Install Chromium for visual verification
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+      - name: Test real mobile/tablet/desktop rendering
+        run: python3 _src/visual_check.py
+      - name: Upload visual review screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: twinthos-home-pricing-visual-qa
+          path: _src/qa-shots/
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Verify content, structure and public claims
         run: |
           python3 - <<'PY'
