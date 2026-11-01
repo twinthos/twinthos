@@ -87,6 +87,10 @@ def run():
                     assert not errors,f"{label}/{width}: JS errors {errors}"
                     assert page.locator("h1").count()==1
                     assert page.locator("h1").is_visible()
+                    assert page.locator(".nav .brand").is_visible(), f"{label}/{width}: header brand hidden"
+                    if label in ("home","pricing","book"):
+                        page.screenshot(path=str(SHOTS/f"{label}-{width}-firstscreen.png"),
+                                        full_page=False,animations="disabled")
                     assert page.locator('a[href="/book/?interest=fit"]').count()>=1 or label=="book"
                     if label=="home":
                         nav=page.locator(".nav").bounding_box()
