@@ -77,7 +77,7 @@ def check():
 
     assert doc.h1 == 1, f"Expected one homepage H1; found {doc.h1}"
     assert all(n == 1 for n in doc.ids.values()), "Duplicated DOM IDs"
-    assert "digital employee" in " ".join(doc.h1_text).lower()
+    assert "one message." in " ".join(doc.h1_text).lower()
     assert len(html.encode("utf-8")) < 70_000, "Home HTML too large: remove inlined legacy assets"
     assert "<style>" in html and 'rel="stylesheet"' in html
     assert "/* Twinthos v8" not in html, "Full legacy CSS re-inlined into document"
@@ -99,7 +99,11 @@ def check():
     assert css.count("@media(max-width:600px)") >= 1
     assert "home-v11" in css and "home-workbench" in css
     assert "£999" in html and "£5,000" in html
-    assert "guaranteed savings" not in html.lower()
+    assert "home-investment" in html and "home-investment-managed" in html
+    assert 'id="managed"' not in html, "Legacy managed pricing ID causes text invisibility"
+    assert "home-ops-stage" in html and "home-questions" in html
+    assert "we guarantee savings" not in html.lower()
+    assert "no guaranteed savings" in html.lower()
     assert "live business data" in html.lower()
 
     # These fixed pairs represent the primary text and surface tokens,
@@ -119,7 +123,7 @@ def check():
     print(f"PASS homepage: {doc.h1} H1, {len(doc.sections)} sections, "
           f"{len(doc.buttons)} buttons, {len(html.encode('utf-8')):,} HTML bytes")
     print("PASS experience: 3 clickable examples, manual video loading, reduced-motion branch")
-    print("PASS commercial content: £999 audit and £5,000 monthly service retained")
+    print("PASS commercial content: legible editorial £999 / £5,000 funnel, scoped offer terms retained")
 
 
 if __name__ == "__main__":
