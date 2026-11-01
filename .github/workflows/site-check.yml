@@ -52,7 +52,7 @@ jobs:
           css = Path("assets/tw.css").read_text(encoding="utf-8")
           assert "Your business moves." in home
           assert "TWINTHOS / NON-HUMAN INTELLIGENCE" in home
-          assert "/engineering/" in home and "/engineering/" in security
+          assert "/security/" in home and "/how-it-works/" in security\n          assert 'href="https://github.com/' not in home\n          assert 'href="https://github.com/' not in security
           assert "data-w-part=\"card\"" in home and "data-w-part=\"memory\"" in home
           assert "long-term context" in Path("about/index.html").read_text(encoding="utf-8").lower()
           assert "card" in security.lower()
