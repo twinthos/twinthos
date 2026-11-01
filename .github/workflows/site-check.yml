@@ -52,7 +52,10 @@ jobs:
           css = Path("assets/tw.css").read_text(encoding="utf-8")
           assert "Your business moves." in home
           assert "TWINTHOS / NON-HUMAN INTELLIGENCE" in home
-          assert "/engineering/" in home and "/engineering/" in security\n          assert "data-w-part=\"card\"" in home and "data-w-part=\"memory\"" in home\n          assert "long-term memory" in Path("about/index.html").read_text(encoding="utf-8").lower()\n          assert "card" in security.lower()
+          assert "/engineering/" in home and "/engineering/" in security
+          assert "data-w-part=\"card\"" in home and "data-w-part=\"memory\"" in home
+          assert "long-term context" in Path("about/index.html").read_text(encoding="utf-8").lower()
+          assert "card" in security.lower()
           assert "reference_adapter.py --demo" in engineering
           assert "Not the claim" in engineering
           assert ".eng-proof-grid" in css
