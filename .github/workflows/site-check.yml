@@ -18,6 +18,10 @@ jobs:
           python-version: '3.11'
       - name: Build from source
         run: python3 _src/build.py
+      - name: Check source JavaScript syntax
+        run: node --check assets/tw.js
+      - name: Check homepage design and motion contracts
+        run: python3 _src/homepage_check.py
       - name: Verify content, structure and public claims
         run: |
           python3 - <<'PY'
@@ -26,8 +30,8 @@ jobs:
           security = Path("security/index.html").read_text(encoding="utf-8")
           engineering = Path("engineering/index.html").read_text(encoding="utf-8")
           css = Path("assets/tw.css").read_text(encoding="utf-8")
-          assert "Give the routine to software" in home
-          assert "An agent that acts" in home
+          assert "A digital employee for the work that" in home
+          assert "THE NEXT OPERATING MODEL" in home
           assert "/engineering/" in home and "/engineering/" in security
           assert "reference_adapter.py --demo" in engineering
           assert "Not the claim" in engineering
