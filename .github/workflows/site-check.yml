@@ -2,7 +2,7 @@ name: Website source verification
 on:
   pull_request:
   push:
-    branches: [gh-pages]
+    branches: [gh-pages, maintenance/site-2026-11-01]
 permissions:
   contents: read
 jobs:
