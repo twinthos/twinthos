@@ -132,7 +132,7 @@ def layout(meta, body):
         <p class="foot-line">People for judgement.<br>Software for the follow-through.</p>
       </div>
       <div><h2 class="foot-h">Explore</h2><ul><li><a href="/#why">Why Twinthos</a></li><li><a href="/#anatomy">The eight parts</a></li><li><a href="/#memory">Long-term memory</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/pricing/">Pricing</a></li></ul></div>
-      <div><h2 class="foot-h">Trust</h2><ul><li><a href="/about/">Our why</a></li><li><a href="/security/">Security and data</a></li><li><a href="/engineering/">Open engineering</a></li><li><a href="/faq/">Questions</a></li></ul></div>
+      <div><h2 class="foot-h">Trust</h2><ul><li><a href="/about/">Our why</a></li><li><a href="/security/">Security and data</a></li><li><a href="/faq/">Questions</a></li></ul></div>
       <div><h2 class="foot-h">Start</h2><ul><li><a href="/book/?interest=fit">Book a discovery call</a></li><li><a href="mailto:hello@twinthos.com">hello@twinthos.com</a></li></ul></div>
     </div>
     <div class="foot-base"><span>© 2026 Twinthos · A managed digital employee</span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>
