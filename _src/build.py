@@ -74,7 +74,7 @@ def layout(meta, body):
         ld = '<script type="application/ld+json">' + json.dumps({
             "@context": "https://schema.org", "@type": "ProfessionalService", "name": "Twinthos",
             "url": SITE + "/", "email": "hello@twinthos.com", "areaServed": "GB",
-            "description": "Twinthos sets up and manages a digital employee, with its own computer, phone and email, for the recurring work a UK business gives it. Decisions outside agreed rules go to the client's team.",
+            "description": "Twinthos sets up and manages a digital employee, with a dedicated workspace and defined permissions, to run recurring work agreed with a UK business. Communication tools are configured by role and decisions outside written rules go to the client's team.",
             "makesOffer": [
                 {"@type": "Offer", "name": "Operations audit", "price": "999", "priceCurrency": "GBP", "description": "One-off written assessment and plan."},
                 {"@type": "Offer", "name": "Managed digital employee", "price": "5000", "priceCurrency": "GBP", "description": "Monthly implementation and management of a digital employee for one agreed workflow. Three-month minimum."}]},
