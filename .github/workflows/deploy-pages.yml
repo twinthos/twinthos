@@ -32,11 +32,12 @@ jobs:
           node --check assets/tw.js
       - name: Prepare public site
         run: |
-          mkdir -p "$RUNNER_TEMP/site"
-          tar --exclude=./.git --exclude=./.github --exclude=./_src --exclude=./_headers -cf - . | tar -xf - -C "$RUNNER_TEMP/site"
-          test -f "$RUNNER_TEMP/site/index.html"
-          test -f "$RUNNER_TEMP/site/.well-known/oauth-protected-resource"
+          python3 _src/stage_public_site.py "$RUNNER_TEMP/site"
+          test ! -e "$RUNNER_TEMP/site/hotbox-pitch-context.md"
+          test ! -e "$RUNNER_TEMP/site/engagement-report.pdf"
+          test ! -e "$RUNNER_TEMP/site/jobs_opportunities.pdf"
           test ! -e "$RUNNER_TEMP/site/_src"
+          test ! -e "$RUNNER_TEMP/site/DEPLOYMENT.md"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ${{ runner.temp }}/site
