@@ -62,7 +62,7 @@ BAD_CREDENTIALS = (
     re.compile(rb"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
     re.compile(rb"gh[pousr]_[A-Za-z0-9_]{25,}"),
     re.compile(rb"github_pat_[A-Za-z0-9_]{30,}"),
-    re.compile(rb"sk-[A-Za-z0-9_-]{30,}"),
+    re.compile(rb"(?<![A-Za-z0-9_-])sk-[A-Za-z0-9_-]{30,}"),
     re.compile(rb"xox[baprs]-[A-Za-z0-9-]{20,}"),
     re.compile(rb"bot[0-9]{8,}:[A-Za-z0-9_-]{30,}"),
 )
@@ -80,7 +80,7 @@ def check_public_repository():
         if (p.parts[0].lower() in PRIVATE_TOP
             or p.suffix.lower() in {".pdf", ".pem", ".p12", ".pfx", ".key"}
             or (len(p.parts) == 1 and p.suffix.lower() in {".md", ".txt", ".html"}
-                and base not in {"readme.md", "llms.txt", "indexnow-key.txt", "index.html", "404.html"})
+                and base not in {"readme.md", "llms.txt", "indexnow-key.txt", "robots.txt", "index.html", "404.html"})
             or "pitch" in base or base.startswith("engagement-")
             or base.startswith("jobs_")
             or base in {"offers.md", "deployment.md", "homepage_design_audit.md"}
