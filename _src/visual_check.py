@@ -98,6 +98,19 @@ def run():
                         assert nav and intro and intro["y"]>=nav["y"]+nav["height"]+4,(
                             f"Hero overlaps fixed nav: {nav} vs {intro}")
                         assert page.locator(".w-hero .w-button").is_visible()
+                        compare=page.locator("[data-drag-demo]")
+                        assert compare.count()==1
+                        assert compare.get_attribute("data-drag-mode")=="manual"
+                        assert "checks" in page.locator("[data-drag-title]").inner_text().lower()
+                        page.locator('[data-drag-mode-button="agent"]').click()
+                        assert compare.get_attribute("data-drag-mode")=="agent"
+                        assert page.locator('[data-drag-mode-button="agent"]').get_attribute("aria-pressed")=="true"
+                        page.locator('[data-drag-step="4"]').click()
+                        assert "approval" in page.locator("[data-drag-action]").inner_text().lower() or "human" in page.locator("[data-drag-action]").inner_text().lower()
+                        page.locator("[data-drag-next]").click()
+                        assert page.locator("[data-drag-counter]").inner_text().startswith("06")
+                        page.locator('[data-drag-mode-button="manual"]').click()
+                        assert compare.get_attribute("data-drag-mode")=="manual"
                         page.locator('[data-w-scene="scheduling"]').click()
                         assert "appointments" in page.locator("[data-w-message]").inner_text()
                         page.locator('[data-w-scene="research"]').click()
