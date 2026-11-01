@@ -1,2 +1,25 @@
 __pycache__/
 *.pyc
+
+# Private working files are not website source. Store these in a private repository.
+.env
+.env.*
+*.pem
+*.p12
+*.pfx
+*.key
+*_secrets.*
+*_credentials.*
+/research/
+/private/
+/working/
+/reports/
+/briefs/
+/clients/
+/*.pdf
+/*-pitch-*
+/engagement-*
+/offers.md
+/jobs_*.pdf
+/_src/HOMEPAGE_DESIGN_AUDIT.md
+/_src/qa-shots/
