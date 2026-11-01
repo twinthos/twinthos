@@ -7,7 +7,7 @@ OUT = os.path.dirname(SRC)
 SITE = "https://twinthos.com"
 PREVIEW = os.environ.get("PREVIEW") == "1"
 
-css = "".join(open(p).read() for p in sorted(glob.glob(f"{SRC}/css/*.css")))
+css = "".join(open(p).read() for p in sorted(glob.glob(f"{SRC}/css/*.css"), key=lambda p: (os.path.basename(p).startswith("100-"), p)))
 js = "\n".join(open(p).read() for p in sorted(glob.glob(f"{SRC}/js/*.js")))
 os.makedirs(f"{OUT}/assets", exist_ok=True)
 open(f"{OUT}/assets/tw.css", "w").write(css)
@@ -65,9 +65,10 @@ def layout(meta, body):
     home = path == ""
     pricing = "#pricing" if home else "/pricing/"
     cur = lambda k: ' aria-current="page"' if k == key else ""
-    ind = "#industries" if home else "/#industries"
-    links = (f'<a href="/how-it-works/"{cur("how")}>How it works</a><a href="{ind}">Industries</a>'
-             f'<a href="{pricing}"{cur("pricing")}>Pricing</a><a href="/security/"{cur("security")}>Security</a><a href="/engineering/"{cur("engineering")}>Engineering</a>')
+    ind = "#use-cases" if home else "/#use-cases"
+    links = (f'<a href="/#why">Why</a><a href="/#anatomy">The system</a>'
+             f'<a href="/how-it-works/"{cur("how")}>How it works</a><a href="{ind}">Use cases</a>'
+             f'<a href="{pricing}"{cur("pricing")}>Pricing</a><a href="/security/"{cur("security")}>Trust</a>')
     robots = '<meta name="robots" content="noindex, nofollow">\n' if (meta.get("noindex") or PREVIEW) else ""
     ld = ""
     if home:
@@ -93,7 +94,7 @@ def layout(meta, body):
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
 {robots}<link rel="canonical" href="{SITE}/{path}">
-<meta name="theme-color" content="#060807">
+<meta name="theme-color" content="#090D0C">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
@@ -128,13 +129,13 @@ def layout(meta, body):
     <div class="foot-grid">
       <div class="foot-brand">
         <a class="brand" href="/" aria-label="Twinthos home">{MARK}<span>Twinthos</span></a>
-        <p class="foot-line">Work handled. Time returned.</p>
+        <p class="foot-line">People for judgement.<br>Software for the follow-through.</p>
       </div>
-      <div><h2 class="foot-h">Service</h2><ul><li><a href="/how-it-works/">How it works</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/operations-audit/">Operations audit</a></li></ul></div>
-      <div><h2 class="foot-h">Company</h2><ul><li><a href="/about/">About</a></li><li><a href="/security/">Security and data</a></li><li><a href="/engineering/">Engineering</a></li><li><a href="/faq/">Questions</a></li></ul></div>
+      <div><h2 class="foot-h">Explore</h2><ul><li><a href="/#why">Why Twinthos</a></li><li><a href="/#anatomy">The eight parts</a></li><li><a href="/#memory">Long-term memory</a></li><li><a href="/how-it-works/">How it works</a></li><li><a href="/pricing/">Pricing</a></li></ul></div>
+      <div><h2 class="foot-h">Trust</h2><ul><li><a href="/about/">Our why</a></li><li><a href="/security/">Security and data</a></li><li><a href="/engineering/">Open engineering</a></li><li><a href="/faq/">Questions</a></li></ul></div>
       <div><h2 class="foot-h">Start</h2><ul><li><a href="/book/?interest=fit">Book a discovery call</a></li><li><a href="mailto:hello@twinthos.com">hello@twinthos.com</a></li></ul></div>
     </div>
-    <div class="foot-base"><span>© 2026 Twinthos</span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>
+    <div class="foot-base"><span>© 2026 Twinthos · A managed digital employee</span><span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>
   </div>
 </footer>
 </body>
@@ -161,7 +162,7 @@ for name, files in groups.items():
     built.append(meta)
 
 REDIRECTS = {"services/": "/how-it-works/", "audit/": "/operations-audit/", "questions/": "/faq/",
-             "demo/": "/#industries", "demos/": "/#industries", "contact/": "/book/", "thankyou/": "/book/"}
+             "demo/": "/#use-cases", "demos/": "/#use-cases", "contact/": "/book/", "thankyou/": "/book/"}
 for src, to in REDIRECTS.items():
     os.makedirs(f"{OUT}/{src}", exist_ok=True)
     open(f"{OUT}/{src}index.html", "w").write(
