@@ -22,6 +22,12 @@ jobs:
         run: node --check assets/tw.js
       - name: Check homepage design and motion contracts
         run: python3 _src/homepage_check.py
+      - name: Verify publication boundary
+        run: |
+          python3 _src/stage_public_site.py "$RUNNER_TEMP/stage-test"
+          test ! -e "$RUNNER_TEMP/stage-test/hotbox-pitch-context.md"
+          test ! -e "$RUNNER_TEMP/stage-test/engagement-report.pdf"
+          test ! -e "$RUNNER_TEMP/stage-test/_src"
       - name: Verify content, structure and public claims
         run: |
           python3 - <<'PY'
@@ -39,6 +45,9 @@ jobs:
           form = Path("book/index.html").read_text(encoding="utf-8")
           js = Path("assets/tw.js").read_text(encoding="utf-8")
           assert 'value="security"' in form and 'security:\'AI security review\'' in js
+          pricing = Path("pricing/index.html").read_text(encoding="utf-8")
+          assert "home-investment-managed" in pricing
+          assert "£999" in pricing and "£5,000" in pricing
           assert "46 automated tests" not in security
           for title, body in [("home",home),("security",security),("engineering",engineering)]:
               assert "<main id=\"main\">" in body and "</main>" in body, title
