@@ -100,7 +100,7 @@ def check_browser():
                     if label == "home":
                         heading = page.locator("h1")
                         assert heading.count() == 1 and heading.is_visible()
-                        button = page.locator('a[href="/book/?interest=fit"]').first
+                        button = page.locator('.home-v11 .home-primary')
                         assert button.is_visible(), f"{label}/{width}: booking CTA hidden"
                         page.locator('[data-scene="admin"]').click()
                         assert "next week" in page.locator("[data-scene-message]").inner_text()
