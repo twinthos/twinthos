@@ -71,6 +71,11 @@ def check():
     assert "w-hero" in home and "w-why" in home and 'id="memory"' in home
     assert 'id="anatomy"' in home and 'id="use-cases"' in home
     assert 'id="control"' in home and 'id="pricing"' in home
+    assert "data-drag-demo" in home and "One enquiry." in home
+    assert len([b for b in doc.buttons if b.get("data-drag-step") is not None]) == 6
+    assert len([b for b in doc.buttons if b.get("data-drag-mode-button")]) == 2
+    assert 'href="https://github.com/' not in home
+    assert "data-drag-mode-button" in js
     assert len([b for b in doc.buttons if b.get("data-w-part")]) == 8
     assert len([b for b in doc.buttons if b.get("data-w-scene")]) == 3
     for term in ("Its own computer", "Own email", "Card & spending",
