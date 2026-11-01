@@ -161,30 +161,40 @@ Spec.prototype.set=function(p,b,t){
   S.days.forEach(function(e,i){e.classList.toggle('on',i===day);});
 };
 
-/* ── the film: a 16.6-second silent film in the first screen ── */
+/* ── cinematic demo: click to play. No unrequested autoplay/data fetch ── */
 var srcSvg=d.querySelector('#wheel-src svg');
 var tpl=srcSvg?srcSvg.cloneNode(true):null;
-var film=d.getElementById('film');
+var film=d.querySelector('[data-film]');
 if(film){
   var v=film.querySelector('video'), tg=film.querySelector('.film-toggle'), tap=film.querySelector('.film-tap');
-  var userPaused=false, inView=true;
-  if(W.matchMedia('(max-width: 899px)').matches&&v.dataset.posterSm){v.poster=v.dataset.posterSm;
-    var ps=v.querySelector('source[media]');if(ps&&v.currentSrc&&v.currentSrc.indexOf('portrait')<0){v.src=ps.getAttribute('src');v.load();}}
-  var label=function(){var on=!v.paused;tg.textContent=on?'Pause':'Play';tg.setAttribute('aria-label',on?'Pause the film':'Play the film');film.classList.toggle('is-paused',!on);};
-  var go=function(){if(userPaused||RMQ.matches||!inView)return;var pr=v.play();
-    if(pr&&pr.catch)pr.then(function(){tap.classList.remove('on');}).catch(function(){tap.classList.add('on');label();});};
-  ['play','pause'].forEach(function(e){v.addEventListener(e,label);});
-  ['loadeddata','canplay'].forEach(function(e){v.addEventListener(e,go);});
-  tg.addEventListener('click',function(){if(v.paused){userPaused=false;inView=true;var pr=v.play();pr&&pr.catch&&pr.catch(function(){});}else{userPaused=true;v.pause();}});
-  tap.addEventListener('click',function(){userPaused=false;var pr=v.play();pr&&pr.then&&pr.then(function(){tap.classList.remove('on');});});
-  var once=function(e){if(e.target.closest&&e.target.closest('a,button,input,select,textarea,label'))return;
-    if(v.paused&&!userPaused&&!RMQ.matches){var pr=v.play();pr&&pr.then&&pr.then(function(){tap.classList.remove('on');});}
-    d.removeEventListener('touchstart',once);d.removeEventListener('click',once);};
-  d.addEventListener('touchstart',once,{passive:true});d.addEventListener('click',once);
-  if('IntersectionObserver' in W){new IntersectionObserver(function(en){inView=en[0].isIntersecting;if(inView)go();else if(!v.paused)v.pause();},{threshold:.2}).observe(film);}
-  var rm=function(){if(RMQ.matches){v.pause();v.removeAttribute('autoplay');}else go();};
-  RMQ.addEventListener&&RMQ.addEventListener('change',rm);
-  rm();label();
+  var userStarted=false;
+  var updateVideo=function(){
+    var playing=!v.paused&&!v.ended;
+    film.classList.toggle('is-playing',playing);
+    film.classList.toggle('is-paused',userStarted&&!playing);
+    tap.classList.toggle('on',!playing);
+    tg.textContent=playing?'Pause':'Play';
+    tg.setAttribute('aria-label',playing?'Pause the film':'Play the film');
+    tap.setAttribute('aria-label',v.ended?'Replay the Twinthos demonstration':'Play the Twinthos demonstration');
+  };
+  function playVideo(){
+    userStarted=true;
+    if(v.ended)v.currentTime=0;
+    var pending=v.play();
+    if(pending&&pending.catch)pending.catch(function(){updateVideo();});
+    updateVideo();
+  }
+  tap.addEventListener('click',playVideo);
+  tg.addEventListener('click',function(){if(v.paused)playVideo();else v.pause();});
+  ['play','pause','ended','error'].forEach(function(eventName){v.addEventListener(eventName,updateVideo);});
+  if('IntersectionObserver' in W){
+    new IntersectionObserver(function(entries){
+      if(!entries[0].isIntersecting&&!v.paused)v.pause();
+    },{threshold:.05}).observe(film);
+  }
+  W.addEventListener('pagehide',function(){if(!v.paused)v.pause();});
+  if(W.matchMedia('(max-width: 899px)').matches&&v.dataset.posterSm)v.poster=v.dataset.posterSm;
+  updateVideo();
 }
 
 /* ── static figures: the same wheel, fixed at one moment ── */
