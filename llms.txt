@@ -12,7 +12,8 @@ A digital employee is an AI agent that holds one written job, remembers the comp
 - [Twinthos Brain](https://twinthos.com/brain/): the persistent company-knowledge layer
 - [Twinthos Workforce](https://twinthos.com/workforce/): the always-on digital employee
 - [Pricing](https://twinthos.com/pricing/): published prices, three-month minimum, VAT excluded
-- [Security](https://twinthos.com/security/): data handling and access
+- [Security](https://twinthos.com/security/): data handling, access, and open-source Sentinel on GitHub
+- [Sentinel](https://twinthos.com/sentinel/): continuous threat intelligence for organisations running AI agents
 - [Operations audit](https://twinthos.com/operations-audit/): the £999 entry point
 - [FAQ](https://twinthos.com/faq/): common questions
 - [Notes](https://twinthos.com/notes/): the Twinthos Notes publication
