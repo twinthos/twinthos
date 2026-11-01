@@ -430,3 +430,15 @@ html.w-reveal-armed [data-w-reveal].w-revealed{
  .w-page .home-questions-list summary{font-size:20px}
 }
 @media(prefers-reduced-motion:reduce){.w-page .home-questions-list summary span{transition:none}}
+
+/* Final legibility pass: keep the editorial weight without crushed word spacing. */
+.w-hero h1{letter-spacing:-.054em}
+.w-page-hero h1{letter-spacing:-.053em}
+.w-why h2,.w-flow-intro h2,.w-identity-header h2,.w-memory h2,.w-boundary h2,
+.w-industries h2,.w-build h2,.w-end h2{letter-spacing:-.055em}
+@media(max-width:620px){
+ .w-hero h1{letter-spacing:-.038em}
+ .w-machine-top,.w-machine-foot{font-size:10px}
+ .w-machine-input span,.w-machine-output span,.w-machine-approve span{font-size:10px}
+ .w-machine-input strong,.w-machine-output strong,.w-machine-approve strong{font-size:13px}
+}
