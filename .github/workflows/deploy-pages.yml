@@ -18,6 +18,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Build source pages and assets
+        run: |
+          python3 _src/build.py
+          python3 - <<'PY'
+          from pathlib import Path
+          built = Path('engineering/index.html').read_text()
+          assert 'Trust the' in built and 'reference_adapter.py' in built
+          assert '46 automated tests' not in Path('security/index.html').read_text()
+          assert 'Give the routine to software' in Path('index.html').read_text()
+          PY
       - name: Prepare public site
         run: |
           mkdir -p "$RUNNER_TEMP/site"
