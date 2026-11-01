@@ -1,0 +1,53 @@
+/* Customer-facing operational transformation, not a technical dashboard */
+.w-why-experience{background:#EAECE5;color:#14251A;padding:clamp(78px,10vw,160px) 0}
+.w-why-experience .w-section-meta{color:#43604A}
+.w-why-experience .w-why-grid{margin-bottom:clamp(40px,6vw,90px)}
+.w-why-experience h2{font-size:clamp(52px,6vw,96px);line-height:1.04;letter-spacing:-.07em;font-weight:540}
+.w-why-experience h2 em{color:#456E52}
+.w-why-experience .w-why-copy{color:#405546}
+.w-drag-demo{background:#0E1611;color:#F3F4ED;border:1px solid #415747;box-shadow:0 45px 100px -60px #06110B82}
+.w-drag-top{display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap;padding:24px clamp(18px,3vw,40px);border-bottom:1px solid #3B5140}
+.w-drag-top>span{font:12px/1.5 var(--mono);letter-spacing:.06em;color:#C0D0C0}
+.w-drag-top>div{display:flex;gap:3px;background:#203025;padding:4px}
+.w-drag-top button{background:transparent;color:#C2D5C4;border:0;padding:13px 20px;min-height:45px;font:600 13px/1.3 var(--mono);cursor:pointer}
+.w-drag-top button.is-selected{background:#E9F1E7;color:#172D1D;box-shadow:0 5px 18px #0002}
+.w-drag-top button:hover:not(.is-selected){color:#fff;background:#354D3A}
+.w-drag-body{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);min-height:490px}
+.w-drag-explainer{display:flex;flex-direction:column;padding:clamp(27px,4vw,66px);border-right:1px solid #3D5343}
+.w-drag-explainer>span{font:500 12px/1.5 var(--mono);letter-spacing:.12em;color:#B2D2BD}
+.w-drag-explainer h3{font-size:clamp(34px,4.1vw,64px);letter-spacing:-.068em;line-height:1.08;max-width:12ch;font-weight:540;margin:clamp(34px,5vw,76px) 0 22px;color:#F3F4EC}
+.w-drag-explainer>p{font-size:clamp(17px,1.4vw,21px);line-height:1.55;color:#C4D4C6;max-width:510px}
+.w-drag-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:auto;padding-top:38px}
+.w-drag-buttons button{min-height:48px;padding:11px 18px;border:1px solid #829B88;background:transparent;color:#F0F5EF;font-size:14px;cursor:pointer}
+.w-drag-buttons button:last-child{background:#E9F1E7;color:#193020;border-color:#E9F1E7;font-weight:600}
+.w-drag-buttons button:disabled{opacity:.35;cursor:not-allowed}
+.w-drag-buttons button:not(:disabled):hover{border-color:#C7E3CE;filter:brightness(1.12)}
+.w-drag-display{padding:clamp(23px,3.5vw,48px);background:radial-gradient(ellipse at 70% 47%,#6485721A,transparent 70%),#14221A;position:relative}
+.w-drag-display-top{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #3E5645;padding-bottom:23px;color:#BFD3C2;font:11px/1.5 var(--mono);letter-spacing:.05em}
+.w-drag-message{margin:clamp(33px,5vw,68px) 0 0;padding:23px 25px;max-width:460px;transform:rotate(-1.5deg);background:#EFF2EB;color:#17251A;box-shadow:0 25px 50px #0004;font-size:clamp(21px,1.9vw,29px);font-weight:550;line-height:1.35;letter-spacing:-.04em}
+.w-drag-progress{height:3px;background:#405648;margin:45px 0 30px;overflow:hidden}
+.w-drag-progress>span{display:block;height:100%;width:16.666%;background:#CDEBD4;transition:width .38s cubic-bezier(.2,.8,.2,1)}
+.w-drag-task{border:1px solid #4D6753;padding:23px 25px;background:#1C2C20}
+.w-drag-task>small{font:12px var(--mono);letter-spacing:.08em;color:#BBD5C0}
+.w-drag-task>strong{display:block;font-size:clamp(20px,2vw,29px);font-weight:550;letter-spacing:-.04em;margin:16px 0 24px;line-height:1.25}
+.w-drag-owner{display:flex;justify-content:space-between;gap:12px;align-items:center;border-top:1px solid #4D6953;padding-top:18px;color:#C6D8C7;font-size:14px}
+.w-drag-owner em{font:600 11px var(--mono);letter-spacing:.06em;color:#ECD2AA;font-style:normal}
+.w-drag-steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-top:1px solid #435A49;border-bottom:1px solid #435A49}
+.w-drag-steps button{padding:22px 8px;border:0;border-right:1px solid #435A49;background:#131E16;color:#BACABF;font:500 12px/1.45 var(--mono);cursor:pointer;min-height:64px}
+.w-drag-steps button:last-child{border-right:0}
+.w-drag-steps button.is-selected{background:#C3DDC7;color:#152F1D;font-weight:700}
+.w-drag-steps button:not(.is-selected):hover{background:#233A2A;color:#FFF}
+.w-drag-bottom{padding:30px clamp(23px,3.5vw,48px);display:flex;justify-content:space-between;gap:25px;align-items:center}
+.w-drag-bottom strong{font-size:clamp(18px,1.65vw,25px);font-weight:550;letter-spacing:-.03em;max-width:670px}
+.w-drag-bottom p{max-width:290px;color:#BDD0BE;font-size:14px;line-height:1.55}
+.w-drag-disclaimer{padding:0 clamp(23px,3.5vw,48px) 24px;color:#ACC2B0;font:12px/1.6 var(--mono)}
+.w-drag-benefits{border-top:1px solid #425B45;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.w-drag-benefits article{padding:clamp(28px,3vw,49px);border-right:1px solid #425B45}
+.w-drag-benefits article:last-child{border-right:0}
+.w-drag-benefits h3{font-size:clamp(27px,2.6vw,39px);font-weight:550;letter-spacing:-.05em;color:#F0F5EC}
+.w-drag-benefits p{font-size:16px;line-height:1.6;color:#C4D8C8;margin-top:14px}
+.w-drag-demo[data-drag-mode="agent"] .w-drag-display{background:radial-gradient(ellipse at 60% 36%,#729B8640,transparent 70%),#152B1E}
+.w-drag-demo[data-drag-mode="agent"] .w-drag-owner em{color:#BFE8C6}
+.w-drag-demo[data-drag-mode="agent"] .w-drag-message{background:#D5E8D9}
+.w-drag-demo[data-drag-mode="agent"] .w-drag-task{border-color:#739C7B}
+.w-drag-demo button:focus-visible{outline:3px solid #E5F3E7;outline-offset:-3px}
