@@ -1,0 +1,40 @@
+name: Website source verification
+on:
+  pull_request:
+  push:
+    branches: [gh-pages]
+permissions:
+  contents: read
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build from source
+        run: python3 _src/build.py
+      - name: Verify content, structure and public claims
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          home = Path("index.html").read_text(encoding="utf-8")
+          security = Path("security/index.html").read_text(encoding="utf-8")
+          engineering = Path("engineering/index.html").read_text(encoding="utf-8")
+          css = Path("assets/tw.css").read_text(encoding="utf-8")
+          assert "Give the routine to software" in home
+          assert "An agent that acts" in home
+          assert "/engineering/" in home and "/engineering/" in security
+          assert "reference_adapter.py --demo" in engineering
+          assert "Not the claim" in engineering
+          assert ".eng-proof-grid" in css
+          assert "46 automated tests" not in security
+          for title, body in [("home",home),("security",security),("engineering",engineering)]:
+              assert "<main id=\"main\">" in body and "</main>" in body, title
+              assert "<title>" in body, title
+          print("PASS: source build, engineering evidence page, public claim integrity")
+          PY
