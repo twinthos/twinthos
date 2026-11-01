@@ -19,7 +19,7 @@ SHOTS = ROOT / "_src" / "qa-shots"
 
 
 def components(value: str):
-    m = re.search(r"rgba?\\((\\d+),\\s*(\\d+),\\s*(\\d+)", value)
+    m = re.search(r"rgba?\((\d+),\s*(\d+),\s*(\d+)", value)
     if not m:
         raise AssertionError(f"Cannot parse CSS colour: {value!r}")
     return [int(x) / 255 for x in m.groups()]
