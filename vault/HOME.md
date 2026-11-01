@@ -1,17 +1,17 @@
 ---
 type: dashboard
-synced: 2026-11-01 00:01 UTC
+synced: 2026-11-01 00:31 UTC
 ---
 
 # Twinthos // Continuous Memory
 
-Live mirror of this agent's brain. Last sync **2026-11-01 00:01 UTC**.
+Live mirror of this agent's brain. Last sync **2026-11-01 00:31 UTC**.
 
 ## Memory
 - [[operator-profile]] — who the operator is and how they work
 - [[soul-contract]] — behavioural contract (SOUL.md)
 - [[skills-inventory]] — 132 installed skills
-- `10-Memory/` — 9 long-term facts, one note each
+- `10-Memory/` — 10 long-term facts, one note each
 
 ## Work
 - [[task-queue]] — 5 items from the live kanban
