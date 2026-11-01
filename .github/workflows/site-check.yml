@@ -30,8 +30,8 @@ jobs:
           security = Path("security/index.html").read_text(encoding="utf-8")
           engineering = Path("engineering/index.html").read_text(encoding="utf-8")
           css = Path("assets/tw.css").read_text(encoding="utf-8")
-          assert "A digital employee for the work that" in home
-          assert "THE NEXT OPERATING MODEL" in home
+          assert "One message." in home
+          assert "INTRODUCING THE MANAGED DIGITAL EMPLOYEE" in home
           assert "/engineering/" in home and "/engineering/" in security
           assert "reference_adapter.py --demo" in engineering
           assert "Not the claim" in engineering
