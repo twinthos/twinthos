@@ -86,7 +86,7 @@ def check():
     assert "home-investment-managed" in home
     assert "no guaranteed savings" in home.lower()
     assert "not a live customer dashboard" in home.lower()
-    assert "unrestricted autonomous spending" in home.lower() is False
+    assert "unrestricted autonomous spending is allowed" not in home.lower()
     for foreground, background, minimum in (
         ("#F3F1EA", "#090D0C", 7),
         ("#C2CBC5", "#090D0C", 7),
