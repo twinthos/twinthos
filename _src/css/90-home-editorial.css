@@ -85,6 +85,11 @@ body.pg-home{
 .home-core-shell{display:grid;place-items:center;border:1px solid #556159;width:122px;height:122px;border-radius:22px;
  background:linear-gradient(143deg,#4D5850 0%,#202722 23%,#101411 60%,#2E3730 100%);box-shadow:0 28px 95px #000a,0 0 0 12px rgba(194,208,197,.026),inset 0 1px 1px rgba(255,255,255,.22);margin-bottom:10px}
 .home-core-shell svg{width:61px;height:61px;color:#F0F0EC;filter:drop-shadow(0 0 14px rgba(240,245,240,.14))}
+.home-core-shell{position:relative;isolation:isolate;overflow:hidden}
+.home-core-shell::before{content:"";position:absolute;inset:-70%;background:linear-gradient(110deg,transparent 39%,rgba(231,243,233,.05) 46%,rgba(243,252,246,.24) 50%,rgba(231,243,233,.05) 54%,transparent 61%);transform:translateX(-68%) rotate(18deg);animation:home-chrome 11s ease-in-out infinite;pointer-events:none}
+@keyframes home-chrome{0%,24%{transform:translateX(-70%) rotate(18deg)}54%,100%{transform:translateX(74%) rotate(18deg)}}
+.home-core-shell svg{position:relative;z-index:1}
+
 .home-core small{font:9px/1.4 var(--mono);color:#829086;letter-spacing:.12em}
 .home-art-node{position:absolute;z-index:4;display:flex;flex-direction:column;align-items:center;gap:8px;color:#C9D4CC;font:9px var(--mono);letter-spacing:.08em;white-space:nowrap}
 .home-node-icon{border:1px solid #516057;border-radius:50%;display:grid;place-items:center;width:40px;height:40px;font-size:18px;color:#DDE8DF;background:#151A16;box-shadow:0 10px 22px #0007}
