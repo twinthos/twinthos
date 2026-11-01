@@ -1,0 +1,197 @@
+/* TWINTHOS / sales-experience refinement
+   Resolves legacy #managed dark-text leakage by replacing shared-card pricing on
+   the homepage. This is a deliberate editorial layout, not ornamental badges. */
+
+/* Large, legible control surface: one message, a concrete chain of work */
+.pg-home .home-v11{background:radial-gradient(ellipse at 76% 34%,rgba(177,198,184,.10),transparent 48%),#080A09}
+.pg-home .home-v11 h1{font-size:clamp(52px,6.25vw,104px);line-height:1.015;letter-spacing:-.066em;max-width:12ch}
+.pg-home .home-v11 h1 em{margin-top:.10em;color:#E6E9E4}
+.pg-home .home-v11-lede{color:#C2CAC2;max-width:590px}
+.pg-home .home-meta{font-size:12px;line-height:1.55;color:#B6C2B7}
+.pg-home .home-overline{font-size:12px;color:#D0D9CF}
+.pg-home .home-v11-floor{font-size:12px;color:#B6C3B7}
+.pg-home .home-rail-label,.pg-home .home-rail-end{font-size:12px;color:#B5C3B6}
+.pg-home .home-workbench-label,.pg-home .home-rule-label,.pg-home .home-workbench-status{font-size:12px;color:#BCCABF}
+.pg-home .home-workbench-toolbar,.pg-home .home-workbench-footer{font-size:12px;color:#C0CFC3}
+.pg-home .home-seq-index,.pg-home .home-seq-state{font-size:12px}
+.pg-home .home-cap-num,.pg-home .home-film-caption{font-size:13px}
+.pg-home .home-cap-note,.pg-home .home-control-note{font-size:14px;color:#BECBC0}
+.pg-home .home-workbench-tab{font-size:14px;color:#CBD8CD}
+.pg-home .home-workbench-example{color:#CEDBD1}
+.pg-home .home-workbench-toolbar>span{color:#D1DBD2}
+.pg-home .home-seq-index{color:#B1C2B3}
+.pg-home .home-seq-human .home-seq-state{color:#F2D2A9}
+.pg-home .home-cinema .home-film-caption{color:#D3DDD3}
+.pg-home .home-workbench-outcome{color:#CBD5CB;font-size:16px}
+
+.home-ops-stage{position:relative;min-width:0;align-self:center;isolation:isolate;transform:translateZ(0)}
+.home-ops-top,.home-ops-bottom{display:flex;justify-content:space-between;align-items:center;gap:15px;
+ padding:17px 0;border-bottom:1px solid #46544A;font:12px/1.4 var(--mono);letter-spacing:.07em;color:#C5D0C6}
+.home-ops-top{border-top:1px solid #46544A}
+.home-ops-status{display:flex;align-items:center;gap:9px;color:#D5E0D7;white-space:nowrap}
+.home-ops-status i{height:7px;width:7px;display:block;border-radius:50%;background:#D2E2D3;box-shadow:0 0 12px #BAD4C94D}
+.home-ops-scene{position:relative;overflow:hidden;min-height:540px;padding:35px 28px 32px;
+ background:radial-gradient(ellipse at 50% 45%,rgba(163,198,173,.11),transparent 57%);
+ display:flex;flex-direction:column;justify-content:center;gap:12px}
+.home-ops-scene::before{content:"";position:absolute;pointer-events:none;inset:0;
+ background-image:linear-gradient(#ABC8B10D 1px,transparent 1px),linear-gradient(90deg,#ABC8B10D 1px,transparent 1px);
+ background-size:32px 32px;mask-image:radial-gradient(ellipse,#000,transparent 90%)}
+.home-ops-index{position:absolute;top:23px;left:28px;font:600 18px/1 var(--mono);letter-spacing:-.05em;color:#DCE7DC}
+.home-ops-index span{color:#8CA496}
+.home-ops-ghost{position:absolute;font:600 clamp(100px,14vw,230px)/1 var(--sans);
+ letter-spacing:-.10em;white-space:nowrap;left:50%;top:44%;transform:translate(-50%,-50%) rotate(-90deg);
+ color:rgba(224,235,224,.025);pointer-events:none}
+.home-ops-message{position:relative;z-index:2;width:92%;max-width:440px;align-self:flex-start;background:#ECEFE9;
+ color:#101A12;padding:23px 25px 19px;border:1px solid #FFF;box-shadow:0 25px 58px #0006;transform:rotate(-2.5deg) translateX(3px);
+ animation:ops-message-arrive .95s cubic-bezier(.17,.8,.17,1) both}
+.home-message-bar{display:flex;align-items:center;gap:9px;font-size:12px;color:#47544A}
+.home-msg-avatar{background:#0D1710;color:#EAF0E9;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;font:12px var(--mono)}
+.home-message-bar strong{color:#172119;font-size:14px;font-weight:600}
+.home-message-bar>span:last-child{margin-left:auto;font:11px var(--mono)}
+.home-ops-message p{font-size:clamp(21px,1.9vw,28px);line-height:1.25;letter-spacing:-.035em;
+ font-weight:500;margin:22px 0 27px;max-width:340px}
+.home-msg-foot{border-top:1px solid #BCC8BE;padding-top:12px;display:flex;justify-content:space-between;
+ font:11px var(--mono);letter-spacing:.08em;color:#566B5B}
+.home-ops-chain{position:relative;z-index:3;margin-top:-8px;width:84%;align-self:flex-end;padding:20px 24px 13px;
+ background:linear-gradient(153deg,#202B22,#0D1610);border:1px solid #617361;
+ box-shadow:0 25px 80px #000a;transform:rotate(2.3deg);animation:ops-chain-arrive .85s cubic-bezier(.17,.8,.17,1) .22s both}
+.home-ops-chain-title{font:11px var(--mono);letter-spacing:.09em;color:#D1E2D4}
+.home-ops-chain-item{display:grid;grid-template-columns:27px minmax(0,1fr) 18px;gap:12px;align-items:center;border-top:1px solid #3E4C40;padding:15px 0;
+ font-size:14px;line-height:1.35;color:#EDF1EA}
+.home-ops-chain-item:first-of-type{margin-top:14px}
+.home-ops-chain-item span{font:12px var(--mono);color:#A8BDAA}
+.home-ops-chain-item strong{font-weight:500}
+.home-ops-chain-item i{font-style:normal;font:500 17px var(--mono);color:#BCDDBD}
+.home-ops-last i{color:#EDC698}
+.home-ops-approval{position:relative;z-index:4;align-self:flex-start;display:flex;align-items:center;gap:13px;
+ background:#DAC6A9;color:#1A1915;padding:17px 19px;margin:-8px 0 0 12px;
+ box-shadow:0 18px 44px #0007;transform:rotate(-1deg);animation:ops-approval-arrive .85s cubic-bezier(.17,.8,.17,1) .42s both}
+.home-ops-approval-icon{width:30px;height:30px;border:1px solid #655744;display:grid;place-items:center;font-size:26px;line-height:1}
+.home-ops-approval>div{display:flex;flex-direction:column;gap:5px}
+.home-ops-approval small{font:11px var(--mono);letter-spacing:.08em;color:#574D40}
+.home-ops-approval strong{font-size:18px;letter-spacing:-.035em;font-weight:600;line-height:1.2}
+.home-ops-approval-arrow{font-size:25px;margin-left:12px}
+.home-ops-note{font:12px/1.6 var(--mono);color:#B1C1B3;margin-top:13px}
+@keyframes ops-message-arrive{from{opacity:0;transform:translateY(40px) rotate(-5deg)}to{opacity:1;transform:rotate(-2.5deg) translateX(3px)}}
+@keyframes ops-chain-arrive{from{opacity:0;transform:translateY(35px) rotate(6deg)}to{opacity:1;transform:rotate(2.3deg)}}
+@keyframes ops-approval-arrive{from{opacity:0;transform:translateY(26px) rotate(2deg)}to{opacity:1;transform:rotate(-1deg)}}
+
+/* The investment section: editorial contrast replaces two inherited cards.
+   Separate classes avoid legacy #managed {color:var(--ivory)} on dark cards. */
+.pg-home .home-investment{background:#E9ECE6;color:#17201A;padding:clamp(84px,10vw,165px) 0 clamp(72px,8vw,120px);
+ --ink:#17201A;--ink-2:#3E4C40;--line:#B2BCB2;--green:#315B46}
+.pg-home .home-investment .eyebrow{color:#364C3E;font-size:13px}
+.pg-home .home-investment .eyebrow::before{background:#315B46}
+.home-investment-intro{display:grid;grid-template-columns:1.18fr .82fr;gap:22px 70px;align-items:end;padding-bottom:55px}
+.home-investment-intro>.eyebrow{grid-column:1/-1}
+.home-investment-intro h2{font-size:clamp(46px,6.8vw,100px);letter-spacing:-.07em;line-height:1.02;font-weight:500;color:#17201A}
+.home-investment-intro h2 em{color:#506759}
+.home-investment-intro>p:last-child{font-size:clamp(19px,1.7vw,24px);line-height:1.48;color:#3C4B40;max-width:520px}
+.home-investment-rows{border-top:2px solid #1D2A21}
+.home-investment-row{padding:32px 0 50px;border-bottom:1px solid #A3B1A6;position:relative}
+.home-investment-index{display:flex;justify-content:space-between;gap:24px;
+ font:500 13px/1.4 var(--mono);letter-spacing:.10em;color:#415748}
+.home-investment-body{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(220px,.65fr);align-items:end;gap:25px;
+ padding:clamp(30px,4vw,64px) 0 40px}
+.home-investment-name h3{font-size:clamp(37px,5.5vw,79px);letter-spacing:-.067em;line-height:1.01;font-weight:500;color:#17201A}
+.home-investment-name p{margin-top:20px;color:#4A594E;font-size:clamp(17px,1.48vw,22px);max-width:490px;line-height:1.5}
+.home-investment-price{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.home-investment-price>span{font-size:clamp(66px,8.8vw,131px);letter-spacing:-.085em;font-weight:500;line-height:.85;color:#17201A;font-variant-numeric:tabular-nums}
+.home-investment-price small{font:12px/1.5 var(--mono);letter-spacing:.055em;color:#3C5042}
+.home-investment-details{display:grid;grid-template-columns:1fr 1fr auto;align-items:end;gap:clamp(24px,3.5vw,70px);padding-top:25px;border-top:1px solid #B1BDB2}
+.home-investment-details>div>span{font:12px/1.5 var(--mono);letter-spacing:.08em;color:#405845}
+.home-investment-details>div>p{font-size:15px;line-height:1.6;color:#3C4C40;margin-top:13px;max-width:340px}
+.home-investment-link{font:500 14px/1.4 var(--mono);letter-spacing:0;text-decoration:none;border-bottom:1px solid currentColor;
+ padding:13px 0;color:#213A29;white-space:nowrap;transition:color .2s}
+.home-investment-link:hover{color:#55765C}
+.home-investment-link>span{margin-left:12px}
+.home-investment-managed{background:#121B15;color:#F2F3EC;margin:0 calc(-1 * var(--gut));
+ padding:clamp(30px,3.5vw,55px) var(--gut) clamp(48px,5vw,80px);border:1px solid #2F4034;box-shadow:0 35px 80px #18221933}
+.home-investment-managed .home-investment-index{color:#BBCEC0}
+.home-investment-managed .home-investment-name h3,.home-investment-managed .home-investment-price>span{color:#F1F2EB}
+.home-investment-managed .home-investment-name p,.home-investment-managed .home-investment-details>div>p{color:#C5D2C8}
+.home-investment-managed .home-investment-price small,.home-investment-managed .home-investment-details>div>span{color:#C1D3C5}
+.home-investment-managed .home-investment-details{border-color:#4B604F}
+.home-investment-managed .home-investment-link{color:#DDE9DF}
+.home-investment-managed .home-investment-link:hover{color:#B9D7C0}
+.home-investment-note{display:flex;justify-content:space-between;align-items:start;gap:25px;
+ padding-top:32px;font-size:14px;line-height:1.6;color:#455447}
+.home-investment-note p{max-width:800px}
+.home-investment-note a{color:#243D2B;text-decoration:underline;white-space:nowrap;font-weight:600}
+.home-investment-note a:hover{color:#526953}
+.home-investment a:focus-visible{outline-color:#1C4530}
+.home-investment-managed a:focus-visible{outline-color:#D5EBD9}
+
+/* FAQ as an educational close—not another dark stack of shallow cards */
+.home-questions{background:#0D120E;padding:clamp(72px,9vw,135px) 0;border-top:1px solid #243027}
+.home-questions-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(35px,6vw,120px)}
+.home-questions h2{font-size:clamp(40px,5.5vw,83px);line-height:1.05;letter-spacing:-.064em;margin:23px 0}
+.home-questions-grid>div:first-child>p:last-child{font-size:19px;max-width:370px;color:#BECCBF}
+.home-questions-list{border-top:1px solid #536454}
+.home-questions details{border-bottom:1px solid #415045}
+.home-questions summary{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:27px 0;
+ font-size:clamp(19px,2vw,28px);line-height:1.3;letter-spacing:-.035em;cursor:pointer;color:#F0F2EB;font-weight:500;list-style:none}
+.home-questions summary::-webkit-details-marker{display:none}
+.home-questions summary>span{flex:none;width:34px;height:34px;display:grid;place-items:center;border:1px solid #9EB6A2;
+ border-radius:50%;font:25px/1 var(--sans);color:#CADBCC;transition:transform .25s ease}
+.home-questions details[open] summary>span{transform:rotate(45deg)}
+.home-questions details>p{padding:0 60px 28px 0;color:#C0CFC1;font-size:17px;line-height:1.65;max-width:700px}
+.home-questions summary:focus-visible{outline-offset:0}
+
+/* Conversion section has one decisive CTA without claim of guaranteed results */
+.home-ending{border-top:1px solid #2C382E}
+.pg-home .home-ending-action>p{color:#CFD9D0}
+.pg-home .home-ending-action>span{font-size:13px;color:#C3CEC5}
+
+/* avoid unreadable diminutive tags on dark cards across the funnel */
+.pg-home .home-ops-stage small,.pg-home .home-ops-stage [class$="title"]{font-size:11px}
+@media(max-width:1100px){
+ .home-investment-details{grid-template-columns:1fr 1fr;gap:26px}
+ .home-investment-link{justify-self:start;grid-column:1/-1}
+ .home-investment-intro{grid-template-columns:1fr}
+ .home-v11-inner{grid-template-columns:minmax(0,1fr) minmax(350px,.88fr)}
+ .home-ops-scene{min-height:480px}
+ .home-ops-message{width:96%}.home-ops-chain{width:88%}
+}
+@media(max-width:900px){
+ .home-v11-inner{grid-template-columns:1fr}
+ .home-ops-stage{max-width:680px;width:100%;margin-inline:auto}
+ .home-ops-scene{min-height:540px}
+ .home-investment-body{grid-template-columns:1fr}
+ .home-investment-price{align-items:flex-start;text-align:left}
+ .home-investment-details{grid-template-columns:1fr 1fr}
+ .home-questions-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+ .pg-home .home-v11 h1{font-size:clamp(43px,11.1vw,62px);line-height:1.04}
+ .home-ops-scene{min-height:455px;padding:32px 12px 25px}
+ .home-ops-top,.home-ops-bottom{font-size:10px}
+ .home-ops-index{left:12px}
+ .home-ops-message{padding:17px 16px 13px;width:95%}
+ .home-ops-message p{font-size:21px;margin:18px 0}
+ .home-message-bar{font-size:11px}
+ .home-message-bar>span:last-child{font-size:10px}
+ .home-ops-chain{width:92%;padding:16px 14px 8px}
+ .home-ops-chain-item{padding:12px 0;font-size:13px}
+ .home-ops-approval{padding:13px;margin-left:0}
+ .home-ops-approval strong{font-size:15px}
+ .home-ops-approval small{font-size:10px}
+ .home-ops-note{font-size:12px}
+ .home-investment-intro h2{font-size:clamp(40px,10vw,57px)}
+ .home-investment-intro{padding-bottom:35px}
+ .home-investment-body{padding:35px 0 25px;gap:35px}
+ .home-investment-name h3{font-size:clamp(40px,11vw,58px)}
+ .home-investment-price>span{font-size:clamp(75px,20vw,105px)}
+ .home-investment-details{grid-template-columns:1fr;gap:24px}
+ .home-investment-details>div>p{font-size:16px;max-width:none}
+ .home-investment-link{grid-column:1}
+ .home-investment-note{flex-direction:column;gap:15px}
+ .home-investment-note a{white-space:normal}
+ .home-questions details>p{padding-right:0}
+ .home-questions summary{font-size:20px}
+ .pg-home .home-meta{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+ .home-ops-message,.home-ops-chain,.home-ops-approval{animation:none!important}
+ .home-questions summary>span{transition:none}
+}
