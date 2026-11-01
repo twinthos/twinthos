@@ -73,7 +73,7 @@ def check():
     assert 'id="control"' in home and 'id="pricing"' in home
     assert len([b for b in doc.buttons if b.get("data-w-part")]) == 8
     assert len([b for b in doc.buttons if b.get("data-w-scene")]) == 3
-    for term in ("Its own computer", "Its own email", "Card & spending",
+    for term in ("Its own computer", "Own email", "Card & spending",
                  "Long-term memory", "Specialist helpers", "Phone & messages"):
         assert term in home, f"Missing digital employee capability {term}"
     for link in ("/book/?interest=fit", "/how-it-works/", "/security/", "/pricing/"):
