@@ -1,0 +1,32 @@
+@media(max-width:920px){
+ .w-drag-body{grid-template-columns:1fr}
+ .w-drag-explainer{border-right:0;border-bottom:1px solid #3D5343;min-height:360px}
+ .w-drag-explainer h3{margin:32px 0 17px;max-width:none}
+ .w-drag-display{min-height:400px}
+ .w-drag-top{align-items:flex-start}
+ .w-drag-top>div{width:100%}
+ .w-drag-top button{flex:1}
+}
+@media(max-width:620px){
+ .w-why-experience{padding:75px 0}
+ .w-why-experience h2{font-size:clamp(40px,10.2vw,62px)}
+ .w-drag-top{padding:19px 16px}
+ .w-drag-top button{padding:10px;font-size:12px}
+ .w-drag-explainer{min-height:350px;padding:27px 22px}
+ .w-drag-explainer h3{font-size:clamp(33px,9vw,52px);margin:25px 0 15px}
+ .w-drag-explainer>p{font-size:17px}
+ .w-drag-display{padding:21px;min-height:375px}
+ .w-drag-display-top{font-size:10px}
+ .w-drag-display-top>span:last-child{max-width:120px;text-align:right}
+ .w-drag-message{margin:35px 0 0;font-size:22px}
+ .w-drag-progress{margin:32px 0 23px}
+ .w-drag-task{padding:19px}
+ .w-drag-task>strong{font-size:22px}
+ .w-drag-owner{flex-wrap:wrap;font-size:13px}
+ .w-drag-steps{grid-template-columns:repeat(3,1fr)}
+ .w-drag-steps button{border-bottom:1px solid #435A49;font-size:11px;padding:16px 6px;min-height:52px}
+ .w-drag-bottom{flex-direction:column;align-items:flex-start;padding:25px}
+ .w-drag-benefits{grid-template-columns:1fr}
+ .w-drag-benefits article{border-right:0;border-bottom:1px solid #425B45;padding:27px}
+}
+@media(prefers-reduced-motion:reduce){.w-drag-progress>span{transition:none!important}}
