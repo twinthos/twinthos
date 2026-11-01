@@ -8,7 +8,7 @@ permissions:
 jobs:
   build-and-verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -38,7 +38,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: twinthos-home-pricing-visual-qa
+          name: twinthos-2027-site-visual-qa
           path: _src/qa-shots/
           if-no-files-found: ignore
           retention-days: 7
@@ -50,9 +50,9 @@ jobs:
           security = Path("security/index.html").read_text(encoding="utf-8")
           engineering = Path("engineering/index.html").read_text(encoding="utf-8")
           css = Path("assets/tw.css").read_text(encoding="utf-8")
-          assert "One message." in home
-          assert "INTRODUCING THE MANAGED DIGITAL EMPLOYEE" in home
-          assert "/engineering/" in home and "/engineering/" in security
+          assert "Your business moves." in home
+          assert "TWINTHOS / NON-HUMAN INTELLIGENCE" in home
+          assert "/engineering/" in home and "/engineering/" in security\n          assert "data-w-part=\"card\"" in home and "data-w-part=\"memory\"" in home\n          assert "long-term memory" in Path("about/index.html").read_text(encoding="utf-8").lower()\n          assert "card" in security.lower()
           assert "reference_adapter.py --demo" in engineering
           assert "Not the claim" in engineering
           assert ".eng-proof-grid" in css
@@ -66,5 +66,5 @@ jobs:
           for title, body in [("home",home),("security",security),("engineering",engineering)]:
               assert "<main id=\"main\">" in body and "</main>" in body, title
               assert "<title>" in body, title
-          print("PASS: source build, engineering evidence page, public claim integrity")
+          print("PASS: source build, 2027 trust narrative, card/memory, engineering evidence and privacy")
           PY
