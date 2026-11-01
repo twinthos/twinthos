@@ -25,3 +25,5 @@ cvedotnow tweet learning (2026-10-31): High-engagement CVE format = severity emo
 Audit quality signal (@CloakdDev, Oct 2026): "154 audit findings is crazy high" = rushed, low-quality work. Market trusts 3-5 focused exploitable paths over sprawling lists. Twinthos positioning: surface only AI/agent/MCP-relevant findings, prioritize by CISA KEV+EPSS, smallest effective fix, avoid old-code padding.
 §
 Twinthos Sentinel v1.2.0: repositioned from "AI Security Sentinel" to "Twinthos Sentinel" — continuous threat intelligence for organizations. AI-first, not AI-only. New files: news_scanner.py. New features: supplier watch, Telegram inline buttons (👍 Useful / 👎 Ignore), offline lockfile fallback, webhook server (--webhook-port). Config additions: suppliers[], news{}. Commit 210c34c pushed to github.com/twinthos/ai-sec-sentinel master.
+§
+Current model (Nov 1 2026): reflection/beam-1.0-501b-a23b:free via Nous Portal, switched from stepfun/step-3.7-flash:free

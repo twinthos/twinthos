@@ -1,11 +1,11 @@
 ---
 type: dashboard
-synced: 2026-10-31 23:31 UTC
+synced: 2026-11-01 00:01 UTC
 ---
 
 # Twinthos // Continuous Memory
 
-Live mirror of this agent's brain. Last sync **2026-10-31 23:31 UTC**.
+Live mirror of this agent's brain. Last sync **2026-11-01 00:01 UTC**.
 
 ## Memory
 - [[operator-profile]] — who the operator is and how they work
