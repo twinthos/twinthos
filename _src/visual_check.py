@@ -85,6 +85,12 @@ def check_browser():
                     page.on("pageerror", lambda error: errors.append(str(error)))
                     response = page.goto(base + path, wait_until="networkidle", timeout=30000)
                     assert response and response.ok, f"{label}/{width}: page unavailable"
+                    if label == "home":
+                        bar = page.locator(".nav").bounding_box()
+                        first = page.locator(".home-overline").bounding_box()
+                        assert bar and first and first["y"] >= bar["y"] + bar["height"] + 6, (
+                            f"Mobile/Desktop hero text is behind fixed navigation: {bar} / {first}"
+                        )
                     page.screenshot(path=str(SHOTS / f"{label}-{width}.png"), full_page=True,
                                     animations="disabled")
                     dimensions = page.evaluate("""() => ({
