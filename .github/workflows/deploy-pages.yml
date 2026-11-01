@@ -21,7 +21,7 @@ jobs:
       - name: Prepare public site
         run: |
           mkdir -p "$RUNNER_TEMP/site"
-          rsync -a --exclude='/.git/' --exclude='/.github/' --exclude='/_src/' --exclude='/_headers' ./ "$RUNNER_TEMP/site/"
+          tar --exclude=./.git --exclude=./.github --exclude=./_src --exclude=./_headers -cf - . | tar -xf - -C "$RUNNER_TEMP/site"
           test -f "$RUNNER_TEMP/site/index.html"
           test -f "$RUNNER_TEMP/site/.well-known/oauth-protected-resource"
           test ! -e "$RUNNER_TEMP/site/_src"
