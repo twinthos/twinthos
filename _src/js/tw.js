@@ -168,6 +168,7 @@ var film=d.querySelector('[data-film]');
 if(film){
   var v=film.querySelector('video'), tg=film.querySelector('.film-toggle'), tap=film.querySelector('.film-tap');
   var userStarted=false;
+  v.controls=false; // Browser-native controls remain available when JavaScript is disabled.
   var updateVideo=function(){
     var playing=!v.paused&&!v.ended;
     film.classList.toggle('is-playing',playing);
