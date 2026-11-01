@@ -57,6 +57,10 @@
    buttons.forEach(el=>{let active=el===btn;el.classList.toggle('w-active',active);el.setAttribute('aria-pressed',String(active));});
    get('index').textContent=p[0];get('symbol').textContent=p[1];get('tag').textContent=p[2];
    get('title').textContent=p[3];get('desc').textContent=p[4];get('limit').textContent=p[5];
+   const minimal=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+   if(!minimal&&get('symbol').animate){
+    get('symbol').animate([{opacity:.4,transform:'translateY(12px) scale(.96)'},{opacity:1,transform:'none'}],{duration:380,easing:'cubic-bezier(.17,.8,.17,1)'});
+   }
   }));
  }
  const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
