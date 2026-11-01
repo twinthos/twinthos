@@ -32,6 +32,9 @@ jobs:
           assert "reference_adapter.py --demo" in engineering
           assert "Not the claim" in engineering
           assert ".eng-proof-grid" in css
+          form = Path("book/index.html").read_text(encoding="utf-8")
+          js = Path("assets/tw.js").read_text(encoding="utf-8")
+          assert 'value="security"' in form and 'security:\'AI security review\'' in js
           assert "46 automated tests" not in security
           for title, body in [("home",home),("security",security),("engineering",engineering)]:
               assert "<main id=\"main\">" in body and "</main>" in body, title
