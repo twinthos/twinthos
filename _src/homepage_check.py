@@ -102,7 +102,8 @@ def check():
     assert "home-investment" in html and "home-investment-managed" in html
     assert 'id="managed"' not in html, "Legacy managed pricing ID causes text invisibility"
     assert "home-ops-stage" in html and "home-questions" in html
-    assert "we guarantee savings" not in html.lower()\n    assert "no guaranteed savings" in html.lower()
+    assert "we guarantee savings" not in html.lower()
+    assert "no guaranteed savings" in html.lower()
     assert "live business data" in html.lower()
 
     # These fixed pairs represent the primary text and surface tokens,
