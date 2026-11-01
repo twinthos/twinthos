@@ -1,0 +1,112 @@
+<!--{"title":"Security engineering · Twinthos","desc":"Inspect Twinthos's open security engineering work: a runnable scoped tool-access demonstration, threat intelligence, regression tests and documented limitations.","path":"engineering/","nav":"engineering"}-->
+<section class="eng-hero" aria-labelledby="eng-title">
+  <div class="wrap eng-hero-grid">
+    <div class="eng-intro">
+      <p class="eyebrow">Engineering / built in public</p>
+      <h1 class="eng-display" id="eng-title">Trust the <em>test.</em><br>Not the claim.</h1>
+      <p class="eng-lede">When software can act for you, the question is not how intelligent it sounds. It's what it can reach, what it can change, and what happens when it gets something wrong.</p>
+      <div class="eng-actions">
+        <a class="btn btn-ink" href="https://github.com/twinthos/ai-sec-sentinel" target="_blank" rel="noopener">Inspect the source <span class="ar">→</span></a>
+        <a class="eng-inline" href="#proof">See the test <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="eng-caveat">Open-source engineering reference · not a certification, third-party audit or production firewall.</p>
+    </div>
+    <div class="eng-console" aria-label="Illustrative output from the offline reference-adapter demo">
+      <div class="eng-console-head"><span class="eng-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>reference_adapter.py</span><span>LOCAL DEMO</span></div>
+      <div class="eng-console-body">
+        <p class="eng-command"><span>$</span> python3 reference_adapter.py --demo</p>
+        <p><b class="eng-ok">PASS</b> Scoped file read allowed.</p>
+        <p><b class="eng-ok">PASS</b> File deletion denied before execution.</p>
+        <p><b class="eng-ok">PASS</b> Evidence ledger verified.</p>
+        <div class="eng-console-rule"></div>
+        <p class="eng-muted">Scope: one read-only reference adapter.</p>
+        <p class="eng-muted">Not a universal agent firewall.</p>
+      </div>
+      <div class="eng-console-foot"><span class="eng-pulse"></span><span>REPRODUCIBLE · NO LIVE SYSTEM REQUIRED</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="eng-band" aria-label="Three security design principles">
+  <div class="wrap eng-principles">
+    <div><span>01 / BOUNDARIES</span><strong>The model proposes.</strong><p>A trusted execution path decides.</p></div>
+    <div><span>02 / FAILURE</span><strong>Unknown means unknown.</strong><p>Failures must not look like success.</p></div>
+    <div><span>03 / EVIDENCE</span><strong>Show what happened.</strong><p>Tests and records, not guarantees.</p></div>
+  </div>
+</section>
+
+<section class="psec eng-proof" id="proof">
+  <div class="wrap">
+    <div class="eng-section-head">
+      <p class="eyebrow">Verification / repeatable</p>
+      <h2 class="d2">One claim.<br>One executable proof.</h2>
+      <p class="eng-lede">A deliberately small, controlled workspace demonstrates that an allowed operation completes while a prohibited operation never reaches the filesystem.</p>
+    </div>
+    <div class="eng-proof-grid">
+      <article class="eng-proof-card">
+        <span class="eng-card-kicker">Allowed</span>
+        <h3>Read only what's permitted.</h3>
+        <p>The test agent can read an approved file within a trusted directory. Its access is decided before the read.</p>
+        <div class="eng-proof-status"><span class="eng-led eng-led-green"></span> File read / policy allow</div>
+      </article>
+      <article class="eng-proof-card">
+        <span class="eng-card-kicker">Denied</span>
+        <h3>Reject what isn't exposed.</h3>
+        <p>Deletion, traversal, symlink escapes and unapproved actions are refused by the adapter, including when a model requests them.</p>
+        <div class="eng-proof-status"><span class="eng-led"></span> File delete / not executed</div>
+      </article>
+      <article class="eng-proof-card">
+        <span class="eng-card-kicker">Recorded</span>
+        <h3>Leave inspectable evidence.</h3>
+        <p>Policy decisions are written to a hash-checked local ledger without copying file content or raw tool parameters into it.</p>
+        <div class="eng-proof-status"><span class="eng-led eng-led-green"></span> Verification / local hash chain</div>
+      </article>
+    </div>
+    <div class="eng-command-row"><code>python3 reference_adapter.py --demo</code><a class="tlink" href="https://github.com/twinthos/ai-sec-sentinel/blob/master/reference_adapter.py" target="_blank" rel="noopener">Read the implementation</a></div>
+  </div>
+</section>
+
+<section class="psec psec-alt eng-work">
+  <div class="wrap eng-work-grid">
+    <div>
+      <p class="eyebrow">Open projects</p>
+      <h2 class="d2">Working code.<br>Visible decisions.</h2>
+      <p class="eng-lede">Two repositories, with source and tests you can inspect. The scope and limitations are part of the work.</p>
+    </div>
+    <div class="eng-projects">
+      <a href="https://github.com/twinthos/ai-sec-sentinel" target="_blank" rel="noopener" class="eng-project">
+        <span>01 / Python · open-source</span><strong>Twinthos Sentinel</strong>
+        <p>AI-focused vulnerability monitoring, notification delivery, fail-visible source checks, and an experimental Guardian policy layer.</p>
+        <span class="eng-project-link">Source, tests, CI <span aria-hidden="true">↗</span></span>
+      </a>
+      <a href="https://github.com/twinthos/ai-sec-audit" target="_blank" rel="noopener" class="eng-project">
+        <span>02 / Security methodology · open-source</span><strong>AI Security Audit</strong>
+        <p>A scoped read-only review process for agent configurations, permissions, integrations and evidence-backed findings.</p>
+        <span class="eng-project-link">Audit checklist, tools, tests <span aria-hidden="true">↗</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="psec eng-honesty">
+  <div class="wrap eng-honesty-grid">
+    <div>
+      <p class="eyebrow">Read the limitations</p>
+      <h2 class="d2">Security is a boundary.<br>Not a badge.</h2>
+    </div>
+    <div class="prose">
+      <p><strong>This is not a claim that any arbitrary AI agent is protected.</strong> The reference adapter enforces only its own exposed tool operations. An agent with unrestricted shell, network or host access could bypass it.</p>
+      <p>Threat-intelligence feeds are not proof that a system is uncompromised. Hash-chained evidence is not an immutable or externally notarised log. CI checks are not the same as third-party penetration testing.</p>
+      <p>Future integrations require verified identity, a mandatory execution path, isolated runtime permissions, approval handling and adversarial testing before deployment.</p>
+      <div class="eng-honesty-links"><a class="tlink" href="https://github.com/twinthos/ai-sec-sentinel/blob/master/SECURITY.md" target="_blank" rel="noopener">Security reporting</a><a class="tlink" href="/security/">How Twinthos handles client security</a></div>
+    </div>
+  </div>
+</section>
+<section class="final sec eng-final">
+  <div class="wrap final-in">
+    <p class="eyebrow">For teams building AI that acts</p>
+    <h2 class="d1">Make the system<br>earn your trust.</h2>
+    <p class="lede">Review your agent's permissions, execution boundaries and evidence trail before the next tool call matters.</p>
+    <div class="final-act"><a class="btn btn-ink" href="/book/?interest=security">Discuss a security review <span class="ar">→</span></a><a class="tlink" href="https://github.com/twinthos/ai-sec-sentinel" target="_blank" rel="noopener">Explore GitHub</a></div>
+  </div>
+</section>
