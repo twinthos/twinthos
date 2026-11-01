@@ -78,10 +78,10 @@
 
 /* The investment section: editorial contrast replaces two inherited cards.
    Separate classes avoid legacy #managed {color:var(--ivory)} on dark cards. */
-.pg-home .home-investment{background:#E9ECE6;color:#17201A;padding:clamp(84px,10vw,165px) 0 clamp(72px,8vw,120px);
+.home-investment{background:#E9ECE6;color:#17201A;padding:clamp(84px,10vw,165px) 0 clamp(72px,8vw,120px);
  --ink:#17201A;--ink-2:#3E4C40;--line:#B2BCB2;--green:#315B46}
-.pg-home .home-investment .eyebrow{color:#364C3E;font-size:13px}
-.pg-home .home-investment .eyebrow::before{background:#315B46}
+.home-investment .eyebrow{color:#364C3E;font-size:13px}
+.home-investment .eyebrow::before{background:#315B46}
 .home-investment-intro{display:grid;grid-template-columns:1.18fr .82fr;gap:22px 70px;align-items:end;padding-bottom:55px}
 .home-investment-intro>.eyebrow{grid-column:1/-1}
 .home-investment-intro h2{font-size:clamp(46px,6.8vw,100px);letter-spacing:-.07em;line-height:1.02;font-weight:500;color:#17201A}
@@ -195,3 +195,10 @@
  .home-ops-message,.home-ops-chain,.home-ops-approval{animation:none!important}
  .home-questions summary>span{transition:none}
 }
+
+/* Standalone pricing page inherits the same accessible editorial investment system. */
+.pg-pricing .phead{padding-bottom:clamp(46px,6vw,88px)}
+.pg-pricing .home-investment{padding-top:clamp(55px,6vw,95px)}
+.pg-pricing .home-investment-intro h2{font-size:clamp(36px,4.8vw,66px)}
+.pg-pricing .home-questions-pricing{padding:clamp(60px,7vw,100px) 0}
+.pg-pricing .home-questions-pricing h2 em{color:#C7D8C8}
