@@ -388,3 +388,45 @@ html.w-reveal-armed [data-w-reveal].w-revealed{
  .w-button{transition:none}
  html.w-reveal-armed [data-w-reveal]{opacity:1!important;transform:none!important;transition:none!important}
 }
+
+/* Editorial FAQ details retain native disclosure semantics. */
+.w-page .home-questions-list{border-top:1px solid #667C6A}
+.w-page .home-questions-list details{border-bottom:1px solid #607363}
+.w-page .home-questions-list summary{display:flex;align-items:center;justify-content:space-between;gap:18px;
+ list-style:none;cursor:pointer;padding:24px 0;color:inherit;font-size:clamp(19px,1.85vw,27px);
+ letter-spacing:-.045em;font-weight:550;line-height:1.3}
+.w-page .home-questions-list summary::-webkit-details-marker{display:none}
+.w-page .home-questions-list summary span{display:grid;place-items:center;flex:none;
+ border:1px solid currentColor;border-radius:50%;width:34px;height:34px;font-size:22px;
+ font-weight:400;transition:transform .25s}
+.w-page .home-questions-list details[open] summary span{transform:rotate(45deg)}
+.w-page .home-questions-list details p{padding:0 44px 24px 0;max-width:670px;
+ line-height:1.6;font-size:17px;color:#C7D8C9}
+.w-page .w-pale .home-questions-list summary{color:#243A2B}
+.w-page .w-pale .home-questions-list details p{color:#3E5945}
+.w-page .w-pale .home-questions-list{border-color:#9CAF9E}
+.w-page .w-pale .home-questions-list details{border-color:#A7B8AA}
+.w-page .home-investment{color:#17201A;background:#E9ECE6!important}
+.w-page .home-investment .eyebrow{color:#364C3E}
+.w-page .home-investment .home-investment-intro h2{color:#17201A}
+.w-page .home-investment .home-investment-row:not(.home-investment-managed) h3,
+.w-page .home-investment .home-investment-row:not(.home-investment-managed) .home-investment-price>span{color:#17201A}
+.w-page .home-investment .home-investment-managed{color:#F3F1EA;background:#121B15!important}
+.w-page .home-investment .home-investment-managed h3,
+.w-page .home-investment .home-investment-managed .home-investment-price>span{color:#F3F1EA!important}
+.w-page .home-questions-pricing{background:#101812}
+.w-page .home-questions-pricing h2{color:#EDF4EC}
+.w-page .home-questions-pricing p{color:#C5D5C6}
+.w-page .book{padding:clamp(40px,5vw,70px) 0 clamp(75px,9vw,130px)}
+.w-page .book-side{background:#17211A;border:1px solid #4F6552}
+.w-page .book-main form{background:#0D1610;border:1px solid #526855;padding:clamp(22px,3vw,40px)}
+.w-page .book-main .opt{border-color:#526755}
+.w-page .book .fld label,.w-page .book .interest legend{color:#EDF3EA}
+.w-page .book .muted,.w-page .book .side-note,.w-page .book .hint{color:#C8D9CA}
+.w-page .book input,.w-page .book textarea{background:#111D15;color:#F1F6EF;border:1px solid #778D7B}
+.w-page .book button[type=submit]{border-radius:4px}
+@media(max-width:620px){
+ .w-page .home-questions-list details p{padding-right:0}
+ .w-page .home-questions-list summary{font-size:20px}
+}
+@media(prefers-reduced-motion:reduce){.w-page .home-questions-list summary span{transition:none}}
