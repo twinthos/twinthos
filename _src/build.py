@@ -149,6 +149,23 @@ def read_page(files):
     body = re.sub(r"\{\{(\w+)\}\}", lambda x: partial(x.group(1)), body)
     return meta, body
 
+# The standalone 2027 homepage is source-controlled and rebuilt on deployment.
+# All secondary pages still use the shared Twinthos templates.
+def experience_home():
+    exp = f"{SRC}/experience"
+    visual_css = open(f"{exp}/style.css", encoding="utf-8").read()
+    visual_js = open(f"{exp}/app.js", encoding="utf-8").read()
+    visual_html = open(f"{exp}/index.html", encoding="utf-8").read()
+    visual_ver = hashlib.sha1((visual_css + visual_js).encode()).hexdigest()[:8]
+    open(f"{OUT}/assets/experience.css", "w", encoding="utf-8").write(visual_css)
+    open(f"{OUT}/assets/experience.js", "w", encoding="utf-8").write(visual_js)
+    visual_html = re.sub(r"/assets/experience[.](?:css|js)[?]v=[0-9a-f]+",
+                         lambda m: m.group(0).split("?v=")[0] + "?v=" + visual_ver, visual_html)
+    if PREVIEW:
+        visual_html = visual_html.replace("</head>", '<meta name="robots" content="noindex,nofollow"></head>', 1)
+    return visual_html
+
+
 groups = {}
 for f in sorted(glob.glob(f"{SRC}/pages/*.html")):
     groups.setdefault(os.path.basename(f).split("~")[0].replace(".html", ""), []).append(f)
@@ -158,7 +175,7 @@ for name, files in groups.items():
     meta, body = read_page(files)
     dest = f"{OUT}/{meta['path']}index.html" if meta["path"] != "404" else f"{OUT}/404.html"
     os.makedirs(os.path.dirname(dest), exist_ok=True)
-    open(dest, "w").write(layout(meta, body))
+    open(dest, "w").write(experience_home() if name == "home" else layout(meta, body))
     built.append(meta)
 
 REDIRECTS = {"services/": "/how-it-works/", "audit/": "/operations-audit/", "questions/": "/faq/",

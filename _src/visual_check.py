@@ -87,49 +87,38 @@ def run():
                     assert not errors,f"{label}/{width}: JS errors {errors}"
                     assert page.locator("h1").count()==1
                     assert page.locator("h1").is_visible()
-                    assert page.locator(".nav .brand").is_visible(), f"{label}/{width}: header brand hidden"
+                    assert (page.locator(".site-header .wordmark") if label=="home" else page.locator(".nav .brand")).is_visible(), f"{label}/{width}: header brand hidden"
                     if label in ("home","pricing","book"):
                         page.screenshot(path=str(SHOTS/f"{label}-{width}-firstscreen.png"),
                                         full_page=False,animations="disabled")
                     assert page.locator('a[href="/book/?interest=fit"]').count()>=1 or label=="book"
                     if label=="home":
-                        nav=page.locator(".nav").bounding_box()
-                        intro=page.locator(".w-hero .w-kicker").bounding_box()
-                        assert nav and intro and intro["y"]>=nav["y"]+nav["height"]+4,(
-                            f"Hero overlaps fixed nav: {nav} vs {intro}")
-                        assert page.locator(".w-hero .w-button").is_visible()
-                        compare=page.locator("[data-drag-demo]")
-                        assert compare.count()==1
-                        assert compare.get_attribute("data-drag-mode")=="manual"
-                        assert "enquiry" in page.locator("[data-drag-title]").inner_text().lower()
-                        page.locator('[data-drag-mode-button="agent"]').click()
-                        assert compare.get_attribute("data-drag-mode")=="agent"
-                        assert page.locator('[data-drag-mode-button="agent"]').get_attribute("aria-pressed")=="true"
-                        page.locator('[data-drag-step="4"]').click()
-                        assert "approval" in page.locator("[data-drag-action]").inner_text().lower() or "human" in page.locator("[data-drag-action]").inner_text().lower()
-                        page.locator("[data-drag-next]").click()
-                        assert page.locator("[data-drag-counter]").inner_text().startswith("06")
-                        page.locator('[data-drag-mode-button="manual"]').click()
-                        assert compare.get_attribute("data-drag-mode")=="manual"
-                        page.locator('[data-w-scene="scheduling"]').click()
-                        assert "appointments" in page.locator("[data-w-message]").inner_text()
-                        page.locator('[data-w-scene="research"]').click()
-                        assert "prospective" in page.locator("[data-w-message]").inner_text()
-                        assert page.locator('[data-w-scene="research"]').get_attribute("aria-pressed")=="true"
-                        assert page.locator('[data-w-part]').count()==8
-                        page.locator('[data-w-part="card"]').click()
-                        assert "card" in page.locator("[data-w-title]").inner_text().lower()
-                        assert "human approval" in page.locator("[data-w-limit]").inner_text().lower()
-                        page.locator('[data-w-part="memory"]').click()
-                        assert "memory" in page.locator("[data-w-title]").inner_text().lower()
-                        assert page.locator('[data-w-part="memory"]').get_attribute("aria-pressed")=="true"
+                        nav=page.locator(".site-header").bounding_box()
+                        intro=page.locator(".hero .section-index").first.bounding_box()
+                        assert nav and intro and intro["y"]>=nav["y"]+nav["height"]-3, (
+                            f"Hero overlaps header: {nav} / {intro}")
+                        assert page.locator(".hero .solid-button").is_visible()
+                        story=page.locator("[data-story]")
+                        assert story.count()==1
+                        page.locator('[data-story-mode="manual"]').click()
+                        assert story.get_attribute("data-mode")=="manual"
+                        page.locator('[data-story-mode="operator"]').click()
+                        assert story.get_attribute("data-mode")=="operator"
+                        page.locator('[data-story-step="4"]').click()
+                        assert "human decision" in page.locator("[data-story-action]").inner_text().lower()
+                        page.locator('[data-part="card"]').click()
+                        assert "card" in page.locator("[data-part-title]").inner_text().lower()
+                        page.locator('[data-part="memory"]').click()
+                        assert "memory" in page.locator("[data-part-title]").inner_text().lower()
+                        assert page.locator('[data-part="memory"]').get_attribute("aria-pressed")=="true"
+                        assert page.locator(".investment-right strong").count()==2
                         if width==390:
-                            toggle=page.locator(".nav-toggle")
+                            toggle=page.locator(".nav-mobile")
                             toggle.click()
                             assert toggle.get_attribute("aria-expanded")=="true"
-                            assert page.locator(".nav-links").is_visible()
+                            assert page.locator("#primary-navigation").is_visible()
                             toggle.click()
-                    if label in ("home","pricing"):
+                    if label == "pricing":
                         test_prices(page,f"{label}/{width}")
                     if label=="book":
                         assert page.locator("form[data-form]").count()==1

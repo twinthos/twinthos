@@ -19,7 +19,9 @@ jobs:
       - name: Build from source
         run: python3 _src/build.py
       - name: Check source JavaScript syntax
-        run: node --check assets/tw.js
+        run: |
+          node --check assets/tw.js
+          node --check assets/experience.js
       - name: Check homepage design and motion contracts
         run: python3 _src/homepage_check.py
       - name: Verify publication boundary
@@ -50,12 +52,12 @@ jobs:
           security = Path("security/index.html").read_text(encoding="utf-8")
           engineering = Path("engineering/index.html").read_text(encoding="utf-8")
           css = Path("assets/tw.css").read_text(encoding="utf-8")
-          assert "Your business moves." in home
-          assert "TWINTHOS / NON-HUMAN INTELLIGENCE" in home
-          assert "/security/" in home and "/how-it-works/" in security
+          assert "THE END OF" in home
+          assert "A NEW CLASS OF DIGITAL EMPLOYEE" in home
+          assert "#trust" in home and "/how-it-works/" in security
           assert 'href="https://github.com/' not in home
           assert 'href="https://github.com/' not in security
-          assert "data-w-part=\"card\"" in home and "data-w-part=\"memory\"" in home
+          assert 'data-part="card"' in home and 'data-part="memory"' in home
           assert "long-term context" in Path("about/index.html").read_text(encoding="utf-8").lower()
           assert "card" in security.lower()
           assert "reference_adapter.py --demo" in engineering
@@ -66,6 +68,7 @@ jobs:
           assert 'value="security"' in form and 'security:\'AI security review\'' in js
           pricing = Path("pricing/index.html").read_text(encoding="utf-8")
           assert "home-investment-managed" in pricing
+          assert "investment-row" in home
           assert "£999" in pricing and "£5,000" in pricing
           assert "46 automated tests" not in security
           for title, body in [("home",home),("security",security),("engineering",engineering)]:
