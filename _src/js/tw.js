@@ -161,7 +161,7 @@ Spec.prototype.set=function(p,b,t){
   S.days.forEach(function(e,i){e.classList.toggle('on',i===day);});
 };
 
-/* ── the film: a 15-second silent reel in the first screen ── */
+/* ── the film: a 16.6-second silent film in the first screen ── */
 var srcSvg=d.querySelector('#wheel-src svg');
 var tpl=srcSvg?srcSvg.cloneNode(true):null;
 var film=d.getElementById('film');
