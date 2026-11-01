@@ -328,3 +328,8 @@ html.v11-armed .home-delivery-grid li:nth-child(3)[data-reveal].v11-visible{tran
   html.v11-armed [data-reveal]{opacity:1!important;transform:none!important;transition:none!important}
   .home-workbench-tab,.home-underlink,.home-film-shell .film-tap span{transition:none!important}
 }
+
+/* No-JavaScript: the video keeps native controls, not a dead custom overlay. */
+html.no-js .home-film-shell .film-tap,html.no-js .home-film-shell .film-toggle{display:none!important}
+.home-art-disclaimer{font-size:12px}
+@media(max-width:600px){.home-art-disclaimer{font-size:11px}}
