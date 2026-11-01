@@ -202,3 +202,7 @@
 .pg-pricing .home-investment-intro h2{font-size:clamp(36px,4.8vw,66px)}
 .pg-pricing .home-questions-pricing{padding:clamp(60px,7vw,100px) 0}
 .pg-pricing .home-questions-pricing h2 em{color:#C7D8C8}
+
+/* Critical: old full-bleed-film layout suppressed the fixed header offset.
+   The new readable hero must begin BELOW the navigation, including on mobile. */
+.pg-home main{padding-top:var(--nav)}
