@@ -71,16 +71,19 @@ def layout(meta, body):
     links = (f'<a href="/how-it-works/"{cur("how")}>How it works</a><a href="{ind}">Industries</a>'
              f'<a href="{pricing}"{cur("pricing")}>Pricing</a><a href="/security/"{cur("security")}>Security</a>')
     robots = '<meta name="robots" content="noindex, nofollow">\n' if (meta.get("noindex") or PREVIEW) else ""
-    ld = ""
+    # Consistent, grounded entities for search engines and answer engines.
+    org = {"@type":"Organization","@id":"https://twinthos.com/#org","name":"Twinthos","url":"https://twinthos.com/","description":"Twinthos builds and manages AI digital employees for defined business workflows, with approved tools, activity records and human escalation.","logo":{"@type":"ImageObject","url":"https://twinthos.com/og.png"}}
+    website = {"@type":"WebSite","@id":"https://twinthos.com/#website","url":"https://twinthos.com/","name":"Twinthos","inLanguage":"en-GB","publisher":{"@id":"https://twinthos.com/#org"}}
+    graph = [org]
     if home:
-        ld = '<script type="application/ld+json">' + json.dumps({
-            "@context": "https://schema.org", "@type": "ProfessionalService", "name": "Twinthos",
-            "url": SITE + "/", "email": "hello@twinthos.com", "areaServed": "GB",
-            "description": "Twinthos sets up and manages a digital employee, with its own computer, phone and email, for the recurring work a UK business gives it. Decisions outside agreed rules go to the client's team.",
-            "makesOffer": [
-                {"@type": "Offer", "name": "Operations audit", "price": "999", "priceCurrency": "GBP", "description": "One-off written assessment and plan."},
-                {"@type": "Offer", "name": "Managed digital employee", "price": "5000", "priceCurrency": "GBP", "description": "Monthly implementation and management of a digital employee for one agreed workflow. Three-month minimum."}]},
-            ensure_ascii=False) + '</script>'
+        graph += [website] + [{"@type":"Service","@id":"https://twinthos.com/#managed","name":"Managed digital employee","serviceType":"Managed AI agent for an agreed business workflow","provider":{"@id":"https://twinthos.com/#org"},"description":"One agreed recurring workflow, configured with approved tools, access boundaries, activity records and human escalation. Three-month minimum.","offers":{"@type":"Offer","price":"5000","priceCurrency":"GBP","url":"https://twinthos.com/pricing/"}},{"@type":"Service","@id":"https://twinthos.com/#audit","name":"Operations Audit","serviceType":"Business operations workflow assessment","provider":{"@id":"https://twinthos.com/#org"},"description":"One-off written assessment and plan; production deployment is not included.","offers":{"@type":"Offer","price":"999","priceCurrency":"GBP","url":"https://twinthos.com/operations-audit/"}}]
+    elif path == "faq/":
+        qas = re.findall(r'<details class="qa"[^>]*>\s*<summary>\s*<h2>(.*?)</h2>\s*</summary>\s*<div class="qa-a"><p>(.*?)</p>', body, re.S)
+        answers = [{"@type": "Question", "name": html.unescape(re.sub(r"<[^>]+>", "", q)), "acceptedAnswer": {"@type": "Answer", "text": html.unescape(re.sub(r"<[^>]+>", "", a))}} for q, a in qas]
+        graph.append({"@type": "FAQPage", "@id": SITE + "/faq/#webpage", "url": SITE + "/faq/", "name": "Twinthos frequently asked questions", "inLanguage": "en-GB", "isPartOf": {"@id": SITE + "/#website"}, "mainEntity": answers})
+    else:
+        graph.append({"@type": "WebPage", "@id": SITE + "/" + path + "#webpage", "url": SITE + "/" + path, "name": title, "inLanguage": "en-GB", "isPartOf": {"@id": SITE + "/#website"}})
+    ld = '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False) + '</script>' if not (meta.get("noindex") or path == "404") else ""
     body = body.replace('<span class="ar">→</span>', ARROW)
     # One cacheable stylesheet; never inline the entire CSS into the homepage.
     css_tag = ('<style>html{background:#070A09}body{margin:0;background:#070A09;color:#F3F5F0}</style>'
@@ -194,10 +197,15 @@ except Exception:
     pass
 
 def _notes_block():
+    # Discover live notes pages from disk, not only from git history.
     if not os.path.isdir(f"{OUT}/notes"):
         return ""
-    return "".join(f"<url><loc>{SITE}/{u}</loc><lastmod>{d}</lastmod></url>\n"
-                   for u, d in sorted(NOTES_LASTMOD.items()))
+    found = ["notes/"] if os.path.isfile(f"{OUT}/notes/index.html") else []
+    found += [f"notes/{p}/" for p in sorted(os.listdir(f"{OUT}/notes"))
+              if os.path.isfile(f"{OUT}/notes/{p}/index.html")]
+    return "".join("<url><loc>" + SITE + "/" + u + "</loc>" +
+                   ("<lastmod>" + NOTES_LASTMOD[u][:10] + "</lastmod>" if u in NOTES_LASTMOD else "") +
+                   "</url>\n" for u in found)
 
 open(f"{OUT}/sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"<url><loc>{SITE}/{u}</loc></url>\n" for u in sorted(urls, key=lambda u: (u != "", u))) +

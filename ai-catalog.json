@@ -1,52 +1,38 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "Twinthos",
-  "description": "Twinthos — your digital employee. Managed AI with its own computer, inbox and phone.",
-  "version": "1.0.0",
-  "url": "https://twinthos.com",
-  "capabilities": {
-    "tools": [
-      {
-        "name": "book_audit",
-        "description": "Book a £999 Operations Audit for your business",
-        "parameters": {
-          "type": "object",
-          "properties": {
-            "business_name": { "type": "string" },
-            "contact_email": { "type": "string", "format": "email" },
-            "preferred_date": { "type": "string", "format": "date" }
-          },
-          "required": ["business_name", "contact_email"]
-        }
-      },
-      {
-        "name": "get_pricing",
-        "description": "Get current Twinthos pricing and package details",
-        "parameters": {
-          "type": "object",
-          "properties": {}
-        }
-      },
-      {
-        "name": "check_availability",
-        "description": "Check availability for a consultation or audit",
-        "parameters": {
-          "type": "object",
-          "properties": {
-            "service": { "type": "string", "enum": ["audit", "consultation", "build"] },
-            "date_range": { "type": "string" }
-          },
-          "required": ["service"]
-        }
-      }
-    ]
-  },
-  "authentication": {
-    "type": "none",
-    "description": "Public catalog. Individual tools may require authentication."
-  },
-  "contact": {
-    "email": "hello@twinthos.com",
-    "website": "https://twinthos.com"
-  }
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "url": "https://twinthos.com/",
+  "description": "Twinthos designs and manages business AI workflows with approved tool access, logs, human approvals and measurable deliverables.",
+  "updated": "2026-11-02",
+  "audience": "Businesses evaluating managed AI agents for repetitive operations",
+  "services": [
+    {
+      "name": "Operations Audit",
+      "price": 999,
+      "currency": "GBP",
+      "billing": "one-off",
+      "scope": "Written assessment and plan, not a production AI deployment",
+      "url": "https://twinthos.com/operations-audit/"
+    },
+    {
+      "name": "Managed digital employee",
+      "price": 5000,
+      "currency": "GBP",
+      "billing": "monthly",
+      "minimumTermMonths": 3,
+      "scope": "One agreed workflow, configured and managed, subject to proposal and approved integrations",
+      "url": "https://twinthos.com/pricing/"
+    }
+  ],
+  "limitations": [
+    "Approved systems only",
+    "Human review of consequential actions",
+    "Integration availability varies",
+    "Actual performance depends on workflow and deployment"
+  ],
+  "officialAnswers": "https://twinthos.com/faq/",
+  "securityDetails": "https://twinthos.com/security/",
+  "book": "https://twinthos.com/book/",
+  "notice": "This is a public informational catalog. It does not publish callable tools, booking APIs or live availability endpoints."
 }
