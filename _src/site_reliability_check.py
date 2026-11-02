@@ -43,7 +43,7 @@ def main():
     assert 'class="journey-rail"' in home and 'class="kit-lines"' in home, "Editorial workflow sections missing"
     assert 'class="vs-t"' not in home and 'class="rh-feature-card"' not in home and 'class="kit-grid"' not in home, "Retired boxed layout returned"
     assert home.count('class="journey-step"') == 2 and home.count('class="journey-step journey-decision"') == 1, "Workflow missing stages"
-    assert "Illustrative, not a customer performance claim." in home
+    assert "Example only. We agree what it can do" in home
     assert (ROOT/"_src"/"css"/"zzzzzz-cinematic.css").exists(), "Editorial style source missing"
     assert all(f'id="{i}"' in home for i in ("why","employee","industries","pricing"))
     assert (ROOT/"book"/"index.html").exists()
