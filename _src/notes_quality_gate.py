@@ -21,6 +21,9 @@ for page in PAGES:
     for required in ("notes-motion.css", "notes-motion.js", 'class="nx-verified-sources"', '<meta property="og:image"', 'name="twitter:card"'):
         if required not in data:
             errors.append(f"{slug}: missing {required}")
+    for asset in ("notes-motion.css", "notes-motion.js"):
+        if data.count(asset) != 1:
+            errors.append(f"{slug}: expected exactly one {asset} include")
     if data.count('class="nx-verified-sources"') != 1:
         errors.append(f"{slug}: expected exactly one source notes section")
     published = re.search(r'<meta property="article:published_time" content="([^"]+)"', data)
