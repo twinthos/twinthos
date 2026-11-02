@@ -59,6 +59,29 @@ for page in PAGES:
     if f'/notes/{page.parent.name}/' not in index:
         errors.append(f"Notes index: missing link to {page.parent.name}")
 
+
+# The published editorial artwork must exist for every article, not just the
+# source photographs. Catch stale thumbnails or missing social cards in CI.
+COVERS = ROOT / "assets/notes-covers"
+for page in PAGES:
+    slug = page.parent.name
+    article = page.read_text(encoding="utf-8")
+    for size in (800, 1600):
+        for ext in ("jpg", "webp"):
+            asset = COVERS / f"{slug}-h-{size}.{ext}"
+            assert_file(asset)
+            if f"/assets/notes-covers/{slug}-h-{size}.{ext}" not in article:
+                errors.append(f"{slug}: not using editorial {size}.{ext} cover")
+    og = COVERS / f"og-{slug}.jpg"
+    assert_file(og)
+    if f"https://twinthos.com/assets/notes-covers/og-{slug}.jpg" not in article:
+        errors.append(f"{slug}: old or missing OG image")
+if "https://twinthos.com/assets/notes-covers/og-index.jpg" not in index:
+    errors.append("Notes index: old social preview image")
+if "assets/notes-covers/" not in index:
+    errors.append("Notes index: editorial covers not linked")
+assert_file(COVERS / "og-index.jpg")
+
 if errors:
     print("\n".join(errors))
     sys.exit(1)
