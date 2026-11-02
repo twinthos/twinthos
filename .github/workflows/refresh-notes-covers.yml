@@ -32,7 +32,7 @@ jobs:
           python3 _src/notes_quality_gate.py
           python3 - <<'PY'
           from pathlib import Path
-          root=Path('assets/notes-covers')
+          root=Path('assets/notes-covers-v2')
           assert len(list(root.glob('*-h-1600.webp')))==12
           assert len(list(root.glob('*-h-800.webp')))==12
           assert len(list(root.glob('og-*.jpg')))==13
