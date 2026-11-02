@@ -10,13 +10,13 @@ For each slug it:
      (Article + FAQPage + BreadcrumbList + Organization), fixing the stale
      twitter:* tags that were copied between articles
 """
-import json, re, sys, pathlib, html
+import json, re, sys, pathlib, html, os
 from PIL import Image
 
-SITE = pathlib.Path("/root/twinthos_live")
-SPEC = pathlib.Path("/root/twinthos-brain/rewrite")
+SITE = pathlib.Path(os.environ.get("TWINTHOS_SITE_ROOT", pathlib.Path(__file__).resolve().parents[1]))
+SPEC = pathlib.Path(os.environ.get("TWINTHOS_NOTES_SPEC", SITE / "_src" / "notes-specs"))
 IMG = SITE / "assets" / "notes-img"
-GEN = pathlib.Path("/root/.hermes/cache/generated/images")
+GEN = pathlib.Path(os.environ.get("TWINTHOS_IMAGE_SOURCE", SITE / "_src" / "notes-originals"))
 DATE = "2026-10-21"
 DATE_HUMAN = "21 October 2026"
 
@@ -179,7 +179,12 @@ def main(slugs):
         tail = src[src.index("</main>") + len("</main>"):]
         herobase = variants(slug)
         newhead = head_patch(head, spec, herobase)
-        out = newhead + "</head>" + build_main(spec, herobase) + tail
+        new_main = build_main(spec, herobase)
+        # Retain independently reviewed source disclosures when rebuilding an article.
+        reviewed = re.search(r'<section class="nx-verified-sources"[^>]*>.*?</section>', src, re.S)
+        if reviewed:
+            new_main = new_main.replace("</article>", reviewed.group(0) + "</article>", 1)
+        out = newhead + "</head>" + new_main + tail
         page.write_text(out, encoding="utf-8")
         print(f"built {slug}: {len(out):,} bytes, hero {herobase}")
 
