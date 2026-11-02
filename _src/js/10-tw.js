@@ -17,7 +17,7 @@ if(tog){
 }
 
 /* mobile sticky call-to-action: appears once the hero button has scrolled away, hides at pricing and the closing call */
-var stick=d.querySelector('.stick'), prime=d.querySelector('.hs-cta .btn');
+var stick=d.querySelector('.stick'), prime=d.querySelector('.rh-primary');
 if(stick&&prime&&'IntersectionObserver' in W){
   var vis={hero:true,end:false};
   var upd=function(){stick.classList.toggle('on',!vis.hero&&!vis.end);};
