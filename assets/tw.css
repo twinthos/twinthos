@@ -1628,3 +1628,8 @@ body.pg-home{overflow-x:clip;background:#070A09}
  .rh-bottom a strong{font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.rh-bottom a,.rh-links a,.rh-primary{transition:none!important}}
+
+
+/* Show exactly one booking link in each navigation layout. */
+@media(min-width:901px){.pg-home .nav-links .nav-book{display:none!important}}
+@media(max-width:900px){.pg-home .nav-links.open .nav-book{display:inline-flex!important;justify-content:center;background:#EAF5EB;color:#10251A!important;border-radius:4px;padding:12px 16px;margin-top:13px}}
