@@ -1,0 +1,35 @@
+Report: Engagement Audit — Twinthos. October 19, 2026. 2 pages, 19KB PDF attached.
+---
+HOW TO FIX TWINTHOS ENGAGEMENT
+---
+1. ANALYTICS ZERO INSTALLED
+No gtag, GTM, Plausible, Umami, GA4, Hotjar, PostHog, Fathom on any of 15 pages. Zero pageviews, zero bounce, zero engagement data — you are flying blind.
+---
+2. NO SEARCH CONSOLE ACCESS
+No GSC configs, no Google credentials in env. You cannot see what Google even knows about your site.
+---
+3. BOOKING FORM HAS NO CONVERSION TRACKING
+28 /book/ links. Zero UTM tracking. FormSubmit.co receives the submissions but you never know which page drives them.
+---
+4. SIX STUB PAGES MISSING OG TAGS
+Contact, questions, services, demo, thankyou, audit — no og:title, og:description, og:image. Social sharing shows nothing.
+---
+5. ZERO IMAGE ALTS
+No alt attributes on ANY image in the site. Accessibility fail + SEO fail.
+---
+6. sitemap.xml MISSING 3 NOTE PAGES
+Three notes on disk not in the sitemap. Found and fixed.
+---
+FIXES DEPLOYED THIS SESSION (verified live):
+- OG tags added to 7 stub pages (commit 910f825)
+- UTM parameters added to 51 /book/ links across 9 pages
+- 3 note pages added to sitemap.xml
+---
+PLANNED NEXT:
+- Plausible analytics on Orgo (or hosted Plausible)
+- Conversion events on /book/ form
+- Alt attributes on all images
+- www.twinthos.com cert fix
+- Rotate exposed GitHub PAT and Stripe live key
+---
+The numbers: 0 analytics. 0 GSC. 51 UTM-tagged links. 7 OG pages fixed. 3 sitemap pages added.
