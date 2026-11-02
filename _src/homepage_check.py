@@ -20,7 +20,10 @@ def check():
     doc=Doc();doc.feed(h)
     assert doc.h1==1,"exactly one H1"
     assert all(v==1 for v in doc.ids.values()),"duplicate HTML IDs"
-    assert 'THE END OF' in h and 'OPERATIONAL' in h and 'DRAG.' in h
+    assert 'STOP' in h and 'CHASING' in h and 'THE WORK.' in h
+    assert 'THE OPERATING BODY' in h and 'THE NEXT ASSIGNED ACTION' in h
+    assert h.count('data-relay-index=') == 6
+    assert 'memory-ledger' in h and 'authority-card' in h
     assert "PRIVATE DESIGN PREVIEW" not in h
     assert 'name="robots" content="noindex' not in h
     assert 'rel="canonical" href="https://twinthos.com/"' in h

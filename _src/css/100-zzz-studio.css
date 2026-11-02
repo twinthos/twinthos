@@ -1,0 +1,92 @@
+/* Studio 2027 cross-page design cohesion.
+   The public product and informational pages share the same blue-silver/ink language.
+   Respect contrast and original functional form semantics. */
+:root{--ivory:#080D12;--ivory-2:#101923;--paper:#162432;--ink:#F5F7F5;--ink-2:#C6D3DB;
+ --line:#465F71;--line-2:#859CAC;--green:#C4E3F0;--green-t:#233C4D;
+ --amber:#E8D0A9;--amber-ink:#E8D0A9;--amber-t:#3E3327}
+body{background:#080D12;color:#F2F4EF}
+.nav{background:rgba(8,13,18,.94);border-bottom-color:#9DBFD52A;backdrop-filter:blur(22px)}
+.nav.scrolled{background:#090F16F5;border-bottom-color:#8EABB74A}
+.nav .brand{font-size:20px;letter-spacing:-.05em;color:#F4F6F2}
+.nav .brand svg{color:#D9E8EF}
+.nav .nav-links a{color:#CDDBE3;font-size:14px}
+.nav .nav-links a:hover{color:#FFF}
+.nav .nav-cta{background:#E2EDF3;color:#102431;border-color:#E2EDF3;border-radius:3px;font-weight:650}
+.nav .nav-cta:hover{background:#F8FBFA;color:#112636}
+.foot{background:#091017;border-top:1px solid #566F7C}
+.foot .foot-h{color:#B7D0DF}
+.foot .foot-brand{font-size:26px}
+.foot .foot-line{color:#CADAE2}
+.foot a{color:#D4E3E8}
+.foot .foot-base{border-top-color:#3D5563;color:#BBD0DD}
+.w-page{background:#090F15;color:#F2F5F1}
+.w-page-hero{min-height:470px;display:flex;align-items:center;position:relative;overflow:hidden;background:
+ radial-gradient(ellipse 44% 80% at 83% 45%,#527B9440,transparent 75%),#091017;border-bottom:1px solid #445C6A}
+.w-page-hero:before{content:"";position:absolute;right:var(--gut);top:20%;width:min(40vw,470px);height:min(40vw,470px);border:1px solid #8CB0C622;
+ transform:rotate(45deg);pointer-events:none}
+.w-page-hero:after{content:"";position:absolute;right:calc(var(--gut) + 35px);top:25%;width:min(32vw,360px);height:min(32vw,360px);border:1px solid #9BBFD620;transform:rotate(45deg);pointer-events:none}
+.w-page-hero .wrap{position:relative;z-index:2}
+.w-page-hero .w-kicker{color:#C2DCEB;font-size:12px;letter-spacing:.14em}
+.w-page-hero h1{font-size:clamp(58px,7vw,112px);font-weight:540;letter-spacing:-.075em;line-height:.98;margin:30px 0;max-width:1050px;text-wrap:balance}
+.w-page-hero h1 em{color:#B5D4E6;font-style:italic}
+.w-page-hero p:not(.w-kicker){color:#D2DFE7;font-size:clamp(18px,1.65vw,24px);line-height:1.52;max-width:760px}
+.w-page .w-kicker{color:#BCD5E4}
+.w-page .w-page-section{background:#0C151D;border-top-color:#3A5669;position:relative}
+.w-page .w-page-section.w-pale{background:#EDF0EC;color:#102A3A}
+.w-page .w-page-section.w-pale h2{color:#142B37}
+.w-page .w-page-section.w-pale h2 em{color:#3A7291}
+.w-page .w-page-section:not(.w-pale) h2 em{color:#B8D7E8}
+.w-page .w-page-section:not(.w-pale) .w-page-copy p,.w-page .w-page-section:not(.w-pale) .w-page-lead{color:#C7D9E4}
+.w-page .w-page-section.w-pale .w-page-copy p,.w-page .w-page-section.w-pale .w-page-lead{color:#3A5260}
+.w-page .w-page-card{border:1px solid #66859A;background:linear-gradient(148deg,#1C3242,#101E2A);
+ padding:clamp(30px,3.6vw,53px);transition:background .25s,border-color .25s}
+.w-page .w-page-card:hover{background:#20394C;border-color:#A5C5D8}
+.w-page .w-page-card>span{color:#B5D4E5}
+.w-page .w-page-card h3{font-size:clamp(28px,2.85vw,44px);line-height:1.1}
+.w-page .w-page-card p{color:#C6D8E1;font-size:17px}
+.w-page .w-pale .w-page-card{background:#DCE7E9;border-color:#B0C7CF;color:#132F3D}
+.w-page .w-pale .w-page-card>span{color:#3B728B}
+.w-page .w-pale .w-page-card h3{color:#132F3D}
+.w-page .w-pale .w-page-card p{color:#395465}
+.w-page .w-page-steps article{border-color:#7393A5}
+.w-page .w-page-steps article>span{color:#B8D7E7}
+.w-page .w-page-steps article p{color:#C8D9E3}
+.w-page .w-page-cta .w-button{background:#E4EFF4;color:#0B2534;border-color:#E4EFF4;font-weight:650;border-radius:3px}
+.w-page .w-page-cta .w-button:hover{background:#FFF;color:#0B2534}
+.w-page .w-page-footer{background:radial-gradient(ellipse at 66% 44%,#3B67852E,transparent 70%),#0A1118;border-color:#496779;padding-top:130px;padding-bottom:140px}
+.w-page .w-page-footer h2{font-size:clamp(60px,7vw,110px);letter-spacing:-.074em}
+.w-page .w-page-footer p{color:#C8D8E3;font-size:21px}
+.w-page .w-page-footer .w-button{background:#E4EFF4;color:#102634;font-weight:650;border-radius:3px}
+.w-page .w-text-link{color:#C8E3EE;border-color:#A6D4E4}
+.w-page .w-page-section.w-pale .w-text-link{color:#224B62!important;border-color:#3D7B96!important}
+.w-page .home-questions-list{border-top-color:#547184}
+.w-page .home-questions-list details{border-bottom-color:#435F72}
+.w-page .home-questions-list details p{color:#C4D6E0}
+.w-page .w-pale .home-questions-list summary{color:#15384B}
+.w-page .w-pale .home-questions-list details p{color:#3F5A65}
+.w-page .w-pale .home-questions-list details{border-bottom-color:#AEC2CD}
+.w-page .w-pale .home-questions-list{border-top-color:#9ABAC9}
+.phead{background:radial-gradient(ellipse at 83% 41%,#4A74933A,transparent 68%),#0B1219}
+.phead .d2{font-size:clamp(52px,6.2vw,100px);letter-spacing:-.08em;line-height:1.0}
+.phead .lede{color:#C7D9E2}
+.psec{background:#0C151D}
+.psec-alt{background:#14212C}
+.psec .muted,.psec .prose p{color:#C9D9E0}
+.eng-hero{background:radial-gradient(ellipse at 84% 40%,#4B73903C,transparent 72%),#0A1219}
+.eng-proof-card,.eng-project{background:#172733;border-color:#537487}
+.eng-proof-card p,.eng-project p{color:#CFDDE4}
+.book{background:#0D1921}
+.book-main form{background:#14232C;border:1px solid #627E8A;border-radius:4px}
+.book-side{background:#172934;border:1px solid #668493}
+.fld input,.fld textarea{background:#0B1822;border-color:#86A5B6;color:#F6FAF8}
+.fld label,.interest legend{color:#ECF4F1}
+.w-page .book .opt{border-color:#6A8A9B}
+.w-page .book .hint,.w-page .book .side-note,.w-page .book .muted{color:#D1E0E5}
+.w-page .home-investment{background:#EDF0EC!important;color:#142D3B}
+.w-page .home-investment h2,.w-page .home-investment .home-investment-name h3{color:#142D3B}
+.w-page .home-investment .home-investment-managed{background:#122532!important;color:#F3F6F2}
+.w-page .home-investment .home-investment-managed h3,.w-page .home-investment .home-investment-managed .home-investment-price>span{color:#F3F6F2!important}
+.w-page .home-investment .home-investment-managed .home-investment-name p,.w-page .home-investment .home-investment-managed .home-investment-price small,.w-page .home-investment .home-investment-managed .home-investment-details p{color:#CBDBE3}
+.w-page .home-investment .home-investment-note{color:#426071}
+@media(max-width:900px){.w-page-hero:before,.w-page-hero:after{opacity:.25}.w-page-hero{min-height:0}}
+@media(max-width:620px){.w-page-hero{padding-top:75px;padding-bottom:85px}.w-page-hero h1{font-size:clamp(45px,11.1vw,69px)}.w-page-hero:before,.w-page-hero:after{display:none}.w-page .w-page-footer h2{font-size:clamp(46px,11vw,73px)}}

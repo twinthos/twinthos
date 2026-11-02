@@ -2,7 +2,7 @@ name: Website source verification
 on:
   pull_request:
   push:
-    branches: [gh-pages, maintenance/site-2026-11-01]
+    branches: [gh-pages, site-revision-20261101]
 permissions:
   contents: read
 jobs:
@@ -52,8 +52,8 @@ jobs:
           security = Path("security/index.html").read_text(encoding="utf-8")
           engineering = Path("engineering/index.html").read_text(encoding="utf-8")
           css = Path("assets/tw.css").read_text(encoding="utf-8")
-          assert "THE END OF" in home
-          assert "A NEW CLASS OF DIGITAL EMPLOYEE" in home
+          assert "STOP" in home and "CHASING" in home
+          assert "WORK, REIMAGINED" in home
           assert "#trust" in home and "/how-it-works/" in security
           assert 'href="https://github.com/' not in home
           assert 'href="https://github.com/' not in security

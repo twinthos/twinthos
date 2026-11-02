@@ -22,7 +22,15 @@ function renderStory(){const x=scenes[step],auto=mode==='operator';story.dataset
  select('[data-story-boundary]').textContent=auto?(step===4?'Human approval required':'Within the agreed permissions'):'Requires a team member';
  select('[data-story-progress]').style.width=(step+1)/6*100+'%';
  select('[data-story-outcome]').textContent=auto?'One scoped workflow can continue across approved tools. High-impact decisions still require a person.':'The same six steps interrupt different people, tools and moments of the day.';
- select('[data-story-prev]').disabled=step===0;select('[data-story-next]').disabled=step===5;
+ story.querySelectorAll('[data-relay-index]').forEach(node=>{
+  const idx=Number(node.dataset.relayIndex);
+  node.classList.toggle('is-active',idx===step);
+  node.classList.toggle('is-complete',idx<step);
+  node.classList.toggle('is-human',idx===4);
+ });
+ const activeRelay=story.querySelector('[data-story-relay-fill]');
+ if(activeRelay)activeRelay.style.height=((step+1)/6*100)+'%';
+  select('[data-story-prev]').disabled=step===0;select('[data-story-next]').disabled=step===5;
  story.querySelectorAll('[data-story-mode]').forEach(b=>{const active=b.dataset.storyMode===mode;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});
  story.querySelectorAll('[data-story-step]').forEach(b=>{let active=Number(b.dataset.storyStep)===step;b.classList.toggle('active',active);if(active)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current')});}
 function stop(){if(timer!==null){clearInterval(timer);timer=null}select('[data-story-play-label]').textContent='Play story'}
@@ -46,6 +54,27 @@ const parts={
 };
 const anatomy=document.querySelector('[data-anatomy]');if(anatomy){const read=k=>anatomy.querySelector('[data-part-'+k+']');anatomy.addEventListener('click',e=>{const b=e.target.closest('[data-part]');if(!b)return;const p=parts[b.dataset.part];if(!p)return;['counter','icon','kicker','title','description','boundary'].forEach((k,i)=>read(k).textContent=p[i]);anatomy.querySelectorAll('[data-part]').forEach(btn=>{let chosen=btn===b;btn.classList.toggle('selected',chosen);btn.setAttribute('aria-pressed',String(chosen))});});anatomy.querySelector('[data-part="computer"]').setAttribute('aria-pressed','true');}
 if(!reduced&&'IntersectionObserver' in window){const items=[...document.querySelectorAll('[data-reveal]')];if(items.length){document.documentElement.classList.add('reveal-armed');const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');obs.unobserve(e.target)}}),{rootMargin:'0px 0px -6% 0px',threshold:.05});items.forEach(x=>obs.observe(x));}}
+
+/* The visual follows the pointer subtly on desktop; never moves controls. */
+const stage=document.querySelector('.core-v3 .core-scene');
+if(stage&&!reduced&&window.matchMedia('(pointer:fine)').matches){
+  const host=stage.closest('.core-v3');
+  let queued=false,point=null;
+  host.addEventListener('pointermove',e=>{
+    const box=host.getBoundingClientRect();
+    point=[(e.clientX-box.left-box.width/2)/box.width*9,(e.clientY-box.top-box.height/2)/box.height*9];
+    if(queued)return;
+    queued=true;requestAnimationFrame(()=>{
+      queued=false;
+      if(!point)return;
+      stage.style.setProperty('--shift-x',point[0].toFixed(2)+'px');
+      stage.style.setProperty('--shift-y',point[1].toFixed(2)+'px');
+    });
+  },{passive:true});
+  host.addEventListener('pointerleave',()=>{
+    stage.style.setProperty('--shift-x','0px');stage.style.setProperty('--shift-y','0px');
+  });
+}
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
 })();
 
