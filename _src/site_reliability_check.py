@@ -27,16 +27,19 @@ def main():
     assert "kn-chip" not in home and 'id="navLinks"' in home
     assert js.count("var nav=d.querySelector('.nav')")==1,"Duplicate navigation controller"
     assert "Your next hire" in home and 'id="pricing"' in home
+    assert 'class="rates sec"' in home and 'class="dep sec"' not in home, "Repeated sections returned"
+    assert 'class="rh-bottom"' not in home and 'class="rh-evidence"' not in home, "Extra badge or navigation clutter"
+    assert '£999' in home and '£5,000' in home and "three-month minimum" in home
     assert 'class="rh-composition rh-compare"' in home and 'class="rh-system"' not in home
     assert '.rh-composition:not(.rh-compare){display:none!important}' in home, "Critical protection from obsolete circular hero missing"
     css=(ROOT/"assets"/"tw.css").read_text(encoding="utf-8")
     assert 'body.pg-home .rh-system-stage' in css and 'body.pg-home .rh-compare * {animation:none!important}' in css, "Orbit guard missing from published CSS"
-    assert home.count('class="rh-compare-row"') == 4, "Glass comparison must contain four dimensions"
+    assert home.count('class="rh-compare-row"') == 3, "Glass comparison must contain four dimensions"
     assert "d.querySelector(\'.rh-primary\')" in js, "Sticky booking must watch the current hero CTA"
     assert 'class="journey-rail"' in home and 'class="kit-lines"' in home, "Editorial workflow sections missing"
     assert 'class="vs-t"' not in home and 'class="rh-feature-card"' not in home and 'class="kit-grid"' not in home, "Retired boxed layout returned"
-    assert home.count('class="journey-step"') == 3 and home.count('class="journey-step journey-decision"') == 1, "Workflow missing stages"
-    assert "A conceptual workflow, not a customer performance claim." in home
+    assert home.count('class="journey-step"') == 2 and home.count('class="journey-step journey-decision"') == 1, "Workflow missing stages"
+    assert "Illustrative, not a customer performance claim." in home
     assert (ROOT/"_src"/"css"/"zzzzzz-cinematic.css").exists(), "Editorial style source missing"
     assert all(f'href="#{i}"' in home for i in ("why","employee","industries","pricing"))
     assert (ROOT/"book"/"index.html").exists()
@@ -61,10 +64,10 @@ def main():
           assert page.locator("#rh-title").is_visible(),f"{width}: hero must render immediately"
           assert page.locator(".rh-primary").is_visible(),f"{width}: hero CTA missing"
           assert page.locator(".rh-compare").is_visible(),f"{width}: comparison card missing"
-          assert page.locator(".rh-compare-row").count()==4
+          assert page.locator(".rh-compare-row").count()==3
           assert page.locator(".rh-system-stage").count()==0
-          assert page.locator(".journey-rail .journey-step").count()==4
-          assert page.locator(".kit-lines li").count()==6
+          assert page.locator(".journey-rail .journey-step").count()==3
+          assert page.locator(".kit-lines li").count()==4
           assert page.locator(".rh-links a").count()==4
           dims=page.evaluate("""() => ({
             viewport:document.documentElement.clientWidth,
