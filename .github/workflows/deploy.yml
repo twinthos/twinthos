@@ -24,10 +24,28 @@ jobs:
           python-version: '3.12'
       - name: Build site
         run: python3 _src/build.py
+      - name: Stage only public website files
+        run: |
+          mkdir -p .publish
+          for file in .nojekyll 404.html CNAME favicon.svg index.html indexnow-key.txt llms.txt og.png robots.txt sitemap.xml; do
+            if test -f "$file"; then cp "$file" .publish/; fi
+          done
+          for dir in about assets book faq how-it-works images notes operations-audit pricing privacy security terms; do
+            if test -d "$dir"; then cp -R "$dir" .publish/; fi
+          done
+          for dir in audit contact demo demos questions services thankyou; do
+            if test -f "$dir/index.html"; then mkdir -p ".publish/$dir"; cp "$dir/index.html" ".publish/$dir/"; fi
+          done
+          test -f .publish/index.html
+          test ! -e .publish/conversations
+          test ! -e .publish/memory
+          test ! -e .publish/vault
+          test ! -e .publish/brain
+          test ! -e .publish/_src
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: .publish
 
   deploy:
     needs: build
