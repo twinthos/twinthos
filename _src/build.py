@@ -8,11 +8,13 @@ SITE = "https://twinthos.com"
 PREVIEW = os.environ.get("PREVIEW") == "1"
 
 css = "".join(open(p).read() for p in sorted(glob.glob(f"{SRC}/css/*.css")))
-js = "\n".join(open(p).read() for p in sorted(glob.glob(f"{SRC}/js/*.js")))
+# Use one navigation controller. Legacy js/tw.js also toggled the menu.
+ACTIVE_JS = ("10-tw.js", "15-tl.js", "30-sections.js")
+js = "\n".join(open(f"{SRC}/js/{name}", encoding="utf-8").read() for name in ACTIVE_JS)
 os.makedirs(f"{OUT}/assets", exist_ok=True)
 open(f"{OUT}/assets/tw.css", "w").write(css)
 open(f"{OUT}/assets/tw.js", "w").write(js)
-HERO_JS = open(f"{SRC}/js/15-tl.js").read() + "\n" + "\n".join(open(p).read() for p in sorted(glob.glob(f"{SRC}/hero/*.js")))
+HERO_JS = ""  # Retire blocking animated film and its duplicate controllers.
 VER = hashlib.sha1((css + js + HERO_JS).encode()).hexdigest()[:8]
 
 fav = open(f"{OUT}/favicon.svg").read()
@@ -80,8 +82,9 @@ def layout(meta, body):
                 {"@type": "Offer", "name": "Managed digital employee", "price": "5000", "priceCurrency": "GBP", "description": "Monthly implementation and management of a digital employee for one agreed workflow. Three-month minimum."}]},
             ensure_ascii=False) + '</script>'
     body = body.replace('<span class="ar">→</span>', ARROW)
-    # home: inline the stylesheet so the hero film can paint and start on the first frame (no render-blocking request)
-    css_tag = f"<style>{css}</style>" if home else f'<link rel="stylesheet" href="/assets/tw.css?v={VER}">'
+    # One cacheable stylesheet; never inline the entire CSS into the homepage.
+    css_tag = ('<style>html{background:#070A09}body{margin:0;background:#070A09;color:#F3F5F0}</style>'
+               + f'<link rel="stylesheet" href="/assets/tw.css?v={VER}">')
     return f'''<!DOCTYPE html>
 <html lang="en-GB" class="no-js">
 <head>
