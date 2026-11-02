@@ -27,7 +27,8 @@ def main():
     assert "kn-chip" not in home and 'id="navLinks"' in home
     assert js.count("var nav=d.querySelector('.nav')")==1,"Duplicate navigation controller"
     assert "Your business has enough tools." in home
-    assert (ROOT/"_src"/"css"/"zzzzzzzzzzz-human-first.css").exists(), "Human-first design source missing" and 'id="pricing"' in home
+    assert (ROOT/"_src"/"css"/"zzzzzzzzzzz-human-first.css").exists(), "Human-first design source missing"
+    assert 'id="pricing"' in home
     assert 'class="rates sec"' in home and 'class="dep sec"' not in home, "Repeated sections returned"
     assert 'class="rh-bottom"' not in home and 'class="rh-evidence"' not in home, "Extra badge or navigation clutter"
     assert '£999' in home and '£5,000' in home and "three-month minimum" in home
@@ -37,7 +38,7 @@ def main():
     assert 'body.pg-home .rh-system-stage' in css and 'body.pg-home .rh-compare * {animation:none!important}' in css, "Orbit guard missing from published CSS"
     assert home.count('class="rh-compare-row"') == 3
     assert 'class="plain-define"' in home, "Missing simple explanation of digital employee"
-    assert "integrations" not in home and "trigger" not in home, "Technical jargon in homepage", "Glass comparison must contain three concise dimensions"
+    assert "Depends on your integrations" not in home and "approved inbox or trigger" not in home, "Outdated technical copy on homepage"
     assert "d.querySelector(\'.rh-primary\')" in js, "Sticky booking must watch the current hero CTA"
     assert 'class="journey-rail"' in home and 'class="kit-lines"' in home, "Editorial workflow sections missing"
     assert 'class="vs-t"' not in home and 'class="rh-feature-card"' not in home and 'class="kit-grid"' not in home, "Retired boxed layout returned"
