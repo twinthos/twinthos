@@ -1104,3 +1104,59 @@ body.notes .nx-next-action{margin-top:auto;font:600 14px/1.3 var(--sans);color:#
 @media(max-width:900px){body.notes .nx-next-grid{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){body.notes .nx-next-card{grid-template-columns:minmax(0,1fr);gap:0}body.notes .nx-next-photo{min-height:0;aspect-ratio:16/9}body.notes .nx-next-copy{padding:22px;min-height:168px}}
 @media(prefers-reduced-motion:reduce){body.notes .nx-next-card{transition:none!important;transform:none!important}}
+
+
+/* Notes: reader literacy, source-backed evidence and measurable on-page progress */
+body.notes .nx-reading-track{position:fixed;top:var(--nav,68px);height:3px;left:0;right:0;background:#294233;z-index:80;pointer-events:none}
+body.notes .nx-reader-bar{display:block;width:100%;height:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,#C2EAD0,#88C6A4);will-change:transform}
+body.notes .nx-reading-note{display:flex;gap:10px 20px;flex-wrap:wrap;align-items:center;margin:17px 0 5px;font:500 12px/1.45 var(--mono);color:#BCD5C4}
+body.notes .nx-reading-note .nx-reader-progress-count{color:#E8F5E9}
+body.notes .nx-reading-note a{color:#BFE6C9;text-underline-offset:3px}
+body.notes button.nx-term{display:inline;vertical-align:baseline;appearance:none;background:transparent;border:0;border-bottom:1.5px dotted #9ED7B0;border-radius:0;outline-offset:4px;color:inherit;padding:0;font:inherit;line-height:inherit;cursor:help;text-decoration:none;white-space:normal}
+body.notes button.nx-term:hover,body.notes button.nx-term:focus-visible{color:#D2FFDE;background:#34503D60;border-bottom-color:#D2FFDE;outline-color:#A9EAC0}
+body.notes .nx-term-popover{position:fixed;z-index:99999;box-sizing:border-box;min-height:98px;max-height:min(260px,65vh);overflow-y:auto;padding:17px 18px 16px;border:1px solid #70917A;border-radius:11px;background:#122018;color:#EEF7EE;box-shadow:0 18px 60px #000C;text-align:left}
+body.notes .nx-term-popover[hidden]{display:none!important}
+body.notes .nx-term-popover strong{display:block;font:700 17px/1.3 var(--sans);letter-spacing:-.02em}
+body.notes .nx-term-popover span{display:block;margin:7px 0 12px;font:450 15px/1.47 var(--sans);color:#D9E5DA}
+body.notes .nx-term-popover a{color:#B9E9C8;font:650 13px/1.4 var(--sans);text-underline-offset:3px}
+body.notes .nx-decoder{padding:clamp(60px,7vw,100px) 0;border-top:1px solid #455B49;background:#0F1711}
+body.notes .nx-decoder-eyebrow{font:650 11px/1.3 var(--mono);letter-spacing:.13em;color:#B4E8C1}
+body.notes .nx-decoder-header h2{font-weight:650;line-height:1.07;letter-spacing:-.045em;font-size:clamp(34px,4.1vw,56px);margin:14px 0}
+body.notes .nx-decoder-header>p:last-child{color:#C5D4C8;font-size:clamp(16px,1.4vw,19px);max-width:65ch;line-height:1.52}
+body.notes .nx-decoder-details{margin-top:30px;border-top:1px solid #405847}
+body.notes .nx-decoder-details summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:19px 0;color:#EAF7EC;cursor:pointer;font-weight:650;font-size:16px;list-style:none}
+body.notes .nx-decoder-details summary::-webkit-details-marker{display:none}
+body.notes .nx-decoder-details summary span{font-size:25px;font-weight:400;color:#B6E9C4}
+body.notes .nx-decoder-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px 18px;padding:17px 0 30px;margin:0}
+body.notes .nx-decoder-item{padding:18px;background:#17251B;border:1px solid #415A47;border-radius:9px;scroll-margin-top:120px}
+body.notes .nx-decoder-item dt{font-size:17px;font-weight:700;letter-spacing:-.015em;color:#E8F6E9;line-height:1.3}
+body.notes .nx-decoder-item dd{margin:9px 0 0;color:#C7D8CA;font-size:14.5px;line-height:1.48}
+body.notes .nx-decoder-item:target{border-color:#B7E9C4;box-shadow:0 0 0 2px #9EE4B444}
+body.notes .nx-library-facts{display:flex;flex-wrap:wrap;gap:12px 30px;margin:24px 0 7px}
+body.notes .nx-library-facts>div{display:flex;align-items:baseline;gap:9px}
+body.notes .nx-library-facts strong{font:700 clamp(20px,2vw,29px)/1.1 var(--sans);letter-spacing:-.03em;color:#E9F5E8}
+body.notes .nx-library-facts span{font:500 12px/1.3 var(--mono);color:#BCCEBF}
+body.notes .nx-data-viz{margin:clamp(30px,4vw,53px) 0 clamp(35px,5vw,68px);padding:clamp(20px,3.2vw,42px);border:1px solid #516D57;background:linear-gradient(145deg,#14251A,#0E1711);border-radius:13px}
+body.notes .nx-data-label{margin:0 0 12px;color:#A5E3B5;font:700 11px/1.4 var(--mono);letter-spacing:.12em}
+body.notes .nx-data-viz h3{font-size:clamp(24px,2.5vw,36px);font-weight:670;letter-spacing:-.04em;line-height:1.12;margin:0 0 12px;color:#F5F9F4}
+body.notes .nx-data-intro{font-size:15.5px;line-height:1.52;color:#C8D8CA;max-width:58ch;margin:0 0 25px}
+body.notes .nx-data-table{width:100%;border-collapse:separate;border-spacing:0 13px;table-layout:fixed}
+body.notes .nx-data-table th{width:38%;font-size:14px;line-height:1.34;text-align:left;font-weight:540;color:#DDE9DF;padding:4px 16px 4px 0;overflow-wrap:break-word}
+body.notes .nx-data-table td.nx-data-track-cell{width:48%;padding:0 13px 0 0}
+body.notes .nx-data-table td.nx-data-value{width:14%;text-align:right;font:750 clamp(19px,2vw,26px)/1.1 var(--sans);color:#EBF7ED;white-space:nowrap}
+body.notes .nx-data-track{display:block;height:17px;position:relative;background:#2C4331;border-radius:3px;overflow:hidden}
+body.notes .nx-data-track span{height:100%;display:block;width:var(--nx-value);background:linear-gradient(90deg,#608D6F,#A8DDAB);border-radius:3px}
+body.notes .nx-data-viz figcaption{margin-top:18px;padding-top:17px;border-top:1px solid #395040;color:#BDCFBF;font:450 13px/1.52 var(--sans)}
+body.notes .nx-data-viz figcaption a{color:#C8EDD0;text-underline-offset:3px}
+@media(max-width:850px){body.notes .nx-decoder-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){
+ body.notes .nx-decoder-grid{grid-template-columns:minmax(0,1fr);gap:9px}
+ body.notes .nx-term-popover{max-height:48vh;box-shadow:0 12px 40px #000B}
+ body.notes .nx-data-viz{padding:20px 15px}
+ body.notes .nx-data-table th{width:44%;padding-right:8px;font-size:12.5px}
+ body.notes .nx-data-table td.nx-data-track-cell{width:39%;padding-right:7px}
+ body.notes .nx-data-table td.nx-data-value{width:17%;font-size:19px}
+ body.notes .nx-data-track{height:13px}
+ body.notes .nx-reading-note{gap:7px 14px}
+}
+@media(prefers-reduced-motion:reduce){body.notes .nx-reader-bar{will-change:auto}}
