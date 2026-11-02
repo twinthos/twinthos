@@ -50,7 +50,7 @@ def main():
                     else:
                         stage=page.locator(".nx-motion-stage")
                         assert stage.count()==1,(label,"visual infographic absent")
-                        assert page.locator("article .nx-fig img[src*='notes-covers']").count()==1,(label,"new article-specific cover missing")
+                        assert page.locator("article .nx-fig img[src*='notes-covers-v2']").count()==1,(label,"new article-specific cover missing")
                         hero=page.locator("article .nx-fig img").first
                         hero.scroll_into_view_if_needed()
                         hero.evaluate("""async (img) => {
