@@ -2229,3 +2229,15 @@ body .foot a:hover{text-decoration-color:#8cc69c}
  body .phead .d2{font-size:clamp(38px,9.5vw,58px)}
 }
 @media(prefers-reduced-motion:reduce){body .offer-grid .offer{transition:none!important}}
+
+/* Retired circular hero must never render, including when old HTML survives a CSS refresh.
+   The comparison card remains visible and static. */
+body.pg-home .rh-composition:not(.rh-compare),
+body.pg-home .rh-system,
+body.pg-home .rh-system-stage,
+body.pg-home .rh-system-orbit,
+body.pg-home .rh-system-core,
+body.pg-home .rh-system-satellite,
+body.pg-home .rh-system-word,
+body.pg-home .rh-system-steps {display:none!important;animation:none!important}
+body.pg-home .rh-compare,body.pg-home .rh-compare * {animation:none!important}

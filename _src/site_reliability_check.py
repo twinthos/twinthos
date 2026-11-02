@@ -28,6 +28,9 @@ def main():
     assert js.count("var nav=d.querySelector('.nav')")==1,"Duplicate navigation controller"
     assert "Your next hire" in home and 'id="pricing"' in home
     assert 'class="rh-composition rh-compare"' in home and 'class="rh-system"' not in home
+    assert '.rh-composition:not(.rh-compare){display:none!important}' in home, "Critical protection from obsolete circular hero missing"
+    css=(ROOT/"assets"/"tw.css").read_text(encoding="utf-8")
+    assert 'body.pg-home .rh-system-stage' in css and 'body.pg-home .rh-compare * {animation:none!important}' in css, "Orbit guard missing from published CSS"
     assert home.count('class="rh-compare-row"') == 4, "Glass comparison must contain four dimensions"
     assert "d.querySelector(\'.rh-primary\')" in js, "Sticky booking must watch the current hero CTA"
     assert 'class="journey-rail"' in home and 'class="kit-lines"' in home, "Editorial workflow sections missing"
