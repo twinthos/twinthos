@@ -31,13 +31,13 @@ def check():
  assert "data-story-mode" in js and "data-story-step" in js and "aria-pressed" in js,"interactive comparison"
  assert "prefers-reduced-motion" in css,"accessible motion"
  assert "capability-grid" in css and "investment-grid" in css,"source styling"
-  assert "orbit-hub" in html and "story-flow" in html and "data-three-toggle" in html
-  assert "wordmark-symbol" in html and "twinthos-mark.svg" in html
-  assert "orbit-node-memory" in html and "orbit-node-approval" in html
-  assert "data-flow" in js and "twinthos-3d.js" in js
-  assert "orbit-turn" in css and "prefers-reduced-motion" in css
-  assert (ROOT/"assets/twinthos-mark.svg").stat().st_size > 100
-  assert (ROOT/"assets/twinthos-3d.js").stat().st_size > 1000
+ assert "orbit-hub" in html and "story-flow" in html and "data-three-toggle" in html
+ assert "wordmark-symbol" in html and "twinthos-mark.svg" in html
+ assert "orbit-node-memory" in html and "orbit-node-approval" in html
+ assert "data-flow" in js and "twinthos-3d.js" in js
+ assert "orbit-turn" in css and "prefers-reduced-motion" in css
+ assert (ROOT/"assets/twinthos-mark.svg").stat().st_size > 100
+ assert (ROOT/"assets/twinthos-3d.js").stat().st_size > 1000
  assert (ROOT/"assets/experience.css").stat().st_size>12000,"stylesheet unexpectedly empty"
  print("PASS: Quiet Authority public homepage; design, claims, prices, navigation, interaction")
 if __name__=="__main__":check()
