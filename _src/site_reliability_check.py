@@ -34,14 +34,14 @@ def main():
     assert '.rh-composition:not(.rh-compare){display:none!important}' in home, "Critical protection from obsolete circular hero missing"
     css=(ROOT/"assets"/"tw.css").read_text(encoding="utf-8")
     assert 'body.pg-home .rh-system-stage' in css and 'body.pg-home .rh-compare * {animation:none!important}' in css, "Orbit guard missing from published CSS"
-    assert home.count('class="rh-compare-row"') == 3, "Glass comparison must contain four dimensions"
+    assert home.count('class="rh-compare-row"') == 3, "Glass comparison must contain three concise dimensions"
     assert "d.querySelector(\'.rh-primary\')" in js, "Sticky booking must watch the current hero CTA"
     assert 'class="journey-rail"' in home and 'class="kit-lines"' in home, "Editorial workflow sections missing"
     assert 'class="vs-t"' not in home and 'class="rh-feature-card"' not in home and 'class="kit-grid"' not in home, "Retired boxed layout returned"
     assert home.count('class="journey-step"') == 2 and home.count('class="journey-step journey-decision"') == 1, "Workflow missing stages"
     assert "Illustrative, not a customer performance claim." in home
     assert (ROOT/"_src"/"css"/"zzzzzz-cinematic.css").exists(), "Editorial style source missing"
-    assert all(f'href="#{i}"' in home for i in ("why","employee","industries","pricing"))
+    assert all(f'id="{i}"' in home for i in ("why","employee","industries","pricing"))
     assert (ROOT/"book"/"index.html").exists()
     assert (ROOT/"security"/"index.html").exists()
     assert (ROOT/"pricing"/"index.html").exists()
@@ -68,7 +68,7 @@ def main():
           assert page.locator(".rh-system-stage").count()==0
           assert page.locator(".journey-rail .journey-step").count()==3
           assert page.locator(".kit-lines li").count()==4
-          assert page.locator(".rh-links a").count()==4
+          assert page.locator(".rh-links a").count()==0, "Duplicate navigation returned"
           dims=page.evaluate("""() => ({
             viewport:document.documentElement.clientWidth,
             scroll:document.documentElement.scrollWidth,
@@ -77,12 +77,12 @@ def main():
           assert dims["scroll"]<=dims["viewport"]+3,f"{width}: overflow {dims}"
           assert not errors,f"{width}: JS errors {errors}"
           # Test the actual visible links and clickability, rather than just href attributes.
-          page.locator('.rh-links a[href="#why"]').click()
-          assert page.evaluate("location.hash")=="#why",f"{width}: problem link failed"
-          page.locator('.rh-links a[href="#employee"]').click()
-          assert page.evaluate("location.hash")=="#employee",f"{width}: employee link failed"
-          page.locator('.rh-links a[href="#pricing"]').click()
-          assert page.evaluate("location.hash")=="#pricing",f"{width}: pricing link failed"
+          page.locator('.rh-secondary[href="#why"]').click()
+          assert page.evaluate("location.hash")=="#why",f"{width}: problem CTA failed"
+          page.locator("#employee").scroll_into_view_if_needed()
+          assert page.locator("#employee").is_visible(),f"{width}: employee section hidden"
+          (page.locator('.nav-price[href="#pricing"]') if width<=900 else page.locator('.nav-links a[href="#pricing"]')).click()
+          assert page.evaluate("location.hash")=="#pricing",f"{width}: pricing navigation failed"
           page.evaluate("window.scrollTo(0,0)")
           if width<=900:
             toggle=page.locator(".nav-toggle")
@@ -116,7 +116,7 @@ def main():
             assert page.locator(".journey-rail").is_visible()
             page.screenshot(path=str(SHOTS/f"journey-{width}.png"),full_page=False,animations="disabled")
           results.append({"width":width,**dims,"jsErrors":len(errors)})
-          print(f"PASS {width}px: visible first screen, 3 hero anchors, mobile menu, booking CTA, no overflow or JS errors")
+          print(f"PASS {width}px: visible first screen, hero CTA, pricing link, mobile menu, booking CTA, no overflow or JS errors")
           page.close()
         browser.close()
     finally:
