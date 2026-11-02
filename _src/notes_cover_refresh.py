@@ -105,7 +105,9 @@ def update_article(path: Path, slug: str) -> None:
             doc = doc.replace(f"{prefix_old}{size}.{ext}", f"{prefix_new}{size}.{ext}")
     # Only replace old OG URLs for the current article, not other in-article art.
     og = f"https://twinthos.com/assets/notes-covers/og-{slug}.jpg"
-    doc = re.sub(r"https://twinthos\.com/assets/notes-img/og-[A-Za-z0-9-]+\.jpg", og, doc)
+    doc = re.sub(r"https://twinthos\.com/assets/notes-img/[a-z0-9-]+\.jpg", og, doc)
+    doc = doc.replace('<meta property="og:image:width" content="1600">', '<meta property="og:image:width" content="1200">')
+    doc = doc.replace('<meta property="og:image:height" content="900">', '<meta property="og:image:height" content="630">')
     if f"/assets/notes-covers/{slug}-h-1600.jpg" not in doc:
         raise AssertionError(f"{slug}: article hero was not migrated")
     if f"/assets/notes-covers/og-{slug}.jpg" not in doc:
