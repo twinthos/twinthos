@@ -37,13 +37,14 @@ def audit() -> None:
     assert not (ROOT / "images").exists(), "Legacy private pitch image directory still exposed"
     # Heuristic catches common hard-coded credential formats; not a comprehensive secret scanner.
     signatures = (
-        re.compile(r"\\b(?:AKIA|ASIA)[A-Z0-9]{16}\\b"),
-        re.compile(r"\\bgh[pousr]_[A-Za-z0-9]{28,}\\b"),
-        re.compile(r"\\bgithub_pat_[A-Za-z0-9_]{50,}\\b"),
-        re.compile(r"\\bxox[baprs]-[A-Za-z0-9-]{24,}\\b"),
+        re.compile(r"\b(?:AKIA|ASIA)[A-Z0-9]{16}\b"),
+        re.compile(r"\bgh[pousr]_[A-Za-z0-9]{28,}\b"),
+        re.compile(r"\bgithub_pat_[A-Za-z0-9_]{50,}\b"),
+        re.compile(r"\bxox[baprs]-[A-Za-z0-9-]{24,}\b"),
         re.compile(r"sk-proj-[A-Za-z0-9_-]{24,}"),
         re.compile(r"-----BEGIN (?:OPENSSH |RSA |EC |DSA )?PRIVATE KEY-----"),
     )
+    assert signatures[0].search("AKIA" + "A" * 16), "Credential detector self-test failed"
     for path in ROOT.rglob("*"):
         if not path.is_file() or path.suffix.lower() not in {".html", ".js", ".json", ".css", ".xml", ".txt", ".md", ".yml", ".yaml", ".py"}:
             continue
