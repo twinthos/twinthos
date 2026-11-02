@@ -1,0 +1,65 @@
+name: Publish Notes editorial imagery
+on:
+  push:
+    branches:
+      - gh-pages
+      - notes/editorial-covers-2026-11-02
+    paths:
+      - '_src/notes_cover_refresh.py'
+      - '.github/workflows/refresh-notes-covers.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build-notes-images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image conversion dependency
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Create and connect all 12 editorial images
+        run: python3 _src/notes_cover_refresh.py
+      - name: Verify all revised images and article references
+        run: |
+          python3 _src/notes_quality_gate.py
+          python3 - <<'PY'
+          from pathlib import Path
+          root=Path('assets/notes-covers')
+          assert len(list(root.glob('*-h-1600.webp')))==12
+          assert len(list(root.glob('*-h-800.webp')))==12
+          assert len(list(root.glob('og-*.jpg')))==13
+          for page in Path('notes').glob('*/index.html'):
+            text=page.read_text()
+            slug=page.parent.name
+            assert f'/assets/notes-covers/{slug}-h-1600.jpg' in text
+            assert f'/assets/notes-covers/og-{slug}.jpg' in text
+          index=Path('notes/index.html').read_text()
+          assert index.count('/assets/notes-covers/')>=48
+          print('PASS: 12 covers, cards, article heroes and OG previews')
+          PY
+      - name: Save artwork previews for visual QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: twinthos-notes-article-covers
+          path: assets/notes-covers/
+          retention-days: 7
+      - name: Commit new published artwork to the real website branch
+        if: github.ref == 'refs/heads/gh-pages'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/notes-covers/ notes/
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish article-specific Notes artwork and social previews"
+            git pull --rebase origin gh-pages
+            git push origin HEAD:gh-pages
+          else
+            echo "No artwork changes were required."
+          fi
