@@ -62,7 +62,7 @@ for page in PAGES:
 
 # The published editorial artwork must exist for every article, not just the
 # source photographs. Catch stale thumbnails or missing social cards in CI.
-COVERS = ROOT / "assets/notes-covers"
+COVERS = ROOT / "assets/notes-covers-v2"
 for page in PAGES:
     slug = page.parent.name
     article = page.read_text(encoding="utf-8")
@@ -70,17 +70,20 @@ for page in PAGES:
         for ext in ("jpg", "webp"):
             asset = COVERS / f"{slug}-h-{size}.{ext}"
             assert_file(asset)
-            if f"/assets/notes-covers/{slug}-h-{size}.{ext}" not in article:
+            if f"/assets/notes-covers-v2/{slug}-h-{size}.{ext}" not in article:
                 errors.append(f"{slug}: not using editorial {size}.{ext} cover")
     og = COVERS / f"og-{slug}.jpg"
     assert_file(og)
-    if f"https://twinthos.com/assets/notes-covers/og-{slug}.jpg" not in article:
+    if f"https://twinthos.com/assets/notes-covers-v2/og-{slug}.jpg" not in article:
         errors.append(f"{slug}: old or missing OG image")
-if "https://twinthos.com/assets/notes-covers/og-index.jpg" not in index:
+if "https://twinthos.com/assets/notes-covers-v2/og-index.jpg" not in index:
     errors.append("Notes index: old social preview image")
-if "assets/notes-covers/" not in index:
+if "assets/notes-covers-v2/" not in index:
     errors.append("Notes index: editorial covers not linked")
 assert_file(COVERS / "og-index.jpg")
+
+if "19 QUESTIONS" in index or "A $2 AI" in index:
+    errors.append("Notes: stale or misleading article cover headline still published")
 
 if errors:
     print("\n".join(errors))
