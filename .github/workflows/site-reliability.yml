@@ -28,6 +28,8 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Test first paint, real links and mobile navigation
         run: python3 _src/site_reliability_check.py
+      - name: Browser-test Notes imagery and animated infographics
+        run: python3 _src/notes_browser_check.py
       - name: Save mobile and desktop screenshots
         if: always()
         uses: actions/upload-artifact@v4
