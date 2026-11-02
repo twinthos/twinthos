@@ -40,6 +40,9 @@ def main():
                     response=page.goto(base+route,wait_until="networkidle",timeout=30000)
                     assert response and response.status==200,(label,"status")
                     assert page.locator("h1").is_visible(),(label,width,"heading")
+                    assert page.locator('link[href*="/assets/gunmetal.css"]').count()==1,(label,width,"gunmetal stylesheet not loaded")
+                    assert page.evaluate('getComputedStyle(document.documentElement).getPropertyValue("--gm-bg").trim()')=="#090B0E",(label,width,"gunmetal palette missing")
+                    assert page.evaluate('getComputedStyle(document.body).color')=="rgb(255, 255, 255)",(label,width,"Notes body text is not white")
                     scroll=page.evaluate("document.documentElement.scrollWidth")
                     viewport=page.evaluate("document.documentElement.clientWidth")
                     assert scroll<=viewport+3,(label,width,"overflow",scroll,viewport)
@@ -54,6 +57,7 @@ def main():
                     else:
                         stage=page.locator(".nx-motion-stage")
                         assert stage.count()==1,(label,"visual infographic absent")
+                        assert stage.evaluate('(el)=>getComputedStyle(el).color')=="rgb(255, 255, 255)",(label,width,"infographic text not white")
                         assert page.locator("article .nx-fig img[src*='notes-covers-v2']").count()==1,(label,"new article-specific cover missing")
                         hero=page.locator("article .nx-fig img").first
                         hero.scroll_into_view_if_needed()

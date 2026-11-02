@@ -18,7 +18,7 @@ if len(PAGES) != 12:
 for page in PAGES:
     slug = page.parent.name
     data = page.read_text(encoding="utf-8")
-    for required in ("notes-motion.css", "notes-motion.js", 'class="nx-verified-sources"', '<meta property="og:image"', 'name="twitter:card"'):
+    for required in ("notes-motion.css", "notes-motion.js", 'class="nx-verified-sources"', '<meta property="og:image"', 'name="twitter:card"', 'assets/gunmetal.css?v=gunmetal-20261102-v1', 'notes.css?v=gunmetal-steel-20261102-v2', 'notes-motion.css?v=gunmetal-steel-20261102-v2'):
         if required not in data:
             errors.append(f"{slug}: missing {required}")
     for asset in ("notes-motion.css", "notes-motion.js"):
@@ -53,6 +53,8 @@ for page in PAGES:
         errors.append("intro article: generic hero image")
 
 index = (ROOT / "notes/index.html").read_text(encoding="utf-8")
+if 'assets/gunmetal.css?v=gunmetal-20261102-v1' not in index:
+    errors.append("Notes index: missing shared gunmetal theme")
 if "notes-motion.css" not in index:
     errors.append("Notes index: missing motion stylesheet")
 for page in PAGES:

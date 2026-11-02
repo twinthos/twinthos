@@ -52,6 +52,9 @@ def main():
     assert (ROOT/"book"/"index.html").exists()
     assert (ROOT/"security"/"index.html").exists()
     assert (ROOT/"pricing"/"index.html").exists()
+    for section in ("about","how-it-works","pricing","security","book","operations-audit","faq"):
+      page_file=ROOT/section/"index.html"
+      assert 'assets/gunmetal.css?v=gunmetal-20261102-v1' in page_file.read_text(encoding="utf-8"),f"{section}: shared theme missing"
     subprocess.run(["node","--check",str(ROOT/"assets"/"tw.js")],check=True)
 
     server=ThreadingHTTPServer(("127.0.0.1",0),partial(Quiet,directory=str(ROOT)))
