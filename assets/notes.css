@@ -991,3 +991,23 @@ body.notes-index .nx-card-img{background:#0B110D}
 body.notes-index .nx-card .nx-card-m:after{content:"Read & apply ↗"}
 @media(max-width:800px){body.notes .nx-discover-top{grid-template-columns:1fr;gap:25px}body.notes .nx-result-count{flex:1 0 100%;margin-top:5px;margin-left:0}}
 @media(max-width:550px){body.notes .nx-filter-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}body.notes .nx-filter-row button{min-width:0;padding:10px 11px;font-size:13px}body.notes .nx-filter-row .nx-result-count{grid-column:1/-1}}
+
+
+/* Poster artwork must never be cropped: every cover contains a distinct
+   visual argument, including a headline in the left safe area. */
+body.notes-index img[src^="/assets/notes-covers/"],
+body.notes:not(.notes-index) .nx-fig>img[src^="/assets/notes-covers/"]{
+ display:block;width:100%;height:auto;aspect-ratio:16/9!important;
+ object-fit:contain!important;object-position:center;
+ filter:none!important;opacity:1!important;background:#0C130E;
+}
+body.notes:not(.notes-index) .nx-fig>img[src^="/assets/notes-covers/"]{
+ border:1px solid #58745D!important;border-radius:16px!important;
+ box-shadow:0 18px 50px #0005;
+}
+@media(max-width:760px){
+ body.notes-index img[src^="/assets/notes-covers/"],
+ body.notes:not(.notes-index) .nx-fig>img[src^="/assets/notes-covers/"]{
+  aspect-ratio:16/9!important;object-fit:contain!important;
+ }
+}
