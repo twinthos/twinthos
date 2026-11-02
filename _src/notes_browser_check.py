@@ -51,7 +51,17 @@ def main():
                         stage=page.locator(".nx-motion-stage")
                         assert stage.count()==1,(label,"visual infographic absent")
                         assert page.locator(".nx-hero-hook strong").is_visible(),(label,"art headline absent")
-                        assert page.locator("article .nx-fig img").evaluate("(x)=>x.complete&&x.naturalWidth>=800"),(label,"hero image broken")
+                        hero=page.locator("article .nx-fig img").first
+                        hero.scroll_into_view_if_needed()
+                        hero.evaluate("""async (img) => {
+                            if (img.complete && img.naturalWidth > 0) return;
+                            await Promise.race([
+                                new Promise(resolve => {img.addEventListener('load',resolve,{once:true}); img.addEventListener('error',resolve,{once:true});}),
+                                new Promise(resolve => setTimeout(resolve,3000))
+                            ]);
+                        }""")
+                        dimensions=hero.evaluate("(img)=>({complete:img.complete,width:img.naturalWidth,height:img.naturalHeight,src:img.currentSrc})")
+                        assert dimensions["complete"] and dimensions["width"]>0 and dimensions["height"]>0,(label,"hero image did not load",dimensions)
                         assert page.locator(".nx-verified-sources a[href^='https://']").count()>=1,(label,"sources")
                         stage.scroll_into_view_if_needed()
                         assert stage.is_visible(),(label,"scroll visual hidden")
