@@ -89,11 +89,11 @@
 .fld input:hover,.fld textarea:hover{border-color:var(--ink)}
 .fld input:focus,.fld textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px var(--green-t),0 0 0 1px var(--ink) inset}
 .hint{margin-top:8px;font-size:16px;color:var(--ink-2)}
-.emsg{display:none;margin-top:8px;font-size:16px;font-weight:500;color:#FF8F7E}
-.fld.err input,.fld.err textarea{border-color:#FF8F7E;box-shadow:0 0 0 1px #FF8F7E inset}
+.emsg{display:none;margin-top:8px;font-size:16px;font-weight:500;color:#FF6B6B}
+.fld.err input,.fld.err textarea{border-color:#FF6B6B;box-shadow:0 0 0 1px #FF6B6B inset}
 .fld.err .emsg{display:flex;gap:8px}
-.fld.err .emsg::before{content:"!";display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#FF8F7E;color:#2A1411;font-size:12px;font-weight:700;flex:none;margin-top:2px}
-.form-sum,.form-fail{margin-top:8px;margin-bottom:20px;padding:16px 18px;border:1.5px solid #FF8F7E;border-radius:8px;background:#2A1411;color:#FFC2B7;font-weight:500}
+.fld.err .emsg::before{content:"!";display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#FF6B6B;color:#0E1210;font-size:12px;font-weight:700;flex:none;margin-top:2px}
+.form-sum,.form-fail{margin-top:8px;margin-bottom:20px;padding:16px 18px;border:1.5px solid #FF6B6B;border-radius:8px;background:#0E1210;color:#FF6B6B;font-weight:500}
 .form-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-top:8px}
 .form-actions .btn[disabled]{opacity:.6;cursor:progress}
 .form-done{border-top:1px solid var(--ink);padding-top:28px}
