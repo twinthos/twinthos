@@ -134,3 +134,21 @@ html.motion-ready [data-reveal-motion].motion-visible{opacity:1;transform:transl
 @media(prefers-reduced-motion:reduce){.orbit-ring::after,.orbit-hub,.orbit-node{animation:none!important}
  html.motion-ready [data-reveal-motion]{opacity:1;transform:none;transition:none}
  .story-flow>span{transition:none!important}}
+
+
+/* Screenshot-led final readability corrections. */
+.hero h1{letter-spacing:-.054em}
+.story-left h3,.story-right .story-action{letter-spacing:-.034em}
+.approval-panel .approval-status{
+ display:flex;align-items:center;justify-content:space-between;gap:16px;
+ min-height:58px;margin-top:22px;padding:15px 18px;
+ background:#302A24;border:1px solid #93795A;color:#E8D6B6}
+.approval-panel .approval-status>span{font-size:12px;line-height:1.5;color:#E7CBA4}
+.approval-panel .approval-status>strong{color:#FFE9C6;font-size:15px;line-height:1.4}
+.approval-panel .approval-footer{color:#BDD0D8;font-size:11px}
+@media(max-width:620px){
+ .hero h1{letter-spacing:-.034em!important;line-height:1.06!important}
+ .hero-description{letter-spacing:-.005em}
+ .story-left h3{letter-spacing:-.028em}
+ .approval-panel .approval-status{padding:14px;flex-wrap:wrap}
+}
