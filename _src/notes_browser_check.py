@@ -47,6 +47,10 @@ def main():
                     if label=="index":
                         assert page.locator(".nx-card").count()>=10,(label,"card count")
                         assert page.locator('.nx-latest-img img').evaluate("(x)=>x.complete&&x.naturalWidth>0"),(label,"featured art")
+                        assert "notes-covers-v2" in page.locator('.nx-latest-img img').get_attribute("src"),(label,"featured art is out of date")
+                        card_images=page.locator(".nx-card img")
+                        assert card_images.count()==12,(label,"expected 12 article thumbnails")
+                        assert all("notes-covers-v2" in item.get_attribute("src") for item in card_images.all()),(label,"stale Notes thumbnail")
                     else:
                         stage=page.locator(".nx-motion-stage")
                         assert stage.count()==1,(label,"visual infographic absent")
