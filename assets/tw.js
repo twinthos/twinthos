@@ -37,7 +37,7 @@ d.querySelectorAll('form[data-form]').forEach(function(f){
     d.querySelectorAll('[data-for]').forEach(function(e){e.hidden=e.dataset.for!==c.value;});};
   if(sel){
     var want=new URLSearchParams(location.search).get('interest');
-    var r=want&&f.querySelector('[name=interest][value="'+want+'"]');
+    var r=Object.prototype.hasOwnProperty.call(LBL,want)&&f.querySelector('[name=interest][value="'+want+'"]');
     if(r)r.checked=true;
     sel.addEventListener('change',sync);sync();
   }
@@ -59,10 +59,12 @@ d.querySelectorAll('form[data-form]').forEach(function(f){
     var o={};new FormData(f).forEach(function(v,k2){o[k2]=v;});
     if(o.interest)o.interest=LBL[o.interest]||o.interest;
     btn.disabled=true;var old=btn.innerHTML;btn.textContent='Sending…';fail.hidden=true;
-    fetch(f.action,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(o)})
-      .then(function(r){return r.json().catch(function(){return {};}).then(function(j){if(!r.ok||String(j.success)==='false')throw 0;});})
+    var ctrl=new AbortController(), timer=setTimeout(function(){ctrl.abort();},15000);
+    fetch(f.action,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(o),signal:ctrl.signal})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(j){if(!r.ok||j.success===false||j.success==='false'||j.success===undefined)throw 0;});})
       .then(function(){f.hidden=true;done.hidden=false;var h=done.querySelector('h2');h.setAttribute('tabindex','-1');h.focus();})
-      .catch(function(){fail.hidden=false;btn.disabled=false;btn.innerHTML=old;fail.focus();});
+      .catch(function(){fail.hidden=false;btn.disabled=false;btn.innerHTML=old;fail.focus();})
+      .finally(function(){clearTimeout(timer);});
   });
 });
 })();

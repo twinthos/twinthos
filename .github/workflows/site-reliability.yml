@@ -18,6 +18,8 @@ jobs:
           python-version: '3.11'
       - name: Rebuild website from canonical source
         run: python3 _src/build.py
+      - name: Verify public-site security invariants
+        run: python3 _src/site_security_check.py
       - name: Browser prerequisites
         run: |
           python -m pip install playwright==1.55.0

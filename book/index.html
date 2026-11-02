@@ -49,7 +49,7 @@
       <form data-form data-done="bookDone" action="https://formsubmit.co/ajax/twinthos@agentmail.to" method="POST" novalidate>
         <input type="hidden" name="_subject" value="Twinthos enquiry">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_captcha" value="true">
         <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <fieldset class="interest">
           <legend>What would you like to discuss?</legend>
@@ -58,10 +58,11 @@
           <label class="opt"><input type="radio" name="interest" value="managed"><span class="opt-in"><b>Managed digital employee</b><span>£5,000 per month. Built and managed for you.</span></span></label>
           <label class="opt"><input type="radio" name="interest" value="unsure"><span class="opt-in"><b>Not sure yet</b><span>Tell us the problem. We will suggest a start.</span></span></label>
         </fieldset>
-        <div class="fld"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required aria-describedby="e-name"><p class="emsg" id="e-name">Please add your name.</p></div>
-        <div class="fld"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email"><p class="emsg" id="e-email">Please add an email address we can reply to, like name@company.com.</p></div>
-        <div class="fld"><label for="f-co">Company <span class="opt-l">and website, optional</span></label><input id="f-co" name="company" autocomplete="organization"></div>
-        <div class="fld"><label for="f-msg">Which task keeps coming back?</label><textarea id="f-msg" name="message" rows="5" required aria-describedby="h-msg e-msg"></textarea><p class="hint" id="h-msg">A few sentences is enough. Please leave out private customer details.</p><p class="emsg" id="e-msg">Please tell us about the task in a sentence or two.</p></div>
+        <div class="fld"><label for="f-name">Name</label><input id="f-name" name="name" maxlength="150" autocomplete="name" required aria-describedby="e-name"><p class="emsg" id="e-name">Please add your name.</p></div>
+        <div class="fld"><label for="f-email">Work email</label><input id="f-email" name="email" maxlength="254" type="email" autocomplete="email" required aria-describedby="e-email"><p class="emsg" id="e-email">Please add an email address we can reply to, like name@company.com.</p></div>
+        <div class="fld"><label for="f-co">Company <span class="opt-l">and website, optional</span></label><input id="f-co" name="company" maxlength="200" autocomplete="organization"></div>
+        <div class="fld"><label for="f-msg">Which task keeps coming back?</label><textarea id="f-msg" name="message" maxlength="3000" rows="5" required aria-describedby="h-msg e-msg"></textarea><p class="hint" id="h-msg">A few sentences is enough. Please leave out private customer details.</p><p class="emsg" id="e-msg">Please tell us about the task in a sentence or two.</p></div>
+        <p class="hint">Your message is delivered through FormSubmit; its spam check may ask you to verify. Do not send passwords, private client records or medical data. <a href="/privacy/">How we handle your information</a>.</p>
         <p class="form-sum" role="alert" hidden>Some details are missing. Please check the fields marked below.</p>
         <div class="form-actions">
           <button class="btn btn-ink" type="submit">Send my request <svg class="ar" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h11M8 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
