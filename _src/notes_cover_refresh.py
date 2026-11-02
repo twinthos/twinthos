@@ -115,6 +115,7 @@ def update_article(path: Path, slug: str) -> None:
         raise AssertionError(f"{slug}: article hero was not migrated")
     if f"/assets/notes-covers/og-{slug}.jpg" not in doc:
         raise AssertionError(f"{slug}: social image was not migrated")
+    doc = doc.replace("/assets/notes.css?v=education-20261102", "/assets/notes.css?v=editorial-20261102b")
     path.write_text(doc, encoding="utf-8")
 
 def main() -> None:
@@ -147,6 +148,7 @@ def main() -> None:
     (DEST/"og-index.jpg").write_bytes((DEST/"og-the-company-brain.jpg").read_bytes())
     listing=listing.replace("https://twinthos.com/assets/notes-img/og-index.jpg",
                             "https://twinthos.com/assets/notes-covers/og-index.jpg")
+    listing = listing.replace("/assets/notes.css?v=education-20261102", "/assets/notes.css?v=editorial-20261102b")
     index.write_text(listing,encoding="utf-8")
     print("PASS: all 12 article-cover families, 13 HTML pages and social images refreshed.")
 
