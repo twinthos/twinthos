@@ -21,6 +21,8 @@ for page in PAGES:
     for required in ("notes-motion.css", "notes-motion.js", 'class="nx-verified-sources"', '<meta property="og:image"', 'name="twitter:card"'):
         if required not in data:
             errors.append(f"{slug}: missing {required}")
+    if data.count('class="nx-verified-sources"') != 1:
+        errors.append(f"{slug}: expected exactly one source notes section")
     published = re.search(r'<meta property="article:published_time" content="([^"]+)"', data)
     schema = re.search(r'"datePublished":"(\d{4}-\d{2}-\d{2})"', data)
     if not published or not schema or published.group(1)[:10] != schema.group(1):
