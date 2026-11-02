@@ -1160,3 +1160,11 @@ body.notes .nx-data-viz figcaption a{color:#C8EDD0;text-underline-offset:3px}
  body.notes .nx-reading-note{gap:7px 14px}
 }
 @media(prefers-reduced-motion:reduce){body.notes .nx-reader-bar{will-change:auto}}
+
+
+/* 2026-11-02 / Covers now carry the article-specific editorial headline.
+   Retire legacy image captions that would duplicate or obscure the new art. */
+body.notes-index .nx-feature-photo-hook,
+body.notes-index .nx-cover-hook,
+body.notes-index .nx-photo-shade,
+body.notes .nx-hero-hook {display:none!important}
