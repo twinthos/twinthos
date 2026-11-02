@@ -126,7 +126,7 @@ def update_article(path: Path, slug: str) -> None:
                 doc = doc.replace(f"{old_prefix}{size}.{ext}", f"{prefix_new}{size}.{ext}")
     # Only replace old OG URLs for the current article, not other in-article art.
     og = f"https://twinthos.com/assets/notes-covers-v2/og-{slug}.jpg"
-    doc = re.sub(r"https://twinthos\\.com/assets/(?:notes-img|notes-covers)/og-[a-z0-9-]+\\.jpg", og, doc)
+    doc = re.sub(r"https://twinthos\.com/assets/(?:notes-img|notes-covers)/og-[a-z0-9-]+\.jpg", og, doc)
     # Some legacy OG records point directly at the hero image and were already
     # migrated to notes-covers above; convert those to the dedicated OG crop.
     doc = doc.replace(f"https://twinthos.com/assets/notes-covers-v2/{slug}-h-1600.jpg", og)
