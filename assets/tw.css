@@ -2047,31 +2047,6 @@ body.pg-home{overflow-x:clip;background:#070A09}
  .pg-security .sc-inview{animation:none!important;transform:none!important;opacity:1!important}
 }
 
-/* Twinthos | editorial operational contrast | 2026-11-02 */
-.pg-home .vs{background:radial-gradient(ellipse at 10% 2%,#1e382721,transparent 58%),#0c130f;border-block:1px solid #304337;padding-block:clamp(76px,9vw,145px)}
-.pg-home .vs .sec-head{max-width:1200px;margin-bottom:clamp(32px,4vw,65px)}
-.pg-home .vs .sec-head .eyebrow{color:#bdd5c4;letter-spacing:.12em;font-size:12px;margin-bottom:23px}
-.pg-home .vs .d2{font-size:clamp(41px,5.2vw,82px);font-weight:560;line-height:1.05;letter-spacing:-.06em;max-width:19ch;color:#f4f5f0}
-.pg-home .vs .gl{text-shadow:none;color:#afd6ba}
-.pg-home .vs-t{max-width:none;border-spacing:0;border:1px solid #405a47;border-radius:15px;overflow:hidden;box-shadow:0 26px 75px #0005}
-.pg-home .vs-t th,.pg-home .vs-t td{padding-block:clamp(20px,2vw,31px);font-weight:550}
-.pg-home .vs-t th.vs-a,.pg-home .vs-t td:first-child{background:#17231b;color:#d0dad0}
-.pg-home .vs-t th.vs-a{border-radius:0}
-.pg-home .vs-t th.vs-a b{color:#d8e2d8}
-.pg-home .vs-t th.vs-a>span{color:#b1c1b3}
-.pg-home .vs-t th.vs-b,.pg-home .vs-t td:last-child{background:#e2ebe0;color:#1a3422;border:0;border-left:1px solid #9dad9f;box-shadow:none}
-.pg-home .vs-t th.vs-b{border-radius:0}
-.pg-home .vs-t th.vs-b b{color:#1a3422}
-.pg-home .vs-t th.vs-b>span{color:#41634c}
-.pg-home .vs-t th.vs-b .vs-mk{color:#205538}
-.pg-home .vs-t td:last-child{border-top:1px solid #b6c7b6}
-.pg-home .vs-t tr:last-child td:last-child{border-radius:0;box-shadow:none}
-.pg-home .vs-t td:last-child::before{background-color:#277b4b;box-shadow:none}
-.pg-home .vs-note{font-size:13px;line-height:1.6;color:#b3c3b6;max-width:80ch;margin-top:20px}
-.pg-home .rh-primary{border-radius:5px}
-.pg-home .rh-composition-note{color:#b8cbbd}
-@media(max-width:640px){.pg-home .vs-t{border-radius:10px}.pg-home .vs-t th,.pg-home .vs-t td{font-size:15px;padding-block:18px}.pg-home .vs-t th b{font-size:16px}.pg-home .vs-t th>span{font-size:10px;letter-spacing:0}.pg-home .vs-t td:last-child{padding-left:38px}.pg-home .vs-t td:last-child::before{left:12px}.pg-home .vs-note{font-size:12px}}
-@media(prefers-reduced-motion:reduce){.pg-home .vs-t td{transition:none!important;animation:none!important}}
 
 
 /* TWINTHOS / EDITORIAL MOTION SYSTEM — 2026-11-02
@@ -2210,3 +2185,37 @@ body.pg-home{overflow-x:clip;background:#070A09}
  .pg-home .rh-system-orbit-one,.pg-home .rh-system-orbit-two,.pg-home .journey-step:after{animation:none!important}
  .pg-home .journey-step:after{right:0;opacity:.35}
 }
+
+/* TwinThos sitewide visual consistency / 2026-11-02.
+   Open editorial pricing, predictable page hierarchy, no floated cards. */
+body.pg-home .offers,body.pg-pricing .offers{background:#0b120e}
+body.pg-home .offer-grid,body.pg-pricing .offer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;align-items:stretch;border-block:1px solid #59725f}
+body.pg-home .offer-grid #audit,body.pg-home .offer-grid #managed,body.pg-pricing .offer-grid #audit,body.pg-pricing .offer-grid #managed{
+  min-width:0;display:flex;flex-direction:column;grid-column:auto;grid-row:auto;
+  margin:0;padding:clamp(31px,4vw,64px) clamp(19px,4vw,65px);
+  border:0;border-radius:0;clip-path:none;background:transparent;color:#f2f6ef;
+  box-shadow:none;overflow:visible;transform:none;transition:none
+}
+body.pg-home .offer-grid #audit,body.pg-pricing .offer-grid #audit{padding-left:0;border-right:1px solid #59725f}
+body.pg-home .offer-grid #managed,body.pg-pricing .offer-grid #managed{padding-right:0}
+body.pg-home .offer-grid .offer:hover,body.pg-pricing .offer-grid .offer:hover{border-color:transparent;box-shadow:none;transform:none;background:transparent}
+body .offer-grid .o-eyeline{border-bottom:1px solid #455e4b;color:#b7d8be;padding-bottom:20px}
+body .offer-grid .o-name{font-size:clamp(23px,2.25vw,35px);line-height:1.1}
+body .offer-grid .o-price{border:0}
+body .offer-grid .o-list{border-top:1px solid #3c5543}
+body .offer-grid .o-note{color:#b8cabc}
+body .offer-grid .o-cta .btn{border-radius:2px}
+body.pg-pricing .phead,body.pg-about .phead,body.pg-page .phead{background:radial-gradient(ellipse at 85% 20%,#20492c26,transparent 65%),#0b110d}
+body .phead .d2{font-weight:570;letter-spacing:-.055em;line-height:1.06}
+body .phead .lede{font-size:clamp(18px,1.45vw,23px);line-height:1.5;color:#bbd0c0}
+body .psec .rows .row{border-color:#455749}
+body .foot{background:#070b08}
+body .foot a{color:#e8f0e7}
+body .foot a:hover{text-decoration-color:#8cc69c}
+@media(max-width:760px){
+ body.pg-home .offer-grid,body.pg-pricing .offer-grid{grid-template-columns:minmax(0,1fr);border-bottom:0}
+ body.pg-home .offer-grid #audit,body.pg-home .offer-grid #managed,body.pg-pricing .offer-grid #audit,body.pg-pricing .offer-grid #managed{padding:32px 0 40px;border:0;border-bottom:1px solid #59725f}
+ body.pg-home .offer-grid .o-cta .btn,body.pg-pricing .offer-grid .o-cta .btn{min-height:56px}
+ body .phead .d2{font-size:clamp(38px,9.5vw,58px)}
+}
+@media(prefers-reduced-motion:reduce){body .offer-grid .offer{transition:none!important}}
