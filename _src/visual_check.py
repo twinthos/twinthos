@@ -112,17 +112,18 @@ def run():
                             return contrast(fg,bg)
                         next_ratio=computed_contrast("[data-story-next]","[data-story-next]")
                         assert next_ratio>=7, f"Story next button unreadable: {next_ratio:.1f}:1"
-                        authority_fg=page.locator(".authority-rules b").first.evaluate("(e)=>getComputedStyle(e).color")
-                        authority_bg=page.locator(".authority-rules").evaluate("(e)=>getComputedStyle(e).backgroundColor")
-                        authority_ratio=contrast(authority_fg,authority_bg)
-                        assert authority_ratio>=7, f"Approval rules unreadable: {authority_ratio:.1f}:1"
-                        print(f"PASS {width}px operating controls: Next {next_ratio:.1f}:1, Rules {authority_ratio:.1f}:1")
+                        approval_fg=page.locator(".approval-status strong").evaluate("(e)=>getComputedStyle(e).color")
+                        approval_bg=page.locator(".approval-panel").evaluate("(e)=>getComputedStyle(e).backgroundColor")
+                        approval_ratio=contrast(approval_fg,approval_bg)
+                        assert approval_ratio>=7, f"Human approval panel unreadable: {approval_ratio:.1f}:1"
+                        print(f"PASS {width}px operating controls: Next {next_ratio:.1f}:1, Approval {approval_ratio:.1f}:1")
 
-                        page.locator('[data-part="card"]').click()
-                        assert "card" in page.locator("[data-part-title]").inner_text().lower()
-                        page.locator('[data-part="memory"]').click()
-                        assert "memory" in page.locator("[data-part-title]").inner_text().lower()
-                        assert page.locator('[data-part="memory"]').get_attribute("aria-pressed")=="true"
+                        details=page.locator(".more-capabilities")
+                        assert details.count()==1
+                        details.locator("summary").click()
+                        assert details.get_attribute("open") is not None
+                        assert "Purchasing." in details.inner_text()
+                        assert "Memory." in details.inner_text()
                         assert page.locator(".investment-right strong").count()==2
                         if width==390:
                             toggle=page.locator(".nav-mobile")
