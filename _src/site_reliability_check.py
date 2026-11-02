@@ -22,6 +22,9 @@ def main():
     js=(ROOT/"assets"/"tw.js").read_text(encoding="utf-8")
     assert len(home.encode())<65000, "The homepage must remain lean and externally styled"
     assert '<link rel="stylesheet" href="/assets/tw.css' in home
+    assert "/assets/gunmetal.css?v=gunmetal-20261102-v1" in home, "Missing sitewide gunmetal theme"
+    gm=(ROOT/"assets"/"gunmetal.css").read_text(encoding="utf-8")
+    assert "--gm-bg:#090B0E" in gm and "body.notes .nx-motion-stage" in gm
     assert 'class="rh"' in home and 'class="kn"' not in home
     assert "Pause the film" not in home and "Home hero film" not in home
     assert "kn-chip" not in home and 'id="navLinks"' in home
@@ -68,6 +71,8 @@ def main():
           assert page.locator("#rh-title").is_visible(),f"{width}: hero must render immediately"
           assert page.locator(".rh-primary").is_visible(),f"{width}: hero CTA missing"
           assert page.locator(".rh-compare").is_visible(),f"{width}: comparison card missing"
+          assert page.evaluate("getComputedStyle(document.body).backgroundColor")=="rgb(9, 11, 14)",f"{width}: homepage dark background failed"
+          assert page.evaluate("getComputedStyle(document.querySelector('.rh-compare')).animationName")=="none",f"{width}: retired animation returned"
           definition=page.locator(".plain-define")
           assert definition.is_visible(),f"{width}: digital employee definition missing"
           definition.locator("summary").click()

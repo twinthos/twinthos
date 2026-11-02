@@ -86,8 +86,8 @@ def layout(meta, body):
     ld = '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False) + '</script>' if not (meta.get("noindex") or path == "404") else ""
     body = body.replace('<span class="ar">→</span>', ARROW)
     # One cacheable stylesheet; never inline the entire CSS into the homepage.
-    css_tag = ('<style>html{background:#0B0B0F}body{margin:0;background:#0B0B0F;color:#E8E6E1}.pg-home .rh-composition:not(.rh-compare){display:none!important}</style>'
-               + f'<link rel="stylesheet" href="/assets/tw.css?v={VER}">')
+    css_tag = ('<style>html{background:#090B0E}body{margin:0;background:#090B0E;color:#FAFBFC}.pg-home .rh-composition:not(.rh-compare){display:none!important}</style>'
+               + f'<link rel="stylesheet" href="/assets/tw.css?v={VER}">' + '<link rel="stylesheet" href="/assets/gunmetal.css?v=gunmetal-20261102-v1">')
     return f'''<!DOCTYPE html>
 <html lang="en-GB" class="no-js">
 <head>
