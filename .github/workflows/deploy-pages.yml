@@ -26,7 +26,7 @@ jobs:
           built = Path('engineering/index.html').read_text()
           assert 'Trust the' in built and 'reference_adapter.py' in built
           assert '46 automated tests' not in Path('security/index.html').read_text()
-          assert 'STOP' in Path('index.html').read_text()
+          assert 'People should not' in Path('index.html').read_text()
           PY
           python3 _src/homepage_check.py
           node --check assets/tw.js
