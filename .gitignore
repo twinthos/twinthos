@@ -1,0 +1,20 @@
+# Build caches and local-only artefacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.sqlite
+*.sqlite3
+*.db
+*.log
+.DS_Store
+# Private sales notes, customer exports and unmanaged scratch data
+hotbox-pitch-*
+*private-pitch*
+client-exports/
+customer-data/

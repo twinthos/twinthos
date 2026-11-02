@@ -32,6 +32,26 @@ def audit() -> None:
         "engagement-audit.md", "offers.md", "jobs_opportunities.pdf"
     ):
         assert not (ROOT / path).exists(), "Unrelated internal artifact still published: " + path
+    # All repository files on this branch are publicly retrievable on GitHub Pages.
+    assert not list((ROOT / "_src").rglob("*.pyc")), "Python bytecode must not be published"
+    assert not (ROOT / "images").exists(), "Legacy private pitch image directory still exposed"
+    # Heuristic catches common hard-coded credential formats; not a comprehensive secret scanner.
+    signatures = (
+        re.compile(r"\\b(?:AKIA|ASIA)[A-Z0-9]{16}\\b"),
+        re.compile(r"\\bgh[pousr]_[A-Za-z0-9]{28,}\\b"),
+        re.compile(r"\\bgithub_pat_[A-Za-z0-9_]{50,}\\b"),
+        re.compile(r"\\bxox[baprs]-[A-Za-z0-9-]{24,}\\b"),
+        re.compile(r"sk-proj-[A-Za-z0-9_-]{24,}"),
+        re.compile(r"-----BEGIN (?:OPENSSH |RSA |EC |DSA )?PRIVATE KEY-----"),
+    )
+    for path in ROOT.rglob("*"):
+        if not path.is_file() or path.suffix.lower() not in {".html", ".js", ".json", ".css", ".xml", ".txt", ".md", ".yml", ".yaml", ".py"}:
+            continue
+        if path.stat().st_size > 1_000_000:
+            continue
+        data = path.read_text(encoding="utf-8", errors="replace")
+        if any(pattern.search(data) for pattern in signatures):
+            raise AssertionError("Credential-like text appears in public file: " + str(path.relative_to(ROOT)))
     for name in (".env", ".env.production", "config/secrets.json", "service-account.json"):
         assert not (ROOT / name).exists(), "Secret-like filename in public site: " + name
     print("PASS: public-site security invariants (form, selector, privacy, disclosure, leakage)")
