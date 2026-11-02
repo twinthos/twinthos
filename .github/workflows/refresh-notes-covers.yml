@@ -4,6 +4,7 @@ on:
     branches:
       - gh-pages
       - notes/editorial-covers-2026-11-02
+      - notes/article-image-alignment-2026-11-02
     paths:
       - '_src/notes_cover_refresh.py'
       - '.github/workflows/refresh-notes-covers.yml'
@@ -38,24 +39,24 @@ jobs:
           for page in Path('notes').glob('*/index.html'):
             text=page.read_text()
             slug=page.parent.name
-            assert f'/assets/notes-covers/{slug}-h-1600.jpg' in text
-            assert f'/assets/notes-covers/og-{slug}.jpg' in text
+            assert f'/assets/notes-covers-v2/{slug}-h-1600.jpg' in text
+            assert f'/assets/notes-covers-v2/og-{slug}.jpg' in text
           index=Path('notes/index.html').read_text()
-          assert index.count('/assets/notes-covers/')>=48
+          assert index.count('/assets/notes-covers-v2/')>=48
           print('PASS: 12 covers, cards, article heroes and OG previews')
           PY
       - name: Save artwork previews for visual QA
         uses: actions/upload-artifact@v4
         with:
-          name: twinthos-notes-article-covers
-          path: assets/notes-covers/
+          name: twinthos-notes-article-covers-v2
+          path: assets/notes-covers-v2/
           retention-days: 7
       - name: Commit new published artwork to the real website branch
         if: github.ref == 'refs/heads/gh-pages'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/notes-covers/ notes/
+          git add assets/notes-covers-v2/ notes/
           if ! git diff --cached --quiet; then
             git commit -m "Publish article-specific Notes artwork and social previews"
             git pull --rebase origin gh-pages
