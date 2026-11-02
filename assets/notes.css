@@ -1168,3 +1168,23 @@ body.notes-index .nx-feature-photo-hook,
 body.notes-index .nx-cover-hook,
 body.notes-index .nx-photo-shade,
 body.notes .nx-hero-hook {display:none!important}
+
+
+/* Twinthos 2026-11-02 / Notes aligned to human-first editorial system.
+   Preserve article-specific imagery and reader motion; update colour and legibility only. */
+body.notes{--nx-rule-strong:#697887;--nx-green-wash:rgba(207,255,87,.055);background:#0B101C;color:#F6F5F0}
+body.notes .nx-kicker{color:#C9D2DD}
+body.notes .nx-kicker:before{background:#CFFF57}
+body.notes .nx-card .nx-tag,body.notes .nx-article .nx-take h2{color:#D6FF84}
+body.notes .nx-card,.notes .nx-next-card{border-color:#506171}
+body.notes .nx-card:hover{border-color:#CFFF57}
+body.notes .nx-fig img{border-radius:5px;border-color:#5D6B79}
+body.notes .nx-reading-track{background:#25384B}
+body.notes .nx-reader-bar{background:#CFFF57}
+body.notes .nx-reading-note,body.notes .nx-share-row{color:#D0D8E2}
+body.notes .nx-share-btn{border:1px solid #8193A7;background:#172637;color:#F5F5F2;border-radius:3px}
+body.notes .nx-share-btn:hover{background:#263F53;border-color:#CFFF57}
+body.notes .nx-next-card{background:#182638;border-color:#56677A;border-radius:5px}
+body.notes .nx-next-card:hover{border-color:#CFFF57}
+body.notes .nx-progress-value{color:#D5FF7E}
+body.notes a:focus-visible,body.notes button:focus-visible{outline:3px solid #CFFF57;outline-offset:3px}
