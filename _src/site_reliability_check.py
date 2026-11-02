@@ -70,12 +70,15 @@ def main():
             toggle.click()
             assert toggle.get_attribute("aria-expanded")=="true",f"{width}: menu did not open"
             assert page.locator("#navLinks").is_visible(),f"{width}: mobile menu hidden"
+            assert page.locator("#navLinks .nav-book").is_visible(),f"{width}: mobile booking link hidden"
             menu_link=page.locator('#navLinks a[href="#industries"]')
             menu_link.click()
             assert page.evaluate("location.hash")=="#industries",f"{width}: mobile nav anchor failed"
             assert toggle.get_attribute("aria-expanded")=="false",f"{width}: menu did not close"
           else:
             assert page.locator('.nav-links a[href="#industries"]').is_visible()
+            assert not page.locator(".nav-links .nav-book").is_visible(),f"{width}: duplicate booking link"
+            assert page.locator(".nav-cta").is_visible()
           # Ensure the primary booking CTA takes a visitor to a real page.
           page.locator(".rh-primary").click()
           page.wait_for_url("**/book/?interest=fit",timeout=10000)
