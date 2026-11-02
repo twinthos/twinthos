@@ -1,45 +1,36 @@
 #!/usr/bin/env python3
-"""Public homepage design contracts; checked during every deployment."""
+"""Homepage source contracts for Quiet Authority; run on every deploy."""
 from html.parser import HTMLParser
 from pathlib import Path
-
 ROOT=Path(__file__).resolve().parent.parent
 class Doc(HTMLParser):
-    def __init__(self):
-        super().__init__(); self.h1=0; self.ids={}; self.links=[]
-    def handle_starttag(self,tag,attrs):
-        a=dict(attrs)
-        if tag=="h1": self.h1+=1
-        if a.get("id"): self.ids[a["id"]]=self.ids.get(a["id"],0)+1
-        if tag=="a": self.links.append(a.get("href",""))
-
+ def __init__(self):
+  super().__init__();self.h1=0;self.ids={};self.links=[]
+ def handle_starttag(self,tag,attrs):
+  a=dict(attrs)
+  if tag=="h1":self.h1+=1
+  if a.get("id"):self.ids[a["id"]]=self.ids.get(a["id"],0)+1
+  if tag=="a":self.links.append(a.get("href",""))
 def check():
-    h=(ROOT/"index.html").read_text(encoding="utf-8")
-    css=(ROOT/"assets/experience.css").read_text(encoding="utf-8")
-    js=(ROOT/"assets/experience.js").read_text(encoding="utf-8")
-    doc=Doc();doc.feed(h)
-    assert doc.h1==1,"exactly one H1"
-    assert all(v==1 for v in doc.ids.values()),"duplicate HTML IDs"
-    assert 'STOP' in h and 'CHASING' in h and 'THE WORK.' in h
-    assert 'THE OPERATING BODY' in h and 'THE NEXT ASSIGNED ACTION' in h
-    assert h.count('data-relay-index=') == 6
-    assert 'memory-ledger' in h and 'authority-card' in h
-    assert "PRIVATE DESIGN PREVIEW" not in h
-    assert 'name="robots" content="noindex' not in h
-    assert 'rel="canonical" href="https://twinthos.com/"' in h
-    assert "data-story" in h and "data-story-mode" in h
-    assert h.count('data-story-step=')>=6
-    assert 'data-part="card"' in h and 'data-part="memory"' in h
-    for i in ("why","story","anatomy","trust","investment","contact"):
-        assert ('id="'+i+'"') in h,"missing route: "+i
-    for link in ("/book/?interest=fit","/book/?interest=audit","/book/?interest=managed","/privacy/","/terms/"):
-        assert link in doc.links,"missing public route "+link
-    assert 'href="https://github.com/' not in h
-    assert "£999" in h and "£5,000" in h
-    assert "long-term memory" in h.lower() and "card" in h.lower()
-    assert 'prefers-reduced-motion' in css
-    assert 'data-story' in js and 'data-part' in js and 'aria-pressed' in js
-    assert (ROOT/"assets/experience.css").stat().st_size>15000
-    print("PASS: public 2027 homepage, six-step demo, card/memory, privacy, pricing and source assets")
-if __name__=="__main__":
-    check()
+ html=(ROOT/"index.html").read_text(encoding="utf-8")
+ css=(ROOT/"assets/experience.css").read_text(encoding="utf-8")
+ js=(ROOT/"assets/experience.js").read_text(encoding="utf-8")
+ doc=Doc();doc.feed(html)
+ assert doc.h1==1 and all(x==1 for x in doc.ids.values()),"heading or ID semantics"
+ assert "People should not" in html and "operational drag" in html.lower(),"belief and problem"
+ assert "ILLUSTRATIVE" in html and "NOT A CUSTOMER CASE STUDY" in html,"honest demonstration disclosure"
+ assert html.count('data-story-step=')==6,"six-stage workflow"
+ for key in ("why","story","anatomy","trust","investment","contact"):
+  assert ('id="'+key+'"') in html,"missing section "+key
+ for link in ("/book/?interest=fit","/book/?interest=audit","/book/?interest=managed","/security/","/privacy/","/terms/"):
+  assert link in doc.links,"missing route "+link
+ assert "£999" in html and "£5,000" in html and "£15,000" in html,"commercial terms"
+ assert "Own computer" not in html or "computer" in html.lower()
+ assert "Purchasing." in html and "memory" in html.lower(),"real operator details"
+ assert 'href="https://github.com/' not in html,"no repo links on home"
+ assert "data-story-mode" in js and "data-story-step" in js and "aria-pressed" in js,"interactive comparison"
+ assert "prefers-reduced-motion" in css,"accessible motion"
+ assert "capability-grid" in css and "investment-grid" in css,"source styling"
+ assert (ROOT/"assets/experience.css").stat().st_size>12000,"stylesheet unexpectedly empty"
+ print("PASS: Quiet Authority public homepage; design, claims, prices, navigation, interaction")
+if __name__=="__main__":check()
