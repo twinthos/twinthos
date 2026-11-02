@@ -26,7 +26,7 @@ def main():
     assert "Pause the film" not in home and "Home hero film" not in home
     assert "kn-chip" not in home and 'id="navLinks"' in home
     assert js.count("var nav=d.querySelector('.nav')")==1,"Duplicate navigation controller"
-    assert "Your next hire" in home and 'id="pricing"' in home
+    assert "Your business has enough tools." in home and 'id="pricing"' in home
     assert 'class="rates sec"' in home and 'class="dep sec"' not in home, "Repeated sections returned"
     assert 'class="rh-bottom"' not in home and 'class="rh-evidence"' not in home, "Extra badge or navigation clutter"
     assert '£999' in home and '£5,000' in home and "three-month minimum" in home
@@ -34,7 +34,9 @@ def main():
     assert '.rh-composition:not(.rh-compare){display:none!important}' in home, "Critical protection from obsolete circular hero missing"
     css=(ROOT/"assets"/"tw.css").read_text(encoding="utf-8")
     assert 'body.pg-home .rh-system-stage' in css and 'body.pg-home .rh-compare * {animation:none!important}' in css, "Orbit guard missing from published CSS"
-    assert home.count('class="rh-compare-row"') == 3, "Glass comparison must contain three concise dimensions"
+    assert home.count('class="rh-compare-row"') == 3
+    assert 'class="plain-define"' in home, "Missing simple explanation of digital employee"
+    assert "integrations" not in home and "trigger" not in home, "Technical jargon in homepage", "Glass comparison must contain three concise dimensions"
     assert "d.querySelector(\'.rh-primary\')" in js, "Sticky booking must watch the current hero CTA"
     assert 'class="journey-rail"' in home and 'class="kit-lines"' in home, "Editorial workflow sections missing"
     assert 'class="vs-t"' not in home and 'class="rh-feature-card"' not in home and 'class="kit-grid"' not in home, "Retired boxed layout returned"
