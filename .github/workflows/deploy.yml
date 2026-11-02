@@ -24,24 +24,38 @@ jobs:
           python-version: '3.12'
       - name: Build site
         run: python3 _src/build.py
-      - name: Stage only public website files
+      - name: Stage approved public website files only
+        shell: bash
         run: |
+          set -euo pipefail
           mkdir -p .publish
-          for file in .nojekyll 404.html CNAME favicon.svg index.html indexnow-key.txt llms.txt og.png robots.txt sitemap.xml; do
+          for file in .nojekyll 404.html CNAME favicon.svg index.html indexnow-key.txt llms.txt og.png robots.txt sitemap.xml ai-catalog.json privacy.html mob_hero_t0.8.png; do
             if test -f "$file"; then cp "$file" .publish/; fi
           done
-          for dir in about assets book faq how-it-works images notes operations-audit pricing privacy security terms; do
+          for dir in .well-known about assets book faq how-it-works images notes operations-audit pricing privacy security terms workforce; do
             if test -d "$dir"; then cp -R "$dir" .publish/; fi
           done
           for dir in audit contact demo demos questions services thankyou; do
-            if test -f "$dir/index.html"; then mkdir -p ".publish/$dir"; cp "$dir/index.html" ".publish/$dir/"; fi
+            if test -f "$dir/index.html"; then
+              mkdir -p ".publish/$dir"
+              cp "$dir/index.html" ".publish/$dir/"
+            fi
           done
-          test -f .publish/index.html
-          test ! -e .publish/conversations
-          test ! -e .publish/memory
-          test ! -e .publish/vault
-          test ! -e .publish/brain
-          test ! -e .publish/_src
+          test -s .publish/index.html
+          test -s .publish/CNAME
+      - name: Fail closed on private or executable files
+        shell: bash
+        run: |
+          set -euo pipefail
+          if find .publish -type l | grep .; then
+            echo "::error::Symlinks cannot be published."
+            exit 1
+          fi
+          if find .publish -type f | grep -Ei '(^|/)(brain|conversations|memory|vault|history|terminal|skills|site|_src|\.git)(/|$)|(^|/)(SOUL\.md|CHANGELOG\.md|\.env[^/]*|hotbox-pitch-.*|engagement-report\..*|jobs_opportunities\.pdf|offers\.md)$|\.(py|pyc|sh|md|pem|p12|pfx|key|sqlite|db|log|bak|yml|yaml|toml|jsonl)$'; then
+            echo "::error::Unsafe file detected in Pages artifact; deployment stopped."
+            exit 1
+          fi
+          echo "Publication artifact passed path and file-type checks."
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
