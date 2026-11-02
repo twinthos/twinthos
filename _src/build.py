@@ -171,7 +171,7 @@ for src, to in REDIRECTS.items():
         f'<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8"><title>Twinthos</title>'
         f'<meta name="robots" content="noindex"><link rel="canonical" href="{SITE}{to}">'
         f'<meta http-equiv="refresh" content="0; url={to}"></head>'
-        f'<body style="background:#0B0B0F;color:#E8E6E1;font-family:sans-serif"><a href="{to}">Continue</a></body></html>')
+        f'<body style="background:#090B0E;color:#FAFBFC;font-family:sans-serif"><a href="{to}">Continue</a></body></html>')
 
 urls = [m["path"] for m in built if not m.get("noindex") and m["path"] != "404"]
 
