@@ -44,6 +44,12 @@ jobs:
           assert index.count('/assets/notes-covers/')>=48
           print('PASS: 12 covers, cards, article heroes and OG previews')
           PY
+      - name: Save artwork previews for visual QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: twinthos-notes-article-covers
+          path: assets/notes-covers/
+          retention-days: 7
       - name: Commit new published artwork to the real website branch
         if: github.ref == 'refs/heads/gh-pages'
         run: |
