@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 900" width="1600" height="900">
+<title id="title">BEYOND THE TOKEN</title><desc id="desc">Original Twinthos visual exploring real cost with a bars composition.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0B120E"/><stop offset=".57" stop-color="#101B14"/><stop offset="1" stop-color="#050807"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#B5D59C" stop-opacity=".2"/><stop offset="1" stop-color="#B5D59C" stop-opacity="0"/></radialGradient><linearGradient id="divider" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#B5D59C" stop-opacity=".75"/><stop offset="1" stop-color="#B5D59C" stop-opacity="0"/></linearGradient></defs>
+<rect width="1600" height="900" fill="url(#bg)"/><circle cx="1120" cy="352" r="465" fill="url(#glow)"/><path d="M780 0V900" stroke="#465849" stroke-width="1" opacity=".5"/>
+<path d="M0 0h1600v900H0z" fill="none" stroke="#536557" stroke-width="2"/>
+<text x="93" y="109" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#B5D59C" letter-spacing="5">TWINTHOS  /  NOTES</text>
+<rect x="92" y="163" width="440" height="2" fill="url(#divider)"/>
+<text x="92" y="269" font-family="Arial,sans-serif" font-size="24" letter-spacing="4" fill="#B9CEBE">REAL COST</text>
+<text x="87" y="421" font-family="Arial,sans-serif" font-size="81" font-weight="750" letter-spacing="-2.5" fill="#F6F6EF">BEYOND</text>
+<text x="87" y="524" font-family="Arial,sans-serif" font-size="81" font-weight="750" letter-spacing="-2.5" fill="#F6F6EF">THE TOKEN</text>
+<path d="M92 740h580" stroke="#385041" stroke-width="2"/>
+<text x="93" y="783" font-family="Arial,sans-serif" font-size="21" fill="#B8CBBE" letter-spacing="2">FIELD NOTES  /  WORK THAT MATTERS</text>
+<text x="850" y="185" font-family="Arial" font-size="19" fill="#E6EEE7">DEFINITION</text><rect x="850" y="202" width="435" height="21" rx="10" fill="#26372C"/><rect x="850" y="202" width="170" height="21" rx="10" fill="#B5D59C" opacity="0.72"/><text x="850" y="275" font-family="Arial" font-size="19" fill="#E6EEE7">RUN</text><rect x="850" y="292" width="435" height="21" rx="10" fill="#26372C"/><rect x="850" y="292" width="390" height="21" rx="10" fill="#B5D59C" opacity="0.76"/><text x="850" y="365" font-family="Arial" font-size="19" fill="#E6EEE7">OVERSIGHT</text><rect x="850" y="382" width="435" height="21" rx="10" fill="#26372C"/><rect x="850" y="382" width="260" height="21" rx="10" fill="#B5D59C" opacity="0.7999999999999999"/><text x="850" y="455" font-family="Arial" font-size="19" fill="#E6EEE7">FAILURE</text><rect x="850" y="472" width="435" height="21" rx="10" fill="#26372C"/><rect x="850" y="472" width="120" height="21" rx="10" fill="#B5D59C" opacity="0.84"/><text x="850" y="545" font-family="Arial" font-size="19" fill="#E6EEE7">EXIT</text><rect x="850" y="562" width="435" height="21" rx="10" fill="#26372C"/><rect x="850" y="562" width="210" height="21" rx="10" fill="#B5D59C" opacity="0.88"/>
+<path d="M770 819h760" stroke="#536558" stroke-width="2" opacity=".6"/>
+<circle cx="1510" cy="80" r="8" fill="#B5D59C"/></svg>

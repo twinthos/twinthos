@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 900" width="1600" height="900">
+<title id="title">A CALL IS A PROCESS</title><desc id="desc">Original Twinthos visual exploring voice automation with a phone composition.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0B120E"/><stop offset=".57" stop-color="#101B14"/><stop offset="1" stop-color="#050807"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#D5AC96" stop-opacity=".2"/><stop offset="1" stop-color="#D5AC96" stop-opacity="0"/></radialGradient><linearGradient id="divider" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#D5AC96" stop-opacity=".75"/><stop offset="1" stop-color="#D5AC96" stop-opacity="0"/></linearGradient></defs>
+<rect width="1600" height="900" fill="url(#bg)"/><circle cx="1120" cy="352" r="465" fill="url(#glow)"/><path d="M780 0V900" stroke="#465849" stroke-width="1" opacity=".5"/>
+<path d="M0 0h1600v900H0z" fill="none" stroke="#536557" stroke-width="2"/>
+<text x="93" y="109" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#D5AC96" letter-spacing="5">TWINTHOS  /  NOTES</text>
+<rect x="92" y="163" width="440" height="2" fill="url(#divider)"/>
+<text x="92" y="269" font-family="Arial,sans-serif" font-size="24" letter-spacing="4" fill="#B9CEBE">VOICE AUTOMATION</text>
+<text x="87" y="421" font-family="Arial,sans-serif" font-size="81" font-weight="750" letter-spacing="-2.5" fill="#F6F6EF">A CALL IS</text>
+<text x="87" y="524" font-family="Arial,sans-serif" font-size="81" font-weight="750" letter-spacing="-2.5" fill="#F6F6EF">A PROCESS</text>
+<path d="M92 740h580" stroke="#385041" stroke-width="2"/>
+<text x="93" y="783" font-family="Arial,sans-serif" font-size="21" fill="#B8CBBE" letter-spacing="2">FIELD NOTES  /  WORK THAT MATTERS</text>
+<rect x="934" y="170" width="250" height="384" rx="36" fill="#14231A" stroke="#D5AC96" stroke-width="5"/><rect x="1020" y="190" width="80" height="9" rx="4" fill="#D5AC96"/><path d="M820 390 Q850 295 880 390 T940 390 T1000 390 T1060 390 T1120 390 T1180 390 T1240 390 T1300 390" stroke="#D5AC96" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="1059" cy="488" r="28" fill="#233E2C" stroke="#D5AC96"/><path d="m1045 487 10 10 19-23" stroke="#D5AC96" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M770 819h760" stroke="#536558" stroke-width="2" opacity=".6"/>
+<circle cx="1510" cy="80" r="8" fill="#D5AC96"/></svg>

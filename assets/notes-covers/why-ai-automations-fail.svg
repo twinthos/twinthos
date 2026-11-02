@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1600 900" width="1600" height="900">
+<title id="title">WHERE WORK STOPS</title><desc id="desc">Original Twinthos visual exploring operations with a break composition.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0B120E"/><stop offset=".57" stop-color="#101B14"/><stop offset="1" stop-color="#050807"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#C9B4D6" stop-opacity=".2"/><stop offset="1" stop-color="#C9B4D6" stop-opacity="0"/></radialGradient><linearGradient id="divider" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#C9B4D6" stop-opacity=".75"/><stop offset="1" stop-color="#C9B4D6" stop-opacity="0"/></linearGradient></defs>
+<rect width="1600" height="900" fill="url(#bg)"/><circle cx="1120" cy="352" r="465" fill="url(#glow)"/><path d="M780 0V900" stroke="#465849" stroke-width="1" opacity=".5"/>
+<path d="M0 0h1600v900H0z" fill="none" stroke="#536557" stroke-width="2"/>
+<text x="93" y="109" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#C9B4D6" letter-spacing="5">TWINTHOS  /  NOTES</text>
+<rect x="92" y="163" width="440" height="2" fill="url(#divider)"/>
+<text x="92" y="269" font-family="Arial,sans-serif" font-size="24" letter-spacing="4" fill="#B9CEBE">OPERATIONS</text>
+<text x="87" y="421" font-family="Arial,sans-serif" font-size="81" font-weight="750" letter-spacing="-2.5" fill="#F6F6EF">WHERE</text>
+<text x="87" y="524" font-family="Arial,sans-serif" font-size="81" font-weight="750" letter-spacing="-2.5" fill="#F6F6EF">WORK STOPS</text>
+<path d="M92 740h580" stroke="#385041" stroke-width="2"/>
+<text x="93" y="783" font-family="Arial,sans-serif" font-size="21" fill="#B8CBBE" letter-spacing="2">FIELD NOTES  /  WORK THAT MATTERS</text>
+<g><rect x="805" y="290" width="185" height="130" rx="14" fill="#18241F" stroke="#49544B" stroke-width="2"/><text x="829" y="363" font-family="Arial,sans-serif" font-size="22" fill="#D9E2D8" font-weight="600">INPUT</text></g><g><rect x="1100" y="290" width="200" height="130" rx="14" fill="#18241F" stroke="#49544B" stroke-width="2"/><text x="1124" y="363" font-family="Arial,sans-serif" font-size="22" fill="#D9E2D8" font-weight="600">RESULT</text></g><path d="M990 355h70" stroke="#C9B4D6" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M1070 355h30" stroke="#BB6362" stroke-width="5" stroke-dasharray="9 11"/><circle cx="1065" cy="355" r="20" stroke="#E69D87" stroke-width="3" fill="#321E20"/><path d="m1058 347 14 16m0-16-14 16" stroke="#FFD9D0" stroke-width="3"/><text x="1050" y="505" fill="#C9B4D6" font-family="Arial" font-size="23" text-anchor="middle">UNDEFINED HANDOFF</text>
+<path d="M770 819h760" stroke="#536558" stroke-width="2" opacity=".6"/>
+<circle cx="1510" cy="80" r="8" fill="#C9B4D6"/></svg>
