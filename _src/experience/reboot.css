@@ -282,3 +282,17 @@ body{background:#080D12}
  .relay-stop,.anatomy-hub,.core-signal{animation:none!important;transition:none!important}
  .core-scene{transform:none!important}
 }
+
+
+/* Contrast regressions found in real browser screenshots. Keep interactive text readable. */
+.story-v3 .story-player-actions button[data-story-next],
+.story-v3 .story-player-actions button[data-story-next]:hover,
+.story-v3 .story-player-actions button[data-story-next]:focus-visible{
+  color:#102431!important;background:#E3F2F7!important;border-color:#E3F2F7!important;font-weight:700}
+.story-v3 .story-player-actions button[data-story-next]:disabled{opacity:.4!important}
+.authority-v3 .authority-rules{color:#F2F5F2}
+.authority-v3 .authority-rules b{color:#F4F7F2!important;font-size:clamp(14px,1.3vw,18px);font-weight:550}
+.authority-v3 .authority-rules>div>span{color:#B8CDD6!important}
+.authority-v3 .authority-rules em{color:#BADBE8!important;font-size:11px;font-style:normal;white-space:nowrap}
+.authority-v3 .authority-rules .authority-exception b{color:#FFF3E4!important}
+.authority-v3 .authority-rules .authority-exception em{color:#F0D5A9!important}

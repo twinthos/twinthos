@@ -106,6 +106,18 @@ def run():
                         assert story.get_attribute("data-mode")=="operator"
                         page.locator('[data-story-step="4"]').click()
                         assert "human decision" in page.locator("[data-story-action]").inner_text().lower()
+                        def computed_contrast(fg_selector, bg_selector):
+                            fg=page.locator(fg_selector).first.evaluate("(e)=>getComputedStyle(e).color")
+                            bg=page.locator(bg_selector).first.evaluate("(e)=>getComputedStyle(e).backgroundColor")
+                            return contrast(fg,bg)
+                        next_ratio=computed_contrast("[data-story-next]","[data-story-next]")
+                        assert next_ratio>=7, f"Story next button unreadable: {next_ratio:.1f}:1"
+                        authority_fg=page.locator(".authority-rules b").first.evaluate("(e)=>getComputedStyle(e).color")
+                        authority_bg=page.locator(".authority-rules").evaluate("(e)=>getComputedStyle(e).backgroundColor")
+                        authority_ratio=contrast(authority_fg,authority_bg)
+                        assert authority_ratio>=7, f"Approval rules unreadable: {authority_ratio:.1f}:1"
+                        print(f"PASS {width}px operating controls: Next {next_ratio:.1f}:1, Rules {authority_ratio:.1f}:1")
+
                         page.locator('[data-part="card"]').click()
                         assert "card" in page.locator("[data-part-title]").inner_text().lower()
                         page.locator('[data-part="memory"]').click()
