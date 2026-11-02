@@ -158,3 +158,39 @@ a:hover{text-decoration-color:#91A9FF}
  .pg-home .close h2{font-size:clamp(45px,10.8vw,70px)}
 }
 @media(prefers-reduced-motion:reduce){.pg-home .rh-compare,.pg-home .rh-compare *{animation:none!important}}
+
+
+/* FINAL PALETTE CONSISTENCY / industry workflow and security evidence */
+.pg-home .ic{background:#192B52;border:1px solid #5471B2;border-radius:3px;box-shadow:none}
+.pg-home .ic:hover{border-color:#91AAFF}
+.pg-home .ic-app{color:#AFC3FF}
+.pg-home .ic-t{color:#F7F9FF}
+.pg-home .ic-from,.pg-home .ic-r dt{color:#C3D0EA}
+.pg-home .ic-r>div{border-color:#3B5385}
+.pg-home .ic-r dd{color:#F2F6FF}
+.pg-home .ic-reply{border-color:#6B8DFF;background:#182A50}
+.pg-home .is-tag,.pg-home .is-tag b{color:#F3F6FF}
+.pg-security{background:#080E1C;color:#F2F6FF}
+.pg-security .sc-hero{background:#0C1730}
+.pg-security .sc-hero h1 em{color:#BDCEFF}
+.pg-security .sc-eyebrow,.pg-security .sc-hero-note{color:#C9D6F7}
+.pg-security .sc-eyebrow-line{background:#9DB5FF}
+.pg-security .sc-github-glass{background:linear-gradient(155deg,#1D3260EA,#0B1734F2);border-color:#89A2E3A0;border-radius:12px;box-shadow:0 28px 80px #0008,inset 0 1px #DAE5FF33}
+.pg-security .sc-github-glass::before{display:none}
+.pg-security .sc-glass-label,.pg-security .sc-evidence-number,.pg-security .sc-small-title{color:#ABC1FF}
+.pg-security .sc-repo-evidence{border-color:#536BA3}
+.pg-security .sc-repo-evidence li{border-color:#3F5588}
+.pg-security .sc-repo-evidence li div>span,.pg-security .sc-glass-intro{color:#CDD8F3}
+.pg-security .sc-principles,.pg-security .sc-questions{background:#0C1530}
+.pg-security .sc-section-lead h2 em,.pg-security .sc-evidence-copy h2 em,.pg-security .sc-last h2 em{color:#C7D5FF}
+.pg-security .sc-section-lead>p{color:#CDDAF3}
+.pg-security .sc-principle{background:#17264B;border:1px solid #4A65A1;border-radius:4px;box-shadow:none}
+.pg-security .sc-principle:hover{border-color:#829DDF}
+.pg-security .sc-evidence-table{background:#142341;border-color:#516BA6;border-radius:4px;box-shadow:none}
+.pg-security .sc-checklist{border-color:#536DA5}
+.pg-security .sc-checklist details{border-color:#354C7B}
+.pg-security .sc-checklist summary:hover{color:#DCE5FF}
+.pg-security .sc-checklist details>p{color:#CDDAF3}
+.pg-security .sc-last{background:#1C39B9;border-color:#8198E1}
+.pg-security .sc-last p:not(.sc-small-title){color:#E6EAFF}
+.pg-security .sc-button{border-radius:2px}
