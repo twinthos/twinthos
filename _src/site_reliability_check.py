@@ -26,7 +26,8 @@ def main():
     assert "Pause the film" not in home and "Home hero film" not in home
     assert "kn-chip" not in home and 'id="navLinks"' in home
     assert js.count("var nav=d.querySelector('.nav')")==1,"Duplicate navigation controller"
-    assert "Your business has enough tools." in home and 'id="pricing"' in home
+    assert "Your business has enough tools." in home
+    assert (ROOT/"_src"/"css"/"zzzzzzzzzzz-human-first.css").exists(), "Human-first design source missing" and 'id="pricing"' in home
     assert 'class="rates sec"' in home and 'class="dep sec"' not in home, "Repeated sections returned"
     assert 'class="rh-bottom"' not in home and 'class="rh-evidence"' not in home, "Extra badge or navigation clutter"
     assert '£999' in home and '£5,000' in home and "three-month minimum" in home
@@ -66,6 +67,11 @@ def main():
           assert page.locator("#rh-title").is_visible(),f"{width}: hero must render immediately"
           assert page.locator(".rh-primary").is_visible(),f"{width}: hero CTA missing"
           assert page.locator(".rh-compare").is_visible(),f"{width}: comparison card missing"
+          definition=page.locator(".plain-define")
+          assert definition.is_visible(),f"{width}: digital employee definition missing"
+          definition.locator("summary").click()
+          assert definition.get_attribute("open") is not None,f"{width}: definition did not open"
+          definition.locator("summary").click()
           assert page.locator(".rh-compare-row").count()==3
           assert page.locator(".rh-system-stage").count()==0
           assert page.locator(".journey-rail .journey-step").count()==3
