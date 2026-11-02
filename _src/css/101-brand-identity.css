@@ -1,0 +1,55 @@
+/* Twinthos / one logo, one material language across all public pages.
+   Added after legacy layers so maintenance changes are deliberate and testable. */
+:root{--green:#C3DCE8;--green-t:#1F4354;--line:#405667;--line-2:#7C98A7}
+.nav{background:rgba(7,11,14,.94)!important;border-bottom:1px solid #839EAF38}
+.nav.scrolled{background:rgba(7,11,14,.98)!important;border-bottom-color:#7899AA60}
+.nav .brand{display:inline-flex;align-items:center;gap:12px;font-weight:660;letter-spacing:.055em;color:#F3F6F4}
+.nav .brand svg.brand-emblem,.foot .brand svg.brand-emblem{width:38px;height:38px;flex:none}
+.nav .brand svg.brand-emblem path:last-child,.foot .brand svg.brand-emblem path:last-child{fill:#BACBD3}
+.nav .nav-links a{color:#D5E0E6}
+.nav .nav-links a:hover,.nav .nav-links a[aria-current]{color:#FFFFFF}
+.nav .nav-cta{background:#EFF4F4!important;border-color:#EFF4F4!important;color:#112431!important;border-radius:3px}
+.nav .nav-cta:hover{background:#D7E8EF!important;border-color:#D7E8EF!important}
+.nav-price{color:#D7E5ED}
+.w-page{background:#0A1118}
+.w-page-hero{background:radial-gradient(ellipse 52% 73% at 81% 40%,#38607940,transparent 77%),#0A1118;border-bottom:1px solid #546D7955}
+.w-page-hero:after{content:"";pointer-events:none;position:absolute;top:10%;right:8%;width:30vw;aspect-ratio:1;border:1px solid #8EAEBB22;transform:rotate(45deg);max-width:420px}
+.w-page-hero h1{letter-spacing:-.07em}
+.w-page-hero h1 em,.w-page-section h2 em{color:#C4DFEC}
+.w-page-hero p:not(.w-kicker),.w-page .w-page-lead{color:#C7D9E1}
+.w-page .w-page-section.w-pale{background:#E9EEEE;color:#172E3D}
+.w-page .w-page-section.w-pale h2 em{color:#356F88}
+.w-page .w-page-section.w-pale .w-page-copy p{color:#365263}
+.w-page .w-page-card{border-color:#5B7889;transition:border-color .2s,transform .28s,box-shadow .28s}
+.w-page .w-page-card:hover{border-color:#B5D8E6;transform:translateY(-4px);box-shadow:0 23px 42px #0003}
+.w-page .w-page-card>span{color:#BED9E5}
+.w-page .w-page-card p{color:#C9DAE2}
+.w-page .w-pale .w-page-card{border-color:#A8BFCA;background:#E1ECEE}
+.w-page .w-pale .w-page-card h3{color:#142D3B}
+.w-page .w-pale .w-page-card p{color:#3A5563}
+.w-page .w-page-footer{background:radial-gradient(ellipse at 77% 32%,#3D69814A,transparent 70%),#090F15}
+.w-page .w-page-footer h2{letter-spacing:-.075em}
+.w-page .w-page-footer p{color:#CDDCE5}
+.w-page .w-text-link{color:#DAEDF4;border-color:#A7CCD9}
+.w-page .w-pale .w-text-link{color:#1E526B!important;border-color:#417C99!important}
+.w-page .home-questions-list summary{color:#F0F6F5}
+.w-page .w-pale .home-questions-list summary{color:#1A3343}
+.w-page .home-questions-list details p{color:#C8D9E1}
+.w-page .w-pale .home-questions-list details p{color:#365666}
+.phead{background:radial-gradient(ellipse at 76% 30%,#40637E3A,transparent 68%),#0A1118}
+.phead .d2{letter-spacing:-.07em}
+.phead .lede,.psec .muted{color:#CDDBE2}
+.psec{background:#101A23}.psec-alt{background:#17242F}
+.foot{background:#080F15!important;border-color:#4D677A}
+.foot .brand{color:#F4F7F5;font-weight:650;letter-spacing:.045em}
+.foot .foot-line,.foot .foot-base{color:#BFDAE5}
+.book-main form{background:#12212B;border:1px solid #5C7F91}
+.book-side{background:#172936;border:1px solid #608398}
+.fld input,.fld textarea{background:#0B1922;border-color:#91B2C2;color:#F3F8F5}
+.fld label,.interest legend{color:#F3F7F5}
+.home-investment{background:#EAEFEE}
+.home-investment-managed{background:#0D202B!important;color:#F1F6F4}
+.home-investment-managed h3,.home-investment-managed .home-investment-price>span{color:#F1F6F4!important}
+.home-investment-managed .home-investment-name p,.home-investment-managed .home-investment-details p,.home-investment-managed small{color:#CDDEE6}
+@media(max-width:600px){.nav .brand svg.brand-emblem{width:31px;height:31px}.w-page-hero:after{display:none}.w-page .w-page-card:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.w-page .w-page-card{transition:none!important}}

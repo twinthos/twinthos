@@ -1,0 +1,136 @@
+/* Twinthos / optical identity and operating motion 2027.
+   One design system, visual explanation first. CSS remains usable without WebGL. */
+:root{--black:#070B0E;--black2:#101820;--paper:#F0F1ED;--paper2:#E8ECEB;--ink:#10222D;--white:#F8FAF7;--mute:#C1D0DA;--slate:#8AA2B1;--rule:#4F6672;--light-rule:#B9CBCF}
+body{background:#070B0E}
+.wordmark{gap:12px;letter-spacing:.105em;font-size:17px;font-weight:650}
+.wordmark-symbol{display:block;width:35px;height:35px;object-fit:contain;filter:drop-shadow(0 0 11px #A2C8D431)}
+.site-header{background:rgba(7,11,14,.93);border-color:#5571814D;backdrop-filter:blur(20px)}
+.site-header nav a{color:#C7D6DD}
+.nav-cta{background:#F3F6F4;color:#0D202B}
+.hero{background:radial-gradient(ellipse at 75% 43%,#476A7A22,transparent 45%),linear-gradient(145deg,#070B0E,#0B141B)}
+.hero-shell{grid-template-columns:minmax(0,1.03fr) minmax(430px,.97fr);min-height:calc(100svh - 80px);gap:clamp(30px,5vw,90px);align-items:center}
+.hero h1{font-size:clamp(61px,6.7vw,115px);line-height:.98;letter-spacing:-.078em;max-width:12ch;margin:30px 0}
+.hero h1 span{color:#B8D0DE}
+.hero-description{font-size:clamp(19px,1.65vw,24px);line-height:1.5;color:#CDDAE0;max-width:550px}
+.hero .solid-button{min-height:62px;background:#F6F9F5;font-size:15px}
+.hero .under-link{border-color:#A2BCC9}
+.hero-orbit{min-height:610px;height:min(690px,76svh);padding:26px;border-color:#48606E;background:#111A21;overflow:hidden;
+ box-shadow:inset 0 0 80px #142E3E2E,0 30px 85px #0004}
+.hero-orbit:before{content:"";position:absolute;pointer-events:none;inset:0;opacity:.14;
+ background-image:linear-gradient(#BCD7E014 1px,transparent 1px),linear-gradient(90deg,#BCD7E014 1px,transparent 1px);background-size:45px 45px}
+.hero-orbit .visual-head{z-index:5;position:relative;color:#C0D2DE}
+.operating-stage{position:relative;flex:1;min-height:450px;overflow:hidden;isolation:isolate}
+.orbit-grid{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 50%,#B2DBEE25,transparent 44%);opacity:.9}
+.orbit-ring{pointer-events:none;position:absolute;left:50%;top:50%;border-radius:50%;transform:translate(-50%,-50%);aspect-ratio:1;border:1px solid #A6C9D43D}
+.orbit-ring-a{width:49%;box-shadow:0 0 95px #9ABCD01C,inset 0 0 60px #A6CEEC0C}
+.orbit-ring-b{width:78%;border-style:dashed;opacity:.65}
+.orbit-ring-a::after,.orbit-ring-b::after{content:"";position:absolute;inset:-1px;border-radius:50%;border-top:1.5px solid #DBF5FC;animation:orbit-turn 28s linear infinite}
+.orbit-ring-b::after{border-color:transparent transparent #AACCD9 transparent;animation-duration:43s;animation-direction:reverse}
+@keyframes orbit-turn{to{transform:rotate(360deg)}}
+.orbit-connectors{position:absolute;inset:0;width:100%;height:100%;color:#7CA4B94A;opacity:.95;pointer-events:none}
+.orbit-hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;width:clamp(128px,13vw,188px);height:clamp(128px,13vw,188px);
+ display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border-radius:22px;
+ border:1px solid #C7DFE885;background:linear-gradient(145deg,#4A6574,#152431 42%,#334C5C);
+ box-shadow:0 0 0 13px #98C2D910,0 0 65px #7EB4D440,0 35px 85px #0009;animation:orbit-float 8s ease-in-out infinite}
+@keyframes orbit-float{50%{transform:translate(-50%,-52%) rotate(1.5deg)}}
+.orbit-hub img{width:56%;height:56%;filter:drop-shadow(0 5px 14px #0007)}
+.orbit-hub strong{font:550 10px/1.2 "Geist Mono",monospace;color:#DCEBF0;letter-spacing:.055em}
+.orbit-node{position:absolute;z-index:3;padding:15px 19px;min-width:147px;border:1px solid #869EAB;background:#E8EEF1;color:#142936;
+ box-shadow:0 16px 40px #0008;display:flex;flex-direction:column;gap:6px;transform:rotate(-2deg);animation:orbit-intro .8s ease both}
+.orbit-node span{font:600 10px/1.3 "Geist Mono",monospace;letter-spacing:.06em;color:#506D7F}
+.orbit-node strong{font-weight:600;font-size:clamp(15px,1.45vw,20px);line-height:1.24;letter-spacing:-.032em}
+.orbit-node small{font-size:12px;line-height:1.35;color:#526B7B}
+.orbit-node-inbox{left:2%;top:10%}
+.orbit-node-memory{right:1%;top:11%;transform:rotate(2deg);animation-delay:.1s}
+.orbit-node-tools{left:3%;bottom:11%;transform:rotate(1deg);animation-delay:.25s}
+.orbit-node-approval{right:2%;bottom:10%;background:#E7CEAB;transform:rotate(-2deg);animation-delay:.35s}
+.orbit-node-approval span,.orbit-node-approval small{color:#71573A}
+@keyframes orbit-intro{from{opacity:0;translate:0 20px}to{opacity:1;translate:0 0}}
+.orbit-controls{z-index:4;position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid #4E6470;padding:13px 0}
+.orbit-controls .visual-note{font-size:10px;color:#BBCFD9;letter-spacing:.045em;margin:0}
+.three-toggle{background:transparent;border:1px solid #9CBCCB;color:#F1F5F2;min-height:42px;padding:9px 15px;white-space:nowrap;font:600 12px/1.3 "Geist Mono",monospace}
+.three-toggle:hover{background:#DDEBF2;color:#102431}
+.three-toggle:focus-visible{outline:3px solid #DDEBF2;outline-offset:2px}
+.orbit-status{z-index:4;position:relative;font-size:13px;line-height:1.4;color:#BBCDD8;max-width:650px}
+.three-canvas-host{position:absolute;inset:0;background:radial-gradient(circle at center,#264252,#070D14);z-index:7}
+.three-canvas-host[hidden]{display:none}
+.three-canvas-host canvas{display:block;width:100%;height:100%}
+.hero-orbit.is-three-active .orbit-grid,.hero-orbit.is-three-active .orbit-ring,.hero-orbit.is-three-active .orbit-connectors,.hero-orbit.is-three-active .orbit-hub,.hero-orbit.is-three-active .orbit-node{visibility:hidden}
+/* Meaningful deck progression: the state of the workflow is visible in a sequence of six steps. */
+.story{background:#0A1117}
+.story h2 span,.story-player .story-left h3{color:#DCE9EC}
+.story-stage{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
+.story-left{background:#121E28}
+.story-right{background:#0C161E;position:relative}
+.story-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:24px 0 34px}
+.story-flow>span{border:1px solid #4F6673;min-height:102px;display:flex;align-items:flex-start;justify-content:space-between;flex-direction:column;padding:14px;
+ color:#D0DCE3;opacity:.65;background:#182630;transition:border-color .32s,background .32s,transform .32s,opacity .32s}
+.story-flow i{font-size:25px;font-style:normal;line-height:1;color:#CAE1EC}
+.story-flow small{font:550 11px/1.2 "Geist Mono",monospace;letter-spacing:.03em}
+.story-flow .is-active{opacity:1;transform:translateY(-2px);border-color:#E5F4F9;background:#264457;box-shadow:0 16px 30px #0005}
+.story-flow .is-complete{opacity:.95;border-color:#A8CAD7;background:#1C303D}
+.story-flow [data-flow="4"].is-active{border-color:#F0D6B0;background:#4B3A29}
+.story-right .story-screen-kicker{color:#BDD2DE}
+.story-right .story-action{font-size:clamp(21px,2.4vw,36px);letter-spacing:-.045em}
+.story-right .story-action-rule{color:#D1E3E9}
+.story-left .story-player-actions button{font-size:14px;min-height:48px}
+.story-left .story-player-actions [data-story-next]{background:#F0F6F5;color:#102530;border-color:#F0F6F5;font-weight:650}
+.story-left .story-player-actions [data-story-next]:hover{background:#D1E9EF;color:#122B3C}
+.story .story-steps button[aria-current="step"]{background:#D1E9F0;color:#122B3C;font-weight:650}
+.story .story-steps button:focus-visible{outline:3px solid #D5F1FB}
+/* Sections use contrasting art direction instead of repeated four-up UI cards. */
+.why{background:#EEF0EC;color:#142B35}
+.why-layout{grid-template-columns:1.35fr .65fr}
+.why h2{font-size:clamp(48px,6vw,94px);line-height:1.04;letter-spacing:-.075em}
+.why h2 span{color:#4B7A8C}
+.drag-line-film{display:grid;grid-template-columns:repeat(4,1fr);padding:0;border-top:1px solid #B0C4CB;border-bottom:1px solid #B0C4CB;gap:0}
+.drag-line-film span,.drag-line-film strong{min-height:115px;display:flex;align-items:center;justify-content:space-between;padding:26px clamp(12px,3vw,46px);font-size:clamp(24px,3.6vw,58px);font-weight:600;letter-spacing:-.075em;border-right:1px solid #BCCDD1;color:#122937}
+.drag-line-film strong{background:#BBD5DF;color:#17384D;border-right:0}
+.anatomy{background:#EDF0EC}
+.anatomy .section-intro h2 span{color:#58798A}
+.capability-grid article{position:relative;transition:transform .3s,box-shadow .3s,border-color .3s}
+.capability-grid article:hover{transform:translateY(-5px);box-shadow:0 25px 45px #001C2818;border-color:#8EA7B1}
+.cap-art{background:linear-gradient(130deg,#E4EBEC,#C8D8DD)}
+.cap-computer .computer-window{background:#173040;border:1px solid #4A7587;box-shadow:0 14px 24px #0A283B2B}
+.cap-memory>span{background:#23475A;color:#E8F3F6}
+.cap-identity .identity-mark{color:#274B5B}
+.cap-authority .authority-line{background:#3D7792}
+.more-capabilities{background:#E7EFF1;padding:0 25px;border-color:#A5BFC8}
+.more-capabilities summary{font-size:18px}
+.cap-caveat{color:#426374;font-size:14px}
+/* Trust: memorable approval boundary */
+.trust{background:radial-gradient(ellipse at 76% 44%,#244F633D,transparent 55%),#09131B}
+.trust h2{font-size:clamp(52px,6vw,96px);line-height:1.02}
+.trust h2 span{color:#C3DDE6}
+.approval-panel{background:#182630;border:1px solid #708C9C;box-shadow:23px 27px 0 #A9C0CA16}
+.approval-panel .approval-status{background:#2E2A26;border:1px solid #A68F6E}
+.approval-panel .approval-status strong{color:#F0D5AE}
+.investment{background:#EDF0EC;color:#142A36}
+.investment .section-intro h2 span{color:#5D8293}
+.investment-row.managed{background:#0B1922;color:#F3F6F2;border-color:#0B1922}
+.investment-row.managed .investment-name h3,.investment-row.managed strong{color:#F6F9F7}
+.investment-row.managed .investment-name p,.investment-row.managed .investment-right small{color:#CFDDE5}
+.contact{background:radial-gradient(ellipse at 75% 40%,#416D8140,transparent 60%),#070E14}
+.contact h2 span{color:#BDD8E4}
+.site-footer{background:#070D13}
+.site-footer .footer-brand{letter-spacing:.07em}
+/* Give sections one-time editorial reveals; never hide content until observer is active. */
+html.motion-ready [data-reveal-motion]{opacity:0;transform:translateY(30px)}
+html.motion-ready [data-reveal-motion].motion-visible{opacity:1;transform:translateY(0);transition:opacity .8s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+@media(max-width:1100px){.hero-shell{grid-template-columns:minmax(0,1fr) minmax(370px,.85fr)}.hero h1{font-size:clamp(54px,6.5vw,78px)}.hero-orbit{min-height:545px;height:610px}.orbit-node{padding:12px;min-width:120px}}
+@media(max-width:900px){.hero-shell{grid-template-columns:1fr;min-height:0}.hero-orbit{min-height:500px;height:580px;max-width:750px;width:100%}.story-stage{grid-template-columns:1fr}.story-flow{grid-template-columns:repeat(3,1fr)}.why-layout{grid-template-columns:1fr}}
+@media(max-width:620px){.wordmark{gap:8px;font-size:15px}.wordmark-symbol{width:30px;height:30px}
+ .hero h1{font-size:clamp(47px,10.8vw,70px);line-height:1.03}.hero-description{font-size:18px}
+ .hero-orbit{min-height:465px;height:505px;padding:15px}.operating-stage{min-height:365px}.orbit-hub{width:112px;height:112px;border-radius:17px}.orbit-hub strong{font-size:8px}
+ .orbit-ring-a{width:56%}.orbit-ring-b{width:88%}.orbit-node{padding:10px;min-width:112px;max-width:138px;gap:3px}
+ .orbit-node span{font-size:8px}.orbit-node strong{font-size:13px}.orbit-node small{font-size:10px}
+ .orbit-node-inbox{left:0;top:8%}.orbit-node-memory{right:0;top:9%}
+ .orbit-node-tools{left:0;bottom:8%}.orbit-node-approval{right:0;bottom:8%}
+ .orbit-controls{gap:9px}.orbit-controls .visual-note{font-size:8px}.three-toggle{font-size:10px;padding:7px 9px;min-height:37px}
+ .orbit-status{font-size:11px}.story-flow{gap:5px}.story-flow>span{min-height:73px;padding:8px}.story-flow i{font-size:19px}.story-flow small{font-size:8px}
+ .drag-line-film{grid-template-columns:repeat(2,1fr)}.drag-line-film span,.drag-line-film strong{min-height:85px;font-size:clamp(22px,6vw,38px)}
+ .why h2{font-size:clamp(42px,10vw,63px)}.capability-grid article:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){.orbit-ring::after,.orbit-hub,.orbit-node{animation:none!important}
+ html.motion-ready [data-reveal-motion]{opacity:1;transform:none;transition:none}
+ .story-flow>span{transition:none!important}}

@@ -41,11 +41,42 @@
     select('[data-story-outcome]').textContent=isOperator?'A defined workflow can continue within approved tools; exceptions return to a person.':'The same six steps require people to pick up, transfer and remember the work.';
     select('[data-story-prev]').disabled=index===0;
     select('[data-story-next]').disabled=index===steps.length-1;
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && story.dataset.rendered){
+      for(const el of story.querySelectorAll('[data-story-title],[data-story-detail],[data-story-action]')){
+        if(el.animate)el.animate([{opacity:.55,transform:'translateY(7px)'},{opacity:1,transform:'none'}],{duration:260,easing:'ease-out'});
+      }
+    }
+    story.dataset.rendered='true';
     modeControls.forEach(el=>{const on=el.dataset.storyMode===mode;el.classList.toggle('active',on);el.setAttribute('aria-pressed',String(on))});
     stepControls.forEach(el=>{const on=Number(el.dataset.storyStep)===index;if(on)el.setAttribute('aria-current','step');else el.removeAttribute('aria-current')});
+    story.querySelectorAll('[data-flow]').forEach(el=>{
+      const value=Number(el.dataset.flow);
+      el.classList.toggle('is-active',value===index);
+      el.classList.toggle('is-complete',value<index);
+    });
   };
+  let autoplay=null;
+  const autoButton=story.querySelector('[data-story-play]');
+  function stopPlayback(){
+    if(autoplay){clearInterval(autoplay);autoplay=null}
+    if(autoButton){autoButton.setAttribute('aria-pressed','false');autoButton.firstChild.textContent='Play sequence '}
+  }
+  function startPlayback(){
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    stopPlayback();index=0;render();
+    if(autoButton){autoButton.setAttribute('aria-pressed','true');autoButton.firstChild.textContent='Pause sequence '}
+    autoplay=setInterval(()=>{
+      if(document.hidden){stopPlayback();return}
+      index++;
+      if(index>=steps.length){index=steps.length-1;render();stopPlayback();return}
+      render();
+    },2300);
+  }
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopPlayback()});
   story.addEventListener('click',event=>{
     const button=event.target.closest('button');if(!button||!story.contains(button))return;
+    if(button.hasAttribute('data-story-play')){if(autoplay)stopPlayback();else startPlayback();return;}
+    stopPlayback();
     if(button.dataset.storyMode){mode=button.dataset.storyMode;index=0}
     else if(button.hasAttribute('data-story-step'))index=Number(button.dataset.storyStep);
     else if(button.hasAttribute('data-story-prev'))index=Math.max(0,index-1);
@@ -54,4 +85,52 @@
     render();
   });
   render();
+  const stepsNav=story.querySelector('.story-steps');
+  if(stepsNav)stepsNav.addEventListener('keydown',event=>{
+    if(!['ArrowRight','ArrowLeft'].includes(event.key))return;
+    event.preventDefault();
+    index=Math.max(0,Math.min(steps.length-1,index+(event.key==='ArrowRight'?1:-1)));
+    render();stepControls[index].focus();
+  });
+  const threeButton=document.querySelector('[data-three-toggle]');
+  const threeHost=document.querySelector('[data-three-host]');
+  const threeStatus=document.querySelector('[data-three-status]');
+  const orbit=document.querySelector('.hero-orbit');
+  let stopThree=null,threeBusy=false;
+  if(threeButton&&threeHost&&threeStatus&&orbit){
+    threeButton.addEventListener('click',async()=>{
+      if(threeBusy)return;
+      if(stopThree){
+        stopThree();stopThree=null;threeHost.hidden=true;orbit.classList.remove('is-three-active');
+        threeButton.setAttribute('aria-pressed','false');threeButton.firstChild.textContent='Explore in 3D ';
+        threeStatus.textContent='The accessible operating diagram is restored.';return;
+      }
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        threeStatus.textContent='The static diagram is displayed to respect your reduced-motion setting.';return;
+      }
+      threeBusy=true;threeButton.disabled=true;threeStatus.textContent='Preparing an optional 3D model…';
+      try{
+        const module=await import('/assets/twinthos-3d.js');
+        threeHost.hidden=false;
+        orbit.classList.add('is-three-active');
+        stopThree=await module.mountOperatorScene(threeHost);
+        threeButton.setAttribute('aria-pressed','true');
+        threeButton.firstChild.textContent='Return to diagram ';
+        threeStatus.textContent='3D concept: one operating identity connected to four approved work domains. Not live customer activity.';
+      }catch(error){
+        if(stopThree)stopThree();stopThree=null;
+        threeHost.replaceChildren();threeHost.hidden=true;orbit.classList.remove('is-three-active');
+        threeStatus.textContent='3D is unavailable in this browser or network. The complete diagram remains available.';
+      }finally{threeBusy=false;threeButton.disabled=false}
+    });
+    window.addEventListener('pagehide',()=>{if(stopThree)stopThree()},{once:true});
+  }
+  const reveals=[...document.querySelectorAll('[data-reveal-motion]')];
+  if(reveals.length&&window.IntersectionObserver&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.documentElement.classList.add('motion-ready');
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add('motion-visible');observer.unobserve(entry.target)}
+    }),{rootMargin:'0px 0px -6% 0px',threshold:.05});
+    reveals.forEach(el=>observer.observe(el));
+  }
 })();

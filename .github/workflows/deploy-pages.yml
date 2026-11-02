@@ -26,11 +26,12 @@ jobs:
           built = Path('engineering/index.html').read_text()
           assert 'Trust the' in built and 'reference_adapter.py' in built
           assert '46 automated tests' not in Path('security/index.html').read_text()
-          assert 'People should not' in Path('index.html').read_text()
+          assert 'Human attention' in Path('index.html').read_text()
           PY
           python3 _src/homepage_check.py
           node --check assets/tw.js
           node --check assets/experience.js
+          node --input-type=module --check < assets/twinthos-3d.js
       - name: Prepare public site
         run: |
           python3 _src/stage_public_site.py "$RUNNER_TEMP/site"

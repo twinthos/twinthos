@@ -2,7 +2,7 @@ name: Website source verification
 on:
   pull_request:
   push:
-    branches: [gh-pages, site-revision-20261101]
+    branches: [gh-pages, site-brand-motion-20261102]
 permissions:
   contents: read
 jobs:
@@ -22,6 +22,7 @@ jobs:
         run: |
           node --check assets/tw.js
           node --check assets/experience.js
+          node --input-type=module --check < assets/twinthos-3d.js
       - name: Check homepage design and motion contracts
         run: python3 _src/homepage_check.py
       - name: Verify publication boundary
@@ -52,12 +53,14 @@ jobs:
           security = Path("security/index.html").read_text(encoding="utf-8")
           engineering = Path("engineering/index.html").read_text(encoding="utf-8")
           css = Path("assets/tw.css").read_text(encoding="utf-8")
-          assert "People should not" in home and "software." in home
-          assert "A DIFFERENT KIND OF DIGITAL EMPLOYEE" in home
+          assert "Human attention" in home and "busywork." in home
+          assert "THE END OF OPERATIONAL DRAG" in home
           assert "#trust" in home and "/how-it-works/" in security
           assert 'href="https://github.com/' not in home
           assert 'href="https://github.com/' not in security
           assert 'class="capability-grid"' in home and 'class="more-capabilities"' in home
+          assert 'data-three-toggle' in home and 'class="story-flow"' in home
+          assert 'twinthos-mark.svg' in home and 'orbit-hub' in home
           assert "long-term context" in Path("about/index.html").read_text(encoding="utf-8").lower()
           assert "card" in security.lower()
           assert "reference_adapter.py --demo" in engineering

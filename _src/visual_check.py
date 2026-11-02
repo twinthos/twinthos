@@ -98,6 +98,14 @@ def run():
                         assert nav and intro and intro["y"]>=nav["y"]+nav["height"]-3, (
                             f"Hero overlaps header: {nav} / {intro}")
                         assert page.locator(".hero .solid-button").is_visible()
+                        assert page.locator(".wordmark-symbol").is_visible()
+                        assert page.locator(".orbit-hub").is_visible()
+                        assert page.locator(".story-flow [data-flow]").count() == 6
+                        assert page.locator('[data-three-toggle]').count() == 1
+                        page.locator('[data-three-toggle]').click()
+                        assert "reduced-motion" in page.locator('[data-three-status]').inner_text().lower()
+                        assert page.locator('[data-three-toggle]').get_attribute("aria-pressed") == "false"
+
                         story=page.locator("[data-story]")
                         assert story.count()==1
                         page.locator('[data-story-mode="manual"]').click()
@@ -106,6 +114,7 @@ def run():
                         assert story.get_attribute("data-mode")=="operator"
                         page.locator('[data-story-step="4"]').click()
                         assert "human decision" in page.locator("[data-story-action]").inner_text().lower()
+                        assert page.locator('[data-flow="4"]').get_attribute("class").find("is-active") != -1
                         def computed_contrast(fg_selector, bg_selector):
                             fg=page.locator(fg_selector).first.evaluate("(e)=>getComputedStyle(e).color")
                             bg=page.locator(bg_selector).first.evaluate("(e)=>getComputedStyle(e).backgroundColor")
