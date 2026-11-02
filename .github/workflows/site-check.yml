@@ -52,12 +52,12 @@ jobs:
           security = Path("security/index.html").read_text(encoding="utf-8")
           engineering = Path("engineering/index.html").read_text(encoding="utf-8")
           css = Path("assets/tw.css").read_text(encoding="utf-8")
-          assert "STOP" in home and "CHASING" in home
-          assert "WORK, REIMAGINED" in home
+          assert "People should not" in home and "software." in home
+          assert "A DIFFERENT KIND OF DIGITAL EMPLOYEE" in home
           assert "#trust" in home and "/how-it-works/" in security
           assert 'href="https://github.com/' not in home
           assert 'href="https://github.com/' not in security
-          assert 'data-part="card"' in home and 'data-part="memory"' in home
+          assert 'class="capability-grid"' in home and 'class="more-capabilities"' in home
           assert "long-term context" in Path("about/index.html").read_text(encoding="utf-8").lower()
           assert "card" in security.lower()
           assert "reference_adapter.py --demo" in engineering
