@@ -69,7 +69,7 @@ def layout(meta, body):
     cur = lambda k: ' aria-current="page"' if k == key else ""
     ind = "#industries" if home else "/#industries"
     links = (f'<a href="/how-it-works/"{cur("how")}>How it works</a><a href="{ind}">Industries</a>'
-             f'<a href="{pricing}"{cur("pricing")}>Pricing</a><a href="/security/"{cur("security")}>Security</a>')
+             f'<a href="{pricing}"{cur("pricing")}>Pricing</a><a href="/security/"{cur("security")}>Security</a><a href="/notes/">Notes</a>')
     robots = '<meta name="robots" content="noindex, nofollow">\n' if (meta.get("noindex") or PREVIEW) else ""
     # Consistent, grounded entities for search engines and answer engines.
     org = {"@type":"Organization","@id":"https://twinthos.com/#org","name":"Twinthos","url":"https://twinthos.com/","description":"Twinthos builds and manages AI digital employees for defined business workflows, with approved tools, activity records and human escalation.","logo":{"@type":"ImageObject","url":"https://twinthos.com/og.png"}}
