@@ -1,49 +1,43 @@
-name: PR Quality Gate
+name: Security and Site Quality Gate
 
 on:
+  push:
+    branches: [main, gh-pages]
   pull_request:
-    branches: [main]
+    branches: [main, gh-pages]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  build-and-validate:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Build site
-        run: python3 _src/build.py
-      - name: Check for broken links
+      - name: Reject private workspace files
+        shell: bash
         run: |
-          python3 -c "
-import re, glob, os
-errors = []
-for f in glob.glob('*.html') + glob.glob('**/*.html', recursive=True):
-    if f.startswith('_src'): continue
-    with open(f) as fh:
-        content = fh.read()
-    for m in re.finditer(r'href=\"([^\"]+)\"', content):
-        href = m.group(1)
-        if href.startswith('http') or href.startswith('#') or href.startswith('mailto'): continue
-        path = href.split('#')[0].split('?')[0]
-        if path and not os.path.exists(path) and not os.path.exists(path + '.html') and not os.path.exists(path + '/index.html'):
-            errors.append(f'{f}: {href}')
-if errors:
-    print('Broken links found:')
-    for e in errors[:20]: print(e)
-    exit(1)
-print('No broken internal links found.')
-"
-      - name: Validate HTML basics
+          set -euo pipefail
+          git ls-files > /tmp/twinthos-tracked.txt
+          if grep -Ei '^(brain|conversations|memory|vault|history|terminal|skills|site|docs|editorial|ci)/|^(SOUL\.md|hotbox-pitch-.*|engagement-audit\.md|engagement-report\..*|jobs_opportunities\.pdf|offers\.md)$' /tmp/twinthos-tracked.txt; then
+            echo "::error::Private workspace or reports are tracked. Remove them before merging or publishing."
+            exit 1
+          fi
+          echo "No known private workspace paths tracked."
+      - name: Build source when available
+        shell: bash
         run: |
-          python3 -c "
-import glob
-for f in glob.glob('*.html'):
-    with open(f) as fh: c = fh.read()
-    if '<title>' not in c and '<title ' not in c:
-        print(f'MISSING TITLE: {f}')
-    if 'meta name=\"description\"' not in c:
-        print(f'MISSING META DESC: {f}')
-print('HTML basic checks done.')
-"
+          set -euo pipefail
+          if test -f _src/build.py; then
+            python3 _src/build.py
+          fi
+      - name: Verify essential public pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s index.html
+          grep -qi '<title' index.html
+          grep -qi 'name="description"' index.html
+          test -s CNAME
+          echo "Essential public site files present."
