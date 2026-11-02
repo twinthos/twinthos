@@ -194,3 +194,9 @@ a:hover{text-decoration-color:#91A9FF}
 .pg-security .sc-last{background:#1C39B9;border-color:#8198E1}
 .pg-security .sc-last p:not(.sc-small-title){color:#E6EAFF}
 .pg-security .sc-button{border-radius:2px}
+
+
+/* Conversion-first first fold: no double nav-height padding. */
+body.pg-home .rh{padding-top:var(--nav)}
+body.pg-home .rh-grid{padding-top:clamp(40px,5.5vw,83px);padding-bottom:clamp(58px,6.5vw,100px)}
+@media(max-width:640px){body.pg-home .rh-grid{padding-top:26px;padding-bottom:54px}}
