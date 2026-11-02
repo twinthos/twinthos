@@ -28,9 +28,11 @@ def main():
     assert js.count("var nav=d.querySelector('.nav')")==1,"Duplicate navigation controller"
     assert "Your next hire" in home and 'id="pricing"' in home
     assert "d.querySelector(\'.rh-primary\')" in js, "Sticky booking must watch the current hero CTA"
-    assert "Manual coordination compared with a managed Twinthos digital employee" in home
-    assert "Illustrative comparison with a manually coordinated workflow" in home
-    assert (ROOT/"_src"/"css"/"zzzzz-operations-contrast.css").exists(), "Responsive comparison styles missing"
+    assert 'class="journey-rail"' in home and 'class="kit-lines"' in home, "Editorial workflow sections missing"
+    assert 'class="vs-t"' not in home and 'class="rh-feature-card"' not in home and 'class="kit-grid"' not in home, "Retired boxed layout returned"
+    assert home.count('class="journey-step"') == 3 and home.count('class="journey-step journey-decision"') == 1, "Workflow missing stages"
+    assert "A conceptual workflow, not a customer performance claim." in home
+    assert (ROOT/"_src"/"css"/"zzzzzz-cinematic.css").exists(), "Editorial style source missing"
     assert all(f'href="#{i}"' in home for i in ("why","employee","industries","pricing"))
     assert (ROOT/"book"/"index.html").exists()
     assert (ROOT/"security"/"index.html").exists()
@@ -53,6 +55,9 @@ def main():
           assert response.status==200
           assert page.locator("#rh-title").is_visible(),f"{width}: hero must render immediately"
           assert page.locator(".rh-primary").is_visible(),f"{width}: hero CTA missing"
+          assert page.locator(".rh-system-core").is_visible(),f"{width}: hero mechanism missing"
+          assert page.locator(".journey-rail .journey-step").count()==4
+          assert page.locator(".kit-lines li").count()==6
           assert page.locator(".rh-links a").count()==4
           dims=page.evaluate("""() => ({
             viewport:document.documentElement.clientWidth,
@@ -90,6 +95,10 @@ def main():
           assert not errors,f"{width}: JS errors on booking {errors}"
           page.goto(base+"/",wait_until="networkidle")
           page.screenshot(path=str(SHOTS/f"home-{width}.png"),full_page=False,animations="disabled")
+          if width in (320,390,1440):
+            page.locator(".journey-rail").scroll_into_view_if_needed()
+            assert page.locator(".journey-rail").is_visible()
+            page.screenshot(path=str(SHOTS/f"journey-{width}.png"),full_page=False,animations="disabled")
           results.append({"width":width,**dims,"jsErrors":len(errors)})
           print(f"PASS {width}px: visible first screen, 3 hero anchors, mobile menu, booking CTA, no overflow or JS errors")
           page.close()
