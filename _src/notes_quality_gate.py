@@ -62,7 +62,7 @@ for page in PAGES:
 
 # The published editorial artwork must exist for every article, not just the
 # source photographs. Catch stale thumbnails or missing social cards in CI.
-COVERS = ROOT / "assets/notes-covers"
+COVERS = ROOT / "assets/notes-covers-v2"
 for page in PAGES:
     slug = page.parent.name
     article = page.read_text(encoding="utf-8")
