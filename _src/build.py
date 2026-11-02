@@ -86,7 +86,7 @@ def layout(meta, body):
     ld = '<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False) + '</script>' if not (meta.get("noindex") or path == "404") else ""
     body = body.replace('<span class="ar">→</span>', ARROW)
     # One cacheable stylesheet; never inline the entire CSS into the homepage.
-    css_tag = ('<style>html{background:#070A09}body{margin:0;background:#070A09;color:#F3F5F0}.pg-home .rh-composition:not(.rh-compare){display:none!important}</style>'
+    css_tag = ('<style>html{background:#0B0B0F}body{margin:0;background:#0B0B0F;color:#E8E6E1}.pg-home .rh-composition:not(.rh-compare){display:none!important}</style>'
                + f'<link rel="stylesheet" href="/assets/tw.css?v={VER}">')
     return f'''<!DOCTYPE html>
 <html lang="en-GB" class="no-js">
@@ -96,7 +96,7 @@ def layout(meta, body):
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
 {robots}<link rel="canonical" href="{SITE}/{path}">
-<meta name="theme-color" content="#060807">
+<meta name="theme-color" content="#0B0B0F">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
@@ -171,7 +171,7 @@ for src, to in REDIRECTS.items():
         f'<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8"><title>Twinthos</title>'
         f'<meta name="robots" content="noindex"><link rel="canonical" href="{SITE}{to}">'
         f'<meta http-equiv="refresh" content="0; url={to}"></head>'
-        f'<body style="background:#060807;color:#ECEDE8;font-family:sans-serif"><a href="{to}">Continue</a></body></html>')
+        f'<body style="background:#0B0B0F;color:#E8E6E1;font-family:sans-serif"><a href="{to}">Continue</a></body></html>')
 
 urls = [m["path"] for m in built if not m.get("noindex") and m["path"] != "404"]
 
