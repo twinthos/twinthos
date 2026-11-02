@@ -27,6 +27,10 @@ def main():
     assert "kn-chip" not in home and 'id="navLinks"' in home
     assert js.count("var nav=d.querySelector('.nav')")==1,"Duplicate navigation controller"
     assert "Your next hire" in home and 'id="pricing"' in home
+    assert "d.querySelector(\'.rh-primary\')" in js, "Sticky booking must watch the current hero CTA"
+    assert "Manual coordination compared with a managed Twinthos digital employee" in home
+    assert "Illustrative comparison with a manually coordinated workflow" in home
+    assert (ROOT/"_src"/"css"/"zzzzz-operations-contrast.css").exists(), "Responsive comparison styles missing"
     assert all(f'href="#{i}"' in home for i in ("why","employee","industries","pricing"))
     assert (ROOT/"book"/"index.html").exists()
     assert (ROOT/"security"/"index.html").exists()
