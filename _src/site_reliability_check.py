@@ -27,6 +27,8 @@ def main():
     assert "kn-chip" not in home and 'id="navLinks"' in home
     assert js.count("var nav=d.querySelector('.nav')")==1,"Duplicate navigation controller"
     assert "Your next hire" in home and 'id="pricing"' in home
+    assert 'class="rh-composition rh-compare"' in home and 'class="rh-system"' not in home
+    assert home.count('class="rh-compare-row"') == 4, "Glass comparison must contain four dimensions"
     assert "d.querySelector(\'.rh-primary\')" in js, "Sticky booking must watch the current hero CTA"
     assert 'class="journey-rail"' in home and 'class="kit-lines"' in home, "Editorial workflow sections missing"
     assert 'class="vs-t"' not in home and 'class="rh-feature-card"' not in home and 'class="kit-grid"' not in home, "Retired boxed layout returned"
@@ -55,7 +57,9 @@ def main():
           assert response.status==200
           assert page.locator("#rh-title").is_visible(),f"{width}: hero must render immediately"
           assert page.locator(".rh-primary").is_visible(),f"{width}: hero CTA missing"
-          assert page.locator(".rh-system-core").is_visible(),f"{width}: hero mechanism missing"
+          assert page.locator(".rh-compare").is_visible(),f"{width}: comparison card missing"
+          assert page.locator(".rh-compare-row").count()==4
+          assert page.locator(".rh-system-stage").count()==0
           assert page.locator(".journey-rail .journey-step").count()==4
           assert page.locator(".kit-lines li").count()==6
           assert page.locator(".rh-links a").count()==4
@@ -95,6 +99,12 @@ def main():
           assert not errors,f"{width}: JS errors on booking {errors}"
           page.goto(base+"/",wait_until="networkidle")
           page.screenshot(path=str(SHOTS/f"home-{width}.png"),full_page=False,animations="disabled")
+          if width in (320,390,1440):
+            card=page.locator(".rh-compare")
+            card.scroll_into_view_if_needed()
+            bounds=card.bounding_box()
+            assert bounds and bounds["x"] >= -2 and bounds["x"]+bounds["width"] <= width+2, f"{width}: clipped comparison {bounds}"
+            page.screenshot(path=str(SHOTS/f"compare-{width}.png"),full_page=False,animations="disabled")
           if width in (320,390,1440):
             page.locator(".journey-rail").scroll_into_view_if_needed()
             assert page.locator(".journey-rail").is_visible()
