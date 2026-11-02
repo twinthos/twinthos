@@ -13,7 +13,7 @@ var pop=document.createElement('div');
 pop.id='nx-term-popover';pop.className='nx-term-popover';pop.setAttribute('role','tooltip');pop.hidden=true;
 document.body.appendChild(pop);
 function currentMatch(word){var low=word.toLowerCase();for(var i=0;i<entriesLong.length;i++){if(entriesLong[i].alias.toLowerCase()===low)return entriesLong[i].entry;}return null;}
-function emit(type,key){window.dispatchEvent(new CustomEvent('twinthos:notes-interaction',{detail:{type:type,term:key||null}}));}
+function emit(type,key){window.dispatchEvent(new CustomEvent('twinthos:notes-interaction',{detail:{type:type,value:key||null,page:location.pathname}}));}
 function close(){if(!last)return;pop.hidden=true;last.setAttribute('aria-expanded','false');last=null;}
 function open(btn){
  if(last===btn&& !pop.hidden)return;
@@ -66,13 +66,32 @@ document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&last){var
 window.addEventListener('scroll',function(){if(last)close();},{passive:true});
 var article=document.querySelector('.nx-article'),bar=document.querySelector('.nx-reader-bar'),val=document.querySelector('.nx-progress-value');
 if(article&&bar){
- var pending=false;
+ var pending=false, milestones={};
  function update(){
   var r=article.getBoundingClientRect(),maxScroll=Math.max(1,article.offsetHeight-innerHeight*.45);
   var amount=Math.max(0,Math.min(100,Math.round((-r.top+innerHeight*.25)/maxScroll*100)));
-  bar.style.transform='scaleX('+(amount/100)+')';if(val)val.textContent=amount+'% read';pending=false;
+  bar.style.transform='scaleX('+(amount/100)+')';if(val)val.textContent=amount+'% read';[25,50,75,100].forEach(function(m){if(amount>=m&&!milestones[m]){milestones[m]=true;emit('reading_milestone',String(m));}});pending=false;
  }
  window.addEventListener('scroll',function(){if(!pending){pending=true;requestAnimationFrame(update);}},{passive:true});
  window.addEventListener('resize',update);update();
+}
+
+// Events are exposed only to an explicit listener; they are not sent to an external service.
+document.addEventListener('click',function(ev){
+ var next=ev.target.closest&&ev.target.closest('a.nx-next-card');
+ if(next)emit('related_story_open',next.getAttribute('href'));
+ var share=ev.target.closest&&ev.target.closest('button[data-nx-share]');
+ if(share)emit('share_action',null);
+ var source=ev.target.closest&&ev.target.closest('.nx-data-viz figcaption a');
+ if(source)emit('chart_source_open',null);
+});
+if('IntersectionObserver' in window){
+ var data=[].slice.call(document.querySelectorAll('.nx-data-viz'));
+ if(data.length){
+  var obs=new IntersectionObserver(function(entries){
+   entries.forEach(function(e){if(e.isIntersecting){emit('chart_view',e.target.querySelector('h3')?.id||'chart');obs.unobserve(e.target);}});
+  },{threshold:.45});
+  data.forEach(function(x){obs.observe(x);});
+ }
 }
 })();
