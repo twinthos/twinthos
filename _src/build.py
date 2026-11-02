@@ -154,7 +154,8 @@ def read_page(files):
 def experience_home():
     exp = f"{SRC}/experience"
     visual_css = (open(f"{exp}/style.css", encoding="utf-8").read()
-                  + "\n" + open(f"{exp}/reboot.css", encoding="utf-8").read()\n                  + "\n" + open(f"{exp}/motion.css", encoding="utf-8").read())
+                  + "\n" + open(f"{exp}/reboot.css", encoding="utf-8").read()
+                  + "\n" + open(f"{exp}/motion.css", encoding="utf-8").read())
     visual_js = open(f"{exp}/app.js", encoding="utf-8").read()
     visual_html = open(f"{exp}/index.html", encoding="utf-8").read()
     visual_ver = hashlib.sha1((visual_css + visual_js).encode()).hexdigest()[:8]
