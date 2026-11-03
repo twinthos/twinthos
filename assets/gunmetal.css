@@ -295,3 +295,18 @@ body{max-width:100%}
  .pg-home .kit::before{background-position:66% center;opacity:.7;
  background-image:linear-gradient(90deg,rgba(14,19,24,.96),rgba(14,19,24,.83)),url("/assets/notes-img/night-desk-1600.jpg")}
 }
+
+/* GLOBAL NAV + PRICING POLISH — audited in 390px and 1440px screenshots. */
+.nav-price,.pg-home .nav-price,.pg-page .nav-price,.pg-pricing .nav-price,.pg-security .nav-price,
+.pg-book .nav-price{color:#E8EDF1!important;opacity:1!important;text-decoration:none!important}
+.nav-price[aria-current="page"]{color:#fff!important}
+.pg-pricing .phead{padding-top:clamp(55px,6vw,82px)!important;padding-bottom:clamp(38px,4.4vw,58px)!important}
+.pg-pricing .phead .d2{font-size:clamp(48px,4.8vw,72px)!important;line-height:1.04!important;max-width:17ch!important}
+.pg-pricing .phead .lede{font-size:clamp(19px,1.55vw,23px)!important;margin-top:17px!important}
+.pg-pricing .offers{padding-top:clamp(32px,4vw,57px)!important}
+@media(max-width:640px){
+ .nav-price,.pg-home .nav-price{font-size:14px!important;color:#E7EEF3!important}
+ .pg-pricing .phead{padding-top:43px!important;padding-bottom:39px!important}
+ .pg-pricing .phead .d2{font-size:clamp(40px,10vw,53px)!important}
+ .pg-pricing .phead .lede{font-size:18px!important}
+}
