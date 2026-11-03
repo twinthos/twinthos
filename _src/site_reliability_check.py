@@ -29,7 +29,8 @@ def main():
     assert "Pause the film" not in home and "Home hero film" not in home
     assert "kn-chip" not in home and 'id="navLinks"' in home
     assert js.count("var nav=d.querySelector('.nav')")==1,"Duplicate navigation controller"
-    assert "Your business has enough tools." in home
+    assert "The repeat work." in home and "Off your desk." in home
+    assert "What is an AI worker?" in home and "It is not a human employee." in home
     assert (ROOT/"_src"/"css"/"zzzzzzzzzzz-human-first.css").exists(), "Human-first design source missing"
     assert 'id="pricing"' in home
     assert 'class="rates sec"' in home and 'class="dep sec"' not in home, "Repeated sections returned"
