@@ -7,7 +7,24 @@ OUT = os.path.dirname(SRC)
 SITE = "https://twinthos.com"
 PREVIEW = os.environ.get("PREVIEW") == "1"
 
-css = "".join(open(p).read() for p in sorted(glob.glob(f"{SRC}/css/*.css")))
+# The 2026 redesign retires seven competing visual generations.
+# Keep only shared foundations and the current component layouts;
+# /assets/gunmetal.css is the single final brand authority on every page.
+ACTIVE_CSS = (
+    "10-base.css",
+    "20-home.css",
+    "20-offers.css",
+    "30-pages.css",
+    "41-sections.css",
+    "42-kit.css",
+    "99-mobile-reliability.css",
+    "zz-editorial-clarity.css",
+    "zzzz-security-editorial.css",
+    "zzzzzz-cinematic.css",
+    "zzzzzzz-sitewide-editorial.css",
+    "zzzzzzzz-retired-orbit-guard.css"
+)
+css = "".join(open(f"{SRC}/css/{name}", encoding="utf-8").read() for name in ACTIVE_CSS)
 # Use one navigation controller. Legacy js/tw.js also toggled the menu.
 ACTIVE_JS = ("10-tw.js", "15-tl.js", "30-sections.js")
 js = "\n".join(open(f"{SRC}/js/{name}", encoding="utf-8").read() for name in ACTIVE_JS)
