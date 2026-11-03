@@ -30,6 +30,12 @@ class Links(HTMLParser):
         self.links = []
 
     def handle_starttag(self, tag, attrs):
+        # Canonicals, alternate pages and preconnects are metadata, not local
+        # navigation or asset requests. Validate actual executable links.
+        attr_map = dict(attrs)
+        rel = set((attr_map.get("rel") or "").lower().split())
+        if tag == "link" and rel.intersection({"canonical", "alternate", "preconnect", "dns-prefetch"}):
+            return
         for key, value in attrs:
             if key in TAGS.get(tag, ()) and value:
                 self.links.append((tag, value))
