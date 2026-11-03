@@ -22,7 +22,7 @@ def main():
     js=(ROOT/"assets"/"tw.js").read_text(encoding="utf-8")
     assert len(home.encode())<65000, "The homepage must remain lean and externally styled"
     assert '<link rel="stylesheet" href="/assets/tw.css' in home
-    assert "/assets/gunmetal.css?v=gunmetal-20261103-v2" in home, "Missing sitewide gunmetal theme"
+    assert "/assets/gunmetal.css?v=gunmetal-20261103-v3" in home, "Missing sitewide gunmetal theme"
     gm=(ROOT/"assets"/"gunmetal.css").read_text(encoding="utf-8")
     assert "--gm-bg:#090B0E" in gm and "body.notes .nx-motion-stage" in gm
     assert 'class="rh"' in home and 'class="kn"' not in home
@@ -57,7 +57,7 @@ def main():
     assert (ROOT/"pricing"/"index.html").exists()
     for section in ("about","how-it-works","pricing","security","book","operations-audit","faq"):
       page_file=ROOT/section/"index.html"
-      assert 'assets/gunmetal.css?v=gunmetal-20261103-v2' in page_file.read_text(encoding="utf-8"),f"{section}: shared theme missing"
+      assert 'assets/gunmetal.css?v=gunmetal-20261103-v3' in page_file.read_text(encoding="utf-8"),f"{section}: shared theme missing"
     subprocess.run(["node","--check",str(ROOT/"assets"/"tw.js")],check=True)
 
     server=ThreadingHTTPServer(("127.0.0.1",0),partial(Quiet,directory=str(ROOT)))

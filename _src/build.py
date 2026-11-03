@@ -104,7 +104,7 @@ def layout(meta, body):
     body = body.replace('<span class="ar">→</span>', ARROW)
     # One cacheable stylesheet; never inline the entire CSS into the homepage.
     css_tag = ('<style>html{background:#090B0E}body{margin:0;background:#090B0E;color:#FAFBFC}.pg-home .rh-composition:not(.rh-compare){display:none!important}</style>'
-               + f'<link rel="stylesheet" href="/assets/tw.css?v={VER}">' + '<link rel="stylesheet" href="/assets/gunmetal.css?v=gunmetal-20261103-v2">')
+               + f'<link rel="stylesheet" href="/assets/tw.css?v={VER}">' + '<link rel="stylesheet" href="/assets/gunmetal.css?v=gunmetal-20261103-v3">')
     return f'''<!DOCTYPE html>
 <html lang="en-GB" class="no-js">
 <head>
