@@ -25,8 +25,6 @@ def main():
     assert "/assets/gunmetal.css?v=gunmetal-20261103-v2" in home, "Missing sitewide gunmetal theme"
     gm=(ROOT/"assets"/"gunmetal.css").read_text(encoding="utf-8")
     assert "--gm-bg:#090B0E" in gm and "body.notes .nx-motion-stage" in gm
-    assert len(css.encode()) < 145000, "Retired CSS grew back"
-    assert "TWINTHOS ART DIRECTION / NOV 2026" not in css and "HUMAN-FIRST ART DIRECTION" not in css, "Obsolete visual systems bundled"
     assert 'class="rh"' in home and 'class="kn"' not in home
     assert "Pause the film" not in home and "Home hero film" not in home
     assert "kn-chip" not in home and 'id="navLinks"' in home
@@ -41,6 +39,8 @@ def main():
     assert 'class="rh-composition rh-compare"' in home and 'class="rh-system"' not in home
     assert '.rh-composition:not(.rh-compare){display:none!important}' in home, "Critical protection from obsolete circular hero missing"
     css=(ROOT/"assets"/"tw.css").read_text(encoding="utf-8")
+    assert len(css.encode()) < 145000, "Retired CSS grew back"
+    assert "TWINTHOS ART DIRECTION / NOV 2026" not in css and "HUMAN-FIRST ART DIRECTION" not in css, "Obsolete visual systems bundled"
     assert 'body.pg-home .rh-system-stage' in css and 'body.pg-home .rh-compare * {animation:none!important}' in css, "Orbit guard missing from published CSS"
     assert home.count('class="rh-compare-row"') == 3
     assert 'class="plain-define"' in home, "Missing simple explanation of digital employee"
