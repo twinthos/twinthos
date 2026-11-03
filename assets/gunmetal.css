@@ -283,3 +283,15 @@ body{max-width:100%}
  .pg-home .rh-compare-row dd>span,.pg-home .rh-compare-row dd>strong{overflow-wrap:anywhere}
  .pg-home .rh-primary{min-width:0}
 }
+
+/* EDITORIAL PHOTOGRAPH / REUSED FROM THE EXISTING TWINTHOS MEDIA LIBRARY.
+   A quiet late-night desk, not a synthetic device mockup. Decorative only. */
+.pg-home .kit{position:relative;isolation:isolate;overflow:hidden}
+.pg-home .kit::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background-image:linear-gradient(90deg,rgba(14,19,24,.97) 0%,rgba(14,19,24,.88) 39%,rgba(14,19,24,.66) 68%,rgba(14,19,24,.71) 100%),url("/assets/notes-img/night-desk-1600.jpg");
+ background-size:cover;background-position:center 54%;filter:grayscale(1);opacity:.92}
+.pg-home .kit .wrap{position:relative;z-index:1}
+@media(max-width:640px){
+ .pg-home .kit::before{background-position:66% center;opacity:.7;
+ background-image:linear-gradient(90deg,rgba(14,19,24,.96),rgba(14,19,24,.83)),url("/assets/notes-img/night-desk-1600.jpg")}
+}
