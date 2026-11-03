@@ -271,3 +271,15 @@ body.notes .nx-meta{padding-top:0}
  .phead .d2{font-size:clamp(44px,10.3vw,62px)!important}
  body.notes .nx-masthead h1{font-size:clamp(41px,10vw,58px)!important}
 }
+
+/* MOBILE CONTAINMENT / strict visual bounds, no clipped interactive buttons. */
+html{max-width:100%;overflow-x:clip}
+body{max-width:100%}
+.pg-home main,.pg-home .rh,.pg-home .journey,.pg-home .kit,.pg-home .ind,.pg-home .rates{max-width:100%;min-width:0}
+.pg-home .rh-compare-row dd,.pg-home .rh-compare-column-head>div,.pg-home .rh-copy,.pg-home .rh-grid>*{min-width:0}
+@media(max-width:360px){
+ .pg-home .rh-compare-column-head,.pg-home .rh-compare-row dd{gap:8px!important}
+ .pg-home .rh-compare-column-head>div:nth-child(2),.pg-home .rh-compare-row dd>strong{padding-left:8px!important}
+ .pg-home .rh-compare-row dd>span,.pg-home .rh-compare-row dd>strong{overflow-wrap:anywhere}
+ .pg-home .rh-primary{min-width:0}
+}
