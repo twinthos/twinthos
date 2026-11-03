@@ -137,7 +137,30 @@ def main():
             page.screenshot(path=str(SHOTS/f"journey-{width}.png"),full_page=False,animations="disabled")
           results.append({"width":width,**dims,"jsErrors":len(errors)})
           print(f"PASS {width}px: visible first screen, hero CTA, pricing link, mobile menu, booking CTA, no overflow or JS errors")
+          if width in (390,1440):
+            page.locator(".kit").scroll_into_view_if_needed()
+            page.screenshot(path=str(SHOTS/f"employee-{width}.png"),full_page=False,animations="disabled")
           page.close()
+        # Core-page smoke tests: shared header, first-screen legibility and no mobile clipping.
+        for w in (390,1440):
+          interior=browser.new_page(viewport={"width":w,"height":900},device_scale_factor=1,reduced_motion="reduce")
+          issues=[]
+          interior.on("pageerror",lambda e:issues.append(str(e)))
+          for route,label in (("/pricing/","pricing"),("/how-it-works/","how"),("/about/","about"),("/security/","security"),("/book/","booking"),("/faq/","faq")):
+            issues.clear()
+            response=interior.goto(base+route,wait_until="networkidle",timeout=30000)
+            assert response and response.status==200,(label,w,"page missing")
+            assert interior.locator("header.nav").is_visible(),(label,w,"global navigation missing")
+            assert interior.locator("h1").first.is_visible(),(label,w,"headline hidden")
+            assert interior.locator('link[href*="/assets/gunmetal.css"]').count()==1,(label,w,"brand styles missing")
+            width_now=interior.evaluate("document.documentElement.clientWidth")
+            scroll_now=interior.evaluate("document.documentElement.scrollWidth")
+            assert scroll_now<=width_now+3,(label,w,"horizontal clipping",scroll_now,width_now)
+            assert not issues,(label,w,"JavaScript failure",issues)
+            if label in ("pricing","security","booking"):
+              interior.screenshot(path=str(SHOTS/f"inner-{label}-{w}.png"),full_page=False,animations="disabled")
+            print(f"PASS {label} at {w}px: shared navigation, visible headline, styles and no overflow")
+          interior.close()
         browser.close()
     finally:
       server.shutdown()
