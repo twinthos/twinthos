@@ -40,6 +40,8 @@ def main():
                     response=page.goto(base+route,wait_until="networkidle",timeout=30000)
                     assert response and response.status==200,(label,"status")
                     assert page.locator("h1").is_visible(),(label,width,"heading")
+                    assert page.locator('header.nav').is_visible(),(label,width,"Shared website navigation missing")
+                    assert page.locator('.nav-links a[href="/workforce/"]').count()==0,(label,width,"Retired navigation present")
                     assert page.locator('link[href*="/assets/gunmetal.css"]').count()==1,(label,width,"gunmetal stylesheet not loaded")
                     assert page.evaluate('getComputedStyle(document.documentElement).getPropertyValue("--gm-bg").trim()')=="#090B0E",(label,width,"gunmetal palette missing")
                     assert page.evaluate('getComputedStyle(document.body).color')=="rgb(255, 255, 255)",(label,width,"Notes body text is not white")
