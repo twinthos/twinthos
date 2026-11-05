@@ -1425,12 +1425,15 @@ body.pg-home{overflow-x:clip;background:#0B0B0F}
 .pg-security .sc-flow-tag{margin-top:auto;padding-top:18px;color:#C8D6CD;font:650 9px/1.4 var(--mono,monospace);letter-spacing:.1em}
 .pg-security .sc-flow-gate{border-color:#8FA99A;background:linear-gradient(150deg,#26312C,#191E1C);box-shadow:0 0 0 1px rgba(143,169,154,.12),0 18px 42px rgba(0,0,0,.2)}
 .pg-security .sc-flow-connector{display:grid;place-items:center;color:#9DA0A8;font-size:25px}
-.pg-security .sc-flow-outcomes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pg-security .sc-flow-outcomes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .pg-security .sc-flow-outcome{display:flex;align-items:center;gap:13px;min-width:0;padding:16px 18px;border:1px solid #3D3F48;border-radius:9px;background:rgba(255,255,255,.025)}
 .pg-security .sc-flow-state{flex:none;color:#C8D6CD;font:700 10px/1.3 var(--mono,monospace);letter-spacing:.12em}
 .pg-security .sc-flow-deny .sc-flow-state{color:#D4B9AC}
 .pg-security .sc-flow-outcome p{color:#B8B8BE;font-size:13px;line-height:1.4}
 .pg-security .sc-flow-disclaimer{margin:20px 0 0;color:#AEB0B7;font-size:12px;line-height:1.6;max-width:100ch}
+@media(max-width:1100px){
+ .pg-security .sc-flow-outcomes{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media(max-width:900px){
  .pg-security .sc-flow-grid{grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr);gap:10px}
  .pg-security .sc-flow-grid .sc-flow-node:last-child{grid-column:1/-1}
