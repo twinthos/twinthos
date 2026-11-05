@@ -159,6 +159,13 @@ def main():
             assert not issues,(label,w,"JavaScript failure",issues)
             if label in ("pricing","security","booking"):
               interior.screenshot(path=str(SHOTS/f"inner-{label}-{w}.png"),full_page=False,animations="disabled")
+            if label == "security":
+              flow=interior.locator("#sc-control")
+              flow.scroll_into_view_if_needed()
+              assert flow.is_visible(),(w,"security control-path section missing")
+              assert interior.locator(".sc-flow-grid").is_visible(),(w,"security architecture diagram missing")
+              assert interior.locator(".sc-flow-disclaimer").is_visible(),(w,"security scope disclaimer missing")
+              interior.screenshot(path=str(SHOTS/f"security-flow-{w}.png"),full_page=False,animations="disabled")
             print(f"PASS {label} at {w}px: shared navigation, visible headline, styles and no overflow")
           interior.close()
         browser.close()

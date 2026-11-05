@@ -24,8 +24,26 @@ def audit() -> None:
     assert "FormSubmit" in privacy and "30-day" in privacy, "Document third-party form handling"
     assert "mailto:twinthos@agentmail.to" in policy, "Security disclosure contact missing"
     assert 'class="sc-github-glass"' in security, "GitHub evidence panel missing"
+    assert 'OPEN SOURCE / GITHUB' in security, "GitHub source identity label missing"
+    assert 'aria-label="Open Twinthos Sentinel on GitHub"' in security, "GitHub mark must link to the Sentinel repository"
+    assert 'width="34" height="34"' in security, "GitHub mark visibility regressed"
+    assert 'M10.226 17.284' in security, "GitHub Primer mark missing"
     assert "not independently audited" in security.lower() or "not an independently audited" in security.lower(), "Security caveat removed"
     assert "https://github.com/twinthos/ai-sec-sentinel" in security
+
+    assert "NOT A LIVE DEPLOYMENT DIAGRAM" in security, "Reference architecture must be labelled"
+    assert "one read-only MCP tool in an isolated local subprocess" in security, "Sentinel proof scope must stay explicit"
+    assert "The agent asks." in security and "The host decides." in security, "Control-path explanation missing"
+    assert 'sc-flow-state">ASK</span>' in security, "Human-review outcome missing"
+    assert "no approval UI or approval-token lifecycle" in security, "Approval implementation boundary missing"
+    assert "Guardian can return an “ask” decision" in security, "Guardian approval semantics missing"
+    assert "Exposes one bounded MCP read tool" in security, "MCP proof description drifted"
+    assert "Each control must be verified in the actual deployment" in security, "Deployment assurance language drifted"
+    assert "Inspect MCP server implementation" in security, "MCP implementation link label drifted"
+    security_css = read("_src/css/zzzz-security-editorial.css")
+    assert ".pg-security .sc-button-primary{background:#E8E6E1;border:1px solid #E8E6E1;color:#0B0B0F}" in security_css, "Primary CTA contrast regression"
+    assert ".pg-security .sc-button-quiet{background:transparent;border:1px solid #6A6A70;color:#E8E6E1}" in security_css, "Secondary CTA contrast regression"
+    assert ".pg-security .sc-github-glass{\n  border:1px solid #55565F;" in security_css, "Evidence panel surface regression"
     for path in (
         "hotbox-pitch-context.md", "hotbox-pitch-laptop.html", "hotbox-pitch-mobile.html",
         "engagement-report.html", "engagement-report.pdf", "engagement-report.txt",
