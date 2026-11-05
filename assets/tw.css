@@ -1449,6 +1449,16 @@ body.pg-home{overflow-x:clip;background:#0B0B0F}
  .pg-security .sc-flow-board,.pg-security .sc-flow-node{transition:none!important;animation:none!important}
 }
 
+
+/* GitHub Primer mark: clear, clickable source identity. */
+.pg-security .sc-github-name{display:flex;align-items:center;gap:14px;color:#F2F0EA;text-decoration:none;min-width:0}
+.pg-security .sc-github-name svg{display:block;flex:none;width:34px;height:34px;color:#F2F0EA}
+.pg-security .sc-github-name>div{display:grid;gap:4px}
+.pg-security .sc-github-name strong{color:#F2F0EA;font-size:19px;line-height:1.1;letter-spacing:-.025em}
+.pg-security .sc-github-name:hover strong{text-decoration:underline;text-underline-offset:4px}
+.pg-security .sc-github-name:focus-visible{outline:2px solid #B8C9BE;outline-offset:5px;border-radius:4px}
+@media(max-width:600px){.pg-security .sc-github-name svg{width:32px;height:32px}}
+
 /* TWINTHOS / EDITORIAL MOTION SYSTEM — 2026-11-02
    Replaces boxed hero, comparison table and 12-tile feature catalog.
    All copy is visible without script or animation. */
