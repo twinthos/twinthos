@@ -1,16 +1,10 @@
 <!--{"title":"AI Agent Security & Data | Twinthos","desc":"See how Twinthos approaches AI agent permissions, human approval, audit evidence and data boundaries. Explore the open-source Sentinel research and its documented limits.","path":"security/","nav":"security","body":"security"}-->
 <section class="sc-hero" aria-labelledby="sc-title">
-  <div class="sc-hero-photo" aria-hidden="true">
-    <picture>
-      <source type="image/webp" srcset="/assets/notes-img/coworking-morning-800.webp 800w, /assets/notes-img/coworking-morning-1600.webp 1600w" sizes="100vw">
-      <img src="/assets/notes-img/coworking-morning-1600.jpg" width="1600" height="900" decoding="async" fetchpriority="high" alt="">
-    </picture>
-  </div>
   <div class="wrap sc-hero-grid">
     <div class="sc-hero-copy">
       <div class="sc-eyebrow"><span class="sc-eyebrow-line"></span> SECURITY / ENGINEERING</div>
       <h1 id="sc-title">Trust isn't a badge.<br><em>It's a boundary.</em></h1>
-      <p class="sc-lede">AI software should only be able to use the accounts and actions its job needs. Important actions need clear rules, a responsible person and a record you can check.</p>
+      <p class="sc-lede">Twinthos builds AI digital employees for defined business workflows. Security starts with scoped tool access, human approval for consequential actions and evidence a person can review. Controls are verified against each deployment—not assumed from a prompt.</p>
       <div class="sc-actions"><a class="sc-button sc-button-primary" href="#sc-approach">Explore the approach <span aria-hidden="true">↗</span></a><a class="sc-button sc-button-quiet" href="https://github.com/twinthos/ai-sec-sentinel" target="_blank" rel="noopener noreferrer">Examine the code <span aria-hidden="true">↗</span></a></div>
       <details class="plain-define plain-define-security"><summary>New to AI security? Start here.</summary><p><strong>AI agent</strong> means software that can take steps using other tools. <strong>Access rules</strong> decide which steps it is allowed to take. <strong>MCP</strong> is one way AI connects to those tools.</p></details>
       <p class="sc-hero-note">A clear security model. No unverified compliance seals, invented security scores or claims of an unbreakable agent.</p>
@@ -51,9 +45,46 @@
   </div>
 </section>
 
+<section class="sc-control" id="sc-control" aria-labelledby="sc-control-heading">
+  <div class="wrap">
+    <div class="sc-section-lead sc-inview">
+      <div><p class="sc-small-title">02 / THE CONTROL PATH</p><h2 id="sc-control-heading">The agent asks.<br><em>The host decides.</em></h2></div>
+      <p>A model can request an action; it cannot be trusted to enforce its own permissions. A trusted host checks identity, policy and scope before calling a real tool. If a check fails, the operation never runs.</p>
+    </div>
+    <div class="sc-flow-board sc-inview">
+      <div class="sc-flow-topline"><span>REFERENCE ARCHITECTURE</span><span>NOT A LIVE DEPLOYMENT DIAGRAM</span></div>
+      <div class="sc-flow-grid">
+        <article class="sc-flow-node">
+          <span class="sc-flow-index">01 / REQUEST</span><h3>Agent runtime</h3>
+          <p>The model proposes a tool call. Its instructions and retrieved content may be untrusted.</p>
+          <span class="sc-flow-tag">REQUEST ONLY</span>
+        </article>
+        <div class="sc-flow-connector" aria-hidden="true"><span>→</span></div>
+        <article class="sc-flow-node sc-flow-gate">
+          <span class="sc-flow-index">02 / ENFORCE</span><h3>Trusted host gate</h3>
+          <p>Verify caller identity, permitted tool, parameters and current policy before dispatch.</p>
+          <span class="sc-flow-tag">DECIDE BEFORE EXECUTION</span>
+        </article>
+        <div class="sc-flow-connector" aria-hidden="true"><span>→</span></div>
+        <article class="sc-flow-node">
+          <span class="sc-flow-index">03 / EXECUTE</span><h3>Approved capability</h3>
+          <p>Only the narrowly granted operation reaches the connected tool.</p>
+          <span class="sc-flow-tag">SCOPED ACTION</span>
+        </article>
+      </div>
+      <div class="sc-flow-outcomes">
+        <div class="sc-flow-outcome sc-flow-allow"><span class="sc-flow-state">ALLOW</span><p>Run the approved operation.</p></div>
+        <div class="sc-flow-outcome sc-flow-deny"><span class="sc-flow-state">DENY</span><p>Stop before the tool is called.</p></div>
+        <div class="sc-flow-outcome sc-flow-record"><span class="sc-flow-state">RECORD</span><p>Write a redacted decision record for review.</p></div>
+      </div>
+      <p class="sc-flow-disclaimer">This is the control pattern a deployment should implement. Sentinel currently proves one read-only MCP tool in an isolated local subprocess; it is not yet a universal Hermes or Orgo runtime integration.</p>
+    </div>
+  </div>
+</section>
+
 <section class="sc-evidence" id="sc-evidence" aria-labelledby="sc-evidence-heading">
   <div class="wrap sc-evidence-grid">
-    <div class="sc-evidence-copy sc-inview"><p class="sc-small-title">02 / PUBLIC ENGINEERING</p><h2 id="sc-evidence-heading">Show the test.<br><em>Not a percentage.</em></h2><p>Sentinel now demonstrates a narrow, read-only MCP execution boundary with real subprocess tests. It also offers offline, synthetic cloud-audit triage informed by ARTEX-era threats. Neither tool claims to secure all agent runtimes or monitor a live organisation. A model saying “denied” does not stop an unrelated tool.</p><div class="sc-evidence-links"><a href="https://github.com/twinthos/ai-sec-sentinel/blob/master/docs/AGENT-BOUNDARY-DEMO.md" target="_blank" rel="noopener noreferrer">Run the MCP boundary proof ↗</a><a href="https://github.com/twinthos/ai-sec-sentinel/blob/master/docs/ARTEX-DEFENSE.md" target="_blank" rel="noopener noreferrer">Study the sourced ARTEX defence ↗</a><a href="https://github.com/twinthos/ai-sec-sentinel/blob/master/docs/EVIDENCE.md" target="_blank" rel="noopener noreferrer">Review the evidence map ↗</a><a href="https://github.com/twinthos/ai-sec-sentinel/blob/master/SECURITY.md" target="_blank" rel="noopener noreferrer">Read the security policy ↗</a><a href="https://github.com/twinthos/ai-sec-audit" target="_blank" rel="noopener noreferrer">Explore the read-only AI security audit skill ↗</a><a href="https://github.com/twinthos/ai-sec-sentinel/actions/workflows/ci.yml" target="_blank" rel="noopener noreferrer">Inspect the CI workflow ↗</a></div></div>
+    <div class="sc-evidence-copy sc-inview"><p class="sc-small-title">03 / PUBLIC ENGINEERING</p><h2 id="sc-evidence-heading">Show the test.<br><em>Not a percentage.</em></h2><p>Sentinel now demonstrates a narrow, read-only MCP execution boundary with real subprocess tests. It also offers offline, synthetic cloud-audit triage informed by ARTEX-era threats. Neither tool claims to secure all agent runtimes or monitor a live organisation. A model saying “denied” does not stop an unrelated tool.</p><div class="sc-evidence-links"><a href="https://github.com/twinthos/ai-sec-sentinel/blob/master/docs/AGENT-BOUNDARY-DEMO.md" target="_blank" rel="noopener noreferrer">Run the MCP boundary proof ↗</a><a href="https://github.com/twinthos/ai-sec-sentinel/blob/master/docs/ARTEX-DEFENSE.md" target="_blank" rel="noopener noreferrer">Study the sourced ARTEX defence ↗</a><a href="https://github.com/twinthos/ai-sec-sentinel/blob/master/docs/EVIDENCE.md" target="_blank" rel="noopener noreferrer">Review the evidence map ↗</a><a href="https://github.com/twinthos/ai-sec-sentinel/blob/master/SECURITY.md" target="_blank" rel="noopener noreferrer">Read the security policy ↗</a><a href="https://github.com/twinthos/ai-sec-audit" target="_blank" rel="noopener noreferrer">Explore the read-only AI security audit skill ↗</a><a href="https://github.com/twinthos/ai-sec-sentinel/actions/workflows/ci.yml" target="_blank" rel="noopener noreferrer">Inspect the CI workflow ↗</a></div></div>
     <div class="sc-evidence-table sc-inview">
       <div class="sc-table-caption"><span>PUBLIC PROOF / DEFINED SCOPE</span><span>CODE &amp; TESTS</span></div>
       <div class="sc-evidence-line"><span class="sc-flag">DEMONSTRATED</span><strong>Read-only adapter with fixed operations</strong><p>The included adapter limits the allowed action to bounded file reads.</p></div>
@@ -65,7 +96,7 @@
 
 <section class="sc-questions" id="sc-questions" aria-labelledby="sc-questions-title">
   <div class="wrap">
-    <div class="sc-section-lead sc-inview"><div><p class="sc-small-title">03 / BEFORE DEPLOYMENT</p><h2 id="sc-questions-title">Five answers you should<br><em>get in writing.</em></h2></div><p>Policies are useful only when you know which real system, provider and person they apply to. These are the decisions each client deployment must make explicitly.</p></div>
+    <div class="sc-section-lead sc-inview"><div><p class="sc-small-title">04 / BEFORE DEPLOYMENT</p><h2 id="sc-questions-title">Five answers you should<br><em>get in writing.</em></h2></div><p>Policies are useful only when you know which real system, provider and person they apply to. These are the decisions each client deployment must make explicitly.</p></div>
     <div class="sc-checklist sc-inview">
       <details><summary><span class="sc-question-no">01</span><span>What can the agent access and actually change?</span><span aria-hidden="true" class="sc-plus">＋</span></summary><p>List the named tools and accounts, allowable operations and which actions require explicit human approval. Avoid general claims such as “secure access to everything”.</p></details>
       <details><summary><span class="sc-question-no">02</span><span>Where will our data go?</span><span aria-hidden="true" class="sc-plus">＋</span></summary><p>Document the specific cloud computer, model providers, data-processing locations, retention and training settings. We do not assume that using a UK-based computer means every supplier processes data in the UK.</p></details>
@@ -77,5 +108,5 @@
 </section>
 
 <section class="sc-last" aria-labelledby="sc-last-heading">
-  <div class="wrap sc-last-grid sc-inview"><div><p class="sc-small-title">04 / THE STANDARD</p><h2 id="sc-last-heading">Confidence should be<br><em>earned in the details.</em></h2><p>Ask us to walk through the actual access boundaries, approval rules and providers for the workflow you're considering.</p></div><div class="sc-last-actions"><a class="sc-button sc-button-primary" href="/book/?interest=security">Talk through your security requirements <span aria-hidden="true">↗</span></a><a href="https://github.com/twinthos/ai-sec-sentinel/security/advisories/new" target="_blank" rel="noopener noreferrer">Report a Sentinel vulnerability privately ↗</a></div></div>
+  <div class="wrap sc-last-grid sc-inview"><div><p class="sc-small-title">05 / THE STANDARD</p><h2 id="sc-last-heading">Confidence should be<br><em>earned in the details.</em></h2><p>Ask us to walk through the actual access boundaries, approval rules and providers for the workflow you're considering.</p></div><div class="sc-last-actions"><a class="sc-button sc-button-primary" href="/book/?interest=security">Talk through your security requirements <span aria-hidden="true">↗</span></a><a href="https://github.com/twinthos/ai-sec-sentinel/security/advisories/new" target="_blank" rel="noopener noreferrer">Report a Sentinel vulnerability privately ↗</a></div></div>
 </section>
