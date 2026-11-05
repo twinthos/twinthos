@@ -31,6 +31,7 @@ def audit() -> None:
     assert "one read-only MCP tool in an isolated local subprocess" in security, "Sentinel proof scope must stay explicit"
     assert "The agent asks." in security and "The host decides." in security, "Control-path explanation missing"
     assert "Exposes one bounded MCP read tool" in security, "MCP proof description drifted"
+    assert "Controls need to be verified against each deployment" in security, "Deployment assurance language drifted"
     assert "Inspect MCP server implementation" in security, "MCP implementation link label drifted"
     security_css = read("_src/css/zzzz-security-editorial.css")
     assert ".pg-security .sc-button-primary{background:#E8E6E1;border:1px solid #E8E6E1;color:#0B0B0F}" in security_css, "Primary CTA contrast regression"
