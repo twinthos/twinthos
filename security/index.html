@@ -41,7 +41,7 @@
     <div class="sc-hero-copy">
       <div class="sc-eyebrow"><span class="sc-eyebrow-line"></span> SECURITY / ENGINEERING</div>
       <h1 id="sc-title">Trust isn't a badge.<br><em>It's a boundary.</em></h1>
-      <p class="sc-lede">Twinthos builds AI digital employees for defined business workflows. Security starts with scoped tool access, human approval for consequential actions and evidence a person can review. Controls need to be verified against each deployment—not assumed from a prompt.</p>
+      <p class="sc-lede">Twinthos builds AI digital employees for defined business workflows. Security starts with scoped tool access, a defined human-review path for consequential actions and evidence a person can inspect. Each control must be verified in the actual deployment—not inferred from a prompt.</p>
       <div class="sc-actions"><a class="sc-button sc-button-primary" href="#sc-approach">Explore the approach <span aria-hidden="true">↗</span></a><a class="sc-button sc-button-quiet" href="https://github.com/twinthos/ai-sec-sentinel" target="_blank" rel="noopener noreferrer">Examine the code <span aria-hidden="true">↗</span></a></div>
       <details class="plain-define plain-define-security"><summary>New to AI security? Start here.</summary><p><strong>AI agent</strong> means software that can take steps using other tools. <strong>Access rules</strong> decide which steps it is allowed to take. <strong>MCP</strong> is one way AI connects to those tools.</p></details>
       <p class="sc-hero-note">A clear security model. No unverified compliance seals, invented security scores or claims of an unbreakable agent.</p>
@@ -75,7 +75,7 @@
     <div class="sc-section-lead sc-inview"><div><p class="sc-small-title">01 / THE POSITION</p><h2 id="sc-approach-heading">Don't trust the prompt.<br><em>Control the action.</em></h2></div><p>A clever model can misread a document, follow a malicious instruction or use a tool incorrectly. The real protection has to exist outside the model's promises—in what the system is technically allowed to do.</p></div>
     <div class="sc-principle-grid">
       <article class="sc-principle sc-inview"><span class="sc-card-no">01 / BOUND</span><div class="sc-simple-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="12" y="12" width="40" height="40" rx="7"/><path d="M22 32h20M32 22v20"/></svg></div><h3>Only the access a job needs.</h3><p>Choose which accounts and actions it can use. Do not give it wider access just because it's easier.</p><span class="sc-card-foot">LEAST PRIVILEGE</span></article>
-      <article class="sc-principle sc-inview"><span class="sc-card-no">02 / APPROVE</span><div class="sc-simple-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="14" y="12" width="36" height="40" rx="5"/><path d="m23 32 6 6 13-15"/></svg></div><h3>A person makes the consequential call.</h3><p>Set escalation rules for sensitive work: money, access, customer commitments or anything outside the agreed playbook.</p><span class="sc-card-foot">HUMAN AUTHORITY</span></article>
+      <article class="sc-principle sc-inview"><span class="sc-card-no">02 / APPROVE</span><div class="sc-simple-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="14" y="12" width="36" height="40" rx="5"/><path d="m23 32 6 6 13-15"/></svg></div><h3>A person makes the consequential call.</h3><p>Define who may approve, which exact action they are approving, and when that approval expires. Guardian can return an “ask” decision; the current MCP demonstration does not include an approval interface or consume approval tokens.</p><span class="sc-card-foot">HUMAN AUTHORITY</span></article>
       <article class="sc-principle sc-inview"><span class="sc-card-no">03 / RECORD</span><div class="sc-simple-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M19 11h25l7 7v35H19z"/><path d="M44 11v9h8M26 31h19M26 39h19M26 47h11"/></svg></div><h3>Be able to explain what happened.</h3><p>Agree what actions are logged, what information is redacted, who can review the record and how long evidence is retained.</p><span class="sc-card-foot">AUDITABLE ACTIONS</span></article>
       <article class="sc-principle sc-inview"><span class="sc-card-no">04 / CONTAIN</span><div class="sc-simple-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="10" y="16" width="44" height="32" rx="5"/><path d="M32 16v32M10 31h44"/></svg></div><h3>Assume something will go wrong.</h3><p>Plan for prompt injection, a compromised integration, a bad answer or a failed alert. Document the stop, recovery and notification path.</p><span class="sc-card-foot">FAIL CLOSED / RECOVER</span></article>
     </div>
@@ -111,10 +111,11 @@
       </div>
       <div class="sc-flow-outcomes">
         <div class="sc-flow-outcome sc-flow-allow"><span class="sc-flow-state">ALLOW</span><p>Run the approved operation.</p></div>
+        <div class="sc-flow-outcome sc-flow-ask"><span class="sc-flow-state">ASK</span><p>Pause for a separately implemented human decision.</p></div>
         <div class="sc-flow-outcome sc-flow-deny"><span class="sc-flow-state">DENY</span><p>Stop before the tool is called.</p></div>
         <div class="sc-flow-outcome sc-flow-record"><span class="sc-flow-state">RECORD</span><p>Write a redacted decision record for review.</p></div>
       </div>
-      <p class="sc-flow-disclaimer">This is the control pattern a deployment should implement. Sentinel currently proves one read-only MCP tool in an isolated local subprocess; it is not yet a universal Hermes or Orgo runtime integration.</p>
+      <p class="sc-flow-disclaimer">Reference pattern, not a live deployment diagram. Guardian can return an “ask” decision, but no approval UI or approval-token lifecycle is connected to the MCP demonstration. A trusted host must implement and enforce human review. Sentinel's tested proof is one read-only MCP tool in an isolated local subprocess—not universal Hermes or Orgo protection.</p>
     </div>
   </div>
 </section>
