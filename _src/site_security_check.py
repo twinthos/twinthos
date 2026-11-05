@@ -38,7 +38,7 @@ def audit() -> None:
     assert "no approval UI or approval-token lifecycle" in security, "Approval implementation boundary missing"
     assert "Guardian can return an “ask” decision" in security, "Guardian approval semantics missing"
     assert "Exposes one bounded MCP read tool" in security, "MCP proof description drifted"
-    assert "Controls need to be verified against each deployment" in security, "Deployment assurance language drifted"
+    assert "Each control must be verified in the actual deployment" in security, "Deployment assurance language drifted"
     assert "Inspect MCP server implementation" in security, "MCP implementation link label drifted"
     security_css = read("_src/css/zzzz-security-editorial.css")
     assert ".pg-security .sc-button-primary{background:#E8E6E1;border:1px solid #E8E6E1;color:#0B0B0F}" in security_css, "Primary CTA contrast regression"
