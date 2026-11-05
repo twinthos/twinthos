@@ -24,6 +24,10 @@ def audit() -> None:
     assert "FormSubmit" in privacy and "30-day" in privacy, "Document third-party form handling"
     assert "mailto:twinthos@agentmail.to" in policy, "Security disclosure contact missing"
     assert 'class="sc-github-glass"' in security, "GitHub evidence panel missing"
+    assert 'OPEN SOURCE / GITHUB' in security, "GitHub source identity label missing"
+    assert 'aria-label="Open Twinthos Sentinel on GitHub"' in security, "GitHub mark must link to the Sentinel repository"
+    assert 'width="34" height="34"' in security, "GitHub mark visibility regressed"
+    assert 'M10.226 17.284' in security, "GitHub Primer mark missing"
     assert "not independently audited" in security.lower() or "not an independently audited" in security.lower(), "Security caveat removed"
     assert "https://github.com/twinthos/ai-sec-sentinel" in security
 
