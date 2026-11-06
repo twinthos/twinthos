@@ -8,11 +8,11 @@
 :root {
   --bg: #000;
   --surface: #080808;
-  --surface-2: #0f0f0f;
+  --surface-2: #111;
   --text: #fff;
-  --text-2: #888;
-  --text-3: #444;
-  --border: rgba(255,255,255,0.06);
+  --text-2: #777;
+  --text-3: #333;
+  --border: rgba(255,255,255,0.07);
   --green: #3dd68c;
   --amber: #e5a100;
   --rose: #e5534b;
@@ -50,10 +50,9 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
 .nav-cta { display: inline-flex; align-items: center; justify-content: center; height: 30px; padding: 0 14px; background: var(--text); color: var(--bg); font-size: var(--text-sm); font-weight: 600; border-radius: var(--r-full); text-decoration: none; transition: opacity var(--speed) var(--ease); }
 .nav-cta:hover { opacity: 0.8; }
 
-/* Hero — the product IS the hero */
-.hero { padding: 100px 0 60px; position: relative; min-height: 90vh; display: flex; align-items: center; }
+/* Hero */
+.hero { padding: 100px 0 60px; position: relative; }
 .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; height: 100%; background: radial-gradient(ellipse 50% 30% at 50% 0%, rgba(255,255,255,0.04) 0%, transparent 70%); pointer-events: none; }
-.hero-content { position: relative; z-index: 2; }
 .hero-title { font-size: var(--display); font-weight: 800; letter-spacing: -0.05em; line-height: 0.92; margin-bottom: var(--s6); max-width: 720px; }
 .hero-title span { color: var(--text-2); }
 .hero-lead { font-size: 20px; color: var(--text-2); line-height: 1.6; margin-bottom: var(--s8); max-width: 480px; }
@@ -65,7 +64,7 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
 .btn-primary:hover { opacity: 0.85; border-color: var(--text); }
 .btn-lg { height: 50px; padding: 0 26px; font-size: 14px; font-weight: 600; }
 
-/* Demo — the actual product experience */
+/* Demo — interactive */
 .demo { padding: var(--s16) 0; border-top: 1px solid var(--border); }
 .demo-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--s8); flex-wrap: wrap; gap: var(--s4); }
 .demo-title { font-size: var(--headline-lg); }
@@ -77,16 +76,17 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
 .demo-panel { display: none; }
 .demo-panel.active { display: block; }
 
-/* Demo stream */
-.stream { border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
-.stream-header { padding: var(--s4) var(--s5); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--surface); }
+/* Stream */
+.stream { border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; background: var(--surface); }
+.stream-header { padding: var(--s4) var(--s5); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
 .stream-title { font-size: var(--text-sm); font-weight: 500; color: var(--text); }
 .stream-status { display: flex; align-items: center; gap: var(--s2); font-size: var(--text-xs); color: var(--text-3); }
 .stream-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-.stream-row { display: grid; grid-template-columns: 56px 1fr auto; gap: var(--s4); padding: var(--s4) var(--s5); border-bottom: 1px solid rgba(255,255,255,0.03); align-items: center; transition: background var(--speed) var(--ease); }
-.stream-row:hover { background: var(--surface); }
+.stream-row { display: grid; grid-template-columns: 56px 1fr auto; gap: var(--s4); padding: var(--s4) var(--s5); border-bottom: 1px solid rgba(255,255,255,0.03); align-items: center; cursor: pointer; transition: background var(--speed) var(--ease); }
+.stream-row:hover { background: var(--surface-2); }
 .stream-row:last-child { border-bottom: none; }
+.stream-row.expanded { background: var(--surface-2); }
 .stream-time { font-size: var(--text-xs); color: var(--text-3); font-variant-numeric: tabular-nums; }
 .stream-main { min-width: 0; }
 .stream-label { font-size: 9px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); margin-bottom: 2px; }
@@ -97,9 +97,11 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
 .stream-badge.review { color: var(--amber); background: rgba(229,161,0,0.08); }
 .stream-badge.alert { color: var(--rose); background: rgba(229,83,75,0.08); }
 .stream-badge.info { color: var(--blue); background: rgba(74,158,255,0.08); }
+.stream-expanded { display: none; padding: var(--s4) var(--s5); border-bottom: 1px solid rgba(255,255,255,0.03); background: var(--surface-2); font-size: var(--text-sm); color: var(--text-2); line-height: 1.6; }
+.stream-expanded.show { display: block; }
 .stream-note { font-size: var(--text-xs); color: var(--text-3); padding: var(--s4) var(--s5); border-top: 1px solid var(--border); background: var(--surface); }
 
-/* Brain section */
+/* Brain */
 .brain { padding: var(--s24) 0; border-top: 1px solid var(--border); }
 .brain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s12); align-items: start; }
 @media (max-width: 760px) { .brain-grid { grid-template-columns: 1fr; gap: var(--s8); } }
@@ -260,7 +262,7 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
   </div>
 </section>
 
-<!-- Demo — the actual product -->
+<!-- Demo — interactive -->
 <section class="demo" id="demo">
   <div class="wrap">
     <div class="demo-header">
@@ -268,7 +270,7 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
         <div class="eyebrow">Live demo</div>
         <h2 class="demo-title">Watch the digital employee work.</h2>
       </div>
-      <p class="demo-sub">Real tasks. Real data. Real time.</p>
+      <p class="demo-sub">Click any row to see details.</p>
     </div>
     <div class="demo-tabs">
       <button class="demo-tab active" onclick="switchTab('inbox')">Inbox</button>
@@ -283,7 +285,7 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           <span class="stream-title">Digital employee — inbox processing</span>
           <span class="stream-status"><span class="stream-dot"></span> Live</span>
         </div>
-        <div class="stream-row" data-delay="0">
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:02</div>
           <div class="stream-main">
             <div class="stream-label">Inbox</div>
@@ -292,7 +294,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge review">Screening</span>
         </div>
-        <div class="stream-row" data-delay="900">
+        <div class="stream-expanded">The employee received an email with a CV attached. It extracted the candidate's details: James Wilson, 8 years experience, React and Node.js, salary expectation £65K. It matched these against the approved criteria stored in the Company Brain. The employee scored this candidate 9/10 and flagged it for human review. No communication was sent without approval.</div>
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:02</div>
           <div class="stream-main">
             <div class="stream-label">Company Brain</div>
@@ -301,7 +304,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge done">Matched</span>
         </div>
-        <div class="stream-row" data-delay="1800">
+        <div class="stream-expanded">The Company Brain holds the approved hiring criteria set by Sarah Chen (HR Director). The employee retrieved these criteria and compared the candidate's profile across 47 data points. Match: React (yes), Node.js (yes), 5+ years (yes, 8), £60-75K (yes, £65K). No data was invented. Every match is traceable to the original criteria document.</div>
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:03</div>
           <div class="stream-main">
             <div class="stream-label">Digital Employee</div>
@@ -310,7 +314,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge review">Review</span>
         </div>
-        <div class="stream-row" data-delay="2700">
+        <div class="stream-expanded">The employee scored the candidate 9/10 based on the 47-point match. It drafted an interview invitation email but did not send it. The draft is waiting for Sarah Chen's approval. The employee's permissions do not allow sending emails without sign-off. This is the approval gate in action.</div>
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:03</div>
           <div class="stream-main">
             <div class="stream-label">Invoice Router</div>
@@ -319,7 +324,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge done">Routed</span>
         </div>
-        <div class="stream-row" data-delay="3600">
+        <div class="stream-expanded">An invoice arrived in the inbox. The employee read it, extracted the amount (£4,200), the due date (5 Dec), and the terms (Net 30). It routed the invoice to the Accounts Payable queue in the client's existing accounting system. The employee did not approve payment — that requires human sign-off. It simply filed and routed.</div>
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:04</div>
           <div class="stream-main">
             <div class="stream-label">Lead Qualifier</div>
@@ -328,7 +334,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge done">Qualified</span>
         </div>
-        <div class="stream-row" data-delay="4500">
+        <div class="stream-expanded">A new lead emailed the company. The employee read the email, extracted the company name (Acme Supply Co), budget (£3-5K/mo), and timeline (2 weeks). It scored the lead 9/10 against the qualification criteria in the Company Brain and added it to the sales pipeline. The sales team was notified. No outreach was sent without approval.</div>
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:05</div>
           <div class="stream-main">
             <div class="stream-label">Sentinel</div>
@@ -337,6 +344,7 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge alert">Alert</span>
         </div>
+        <div class="stream-expanded">Sentinel detected a critical vulnerability (CVE-2026-98432, CVSS 9.8) affecting the Linux kernel in the client's stack. It matched this against the client's actual infrastructure. An alert was sent via Telegram to Sarah Chen with the CVE details, affected systems, and recommended remediation steps. The client did not have to read a security newsletter to find out.</div>
         <div class="stream-note">Illustrative demo. Times and values are representative.</div>
       </div>
     </div>
@@ -348,7 +356,7 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           <span class="stream-title">Company Brain — knowledge state</span>
           <span class="stream-status"><span class="stream-dot"></span> Live</span>
         </div>
-        <div class="stream-row">
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:00</div>
           <div class="stream-main">
             <div class="stream-label">Identity</div>
@@ -357,7 +365,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge done">Loaded</span>
         </div>
-        <div class="stream-row">
+        <div class="stream-expanded">The Company Brain holds the company's identity: who they are, what they do, their rules, their policies, their approved knowledge. This is not a generic AI. It is a brain built specifically for this company. Every answer, every action, every decision is grounded in this knowledge. The employee never invents facts. It only uses what is approved.</div>
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:00</div>
           <div class="stream-main">
             <div class="stream-label">Memory</div>
@@ -366,7 +375,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge done">Indexed</span>
         </div>
-        <div class="stream-row">
+        <div class="stream-expanded">The brain remembers every candidate that has been screened. 47 profiles indexed, each with skills, experience, salary expectations, and screening scores. The employee can search these profiles instantly. It can compare new candidates against past ones. It can answer "who was the strongest React developer we saw last month?" in seconds.</div>
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:01</div>
           <div class="stream-main">
             <div class="stream-label">Skills</div>
@@ -375,7 +385,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge done">Active</span>
         </div>
-        <div class="stream-row">
+        <div class="stream-expanded">The screening criteria was written by Sarah Chen and approved before the employee was deployed. 47 data points including: required skills (React, Node.js), minimum experience (5 years), salary band (£60-75K), and cultural fit indicators. The employee uses these criteria exactly as written. It does not improvise or add its own criteria.</div>
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:01</div>
           <div class="stream-main">
             <div class="stream-label">Projects</div>
@@ -384,7 +395,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge info">Tracking</span>
         </div>
-        <div class="stream-row">
+        <div class="stream-expanded">The brain tracks active projects. The Senior Developer role is open with a budget of £60-75K and a 2-week timeline. 12 applicants have been received. The employee is screening all 12 against the approved criteria. Progress is tracked in the brain. The HR Director can ask "how many candidates have been screened?" and get an instant answer.</div>
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:02</div>
           <div class="stream-main">
             <div class="stream-label">Permissions</div>
@@ -393,7 +405,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge done">Enforced</span>
         </div>
-        <div class="stream-row">
+        <div class="stream-expanded">The employee's permissions are explicitly defined. It can read emails, CVs, and criteria. It can write scores and draft replies. It cannot delete anything. It cannot send emails without approval. It cannot access systems outside its scope. These permissions are enforced at the system level, not just in the prompt. The employee physically cannot do what it is not permitted to do.</div>
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:02</div>
           <div class="stream-main">
             <div class="stream-label">History</div>
@@ -402,6 +415,7 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge done">Logged</span>
         </div>
+        <div class="stream-expanded">Every action the employee takes is logged with a timestamp. The log is searchable and exportable. If someone asks "what did the AI do yesterday?", the answer is available in seconds. This is not optional. It is built into the product. The audit trail is the proof that the employee is doing its job correctly.</div>
         <div class="stream-note">Brain state is isolated per company. Never shares data across clients.</div>
       </div>
     </div>
@@ -413,7 +427,7 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           <span class="stream-title">Sentinel — security monitoring</span>
           <span class="stream-status"><span class="stream-dot"></span> Live</span>
         </div>
-        <div class="stream-row">
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:00</div>
           <div class="stream-main">
             <div class="stream-label">CVE Feed</div>
@@ -422,7 +436,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge done">Scanning</span>
         </div>
-        <div class="stream-row">
+        <div class="stream-expanded">Sentinel scans 12,847 CVEs from the National Vulnerability Database, CISA's Known Exploited Vulnerabilities list, and EPSS (Exploit Prediction Scoring System) scores. It runs on a schedule, not when someone remembers to check. It filters the entire CVE database down to the vulnerabilities that actually affect the client's stack.</div>
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:01</div>
           <div class="stream-main">
             <div class="stream-label">Match</div>
@@ -431,7 +446,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge alert">Critical</span>
         </div>
-        <div class="stream-row">
+        <div class="stream-expanded">Sentinel matched CVE-2026-98432 against the client's actual infrastructure. CVSS score: 9.8 (critical). EPSS score: 0.94 (94% probability of exploitation). This vulnerability is in the Linux kernel that the client's servers run. Without Sentinel, the client would not have known until a breach occurred.</div>
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:01</div>
           <div class="stream-main">
             <div class="stream-label">Alert</div>
@@ -440,7 +456,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge alert">Sent</span>
         </div>
-        <div class="stream-row">
+        <div class="stream-expanded">The alert was sent via Telegram to Sarah Chen's phone. It included the CVE details, the affected systems, and the recommended remediation steps. The client did not have to read a security newsletter or check a dashboard. The alert arrived on their phone, in real time, with everything they needed to act.</div>
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:02</div>
           <div class="stream-main">
             <div class="stream-label">News</div>
@@ -449,7 +466,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge review">Review</span>
         </div>
-        <div class="stream-row">
+        <div class="stream-expanded">Sentinel monitors news sources for breaches affecting the client's suppliers. Acme Corp, a supplier the client uses, had a data leak reported by the Financial Times 2 hours ago. Sentinel detected this and flagged it for review. The client can now assess whether their data is at risk and take action before it becomes a problem.</div>
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:03</div>
           <div class="stream-main">
             <div class="stream-label">EPSS</div>
@@ -458,7 +476,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge info">Scored</span>
         </div>
-        <div class="stream-row">
+        <div class="stream-expanded">EPSS scores predict the probability of a vulnerability being exploited in the next 30 days. Sentinel scored 847 vulnerabilities for this client. The top 3 have scores of 0.94, 0.87, and 0.71. This means the client can prioritize remediation based on actual risk, not just CVSS scores. A CVSS 9.8 with an EPSS of 0.01 is less urgent than a CVSS 7.0 with an EPSS of 0.94.</div>
+        <div class="stream-row" onclick="toggleRow(this)">
           <div class="stream-time">09:04</div>
           <div class="stream-main">
             <div class="stream-label">Report</div>
@@ -467,6 +486,7 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           </div>
           <span class="stream-badge done">Generated</span>
         </div>
+        <div class="stream-expanded">Every week, Sentinel generates a security digest summarizing all activity: 3 active threats requiring attention, 23 alerts sent via Telegram, and 847 vulnerabilities scored with EPSS. The digest is sent to the client's named security contact. It replaces the need for a dedicated security monitoring service. The audit costs £10,000. A single breach starts at £500,000.</div>
         <div class="stream-note">Sentinel runs on a schedule. Alerts arrive via Telegram. You read them on your phone.</div>
       </div>
     </div>
@@ -657,7 +677,7 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
           <span class="approval-row-value">Send interview invitation</span>
         </div>
         <div class="approval-actions">
-          <button class="btn btn-primary" onclick="this.textContent='Approved ✓'; this.style.opacity='0.7';">Approve</button>
+          <button class="btn btn-primary" onclick="this.textContent='Approved ✓'; this.style.opacity='0.7'; this.disabled=true;">Approve</button>
           <button class="btn">Reject</button>
           <button class="btn">Edit & resend</button>
         </div>
@@ -735,7 +755,15 @@ function switchTab(tab) {
   document.getElementById('panel-' + tab).classList.add('active');
 }
 
-const streamRows = document.querySelectorAll('.stream-row');
+function toggleRow(row) {
+  row.classList.toggle('expanded');
+  const expanded = row.nextElementSibling;
+  if (expanded && expanded.classList.contains('stream-expanded')) {
+    expanded.classList.toggle('show');
+  }
+}
+
+const streamRows = document.querySelectorAll('.stream-row[data-delay]');
 streamRows.forEach((row, i) => {
   const delay = parseInt(row.dataset.delay) || 0;
   setTimeout(() => row.classList.add('show'), delay + 600);
