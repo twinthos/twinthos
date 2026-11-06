@@ -8,7 +8,7 @@
 :root {
   --bg: #0a0a0a;
   --surface: #111111;
-  --surface-2: #1a1a1a;
+  --surface-2: #161616;
   --text: #fafafa;
   --text-muted: #737373;
   --text-dim: #404040;
@@ -17,13 +17,13 @@
   --amber: #f59e0b;
   --rose: #f87171;
   --text-xs: 11px; --text-sm: 13px; --text-base: 16px;
-  --headline-sm: clamp(20px, 2.2vw, 24px);
-  --headline-md: clamp(28px, 3.5vw, 36px);
-  --headline-lg: clamp(40px, 5.5vw, 64px);
-  --display: clamp(52px, 8vw, 96px);
+  --headline-sm: clamp(18px, 2vw, 22px);
+  --headline-md: clamp(24px, 3vw, 32px);
+  --headline-lg: clamp(36px, 5vw, 56px);
+  --display: clamp(48px, 7vw, 80px);
   --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px; --s6: 24px; --s8: 32px; --s12: 48px; --s16: 64px; --s20: 80px; --s24: 96px;
-  --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-full: 9999px;
-  --max-w: 1120px;
+  --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-xl: 20px; --r-full: 9999px;
+  --max-w: 1080px;
   --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
   --speed: 300ms;
 }
@@ -37,7 +37,6 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
 .headline { font-size: var(--headline-lg); margin-bottom: var(--s4); }
 .headline-md { font-size: var(--headline-md); margin-bottom: var(--s3); }
 .body-copy { font-size: var(--text-base); color: var(--text-muted); line-height: 1.7; max-width: 560px; }
-.label { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
 
 /* Nav */
 .nav { position: sticky; top: 0; z-index: 100; height: 56px; background: rgba(10,10,10,0.8); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid rgba(255,255,255,0.06); }
@@ -51,7 +50,7 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
 .nav-cta:hover { opacity: 0.85; transform: translateY(-1px); }
 
 /* Hero */
-.hero { padding: var(--s24) 0 var(--s20); }
+.hero { padding: var(--s24) 0 var(--s16); }
 .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s12); align-items: start; }
 @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: var(--s8); } }
 .hero-eyebrow { margin-bottom: var(--s4); }
@@ -65,7 +64,7 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
 .btn-primary:hover { opacity: 0.85; border-color: var(--text); }
 .btn-lg { height: 52px; padding: 0 28px; font-size: 15px; font-weight: 600; }
 
-/* Hero visual */
+/* Hero visual — ops stream */
 .hero-ops { background: var(--surface); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--r-lg); padding: var(--s5); }
 .hero-ops-title { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--s4); display: flex; align-items: center; justify-content: space-between; }
 .hero-ops-title .live { display: flex; align-items: center; gap: 6px; color: var(--green); font-size: 10px; }
@@ -75,8 +74,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
 .ops-step { display: flex; gap: var(--s3); padding: var(--s3) 0; border-bottom: 1px solid rgba(255,255,255,0.04); opacity: 0; transform: translateY(12px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
 .ops-step.show { opacity: 1; transform: none; }
 .ops-step:last-child { border-bottom: 0; }
-.ops-step-num { width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,0.06); color: var(--text-muted); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; transition: background var(--speed) var(--ease), color var(--speed) var(--ease); }
-.ops-step.done .ops-step-num { background: rgba(74,222,128,0.12); color: var(--green); }
+.ops-step-num { width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,0.04); color: var(--text-muted); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; transition: background var(--speed) var(--ease), color var(--speed) var(--ease); }
+.ops-step.done .ops-step-num { background: rgba(74,222,128,0.1); color: var(--green); }
 .ops-step-content { flex: 1; min-width: 0; }
 .ops-step-label { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 3px; }
 .ops-step-title { font-size: var(--text-sm); font-weight: 600; color: var(--text); line-height: 1.35; margin-bottom: 2px; }
@@ -103,15 +102,15 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
 .pillar-title { font-size: var(--headline-sm); font-weight: 600; letter-spacing: -0.02em; color: var(--text); margin-bottom: var(--s3); line-height: 1.3; }
 .pillar-body { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.6; }
 
-/* Tools */
-.tools-section { padding: var(--s20) 0; }
-.tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s3); }
-@media (max-width: 760px) { .tools-grid { grid-template-columns: repeat(2, 1fr); } }
-.tool-card { background: var(--surface); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--r-md); padding: var(--s5); transition: border-color var(--speed) var(--ease), transform var(--speed) var(--ease); }
-.tool-card:hover { border-color: rgba(255,255,255,0.12); transform: translateY(-2px); }
-.tool-icon { width: 32px; height: 32px; border-radius: var(--r-sm); background: rgba(255,255,255,0.04); color: var(--text-muted); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; margin-bottom: var(--s3); font-family: monospace; }
-.tool-name { font-size: var(--text-sm); font-weight: 600; color: var(--text); margin-bottom: var(--s1); }
-.tool-desc { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.4; }
+/* Interface Set — what the employee uses */
+.interface-section { padding: var(--s20) 0; }
+.interface-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--s3); }
+@media (max-width: 760px) { .interface-grid { grid-template-columns: repeat(2, 1fr); } }
+.interface-card { background: var(--surface); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--r-md); padding: var(--s5); text-align: center; transition: border-color var(--speed) var(--ease), transform var(--speed) var(--ease); }
+.interface-card:hover { border-color: rgba(255,255,255,0.12); transform: translateY(-2px); }
+.interface-icon { width: 40px; height: 40px; border-radius: var(--r-md); background: rgba(255,255,255,0.04); color: var(--text-muted); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; margin: 0 auto var(--s3); font-family: monospace; }
+.interface-name { font-size: var(--text-sm); font-weight: 600; color: var(--text); margin-bottom: var(--s1); }
+.interface-desc { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.4; }
 
 /* Cost */
 .cost-section { padding: var(--s20) 0; }
@@ -349,29 +348,38 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
   </div>
 </section>
 
-<!-- Tools Section -->
-<section class="tools-section" id="tools">
+<!-- Interface Set — what the employee uses -->
+<section class="interface-section" id="tools">
   <div class="wrap">
     <div class="eyebrow reveal">The tools</div>
-    <h2 class="headline reveal reveal-delay-1">Everything the digital employee uses. Nothing hidden.</h2>
-    <p class="body-copy reveal reveal-delay-2" style="margin-bottom: var(--s8);">No black box. No proprietary lock-in. Every tool is named, documented, and replaceable. You own the stack.</p>
-    <div class="tools-grid">
-      <div class="tool-card reveal reveal-delay-1"><div class="tool-icon">H</div><div class="tool-name">Hermes Agent</div><div class="tool-desc">Orchestration layer. Skills, memory, subagents, browser control, cron scheduling.</div></div>
-      <div class="tool-card reveal reveal-delay-1"><div class="tool-icon">O</div><div class="tool-name">Ollama</div><div class="tool-desc">Local LLM fallback. Runs on your hardware. No cloud dependency. No data leaves your network.</div></div>
-      <div class="tool-card reveal reveal-delay-2"><div class="tool-icon">B</div><div class="tool-name">Beam Model (501B)</div><div class="tool-desc">Nous Portal. 501B parameter mixture-of-experts. Apache 2.0. Free to use.</div></div>
-      <div class="tool-card reveal reveal-delay-2"><div class="tool-icon">M</div><div class="tool-name">AgentMail</div><div class="tool-desc">Email infrastructure. Inbound handling, replies, calendar invites, agent communication.</div></div>
-      <div class="tool-card reveal reveal-delay-1"><div class="tool-icon">S</div><div class="tool-name">Slack</div><div class="tool-desc">Team communication. Channel organisation, file sharing, workflow coordination.</div></div>
-      <div class="tool-card reveal reveal-delay-1"><div class="tool-icon">T</div><div class="tool-name">Telegram</div><div class="tool-desc">Client delivery. Alerts, reports, PDFs, voice briefings, approval notifications.</div></div>
-      <div class="tool-card reveal reveal-delay-2"><div class="tool-icon">G</div><div class="tool-name">GitHub</div><div class="tool-desc">Code repository. Version control, pull requests, issue tracking, CI/CD.</div></div>
-      <div class="tool-card reveal reveal-delay-2"><div class="tool-icon">D</div><div class="tool-name">Dataforge</div><div class="tool-desc">Lead enrichment. Emails, tech stacks, health scores, company intelligence.</div></div>
-      <div class="tool-card reveal reveal-delay-1"><div class="tool-icon">W</div><div class="tool-name">Web Search</div><div class="tool-desc">DuckDuckGo, Exa. Real-time research, news monitoring, competitive intelligence.</div></div>
-      <div class="tool-card reveal reveal-delay-1"><div class="tool-icon">V</div><div class="tool-name">Browser Control</div><div class="tool-desc">Chrome via CDP. Navigate, click, extract, screenshot. Full web automation.</div></div>
-      <div class="tool-card reveal reveal-delay-2"><div class="tool-icon">P</div><div class="tool-name">PDF Engine</div><div class="tool-desc">ReportLab, Pandoc. Professional documents, proposals, reports, CVs.</div></div>
-      <div class="tool-card reveal reveal-delay-2"><div class="tool-icon">N</div><div class="tool-name">Tailscale</div><div class="tool-desc">Remote access. Secure mesh network. Connect to any device, anywhere.</div></div>
-      <div class="tool-card reveal reveal-delay-1"><div class="tool-icon">R</div><div class="tool-name">Orgo VM</div><div class="tool-desc">Cloud computer. Ubuntu 24.04. Isolated environment. 24/7 uptime.</div></div>
-      <div class="tool-card reveal reveal-delay-1"><div class="tool-icon">K</div><div class="tool-name">Cron Engine</div><div class="tool-desc">Scheduled tasks. Recurring scans, reports, alerts. Runs while you sleep.</div></div>
-      <div class="tool-card reveal reveal-delay-2"><div class="tool-icon">A</div><div class="tool-name">Memory + Skills</div><div class="tool-desc">Persistent learning. Procedures saved once, reused forever. Gets better over time.</div></div>
-      <div class="tool-card reveal reveal-delay-2"><div class="tool-icon">U</div><div class="tool-name">Subagents</div><div class="tool-desc">10 parallel workers. Research, build, and deliver simultaneously.</div></div>
+    <h2 class="headline reveal reveal-delay-1">Five things. That is all the employee needs.</h2>
+    <p class="body-copy reveal reveal-delay-2" style="margin-bottom: var(--s8);">A brain to think with. A card to identify with. A phone to call with. An email to write with. A computer to work with. Nothing else. Nothing hidden.</p>
+    <div class="interface-grid">
+      <div class="interface-card reveal reveal-delay-1">
+        <div class="interface-icon">B</div>
+        <div class="interface-name">Brain</div>
+        <div class="interface-desc">Persistent knowledge. Approved rules. Memory that compounds.</div>
+      </div>
+      <div class="interface-card reveal reveal-delay-1">
+        <div class="interface-icon">C</div>
+        <div class="interface-name">Card</div>
+        <div class="interface-desc">Identity. Permissions. What the employee can and cannot do.</div>
+      </div>
+      <div class="interface-card reveal reveal-delay-2">
+        <div class="interface-icon">P</div>
+        <div class="interface-name">Phone</div>
+        <div class="interface-desc">Voice. Text. Alerts. Real-time communication.</div>
+      </div>
+      <div class="interface-card reveal reveal-delay-2">
+        <div class="interface-icon">E</div>
+        <div class="interface-name">Email</div>
+        <div class="interface-desc">Inbound handling. Replies. Calendar. Agent communication.</div>
+      </div>
+      <div class="interface-card reveal reveal-delay-3">
+        <div class="interface-icon">K</div>
+        <div class="interface-name">Computer</div>
+        <div class="interface-desc">Browser. Documents. Systems. Full web automation.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -542,7 +550,6 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
 </footer>
 
 <script>
-// Ops stream animation
 const steps = document.querySelectorAll('.ops-step');
 steps.forEach((step, i) => {
   const delay = parseInt(step.dataset.delay) || 0;
@@ -550,7 +557,6 @@ steps.forEach((step, i) => {
   setTimeout(() => step.classList.add('done'), delay + 1000);
 });
 
-// Counter
 const staffSlider = document.getElementById('staffSlider');
 const hoursSlider = document.getElementById('hoursSlider');
 const staffVal = document.getElementById('staffVal');
@@ -575,7 +581,6 @@ staffSlider.addEventListener('input', updateCounter);
 hoursSlider.addEventListener('input', updateCounter);
 updateCounter();
 
-// Scroll reveal
 const revealElements = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
