@@ -8,6 +8,7 @@
 :root {
   --bg: #080808;
   --surface: #0f0f0f;
+  --surface-2: #161616;
   --text: #f2f2f2;
   --text-muted: #6b6b6b;
   --text-dim: #3a3a3a;
@@ -22,7 +23,7 @@
   --headline-lg: clamp(32px, 4.5vw, 52px);
   --display: clamp(44px, 6.5vw, 72px);
   --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px; --s6: 24px; --s8: 32px; --s12: 48px; --s16: 64px; --s20: 80px; --s24: 96px; --s32: 128px;
-  --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-full: 9999px;
+  --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-xl: 20px; --r-full: 9999px;
   --max-w: 1040px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --speed: 400ms;
@@ -49,10 +50,14 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
 .nav-cta { display: inline-flex; align-items: center; justify-content: center; height: 32px; padding: 0 16px; background: var(--text); color: var(--bg); font-size: var(--text-sm); font-weight: 600; border-radius: var(--r-full); text-decoration: none; transition: opacity var(--speed) var(--ease); }
 .nav-cta:hover { opacity: 0.8; }
 
-/* Hero — editorial, not card-based */
-.hero { padding: var(--s24) 0 var(--s16); }
-.hero-title { font-size: var(--display); font-weight: 700; letter-spacing: -0.04em; line-height: 0.95; margin-bottom: var(--s6); max-width: 720px; }
-.hero-lead { font-size: 19px; color: var(--text-muted); line-height: 1.6; margin-bottom: var(--s8); max-width: 480px; }
+/* Hero */
+.hero { padding: var(--s24) 0 var(--s16); position: relative; }
+.hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; background: radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, transparent 70%); pointer-events: none; }
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s12); align-items: start; }
+@media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: var(--s8); } }
+.hero-eyebrow { margin-bottom: var(--s4); }
+.hero-title { font-size: var(--display); font-weight: 700; letter-spacing: -0.04em; line-height: 1.0; margin-bottom: var(--s6); }
+.hero-lead { font-size: 18px; color: var(--text-muted); line-height: 1.65; margin-bottom: var(--s8); max-width: 520px; }
 .hero-ctas { display: flex; gap: var(--s3); flex-wrap: wrap; margin-bottom: var(--s6); }
 .hero-micro { font-size: var(--text-xs); color: var(--text-dim); letter-spacing: 0.02em; line-height: 1.6; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--s2); height: 44px; padding: 0 20px; background: transparent; color: var(--text); font-size: var(--text-sm); font-weight: 500; border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r-full); cursor: pointer; text-decoration: none; transition: all var(--speed) var(--ease); font-family: inherit; }
@@ -61,7 +66,7 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
 .btn-primary:hover { opacity: 0.85; border-color: var(--text); }
 .btn-lg { height: 50px; padding: 0 26px; font-size: 14px; font-weight: 600; }
 
-/* Hero right — live work stream, not a card */
+/* Hero right — live work stream */
 .hero-right { position: relative; padding-left: var(--s8); border-left: 1px solid var(--border); }
 .hero-right-title { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--s4); }
 .work-stream { display: flex; flex-direction: column; }
@@ -126,18 +131,6 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
 .cost-body { font-size: var(--text-base); color: var(--text-muted); line-height: 1.7; margin-bottom: var(--s4); }
 .cost-list { font-size: var(--text-base); color: var(--text); line-height: 1.8; margin-bottom: var(--s4); font-weight: 500; }
 .cost-close { font-size: var(--text-base); color: var(--text); line-height: 1.5; margin-bottom: var(--s6); }
-.counter { padding: var(--s6) 0; border-top: 1px solid var(--border); }
-.counter-label { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--s4); }
-.counter-value { font-size: 56px; font-weight: 700; letter-spacing: -0.04em; color: var(--text); line-height: 1; font-variant-numeric: tabular-nums; margin-bottom: 2px; }
-.counter-unit { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: var(--s6); }
-.counter-stats { display: flex; gap: var(--s6); align-items: baseline; margin-bottom: var(--s6); padding-bottom: var(--s6); border-bottom: 1px solid var(--border); }
-.counter-stats .stat-num { font-size: 28px; font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums; }
-.counter-stats .stat-val { font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
-.counter-stats .stat-op { font-size: 20px; color: var(--text-dim); align-self: flex-start; padding-top: 6px; }
-.counter-controls { display: flex; flex-direction: column; gap: var(--s3); }
-.counter-controls label { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; }
-.counter-controls input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 1px; background: rgba(255,255,255,0.1); outline: none; cursor: pointer; }
-.counter-controls input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 10px; height: 10px; border-radius: 50%; background: var(--text); border: 2px solid var(--bg); cursor: pointer; }
 
 /* Control */
 .control-section { padding: var(--s24) 0; border-top: 1px solid var(--border); }
@@ -408,32 +401,30 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
         <p class="cost-close reveal reveal-delay-3">The audit costs £10,000. A single breach starts at £500,000.</p>
         <a href="#cta" class="btn btn-primary btn-lg reveal reveal-delay-3">Book a 15-minute call</a>
       </div>
-      <div class="counter reveal reveal-delay-2">
-        <div class="counter-label">Admin hours lost per week</div>
-        <div class="counter-value" id="counterValue">11</div>
-        <div class="counter-unit">hours / week</div>
-        <div class="counter-stats">
-          <div>
-            <div class="stat-num" id="statHours">572</div>
-            <div class="stat-val">hours / year</div>
+      <div class="reveal reveal-delay-2">
+        <div style="padding: var(--s6) 0; border-top: 1px solid var(--border);">
+          <div style="font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--s4);">The maths</div>
+          <div style="display: flex; gap: var(--s6); align-items: baseline; margin-bottom: var(--s4); padding-bottom: var(--s4); border-bottom: 1px solid var(--border);">
+            <div>
+              <div style="font-size: 28px; font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums;">572</div>
+              <div style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;">hours lost / year</div>
+            </div>
+            <div style="font-size: 20px; color: var(--text-dim); align-self: flex-start; padding-top: 6px;">×</div>
+            <div>
+              <div style="font-size: 28px; font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums;">£17.95</div>
+              <div style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;">per hour</div>
+            </div>
+            <div style="font-size: 20px; color: var(--text-dim); align-self: flex-start; padding-top: 6px;">=</div>
+            <div>
+              <div style="font-size: 28px; font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums;">£10,267</div>
+              <div style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;">wasted / year</div>
+            </div>
           </div>
-          <div class="stat-op">×</div>
-          <div>
-            <div class="stat-num" id="statCost">£10,267</div>
-            <div class="stat-val">wasted / year</div>
+          <div style="font-size: var(--text-sm); color: var(--text-muted); line-height: 1.6;">
+            £3,500/month × 12 = £42,000/year for a digital employee that works 24/7.<br>
+            £28,000/year for an admin hire who works 37.5 hours/week.<br>
+            <strong style="color: var(--text);">The employee costs more but does 4× the work.</strong>
           </div>
-        </div>
-        <div class="counter-controls">
-          <label>
-            <span>Staff on admin</span>
-            <span id="staffVal">3</span>
-          </label>
-          <input type="range" id="staffSlider" min="1" max="10" value="3">
-          <label>
-            <span>Hours per person / week</span>
-            <span id="hoursVal">11</span>
-          </label>
-          <input type="range" id="hoursSlider" min="1" max="40" value="11">
         </div>
       </div>
     </div>
@@ -568,30 +559,6 @@ steps.forEach((step, i) => {
   setTimeout(() => step.classList.add('show'), delay + 600);
   setTimeout(() => step.classList.add('done'), delay + 1000);
 });
-
-const staffSlider = document.getElementById('staffSlider');
-const hoursSlider = document.getElementById('hoursSlider');
-const staffVal = document.getElementById('staffVal');
-const hoursVal = document.getElementById('hoursVal');
-const counterValue = document.getElementById('counterValue');
-const statHours = document.getElementById('statHours');
-const statCost = document.getElementById('statCost');
-
-function updateCounter() {
-  const staff = parseInt(staffSlider.value);
-  const hours = parseInt(hoursSlider.value);
-  staffVal.textContent = staff;
-  hoursVal.textContent = hours;
-  const totalHours = staff * hours;
-  const yearlyHours = totalHours * 52;
-  const yearlyCost = Math.round(yearlyHours * 17.95);
-  counterValue.textContent = totalHours;
-  statHours.textContent = yearlyHours.toLocaleString();
-  statCost.textContent = '£' + yearlyCost.toLocaleString();
-}
-staffSlider.addEventListener('input', updateCounter);
-hoursSlider.addEventListener('input', updateCounter);
-updateCounter();
 
 const revealElements = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
