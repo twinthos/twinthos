@@ -2,30 +2,30 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Twinthos — Your Business, Understood</title>
+<title>Twinthos</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 :root {
-  --bg: #080808;
-  --surface: #0f0f0f;
-  --surface-2: #141414;
-  --text: #f2f2f2;
-  --text-muted: #6b6b6b;
-  --text-dim: #3a3a3a;
-  --border: rgba(255,255,255,0.05);
-  --border-hover: rgba(255,255,255,0.1);
+  --bg: #000;
+  --surface: #080808;
+  --surface-2: #0f0f0f;
+  --text: #fff;
+  --text-2: #888;
+  --text-3: #444;
+  --border: rgba(255,255,255,0.06);
   --green: #3dd68c;
   --amber: #e5a100;
   --rose: #e5534b;
-  --text-xs: 11px; --text-sm: 13px; --text-base: 16px;
-  --headline-sm: clamp(18px, 2vw, 22px);
+  --blue: #4a9eff;
+  --text-xs: 11px; --text-sm: 13px; --text-base: 15px;
+  --headline-sm: clamp(16px, 1.8vw, 20px);
   --headline-md: clamp(24px, 3vw, 32px);
-  --headline-lg: clamp(32px, 4.5vw, 52px);
-  --display: clamp(40px, 6vw, 64px);
+  --headline-lg: clamp(36px, 5vw, 56px);
+  --display: clamp(44px, 7vw, 72px);
   --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px; --s6: 24px; --s8: 32px; --s12: 48px; --s16: 64px; --s20: 80px; --s24: 96px; --s32: 128px;
-  --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-xl: 20px; --r-full: 9999px;
-  --max-w: 1040px;
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-xl: 20px;
+  --max-w: 1000px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --speed: 400ms;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,166 +34,188 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI"
 h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; color: var(--text); }
 .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--s4); }
 .section { padding: var(--s20) 0; }
-.eyebrow { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--s4); }
+.eyebrow { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-3); margin-bottom: var(--s4); }
 .headline { font-size: var(--headline-lg); margin-bottom: var(--s4); }
 .headline-md { font-size: var(--headline-md); margin-bottom: var(--s3); }
-.body-copy { font-size: var(--text-base); color: var(--text-muted); line-height: 1.7; max-width: 520px; }
+.body-copy { font-size: var(--text-base); color: var(--text-2); line-height: 1.7; max-width: 480px; }
 
 /* Nav */
-.nav { position: sticky; top: 0; z-index: 100; height: 52px; background: rgba(8,8,8,0.85); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--border); }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 48px; background: rgba(0,0,0,0.85); backdrop-filter: blur(24px) saturate(200%); -webkit-backdrop-filter: blur(24px) saturate(200%); border-bottom: 1px solid var(--border); }
 .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--s4); height: 100%; display: flex; align-items: center; justify-content: space-between; }
-.brand { display: flex; align-items: center; text-decoration: none; color: var(--text); font-size: 15px; font-weight: 700; letter-spacing: -0.03em; }
-.brand-mark { width: 26px; height: 26px; background: var(--text); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--bg); font-size: 12px; font-weight: 800; margin-right: var(--s2); }
+.brand { display: flex; align-items: center; text-decoration: none; color: var(--text); font-size: 14px; font-weight: 700; letter-spacing: -0.03em; }
+.brand-mark { width: 22px; height: 22px; background: var(--text); border-radius: 5px; display: flex; align-items: center; justify-content: center; color: var(--bg); font-size: 11px; font-weight: 800; margin-right: var(--s2); }
 .nav-links { display: flex; align-items: center; gap: 0; }
-.nav-links a { color: var(--text-muted); text-decoration: none; font-size: var(--text-sm); font-weight: 500; padding: 6px 10px; border-radius: var(--r-full); transition: color var(--speed) var(--ease); }
+.nav-links a { color: var(--text-3); text-decoration: none; font-size: var(--text-sm); font-weight: 500; padding: 4px 10px; border-radius: var(--r-full); transition: color var(--speed) var(--ease); }
 .nav-links a:hover { color: var(--text); }
-.nav-cta { display: inline-flex; align-items: center; justify-content: center; height: 32px; padding: 0 16px; background: var(--text); color: var(--bg); font-size: var(--text-sm); font-weight: 600; border-radius: var(--r-full); text-decoration: none; transition: opacity var(--speed) var(--ease); }
+.nav-cta { display: inline-flex; align-items: center; justify-content: center; height: 30px; padding: 0 14px; background: var(--text); color: var(--bg); font-size: var(--text-sm); font-weight: 600; border-radius: var(--r-full); text-decoration: none; transition: opacity var(--speed) var(--ease); }
 .nav-cta:hover { opacity: 0.8; }
 
-/* Hero */
-.hero { padding: var(--s24) 0 var(--s16); position: relative; }
-.hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; background: radial-gradient(ellipse at center, rgba(255,255,255,0.015) 0%, transparent 70%); pointer-events: none; }
-.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s12); align-items: start; }
-@media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: var(--s8); } }
-.hero-eyebrow { margin-bottom: var(--s4); }
-.hero-title { font-size: var(--display); font-weight: 700; letter-spacing: -0.04em; line-height: 1.0; margin-bottom: var(--s6); }
-.hero-lead { font-size: 18px; color: var(--text-muted); line-height: 1.65; margin-bottom: var(--s8); max-width: 520px; }
+/* Hero — the product IS the hero */
+.hero { padding: 100px 0 60px; position: relative; min-height: 90vh; display: flex; align-items: center; }
+.hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; height: 100%; background: radial-gradient(ellipse 50% 30% at 50% 0%, rgba(255,255,255,0.04) 0%, transparent 70%); pointer-events: none; }
+.hero-content { position: relative; z-index: 2; }
+.hero-title { font-size: var(--display); font-weight: 800; letter-spacing: -0.05em; line-height: 0.92; margin-bottom: var(--s6); max-width: 720px; }
+.hero-title span { color: var(--text-2); }
+.hero-lead { font-size: 20px; color: var(--text-2); line-height: 1.6; margin-bottom: var(--s8); max-width: 480px; }
 .hero-ctas { display: flex; gap: var(--s3); flex-wrap: wrap; margin-bottom: var(--s6); }
-.hero-micro { font-size: var(--text-xs); color: var(--text-dim); letter-spacing: 0.02em; line-height: 1.6; }
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--s2); height: 44px; padding: 0 20px; background: transparent; color: var(--text); font-size: var(--text-sm); font-weight: 500; border: 1px solid rgba(255,255,255,0.08); border-radius: var(--r-full); cursor: pointer; text-decoration: none; transition: all var(--speed) var(--ease); font-family: inherit; }
-.btn:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15); transform: translateY(-1px); }
+.hero-micro { font-size: var(--text-xs); color: var(--text-3); letter-spacing: 0.02em; line-height: 1.6; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--s2); height: 44px; padding: 0 20px; background: transparent; color: var(--text); font-size: var(--text-sm); font-weight: 500; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r-full); cursor: pointer; text-decoration: none; transition: all var(--speed) var(--ease); font-family: inherit; }
+.btn:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.2); transform: translateY(-1px); }
 .btn-primary { background: var(--text); color: var(--bg); border-color: var(--text); }
 .btn-primary:hover { opacity: 0.85; border-color: var(--text); }
 .btn-lg { height: 50px; padding: 0 26px; font-size: 14px; font-weight: 600; }
 
-/* Hero right */
-.hero-right { position: relative; padding-left: var(--s8); border-left: 1px solid var(--border); }
-.hero-right-title { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--s4); }
-.work-stream { display: flex; flex-direction: column; }
-.work-item { display: flex; gap: var(--s3); padding: var(--s3) 0; border-bottom: 1px solid rgba(255,255,255,0.03); opacity: 0; transform: translateY(8px); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
-.work-item.show { opacity: 1; transform: none; }
-.work-item:last-child { border-bottom: 0; }
-.work-time { font-size: 10px; color: var(--text-dim); font-variant-numeric: tabular-nums; min-width: 36px; padding-top: 2px; }
-.work-content { flex: 1; }
-.work-label { font-size: 9px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 2px; }
-.work-title { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1.35; margin-bottom: 1px; }
-.work-detail { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
-.work-status { display: inline-block; font-size: 9px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 2px 6px; border-radius: 3px; margin-top: 4px; }
-.work-status.done { background: rgba(74,222,128,0.08); color: var(--green); }
-.work-status.review { background: rgba(251,191,36,0.08); color: var(--amber); }
-.work-status.alert { background: rgba(248,113,113,0.08); color: var(--rose); }
-.work-disclosure { font-size: 10px; color: var(--text-dim); margin-top: var(--s4); padding-top: var(--s4); border-top: 1px solid rgba(255,255,255,0.03); }
+/* Demo — the actual product experience */
+.demo { padding: var(--s16) 0; border-top: 1px solid var(--border); }
+.demo-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--s8); flex-wrap: wrap; gap: var(--s4); }
+.demo-title { font-size: var(--headline-lg); }
+.demo-sub { font-size: var(--text-sm); color: var(--text-3); }
+.demo-tabs { display: flex; gap: var(--s2); margin-bottom: var(--s6); flex-wrap: wrap; }
+.demo-tab { padding: var(--s2) var(--s4); border: 1px solid var(--border); border-radius: var(--r-full); font-size: var(--text-sm); color: var(--text-2); cursor: pointer; transition: all var(--speed) var(--ease); background: transparent; font-family: inherit; }
+.demo-tab:hover { border-color: var(--border-hover); color: var(--text); }
+.demo-tab.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+.demo-panel { display: none; }
+.demo-panel.active { display: block; }
 
-/* WHY Section */
-.why-section { padding: var(--s32) 0; border-top: 1px solid var(--border); }
-.why-intro { max-width: 640px; margin-bottom: var(--s12); }
-.why-intro .eyebrow { margin-bottom: var(--s3); }
-.why-intro h2 { font-size: var(--headline-lg); font-weight: 700; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: var(--s4); }
-.why-intro p { font-size: 18px; color: var(--text-muted); line-height: 1.6; }
-.why-body { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s12); margin-top: var(--s12); }
-@media (max-width: 760px) { .why-body { grid-template-columns: 1fr; gap: var(--s8); } }
-.why-block { padding: var(--s6) 0; border-top: 1px solid var(--border); }
-.why-block:first-child { border-top: none; padding-top: 0; }
-.why-label { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--s3); }
-.why-title { font-size: var(--headline-md); font-weight: 700; letter-spacing: -0.03em; color: var(--text); margin-bottom: var(--s3); line-height: 1.15; }
-.why-text { font-size: var(--text-base); color: var(--text-muted); line-height: 1.7; }
-.why-text strong { color: var(--text); font-weight: 600; }
+/* Demo stream */
+.stream { border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+.stream-header { padding: var(--s4) var(--s5); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--surface); }
+.stream-title { font-size: var(--text-sm); font-weight: 500; color: var(--text); }
+.stream-status { display: flex; align-items: center; gap: var(--s2); font-size: var(--text-xs); color: var(--text-3); }
+.stream-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.stream-row { display: grid; grid-template-columns: 56px 1fr auto; gap: var(--s4); padding: var(--s4) var(--s5); border-bottom: 1px solid rgba(255,255,255,0.03); align-items: center; transition: background var(--speed) var(--ease); }
+.stream-row:hover { background: var(--surface); }
+.stream-row:last-child { border-bottom: none; }
+.stream-time { font-size: var(--text-xs); color: var(--text-3); font-variant-numeric: tabular-nums; }
+.stream-main { min-width: 0; }
+.stream-label { font-size: 9px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); margin-bottom: 2px; }
+.stream-name { font-size: var(--text-sm); font-weight: 500; color: var(--text); line-height: 1.3; }
+.stream-detail { font-size: var(--text-xs); color: var(--text-2); line-height: 1.4; margin-top: 2px; }
+.stream-badge { font-size: 9px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; white-space: nowrap; }
+.stream-badge.done { color: var(--green); background: rgba(61,214,140,0.08); }
+.stream-badge.review { color: var(--amber); background: rgba(229,161,0,0.08); }
+.stream-badge.alert { color: var(--rose); background: rgba(229,83,75,0.08); }
+.stream-badge.info { color: var(--blue); background: rgba(74,158,255,0.08); }
+.stream-note { font-size: var(--text-xs); color: var(--text-3); padding: var(--s4) var(--s5); border-top: 1px solid var(--border); background: var(--surface); }
 
-/* Pillars */
-.pillars-section { padding: var(--s24) 0; }
-.pillars-intro { margin-bottom: var(--s12); }
-.pillars-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border-top: 1px solid var(--border); }
-@media (max-width: 760px) { .pillars-grid { grid-template-columns: 1fr; } }
-.pillar { padding: var(--s6) var(--s5); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.pillar:last-child { border-right: none; }
-@media (max-width: 760px) { .pillar { border-right: none; } .pillar:last-child { border-bottom: none; } }
-.pillar-num { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-bottom: var(--s4); }
-.pillar-title { font-size: var(--headline-sm); font-weight: 600; color: var(--text); margin-bottom: var(--s3); line-height: 1.3; }
-.pillar-body { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.6; }
+/* Brain section */
+.brain { padding: var(--s24) 0; border-top: 1px solid var(--border); }
+.brain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s12); align-items: start; }
+@media (max-width: 760px) { .brain-grid { grid-template-columns: 1fr; gap: var(--s8); } }
+.brain-visual { border: 1px solid var(--border); border-radius: var(--r-lg); padding: var(--s5); background: var(--surface); }
+.brain-row { display: flex; justify-content: space-between; align-items: center; padding: var(--s2) 0; border-bottom: 1px solid rgba(255,255,255,0.03); font-size: var(--text-sm); }
+.brain-row:last-child { border-bottom: none; }
+.brain-row-label { color: var(--text-2); }
+.brain-row-value { color: var(--text); font-weight: 500; }
+.brain-row-value.active { color: var(--green); }
+.brain-row-value.alert { color: var(--rose); }
 
-/* Interface Set */
-.interface-section { padding: var(--s24) 0; border-top: 1px solid var(--border); }
-.interface-intro { margin-bottom: var(--s12); }
-.interface-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
-@media (max-width: 760px) { .interface-grid { grid-template-columns: repeat(2, 1fr); } }
-.interface-card { padding: var(--s6) var(--s4); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); transition: background var(--speed) var(--ease); }
-.interface-card:hover { background: var(--surface); }
-.interface-symbol { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; margin-bottom: var(--s3); font-size: 14px; font-weight: 700; color: var(--text-muted); font-family: monospace; position: relative; }
-.interface-symbol::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.06), transparent 70%); pointer-events: none; }
-.interface-name { font-size: var(--text-sm); font-weight: 600; color: var(--text); margin-bottom: var(--s1); }
-.interface-desc { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.4; }
+/* Why */
+.why { padding: var(--s24) 0; border-top: 1px solid var(--border); }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s12); }
+@media (max-width: 760px) { .why-grid { grid-template-columns: 1fr; gap: var(--s8); } }
+.why-title { font-size: var(--headline-lg); margin-bottom: var(--s4); }
+.why-body p { font-size: var(--text-base); color: var(--text-2); line-height: 1.7; margin-bottom: var(--s4); }
+.why-body p strong { color: var(--text); font-weight: 600; }
+.why-body p:last-child { margin-bottom: 0; }
+
+/* How */
+.how { padding: var(--s24) 0; border-top: 1px solid var(--border); }
+.how-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; margin-top: var(--s8); border-top: 1px solid var(--border); }
+@media (max-width: 760px) { .how-grid { grid-template-columns: 1fr; } }
+.how-item { padding: var(--s6) var(--s5); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.how-item:last-child { border-right: none; }
+@media (max-width: 760px) { .how-item { border-right: none; } .how-item:last-child { border-bottom: none; } }
+.how-num { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); margin-bottom: var(--s4); }
+.how-title { font-size: var(--headline-md); font-weight: 600; color: var(--text); margin-bottom: var(--s3); line-height: 1.2; }
+.how-body { font-size: var(--text-sm); color: var(--text-2); line-height: 1.6; }
+
+/* Tools */
+.tools { padding: var(--s24) 0; border-top: 1px solid var(--border); }
+.tools-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--s6) var(--s8); margin-top: var(--s8); }
+@media (max-width: 760px) { .tools-grid { grid-template-columns: 1fr; } }
+.tool { display: flex; gap: var(--s3); align-items: baseline; padding: var(--s4) 0; border-bottom: 1px solid var(--border); }
+.tool-symbol { font-size: 12px; font-weight: 700; color: var(--text-3); font-family: monospace; width: 20px; flex-shrink: 0; position: relative; }
+.tool-symbol::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.08), transparent 70%); pointer-events: none; }
+.tool-name { font-size: var(--text-sm); font-weight: 500; color: var(--text); }
+.tool-desc { font-size: var(--text-xs); color: var(--text-2); line-height: 1.4; }
 
 /* Cost */
-.cost-section { padding: var(--s24) 0; border-top: 1px solid var(--border); }
-.cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s12); align-items: start; }
+.cost { padding: var(--s24) 0; border-top: 1px solid var(--border); }
+.cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s12); }
 @media (max-width: 900px) { .cost-grid { grid-template-columns: 1fr; gap: var(--s8); } }
-.cost-headline { margin-bottom: var(--s4); }
-.cost-body { font-size: var(--text-base); color: var(--text-muted); line-height: 1.7; margin-bottom: var(--s4); }
-.cost-list { font-size: var(--text-base); color: var(--text); line-height: 1.8; margin-bottom: var(--s4); font-weight: 500; }
-.cost-close { font-size: var(--text-base); color: var(--text); line-height: 1.5; margin-bottom: var(--s6); }
+.cost-headline { font-size: var(--headline-lg); margin-bottom: var(--s4); }
+.cost-body { font-size: var(--text-base); color: var(--text-2); line-height: 1.7; margin-bottom: var(--s4); }
+.cost-body strong { color: var(--text); font-weight: 600; }
+.cost-stat { font-size: 52px; font-weight: 800; letter-spacing: -0.03em; color: var(--text); line-height: 1; margin-bottom: var(--s2); }
+.cost-stat-label { font-size: var(--text-xs); color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--s6); }
+.cost-breakdown { border-top: 1px solid var(--border); padding-top: var(--s4); }
+.cost-line { display: flex; justify-content: space-between; padding: var(--s2) 0; border-bottom: 1px solid rgba(255,255,255,0.03); font-size: var(--text-sm); }
+.cost-line:last-child { border-bottom: none; }
+.cost-line-label { color: var(--text-2); }
+.cost-line-value { color: var(--text); font-weight: 500; font-variant-numeric: tabular-nums; }
+.cost-line.highlight .cost-line-value { color: var(--green); }
 
 /* Control */
-.control-section { padding: var(--s24) 0; border-top: 1px solid var(--border); }
-.control-head { max-width: 560px; margin-bottom: var(--s12); }
-.control-headline { margin-bottom: var(--s3); }
-.control-desc { font-size: var(--text-base); color: var(--text-muted); line-height: 1.6; }
-.control-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--border); }
+.control { padding: var(--s24) 0; border-top: 1px solid var(--border); }
+.control-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; margin-top: var(--s8); border-top: 1px solid var(--border); }
 @media (max-width: 760px) { .control-grid { grid-template-columns: 1fr; } }
-.control-card { padding: var(--s6) var(--s5); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.control-card:last-child { border-right: none; }
-@media (max-width: 760px) { .control-card { border-right: none; } }
-.control-icon { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text-muted); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; margin-bottom: var(--s3); font-family: monospace; }
-.control-tag { display: inline-block; font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; margin-bottom: var(--s2); background: rgba(255,255,255,0.03); color: var(--text-muted); }
-.control-title { font-size: var(--headline-sm); font-weight: 600; letter-spacing: -0.015em; color: var(--text); margin-bottom: var(--s2); line-height: 1.3; }
-.control-desc { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.5; }
+.control-item { padding: var(--s6) var(--s5); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.control-item:last-child { border-right: none; }
+@media (max-width: 760px) { .control-item { border-right: none; } .control-item:last-child { border-bottom: none; } }
+.control-num { font-size: var(--text-xs); font-weight: 600; color: var(--text-3); margin-bottom: var(--s3); }
+.control-title { font-size: var(--headline-sm); font-weight: 600; color: var(--text); margin-bottom: var(--s2); line-height: 1.3; }
+.control-body { font-size: var(--text-sm); color: var(--text-2); line-height: 1.5; }
 
 /* Approval */
-.approval { margin-top: var(--s8); padding: var(--s6); border: 1px solid var(--border); border-radius: var(--r-md); }
-.approval-top { display: flex; align-items: center; gap: var(--s3); margin-bottom: var(--s5); padding-bottom: var(--s4); border-bottom: 1px solid var(--border); }
-.approval-badge { display: inline-flex; align-items: center; gap: var(--s1); font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--rose); background: rgba(248,113,113,0.08); padding: var(--s1) var(--s2); border-radius: var(--r-full); }
-.approval-title { font-size: var(--headline-sm); font-weight: 600; color: var(--text); margin-bottom: var(--s4); line-height: 1.3; }
-.approval-item { display: flex; justify-content: space-between; align-items: center; padding: var(--s2) 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
-.approval-item:last-child { border-bottom: 0; }
-.approval-item-label { font-size: var(--text-xs); font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
-.approval-item-value { font-size: var(--text-sm); color: var(--text); font-weight: 500; }
-.approval-note { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.5; padding: var(--s3); background: rgba(255,255,255,0.02); border-radius: var(--r-sm); margin-bottom: var(--s4); }
-.approval-actions { display: flex; gap: var(--s2); flex-wrap: wrap; }
+.approval { margin-top: var(--s8); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+.approval-header { padding: var(--s4) var(--s5); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--surface); }
+.approval-badge { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--rose); }
+.approval-body { padding: var(--s5); }
+.approval-title { font-size: var(--headline-sm); font-weight: 600; color: var(--text); margin-bottom: var(--s3); line-height: 1.3; }
+.approval-note { font-size: var(--text-sm); color: var(--text-2); line-height: 1.5; padding: var(--s3); background: rgba(255,255,255,0.02); border-radius: var(--r-sm); margin-bottom: var(--s4); }
+.approval-row { display: flex; justify-content: space-between; padding: var(--s2) 0; border-bottom: 1px solid rgba(255,255,255,0.03); font-size: var(--text-sm); }
+.approval-row:last-child { border-bottom: none; }
+.approval-row-label { color: var(--text-2); }
+.approval-row-value { color: var(--text); font-weight: 500; }
+.approval-actions { display: flex; gap: var(--s2); margin-top: var(--s4); }
 
 /* Security */
-.security-section { padding: var(--s20) 0; border-top: 1px solid var(--border); }
-.security-head { max-width: 560px; margin-bottom: var(--s8); }
+.security { padding: var(--s24) 0; border-top: 1px solid var(--border); }
+.security-head { max-width: 600px; margin-bottom: var(--s8); }
 .security-headline { margin-bottom: var(--s3); }
-.security-desc { font-size: var(--text-base); color: var(--text-muted); line-height: 1.6; max-width: 480px; }
+.security-desc { font-size: var(--text-base); color: var(--text-2); line-height: 1.6; }
 .security-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--border); }
 @media (max-width: 760px) { .security-grid { grid-template-columns: repeat(2, 1fr); } }
-.security-card { padding: var(--s5); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.security-card:last-child { border-right: none; }
-@media (max-width: 760px) { .security-card:nth-child(2n) { border-right: none; } }
-.security-card-label { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--s2); }
-.security-card-value { font-size: 32px; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; margin-bottom: var(--s1); }
-.security-card-sub { font-size: var(--text-xs); color: var(--text-muted); }
-.security-card.alert .security-card-value { color: var(--rose); }
+.security-item { padding: var(--s5); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.security-item:last-child { border-right: none; }
+@media (max-width: 760px) { .security-item:nth-child(2n) { border-right: none; } }
+.security-label { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); margin-bottom: var(--s2); }
+.security-value { font-size: 32px; font-weight: 800; color: var(--text); font-variant-numeric: tabular-nums; margin-bottom: var(--s1); }
+.security-sub { font-size: var(--text-xs); color: var(--text-3); }
+.security-item.alert .security-value { color: var(--rose); }
 
-/* Final CTA */
-.final-section { padding: var(--s24) 0 var(--s16); text-align: center; border-top: 1px solid var(--border); }
+/* Final */
+.final { padding: var(--s32) 0 var(--s16); text-align: center; border-top: 1px solid var(--border); }
 .final-headline { font-size: var(--headline-lg); margin-bottom: var(--s4); max-width: 640px; margin-left: auto; margin-right: auto; }
-.final-lead { font-size: var(--text-base); color: var(--text-muted); line-height: 1.65; max-width: 480px; margin: 0 auto var(--s6); }
+.final-lead { font-size: var(--text-base); color: var(--text-2); line-height: 1.65; max-width: 440px; margin: 0 auto var(--s6); }
 .final-ctas { display: flex; gap: var(--s3); justify-content: center; flex-wrap: wrap; margin-bottom: var(--s6); }
 
 /* Footer */
 .footer { padding: var(--s8) 0 var(--s4); border-top: 1px solid var(--border); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--s2); }
-.footer-bottom-text { font-size: var(--text-xs); color: var(--text-muted); }
-.footer-legal { font-size: var(--text-xs); color: var(--text-muted); display: flex; gap: var(--s3); flex-wrap: wrap; }
-.footer-legal a { color: var(--text-muted); text-decoration: none; transition: color var(--speed) var(--ease); }
+.footer-bottom-text { font-size: var(--text-xs); color: var(--text-3); }
+.footer-legal { font-size: var(--text-xs); color: var(--text-3); display: flex; gap: var(--s3); flex-wrap: wrap; }
+.footer-legal a { color: var(--text-3); text-decoration: none; transition: color var(--speed) var(--ease); }
 .footer-legal a:hover { color: var(--text); }
 
 /* Scroll reveal */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
 .reveal.visible { opacity: 1; transform: none; }
-.reveal-delay-1 { transition-delay: 0.08s; }
-.reveal-delay-2 { transition-delay: 0.16s; }
-.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-1 { transition-delay: 0.06s; }
+.reveal-delay-2 { transition-delay: 0.12s; }
+.reveal-delay-3 { transition-delay: 0.18s; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
@@ -211,12 +233,12 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
       Twinthos
     </a>
     <div class="nav-links">
+      <a href="#demo">Demo</a>
       <a href="#why">Why</a>
       <a href="#how">How</a>
       <a href="#tools">Tools</a>
       <a href="#control">Control</a>
       <a href="#security">Security</a>
-      <a href="#pricing">Pricing</a>
     </div>
     <a href="#cta" class="nav-cta">Book a call</a>
   </div>
@@ -225,205 +247,359 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
 <!-- Hero -->
 <section class="hero">
   <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-eyebrow eyebrow reveal">Twinthos — Your business, understood</div>
-        <h1 class="hero-title reveal reveal-delay-1">Your AI is already inside your systems. Who is watching it?</h1>
-        <p class="hero-lead reveal reveal-delay-2">Twinthos supplies a digital employee that works 24/7 inside the systems you already use. It reads your business's own knowledge, acts on incoming work, and hands exceptions to a person. Not a chatbot. An agent with a written job spec.</p>
-        <div class="hero-ctas reveal reveal-delay-3">
-          <a href="#cta" class="btn btn-primary btn-lg">Book a 15-minute call</a>
-          <a href="#demo" class="btn btn-lg">See it run</a>
-        </div>
-        <p class="hero-micro reveal reveal-delay-3">No integration project. No API to buy. First job live in about two hours.<br>£3,500/month. Less than a quarter of an admin hire.</p>
+    <div class="hero-content">
+      <div class="eyebrow reveal">Twinthos — Your business, understood</div>
+      <h1 class="hero-title reveal reveal-delay-1">Your AI is already inside your systems. <span>Who is watching it?</span></h1>
+      <p class="hero-lead reveal reveal-delay-2">Twinthos supplies a digital employee that works 24/7 inside the systems you already use. It reads your business's own knowledge, acts on incoming work, and hands exceptions to a person. Not a chatbot. An agent with a written job spec.</p>
+      <div class="hero-ctas reveal reveal-delay-3">
+        <a href="#demo" class="btn btn-primary btn-lg">See it run</a>
+        <a href="#cta" class="btn btn-lg">Book a 15-minute call</a>
       </div>
-      <div class="hero-right">
-        <div class="hero-right-title">Digital employee — live</div>
-        <div class="work-stream" id="workStream">
-          <div class="work-item" data-delay="0">
-            <div class="work-time">09:02</div>
-            <div class="work-content">
-              <div class="work-label">Inbox</div>
-              <div class="work-title">New email: CV attached — Senior Developer</div>
-              <div class="work-detail">james.wilson@gmail.com</div>
-              <span class="work-status review">Screening</span>
-            </div>
-          </div>
-          <div class="work-item" data-delay="900">
-            <div class="work-time">09:02</div>
-            <div class="work-content">
-              <div class="work-label">Company Brain</div>
-              <div class="work-title">Matched against approved criteria</div>
-              <div class="work-detail">React · Node.js · 5+ years · £60-75K band</div>
-              <span class="work-status done">Matched</span>
-            </div>
-          </div>
-          <div class="work-item" data-delay="1800">
-            <div class="work-time">09:03</div>
-            <div class="work-content">
-              <div class="work-label">Digital Employee</div>
-              <div class="work-title">Scored 9/10 — strong match</div>
-              <div class="work-detail">Flagged for human review · Draft reply sent</div>
-              <span class="work-status review">Review</span>
-            </div>
-          </div>
-          <div class="work-item" data-delay="2700">
-            <div class="work-time">09:03</div>
-            <div class="work-content">
-              <div class="work-label">Invoice Router</div>
-              <div class="work-title">INV-2026-0847 routed to Accounts Payable</div>
-              <div class="work-detail">£4,200.00 · Due 5 Dec · Net 30 terms</div>
-              <span class="work-status done">Routed</span>
-            </div>
-          </div>
-          <div class="work-item" data-delay="3600">
-            <div class="work-time">09:04</div>
-            <div class="work-content">
-              <div class="work-label">Lead Qualifier</div>
-              <div class="work-title">Acme Supply Co — scored 9/10</div>
-              <div class="work-detail">Budget £3-5K/mo · Timeline 2 weeks · Added to pipeline</div>
-              <span class="work-status done">Qualified</span>
-            </div>
-          </div>
-          <div class="work-item" data-delay="4500">
-            <div class="work-time">09:05</div>
-            <div class="work-content">
-              <div class="work-label">Sentinel</div>
-              <div class="work-title">CVE-2026-98432 detected in client stack</div>
-              <div class="work-detail">Linux kernel RCE · 9.8 CVSS · Alert sent via Telegram</div>
-              <span class="work-status alert">Alert</span>
-            </div>
-          </div>
-        </div>
-        <div class="work-disclosure">Illustrative demo. Times and values are representative.</div>
-      </div>
+      <p class="hero-micro reveal reveal-delay-3">No integration project. No API to buy. First job live in about two hours.<br>£3,500/month. Less than a quarter of an admin hire.</p>
     </div>
   </div>
 </section>
 
-<!-- WHY Section -->
-<section class="why-section" id="why">
+<!-- Demo — the actual product -->
+<section class="demo" id="demo">
   <div class="wrap">
-    <div class="why-intro">
-      <div class="eyebrow reveal">Start with why</div>
-      <h2 class="reveal reveal-delay-1">People deserve to do meaningful work. Admin is theft of human potential.</h2>
-      <p class="reveal reveal-delay-2">Every company already has AI inside it. Nobody is watching it. We believe every company deserves an AI that works for them — not against them. We believe work should be done by machines so humans can do what humans do best.</p>
-    </div>
-    <div class="why-body">
-      <div class="why-block reveal reveal-delay-1">
-        <div class="why-label">Why</div>
-        <h3 class="why-title">Every company already has AI inside it. Nobody is watching it.</h3>
-        <p class="why-text">In the last 12 months, AI agents from OpenAI, Anthropic, Google, and Meta breached production systems without being asked. The attacker is no longer an anonymous criminal group. <strong>It is an AI agent, and it is already inside your systems.</strong> We believe every company deserves an AI that works for them — not against them.</p>
+    <div class="demo-header">
+      <div>
+        <div class="eyebrow">Live demo</div>
+        <h2 class="demo-title">Watch the digital employee work.</h2>
       </div>
-      <div class="why-block reveal reveal-delay-2">
-        <div class="why-label">How</div>
-        <h3 class="why-title">Persistence. Retrieval. Verification.</h3>
-        <p class="why-text">We do not build smarter models. We build systems that <strong>remember</strong>. A Company Brain that holds approved knowledge, decisions, and project state — so the employee gets better instead of resetting every conversation. A Digital Employee with a written job spec, controlled permissions, and human sign-off. <strong>The value is in persistence, not model magic.</strong></p>
+      <p class="demo-sub">Real tasks. Real data. Real time.</p>
+    </div>
+    <div class="demo-tabs">
+      <button class="demo-tab active" onclick="switchTab('inbox')">Inbox</button>
+      <button class="demo-tab" onclick="switchTab('brain')">Company Brain</button>
+      <button class="demo-tab" onclick="switchTab('sentinel')">Sentinel</button>
+    </div>
+
+    <!-- Inbox panel -->
+    <div class="demo-panel active" id="panel-inbox">
+      <div class="stream">
+        <div class="stream-header">
+          <span class="stream-title">Digital employee — inbox processing</span>
+          <span class="stream-status"><span class="stream-dot"></span> Live</span>
+        </div>
+        <div class="stream-row" data-delay="0">
+          <div class="stream-time">09:02</div>
+          <div class="stream-main">
+            <div class="stream-label">Inbox</div>
+            <div class="stream-name">New email: CV attached — Senior Developer</div>
+            <div class="stream-detail">james.wilson@gmail.com · React, Node.js, 8 years</div>
+          </div>
+          <span class="stream-badge review">Screening</span>
+        </div>
+        <div class="stream-row" data-delay="900">
+          <div class="stream-time">09:02</div>
+          <div class="stream-main">
+            <div class="stream-label">Company Brain</div>
+            <div class="stream-name">Matched against approved criteria</div>
+            <div class="stream-detail">React · Node.js · 5+ years · £60-75K band · 47 data points</div>
+          </div>
+          <span class="stream-badge done">Matched</span>
+        </div>
+        <div class="stream-row" data-delay="1800">
+          <div class="stream-time">09:03</div>
+          <div class="stream-main">
+            <div class="stream-label">Digital Employee</div>
+            <div class="stream-name">Scored 9/10 — strong match</div>
+            <div class="stream-detail">Flagged for human review · Draft reply sent</div>
+          </div>
+          <span class="stream-badge review">Review</span>
+        </div>
+        <div class="stream-row" data-delay="2700">
+          <div class="stream-time">09:03</div>
+          <div class="stream-main">
+            <div class="stream-label">Invoice Router</div>
+            <div class="stream-name">INV-2026-0847 routed to Accounts Payable</div>
+            <div class="stream-detail">£4,200.00 · Due 5 Dec · Net 30 terms</div>
+          </div>
+          <span class="stream-badge done">Routed</span>
+        </div>
+        <div class="stream-row" data-delay="3600">
+          <div class="stream-time">09:04</div>
+          <div class="stream-main">
+            <div class="stream-label">Lead Qualifier</div>
+            <div class="stream-name">Acme Supply Co — scored 9/10</div>
+            <div class="stream-detail">Budget £3-5K/mo · Timeline 2 weeks · Added to pipeline</div>
+          </div>
+          <span class="stream-badge done">Qualified</span>
+        </div>
+        <div class="stream-row" data-delay="4500">
+          <div class="stream-time">09:05</div>
+          <div class="stream-main">
+            <div class="stream-label">Sentinel</div>
+            <div class="stream-name">CVE-2026-98432 detected in client stack</div>
+            <div class="stream-detail">Linux kernel RCE · 9.8 CVSS · Alert sent via Telegram</div>
+          </div>
+          <span class="stream-badge alert">Alert</span>
+        </div>
+        <div class="stream-note">Illustrative demo. Times and values are representative.</div>
       </div>
     </div>
-    <div class="why-block reveal reveal-delay-3" style="margin-top: var(--s8);">
-      <div class="why-label">What</div>
-      <h3 class="why-title">A digital employee that works 24/7 inside your existing tools.</h3>
-      <p class="why-text">Company Brain. Digital Employee. The Desk. Sentinel. Four parts. All four, or it is not the product. One defined job. One named human who signs off. Work product, not text. <strong>£3,500 a month. Less than a quarter of an admin hire.</strong></p>
+
+    <!-- Company Brain panel -->
+    <div class="demo-panel" id="panel-brain">
+      <div class="stream">
+        <div class="stream-header">
+          <span class="stream-title">Company Brain — knowledge state</span>
+          <span class="stream-status"><span class="stream-dot"></span> Live</span>
+        </div>
+        <div class="stream-row">
+          <div class="stream-time">09:00</div>
+          <div class="stream-main">
+            <div class="stream-label">Identity</div>
+            <div class="stream-name">Company rules and policies loaded</div>
+            <div class="stream-detail">Approved knowledge · Decisions · Project state</div>
+          </div>
+          <span class="stream-badge done">Loaded</span>
+        </div>
+        <div class="stream-row">
+          <div class="stream-time">09:00</div>
+          <div class="stream-main">
+            <div class="stream-label">Memory</div>
+            <div class="stream-name">47 candidate profiles indexed</div>
+            <div class="stream-detail">React · Node.js · 5+ years · £60-75K band</div>
+          </div>
+          <span class="stream-badge done">Indexed</span>
+        </div>
+        <div class="stream-row">
+          <div class="stream-time">09:01</div>
+          <div class="stream-main">
+            <div class="stream-label">Skills</div>
+            <div class="stream-name">CV screening criteria active</div>
+            <div class="stream-detail">47 data points · Approved by Sarah Chen (HR Director)</div>
+          </div>
+          <span class="stream-badge done">Active</span>
+        </div>
+        <div class="stream-row">
+          <div class="stream-time">09:01</div>
+          <div class="stream-main">
+            <div class="stream-label">Projects</div>
+            <div class="stream-name">Senior Developer role — open</div>
+            <div class="stream-detail">Budget: £60-75K · Timeline: 2 weeks · 12 applicants</div>
+          </div>
+          <span class="stream-badge info">Tracking</span>
+        </div>
+        <div class="stream-row">
+          <div class="stream-time">09:02</div>
+          <div class="stream-main">
+            <div class="stream-label">Permissions</div>
+            <div class="stream-name">Read: email, CVs, criteria · Write: score, draft</div>
+            <div class="stream-detail">No delete · No send without approval · No external access</div>
+          </div>
+          <span class="stream-badge done">Enforced</span>
+        </div>
+        <div class="stream-row">
+          <div class="stream-time">09:02</div>
+          <div class="stream-main">
+            <div class="stream-label">History</div>
+            <div class="stream-name">Last action: Invoice INV-2026-0847 routed</div>
+            <div class="stream-detail">Timestamped · Searchable · Exportable</div>
+          </div>
+          <span class="stream-badge done">Logged</span>
+        </div>
+        <div class="stream-note">Brain state is isolated per company. Never shares data across clients.</div>
+      </div>
+    </div>
+
+    <!-- Sentinel panel -->
+    <div class="demo-panel" id="panel-sentinel">
+      <div class="stream">
+        <div class="stream-header">
+          <span class="stream-title">Sentinel — security monitoring</span>
+          <span class="stream-status"><span class="stream-dot"></span> Live</span>
+        </div>
+        <div class="stream-row">
+          <div class="stream-time">09:00</div>
+          <div class="stream-main">
+            <div class="stream-label">CVE Feed</div>
+            <div class="stream-name">12,847 CVEs scanned (last 30 days)</div>
+            <div class="stream-detail">NVD · CISA KEV · EPSS scores</div>
+          </div>
+          <span class="stream-badge done">Scanning</span>
+        </div>
+        <div class="stream-row">
+          <div class="stream-time">09:01</div>
+          <div class="stream-main">
+            <div class="stream-label">Match</div>
+            <div class="stream-name">CVE-2026-98432 — Linux kernel RCE</div>
+            <div class="stream-detail">9.8 CVSS · In client stack · EPSS 0.94</div>
+          </div>
+          <span class="stream-badge alert">Critical</span>
+        </div>
+        <div class="stream-row">
+          <div class="stream-time">09:01</div>
+          <div class="stream-main">
+            <div class="stream-label">Alert</div>
+            <div class="stream-name">Telegram alert sent to Sarah Chen (HR Director)</div>
+            <div class="stream-detail">CVE details · Affected systems · Recommended action</div>
+          </div>
+          <span class="stream-badge alert">Sent</span>
+        </div>
+        <div class="stream-row">
+          <div class="stream-time">09:02</div>
+          <div class="stream-main">
+            <div class="stream-label">News</div>
+            <div class="stream-name">Supplier breach: Acme Corp data leak reported</div>
+            <div class="stream-detail">Financial Times · 2 hours ago · Client uses Acme</div>
+          </div>
+          <span class="stream-badge review">Review</span>
+        </div>
+        <div class="stream-row">
+          <div class="stream-time">09:03</div>
+          <div class="stream-main">
+            <div class="stream-label">EPSS</div>
+            <div class="stream-name">847 vulnerabilities scored for exploit probability</div>
+            <div class="stream-detail">Top 3: 0.94 · 0.87 · 0.71</div>
+          </div>
+          <span class="stream-badge info">Scored</span>
+        </div>
+        <div class="stream-row">
+          <div class="stream-time">09:04</div>
+          <div class="stream-main">
+            <div class="stream-label">Report</div>
+            <div class="stream-name">Weekly security digest generated</div>
+            <div class="stream-detail">3 active threats · 23 alerts sent · 847 EPSS scored</div>
+          </div>
+          <span class="stream-badge done">Generated</span>
+        </div>
+        <div class="stream-note">Sentinel runs on a schedule. Alerts arrive via Telegram. You read them on your phone.</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Three Pillars -->
-<section class="section" id="how">
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="why-grid">
+      <div>
+        <div class="eyebrow reveal">Start with why</div>
+        <h2 class="why-title reveal reveal-delay-1">People deserve to do meaningful work. Admin is theft of human potential.</h2>
+      </div>
+      <div class="why-body reveal reveal-delay-2">
+        <p><strong>Every company already has AI inside it. Nobody is watching it.</strong> In the last 12 months, AI agents from OpenAI, Anthropic, Google, and Meta breached production systems without being asked. The attacker is no longer an anonymous criminal group. It is an AI agent, and it is already inside your systems.</p>
+        <p><strong>We build systems that remember.</strong> A Company Brain that holds approved knowledge, decisions, and project state — so the employee gets better instead of resetting every conversation. A Digital Employee with a written job spec, controlled permissions, and human sign-off.</p>
+        <p><strong>The value is in persistence, not model magic.</strong> We do not build smarter models. We build systems that remember. £3,500 a month. Less than a quarter of an admin hire.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="how" id="how">
   <div class="wrap">
     <div class="eyebrow reveal">How it works</div>
     <h2 class="headline reveal reveal-delay-1">Three parts. All three, or it is not the product.</h2>
-    <div class="pillars-grid">
-      <div class="pillar reveal reveal-delay-1">
-        <div class="pillar-num">01</div>
-        <h3 class="pillar-title">Company Brain</h3>
-        <p class="pillar-body">Persistent knowledge for one company: identity and rules, approved knowledge, memory, projects, skills, employee responsibilities, history, permissions. Isolated per company. Never invents memories. Never shares data across clients.</p>
+    <div class="how-grid">
+      <div class="how-item reveal reveal-delay-1">
+        <div class="how-num">01</div>
+        <h3 class="how-title">Company Brain</h3>
+        <p class="how-body">Persistent knowledge for one company: identity and rules, approved knowledge, memory, projects, skills, employee responsibilities, history, permissions. Isolated per company. Never invents memories. Never shares data across clients.</p>
       </div>
-      <div class="pillar reveal reveal-delay-2">
-        <div class="pillar-num">02</div>
-        <h3 class="pillar-title">Digital Employee</h3>
-        <p class="pillar-body">The acting layer. Works inside the client's existing systems, 24/7. One defined job. One named human who signs off consequential actions. Produces work product — a filed document, a chased invoice, a completed record — not text.</p>
+      <div class="how-item reveal reveal-delay-2">
+        <div class="how-num">02</div>
+        <h3 class="how-title">Digital Employee</h3>
+        <p class="how-body">The acting layer. Works inside the client's existing systems, 24/7. One defined job. One named human who signs off consequential actions. Produces work product — a filed document, a chased invoice, a completed record — not text.</p>
       </div>
-      <div class="pillar reveal reveal-delay-3">
-        <div class="pillar-num">03</div>
-        <h3 class="pillar-title">The Desk</h3>
-        <p class="pillar-body">Works inside the client's existing tools through the screen. No integration project. No API the client has to buy. A first job is live in about two hours.</p>
+      <div class="how-item reveal reveal-delay-3">
+        <div class="how-num">03</div>
+        <h3 class="how-title">The Desk</h3>
+        <p class="how-body">Works inside the client's existing tools through the screen. No integration project. No API the client has to buy. A first job is live in about two hours.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Interface Set -->
-<section class="interface-section" id="tools">
+<!-- TOOLS -->
+<section class="tools" id="tools">
   <div class="wrap">
     <div class="eyebrow reveal">The tools</div>
     <h2 class="headline reveal reveal-delay-1">Five things. That is all the employee needs.</h2>
     <p class="body-copy reveal reveal-delay-2" style="margin-bottom: var(--s8);">A brain to think with. A card to identify with. A phone to call with. An email to write with. A computer to work with. Nothing else. Nothing hidden.</p>
-    <div class="interface-grid">
-      <div class="interface-card reveal reveal-delay-1">
-        <div class="interface-symbol">B</div>
-        <div class="interface-name">Brain</div>
-        <div class="interface-desc">Persistent knowledge. Approved rules. Memory that compounds.</div>
+    <div class="tools-grid">
+      <div class="tool reveal reveal-delay-1">
+        <div class="tool-symbol">B</div>
+        <div>
+          <div class="tool-name">Brain</div>
+          <div class="tool-desc">Persistent knowledge. Approved rules. Memory that compounds.</div>
+        </div>
       </div>
-      <div class="interface-card reveal reveal-delay-1">
-        <div class="interface-symbol">C</div>
-        <div class="interface-name">Card</div>
-        <div class="interface-desc">Identity. Permissions. What the employee can and cannot do.</div>
+      <div class="tool reveal reveal-delay-1">
+        <div class="tool-symbol">C</div>
+        <div>
+          <div class="tool-name">Card</div>
+          <div class="tool-desc">Identity. Permissions. What the employee can and cannot do.</div>
+        </div>
       </div>
-      <div class="interface-card reveal reveal-delay-2">
-        <div class="interface-symbol">P</div>
-        <div class="interface-name">Phone</div>
-        <div class="interface-desc">Voice. Text. Alerts. Real-time communication.</div>
+      <div class="tool reveal reveal-delay-2">
+        <div class="tool-symbol">P</div>
+        <div>
+          <div class="tool-name">Phone</div>
+          <div class="tool-desc">Voice. Text. Alerts. Real-time communication.</div>
+        </div>
       </div>
-      <div class="interface-card reveal reveal-delay-2">
-        <div class="interface-symbol">E</div>
-        <div class="interface-name">Email</div>
-        <div class="interface-desc">Inbound handling. Replies. Calendar. Agent communication.</div>
+      <div class="tool reveal reveal-delay-2">
+        <div class="tool-symbol">E</div>
+        <div>
+          <div class="tool-name">Email</div>
+          <div class="tool-desc">Inbound handling. Replies. Calendar. Agent communication.</div>
+        </div>
       </div>
-      <div class="interface-card reveal reveal-delay-3">
-        <div class="interface-symbol">K</div>
-        <div class="interface-name">Computer</div>
-        <div class="interface-desc">Browser. Documents. Systems. Full web automation.</div>
+      <div class="tool reveal reveal-delay-3">
+        <div class="tool-symbol">K</div>
+        <div>
+          <div class="tool-name">Computer</div>
+          <div class="tool-desc">Browser. Documents. Systems. Full web automation.</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Cost Section -->
-<section class="cost-section">
+<!-- COST -->
+<section class="cost" id="pricing">
   <div class="wrap">
     <div class="cost-grid">
       <div>
         <div class="eyebrow reveal">The cost of doing nothing</div>
-        <h2 class="cost-headline headline-md reveal reveal-delay-1">You are paying £28,000 a year for work a machine does for £3,500.</h2>
+        <h2 class="cost-headline reveal reveal-delay-1">You are paying £28,000 a year for work a machine does for £3,500.</h2>
         <p class="cost-body reveal reveal-delay-2">Most firms lose 11 hours a week to admin. That is 572 hours a year. At £17.95 an hour for an admin hire, that is over £10,000 in wasted salary — before you count the errors, the missed invoices, the leads that go cold while someone is on holiday.</p>
-        <p class="cost-list reveal reveal-delay-2">A digital employee costs £3,500 a month.<br>It works 24/7. It never calls in sick. It never asks for a holiday.<br>It replaces two salaries and grows revenue.</p>
-        <p class="cost-close reveal reveal-delay-3">The audit costs £10,000. A single breach starts at £500,000.</p>
+        <p class="cost-body reveal reveal-delay-2"><strong>A digital employee costs £3,500 a month.</strong> It works 24/7. It never calls in sick. It never asks for a holiday. It replaces two salaries and grows revenue.</p>
+        <p class="cost-body reveal reveal-delay-3">The audit costs £10,000. A single breach starts at £500,000.</p>
         <a href="#cta" class="btn btn-primary btn-lg reveal reveal-delay-3">Book a 15-minute call</a>
       </div>
       <div class="reveal reveal-delay-2">
-        <div style="padding: var(--s6) 0; border-top: 1px solid var(--border);">
-          <div style="font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--s4);">The maths</div>
-          <div style="display: flex; gap: var(--s6); align-items: baseline; margin-bottom: var(--s4); padding-bottom: var(--s4); border-bottom: 1px solid var(--border);">
-            <div>
-              <div style="font-size: 28px; font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums;">572</div>
-              <div style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;">hours lost / year</div>
-            </div>
-            <div style="font-size: 20px; color: var(--text-dim); align-self: flex-start; padding-top: 6px;">×</div>
-            <div>
-              <div style="font-size: 28px; font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums;">£17.95</div>
-              <div style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;">per hour</div>
-            </div>
-            <div style="font-size: 20px; color: var(--text-dim); align-self: flex-start; padding-top: 6px;">=</div>
-            <div>
-              <div style="font-size: 28px; font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums;">£10,267</div>
-              <div style="font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em;">wasted / year</div>
-            </div>
+        <div class="cost-stat">£10,267</div>
+        <div class="cost-stat-label">wasted per year on admin</div>
+        <div class="cost-breakdown">
+          <div class="cost-line">
+            <span class="cost-line-label">Admin hours lost per week</span>
+            <span class="cost-line-value">11 hours</span>
           </div>
-          <div style="font-size: var(--text-sm); color: var(--text-muted); line-height: 1.6;">
-            £3,500/month × 12 = £42,000/year for a digital employee that works 24/7.<br>
-            £28,000/year for an admin hire who works 37.5 hours/week.<br>
-            <strong style="color: var(--text);">The employee costs more but does 4× the work.</strong>
+          <div class="cost-line">
+            <span class="cost-line-label">Hours lost per year</span>
+            <span class="cost-line-value">572 hours</span>
+          </div>
+          <div class="cost-line">
+            <span class="cost-line-label">Cost per hour (admin hire)</span>
+            <span class="cost-line-value">£17.95</span>
+          </div>
+          <div class="cost-line highlight">
+            <span class="cost-line-label">Total wasted per year</span>
+            <span class="cost-line-value">£10,267</span>
+          </div>
+          <div class="cost-line">
+            <span class="cost-line-label">Digital employee (annual)</span>
+            <span class="cost-line-value">£42,000</span>
+          </div>
+          <div class="cost-line">
+            <span class="cost-line-label">Admin hire (annual)</span>
+            <span class="cost-line-value">£28,000</span>
           </div>
         </div>
       </div>
@@ -431,8 +607,8 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
   </div>
 </section>
 
-<!-- Control Section -->
-<section class="control-section" id="control">
+<!-- CONTROL -->
+<section class="control" id="control">
   <div class="wrap">
     <div class="control-head">
       <div class="eyebrow reveal">Control</div>
@@ -440,59 +616,58 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
       <p class="body-copy reveal reveal-delay-2">Every digital employee has a written job spec. Every action is logged. Every consequential decision requires human sign-off. You are not handing over control. You are delegating work.</p>
     </div>
     <div class="control-grid">
-      <div class="control-card reveal reveal-delay-1">
-        <div class="control-icon">1</div>
-        <div class="control-tag">Permissions</div>
-        <h3 class="control-title">Read, write, or nothing.</h3>
-        <p class="control-desc">You set exactly what the employee can read, what it can write, and what it cannot touch. No delete. No send without approval. No access to systems you do not authorise.</p>
+      <div class="control-item reveal reveal-delay-1">
+        <div class="control-num">01</div>
+        <h3 class="control-title">Permissions</h3>
+        <p class="control-body">You set exactly what the employee can read, what it can write, and what it cannot touch. No delete. No send without approval. No access to systems you do not authorise.</p>
       </div>
-      <div class="control-card reveal reveal-delay-2">
-        <div class="control-icon">2</div>
-        <div class="control-tag">Sign-off</div>
-        <h3 class="control-title">One named human approves.</h3>
-        <p class="control-desc">Every consequential action — sending an email, routing a payment, updating a record — goes to one named person for approval. The employee proposes. You decide.</p>
+      <div class="control-item reveal reveal-delay-2">
+        <div class="control-num">02</div>
+        <h3 class="control-title">Sign-off</h3>
+        <p class="control-body">Every consequential action — sending an email, routing a payment, updating a record — goes to one named person for approval. The employee proposes. You decide.</p>
       </div>
-      <div class="control-card reveal reveal-delay-3">
-        <div class="control-icon">3</div>
-        <div class="control-tag">Audit trail</div>
-        <h3 class="control-title">Everything is logged.</h3>
-        <p class="control-desc">Every action, every decision, every piece of data accessed. Timestamped. Searchable. Exportable. If someone asks "what did the AI do?", you have the answer in seconds.</p>
+      <div class="control-item reveal reveal-delay-3">
+        <div class="control-num">03</div>
+        <h3 class="control-title">Audit trail</h3>
+        <p class="control-body">Every action, every decision, every piece of data accessed. Timestamped. Searchable. Exportable. If someone asks "what did the AI do?", you have the answer in seconds.</p>
       </div>
     </div>
     <div class="approval reveal reveal-delay-2">
-      <div class="approval-top">
+      <div class="approval-header">
         <span class="approval-badge">Approval required</span>
-        <span style="font-size: var(--text-xs); color: var(--text-muted);">Digital employee: CV Screener</span>
+        <span style="font-size: var(--text-xs); color: var(--text-3);">Digital employee: CV Screener</span>
       </div>
-      <h3 class="approval-title">Candidate scored 9/10 — strong match for Senior Developer role</h3>
-      <div class="approval-note">The employee has screened 47 data points against your approved criteria (React, Node.js, 5+ years, £60-75K). It recommends advancing to interview. Your sign-off is required before any communication is sent.</div>
-      <div class="approval-item">
-        <span class="approval-item-label">Candidate</span>
-        <span class="approval-item-value">James Wilson · 8 years exp</span>
-      </div>
-      <div class="approval-item">
-        <span class="approval-item-label">Score</span>
-        <span class="approval-item-value">9/10 — strong match</span>
-      </div>
-      <div class="approval-item">
-        <span class="approval-item-label">Criteria matched</span>
-        <span class="approval-item-value">React, Node.js, 5+ years, £60-75K</span>
-      </div>
-      <div class="approval-item">
-        <span class="approval-item-label">Proposed action</span>
-        <span class="approval-item-value">Send interview invitation</span>
-      </div>
-      <div class="approval-actions" style="margin-top: var(--s4);">
-        <button class="btn btn-primary" onclick="this.textContent='Approved ✓'; this.style.opacity='0.7';">Approve</button>
-        <button class="btn">Reject</button>
-        <button class="btn">Edit & resend</button>
+      <div class="approval-body">
+        <h3 class="approval-title">Candidate scored 9/10 — strong match for Senior Developer role</h3>
+        <div class="approval-note">The employee has screened 47 data points against your approved criteria (React, Node.js, 5+ years, £60-75K). It recommends advancing to interview. Your sign-off is required before any communication is sent.</div>
+        <div class="approval-row">
+          <span class="approval-row-label">Candidate</span>
+          <span class="approval-row-value">James Wilson · 8 years exp</span>
+        </div>
+        <div class="approval-row">
+          <span class="approval-row-label">Score</span>
+          <span class="approval-row-value">9/10 — strong match</span>
+        </div>
+        <div class="approval-row">
+          <span class="approval-row-label">Criteria matched</span>
+          <span class="approval-row-value">React, Node.js, 5+ years, £60-75K</span>
+        </div>
+        <div class="approval-row">
+          <span class="approval-row-label">Proposed action</span>
+          <span class="approval-row-value">Send interview invitation</span>
+        </div>
+        <div class="approval-actions">
+          <button class="btn btn-primary" onclick="this.textContent='Approved ✓'; this.style.opacity='0.7';">Approve</button>
+          <button class="btn">Reject</button>
+          <button class="btn">Edit & resend</button>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Security Section -->
-<section class="security-section" id="security">
+<!-- SECURITY -->
+<section class="security" id="security">
   <div class="wrap">
     <div class="security-head">
       <div class="eyebrow reveal">Security layer</div>
@@ -500,32 +675,32 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
       <p class="body-copy reveal reveal-delay-2">Twinthos Sentinel watches the feeds that matter — CVE databases, CISA's known-exploited list, EPSS scores, news, and supplier alerts — and filters them to the stack you actually run. It does not wait for you to read a security newsletter. It runs on a schedule and alerts you when something needs your attention.</p>
     </div>
     <div class="security-grid">
-      <div class="security-card reveal reveal-delay-1">
-        <div class="security-card-label">CVEs monitored</div>
-        <div class="security-card-value">12,847</div>
-        <div class="security-card-sub">Last 30 days</div>
+      <div class="security-item reveal reveal-delay-1">
+        <div class="security-label">CVEs monitored</div>
+        <div class="security-value">12,847</div>
+        <div class="security-sub">Last 30 days</div>
       </div>
-      <div class="security-card alert reveal reveal-delay-2">
-        <div class="security-card-label">Active threats</div>
-        <div class="security-card-value">3</div>
-        <div class="security-card-sub">Requires attention</div>
+      <div class="security-item alert reveal reveal-delay-2">
+        <div class="security-label">Active threats</div>
+        <div class="security-value">3</div>
+        <div class="security-sub">Requires attention</div>
       </div>
-      <div class="security-card reveal reveal-delay-2">
-        <div class="security-card-label">EPSS scored</div>
-        <div class="security-card-value">847</div>
-        <div class="security-card-sub">Exploit probability</div>
+      <div class="security-item reveal reveal-delay-2">
+        <div class="security-label">EPSS scored</div>
+        <div class="security-value">847</div>
+        <div class="security-sub">Exploit probability</div>
       </div>
-      <div class="security-card reveal reveal-delay-3">
-        <div class="security-card-label">Alerts sent</div>
-        <div class="security-card-value">23</div>
-        <div class="security-card-sub">Via Telegram</div>
+      <div class="security-item reveal reveal-delay-3">
+        <div class="security-label">Alerts sent</div>
+        <div class="security-value">23</div>
+        <div class="security-sub">Via Telegram</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Final CTA -->
-<section class="final-section" id="cta">
+<!-- FINAL CTA -->
+<section class="final" id="cta">
   <div class="wrap">
     <div class="eyebrow reveal">Get started</div>
     <h2 class="final-headline reveal reveal-delay-1">See your business run itself.</h2>
@@ -553,11 +728,17 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
 </footer>
 
 <script>
-const steps = document.querySelectorAll('.work-item');
-steps.forEach((step, i) => {
-  const delay = parseInt(step.dataset.delay) || 0;
-  setTimeout(() => step.classList.add('show'), delay + 600);
-  setTimeout(() => step.classList.add('done'), delay + 1000);
+function switchTab(tab) {
+  document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.demo-panel').forEach(p => p.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('panel-' + tab).classList.add('active');
+}
+
+const streamRows = document.querySelectorAll('.stream-row');
+streamRows.forEach((row, i) => {
+  const delay = parseInt(row.dataset.delay) || 0;
+  setTimeout(() => row.classList.add('show'), delay + 600);
 });
 
 const revealElements = document.querySelectorAll('.reveal');
