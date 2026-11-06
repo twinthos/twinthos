@@ -1,1 +1,425 @@
-<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8"><title>Twinthos</title><meta name="robots" content="noindex"><link rel="canonical" href="https://twinthos.com/#industries"><meta http-equiv="refresh" content="0; url=/#industries"></head><body style="background:#090B0E;color:#FAFBFC;font-family:sans-serif"><a href="/#industries">Continue</a></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Twinthos — Company Brain & Digital Employee Demo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg: #020617;
+  --card: #0f172a;
+  --border: #1e293b;
+  --cyan: #22d3ee;
+  --emerald: #34d399;
+  --amber: #fbbf24;
+  --rose: #fb7185;
+  --violet: #a78bfa;
+  --slate: #94a3b8;
+  --white: #f1f5f9;
+}
+body { background:var(--bg); color:var(--white); font-family:'Inter',sans-serif; min-height:100vh; overflow-x:hidden; }
+.grid-bg { position:fixed; inset:0; background-image:linear-gradient(rgba(30,41,59,0.3) 1px,transparent 1px),linear-gradient(90deg,rgba(30,41,59,0.3) 1px,transparent 1px); background-size:40px 40px; z-index:0; }
+.glow { position:fixed; width:600px; height:600px; border-radius:50%; filter:blur(120px); opacity:0.15; z-index:0; }
+.glow-1 { background:var(--emerald); top:-200px; left:-200px; }
+.glow-2 { background:var(--cyan); bottom:-200px; right:-200px; }
+
+.header { position:relative; z-index:1; padding:24px 40px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; backdrop-filter:blur(10px); background:rgba(2,6,23,0.8); }
+.logo { font-family:'JetBrains Mono',monospace; font-size:18px; font-weight:700; color:var(--white); letter-spacing:-0.5px; }
+.logo span { color:var(--emerald); }
+.nav { display:flex; gap:24px; font-size:13px; color:var(--slate); }
+.nav a { color:var(--slate); text-decoration:none; transition:color 0.2s; }
+.nav a:hover { color:var(--white); }
+.badge { background:rgba(52,211,153,0.12); color:var(--emerald); padding:6px 14px; border-radius:20px; font-size:11px; font-weight:600; border:1px solid rgba(52,211,153,0.3); font-family:'JetBrains Mono',monospace; }
+
+.hero { position:relative; z-index:1; padding:60px 40px 40px; max-width:1200px; margin:0 auto; }
+.hero h1 { font-size:48px; font-weight:800; line-height:1.1; letter-spacing:-2px; margin-bottom:16px; }
+.hero h1 .accent { color:var(--emerald); }
+.hero p { font-size:16px; color:var(--slate); max-width:600px; line-height:1.6; }
+.hero .stats { display:flex; gap:40px; margin-top:32px; }
+.hero .stat .num { font-size:32px; font-weight:700; color:var(--white); font-family:'JetBrains Mono',monospace; }
+.hero .stat .label { font-size:11px; color:var(--slate); margin-top:4px; text-transform:uppercase; letter-spacing:1px; }
+
+.main { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:0 40px 60px; }
+
+/* Three Pillars */
+.pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:40px; }
+.pillar { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px; position:relative; overflow:hidden; transition:all 0.3s; }
+.pillar:hover { border-color:var(--emerald); transform:translateY(-2px); }
+.pillar .num { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--emerald); margin-bottom:8px; }
+.pillar h3 { font-size:18px; font-weight:700; margin-bottom:8px; }
+.pillar p { font-size:13px; color:var(--slate); line-height:1.5; }
+.pillar .icon { position:absolute; top:20px; right:20px; font-size:24px; opacity:0.3; }
+
+/* Demo Section */
+.demo { background:var(--card); border:1px solid var(--border); border-radius:20px; overflow:hidden; }
+.demo-header { padding:20px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+.demo-header h2 { font-size:16px; font-weight:600; }
+.demo-header .live { display:flex; align-items:center; gap:8px; font-size:12px; color:var(--emerald); font-family:'JetBrains Mono',monospace; }
+.demo-header .live .dot { width:8px; height:8px; background:var(--emerald); border-radius:50%; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+.demo-body { display:grid; grid-template-columns:280px 1fr 320px; min-height:500px; }
+
+/* Company Brain Panel */
+.brain-panel { border-right:1px solid var(--border); padding:20px; }
+.brain-panel h3 { font-size:11px; color:var(--slate); text-transform:uppercase; letter-spacing:1px; margin-bottom:16px; font-family:'JetBrains Mono',monospace; }
+.brain-item { background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:12px; margin-bottom:8px; transition:all 0.3s; }
+.brain-item:hover { border-color:var(--cyan); }
+.brain-item .key { font-size:10px; color:var(--cyan); font-family:'JetBrains Mono',monospace; margin-bottom:4px; }
+.brain-item .val { font-size:12px; color:var(--white); }
+.brain-item .meta { font-size:9px; color:var(--slate); margin-top:4px; }
+.brain-item.active { border-color:var(--emerald); background:rgba(52,211,153,0.05); }
+
+/* Activity Stream */
+.activity { padding:20px; border-left:1px solid var(--border); overflow-y:auto; max-height:500px; }
+.activity h3 { font-size:11px; color:var(--slate); text-transform:uppercase; letter-spacing:1px; margin-bottom:16px; font-family:'JetBrains Mono',monospace; }
+.activity-item { display:flex; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); animation:slideIn 0.3s ease; }
+@keyframes slideIn { from{opacity:0;transform:translateX(10px);} to{opacity:1;transform:translateX(0);} }
+.activity-item .time { font-size:9px; color:var(--slate); font-family:'JetBrains Mono',monospace; min-width:50px; }
+.activity-item .text { font-size:12px; color:var(--white); line-height:1.4; }
+.activity-item .text .tag { display:inline-block; padding:1px 6px; border-radius:4px; font-size:9px; font-weight:600; margin-right:4px; }
+.tag-emerald { background:rgba(52,211,153,0.15); color:var(--emerald); }
+.tag-cyan { background:rgba(34,211,238,0.15); color:var(--cyan); }
+.tag-amber { background:rgba(251,191,36,0.15); color:var(--amber); }
+.tag-rose { background:rgba(251,113,133,0.15); color:var(--rose); }
+
+/* Center: The Desk */
+.desk { padding:20px; }
+.desk h3 { font-size:11px; color:var(--slate); text-transform:uppercase; letter-spacing:1px; margin-bottom:16px; font-family:'JetBrains Mono',monospace; }
+.desk-window { background:var(--bg); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+.desk-bar { background:#1e293b; padding:8px 12px; display:flex; align-items:center; gap:8px; }
+.desk-bar .dots { display:flex; gap:4px; }
+.desk-bar .dot { width:8px; height:8px; border-radius:50%; }
+.desk-bar .dot.r { background:#fb7185; } .desk-bar .dot.y { background:#fbbf24; } .desk-bar .dot.g { background:#34d399; }
+.desk-bar .title { font-size:10px; color:var(--slate); font-family:'JetBrains Mono',monospace; margin-left:8px; }
+.desk-content { padding:16px; min-height:300px; }
+
+/* Email simulation */
+.email-card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:12px; margin-bottom:8px; font-size:12px; }
+.email-card .from { color:var(--cyan); font-weight:500; }
+.email-card .subj { color:var(--white); margin:4px 0; }
+.email-card .body { color:var(--slate); font-size:11px; }
+.email-card .action { display:inline-block; margin-top:8px; padding:4px 10px; border-radius:4px; font-size:10px; font-weight:600; }
+.action-green { background:rgba(52,211,153,0.15); color:var(--emerald); }
+.action-amber { background:rgba(251,191,36,0.15); color:var(--amber); }
+
+/* Controls */
+.controls { display:flex; gap:8px; margin-top:16px; }
+.btn { background:var(--emerald); color:var(--bg); border:none; padding:10px 20px; border-radius:8px; font-weight:600; cursor:pointer; font-size:13px; transition:all 0.2s; font-family:'Inter',sans-serif; }
+.btn:hover { background:#2dd4bf; transform:translateY(-1px); box-shadow:0 4px 20px rgba(52,211,153,0.3); }
+.btn.secondary { background:var(--border); color:var(--white); }
+.btn.secondary:hover { background:#334155; }
+
+/* Security Feed */
+.security { margin-top:40px; }
+.security h2 { font-size:20px; font-weight:700; margin-bottom:16px; }
+.security-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.sec-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; }
+.sec-card .label { font-size:10px; color:var(--slate); text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; font-family:'JetBrains Mono',monospace; }
+.sec-card .val { font-size:24px; font-weight:700; color:var(--white); font-family:'JetBrains Mono',monospace; }
+.sec-card .sub { font-size:10px; color:var(--slate); margin-top:4px; }
+.sec-card.alert { border-color:var(--rose); background:rgba(251,113,133,0.05); }
+.sec-card.alert .val { color:var(--rose); }
+
+/* Footer */
+.footer { position:relative; z-index:1; text-align:center; padding:24px; color:var(--slate); font-size:11px; border-top:1px solid var(--border); font-family:'JetBrains Mono',monospace; }
+
+@media(max-width:900px) {
+  .pillars { grid-template-columns:1fr; }
+  .demo-body { grid-template-columns:1fr; }
+  .brain-panel { border-right:none; border-bottom:1px solid var(--border); }
+  .activity { border-left:none; border-top:1px solid var(--border); }
+  .security-grid { grid-template-columns:repeat(2,1fr); }
+  .hero h1 { font-size:32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+
+<div class="header">
+  <div class="logo">Twin<span>thos</span></div>
+  <div class="nav">
+    <a href="#">Company Brain</a>
+    <a href="#">Digital Employee</a>
+    <a href="#">The Desk</a>
+    <a href="#">Sentinel</a>
+  </div>
+  <span class="badge">LIVE DEMO</span>
+</div>
+
+<div class="hero">
+  <h1>Your AI is already inside your systems.<br><span class="accent">Who is watching it?</span></h1>
+  <p>Twinthos gives companies their own AI-powered digital employees and a persistent Company Brain that remembers how the business actually works. Not chat interfaces. Agents with a written job spec.</p>
+  <div class="stats">
+    <div class="stat">
+      <div class="num">11hrs</div>
+      <div class="label">Lost per week to admin</div>
+    </div>
+    <div class="stat">
+      <div class="num">£3,500</div>
+      <div class="label">Per month vs £28,000 salary</div>
+    </div>
+    <div class="stat">
+      <div class="num">2hrs</div>
+      <div class="label">To first live job</div>
+    </div>
+    <div class="stat">
+      <div class="num">24/7</div>
+      <div class="label">Always on, never calls in sick</div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- Three Pillars -->
+  <div class="pillars">
+    <div class="pillar">
+      <div class="num">01</div>
+      <h3>Company Brain</h3>
+      <p>Persistent knowledge for one company: identity and rules, approved knowledge, memory, projects, skills, employee responsibilities, history, permissions. Isolated per company. Never invents memories. Never shares data across clients.</p>
+      <div class="icon">🧠</div>
+    </div>
+    <div class="pillar">
+      <div class="num">02</div>
+      <h3>Digital Employee</h3>
+      <p>The acting layer. Works inside the client's existing systems, 24/7. One defined job. One named human who signs off consequential actions. Produces work product, not text.</p>
+      <div class="icon">⚡</div>
+    </div>
+    <div class="pillar">
+      <div class="num">03</div>
+      <h3>The Desk</h3>
+      <p>Works inside the client's existing tools through the screen. No integration project. No API the client has to buy. A first job is live in about two hours.</p>
+      <div class="icon">🖥️</div>
+    </div>
+  </div>
+
+  <!-- Live Demo -->
+  <div class="demo">
+    <div class="demo-header">
+      <h2>Live Demo — Recruitment Agency Scenario</h2>
+      <div class="live"><div class="dot"></div> RUNNING</div>
+    </div>
+    <div class="demo-body">
+      <!-- Company Brain -->
+      <div class="brain-panel">
+        <h3>Company Brain</h3>
+        <div class="brain-item active" id="brain-1">
+          <div class="key">IDENTITY</div>
+          <div class="val">Acme Recruitment Ltd</div>
+          <div class="meta">45 employees · Bristol · Est. 2018</div>
+        </div>
+        <div class="brain-item" id="brain-2">
+          <div class="key">APPROVED KNOWLEDGE</div>
+          <div class="val">Candidate scoring criteria, salary bands, client rate cards</div>
+          <div class="meta">Updated 3 Nov 2026 · 47 documents</div>
+        </div>
+        <div class="brain-item" id="brain-3">
+          <div class="key">DIGITAL EMPLOYEE</div>
+          <div class="val">CV Screener + Invoice Router + Lead Qualifier</div>
+          <div class="meta">3 jobs · 1 named approver: Sarah Jones</div>
+        </div>
+        <div class="brain-item" id="brain-4">
+          <div class="key">MEMORY</div>
+          <div class="val">Last 30 days: 847 CVs screened, 34 invoices routed, 12 leads qualified</div>
+          <div class="meta">Persistent across sessions</div>
+        </div>
+        <div class="brain-item" id="brain-5">
+          <div class="key">PERMISSIONS</div>
+          <div class="val">Read: CRM, email, documents. Write: CRM notes, draft emails. Sign-off: Sarah Jones</div>
+          <div class="meta">No delete · No send without approval</div>
+        </div>
+      </div>
+
+      <!-- The Desk -->
+      <div class="desk">
+        <h3>The Desk — Digital Employee in Action</h3>
+        <div class="desk-window">
+          <div class="desk-bar">
+            <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+            <div class="title">Acme Recruitment — Outlook Inbox</div>
+          </div>
+          <div class="desk-content" id="deskContent">
+            <div style="color:var(--slate);font-size:12px;text-align:center;padding:40px 20px;">
+              Click "Run Demo" to see the Digital Employee process incoming work
+            </div>
+          </div>
+        </div>
+        <div class="controls">
+          <button class="btn" onclick="runDemo()">Run Demo</button>
+          <button class="btn secondary" onclick="resetDemo()">Reset</button>
+        </div>
+      </div>
+
+      <!-- Activity Stream -->
+      <div class="activity">
+        <h3>Activity Stream</h3>
+        <div id="activityStream">
+          <div style="color:var(--slate);font-size:12px;text-align:center;padding:40px 20px;">
+            Waiting for work...
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Security Layer -->
+  <div class="security">
+    <h2>Twinthos Sentinel — Security Layer</h2>
+    <div class="security-grid">
+      <div class="sec-card">
+        <div class="label">CVEs Monitored</div>
+        <div class="val">12,847</div>
+        <div class="sub">Last 30 days</div>
+      </div>
+      <div class="sec-card alert">
+        <div class="label">Active Threats</div>
+        <div class="val">3</div>
+        <div class="sub">Requires attention</div>
+      </div>
+      <div class="sec-card">
+        <div class="label">EPSS Scored</div>
+        <div class="val">847</div>
+        <div class="sub">Exploit probability</div>
+      </div>
+      <div class="sec-card">
+        <div class="label">Alerts Sent</div>
+        <div class="val">23</div>
+        <div class="sub">Via Telegram</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Value -->
+  <div style="margin-top:40px; text-align:center;">
+    <p style="font-size:13px; color:var(--slate);">The audit costs £10,000. A single breach starts at £500,000.</p>
+    <p style="font-size:13px; color:var(--slate); margin-top:4px;">A digital employee costs £3,500/month. It replaces two salaries, grows revenue, and never asks for a holiday.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  Twinthos — Your business, understood · Your business, in motion · Not chat interfaces. Agents with a written job spec.
+</div>
+
+<script>
+const activities = [
+  { time: '09:02', text: '<span class="tag tag-emerald">BRAIN</span> Loaded identity: Acme Recruitment Ltd (45 employees, Bristol)', type: 'brain' },
+  { time: '09:02', text: '<span class="tag tag-cyan">DESK</span> Connected to Outlook inbox (sarah.jones@acme.co.uk)', type: 'desk' },
+  { time: '09:03', text: '<span class="tag tag-emerald">BRAIN</span> Retrieved approved knowledge: candidate scoring criteria v3.2', type: 'brain' },
+  { time: '09:03', text: '<span class="tag tag-amber">EMPLOYEE</span> New email received: "CV attached — Senior Developer, 8 years exp"', type: 'employee' },
+  { time: '09:03', text: '<span class="tag tag-cyan">DESK</span> Opened CV attachment, extracted 47 data points', type: 'desk' },
+  { time: '09:04', text: '<span class="tag tag-emerald">BRAIN</span> Matched against approved criteria: React, Node.js, 5+ years, salary £60-75K', type: 'brain' },
+  { time: '09:04', text: '<span class="tag tag-amber">EMPLOYEE</span> Score: 9/10 — Strong match. Flagged for human review.', type: 'employee' },
+  { time: '09:04', text: '<span class="tag tag-cyan">DESK</span> Drafted reply to candidate: "Thank you, we\'ll be in touch within 48 hours"', type: 'desk' },
+  { time: '09:05', text: '<span class="tag tag-rose">SENTINEL</span> CVE-2026-98432 detected in client stack (Linux kernel RCE, 9.8 CVSS)', type: 'sentinel' },
+  { time: '09:05', text: '<span class="tag tag-rose">SENTINEL</span> Alert sent to Sarah Jones via Telegram. Patch available: 11 Nov.', type: 'sentinel' },
+  { time: '09:06', text: '<span class="tag tag-emerald">BRAIN</span> Memory updated: 848 CVs screened this month. 35 invoices routed. 13 leads qualified.', type: 'brain' },
+  { time: '09:06', text: '<span class="tag tag-amber">EMPLOYEE</span> Invoice #INV-2026-0847 routed to Accounts Payable. Amount: £4,200.00. Due: 5 Dec.', type: 'employee' },
+  { time: '09:07', text: '<span class="tag tag-cyan">DESK</span> Lead qualified: Acme Supply Co Ltd. Score: 9/10. Budget: £3-5K/month. Timeline: 2 weeks.', type: 'desk' },
+  { time: '09:07', text: '<span class="tag tag-emerald">BRAIN</span> Stored lead in CRM with full enrichment. Added to sales pipeline (Tier 1).', type: 'brain' },
+];
+
+const deskEmails = [
+  { from: 'james.wilson@gmail.com', subj: 'CV attached — Senior Developer, 8 years exp', body: 'Please find attached my CV for the Senior Developer role. I have 8 years experience in React and Node.js...', action: 'Screened: 9/10', actionCls: 'action-green' },
+  { from: 'accounts@supplier-co.uk', subj: 'Invoice #INV-2026-0847 — £4,200', body: 'Please find attached invoice for AI consulting services rendered in October 2026...', action: 'Routed: Accounts Payable', actionCls: 'action-green' },
+  { from: 'sarah.jones@acmesupply.co.uk', subj: 'Quick question about AI for invoice processing', body: 'We process 200 invoices/month manually. 50 hours wasted. Budget £3-5K/month. Can you help?', action: 'Qualified: 9/10', actionCls: 'action-amber' },
+];
+
+let demoRunning = false;
+let demoIndex = 0;
+
+function runDemo() {
+  if (demoRunning) return;
+  demoRunning = true;
+  demoIndex = 0;
+  document.getElementById('activityStream').innerHTML = '';
+  document.getElementById('deskContent').innerHTML = '';
+  runStep();
+}
+
+function runStep() {
+  if (demoIndex >= activities.length) {
+    demoRunning = false;
+    // Show final state
+    document.getElementById('deskContent').innerHTML = `
+      <div style="text-align:center;padding:20px;">
+        <div style="font-size:14px;color:var(--emerald);font-weight:600;margin-bottom:8px;">Demo Complete</div>
+        <div style="font-size:12px;color:var(--slate);">3 tasks processed · 0 errors · 47 minutes saved</div>
+        <div style="font-size:12px;color:var(--slate);margin-top:4px;">1 human approval required (CV screening)</div>
+      </div>
+    `;
+    return;
+  }
+
+  const act = activities[demoIndex];
+  const stream = document.getElementById('activityStream');
+  if (demoIndex === 0) stream.innerHTML = '';
+  const div = document.createElement('div');
+  div.className = 'activity-item';
+  div.innerHTML = `<div class="time">${act.time}</div><div class="text">${act.text}</div>`;
+  stream.appendChild(div);
+  stream.scrollTop = stream.scrollHeight;
+
+  // Update desk content periodically
+  if (demoIndex === 3) {
+    const email = deskEmails[0];
+    document.getElementById('deskContent').innerHTML = `
+      <div class="email-card">
+        <div class="from">${email.from}</div>
+        <div class="subj">${email.subj}</div>
+        <div class="body">${email.body}</div>
+        <span class="action ${email.actionCls}">${email.action}</span>
+      </div>
+    `;
+  }
+  if (demoIndex === 11) {
+    const email = deskEmails[1];
+    document.getElementById('deskContent').innerHTML += `
+      <div class="email-card">
+        <div class="from">${email.from}</div>
+        <div class="subj">${email.subj}</div>
+        <div class="body">${email.body}</div>
+        <span class="action ${email.actionCls}">${email.action}</span>
+      </div>
+    `;
+  }
+  if (demoIndex === 13) {
+    const email = deskEmails[2];
+    document.getElementById('deskContent').innerHTML += `
+      <div class="email-card">
+        <div class="from">${email.from}</div>
+        <div class="subj">${email.subj}</div>
+        <div class="body">${email.body}</div>
+        <span class="action ${email.actionCls}">${email.action}</span>
+      </div>
+    `;
+  }
+
+  // Highlight brain items
+  if (act.type === 'brain') {
+    document.querySelectorAll('.brain-item').forEach(b => b.classList.remove('active'));
+    const idx = Math.min(Math.floor(demoIndex / 3) + 1, 5);
+    const item = document.getElementById('brain-' + idx);
+    if (item) item.classList.add('active');
+  }
+
+  demoIndex++;
+  setTimeout(runStep, 800);
+}
+
+function resetDemo() {
+  demoRunning = false;
+  demoIndex = 0;
+  document.getElementById('activityStream').innerHTML = '<div style="color:var(--slate);font-size:12px;text-align:center;padding:40px 20px;">Waiting for work...</div>';
+  document.getElementById('deskContent').innerHTML = '<div style="color:var(--slate);font-size:12px;text-align:center;padding:40px 20px;">Click "Run Demo" to see the Digital Employee process incoming work</div>';
+  document.querySelectorAll('.brain-item').forEach(b => b.classList.remove('active'));
+  document.getElementById('brain-1').classList.add('active');
+}
+</script>
+</body>
+</html>
