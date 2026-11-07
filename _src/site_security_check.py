@@ -33,7 +33,10 @@ def audit() -> None:
     ):
         assert not (ROOT / path).exists(), "Unrelated internal artifact still published: " + path
     # All repository files on this branch are publicly retrievable on GitHub Pages.
-    assert not list((ROOT / "_src").rglob("*.pyc")), "Python bytecode must not be published"
+    # Python bytecode caches live in __pycache__ (gitignored, never deployed to
+    # GitHub Pages), so only committed bytecode would be a publishing risk.
+    bad = [p for p in (ROOT / "_src").rglob("*.pyc") if "__pycache__" not in p.parts]
+    assert not bad, "Python bytecode must not be published: " + str(bad[:5])
     assert not (ROOT / "images").exists(), "Legacy private pitch image directory still exposed"
     # Heuristic catches common hard-coded credential formats; not a comprehensive secret scanner.
     signatures = (
