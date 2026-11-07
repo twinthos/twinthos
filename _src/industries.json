@@ -52,7 +52,7 @@
    "cards":[
     {"app":"Candidate email","t":"I can do Tuesday 14:00 to 17:00, or Wednesday after 12:00.","from":"Priya N.","st":["Received",""]},
     {"app":"Interviewer calendar","t":"Sam, hiring manager","rows":[["Free","Tue 15:00, Wed 13:30"],["Interview","Not set","Tue 15:00"]],"st":["Open","Matched"]},
-    {"app":"Appointment","t":"Interview, 45 minutes","rows":[["When","Tue 15:00"],["With","Sam"]],"st":["Proposed","Arranged"]},
+    {"app":"Appointment","t":"Interview, 45 minutes","rows":[["When","Tue 15:00"],["With","Sam"]],"st":["Planned","Arranged"]},
     {"app":"Applicant record","t":"Priya N.","rows":[["Stage","Interview arranged"],["Confirmation","Sent"]],"st":["Updating","Updated"]}
    ],
    "outs":["Interview arranged","Confirmation sent","Scheduling record updated"]

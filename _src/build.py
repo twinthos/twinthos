@@ -191,6 +191,8 @@ for src, to in REDIRECTS.items():
         f'<body style="background:#090B0E;color:#FAFBFC;font-family:sans-serif"><a href="{to}">Continue</a></body></html>')
 
 urls = [m["path"] for m in built if not m.get("noindex") and m["path"] != "404"]
+# Static pages not generated from templates
+urls += ["brain/", "demo/", "workforce/"]
 
 # Notes live outside this build (they are hand-maintained article pages under notes/).
 # Merge their URLs in rather than letting this write drop them, and read their

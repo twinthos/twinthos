@@ -1,4 +1,4 @@
-# Twinthos — managed digital employees
+# Twinthos managed digital employees
 
 > Twinthos builds and manages AI-powered workflows for businesses. Each deployment has a written job, explicitly approved tools and access, recorded actions, and rules for human escalation. The aim is to remove repetitive operational work while leaving important decisions with people.
 
@@ -15,7 +15,7 @@ Public service pages below are authoritative. This text file is optional machine
 
 ## Prices and scope (consult service pages for current terms)
 - Operations Audit: £999 one-off. A written process assessment and plan; it does not include production deployment. https://twinthos.com/operations-audit/
-- Managed digital employee: £5,000 per month for one agreed workflow, with a three-month minimum; exact scope and any third-party costs are set out in the proposal. https://twinthos.com/pricing/
+- Managed digital employee: £3,500 per month for one agreed workflow, with a three-month minimum; exact scope and any third-party costs are set out in the proposal. https://twinthos.com/pricing/
 - A customer does not have to purchase the Operations Audit before discussing the managed service. https://twinthos.com/faq/
 
 ## Key official pages

@@ -253,7 +253,7 @@ if(mm&&!RMQ.matches&&'IntersectionObserver' in W){
 d.querySelectorAll('form[data-form]').forEach(function(f){
   var done=d.getElementById(f.dataset.done), fail=f.querySelector('.form-fail'), btn=f.querySelector('[type=submit]');
   var subj=f.querySelector('[name=_subject]');
-  var LBL={fit:'15-minute fit call',audit:'Operations audit (£999)',managed:'Managed workflow (£5,000 per month)',unsure:'Not sure yet'};
+  var LBL={fit:'15-minute fit call',audit:'Operations audit (£999)',managed:'Managed workflow (£3,500 per month)',unsure:'Not sure yet'};
   var sel=f.querySelector('.interest');
   var sync=function(){var c=f.querySelector('[name=interest]:checked');if(!c)return;
     subj.value='Twinthos enquiry: '+LBL[c.value];
