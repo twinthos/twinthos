@@ -2,8 +2,9 @@
 """Build /notes/digital-employee-cost/ — the three-year total cost page.
 Distinct from /notes/cost-of-an-ai-employee/ (hourly running cost): this one is
 TCO, including the lines suppliers leave out."""
+import os
 import sys
-sys.path.insert(0, "/root/twinthos_live/_src")
+sys.path.insert(0, os.environ.get("TWINTHOS_SRC", "/root/twinthos_live/_src"))
 from note_shell import build
 
 TITLE = ("The three-year cost of a digital employee, including the three lines suppliers leave out")

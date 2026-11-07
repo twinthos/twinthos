@@ -17,8 +17,8 @@ SITE = pathlib.Path(os.environ.get("TWINTHOS_SITE_ROOT", pathlib.Path(__file__).
 SPEC = pathlib.Path(os.environ.get("TWINTHOS_NOTES_SPEC", SITE / "_src" / "notes-specs"))
 IMG = SITE / "assets" / "notes-img"
 GEN = pathlib.Path(os.environ.get("TWINTHOS_IMAGE_SOURCE", SITE / "_src" / "notes-originals"))
-DATE = "2026-10-21"
-DATE_HUMAN = "21 October 2026"
+DATE = os.environ.get("TWINTHOS_NOTE_DATE", "2026-10-21")
+DATE_HUMAN = os.environ.get("TWINTHOS_NOTE_DATE_HUMAN", "21 October 2026")
 
 # slug -> generated png
 PHOTOS = {

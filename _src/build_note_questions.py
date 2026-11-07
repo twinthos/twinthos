@@ -3,8 +3,9 @@
 checklist. Distinct from the ten-question section inside
 /notes/what-an-ai-agent-actually-does/: this one is standalone, scored, and
 written for procurement rather than orientation."""
+import os
 import sys
-sys.path.insert(0, "/root/twinthos_live/_src")
+sys.path.insert(0, os.environ.get("TWINTHOS_SRC", "/root/twinthos_live/_src"))
 from note_shell import build
 
 TITLE = ("Nineteen questions to ask a managed AI agent supplier, and the answers that should end the meeting")

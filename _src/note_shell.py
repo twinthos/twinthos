@@ -6,10 +6,13 @@ article shell (nav, footer, CSS, fonts), so a new note is structurally identical
 to every existing one. Handles head meta rewrites and the JSON-LD graph.
 """
 import json
+import os
 import pathlib
 import re
 
-ROOT = pathlib.Path("/root/twinthos_live")
+ROOT = pathlib.Path(os.environ.get("TWINTHOS_SITE_ROOT", pathlib.Path(__file__).resolve().parents[1]))
+NOTE_DATE_HUMAN = os.environ.get("TWINTHOS_NOTE_DATE_HUMAN", "21 October 2026")
+
 SHELL_PATH = ROOT / "notes/the-company-brain/index.html"
 
 
@@ -33,7 +36,7 @@ def build(slug, title, desc, date, hero, hero_alt, fig2, fig2_alt, toc, body,
             f'<span class="nx-byline-stat"><span class="nx-byline-read">{read_label}</span>'
             f'<span class="nx-byline-words">{words_label}</span></span>'
             f'<span><b><time datetime="{date}">{date}</time></b></span>'
-            '<span>Updated 21 October 2026</span></div></div></header>',
+            f'<span>Updated {NOTE_DATE_HUMAN}</span></div></div></header>',
             f'<figure class="nx-fig"><picture>'
             f'<source type="image/webp" srcset="/assets/notes-img/{hero}-800.webp 800w, /assets/notes-img/{hero}-1600.webp 1600w" sizes="(max-width:760px) 100vw, 1100px">'
             f'<img src="/assets/notes-img/{hero}-1600.jpg" srcset="/assets/notes-img/{hero}-800.jpg 800w, /assets/notes-img/{hero}-1600.jpg 1600w" sizes="(max-width:760px) 100vw, 1100px" width="1600" height="893" alt="{hero_alt}" fetchpriority="high">'

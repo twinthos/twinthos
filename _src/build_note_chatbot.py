@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Build the /notes/digital-employee-vs-chatbot/ article from the site's own
 article shell, so nav, footer and CSS are identical to every other note."""
+import os
 import re, json, pathlib
 
-ROOT = pathlib.Path("/root/twinthos_live")
+ROOT = pathlib.Path(os.environ.get("TWINTHOS_SITE_ROOT", pathlib.Path(__file__).resolve().parents[1]))
 SHELL = (ROOT / "notes/the-company-brain/index.html").read_text(encoding="utf-8")
 HEAD_END = SHELL.index("</head>")
 TAIL = SHELL[SHELL.index("</main>"):]
