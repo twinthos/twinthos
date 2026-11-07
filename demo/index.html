@@ -50,6 +50,16 @@ h1, h2, h3 { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "
 .nav-cta { display: inline-flex; align-items: center; justify-content: center; height: 30px; padding: 0 14px; background: var(--text); color: var(--bg); font-size: var(--text-sm); font-weight: 600; border-radius: var(--r-full); text-decoration: none; transition: opacity var(--speed) var(--ease); }
 .nav-cta:hover { opacity: 0.8; }
 
+/* Nav on small screens: the six section links scroll instead of pushing the
+   call to action off the right edge of the viewport. */
+@media (max-width: 760px) {
+  .nav-inner { gap: 10px; }
+  .nav-links { flex: 1 1 auto; min-width: 0; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -ms-overflow-style: none; }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a { white-space: nowrap; padding: 4px 8px; font-size: 12px; }
+  .nav-cta { flex: 0 0 auto; padding: 0 12px; }
+}
+
 /* Hero */
 .hero { padding: 100px 0 60px; position: relative; }
 .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; height: 100%; background: radial-gradient(ellipse 50% 30% at 50% 0%, rgba(255,255,255,0.04) 0%, transparent 70%); pointer-events: none; }
