@@ -1,0 +1,287 @@
+{
+  "jobs": [
+    {
+      "id": "9547e405df64",
+      "name": "obsidian-vault-sync",
+      "prompt": "",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "vault-sync.py",
+      "no_agent": true,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "interval",
+        "minutes": 30,
+        "display": "every 30m"
+      },
+      "schedule_display": "every 30m",
+      "repeat": {
+        "times": null,
+        "completed": 2072
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-09-23T17:38:44.881638+00:00",
+      "next_run_at": "2026-11-07T12:27:37.532478+00:00",
+      "last_run_at": "2026-11-07T11:57:37.532478+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "failure_streak": 0,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": null,
+      "fire_claim": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-11-07T11:56:37.537155+00:00",
+        "dispatched_at": "2026-11-07T11:57:37.423274+00:00",
+        "lateness_seconds": 59.9,
+        "kind": "on_time"
+      }
+    },
+    {
+      "id": "6e9ef2a813b5",
+      "name": "twinthos-full-backup",
+      "prompt": "",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "twinthos-backup.sh",
+      "no_agent": true,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "interval",
+        "minutes": 30,
+        "display": "every 30m"
+      },
+      "schedule_display": "every 30m",
+      "repeat": {
+        "times": null,
+        "completed": 1117
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-10-14T01:13:22.142436+00:00",
+      "next_run_at": "2026-11-07T12:22:41.256309+00:00",
+      "last_run_at": "2026-11-07T11:52:41.256309+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "last_failure": null,
+      "failure_streak": 0,
+      "deliver": "local",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "813848257",
+        "chat_name": "T",
+        "thread_id": null,
+        "user_id": "813848257",
+        "scope_id": null
+      },
+      "enabled_toolsets": null,
+      "workdir": null,
+      "failure_deliver": "origin",
+      "last_dispatch": {
+        "scheduled_at": "2026-11-07T11:51:41.079842+00:00",
+        "dispatched_at": "2026-11-07T11:52:37.424662+00:00",
+        "lateness_seconds": 56.3,
+        "kind": "on_time"
+      },
+      "fire_claim": null
+    },
+    {
+      "id": "312757db71f3",
+      "name": "AgentMail lead alert",
+      "prompt": "Poll AgentMail inboxes for new website-form enquiries. The script handles Telegram push itself. Stay silent on success.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": "agentmail_monitor.py",
+      "no_agent": true,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "*/5 * * * *",
+        "display": "*/5 * * * *"
+      },
+      "schedule_display": "*/5 * * * *",
+      "repeat": {
+        "times": null,
+        "completed": 5301
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-10-15T10:23:09.065043+00:00",
+      "next_run_at": "2026-11-07T12:05:00+00:00",
+      "last_run_at": "2026-11-07T12:00:37.937419+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "last_failure": {
+        "at": "2026-11-07T01:17:17.753461+00:00",
+        "detail": "Script exited with code 1\nstdout:\nseen=81 sent=0 tests_suppressed=0 errors=3"
+      },
+      "failure_streak": 0,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-11-07T12:00:00+00:00",
+        "dispatched_at": "2026-11-07T12:00:37.422147+00:00",
+        "lateness_seconds": 37.4,
+        "kind": "on_time"
+      },
+      "fire_claim": null,
+      "canonical_completions": [
+        "bc015477a91849179c53520fafcc2153"
+      ],
+      "failure_deliver": "telegram"
+    },
+    {
+      "id": "03ecd336866c",
+      "name": "twinthos-newsjack-monitor",
+      "prompt": "Run the command: ~/.newsjack/bin/newsjack monitor run twinthos. Report only if it fails. Stay silent on success — the monitor writes its own artifacts to /root/.newsjack/monitors/twinthos/runs/.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "20 7,14 * * *",
+        "display": "20 7,14 * * *"
+      },
+      "schedule_display": "20 7,14 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 12
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-11-01T08:30:00+00:00",
+      "next_run_at": "2026-11-07T14:20:00+00:00",
+      "last_run_at": "2026-11-07T07:20:44.611947+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "last_failure": {
+        "at": "2026-11-01T14:25:59.528722+00:00",
+        "detail": "RuntimeError: HTTP 503: The requested model is currently unavailable."
+      },
+      "failure_streak": 0,
+      "deliver": "origin",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "813848257",
+        "chat_name": "T",
+        "thread_id": null,
+        "user_id": "813848257",
+        "scope_id": null
+      },
+      "enabled_toolsets": null,
+      "workdir": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-11-07T07:20:00+00:00",
+        "dispatched_at": "2026-11-07T07:20:37.422167+00:00",
+        "lateness_seconds": 37.4,
+        "kind": "on_time"
+      },
+      "fire_claim": null,
+      "canonical_completions": [
+        "8acaf3f2066f4043a15047df4bb6c386"
+      ]
+    },
+    {
+      "id": "159f467e72c9",
+      "name": "Loftware job reply reminder",
+      "prompt": "Reminder: Reply to the Loftware AI Solutions Implementation Specialist job application. You researched the company and prepared your pitch. Now apply. Careers page: https://www.loftware.com/about-us/careers. LinkedIn: https://www.linkedin.com/jobs/loftware-jobs-worldwide. Salary: £70,000-£100,000/year, Reading UK hybrid. Lead with: 'I built Twinthos — a production AI agent with its own computer, inbox, and tools. I did not read about AI agents. I shipped one.'",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "once",
+        "run_at": "2026-11-07T02:09:03.403182+00:00",
+        "display": "once in 24h"
+      },
+      "schedule_display": "once in 24h",
+      "repeat": {
+        "times": 1,
+        "completed": 1
+      },
+      "enabled": false,
+      "state": "completed",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-11-06T02:09:03.403254+00:00",
+      "next_run_at": null,
+      "last_run_at": "2026-11-07T02:13:01.652272+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "last_failure": null,
+      "failure_streak": 0,
+      "deliver": "telegram:813848257",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "813848257",
+        "chat_name": "T",
+        "thread_id": null,
+        "user_id": "813848257",
+        "scope_id": null
+      },
+      "enabled_toolsets": null,
+      "workdir": null,
+      "run_claim": null,
+      "fire_claim": null,
+      "canonical_completions": [
+        "8318cf47059346aa800d93c3574a2587"
+      ]
+    }
+  ],
+  "updated_at": "2026-11-07T12:00:37.938165+00:00"
+}

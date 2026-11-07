@@ -1,0 +1,4 @@
+name: memory-backup
+description: Push memory/vault/brain to the GitHub backup repo the moment a session ends (event-driven, complements the 30m cron).
+events:
+  - session:end

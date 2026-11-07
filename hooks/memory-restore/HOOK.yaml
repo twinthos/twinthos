@@ -1,0 +1,5 @@
+name: memory-restore
+description: Restore Hermes memory + vault from the GitHub backup repo at session start (disaster recovery / cross-machine context).
+events:
+  - session:start
+  - gateway:startup
